@@ -33,6 +33,19 @@ Require a comparison **within buyer type and operating model**. A retail sponsor
 7. Compare **cash DAF account** versus **invested DAF account** for donors at $1k/$10k/$100k; model actual fees, 2026 tax eligibility, direct-gift alternatives and cost of irreversible deposits.
 8. Request 2026/27 vendor contract cohort: first/last paying legal entity, GRR, NRR, contracted fixed SaaS, variable fees and customer gross margin by product category.
 
+## P0B: TIAA Foundation Source / Charityvest wealth-adviser channel
+
+The **September 28, 2026 TIAA DAF program** adds a named financial institution using Charityvest as 501(c)(3) sponsor and Foundation Source as technology provider [U47]. TIAA's March 2026 ADV and May Reg BI disclosure document its fee role and affiliated-fund incentives [U48,U49]. This is **not** new independent software or a second sponsor.
+
+1. Obtain **TIAA program-specific sponsor administration, advisory fee, portfolio expense and Foundation Source technology-contract** schedules; distinguish recipient of each fee.
+2. Test the **direct qualifying charity gift vs DAF** decision under 2026 itemized/nonitemized rules, including low-balance cash account, and log any donor/adviser preference for no DAF.
+3. Compare TIAA's seven model portfolios against eligible non-affiliated investments and fee disclosures; establish cost/portfolio restriction and suitability documentation. Disclosed incentives are **not proof of actual misconduct**.
+4. Observe approval and custody: donor consent → sponsor irrevocable accepted gift → TC Services investment advisory → sponsor grant recommendation and approval.
+5. Request actual activation rate, funded account cohort and retained TIAA advisor relationships; do not substitute TIAA group's ~$1.6T AUM for DAF assets.
+6. Reconcile any Charityvest-originated investment-advisor payments with its published fee models and confidential signed institution terms, if a responsible party authorizes access.
+
+Read the [Charityvest/FSource/TIAA financial bridge](charityvest-foundation-source-tiaa-financial-bridge-2026-11-11.md) before inferring revenue and conflicts from a donor fee schedule.
+
 ## P1: NPT institutional private-label
 
 1. Obtain **sponsor-private label agreement template** and quote for identical RIA/bank program; verify legal sponsor, custody, investment adviser, donor access and grant approval.
