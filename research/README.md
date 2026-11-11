@@ -83,6 +83,16 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 
 **Correction to prior economics analysis:** RCF's independent audits disclose **$19,225,546 paid to Ren in FY2024** under a related-party administration agreement. This is stronger than a mere retail fee schedule, but **not** total Ren corporate revenue, software ARR, gross margin or cohort NRR. Other vendors do not have a comparable observed counterparty-paid five-year series in this scoped public review. No private financial records were used.
 
+
+## Ren service-contract and counterparty concentration follow-up (2026-11-11)
+
+- [Ren contract durability and concentration investigation](ren-contract-durability-concentration-2026-11-11.md): public June 2023 standard Ren/RCF agreements, work-order renewals, termination and ownership clauses; 2023 Bain/Valeas and 2025 Great Hill financing; exact limitations on estimating Ren's dependence on RCF.
+- [Public standard agreement/contract controls](../data/ren-public-contract-clauses-2026.csv): 20 documented or unresolved items with explicit contractual-party distinctions. The public Ren provider template **is not** the RCF-to-Ren related-party agreement observed in audited statements.
+- [Conditional concentration and servicing cost sensitivities](../data/ren-rcf-dependence-sensitivity-2026.csv): 17 algebraic *what-if* cases grounded on one observed $19,225,546 FY2024 RCF payment. No actual Ren total company revenue, RCF concentration percentage, EBITDA or unit costs are claimed.
+- [Public MSA/financing source register](../data/ren-contract-concentration-sources-2026.csv): 14 source records, including audited RCF fee transfers, unsigned published templates, equity investment announcements and the FY2024 latest listed sponsor audit.
+
+**Highest-value next document:** the actual RCF-to-Ren signed related-party services agreement plus Ren's consolidated FY2024–2025 statements and customer-cohort bridges. The current publicly posted **Renaissance Acquisition Company MSA** does identify default one-year renewals/60-day notice, certain through-quarter charges, materials return, limited licenses and liability allocation, but cannot prove that AEF or RCF signed those exact terms.
+
 ## Principal findings
 
 - For philanthropic Ren at `reninc.com`, **AEF's July 2025 announcement asserts SOC 2 Type II**, while **AEF's April 2026 announcement asserts Type I**. This is a **public-source conflict**; no actual audit report inspected. A separate Type II claim by `tryren.com` remains unrelated.
