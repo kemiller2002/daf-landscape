@@ -1,0 +1,8 @@
+# F#/.NET generated outputs
+**/bin/
+**/obj/
+.vs/
+*.user
+*.suo
+# CLI output is generated on demand and not treated as authoritative source
+/reports/generated/
