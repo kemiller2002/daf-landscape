@@ -1,6 +1,6 @@
 "question_or_control","ren_public_evidence","tifin_giveclear_chariot_public_evidence","source_ids","priority","required_new_proof"
 "Sponsor legal entity per product","RCF for direct and some programs; other sponsors possible","GiveClear documented; SEI program documented","E13;E17;E09","high","Verify each contract"
-"Technology fee owner","Ren partner contract fees not publicly established","TIFIN discloses SaaS plus implementation fees in 2025","E01;E15","critical","Contract price paid by sponsor vs institution"
+"Technology fee owner","RCF-to-Ren related party fee payments and 95-to-98pct basis now audited for FY2020–2024; other enterprise terms unknown","TIFIN discloses SaaS plus implementation fees in 2025","E01;E15","critical","Contract price paid by sponsor vs institution"
 "Annual sponsor admin fee","RCF advisor/retail and donor-directed tiers publicly posted","GiveClear donor program schedule not established","E03;E04;E05;E08","critical","Actual program circular and fee pass-through"
 "Registered adviser status","Not assessed for Ren technology entity","TIFIN Give SEC adviser registration established","E02","medium","2026 ADV current record and corporate legal entity"
 "Investment management fee","Specific product terms to verify","TIFIN 2025 disclosed 10bp <=1m and 3.34bp >1m","E01","high","Current fee, legal client, double-count controls"
