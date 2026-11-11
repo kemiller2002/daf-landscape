@@ -50,6 +50,16 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 
 **Fixture correction:** X03 had inconsistent high-rate/AGI assumptions. Corrected to 2026 single filing, $900,000 AGI, assumed $800,000 taxable income; the 0.5%-AGI floor is $4,500 and a $20,000 eligible cash gift leaves $15,500 before other restrictions. Original 18-case evaluation now uses that corrected fixture.
 
+
+## Economics, fees, and distribution control (2026-11-11)
+
+- [DAF platform fee waterfall and business-model investigation](daf-economics-and-distribution-2026-11-11.md): TIFIN Give's **2025** Form ADV fee and conflict disclosures, Ren/RCF fee models, sponsor/technology/payment separation, distribution economics and unresolved 2026 revenue questions.
+- [16 reproducible sponsor administration fee scenarios](../data/daf-admin-fee-scenarios-2026.csv): tier-by-tier estimates for balances from $10k to $2m, annual administration fees **only**. Includes Ren Direct/RCF advisor-managed, RCF donor-directed, Fidelity Charitable and DAFgiving360's published tiers; third-party fees excluded and unknown minima identified.
+- [20 economics evidence gaps](../data/daf-economics-evidence-gaps-2026.csv): prioritized contract questions including custody rights, SaaS, model sponsorship, adviser fees, transactions and exit costs.
+- [20 public sources](../data/daf-economics-sources-2026.csv): SEC registration, TIFIN's dated Form ADV, charity fee schedules, GiveClear self-reports and Chariot API documents.
+
+**Crucial warning:** TIFIN's 2025 adviser AUM, GiveClear's 2025 sponsoring-charity assets, Ren's platform-serviced asset claim and an investor's donor account balance are different economic units. Do **not** rank platform economics or derive market share by dividing incomparable amounts.
+
 ## Principal findings
 
 - Ren's `reninc.com` April 2026 announcement states **SOC 2 Type I**. The Type II claim from `tryren.com` belongs to an unrelated AI coaching company.
