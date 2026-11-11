@@ -93,6 +93,17 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 
 **Highest-value next document:** the actual RCF-to-Ren signed related-party services agreement plus Ren's consolidated FY2024–2025 statements and customer-cohort bridges. The current publicly posted **Renaissance Acquisition Company MSA** does identify default one-year renewals/60-day notice, certain through-quarter charges, materials return, limited licenses and liability allocation, but cannot prove that AEF or RCF signed those exact terms.
 
+
+## Expanded market universe (2026-11-11)
+
+- [Expanded DAF ecosystem research](expanded-daf-ecosystem-2026-11-11.md): moves beyond Ren/TIFIN/Chariot to Foundation Source/Charityvest, NPT private-label, GivingTech DAFtech, major national sponsors, digital-first platforms, workplace processors and enabling infrastructure.
+- [23-company and organization market map](../data/expanded-daf-market-map-2026.csv): legal sponsorship, technology/administration roles, customer types, public evidence, current report availability and next diligence priorities.
+- [15 sponsor/technology/acquisition relationships](../data/expanded-ecosystem-relationships-2026.csv): identify common infrastructure rather than treating legal sponsors and vendors as independent tech rivals.
+- [9 dated sponsor / cross-product activity benchmarks](../data/expanded-sponsor-activity-benchmarks-2026.csv): preserve actual calendar/fiscal periods, units, legal entities and self-reported versus audited limitations.
+- [46-source register](../data/expanded-ecosystem-sources-2026.csv) and [expanded provider diligence protocol](expanded-provider-diligence-2026.md): priority verification for Foundation Source/Charityvest, NPT institutional white label, GivingTech DAFtech, and other market categories.
+
+**Highest-value finding:** Foundation Source acquired **Vennfi** (Charityvest's technology) in 2024 and TIFIN's **Giving Place** product in 2025. Charityvest remains an **independent charitable DAF sponsor**, Foundation Source is a for-profit technology/admin provider, and TIFIN continues operating its separate advisor-led DAF platform. Their 2025 reported charitable assets and grant flows are not vendor ARR. Foundation Source's 2025 announced BridgeFT multi-custody integration warrants detailed data-freshness tests before assessing competitive tax-lot features.
+
 ## Principal findings
 
 - For philanthropic Ren at `reninc.com`, **AEF's July 2025 announcement asserts SOC 2 Type II**, while **AEF's April 2026 announcement asserts Type I**. This is a **public-source conflict**; no actual audit report inspected. A separate Type II claim by `tryren.com` remains unrelated.
