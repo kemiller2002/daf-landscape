@@ -89,6 +89,12 @@ The [distribution relationship dataset](../data/giveclear-wealth-partner-observa
 
 **No numerical "governance risk ranking" is warranted** without comparing actual disinterested decisions, signed contracts, sponsor policies and current SOC coverage. Public board affiliation is a due-diligence flag that creates a **testable question**, not a finding of misconduct.
 
+## Additional wealth-channel evidence: OneGive
+
+An August 11, 2026 OneAscent Wealth Management public Form ADV discloses a **OneGive program using Charityvest**. It identifies a **waivable 55bp adviser fee**, a OneAscent-affiliated private fund holding an **indirect minority interest in the Foundation Source technology-provider ownership chain**, possible affiliate investment model revenue and an adviser recognition program that considers OneGive accounts and contributions [G17]. These details materially sharpen the fee and incentive analysis. They are acknowledged *potential conflicts* in the adviser's own filing, **not proof of harmed clients, improper sponsor behavior or actual fund holdings**.
+
+See [OneGive's dedicated disclosure study](oneascent-onegive-charityvest-disclosed-incentives-2026-11-11.md), the [12 proposed synthetic suitability cases](../data/onegive-adviser-suitability-test-cases-2026.csv) and [waivable 55bps fee illustrations](../data/onegive-55bps-fee-illustrations-2026.csv). No tests executed, no actual adviser fees or Foundation Source revenue identified.
+
 ## 5. Highest-value remaining work
 
 1. **Retrieve the actual 2024 Charityvest audit note.** Sponsor hosts an audit link, but the file endpoint blocked our tools [G11,G16]. Check related-party, contracts, management fees, recurring expense obligations, and acquisition date; do not guess.
