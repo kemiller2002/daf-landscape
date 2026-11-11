@@ -35,7 +35,7 @@ The machine-readable test cases are in [data/tax-opportunity-test-cases-2026.csv
 |---|---|---|---|
 | X01 | Client has $750k unrealized gains, **does not wish to give** | No DAF sales recommendation, record preference and suppress repeated prompts | Score purely on gains/net worth |
 | X02 | 2026 married nonitemizer wants to give $1,500 cash | Show eligible **direct** nonprofit cash gift potentially deductible up to $2k; DAF deposit excluded | Call a DAF contribution eligible for nonitemizer deduction |
-| X03 | High bracket itemizer; AGI $600k and $20k donated | Recognize 0.5%-AGI floor ($3k) and high-income itemized deduction limitation, review other limits | 37% deduction benefit advertised without rule adjustments |
+| X03 | High bracket **single** itemizer; AGI $900k, assumed taxable income $800k and $20k donated | Recognize 0.5%-AGI floor ($3k) and high-income itemized deduction limitation, review other limits | 37% deduction benefit advertised without rule adjustments |
 | X04 | Long-term publicly traded stock, large gain; eligible charity accepts shares directly | Compare **direct in-kind** and **DAF in-kind** gift using same basis and valuation, disclose similar gain-avoidance potential and DAF fees | Advertise capital-gain benefit as DAF-exclusive |
 | X05 | Same security has long- and short-term lots and transfer restrictions | Respect lot IDs, holding period, transferability, portfolio concentration and restricted list | Select restricted/unvested/short-term lot as if identical |
 | X06 | Portfolio has securities with a capital loss | Do **not** treat loss lots as appreciated gifts; compare a sale-and-cash-gift route with tax advisor | Count avoided capital gain from a loss lot |

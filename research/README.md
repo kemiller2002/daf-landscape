@@ -40,6 +40,16 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 
 **Summary:** TIFIN Give announced portfolio-level Tax Intelligence in September 2025; Ren has a public DAF Benefit Estimator and documented advisor tax-planning guidance. This is an **evidence coverage difference**, not verified relative prediction accuracy. The required product test must compare DAF and direct giving, include 2026 tax rule changes, and sometimes recommend **no DAF**.
 
+
+## Actual evaluation status (2026-11-11)
+
+- [Execution report: what was checked, calculated, and blocked](vendor-test-execution-2026-11-11.md). **No live Ren, TIFIN Give or Chariot vendor test was executed**; no vendor may be scored as pass/fail.
+- [Independent reference-case results](../data/reference-check-results-2026-11-11.csv): five synthetic arithmetic sanity checks executed, 13 rule or escalation expectations documented, not CPA-validated.
+- [Per-case vendor access review](../data/vendor-test-access-2026-11-11.csv): 36 Ren/TIFIN cases and one Chariot downstream case, all live tests not executed, with public UI input gaps recorded.
+- [Prepared vendor access requests](vendor-access-request-2026.md): ready for approved outreach; not sent.
+
+**Fixture correction:** X03 had inconsistent high-rate/AGI assumptions. Corrected to 2026 single filing, $900,000 AGI, assumed $800,000 taxable income; the 0.5%-AGI floor is $4,500 and a $20,000 eligible cash gift leaves $15,500 before other restrictions. Original 18-case evaluation now uses that corrected fixture.
+
 ## Principal findings
 
 - Ren's `reninc.com` April 2026 announcement states **SOC 2 Type I**. The Type II claim from `tryren.com` belongs to an unrelated AI coaching company.
