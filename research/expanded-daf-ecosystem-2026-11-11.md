@@ -3,7 +3,7 @@
 
 ## Executive conclusion
 
-The research is **no longer restricted to Ren, TIFIN Give, and Chariot**. It now covers **23 separately categorized entities**, **15 documented relationships**, **42 public sources**, and **8 dated sponsor/vendor scale observations**. The major addition is **Foundation Source**, which belongs near Ren on the shortlist for core philanthropy administration and platform services rather than being treated as an incidental adjacent company. **National Philanthropic Trust (NPT)** is also a real alternative for institutions that want a private-label sponsor-operated program without necessarily licensing a standalone administrative platform. **GivingTech DAFtech** merits a focused emerging-vendor check but requires much more independent verification.
+The research is **no longer restricted to Ren, TIFIN Give, and Chariot**. It now covers **23 separately categorized entities**, **15 documented relationships**, **46 public sources**, and **9 dated sponsor/vendor scale observations**. The major addition is **Foundation Source**, which belongs near Ren on the shortlist for core philanthropy administration and platform services rather than being treated as an incidental adjacent company. **National Philanthropic Trust (NPT)** is also a real alternative for institutions that want a private-label sponsor-operated program without necessarily licensing a standalone administrative platform. **GivingTech DAFtech** merits a focused emerging-vendor check but requires much more independent verification.
 
 A 2026 revision of the DAF Research Collaborative Annual DAF Report identified **1,512 FY2024 U.S. DAF sponsors**: 103 national, 803 community foundations and 606 single-issue charities [U01]. This is a *sponsor census*, **not a count of competing software vendors or current 2026 active firms**. The report also separates national donation-processing platforms from traditional DAF sponsor models.
 
@@ -64,6 +64,7 @@ GivingTech markets DAFtech as a white-label DAF platform offering **technology-o
 | **National Philanthropic Trust** | **$6.44bn** grants, **159,543 grants**, **20,561 accounts** | **FY2025 ended June 30, 2025** | NPT annual report [U02] |
 | **Foundation Source** (cross-vehicle provider) | **20,000 DAF accounts** supported and **$55bn+ charitable assets across multiple programs** | **As of Dec. 31, 2025** | Vendor marketing [U08]; cross-product business not a charity/sponsor-only metric |
 | **GiveClear** | **$83.2m grants and $372m sponsor assets**, self-reported | **2025** | Charity self-report [U26]; *not* TIFIN revenue |
+| **Charityvest** | **$119.2m grants (48,744 grants) and $224.6m sponsor assets**; reported $265m new contributions | **Calendar 2025** | Sponsor/provider announcement [U43]; *not* Foundation Source revenue |
 | **Renaissance Charitable Foundation** | **25,824 year-end DAFs** and ~$5.9bn charitable assets, based on prior audited/IRS analysis | **FY2024** | RCF audit/IRS reports [U38,U42]; not Ren enterprise ARR |
 | **SVCF** | **Nearly $2.1bn total sponsor grants** to nonprofits and community organizations | **Calendar 2025** | Sponsor press release [U41]; not DAF-only |
 
@@ -73,6 +74,7 @@ SVCF also publishes its DAF fees [U28] and donor account offerings [U27], making
 
 ## 6. Digital and workplace giving: another economic market
 
+- **Charityvest** publishes a **cash DAF account with no annual administration fee**, and a separate invested account whose administrative fee begins at **0.60% on the first $500k**, subject to a **$100 annual minimum** [U46]. That is an important lower-balance alternative to previously assessed $250-minimum DAF offerings. Additional investments and contribution methods can still carry costs; eligibility for the new 2026 non-itemizer direct-gift deduction is **not** established for a DAF deposit.
 - **Daffy** makes public API documentation available, including charitable account, contribution and donation operations and agent/assistant tooling [U15]. It is a digital-first donor product, not an established independent sponsor-admin SaaS comparable to Ren without additional evidence.
 - **Givinga** markets a corporate **Charitable Savings Account (CSA)** and explicitly distinguishes it from being locked into a third-party DAF [U16]. The legal/tax characterization needs verification. It belongs in the *corporate-giving adjacent* category, not automatically in a Ren/TIFIN DAF core-systems contest.
 - **Benevity** is a corporate workplace giving platform, while **American Online Giving Foundation** is the U.S. charity named in Benevity's disbursement model [U36,U37]. Two legal/commercial entities may contribute to one donation processing model.
@@ -123,8 +125,8 @@ This helps explain why a competitive study limited to a list of *sponsors* can b
 
 - [Expanded entity map](../data/expanded-daf-market-map-2026.csv): **23 distinct entities**, roles and verification needs.
 - [Documented sponsor/vendor relationship edges](../data/expanded-ecosystem-relationships-2026.csv): **15 edges**, including acquisitions and known DAF technology/sponsor relationships.
-- [Source register](../data/expanded-ecosystem-sources-2026.csv): **42 public source entries** with caveats.
-- [Dated sponsor benchmarks](../data/expanded-sponsor-activity-benchmarks-2026.csv): **8 entity-period rows** with non-comparable denominator warnings.
+- [Source register](../data/expanded-ecosystem-sources-2026.csv): **46 public source entries** with caveats.
+- [Dated sponsor benchmarks](../data/expanded-sponsor-activity-benchmarks-2026.csv): **9 entity-period rows** with non-comparable denominator warnings.
 - [New-vendor diligence runbook](expanded-provider-diligence-2026.md): specific steps for legal sponsorship, accounting, SOC, economics, contracts and operational tests.
 
-The next highest-value financial research is **Charityvest's public audited statements and Form 990** to discover whether any **actual sponsor→Foundation Source administrative service payments** are disclosed, parallel to the independently audited RCF→Ren relationship. Without comparable payee-level financial disclosures, a claim about which vendor earns more per donor/asset/grant would be invented.
+Charityvest publishes links to a **FY2024 audited financial report** and **2024 Form 990** [U44]. IRS-derived 2024 summary data show roughly **$113.4m total sponsor revenue** dominated by charitable contributions [U45], **not** Foundation Source revenue. The audit itself and any payee-specific fee note have **not** been inspected. The next highest-value financial research is to retrieve the audit and determine whether actual **Charityvest→Foundation Source fee payments** can be established, parallel to the audited RCF→Ren payments. Without comparable payee-level financial disclosures, a claim about which technology provider earns more per donor/asset/grant would be invented.
