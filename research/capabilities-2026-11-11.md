@@ -56,4 +56,4 @@
 
 Actual API accessibility for Ren/TIFIN, independent demonstrations, tenant isolation, commercial prices, operational automation rates, program-wide security coverage and total-cost-of-ownership comparison. Investigate without implying a feature is missing just because we did not find public documentation.
 
-For evidence grades and caveats, see [methodology](../docs/methodology.md).
+For evidence grades and caveats, see [methodology](../docs/assurance-methodology.md).
