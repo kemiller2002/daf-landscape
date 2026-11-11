@@ -28,7 +28,7 @@
 | External APIs and webhooks | **Unassessed** publicly in this review | **Unassessed** publicly in this review | **Documented** APIs, lifecycle and webhooks |
 | Payment orchestration | **Documented** Ren payment product marketing | **Unassessed** exact rails | **Documented** DAFpay transaction/processing integrations |
 | Publicly marketed conversational AI | **Unassessed** | **Claimed** | **Unassessed** |
-| SOC 2 assurance claim | **Type I**, public 2026 | **Unspecified SOC 2**, public 2024 | **Type II**, public trust material |
+| SOC 2 assurance claim | **Conflicting public claims**: 2025 Type II, 2026 Type I | **Unspecified SOC 2**, public 2024 | **Type II**, public trust material |
 | Actual independent report inspected | **No** | **No** | **No** |
 
 **Caution:** Sponsor-side authority to approve or disburse grants does not transfer automatically to an API integrator. Marketing says little about measured uptime, error rates, processing speed, cost per grant or total implementation complexity.
