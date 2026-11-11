@@ -66,7 +66,7 @@ See [the full methodology](docs/methodology.md) for evidence grades, confidence 
 
 ## Initial coverage
 
-The first pass includes 10 representative sponsor brands and seven purpose-built DAF administrators/platform or infrastructure vendors. The sponsor registry contains 11 IRS records because a second Fidelity-named entity is recorded separately with an unresolved relationship rather than silently combined. Inclusion signals relevance to the workflow, not endorsement, quality, or market position. The baseline intentionally avoids vendor rankings and most quantitative claims until comparable filings and customer evidence are collected.
+The first pass includes 10 representative sponsor brands and seven purpose-built DAF administrators/platform or infrastructure vendors. The sponsor registry contains 11 IRS records because Fidelity Charitable's controlled supporting organization is recorded separately from the trust entity that sponsors the DAF program. Inclusion signals relevance to the workflow, not endorsement, quality, or market position. The baseline intentionally avoids vendor rankings and most quantitative claims until comparable filings and customer evidence are collected.
 
 ## How to use the data
 
@@ -82,13 +82,12 @@ The first pass includes 10 representative sponsor brands and seven purpose-built
 
 The legal-name, EIN, exemption-code, deductibility-code, foundation-code, latest-tax-period, and latest-Form-990-index pass is complete for the 10 sponsor brands currently in scope. It uses the IRS EO Business Master File posted 2026-10-13 and the 2025-2026 Form 990 indexes. This is not an exhaustive sponsor census.
 
-1. Resolve the role and relationship of the second Fidelity-named IRS entity without inferring from name similarity.
-2. Normalize audited sponsor scale metrics for a single fiscal year and definition set.
-3. Conduct product demos against one scripted workflow and evidence checklist.
-4. Interview sponsors, advisors, nonprofit finance teams, and implementation partners.
-5. Map custody, banking, charity-data, identity, sanctions, and payment dependencies that vendors do not prominently disclose.
-6. Add pricing and contracting evidence only when the unit, tier, and effective date are comparable.
-7. Monitor the IRS priority-guidance project under sections 4966 and 6033; do not treat the 2023 proposed regulations as final guidance.
+1. Normalize audited sponsor scale metrics for a single fiscal year and definition set.
+2. Conduct product demos against one scripted workflow and evidence checklist.
+3. Interview sponsors, advisors, nonprofit finance teams, and implementation partners.
+4. Map custody, banking, charity-data, identity, sanctions, and payment dependencies that vendors do not prominently disclose.
+5. Add pricing and contracting evidence only when the unit, tier, and effective date are comparable.
+6. Monitor the IRS priority-guidance project under sections 4966 and 6033; do not treat the 2023 proposed regulations as final guidance.
 
 ## Disclaimer
 

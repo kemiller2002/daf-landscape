@@ -90,7 +90,6 @@ When sources conflict, keep both in the register, state the conflict in notes, l
 ## Known baseline limitations
 
 - The systematic IRS pass is complete for the 10 sponsor brands currently in scope, using the EO BMF posted 2026-10-13 and the 2025-2026 Form 990 indexes; it is not an exhaustive sponsor census.
-- The IRS lists a second active Fidelity-named 501(c)(3) record, EIN 93-4792247. Its DAF role and relationship to the established sponsor record, EIN 11-0303001, remain unresolved and are not inferred from the similar name.
 - The IRS 2026-2027 Priority Guidance Plan lists a guidance project under sections 4966 and 6033. The baseline does not treat the 2023 proposed section 4966 regulations as final.
 - Product capabilities are first-party representations, not hands-on validation.
 - Coverage is purposive rather than exhaustive.
