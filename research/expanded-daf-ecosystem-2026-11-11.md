@@ -3,7 +3,7 @@
 
 ## Executive conclusion
 
-The research is **no longer restricted to Ren, TIFIN Give, and Chariot**. It now covers **24 separately categorized entities**, **17 documented relationships**, **53 public sources**, and **9 dated sponsor/vendor scale observations**. The major addition is **Foundation Source**, which belongs near Ren on the shortlist for core philanthropy administration and platform services rather than being treated as an incidental adjacent company. **National Philanthropic Trust (NPT)** is also a real alternative for institutions that want a private-label sponsor-operated program without necessarily licensing a standalone administrative platform. **GivingTech DAFtech** merits a focused emerging-vendor check but requires much more independent verification.
+The research is **no longer restricted to Ren, TIFIN Give, and Chariot**. It now covers **25 separately categorized entities**, **21 documented relationships**, **54 public sources**, and **9 dated sponsor/vendor scale observations**. The major addition is **Foundation Source**, which belongs near Ren on the shortlist for core philanthropy administration and platform services rather than being treated as an incidental adjacent company. **National Philanthropic Trust (NPT)** is also a real alternative for institutions that want a private-label sponsor-operated program without necessarily licensing a standalone administrative platform. **GivingTech DAFtech** merits a focused emerging-vendor check but requires much more independent verification.
 
 A 2026 revision of the DAF Research Collaborative Annual DAF Report identified **1,512 FY2024 U.S. DAF sponsors**: 103 national, 803 community foundations and 606 single-issue charities [U01]. This is a *sponsor census*, **not a count of competing software vendors or current 2026 active firms**. The report also separates national donation-processing platforms from traditional DAF sponsor models.
 
@@ -119,6 +119,12 @@ This helps explain why a competitive study limited to a list of *sponsors* can b
 
 The [Charityvest–Vennfi–Foundation Source–TIAA financial bridge](charityvest-foundation-source-tiaa-financial-bridge-2026-11-11.md) examines Charityvest's 2019 draft-stamped audit note describing a percentage-of-monthly-income Vennfi services agreement, its 2022 Form 990 outsourcing and restricted-security processing disclosures, and its 2024 Form 990 financial lines. Charityvest's FY2024 **$811,940 of expenses other than grants** is an arithmetic residual, **not** a fee paid to Foundation Source; the publicly indexed FY2024/23 audit attachment could not be inspected in the available research environment. The original named-payee payment remains unverified, unlike the prior RCF→Ren audited series. TIAA's 2026 investment-adviser arrangement and its disclosed conflicts are additional investment-channel evidence, not Foundation Source paid revenue.
 
+## OneGive adviser distribution and Foundation Source equity link
+
+A **2026 OneAscent Wealth Management regulatory ADV** describes **OneGive**, an adviser channel using Charityvest sponsorship and Foundation Source technology. The disclosure identifies (i) a waivable **55bp adviser fee** calculated and remitted by Charityvest, (ii) OneAscent affiliated investment model possibilities, (iii) an **indirect Foundation Source equity stake held by the OneAscent Capital Impact Fund I LP** (not by the sponsor), and (iv) advisor award metrics mentioning OneGive account/contribution activity [U54]. Its disclosures expressly acknowledge conflicts and proposed mitigations. None proves biased donor recommendations or actual paid amounts. This adds a second named wealth distribution structure alongside TIAA, not another charitable sponsoring organization or core DAF software stack.
+
+The detailed [OneGive incentive study](oneascent-onegive-charityvest-disclosed-incentives-2026-11-11.md) includes synthetic suitability and waiver tests, all **unexecuted**.
+
 ## 9. Verification boundaries
 
 - **No 2026 comparable company revenue, enterprise ARR, NRR, gross margins or signed contract fees** established for Foundation Source, NPT, GivingTech, Daffy or digital/corporate providers here.
@@ -130,9 +136,9 @@ The [Charityvest–Vennfi–Foundation Source–TIAA financial bridge](charityve
 
 ## Files and next work
 
-- [Expanded entity map](../data/expanded-daf-market-map-2026.csv): **24 distinct entities**, roles and verification needs.
-- [Documented sponsor/vendor relationship edges](../data/expanded-ecosystem-relationships-2026.csv): **17 edges**, including acquisitions and known DAF technology/sponsor relationships.
-- [Source register](../data/expanded-ecosystem-sources-2026.csv): **53 public source entries** with caveats.
+- [Expanded entity map](../data/expanded-daf-market-map-2026.csv): **25 distinct entities**, roles and verification needs.
+- [Documented sponsor/vendor relationship edges](../data/expanded-ecosystem-relationships-2026.csv): **21 edges**, including acquisitions and known DAF technology/sponsor relationships.
+- [Source register](../data/expanded-ecosystem-sources-2026.csv): **54 public source entries** with caveats.
 - [Dated sponsor benchmarks](../data/expanded-sponsor-activity-benchmarks-2026.csv): **9 entity-period rows** with non-comparable denominator warnings.
 - [New-vendor diligence runbook](expanded-provider-diligence-2026.md): specific steps for legal sponsorship, accounting, SOC, economics, contracts and operational tests.
 
