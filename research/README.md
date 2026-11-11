@@ -134,6 +134,18 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 
 **Critical market interpretation:** The DAFRC's Spring 2026 revised FY2024 baseline is **3.59 million reported DAF accounts**, **$327.87 billion charitable assets**, **$90.57 billion contributed**, and **$64.60 billion granted**. Account growth includes mass donation processors. This is **not** 3.59 million independent invested DAFs or an enterprise software subscription market. Historic account inactivity (**22% in 2020–22 in a voluntary sample**) is also not vendor churn, while nonprofit donor-retention premiums are not technology-company NRR. True platform economics require **paying contract cohorts and completed/settled grant costs**.
 
+## Decision Intelligence: applying Clarity + EDF to DAF conclusions (2026-11-11)
+
+The next differentiator is **conclusions that can be audited, challenged and reassessed**, not just collecting more DAF data. This is a **research-candidate application**, not a new version of either framework or a functioning inference engine.
+
+- [Application architecture and exact framework boundaries](decision-intelligence-architecture-2026.md): EDF diagnoses observable outcomes, Clarity governs justified reasoning depth, decision posture and reassessment, and a separate execution layer implements decisions. Canonical Clarity/EDF repositories are unchanged.
+- [Three worked decision results](decision-intelligence-pilot-2026-11-11.md): whether grant vetting is the best first product, whether 3.59m DAF accounts implies enterprise software TAM, and whether Ren's audited RCF fee proves superior profitability to Foundation Source. Conclusions include counterarguments, decision posture, unknowns and falsification triggers.
+- [Three structured result cards](../data/decision-intelligence-results-v0.json): explicit Clarity/EDF usage plus GitHub **commit SHA pins** for original framework and evidence snapshots; no arbitrary numeric certainty or fabricated company financials.
+- [Ten atomic claims and counterclaims](../data/decision-intelligence-claims-2026.csv): each includes scope, supporting citations, unjustified inferences, current state and reassessment evidence.
+- [Twenty proposed adversarial regression cases](../data/decision-intelligence-regression-cases-2026.csv): denominator confusion, account vs client, false causality, outdated market snapshots, wrong payee attribution, fake agent independence, invalid confidence and framework version integrity. **Not executed against software.**
+
+**Core product rule:** When a proposed vendor ranking lacks comparable evidence, **"not justified" is a positive decision result**. When a causal analysis is unwarranted, Clarity can stand alone without manufacturing an EDF origin network. Next engineering phase: minimal **F#** source/provenance validator, structured result renderer and tests; optional Limen/Forma view only after logic and regression behavior pass. Validate usefulness against a baseline data summary in blinded reviews before claiming a competitive edge.
+
 ## Principal findings
 
 - For philanthropic Ren at `reninc.com`, **AEF's July 2025 announcement asserts SOC 2 Type II**, while **AEF's April 2026 announcement asserts Type I**. This is a **public-source conflict**; no actual audit report inspected. A separate Type II claim by `tryren.com` remains unrelated.
