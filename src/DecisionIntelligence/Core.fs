@@ -12,6 +12,9 @@ type Issue = { Code: string; Location: string; Detail: string }
 type Claim = {
     Id: string
     CaseId: string
+    Statement: string
+    Scope: string
+    Limitation: string
     Status: string
     Sources: Set<string>
     Evidence: Set<string>
@@ -161,6 +164,9 @@ module Catalog =
                 let claim = {
                     Id=id
                     CaseId=Csv.required row "case_id"
+                    Statement=Csv.required row "claim"
+                    Scope=Csv.required row "time_scope"
+                    Limitation=Csv.required row "material_limit"
                     Status=Csv.required row "support_status"
                     Sources=Csv.setOf (Csv.required row "source_ids")
                     Evidence=Csv.setOf (Csv.required row "evidence_ids")
@@ -257,8 +263,12 @@ module Results =
                 let claim = string problems loc element "claim"
                 let status = string problems loc element "claimStatus"
                 let verdict = string problems loc element "conclusionType"
-                if not (Set.ofList ["investigate";"reject_invalid_inference";"withhold_comparison"]).Contains(verdict) then
+                if not ((Set.ofList ["investigate";"reject_invalid_inference";"withhold_comparison"]).Contains(verdict)) then
                     problems.Add(issue "invalid_verdict" loc verdict)
+                if (verdict = "investigate" && status <> "provisional_not_established")
+                    || (verdict = "reject_invalid_inference" && status <> "contradicted_by_unit")
+                    || (verdict = "withhold_comparison" && status <> "insufficient") then
+                    problems.Add(issue "verdict_status_mismatch" loc (verdict + " versus " + status))
                 let conclusion = string problems loc element "conclusion"
                 let counterargument = string problems loc element "counterargument"
                 let action = string problems loc element "action"
@@ -368,9 +378,16 @@ module Report =
             add ""
             add (sprintf "**Clarity posture:** %s. **EDF:** %s." (safe r.Posture) (r.EdfLevel |> Option.defaultValue "not applied"))
             add ""
-            add (sprintf "**Supporting claim IDs:** %s" (String.concat ", " r.Supported))
-            add (sprintf "**Provisional/insufficient claim IDs:** %s" (String.concat ", " r.Limited))
-            add (sprintf "**Rejected claim IDs:** %s" (String.concat ", " r.Rejected))
+            add "**Why and what remains uncertain:**"
+            let showClaim label id =
+                match Map.tryFind id catalog.Claims with
+                | Some c ->
+                    add (sprintf "- **%s (%s):** %s" label (safe id) (safe c.Statement))
+                    add (sprintf "  - **Scope:** %s. **Limitation:** %s." (safe c.Scope) (safe c.Limitation))
+                | None -> ()
+            for id in r.Supported do showClaim "Supported" id
+            for id in r.Limited do showClaim "Provisional/insufficient" id
+            for id in r.Rejected do showClaim "Rejected inference" id
             add ""
             add (sprintf "**Strongest objection:** %s" (safe r.Counterargument))
             add ""
