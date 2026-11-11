@@ -13,7 +13,7 @@
 4. **TIFIN narrowed its product focus in 2025.** TIFIN sold its Giving Place family-office/private-foundation product to Foundation Source on April 21, 2025, stating its intent to focus on DAFs [C025]. Ren separately continues to market charitable trust and foundation-administration offerings [C002,C005]. This increases the importance of matching vendors to the specific product category rather than counting every historical feature.
 5. **Chariot has two distinct offerings that must not be conflated.** **DAFpay** initiates donor grant requests, providing nonprofit checkout and provider integration [C017,C018,C019]. **Chariot Disbursements** is a grantmaker payment delivery and recipient-verification solution, integrated with TIFIN [C010,C016]. Chariot does not replace sponsor fiduciary approval or DAF fund accounting solely by providing these layers.
 6. **The competition overlaps in payments.** Ren markets payments on an institution's existing bank rails (ACH or check and positive pay), while TIFIN has adopted Chariot's recipient-facing payment infrastructure [C004,C010,C016]. These are distinct architectural choices, **not proven winner/loser results**. Their speed, costs, intermediary risk, fraud outcomes, reconciliation quality and bank dependencies require common tests.
-7. **Assurance remains unverified at the report level.** The philanthropic Ren's April 2026 sponsor-hosted announcement states SOC 2 Type I [C021]; Chariot states Type II [C020]; TIFIN previously claimed SOC 2 without type [C022]. The actual independent reports, periods and scoped systems **were not inspected**. Do not mistakenly attribute an unrelated tryren.com Type II claim to reninc.com.
+7. **Assurance remains unverified at the report level.** AEF's July 2025 sponsor announcement states Ren Type II [C029] while April 2026 says Type I [C021]; Chariot states Type II [C020]; TIFIN previously claimed SOC 2 without type [C022]. The actual independent reports, periods and scoped systems **were not inspected**. Do not mistakenly attribute an unrelated tryren.com Type II claim to reninc.com.
 
 ## 1. Product and entity map
 
@@ -102,7 +102,7 @@ Ren publishes a service catalog covering DFX/DonorFirstX, branded program admini
 
 ## 6. Assurance, regulatory and control boundaries
 
-- Actual SOC 2 **report scope** matters more than the badge: Ren's public 2026 claim is Type I; Chariot publicly states Type II; TIFIN's published statement is unspecified [C020,C021,C022]. No independent reports reviewed.
+- Actual SOC 2 **report scope** matters more than the badge: AEF's 2025 Ren claim is Type II and its 2026 claim Type I [C021,C029]; Chariot publicly states Type II; TIFIN's published statement is unspecified [C020,C021,C022]. No independent reports reviewed.
 - Obtain **SOC 1 where fund accounting impacts financial statements**, in addition to appropriate SOC 2 report coverage for admin portals, donor data, Chariot payments, TIFIN tenant isolation and sponsor integrations.
 - Sponsors, not donor recommendation interfaces, retain final grant approval, as confirmed by both Renaissance Charitable [C006] and Chariot's description of GiveClear [C011].
 - For the TIFIN/Chariot implementation, determine which financial institution and entity is the legal account holder, where money is parked between sponsor authorization and nonprofit availability, and who handles rejected recipients/returned checks [C016,C024].
