@@ -1,6 +1,6 @@
 # Revenue quality, customer retention, portability and switching costs in DAF technology
 
-**Public-source assessment as of November 11, 2026.** A comparative analysis of Ren, TIFIN Give, and Chariot. All conclusions are based on public primary sources and explicitly labeled hypotheses. **No contract-level financial statements, renewal cohorts, executed migration test, private customer agreements, vendor accounts, or client intelligence were obtained.**
+**Public-source assessment as of November 11, 2026.** A comparative analysis of Ren, TIFIN Give, and Chariot. All conclusions are based on public primary sources and explicitly labeled hypotheses. **RCF audited sponsor-to-Ren fee payments were obtained, but no signed customer contracts, Ren consolidated company accounts, renewal cohorts, executed migration test, vendor accounts, or client intelligence were obtained.**
 
 ## Executive conclusions
 
@@ -29,7 +29,7 @@
 
 | Provider / segment | Documented recurrent fee or contractual mechanism | Evidence of migration and ownership | What cannot be responsibly concluded |
 |---|---|---|---|
-| **Ren platform and administration** | Branded/platform relationships marketed [R07,R08]; **RCF audited related-party payments to Ren** disclosed for FY2020–2024 [F01–F04], though signed contract terms are not public. | AEF chose Ren July 2025 and completed transition by April 2026; DonorCentral closed Oct 2026 with 2-year self-service history [R04,R05,R06] | Ren's full company recurring revenue, customer retention, contract tenor, software gross margins, donor retention after AEF migration |
+| **Ren platform and administration** | Branded/platform relationships marketed [R07,R08]; **RCF audited related-party payments to Ren** disclosed for FY2020–2024 [F01–F04]. Ren also publishes its June 2023 **unsigned generic service-provider MSA**, but signed related-party and enterprise work orders are not public [N01,N03]. | AEF chose Ren July 2025 and completed transition by April 2026; DonorCentral closed Oct 2026 with 2-year self-service history [R04,R05,R06] | Ren's full company recurring revenue, customer retention, contract tenor, software gross margins, donor retention after AEF migration |
 | **TIFIN Give / GiveClear** | 2025 ADV describes negotiable recurring asset-linked administrative/technology and management fees, and SaaS implementation + ongoing subscription [R10]. 2026 TIFIN Group terms state default auto-renew subject to separate software agreement [R09]. | GiveClear is sponsor and TIFIN is platform in documented ecosystem [R16]. Client-provided content ownership recognized in broad group terms, but access ends upon termination [R09]. | 2026 TIFIN Give signed customer contracts, 2026 revenue, NRR, renewal rates, automatic portability or how each fee stream is allocated |
 | **Chariot DAFpay** | Nonprofit contract default 2.9% of donation amount absent fundraising-platform arrangement; Chariot Subscription can substitute for transaction fees [R13]. Signed provider addendum separately governs provider integration [R12]. | Provider may terminate participation; nonprofit account has 30-day notice for termination. Data export appears as a dashboard feature, but terminated account loses access [R12,R13,R22]. | Percentage of customers paying default 2.9%, net take rate, margin, actual 2026 fees, SaaS ARPU, retention, data export SLAs |
 | **Chariot Disbursements** | Separate service with grantmaker transaction fees discussed in the prior economics analysis [R13,R16]. | Legally different product/addendum; no universal contract migration clause verified. | Disbursements take rate from DAFpay terms, exclusivity with TIFIN, per-grant net income or retention |
@@ -100,7 +100,7 @@ Suggested cohort fields: customer legal entity ID, product, contract start/end, 
 
 ### Attribution rules
 
-- **Ren (updated with audited evidence):** RCF's FY2020–FY2024 audited financial statements now establish annual **payments by RCF to Ren**, including $19,225,546 in FY2024, on a percentage-of-individual-fundholder-fees basis. See [audited counterparty-specific fees](audited-revenue-and-client-cohorts-2026-11-11.md) [F01–F04]. This is **not all-Ren ARR**, nor an observation of churn or net retention. Ren's marketing claim of assets “supported” remains a platform service footprint, not company revenue [R07].
+- **Ren (updated with audited and public contract evidence):** RCF's FY2020–FY2024 audited financial statements now establish annual **payments by RCF to Ren**, including $19,225,546 in FY2024, on a percentage-of-individual-fundholder-fees basis. See [audited counterparty-specific fees](audited-revenue-and-client-cohorts-2026-11-11.md) [F01–F04]. This is **not all-Ren ARR**, nor an observation of churn or net retention. Ren's marketing claim of assets “supported” remains a platform service footprint, not company revenue [R07].
 - **TIFIN:** historical ADV establishes type of fees; no publicly obtained customer cohort invoice data [R10].
 - **Chariot:** nonprofit terms show default gross pricing and alternatives; not the fraction of transactions on each plan nor net fee revenue. Network dollar throughput is **not** revenue [R13].
 - **Advisor economics:** retention of an authorized relationship or ability to advise charitable assets should not be equated with the donor owning the assets; sponsors legally own them [R01,R08,R17].
@@ -153,7 +153,7 @@ AEF's **July 23, 2025** announcement claimed philanthropic Ren (`reninc.com`) he
 
 ## 10. Research conclusion
 
-**Revenue quality remains unknown.** Public documents prove that Ren has institutional software/operations relationships, that TIFIN publicly discloses several fee streams with different persistence characteristics, that Chariot has contractual API/platform relationships and multiple fee paths, and that sponsor/portal transitions can involve actual historical-data consequences. They do **not** prove which company has higher retention or investor value.
+**Comparative revenue quality remains unknown.** RCF audits disclose one important service fee stream and Ren's public June 2023 standard MSA documents potential annual renewals, **not observed retention or signed customer terms** [N01,N04]. Public documents also prove that Ren has institutional software/operations relationships, that TIFIN publicly discloses several fee streams with different persistence characteristics, that Chariot has contractual API/platform relationships and multiple fee paths, and that sponsor/portal transitions can involve actual historical-data consequences. They do **not** prove which company has higher retention or investor value.
 
 The strongest next evidence is not another product brochure. It is a **matched cohort of paying contracts and a witnessed five-year migration test**. Until that exists, rank the *evidence gaps and plausible moat mechanisms*, not the vendors.
 
