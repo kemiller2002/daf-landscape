@@ -25,7 +25,7 @@
 | Contribution and investments | Ren's sponsor example places customer at custody; Ren's systems and services include subaccounting, accounting for separately managed accounts [C002] | TIFIN markets multi-custody and advisor-managed portfolios; GiveClear reports TIFIN-supported investment/fund-transfer automation [C008,C012] |
 | Grantee eligibility and grant decision | Ren provides vetting and submits grants for sponsor staff approval/denial; Renaissance Charitable retains legal grant approval [C002,C006] | GiveClear approves/rejects donor grant recommendations; TIFIN operates workflows and Chariot handles disbursement [C011] |
 | Outbound grant payment | Ren Rapid Disbursement Engine, ACH/check, existing sponsor bank rails, positive pay and payment status [C004] | Chariot Disbursements; Chariot Deposit Accounts through Column N.A. and fallback mailed check [C010,C016,C024] |
-| Nonprofit-facing interface | Ren for Charities portal for multi-program ACH onboarding and grant data [C001,C004] | Chariot account, gift data, donor/source metadata and disbursement tracking [C011,C016] |
+| Nonprofit-facing interface | Ren for Charities portal for multi-program ACH onboarding and grant data [C028] | Chariot account, gift data, donor/source metadata and disbursement tracking [C011,C016] |
 | Independence | Different sponsor, vendor and custody roles should not be collapsed into a Ren legal entity [C002,C006] | Explicit four/five-entity structure; TIFIN is *not* itself the charitable sponsor in the cited arrangement [C011] |
 
 ### Architectures, schematically
