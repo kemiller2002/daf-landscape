@@ -30,6 +30,16 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 
 **Critical 2026 distinction:** A cash donation to a DAF is **not** eligible for the new $1,000/$2,000 nonitemizer deduction, while a cash gift directly to an eligible charity may qualify. Do not imply DAFs are uniformly tax-efficient for every donor.
 
+
+## Proactive donor tax-opportunity research (2026)
+
+- [Ren vs TIFIN Give donor identification, planning, and execution](tax-opportunity-lifecycle-2026-11-11.md): a source-based life-cycle analysis that distinguishes Ren's public Benefit Estimator from TIFIN's announced Tax Intelligence and Single-Charity Funds, and correctly places Chariot downstream.
+- [Tax opportunity comparison matrix](../data/tax-opportunity-capability-matrix-2026.csv): 22 lifecycle dimensions, classified by what public evidence actually establishes.
+- [Synthetic evaluation protocol](tax-opportunity-evaluation-protocol-2026.md) and [18 cases](../data/tax-opportunity-test-cases-2026.csv): adversarial donor examples with **all vendor test outcomes unexecuted**, intended for independent tax-professional review and authorized demos.
+- [Public source register](../data/tax-opportunity-sources-2026.csv): 22 primary references, with publication dates and scope limitations.
+
+**Summary:** TIFIN Give announced portfolio-level Tax Intelligence in September 2025; Ren has a public DAF Benefit Estimator and documented advisor tax-planning guidance. This is an **evidence coverage difference**, not verified relative prediction accuracy. The required product test must compare DAF and direct giving, include 2026 tax rule changes, and sometimes recommend **no DAF**.
+
 ## Principal findings
 
 - Ren's `reninc.com` April 2026 announcement states **SOC 2 Type I**. The Type II claim from `tryren.com` belongs to an unrelated AI coaching company.
