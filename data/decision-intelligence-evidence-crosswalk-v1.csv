@@ -1,0 +1,3 @@
+"evidence_id","dataset_path","key_column","key_value","value_column","expected_value","source_ids","measure_scope"
+"2024_RCF_Ren_19225546","data/rcf-ren-audited-admin-payments-2020-2024.csv","fiscal_year","2024","RCF_disclosed_fees_paid_to_Ren_usd","19225546","F01","named FY2024 payment from RCF to Ren for administrative services, not Ren ARR"
+"Charityvest_non_grant_expenses_811940","data/sponsor-expense-category-comparison-2024.csv","legal_sponsor","Charityvest Inc","other_than_grants_arith_usd","811940","V03;V04","FY2024 all non-grant expenses, not Foundation Source vendor fee"
