@@ -206,7 +206,7 @@ module Results =
                         let s = item.GetString()
                         if isNull s then "" else s
                     else "")
-            if result.IsEmpty || result |> List.exists String.IsNullOrWhiteSpace then
+            if result.IsEmpty || (result |> List.exists String.IsNullOrWhiteSpace) then
                 problems.Add(issue "required_list" location name)
             if (Set.ofList result).Count <> result.Length then
                 problems.Add(issue "duplicate_reference" location name)
@@ -214,9 +214,6 @@ module Results =
         | _ ->
             problems.Add(issue "required_list" location name)
             []
-
-    let private notBlank (problems: ResizeArray<Issue>) location name (value: string) =
-        if String.IsNullOrWhiteSpace(value) then problems.Add(issue "required_text" location name)
 
     let validate (catalog: Catalog) (json: string) : Issue list * Decision list =
         let problems = ResizeArray<Issue>(catalog.Issues)
