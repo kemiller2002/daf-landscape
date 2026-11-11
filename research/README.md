@@ -73,6 +73,16 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 
 **Source correction:** AEF's July 2025 press release genuinely claimed Type II for philanthropic Ren; April 2026 said Type I. Earlier Type I-only summaries were incomplete and have been corrected in the assurance register and comparative files.
 
+
+## Audited financial evidence: direct RCF → Ren payments (2020–2024)
+
+- [Audited Ren counterparty fee and customer-cohort investigation](audited-revenue-and-client-cohorts-2026-11-11.md): five years of actual Renaissance Charitable Foundation payments to Ren, vendor-side accounting limitations, GiveClear/TIFIN IRS comparison, Chariot pricing, and institutional diligence asks.
+- [Five-year RCF–Ren payment history](../data/rcf-ren-audited-admin-payments-2020-2024.csv): $7.51m disclosed payment in 2020 rising to $19.23m in 2024; 95% fundholder-fee basis in 2020–22, 98% in 2023–24; linked 990 year-end DAF account counts.
+- [Public audited/IRS source register](../data/audited-contract-evidence-sources-2026.csv): four audited RCF financial reports plus Form 990, sponsor and published pricing sources.
+- [Contract/cohort evidence classification](../data/contract-and-cohort-evidence-2026.csv): known actual service fee payments vs unknown company ARR, retention, margins, contract term, and pricing on other sponsors.
+
+**Correction to prior economics analysis:** RCF's independent audits disclose **$19,225,546 paid to Ren in FY2024** under a related-party administration agreement. This is stronger than a mere retail fee schedule, but **not** total Ren corporate revenue, software ARR, gross margin or cohort NRR. Other vendors do not have a comparable observed counterparty-paid five-year series in this scoped public review. No private financial records were used.
+
 ## Principal findings
 
 - For philanthropic Ren at `reninc.com`, **AEF's July 2025 announcement asserts SOC 2 Type II**, while **AEF's April 2026 announcement asserts Type I**. This is a **public-source conflict**; no actual audit report inspected. A separate Type II claim by `tryren.com` remains unrelated.
