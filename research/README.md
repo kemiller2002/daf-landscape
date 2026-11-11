@@ -124,6 +124,16 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 
 **Important governance distinction:** Charityvest publicly lists **Stephen Kump (Foundation Source DAF Technology President)** on its own board while Foundation Source is its fee-paid technology/admin provider. Its public policy requires disclosure and director recusal for conflicts, but actual meeting records and specific vendor approvals have **not been examined**. Overlap is a reason to test disinterested decision-making, **not proof of wrongdoing**. Charityvest and GiveClear's full 2024 audit attachments remain uninspected, so precise vendor fees are still unknown.
 
+## Market demand, donor behavior, and decision-critical data gaps (2026-11-11)
+
+- [Demand and evidence-gap synthesis](daf-market-demand-and-evidence-gaps-2026-11-11.md): revised 2024 market scale, 2024 longitudinal donor activity, 2025 donor/manager surveys, 2026 recipient and financial adviser findings, nonprofit attribution and pending tax guidance.
+- [33 observed metrics, with denominator and date](../data/market-demand-observed-metrics-2026.csv): separates market-wide sponsor totals from historic account microdata, selected donor surveys, selected nonprofit gift data and vendor-specific account scale.
+- [27 ranked missing-data questions](../data/decision-critical-data-backlog-2026.csv): **9 P0**, **10 P1**, **8 P2**; specifies metric, known/unknown state, best retrieval path, permission requirement and acceptance evidence.
+- [Collection and causal-evaluation design](evidence-collection-design-2026.md): reproducible sponsor-year data mart, consent-safe lifecycle events, matched cost and grant performance metrics, and test protocols; no vendor systems executed.
+- [18-source evidence register](../data/market-demand-evidence-sources-2026.csv): independent DAFRC studies and revised FY2024 data, NPT/Fidelity sponsor reports, nonprofit study with disclosed Chariot affiliation and 2026 IRS guidance-plan status.
+
+**Critical market interpretation:** The DAFRC's Spring 2026 revised FY2024 baseline is **3.59 million reported DAF accounts**, **$327.87 billion charitable assets**, **$90.57 billion contributed**, and **$64.60 billion granted**. Account growth includes mass donation processors. This is **not** 3.59 million independent invested DAFs or an enterprise software subscription market. Historic account inactivity (**22% in 2020–22 in a voluntary sample**) is also not vendor churn, while nonprofit donor-retention premiums are not technology-company NRR. True platform economics require **paying contract cohorts and completed/settled grant costs**.
+
 ## Principal findings
 
 - For philanthropic Ren at `reninc.com`, **AEF's July 2025 announcement asserts SOC 2 Type II**, while **AEF's April 2026 announcement asserts Type I**. This is a **public-source conflict**; no actual audit report inspected. A separate Type II claim by `tryren.com` remains unrelated.
