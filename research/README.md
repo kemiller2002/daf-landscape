@@ -10,7 +10,7 @@
 - [Assurance-specific methodology](../docs/assurance-methodology.md)
 - [Assurance matrix](../data/assurance.csv), [capability data](../data/capabilities.csv), [assurance-specific sources](../data/assurance-sources.csv)
 
-The general market research data and source taxonomy are maintained in the root README and data/source-register.csv in the independent foundational project. This package uses its own S01-S21 IDs in `data/assurance-sources.csv`; these IDs **are not** the IDs from the general market source-register.csv.
+The general market research data and source taxonomy are maintained in a separate foundational workstream. This package uses its own S01-S22 IDs in `data/assurance-sources.csv`; these IDs **are not** source IDs in any other research source register.
 
 
 ## Competitive platform investigation (2026-11-11)
@@ -60,9 +60,22 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 
 **Crucial warning:** TIFIN's 2025 adviser AUM, GiveClear's 2025 sponsoring-charity assets, Ren's platform-serviced asset claim and an investor's donor account balance are different economic units. Do **not** rank platform economics or derive market share by dividing incomparable amounts.
 
+
+## Revenue quality, renewal and exit diligence (2026-11-11)
+
+- [Revenue quality and switching assessment](revenue-retention-and-switching-2026-11-11.md): investor-grade distinction among sponsor ownership, payer contracts, adviser relationships, fixed/asset-linked/transaction revenue, and evidence of migration.
+- [Public contract and source register](../data/revenue-retention-sources-2026.csv): 22 verifiable source entries with scope and caveats.
+- [Switching-cost control matrix](../data/switching-cost-control-matrix-2026.csv): 30 contract and operational boundaries with explicit unexecuted tests.
+- [Migration acceptance runbook](migration-runbook-2026.md): 20 synthetic exit, platform-swap, payment-cutover and data portability cases; no vendor tests performed.
+- [Recurring revenue sensitivity](../data/revenue-cohort-sensitivity-2026.csv) and [asset-linked/DAFpay fee scenarios](../data/revenue-stream-sensitivity-2026.csv): purely synthetic calculations; do not mistake for company ARR, churn or profit.
+
+**New evidence:** AEF's actual portal migration left donors with only two years of directly accessible account history in the new Ren platform. Chariot's October 2026 nonprofit terms specify a default 2.9% DAFpay donation fee in the absence of other fundraising-platform agreements, with subscription alternatives; that is **not** its separate grantmaker Disbursements charge. Current signed institution-level terms and revenue cohorts are unverified.
+
+**Source correction:** AEF's July 2025 press release genuinely claimed Type II for philanthropic Ren; April 2026 said Type I. Earlier Type I-only summaries were incomplete and have been corrected in the assurance register and comparative files.
+
 ## Principal findings
 
-- Ren's `reninc.com` April 2026 announcement states **SOC 2 Type I**. The Type II claim from `tryren.com` belongs to an unrelated AI coaching company.
+- For philanthropic Ren at `reninc.com`, **AEF's July 2025 announcement asserts SOC 2 Type II**, while **AEF's April 2026 announcement asserts Type I**. This is a **public-source conflict**; no actual audit report inspected. A separate Type II claim by `tryren.com` remains unrelated.
 - Chariot markets **SOC 2 Type II**.
 - TIFIN Give markets **SOC 2 security compliance**, but public evidence reviewed does not specify type.
 - **No independent auditor report was inspected.** All other organizations remain unverified in this scoped review; no negative assurance conclusion follows.
