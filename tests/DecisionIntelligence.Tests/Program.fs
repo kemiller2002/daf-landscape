@@ -35,9 +35,17 @@ let main _ =
             && catalog.Evidence.ContainsKey("Charityvest_non_grant_expenses_811940"))
         "valid Markdown includes disagreement and source citation", (fun () ->
             let output=Report.markdown catalog baselineDecisions
-            output.Contains("Strongest objection")
+            output.Contains("Why and what remains uncertain")
+            && output.Contains("Sponsor survey respondents self-rated grant review")
+            && output.Contains("Strongest objection")
             && output.Contains("https://renaissancecharitable.org")
             && output.Contains("Reassess when"))
+        "verdict inconsistent with declared evidence status rejected", (fun () ->
+            invalidate "verdict_status_mismatch" (fun n ->
+                replaceItem n 2 "claimStatus" "supported"))
+        "wrong case verdict rejected", (fun () ->
+            invalidate "verdict_status_mismatch" (fun n ->
+                replaceItem n 1 "conclusionType" "investigate"))
         "invalid schema rejected", (fun () ->
             invalidate "schema_mismatch" (fun n -> put n "schema" "untrusted-model"))
         "invalid review date rejected", (fun () ->
