@@ -150,14 +150,26 @@ The next differentiator is **conclusions that can be audited, challenged and rea
 
 The goal is a fully comprehensive DAF industry assessment across **legal sponsorship, economics, philanthropy, tax, donor/advisor behavior, nonprofit outcomes, governance, technology and resilience**. This stage delivers the research architecture and a critical audit, **not a claim that every topic has been fully empirically studied**.
 
-- [Comprehensive research blueprint](comprehensive-daf-research-blueprint-2026-11-11.md): 12 proposed report chapters; **39 cross-disciplinary topics** with 18 P0, 16 P1 and 5 P2 priorities; separation of charitable capital, commercial revenue and actual nonprofit outcomes.
+- [Comprehensive research blueprint](comprehensive-daf-research-blueprint-2026-11-11.md): 12 proposed report chapters; **42 cross-disciplinary topics** with 21 P0, 16 P1 and 5 P2 priorities; separation of charitable capital, commercial revenue and actual nonprofit outcomes.
 - [Clarity assumption audit of external and internal reports](clarity-report-assumption-audit-2026-11-11.md): **32 reviews**, including 20 external-report claims/interpretation hazards and 12 of our own findings. Three detailed Clarity case studies cover DAF-caused giving, geographic underserved need and donor engagement versus AI grant vetting.
 - [Structured 32-item claim, assumption, alternative and reassessment matrix](../data/clarity-report-assumption-audit-2026.csv): publisher-level overreach is distinguished from reader misinterpretation, appropriately scoped methods and our provisional hypotheses.
 - [Ten high-value Clarity conclusions](../data/clarity-conclusion-register-2026.csv): justified statement, open assumptions, posture, next action and concrete reassessment trigger.
-- [39-topic coverage matrix](../data/comprehensive-daf-research-coverage-2026.csv) and [27 qualified sources/research leads](../data/comprehensive-research-source-catalog-2026.csv).
+- [42-topic coverage matrix](../data/comprehensive-daf-research-coverage-2026.csv) and [27 qualified sources/research leads](../data/comprehensive-research-source-catalog-2026.csv).
 
 **Central correction:** The 2026 K2D/Chariot public report page goes beyond showing selected DAF switchers gave more at participating nonprofits to claiming DAFs cause increased giving; an actual donor-wide counterfactual remains unproven. DAFRC's 2026 revision and GivingTuesday's 2026 geographic report, by contrast, **openly disclose** many of their denominator, classification and missingness limitations. The challenge is often preserving these caveats when other analysts turn observations into market size, strategy, or tax policy claims.
 
+
+## DAF provider technology, exits, insolvency and data continuity (2026-11-11)
+
+- [DAF Technology Audit and Provider Failure/Exit Study](daf-technology-audit-and-provider-exits-2026-11-11.md): public technical evidence and bounded Clarity/EDF interpretations, actual shutdown and bankruptcy distinctions, active API/ledger evidence, security incidents and recovery/exit test scenarios. **Public documentation review, not a penetration test or production system certification**.
+- [Twelve-provider technology evidence matrix](../data/provider-technology-evidence-matrix-2026.csv): Ren, Foundation Source, TIFIN Give, DAFtech, Chariot, Daffy, NPT and adjacent platforms. Unexecuted technical checks remain **not_verified**, not scored failed.
+- [24 technology diligence controls](../data/technology-audit-control-matrix-2026.csv): 13 P0 / 9 P1 / 2 P2, spanning legal sponsor fund ownership, segregated payments, accounting, grant idempotency, cyber security, exits and disaster recovery.
+- [11 dated company, product and incident cases](../data/technology-provider-exits-and-incidents-2026.csv): Flipcause bankruptcy, Everfund/Kambeo shutdowns, planned Benevity Alaya sunset, Vennfi and Giving Place acquisitions, CyberGrants and Classy rebrands/continuity, DonorPerfect November 2026 disruption, Blackbaud historical security enforcement, JustGiving dependency end of life.
+- [34 qualified sources](../data/technology-audit-source-register-2026.csv) and [16 Clarity falsification checks](../data/technology-audit-clarity-challenges-2026.csv): no false claim that a core DAF vendor failed when only an adjacent fundraising service did.
+
+**Critical distinction:** We have confirmed *adjacent fundraiser technology* insolvency/shutdown cases, not a statistically complete mortality history of core DAF administration platforms. Separate a charitable sponsor's legal ownership of assets from software or payment intermediary funds, vendor corporate IP, program continuity and donor accounting records. Actual legal/technical failure mechanisms require evidence; no provider's hidden runtime stack or current quality is inferred from public brochure.
+
+The comprehensive industry matrix now covers **42 topics with 21 P0 / 16 P1 / 5 P2**, including provider survival and technology validation, and the [14-chapter report blueprint](comprehensive-daf-research-blueprint-2026-11-11.md) indexes their work.
 
 ## Principal findings
 
