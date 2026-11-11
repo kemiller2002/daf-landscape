@@ -1,0 +1,5 @@
+"scenario_id","category","scenario","opening_recurring_usd","churn_usd","contraction_usd","expansion_same_cohort_usd","closing_opening_cohort_usd","gross_revenue_retention_pct","net_revenue_retention_pct","assumptions","source_ids"
+"C01","recurring_cohort","Fixed-fee cohort with modest churn","1000000","50000","30000","100000","1020000","92.00","102.00","USD annualized; hypothetical only; no company customer revenue observed","analytical; no provider source"
+"C02","recurring_cohort","Fixed-fee cohort with higher churn","1000000","150000","50000","50000","850000","80.00","85.00","USD annualized; hypothetical only; no company customer revenue observed","analytical; no provider source"
+"C03","recurring_cohort","Fixed-fee cohort with no churn","1000000","0","0","200000","1200000","100.00","120.00","USD annualized; hypothetical only; no company customer revenue observed","analytical; no provider source"
+"C04","recurring_cohort","Fixed-fee cohort with no expansion","1000000","120000","80000","0","800000","80.00","80.00","USD annualized; hypothetical only; no company customer revenue observed","analytical; no provider source"
