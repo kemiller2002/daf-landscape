@@ -2,6 +2,8 @@
 
 Questions are organized around decisions the research should eventually support. Hypotheses below are explicitly **unverified** and must not be repeated as findings.
 
+Stable question IDs are `RQ-001` through `RQ-033`, corresponding to questions 1 through 33 below. The backlog uses those IDs so work packages remain traceable if section headings change.
+
 ## Sponsor and operating models
 
 1. Which legal entity sponsors each program, and which affiliates or contractors perform administration, custody, investment management, grant review, and payment?

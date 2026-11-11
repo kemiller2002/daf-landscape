@@ -45,6 +45,19 @@ Confidence is claim-specific. A sponsor's legal status can be high confidence wh
 7. Assign evidence grade, confidence, and review date.
 8. Enter the claim only after its source ID exists.
 
+## IRS entity and filing verification
+
+For each sponsor brand in scope:
+
+1. Match the legal entity to an EIN using an official program, policy, audited statement, or Form 990 source; name similarity alone is insufficient.
+2. Locate the EIN in the current IRS Exempt Organizations Business Master File (EO BMF).
+3. Preserve the IRS primary name and raw subsection, exemption-status, deductibility, and foundation codes.
+4. Decode those codes only through the current IRS EO BMF information sheet.
+5. Match the EIN to the latest Form 990 record in the IRS annual index and retain the tax period and object ID.
+6. Record duplicate or similarly named IRS entities separately until a primary source establishes their operating relationship.
+
+The EO BMF `TAX_PERIOD` field is the latest return period recorded in that cumulative extract. The Form 990 index object ID identifies an e-filed return in the IRS bulk data. Neither field alone establishes that the entity sponsors a DAF; sponsor-role evidence must come from a program, governance, audited, or return-level source.
+
 ## Freshness
 
 Suggested maximum review intervals:
@@ -76,7 +89,8 @@ When sources conflict, keep both in the register, state the conflict in notes, l
 
 ## Known baseline limitations
 
-- Sponsor legal status has primarily been checked against official policy, legal, or audited materials; a systematic IRS TEOS pass is still open.
+- The systematic IRS pass is complete for the 10 sponsor brands currently in scope, using the EO BMF posted 2026-10-13 and the 2025-2026 Form 990 indexes; it is not an exhaustive sponsor census.
+- The IRS lists a second active Fidelity-named 501(c)(3) record, EIN 93-4792247. Its DAF role and relationship to the established sponsor record, EIN 11-0303001, remain unresolved and are not inferred from the similar name.
 - The IRS 2026-2027 Priority Guidance Plan lists a guidance project under sections 4966 and 6033. The baseline does not treat the 2023 proposed section 4966 regulations as final.
 - Product capabilities are first-party representations, not hands-on validation.
 - Coverage is purposive rather than exhaustive.

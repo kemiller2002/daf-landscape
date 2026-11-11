@@ -3,7 +3,7 @@
 An evidence-led research repository for understanding the U.S. donor-advised fund (DAF) technology market: the legal sponsors that control charitable assets, the administrators that operate DAF programs, and the software and infrastructure vendors that support contributions, investment accounting, grant review, disbursement, and nonprofit reconciliation.
 
 **Baseline date:** 2026-11-11<br>
-**Research status:** initial foundation; directional, not exhaustive<br>
+**Research status:** phase-two foundation; current sponsor IRS registry complete, stack and scale research underway<br>
 **Geographic scope:** United States unless a record explicitly says otherwise
 
 ## Goals
@@ -55,6 +55,8 @@ See [the full methodology](docs/methodology.md) for evidence grades, confidence 
 | --- | --- |
 | `data/landscape.csv` | Initial entity map and verified role/relationship facts |
 | `data/competitive-matrix.csv` | Evidence-backed comparison framework; deliberately contains unknowns |
+| `data/sponsor-registry.csv` | IRS-validated legal names, EINs, status codes, and latest Form 990 identifiers for sponsors in scope |
+| `data/research-backlog.csv` | Prioritized work packages tied to research questions and hypotheses |
 | `data/source-register.csv` | Source/evidence register with dates, grades, confidence, and supported claims |
 | `docs/classification-framework.md` | Vendor taxonomy, unit of analysis, and matrix field definitions |
 | `docs/workflow.md` | End-to-end DAF operating and technology workflow |
@@ -64,19 +66,23 @@ See [the full methodology](docs/methodology.md) for evidence grades, confidence 
 
 ## Initial coverage
 
-The first pass includes representative national sponsors and purpose-built DAF administrators/platforms. Inclusion signals relevance to the workflow, not endorsement, quality, or market position. The baseline intentionally avoids vendor rankings and most quantitative claims until comparable filings and customer evidence are collected.
+The first pass includes 10 representative sponsor brands and seven purpose-built DAF administrators/platform or infrastructure vendors. The sponsor registry contains 11 IRS records because a second Fidelity-named entity is recorded separately with an unresolved relationship rather than silently combined. Inclusion signals relevance to the workflow, not endorsement, quality, or market position. The baseline intentionally avoids vendor rankings and most quantitative claims until comparable filings and customer evidence are collected.
 
 ## How to use the data
 
 - Start with `data/landscape.csv` to see who plays which role.
+- Use `data/sponsor-registry.csv` for sponsor legal-entity and filing identifiers; do not infer an operating role from an IRS name match alone.
 - Use `data/competitive-matrix.csv` to identify verified capabilities and research gaps.
+- Use `data/research-backlog.csv` to see the next evidence work, its dependencies, and completion test.
 - Resolve each `source_ids` value against `data/source-register.csv` before repeating a claim.
 - Treat `unknown` as a research assignment.
 - Re-check any web source before a consequential decision, even if its freshness window has not expired.
 
 ## Near-term research sequence
 
-1. Validate sponsor legal names, EINs, public-charity status, and latest Form 990 data in IRS TEOS.
+The legal-name, EIN, exemption-code, deductibility-code, foundation-code, latest-tax-period, and latest-Form-990-index pass is complete for the 10 sponsor brands currently in scope. It uses the IRS EO Business Master File posted 2026-10-13 and the 2025-2026 Form 990 indexes. This is not an exhaustive sponsor census.
+
+1. Resolve the role and relationship of the second Fidelity-named IRS entity without inferring from name similarity.
 2. Normalize audited sponsor scale metrics for a single fiscal year and definition set.
 3. Conduct product demos against one scripted workflow and evidence checklist.
 4. Interview sponsors, advisors, nonprofit finance teams, and implementation partners.
