@@ -113,6 +113,16 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 
 **Material channel addition:** **TIAA Wealth Management's September 28, 2026 DAF** is sponsored by independent Charityvest, powered by Foundation Source technology and advised by a TIAA affiliate. TIAA's public documents explicitly disclose asset-linked adviser fees and proprietary-fund incentives. The same sources **do not show actual charitable account adoption, dollar contract fees paid to Foundation Source, or misconduct**. The new 24-entity expanded market map includes TIAA as a wealth/adviser distribution channel, not as a second technology platform or legal sponsor.
 
+## Sponsor governance and expense transparency (2026-11-11)
+
+- [Charitable sponsor governance, vendor relationships and operating expense review](sponsor-governance-and-fee-transparency-2026-11-11.md): Charityvest/Foundation Source board overlap, public conflict policy, RCF/Ren audited related-party fees, GiveClear/TIFIN, and NPT expense distinctions.
+- [20 governance and oversight controls](../data/sponsor-governance-controls-2026.csv): observed vendor-board roles, recusal policies, actual fee payee verification, related-party contracts and access limitations.
+- [Four-sponsor FY2024 expense comparison](../data/sponsor-expense-category-comparison-2024.csv): reports grants, non-grant residuals and 990 fee categories **without** treating them as vendor fees; includes the separately audited RCF→Ren $19.2255m payment.
+- [Six GiveClear 2025 wealth and technology partners](../data/giveclear-wealth-partner-observations-2025.csv): AssetMark, Blue Trust, Ingalls & Snyder, Arlington, Zions Bank and TIFIN, with sponsor-reported evidence but **no inferred partner ARR**.
+- [16-source governance and expense evidence register](../data/sponsor-governance-sources-2026.csv): government filing instructions, board disclosures, actual policies, 990 information and inaccessible audit indexes.
+
+**Important governance distinction:** Charityvest publicly lists **Stephen Kump (Foundation Source DAF Technology President)** on its own board while Foundation Source is its fee-paid technology/admin provider. Its public policy requires disclosure and director recusal for conflicts, but actual meeting records and specific vendor approvals have **not been examined**. Overlap is a reason to test disinterested decision-making, **not proof of wrongdoing**. Charityvest and GiveClear's full 2024 audit attachments remain uninspected, so precise vendor fees are still unknown.
+
 ## Principal findings
 
 - For philanthropic Ren at `reninc.com`, **AEF's July 2025 announcement asserts SOC 2 Type II**, while **AEF's April 2026 announcement asserts Type I**. This is a **public-source conflict**; no actual audit report inspected. A separate Type II claim by `tryren.com` remains unrelated.
