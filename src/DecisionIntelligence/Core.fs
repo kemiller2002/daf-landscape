@@ -241,7 +241,7 @@ module Results =
                         problems.Add(issue "missing_pin" "root" framework)
                         Unchecked.defaultof<JsonElement>
                 let sha = string problems ("pins." + framework) item "commit"
-                if sha.Length <> 40 || sha |> Seq.exists (fun c -> not (Uri.IsHexDigit c)) then
+                if sha.Length <> 40 || (sha |> Seq.exists (fun c -> not (Uri.IsHexDigit c))) then
                     problems.Add(issue "invalid_pin" ("pins." + framework) sha)
 
             let resultList =
@@ -297,7 +297,7 @@ module Results =
                     problems.Add(issue "invalid_posture" loc posture)
                 match edf with
                 | None when diagnosis <> "not_applicable" -> problems.Add(issue "edf_sufficiency_conflict" loc "No EDF diagnosis but diagnostic sufficiency claimed")
-                | Some level when not (Set.ofList ["EDF-0";"EDF-1";"EDF-2"]).Contains(level) ->
+                | Some level when not ((Set.ofList ["EDF-0";"EDF-1";"EDF-2"]).Contains(level)) ->
                     problems.Add(issue "invalid_edf" loc level)
                 | Some _ when diagnosis = "not_applicable" -> problems.Add(issue "edf_sufficiency_conflict" loc "EDF diagnosis has not_applicable sufficiency")
                 | _ -> ()
