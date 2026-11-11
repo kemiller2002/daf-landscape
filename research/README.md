@@ -22,6 +22,14 @@ The general market research data and source taxonomy are maintained in the root 
 
 The clearest documented distinction is **Ren's integrated fund-accounting/administration and payments offering vs. TIFIN Give's advisor-oriented stack with GiveClear as sponsor and Chariot as an actual disbursements partner**. This is a public-source structural observation, not an audited performance comparison. Actual implementation and security maturity remain unverified.
 
+
+## Donor tax-fit segmentation (2026)
+
+- [DAF donor tax personas, 2026](donor-tax-personas-2026.md): 14 candidate and exclusion personas, 2026 income-tax rule changes, eligibility decision tree and an illustrative three-year bunching calculation that includes the new direct-giving nonitemizer deduction.
+- [Persona dataset](../data/donor-tax-personas-2026.csv) and [tax source register](../data/donor-tax-sources-2026.csv): machine-readable targeting triggers, prerequisites, counterexamples and 12 cited sources.
+
+**Critical 2026 distinction:** A cash donation to a DAF is **not** eligible for the new $1,000/$2,000 nonitemizer deduction, while a cash gift directly to an eligible charity may qualify. Do not imply DAFs are uniformly tax-efficient for every donor.
+
 ## Principal findings
 
 - Ren's `reninc.com` April 2026 announcement states **SOC 2 Type I**. The Type II claim from `tryren.com` belongs to an unrelated AI coaching company.
