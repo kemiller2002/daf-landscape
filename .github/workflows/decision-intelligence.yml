@@ -1,0 +1,59 @@
+name: Decision Intelligence F# verification
+
+on:
+  pull_request:
+    paths:
+      - "src/DecisionIntelligence/**"
+      - "tests/DecisionIntelligence.Tests/**"
+      - "data/decision-intelligence-*.csv"
+      - "data/decision-intelligence-*.json"
+      - "data/decision-intelligence-results-*.json"
+      - "data/market-demand-*.csv"
+      - "data/audited-contract-evidence-sources-2026.csv"
+      - "data/charityvest-financial-and-tiaa-sources-2026.csv"
+      - "data/rcf-ren-audited-admin-payments-2020-2024.csv"
+      - "data/sponsor-expense-category-comparison-2024.csv"
+      - ".github/workflows/decision-intelligence.yml"
+      - "global.json"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: decision-intelligence-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: F# compilation, adversarial tests and conclusion rendering
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: "10.0.x"
+      - name: Show effective SDK
+        run: dotnet --info
+      - name: Restore dependency-free projects
+        run: |
+          dotnet restore tests/DecisionIntelligence.Tests/DecisionIntelligence.Tests.fsproj --ignore-failed-sources
+      - name: Compile with warnings as errors
+        run: dotnet build tests/DecisionIntelligence.Tests/DecisionIntelligence.Tests.fsproj --no-restore -c Release
+      - name: Execute unit and adversarial tests
+        run: dotnet run --project tests/DecisionIntelligence.Tests/DecisionIntelligence.Tests.fsproj -c Release --no-build
+      - name: Validate structured results and sources
+        run: dotnet run --project src/DecisionIntelligence/DecisionIntelligence.fsproj -c Release --no-build -- validate .
+      - name: Render deterministic report
+        run: |
+          dotnet run --project src/DecisionIntelligence/DecisionIntelligence.fsproj -c Release --no-build -- render . > /tmp/daf-decision-results.md
+          grep -q 'DI-001' /tmp/daf-decision-results.md
+          grep -q 'DI-002' /tmp/daf-decision-results.md
+          grep -q 'DI-003' /tmp/daf-decision-results.md
+          grep -q 'Strongest objection' /tmp/daf-decision-results.md
+          cat /tmp/daf-decision-results.md
