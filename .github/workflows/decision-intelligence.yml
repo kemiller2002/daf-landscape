@@ -16,8 +16,12 @@ on:
       - ".github/workflows/decision-intelligence.yml"
       - "global.json"
   push:
-    branches: [main, feature/fsharp-decision-intelligence-v1]
+    branches: [main]
   workflow_dispatch:
+
+concurrency:
+  group: decision-intelligence-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
