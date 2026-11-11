@@ -29,7 +29,7 @@
 | **Wealth firm / channel** | Advisor relationship, client engagement, referrals/distribution | Advisory fees on sponsor-owned assets if permitted; relationship retention | SEI DAF with TIFIN and GiveClear [E09] | Who is registered adviser, whose client, compensation and conflicts |
 | **Payments / nonprofit verification** | Grant delivery, recipient verification, tracking, returns | Per-transaction fee to grantmaker; nonprofit add-on subscriptions | Chariot Disbursements [E10–E12] | Fee amount; ACH/check; failures; refund and bank balances |
 
-**Important distinction:** The labels above are *functional roles*. Depending on contracts, one legal company might perform several, and the money may be charged to a charity account then shared via service agreements. The public record does not establish actual gross margin or revenue ownership for a given Ren, TIFIN, or GiveClear implementation.
+**Important distinction:** The labels above are *functional roles*. Depending on contracts, one legal company might perform several, and the money may be charged to a charity account then shared via service agreements. **Update:** audited RCF financials establish payments by RCF to Ren, including $19,225,546 in FY2024, under a related-party 98%-of-individual-fundholder-fees basis [F01]. This establishes a **specific RCF→Ren fee transfer** but still does not identify Ren's total corporate revenue, costs, software gross margin or any other sponsor-specific revenue split. Comparable TIFIN/GiveClear payments remain unverified.
 
 ## B. TIFIN Give March 2025 Form ADV: disclosed economic streams
 
@@ -117,7 +117,7 @@ These are mathematical sensitivities only, **not** actual Ren, TIFIN, Chariot or
 
 ## F. Central strategic question: where is the moat?
 
-**Ren thesis:** Integrated administrative operations, complex assets, accounting, sponsor relationships, and bank-rail payments might create durable switching costs. But donor-facing fees don't tell us Ren's captured share; provider claims of scale need clear denominator and partner/contract stability evidence.
+**Ren thesis:** Integrated administrative operations, complex assets, accounting, sponsor relationships, and bank-rail payments might create durable switching costs. While donor-facing fees alone do not establish capture, RCF's audited statements now show **$19.23m paid to Ren in FY2024** and an explicit related-party fee-share formula [F01]. This is integrated administrative-service compensation, not Ren's full corporate ARR or software margin. Claims of wider platform scale still require a consistent denominator and partner/contract stability evidence.
 
 **TIFIN thesis:** Building DAFs into advisor-managed wealth distribution could increase retention and conversion. A channel-embedded white-label platform may be sticky, while the charitable sponsor and nonprofit disbursement portions are separately outsourced. Yet multiple parties divide revenue and controls, and fee/marketing conflicts require disciplined oversight.
 
