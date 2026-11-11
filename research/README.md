@@ -146,6 +146,19 @@ The next differentiator is **conclusions that can be audited, challenged and rea
 
 **Core product rule:** When a proposed vendor ranking lacks comparable evidence, **"not justified" is a positive decision result**. When a causal analysis is unwarranted, Clarity can stand alone without manufacturing an EDF origin network. Next engineering phase: minimal **F#** source/provenance validator, structured result renderer and tests; optional Limen/Forma view only after logic and regression behavior pass. Validate usefulness against a baseline data summary in blinded reviews before claiming a competitive edge.
 
+## Comprehensive industry expansion and Clarity report audit (November 11, 2026)
+
+The goal is a fully comprehensive DAF industry assessment across **legal sponsorship, economics, philanthropy, tax, donor/advisor behavior, nonprofit outcomes, governance, technology and resilience**. This stage delivers the research architecture and a critical audit, **not a claim that every topic has been fully empirically studied**.
+
+- [Comprehensive research blueprint](comprehensive-daf-research-blueprint-2026-11-11.md): 12 proposed report chapters; **39 cross-disciplinary topics** with 18 P0, 16 P1 and 5 P2 priorities; separation of charitable capital, commercial revenue and actual nonprofit outcomes.
+- [Clarity assumption audit of external and internal reports](clarity-report-assumption-audit-2026-11-11.md): **32 reviews**, including 20 external-report claims/interpretation hazards and 12 of our own findings. Three detailed Clarity case studies cover DAF-caused giving, geographic underserved need and donor engagement versus AI grant vetting.
+- [Structured 32-item claim, assumption, alternative and reassessment matrix](../data/clarity-report-assumption-audit-2026.csv): publisher-level overreach is distinguished from reader misinterpretation, appropriately scoped methods and our provisional hypotheses.
+- [Ten high-value Clarity conclusions](../data/clarity-conclusion-register-2026.csv): justified statement, open assumptions, posture, next action and concrete reassessment trigger.
+- [39-topic coverage matrix](../data/comprehensive-daf-research-coverage-2026.csv) and [27 qualified sources/research leads](../data/comprehensive-research-source-catalog-2026.csv).
+
+**Central correction:** The 2026 K2D/Chariot public report page goes beyond showing selected DAF switchers gave more at participating nonprofits to claiming DAFs cause increased giving; an actual donor-wide counterfactual remains unproven. DAFRC's 2026 revision and GivingTuesday's 2026 geographic report, by contrast, **openly disclose** many of their denominator, classification and missingness limitations. The challenge is often preserving these caveats when other analysts turn observations into market size, strategy, or tax policy claims.
+
+
 ## Principal findings
 
 - For philanthropic Ren at `reninc.com`, **AEF's July 2025 announcement asserts SOC 2 Type II**, while **AEF's April 2026 announcement asserts Type I**. This is a **public-source conflict**; no actual audit report inspected. A separate Type II claim by `tryren.com` remains unrelated.
