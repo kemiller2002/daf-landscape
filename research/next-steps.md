@@ -5,7 +5,7 @@ The baseline is public-source research, not independently verified SOC 2 complia
 ## P0 — validate assurance, scope, and control ownership
 
 **Ren (`reninc.com`)**
-- Request the **current** SOC 2 report and explicitly ask whether a **Type II** report exists for the DAF technology and administrative services in scope. Public April 2026 language says Type I.
+- Request the **current** SOC 2 report and explicitly ask whether a **Type II** report exists for the DAF technology and administrative services in scope. AEF July 2025 statement says Type II while April 2026 language says Type I; request both reports and a scope/timing reconciliation.
 - Identify named legal entity, report date/period, DAF product(s), subservice organizations, CUECs, exceptions, and auditor opinion.
 - Request separate SOC 1 Type II if the services support fund accounting / financial statements; ask how custody position feeds, grant authorizations and bank reconciliation are controlled.
 - Verify whether the reported system applies to Ren-powered AEF, institutional programs, legacy products, and payments or only a subset.
