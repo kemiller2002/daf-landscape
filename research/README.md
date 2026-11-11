@@ -150,11 +150,11 @@ The next differentiator is **conclusions that can be audited, challenged and rea
 
 The goal is a fully comprehensive DAF industry assessment across **legal sponsorship, economics, philanthropy, tax, donor/advisor behavior, nonprofit outcomes, governance, technology and resilience**. This stage delivers the research architecture and a critical audit, **not a claim that every topic has been fully empirically studied**.
 
-- [Comprehensive research blueprint](comprehensive-daf-research-blueprint-2026-11-11.md): 12 proposed report chapters; **42 cross-disciplinary topics** with 21 P0, 16 P1 and 5 P2 priorities; separation of charitable capital, commercial revenue and actual nonprofit outcomes.
+- [Comprehensive research blueprint](comprehensive-daf-research-blueprint-2026-11-11.md): 15 proposed report chapters; **45 cross-disciplinary topics** with 23 P0, 17 P1 and 5 P2 priorities; separation of charitable capital, commercial revenue and actual nonprofit outcomes.
 - [Clarity assumption audit of external and internal reports](clarity-report-assumption-audit-2026-11-11.md): **32 reviews**, including 20 external-report claims/interpretation hazards and 12 of our own findings. Three detailed Clarity case studies cover DAF-caused giving, geographic underserved need and donor engagement versus AI grant vetting.
 - [Structured 32-item claim, assumption, alternative and reassessment matrix](../data/clarity-report-assumption-audit-2026.csv): publisher-level overreach is distinguished from reader misinterpretation, appropriately scoped methods and our provisional hypotheses.
 - [Ten high-value Clarity conclusions](../data/clarity-conclusion-register-2026.csv): justified statement, open assumptions, posture, next action and concrete reassessment trigger.
-- [42-topic coverage matrix](../data/comprehensive-daf-research-coverage-2026.csv) and [27 qualified sources/research leads](../data/comprehensive-research-source-catalog-2026.csv).
+- [45-topic coverage matrix](../data/comprehensive-daf-research-coverage-2026.csv) and [27 qualified sources/research leads](../data/comprehensive-research-source-catalog-2026.csv).
 
 **Central correction:** The 2026 K2D/Chariot public report page goes beyond showing selected DAF switchers gave more at participating nonprofits to claiming DAFs cause increased giving; an actual donor-wide counterfactual remains unproven. DAFRC's 2026 revision and GivingTuesday's 2026 geographic report, by contrast, **openly disclose** many of their denominator, classification and missingness limitations. The challenge is often preserving these caveats when other analysts turn observations into market size, strategy, or tax policy claims.
 
@@ -169,7 +169,18 @@ The goal is a fully comprehensive DAF industry assessment across **legal sponsor
 
 **Critical distinction:** We have confirmed *adjacent fundraiser technology* insolvency/shutdown cases, not a statistically complete mortality history of core DAF administration platforms. Separate a charitable sponsor's legal ownership of assets from software or payment intermediary funds, vendor corporate IP, program continuity and donor accounting records. Actual legal/technical failure mechanisms require evidence; no provider's hidden runtime stack or current quality is inferred from public brochure.
 
-The comprehensive industry matrix now covers **42 topics with 21 P0 / 16 P1 / 5 P2**, including provider survival and technology validation, and the [14-chapter report blueprint](comprehensive-daf-research-blueprint-2026-11-11.md) indexes their work.
+The comprehensive industry matrix now covers **45 topics with 23 P0 / 17 P1 / 5 P2**, including provider survival and technology validation, and the [15-chapter report blueprint](comprehensive-daf-research-blueprint-2026-11-11.md) indexes their work.
+
+## Faith-based, megachurch and special-interest DAF networks (November 11, 2026)
+
+- [Megachurch and affinity DAF study](affinity-dafs-megachurches-and-special-interest-organizations-2026-11-11.md): religious/affinity grant ecosystems and legal distinctions across direct giving, donor-advised, organization-advised and endowment structures. Covers NCF, Signatry, WaterStone, JCF, Catholic foundations, AMCF, community/issue programs and tax boundaries. **No claim that ordinary cash church giving should be converted to DAFs.**
+- [30 affinity sources](../data/affinity-daf-source-register-2026.csv), [18 segmented fund and institution models](../data/affinity-daf-segments-and-models-2026.csv), [18 Clarity assumption checks](../data/affinity-daf-clarity-audit-2026.csv), and [12 qualified B2B opportunity tests](../data/affinity-daf-commercial-opportunity-tests-2026.csv). Source rows cover current IRS church Form 990 exceptions, 2026 nonitemizer direct cash deductions excluding DAF contributions, c3/c4/c6/527 boundaries and disclosed provider fees, including unresolved AMCF competing public fee pages.
+- [Historical DAF sponsor and platform lifecycle, 2011–2026](historical-daf-sponsor-technology-lifecycle-2011-2026.md): 2011 Blackbaud→Renaissance DAF software lineage, Ren and Foundation Source acquisitions, 2009/2011 National Heritage Foundation bankruptcy/revocation with later sponsor filings, AEF's 2024/2026 donor portal migrations and October 2026 DonorCentral closure. **Known-case ledger, not population mortality rate.**
+- [24 dated historical events](../data/historical-daf-lifecycle-events-2011-2026.csv), [33 history sources](../data/historical-daf-lifecycle-sources-2011-2026.csv), [18 historical Clarity checks](../data/historical-daf-lifecycle-clarity-challenges-2026.csv), [5 selected NHF asset observations](../data/national-heritage-foundation-filing-trajectory-2014-2022.csv).
+
+**New distinction:** Faith communities can be 501(c)(3) grant recipients, independent DAF sponsors, outreach distribution networks, or organizations advised on funds they do **not** legally own. Public church Form 990 exceptions mean ordinary 990 datasets cannot show the complete church-grant market. NCF reports $468m FY2025 grants **to churches**, not specifically megachurches, and that figure is not technology revenue. Hartford megachurch attendance is not paying SaaS contracts. Religion or individual giving intent must not be inferred for commercial donor targeting.
+
+The comprehensive industry research plan now has **45 topics across eight pillars, 23 P0 / 17 P1 / 5 P2, and 15 proposed report chapters**. The new evidence and opportunity analyses remain **public-source hypotheses**, without vendor sandbox tests, actual church procurement contracts, full historical vendor populations, or causal donor-giving proof.
 
 ## Principal findings
 

@@ -1,5 +1,5 @@
 # Comprehensive DAF Industry Report: research architecture and critical hypotheses
-**Research blueprint | November 11, 2026 | This is a coverage plan, not a completed 42-topic empirical study**
+**Research blueprint | November 11, 2026 | This is a coverage plan, not a completed 45-topic empirical study**
 
 ## Purpose
 
@@ -39,19 +39,20 @@ flowchart TD
 
 **Accounting convention:** at every arrow, identify legal payer and payee, whether it is a charitable contribution, sponsor asset, distribution, vendor fee, investment return, transfer, or program outcome. Never count donor deposits, sponsor assets and nonprofit payments as independent economic output.
 
-## Seven interconnected research pillars (42 topics)
+## Eight interconnected research pillars (45 topics)
 
 | Pillar | Topics | Key work | Decision enabled |
 |---|---:|---|---|
 | **Market structure** | 5 | Sponsor types, donation processing vs invested accounts, mergers, procurement, substitute operating models | Who really buys which kind of platform? |
 | **Financial economics** | 8 | Capital-flow reconciliation, delay and duration, fee waterfall, pricing, market stress, complex assets, impact investing, **bankruptcy protection of charitable funds** | Where are capital and value retained or dissipated? |
 | **Donor economics** | 6 | Tax incrementality, fit, behavior, advisor incentives, succession, accessibility | Which vehicle creates real donor/recipient value? |
+| **Affinity and special interest** | 3 | Megachurch and faith giving, community sponsorship, legally distinct civic/issue funds | Which institutional channels create genuinely additional charitable value without donor benefit violations? |
 | **Nonprofit outcomes** | 7 | Settlement/recognition, geographic need, government shocks, privacy, impact, disasters, community networks | What changes after funds reach charities? |
 | **Public policy** | 6 | Payout approaches, taxable benefits, oversight, cross-border giving, privacy, regulatory changes | Which controls and tradeoffs remain legal and justified? |
 | **Technology** | 6 | Fund accounting, portability, security, AI evidence, accessible interfaces and **independent vendor technology audit** | Does software improve correct completed outcomes? |
 | **Future and uncertainty** | 4 | Tax/market scenarios, global adjacent models, consolidation/systemic dependency and **provider mortality/data continuity** | What survives shocks and changed incentives? |
 
-See the [42-row topic and source coverage matrix](../data/comprehensive-daf-research-coverage-2026.csv) for topic-level priority, current coverage and required measurement.
+See the [45-row topic and source coverage matrix](../data/comprehensive-daf-research-coverage-2026.csv) for topic-level priority, current coverage and required measurement.
 
 ### Suggested final report table of contents
 
@@ -61,18 +62,19 @@ See the [42-row topic and source coverage matrix](../data/comprehensive-daf-rese
 4. **Market and competitors:** full 25-entity baseline, sponsor category denominator, independent platform buyers and substitutes.
 5. **Charitable capital economics:** tax recognition, contributions, account balances, investment returns, fees, grant approval and actual settlement.
 6. **Donor and advisor decisions:** causality vs substitution; behavioral economics; grant and contribution timing; suitable vehicle choices; successor options.
-7. **Technology and operations:** fund accounting, brokerage/custody feeds, payment, exceptions, independent security, data migration and access.
-8. **Independent provider technology audit:** legal asset/fund segmentation, APIs, identity, grant settlement and returns, independent scope of assurance, real operational tests and falsification.
-9. **Provider mortality, acquisitions and continuity:** Flipcause, Everfund, Kambeo, Blackbaud and DonorPerfect as adjacent failure/incident lessons; Vennfi, Giving Place, Benevity Alaya and other product transitions carefully distinguished; full legal sponsor and donor record exit continuity.
-10. **Nonprofit effects:** recipient engagement, privacy, philanthropy additionality, geographic gaps, social output measures and failure cases.
-11. **Competitive business economics:** named payee revenues, financial incentives, operating costs, customer retention and consolidation, without invented margins.
-12. **Regulatory and tax scenarios:** direct vs DAF giving, pending legislation, governance and excise taxes, cross-border grants and enforcement evidence.
-13. **Stress and resilience:** market downturn, government funding shock, disaster deployment, sponsor exits and digital infrastructure outages.
-14. **Falsifiable future outlook:** what would change conclusions, data acquisition plan, modeled scenarios and limitations.
+7. **Faith, megachurch and special-interest philanthropy:** direct gifts, DAFs, charity-advised and endowment structures, sponsor models and tax/legal boundaries.
+8. **Technology and operations:** fund accounting, brokerage/custody feeds, payment, exceptions, independent security, data migration and access.
+9. **Independent provider technology audit:** legal asset/fund segmentation, APIs, identity, grant settlement and returns, independent scope of assurance, real operational tests and falsification.
+10. **Provider mortality, acquisitions and continuity:** Flipcause, Everfund, Kambeo, Blackbaud and DonorPerfect as adjacent failure/incident lessons; Vennfi, Giving Place, Benevity Alaya and other product transitions carefully distinguished; full legal sponsor and donor record exit continuity.
+11. **Nonprofit effects:** recipient engagement, privacy, philanthropy additionality, geographic gaps, social output measures and failure cases.
+12. **Competitive business economics:** named payee revenues, financial incentives, operating costs, customer retention and consolidation, without invented margins.
+13. **Regulatory and tax scenarios:** direct vs DAF giving, pending legislation, governance and excise taxes, cross-border grants and enforcement evidence.
+14. **Stress and resilience:** market downturn, government funding shock, disaster deployment, sponsor exits and digital infrastructure outages.
+15. **Falsifiable future outlook:** what would change conclusions, data acquisition plan, modeled scenarios and limitations.
 
 ## Priority work that can change conclusions
 
-**P0 (21 topics)** across market structure (3), financial economics (4), donor economics (4), nonprofit outcomes (4), public policy (2), technology (3), future/uncertainty (1). P1 includes 16 topics; P2 includes five. These classifications reflect **information value and decision consequences**, not how interesting the subject sounds.
+**P0 (23 topics)** across market structure (3), financial economics (4), donor economics (4), nonprofit outcomes (4), public policy (2), technology (3), future/uncertainty (1), affinity/special-interest (2). P1 includes 17 topics; P2 includes five. These classifications reflect **information value and decision consequences**, not how interesting the subject sounds.
 
 ### First evidence packages
 
@@ -116,13 +118,15 @@ See [Clarity 32-point assumption audit](clarity-report-assumption-audit-2026-11-
 
 This blueprint and the claim audit **do not** mean all 39 domains are already researched, raw DAFRC sponsor data collected, vendor platforms independently tested or causal effects proved. The sources register has **27 qualified source leads**, but some sources are references for **future** primary extraction. Current available public summaries, published methodology and our prior repository reports support only a subset of the eventual analysis.
 
+The [faith and affinity DAF analysis](affinity-dafs-megachurches-and-special-interest-organizations-2026-11-11.md) adds distinct institution-owned and sponsor-owned funds, 18 segments and Clarity challenges. The [historical sponsor/technology census](historical-daf-sponsor-technology-lifecycle-2011-2026.md) traces 24 events with appropriate legal status classifications.
+
 The new [independent DAF technology and provider failure study](daf-technology-audit-and-provider-exits-2026-11-11.md) adds operational evidence and closure/insolvency distinctions. Its first-stage public review is **not a code audit or penetration test**.
 
 The final report should never assert a policy/technology investment winner from this planning stage. Its credibility will depend on preserving the difference between what has been established and what remains worth testing.
 
 ## Source, audit and report index
 
-- [42-topic coverage matrix](../data/comprehensive-daf-research-coverage-2026.csv)
+- [45-topic coverage matrix](../data/comprehensive-daf-research-coverage-2026.csv)
 - [27 qualified independent/regulatory/industry source leads](../data/comprehensive-research-source-catalog-2026.csv)
 - [32 Clarity assumption evaluations](../data/clarity-report-assumption-audit-2026.csv)
 - [10 decision-ready Clarity conclusions](../data/clarity-conclusion-register-2026.csv)
