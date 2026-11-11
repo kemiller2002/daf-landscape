@@ -3,7 +3,7 @@
 
 ## Executive conclusion
 
-The research is **no longer restricted to Ren, TIFIN Give, and Chariot**. It now covers **23 separately categorized entities**, **15 documented relationships**, **46 public sources**, and **9 dated sponsor/vendor scale observations**. The major addition is **Foundation Source**, which belongs near Ren on the shortlist for core philanthropy administration and platform services rather than being treated as an incidental adjacent company. **National Philanthropic Trust (NPT)** is also a real alternative for institutions that want a private-label sponsor-operated program without necessarily licensing a standalone administrative platform. **GivingTech DAFtech** merits a focused emerging-vendor check but requires much more independent verification.
+The research is **no longer restricted to Ren, TIFIN Give, and Chariot**. It now covers **24 separately categorized entities**, **17 documented relationships**, **53 public sources**, and **9 dated sponsor/vendor scale observations**. The major addition is **Foundation Source**, which belongs near Ren on the shortlist for core philanthropy administration and platform services rather than being treated as an incidental adjacent company. **National Philanthropic Trust (NPT)** is also a real alternative for institutions that want a private-label sponsor-operated program without necessarily licensing a standalone administrative platform. **GivingTech DAFtech** merits a focused emerging-vendor check but requires much more independent verification.
 
 A 2026 revision of the DAF Research Collaborative Annual DAF Report identified **1,512 FY2024 U.S. DAF sponsors**: 103 national, 803 community foundations and 606 single-issue charities [U01]. This is a *sponsor census*, **not a count of competing software vendors or current 2026 active firms**. The report also separates national donation-processing platforms from traditional DAF sponsor models.
 
@@ -27,6 +27,7 @@ A 2026 revision of the DAF Research Collaborative Annual DAF Report identified *
 - **October 2024:** Foundation Source acquired **Vennfi**, the technology company powering Charityvest's DAF program [U04,U31]. **Charityvest, Inc. remained an independent 501(c)(3) sponsor**. This is explicitly documented by both the charity and vendor [U07,U31].
 - **April 2025:** Foundation Source acquired **Giving Place**, TIFIN's family-office/private-foundation giving software, while TIFIN said it was concentrating on DAF products [U05]. Do **not** misclassify it as the sale of TIFIN Give's entire DAF platform.
 - **September 2025:** Foundation Source announced multi-custody DAF connectivity using **BridgeFT's WealthTech API**, supporting an advisor-branded approach [U06,U34].
+- **September 28, 2026:** TIAA Wealth Management launched a **Charityvest-sponsored, Foundation Source-powered DAF**, seven TIAA models, with TIAA investment advice. TIAA's March 2026 Form ADV and May 2026 Reg BI disclosures explicitly describe fees paid from Charityvest and affiliated-fund recommendation incentives [U47–U49]. This is a documented institutional channel but not proof of paid vendor ARR.
 - **November 2025:** Foundation Source and Charityvest announced an institutionally branded **Temple University** DAF program, a concrete deployment reference [U09].
 - **As of December 31, 2025**, a Foundation Source product brief marketed **over 5,600 private foundations, 20,000 DAF accounts, 1,700 nonprofits, more than $55bn charitable assets, over 190,000 grants/planned gifts annually** [U08]. **These are cross-product company-reported operating figures**, not $55bn pure DAF assets, not recognized vendor revenue, not recurring-contract evidence, and not independently audited in this study.
 
@@ -102,6 +103,8 @@ This is a **research priority list**, not a ranking of market quality or investm
 
 The market is consolidating at the **software-and-services layer** while charitable sponsorship remains legally separate in several prominent partnerships:
 
+- **Foundation Source → Charityvest → TIAA wealth channel** is now a published 2026 full delivery pathway: vendor technology, independently owned DAF sponsor, and a wealth manager whose affiliated investment adviser earns fees on sponsor-owned invested assets [U47–U49]. TIAA's disclosures explicitly recognize affiliated investment incentives, which are a diligence issue rather than evidence of misconduct.
+
 - **Ren ↔ RCF** is a disclosed related-party administration relationship.
 - **Foundation Source ↔ Charityvest** combines a for-profit technology platform (acquired Vennfi) with a legally independent sponsor.
 - **TIFIN Give ↔ GiveClear ↔ Chariot** separates platform, legal DAF sponsorship and payment.
@@ -111,6 +114,10 @@ The market is consolidating at the **software-and-services layer** while charita
 This helps explain why a competitive study limited to a list of *sponsors* can be misleading: the sponsors can share infrastructure or simply offer a distinct bundled buying route. It also explains why buyer-side selection needs separate controls for **legal asset owner, platform, outsourced administrator, custodian, advisor and disbursement provider**.
 
 **Hypothesis:** Foundation Source's acquisitions could expand cross-selling across private foundations, DAFs and planned giving, but could also create integration complexity. Its public company asset/support claims do not prove cross-selling success, completed technology integration or margin improvement. Test conversion, actual multivehicle client adoption, operational hours per completed grant, overlap of identities, account ledger integration, and signed retention contracts.
+
+## Current Charityvest fee evidence update
+
+The [Charityvest–Vennfi–Foundation Source–TIAA financial bridge](charityvest-foundation-source-tiaa-financial-bridge-2026-11-11.md) examines Charityvest's 2019 draft-stamped audit note describing a percentage-of-monthly-income Vennfi services agreement, its 2022 Form 990 outsourcing and restricted-security processing disclosures, and its 2024 Form 990 financial lines. Charityvest's FY2024 **$811,940 of expenses other than grants** is an arithmetic residual, **not** a fee paid to Foundation Source; the publicly indexed FY2024/23 audit attachment could not be inspected in the available research environment. The original named-payee payment remains unverified, unlike the prior RCF→Ren audited series. TIAA's 2026 investment-adviser arrangement and its disclosed conflicts are additional investment-channel evidence, not Foundation Source paid revenue.
 
 ## 9. Verification boundaries
 
@@ -123,9 +130,9 @@ This helps explain why a competitive study limited to a list of *sponsors* can b
 
 ## Files and next work
 
-- [Expanded entity map](../data/expanded-daf-market-map-2026.csv): **23 distinct entities**, roles and verification needs.
-- [Documented sponsor/vendor relationship edges](../data/expanded-ecosystem-relationships-2026.csv): **15 edges**, including acquisitions and known DAF technology/sponsor relationships.
-- [Source register](../data/expanded-ecosystem-sources-2026.csv): **46 public source entries** with caveats.
+- [Expanded entity map](../data/expanded-daf-market-map-2026.csv): **24 distinct entities**, roles and verification needs.
+- [Documented sponsor/vendor relationship edges](../data/expanded-ecosystem-relationships-2026.csv): **17 edges**, including acquisitions and known DAF technology/sponsor relationships.
+- [Source register](../data/expanded-ecosystem-sources-2026.csv): **53 public source entries** with caveats.
 - [Dated sponsor benchmarks](../data/expanded-sponsor-activity-benchmarks-2026.csv): **9 entity-period rows** with non-comparable denominator warnings.
 - [New-vendor diligence runbook](expanded-provider-diligence-2026.md): specific steps for legal sponsorship, accounting, SOC, economics, contracts and operational tests.
 

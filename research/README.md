@@ -97,12 +97,21 @@ The clearest documented distinction is **Ren's integrated fund-accounting/admini
 ## Expanded market universe (2026-11-11)
 
 - [Expanded DAF ecosystem research](expanded-daf-ecosystem-2026-11-11.md): moves beyond Ren/TIFIN/Chariot to Foundation Source/Charityvest, NPT private-label, GivingTech DAFtech, major national sponsors, digital-first platforms, workplace processors and enabling infrastructure.
-- [23-company and organization market map](../data/expanded-daf-market-map-2026.csv): legal sponsorship, technology/administration roles, customer types, public evidence, current report availability and next diligence priorities.
-- [15 sponsor/technology/acquisition relationships](../data/expanded-ecosystem-relationships-2026.csv): identify common infrastructure rather than treating legal sponsors and vendors as independent tech rivals.
+- [24-company and organization market map](../data/expanded-daf-market-map-2026.csv): legal sponsorship, technology/administration roles, customer types, public evidence, current report availability and next diligence priorities.
+- [17 sponsor/technology/acquisition relationships](../data/expanded-ecosystem-relationships-2026.csv): identify common infrastructure rather than treating legal sponsors and vendors as independent tech rivals.
 - [9 dated sponsor / cross-product activity benchmarks](../data/expanded-sponsor-activity-benchmarks-2026.csv): preserve actual calendar/fiscal periods, units, legal entities and self-reported versus audited limitations.
-- [46-source register](../data/expanded-ecosystem-sources-2026.csv) and [expanded provider diligence protocol](expanded-provider-diligence-2026.md): priority verification for Foundation Source/Charityvest, NPT institutional white label, GivingTech DAFtech, and other market categories.
+- [53-source register](../data/expanded-ecosystem-sources-2026.csv) and [expanded provider diligence protocol](expanded-provider-diligence-2026.md): priority verification for Foundation Source/Charityvest, NPT institutional white label, GivingTech DAFtech, and other market categories.
 
 **Highest-value finding:** Foundation Source acquired **Vennfi** (Charityvest's technology) in 2024 and TIFIN's **Giving Place** product in 2025. Charityvest remains an **independent charitable DAF sponsor**, Foundation Source is a for-profit technology/admin provider, and TIFIN continues operating its separate advisor-led DAF platform. Their 2025 reported charitable assets and grant flows are not vendor ARR. Foundation Source's 2025 announced BridgeFT multi-custody integration warrants detailed data-freshness tests before assessing competitive tax-lot features.
+
+
+## Charityvest / Foundation Source / TIAA financial bridge (2026-11-11)
+
+- [Charityvest / Vennfi / Foundation Source financial evidence and TIAA wealth distribution](charityvest-foundation-source-tiaa-financial-bridge-2026-11-11.md): 2019 draft-stamped auditor description of Vennfi percent-based services agreement, 2022 Form 990 delegated provider responsibilities, FY2024 IRS expense/grant comparison and 2026 TIAA advisor conflicts.
+- [12-row provider payment and expense bridge](../data/charityvest-provider-payment-bridge-2026.csv): unknown named provider payments preserved as unknown; sponsor 2024 **$811,940 expenses other than grants** explicitly labelled a calculated aggregate, *not a Foundation Source fee*.
+- [16-source evidence register](../data/charityvest-financial-and-tiaa-sources-2026.csv): original Charityvest IRS filings, TIAA March 2026 Form ADV, May 2026 Reg BI, September 2026 launch and Charityvest adviser pricing.
+
+**Material channel addition:** **TIAA Wealth Management's September 28, 2026 DAF** is sponsored by independent Charityvest, powered by Foundation Source technology and advised by a TIAA affiliate. TIAA's public documents explicitly disclose asset-linked adviser fees and proprietary-fund incentives. The same sources **do not show actual charitable account adoption, dollar contract fees paid to Foundation Source, or misconduct**. The new 24-entity expanded market map includes TIAA as a wealth/adviser distribution channel, not as a second technology platform or legal sponsor.
 
 ## Principal findings
 
