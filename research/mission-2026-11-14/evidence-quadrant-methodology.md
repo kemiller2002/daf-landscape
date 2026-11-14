@@ -84,3 +84,39 @@ Each criterion is scored **0–4** on the rubric below, or **U (unknown)** when 
 | `data/mission-2026-11-14/quadrant-scores-<area>.csv` | Scores. Columns: `area_id,provider,criterion_id,score,evidence_class,evidence_summary,source_url,source_date,scorer,notes`. `score` is 0–4 or U. `evidence_class` is one of primary, validated, vendor_claim, secondary. |
 | `data/mission-2026-11-14/quadrant-positions.csv` | Output: point estimates, bands, coverage and quadrant per provider and area. |
 | `research/mission-2026-11-14/quadrants/<area>.svg` | Rendered charts: point, uncertainty box, hollow marker when coverage is below 0.5. |
+
+## 7. Version 1.1 area notes (2026-11-14, from calibration P-QCAL-07)
+
+The calibration ([quadrant-calibration.md](quadrant-calibration.md)) showed that most one-point gaps between scorers came from different readings of the rubric, not from different evidence. The following notes are binding from v1.1 onward. They apply at the next re-score; the v1.0 consensus positions stand until then.
+
+**Sponsor areas A3 and A4, X1 (evidenced scale).** Use FY2024 DAF assets, period-aligned: the DAFRC FY2024 row equals June-2024 values for sponsors with a June fiscal year end. Where a filed Form 990 Schedule D or an audit exists, it replaces the imputed DAFRC value.
+
+| Score | FY2024 DAF assets |
+|---|---|
+| 0 | positive evidence of negligible scale |
+| 1 | under $0.5bn |
+| 2 | $0.5–5bn |
+| 3 | $5–20bn |
+| 4 | at least $20bn |
+
+**Sponsor X3 (assurance and control).**
+- A Form 990 alone, or a 2-page summary with no auditor's report, scores **U**.
+- Audited financial statements with an auditor's opinion that the scorer has read score **3**.
+- A scoped SOC 1 or SOC 2 report covering the sponsor's DAF system (sponsor's or administrator's, with scope matching) scores **4**.
+- Contradictory vendor assurance statements score **1**.
+
+**Y5 (interoperability and portability) for sponsors.**
+- Published *inbound*-only transfer pages ("recommend a closing grant from your old sponsor") score at most **1**.
+- Published *outbound* transfer terms score **2**.
+- Outbound terms plus a history export score **3**.
+- Documented in-kind transfer plus a history export scores **4**.
+- Documented history loss on a platform migration (e.g. AEF's two-year window) caps the score at **1**.
+
+**Scope rule for A1 sponsor-built platforms.** A platform evidenced as built or hosted by a vendor is scored under that vendor, not as "sponsor-built". Example: NPT GivingPoint runs on Ren iPhi ([validation wave 3](validation-wave3-report.md)). At the next re-score, merge the NPT GivingPoint row into Ren and record NPT as a Ren customer edge.
+
+**Entity scope rule.** Evidence about a vendor is not evidence about a sponsor, and the reverse also holds, unless a source ties the capability to that sponsor's program. Examples: the vendor's API does not prove a sponsor offers donors data export; a sponsor's audit does not prove the vendor's SOC scope.
+
+**AI overlay vocabulary.**
+- **GREEN:** controls documented, including flag-only and authority separation.
+- **AMBER:** capability live with undocumented limits, but sponsor approval remains.
+- **RED:** AI can complete a money-moving or status-clearing action without documented sponsor or human approval.
