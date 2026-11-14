@@ -3,16 +3,16 @@
   "cells": 348,
   "status_counts": {
     "Not investigated": 156,
-    "Discovery started": 81,
-    "Evidence collected": 86,
-    "Partially validated": 12,
-    "Independently corroborated": 0,
+    "Discovery started": 78,
+    "Evidence collected": 75,
+    "Partially validated": 10,
+    "Independently corroborated": 16,
     "Contradictory evidence": 2,
     "Insufficient public information": 11,
     "Research completed to current evidence standard": 0
   },
   "share_cells_investigated_any": 0.552,
-  "share_cells_partially_validated_or_better": 0.034,
+  "share_cells_partially_validated_or_better": 0.075,
   "entities_with_majority_not_investigated": [
     "Bank of America Charitable Gift Fund",
     "Benevity / workplace processors",

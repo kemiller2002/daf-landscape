@@ -46,3 +46,8 @@
 - [PWM DAF 2024 secondary Schedule D extract](https://nonprofitnewsfeed.com/daf/goldman-sachs-philanthropy-fund/)
 - [Goldman Sachs Gives FY2024 990 extract](https://philanthropy.org/990/report/113813663/the-goldman-sachs-charitable-gift-fund/2024)
 - [Goldman Sachs PWM DAF official FAQ](https://gspf.goldman.com/gspf/LinkClick.aspx?fileticket=HLXWYjqZAGE%3D&mid=554&tabid=111)
+
+## Validation correction (2026-11-14, independent validation wave 1)
+Source: [validation-wave1-report.md](mission-2026-11-14/validation-wave1-report.md), register `data/mission-2026-11-14/validation-register.csv`. Original text above is preserved for traceability; where it conflicts with this note, this note governs.
+
+- **V1-21 upgraded to confirmed:** IRS e-file 202503109349303645 (GS Donor Advised Philanthropy Fund for Wealth Management Inc, EIN 31-1774905), Schedule D Part I: 4,134 DAFs; contributions $5,833,783,136; grants $3,071,806,783; year-end value $12,640,914,117. The 'secondary source' caveat no longer applies.

@@ -62,3 +62,8 @@ Record each claim, dated source, entity boundary, measurement definition, mechan
 - [ ] Audit corporate giving platforms and identify sponsor-of-record.
 - [ ] Search failed, shuttered and pivoted DAF startups, with verifiable primary evidence.
 - [ ] Create company-by-company claim/evidence/uncertainty scorecards.
+
+## Validation correction (2026-11-14, independent validation wave 1)
+Source: [validation-wave1-report.md](mission-2026-11-14/validation-wave1-report.md), register `data/mission-2026-11-14/validation-register.csv`. Original text above is preserved for traceability; where it conflicts with this note, this note governs.
+
+- **V1-09 confirmed as company-reported:** Charityvest's 2025 figures are self-reported and not comparable with its Form 990 (TY2024 990 contributions $111.9M vs company-reported 2024 baseline $99.2M; net assets $103.2M). Do not mix the two series in growth calculations.

@@ -42,3 +42,10 @@ Edward Jones owns the adviser/client distribution relationship; RCF is legal spo
 - Map the Edward Jones/RCF/Ren grant lifecycle and actual delegated approval authority; gather sponsor-specific exception policies and operational metrics.
 - Quantify current Edward Jones-specific DAF assets and grants using disclosed segregated program data rather than RCF consolidated totals.
 - Compare with Morgan Stanley GIFT/Ren and other branded Ren/RCF programs for common technology, contract economics and concentration risk.
+
+## Validation correction (2026-11-14, independent validation wave 1)
+Source: [validation-wave1-report.md](mission-2026-11-14/validation-wave1-report.md), register `data/mission-2026-11-14/validation-register.csv`. Original text above is preserved for traceability; where it conflicts with this note, this note governs.
+
+- **V1-05 unable to verify:** The Ren adviser-guide PDF cited for the 'more than $2.9 billion' Edward Jones figure returned HTTP 404 on 2026-11-14 and no archive copy was retrieved. Treat the figure as historical, unverified, low confidence.
+- **V1-04 wording:** RCF's FAQ says Ren supplies 'the institutional-grade platform, administrative infrastructure, and operational support' — i.e. administration as well as technology; RCF audits describe 'administration services'. Ren is not a technology-only vendor for RCF.
+- Mission vendor graph (2026-11-14): Edward Jones portal displays 'DFX powered by Ren' (technology confirmed); Ren back-office administration specifically for the Edward Jones program remains inferred. See `research/mission-2026-11-14/vendor-dependency-concentration.md`.

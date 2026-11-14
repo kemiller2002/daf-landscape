@@ -36,3 +36,8 @@ Potential boundary between BofA trustee authority, Merrill distribution, branded
 - [BofA donor portal user guide](https://bofa.donorfirst.org/pdf/bofa/Guide%20to%20Navigating%20Your%20Donor%20Advised%20Fund.pdf)
 - [BofA Charitable Gift Fund overview](https://www.bankofamerica.com/philanthropic/gift-fund-overview/)
 - [Merrill January 8, 2026 CGF description](https://www.ml.com/articles/the-bank-of-america-charitable-gift-fund.html)
+
+## Validation correction (2026-11-14, independent validation wave 1)
+Source: [validation-wave1-report.md](mission-2026-11-14/validation-wave1-report.md), register `data/mission-2026-11-14/validation-register.csv`. Original text above is preserved for traceability; where it conflicts with this note, this note governs.
+
+- **V1-20 contradicted:** No Bank of America Corp. SEC filing (EDGAR full-text search) and no BofA Charitable Gift Fund Form 990 (TY2023–24) mentions Ren. The only public evidence of a Ren relationship is the bofa.donorfirst.org portal (adviser contact charitablegiftfund@reninc.com; 'DFX powered by Ren'; page markup naming Renaissance Administration LLC). Scope (technology vs administration) and economics are unknown.

@@ -46,3 +46,8 @@ Official financial disclosures portal: https://www.dafgiving360.org/about-dafgiv
 - Extract NPT audited FY2025 statements and named investment-manager / related-party notes; reconcile IRS and annual-report metrics.
 - Build entity-by-entity affiliate fee beneficiary graph with service, actual amount, date, reporting basis and confidence.
 - Separate client relationship retention, personal AUM retention, sponsor-owned external adviser mandate retention and nonprofit impact.
+
+## Validation correction (2026-11-14, independent validation wave 1)
+Source: [validation-wave1-report.md](mission-2026-11-14/validation-wave1-report.md), register `data/mission-2026-11-14/validation-register.csv`. Original text above is preserved for traceability; where it conflicts with this note, this note governs.
+
+- **V1-16 partially confirmed (period):** $4,014,052 is FY2025. Vanguard Charitable FY2026 audited statements (FYE 2026-06-30, Note 1) report $4,243,096 related-party support fees for FY2026.
