@@ -25,8 +25,8 @@ Raw inventory: [`data/mission-2026-11-14/repo-inventory-baseline.json`](../../da
 ### Completed to a documented public-evidence standard (still not independently validated)
 - **RCF → Ren audited payments 2020–2024** ($7.51m in 2020 rising to $19.23m in FY2024; the fee basis is 95% of fundholder fees in 2020–22 and 98% in 2023–24). Source: RCF audited statements, `data/rcf-ren-audited-admin-payments-2020-2024.csv`.
 - **Edward Jones Charitable Gift Fund:** RCF is the legal sponsor and the donor portal is a branded DonorFirstX site. The Ren role is described by RCF as "technology and operational support". See `edward-jones-ren-*.md`.
-- **Foundation Source acquisitions** of Vennfi (2024) and TIFIN's Giving Place (2025). **Charityvest** remains an independent sponsor. **TIAA's Sept 2026 DAF** is sponsored by Charityvest and powered by Foundation Source.
-- **DAFRC revised FY2024 baseline:** 3.59m accounts, $327.87bn assets, $90.57bn contributed, $64.60bn granted.
+- **Foundation Source acquisitions** of Vennfi (2024) ([Foundation Source release](https://foundationsource.com/newsroom/press-releases/foundation-source-acquires-vennfi-the-fintech-powering-donor-advised-fund-charityvest/)) and TIFIN's Giving Place (2025) ([Foundation Source release](https://foundationsource.com/newsroom/press-releases/foundation-source-acquires-giving-place-platform-for-private-foundations-and-family-offices/)). **Charityvest** remains an independent sponsor. **TIAA's Sept 2026 DAF** ([TIAA/PR Newswire, 2026-09-28](https://www.prnewswire.com/news-releases/tiaa-wealth-management-makes-charitable-giving-part-of-the-financial-plan-with-new-donor-advised-fund-program-302891438.html)) is sponsored by Charityvest and powered by Foundation Source.
+- **DAFRC revised FY2024 baseline:** 3.59m accounts, $327.87bn assets, $90.57bn contributed, $64.60bn granted ([DAFRC 2025 Updated Analysis](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf)).
 - **Affiliated-provider fee tracing** for Fidelity Charitable and Vanguard Charitable (batch 1C/1D).
 
 ### Incomplete (foundation exists, decisive evidence missing)
@@ -37,7 +37,7 @@ Raw inventory: [`data/mission-2026-11-14/repo-inventory-baseline.json`](../../da
 - Vendor tests: **none executed** (vendor-test-execution-2026-11-11.md).
 
 ### Unverified or contradictory
-- Ren/AEF SOC 2 type: AEF's July 2025 wording says Type II, while its April 2026 wording says Type I.
+- Ren/AEF SOC 2 type: AEF's July 2025 wording says Type II ([AEF/Ren release, 2025-07-23](https://www.aefonline.org/thought-leadership/american-endowment-foundation-selects-ren-as-a-strategic-partner-to-expand-philanthropy-drive-innovation-and-foster-growth-in-financial-services/)), while its April 2026 wording says Type I ([AEF/Ren release, 2026-04-08](https://www.aefonline.org/thought-leadership/ren-brings-american-endowment-foundation-fully-onto-its-technology-platform-powering-philanthropy-at-scale/)). Wave-1 validation later showed both are Ren's own boilerplate (see `validation-wave1-report.md`).
 - The Stellar/iPhi "175 clients" claim is still only a lead.
 - AI capability claims (TIFIN Give Tax Intelligence and others) were announced, but delivery has not been assessed.
 
@@ -49,7 +49,7 @@ Statuses use the mission's eight-state scale: Not investigated, Discovery starte
 
 Baseline result (before this mission's agents report):
 
-| Status | Cells | Share |
+| Status (computed by `scripts/mission_coverage.py` at baseline) | Cells | Share |
 |---|---|---|
 | Not investigated | 156 | 44.8% |
 | Discovery started | 81 | 23.3% |
