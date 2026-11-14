@@ -201,6 +201,7 @@ def amounts_after(cells: Sequence[str], k: int) -> tuple[float, ...]:
     """Numeric cells after index k; small decimals (percent of net assets) dropped when 4+ values present."""
     vals = tuple((c, to_num(c)) for c in cells[k + 1:])
     vals = tuple((c, v) for c, v in vals if v is not None)
+    vals = vals[:-1] if len(vals) >= 4 and re.fullmatch(r"\(\s*\d{1,2}\s*\)", vals[-1][0]) else vals  # trailing footnote "(15)"
     keep = vals if len(vals) < 4 else tuple((c, v) for c, v in vals if not ("." in c and abs(v) < 100))
     return tuple(v for _, v in keep)
 
@@ -208,6 +209,11 @@ def amounts_after(cells: Sequence[str], k: int) -> tuple[float, ...]:
 def rate_terms(cells: Sequence[str], end: int) -> tuple[str, str, str]:
     """(reference rate, spread %, floor %) from cells before index end."""
     k = next((i for i, c in enumerate(cells[:end]) if REF.match(c.replace("%", "% ").strip())), None)
+    inl = next((m for c in cells[:end] for m in (re.search(r"\b(SOFR|SF|S|LIBOR|L|E|Prime|P)\s*(\(\w\))?\s*\+\s*([\d.]+)", c),) if m), None)
+    if inl is not None and (k is None or not (REF.match(cells[k].strip()).group(3) or "")):
+        v = float(inl.group(3))
+        if k is None or v > 0:
+            return inl.group(1), (f"{v / 100:.2f}" if v > 20 else inl.group(3)), ""
     if k is None:
         return "", "", ""
     m = REF.match(cells[k].strip())
@@ -217,6 +223,9 @@ def rate_terms(cells: Sequence[str], end: int) -> tuple[str, str, str]:
     nxt = tuple(re.match(r"([\d.]+)", c).group(1) for c in cells[k + 1:end]
                 if re.match(r"^[\d.]+\s*%?(\s*PIK)?$", c.strip())) if not nxt else nxt
     cand = ((inline,) if inline else ()) + nxt
+    if not cand:
+        return ref, "", ""
+    cand = tuple(f"{float(c) / 100:.2f}" if float(c) > 20 else c for c in cand if c not in ("", "."))
     if not cand:
         return ref, "", ""
     if len(cand) >= 2 and float(cand[0]) <= 1.0 < float(cand[1]):
@@ -286,10 +295,51 @@ def below_par(r: Mapping) -> str:
     return "" if v is None or r.get("row_type") != "debt" else ("yes_lt_97" if v < 97 else ("slight_97_99.5" if v < 99.5 else "no"))
 
 
-FIELDS = ("target_company", "edgar_phrase", "borrower_name_as_listed", "lender_bdc", "lender_cik", "file_num", "form",
+def parse_check(r: Mapping) -> str:
+    """Flags rows whose parsed values are implausible; row_cells_raw then governs."""
+    sp, fp = num(r.get("spread_pct")), r.get("fv_pct_of_par")
+    par, fv = r.get("par_or_principal"), r.get("fair_value")
+    bad = ((sp is not None and sp > 10) or (fp is not None and (fp > 110 or fp < 50))
+           or (par and fv is not None and fv < 0 and r.get("row_type") == "debt"))
+    return "check_raw" if bad else ""
+
+
+def num(x):
+    try:
+        return float(x)
+    except (TypeError, ValueError):
+        return None
+
+
+def identity_note(r: Mapping) -> str:
+    """How sure the borrower-as-listed is the target company (rules stated here, not judged row by row)."""
+    t, raw, mat = r.get("target_company", ""), r.get("row_cells_raw", ""), r.get("maturity", "") + r.get("dates_in_row", "")
+    if t.startswith("Bonterra"):
+        if re.search(r"cybergrants|everyaction", raw + r.get("borrower_name_as_listed", ""), re.I) or "2027" in mat:
+            return "linked: CyberGrants/EveryAction lineage facility (Apax; CyberGrants Holdings renamed Bonterra LLC)"
+        if "2032" in mat:
+            return ("unconfirmed: same name 'Bonterra LLC', 3/5/2032 facility; FS KKR lists Software & Services, AB lists "
+                    "Diversified Consumer Services; 2027 Apax facility still held by other BDCs at the same dates")
+        return "unconfirmed: name match only"
+    return {"Foundation Source": "probable: exact name; Audax was the 2020 lender; 9/6/2030 maturity fits the Sept-2023 GTCR buyout",
+            "Orion Advisor Solutions": "confirmed: exact legal name",
+            "Bloomerang": "confirmed: exact name (Bloomerang, LLC)",
+            "Community Brands / Momentive": "linked: Community Brands ParentCo (renamed Momentive Software 2024); 2031 maturities match the July-2024 refinancing",
+            "Envestnet": "confirmed: Envestnet or BCPE Pequod Buyer (dba Envestnet), Bain take-private vehicle"}.get(t, "name match only")
+
+
+def no_hit_rows(hits: Sequence[Mapping]) -> tuple[dict, ...]:
+    """Targets with no BDC 10-K/10-Q hit at all: one auditable row each."""
+    bdc_phrases = {h["phrase"] for h in hits if h["file_num"].startswith("814-")}
+    return tuple({"target_company": t, "edgar_phrase": p, "row_type": "no_bdc_hit",
+                  "row_cells_raw": f"EDGAR FTS total hits (all filers) = {sum(1 for h in hits if h['phrase'] == p)}; none from an 814- filer",
+                  "efts_query_url": efts_url(p, 0)} for t, p, _ in TARGETS if p not in bdc_phrases)
+
+
+FIELDS = ("target_company", "identity_note", "edgar_phrase", "borrower_name_as_listed", "lender_bdc", "lender_cik", "file_num", "form",
           "filing_date", "period_ending", "which_filing", "row_type", "instrument", "ref_rate", "spread_pct",
           "floor_pct", "pik_flag", "dates_in_row", "maturity", "par_or_principal", "amortized_cost", "fair_value",
-          "units_hint", "fv_pct_of_par", "fv_pct_of_cost", "below_par_signal", "table_row_index", "row_cells_raw",
+          "units_hint", "fv_pct_of_par", "fv_pct_of_cost", "below_par_signal", "parse_check", "table_row_index", "row_cells_raw",
           "filing_url", "efts_query_url")
 
 
@@ -300,8 +350,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     a = ap.parse_args(argv)
     hits = cached_hits(a.cache_dir, a.fetch)
     filings = select_filings(hits)
-    rows = tuple({**r, "below_par_signal": below_par(r)} for f in filings
-                 for r in rows_for_filing(f, doc_text(a.cache_dir, f["url"], a.fetch)))
+    rows = tuple({**r, "below_par_signal": below_par(r), "identity_note": identity_note(r), "parse_check": parse_check(r)} for f in filings
+                 for r in rows_for_filing(f, doc_text(a.cache_dir, f["url"], a.fetch))) + no_hit_rows(hits)
     m990.write_csv(OUT, rows, FIELDS)
     print(f"hits={len(hits)} bdc_filings={len(filings)} rows={len(rows)}")
     by = {}

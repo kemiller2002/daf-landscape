@@ -354,3 +354,7 @@ Source: [validation-wave7-report.md](validation-wave7-report.md). Where these co
 5. **Line 24.** Append: "(historical facility; probably refinanced at GTCR's 2023 buyout, not a current lender)."
 
 No correction is needed for Warburg/Bloomerang, Bain Capital Double Impact/FreeWill or Bonterra/Deed.
+
+## Update from BDC filings (2026-11-14) — supersedes wave-7 correction 5 pending wave-8 validation
+
+Audax Private Credit Fund's 2021+ BDC schedules still list a GTCR-era Foundation Source first-lien term loan, a delayed-draw loan and a revolver (S+5.00%, maturing 2030, revolver 2029, marked at par), plus LP equity. Audax therefore remains a lender. Detail: [queue-pe-lenders-labour-rates.md](queue-pe-lenders-labour-rates.md); `data/mission-2026-11-14/bdc-loans-daf-ecosystem.csv`.
