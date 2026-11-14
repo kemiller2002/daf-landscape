@@ -367,6 +367,21 @@ Each item links to its workstream. Every workstream carries inline primary-sourc
 - Curricula, including the new DAFCP credential, repeat the aggregate 25.2% payout framing.
 - New adviser data: 35% of advisers recommend DAFs most or all of the time (DAFRC 2026, n=669) [V].
 
+**Sponsor cost structure from Form 990** ([sponsor-cost-structure-and-sensitivities.md](mission-2026-11-14/sponsor-cost-structure-and-sensitivities.md); 5,272 returns, full Part IX)
+- **DAF-allocated FY2024 operating cost** is about $2.1–2.8bn, or 67–89 bps of DAF assets depending on allocation. Excluded: investment fees and university/hospital foundations.
+- **By sponsor type:** standard nationals run at about 25–32 bps and community foundations at about 127–177 bps.
+- **Cost per grant:** Fidelity about $68, DAFgiving360 $55, Vanguard $134, NPT $419.
+- **Scale economies are strong:** cost elasticity to scale is 0.41 for nationals and 0.84 for community foundations.
+- **What this does to the AI-economics model:**
+  - It refutes the "technology expense undisclosed" premise and the assumption that cost grows linearly with grant volume.
+  - It confirms the base labour pool, which is about 6–8% of observed cost per grant.
+  - It confirms that a $150k–$750k standalone AI build is prohibitive for most community foundations (median IT spend is $17k–$116k).
+- **Sensitivity of the market statistics:**
+  - Excluding Givinga drops the processor share of accounts from about 80% to about 59–67%.
+  - FY2022 account growth flips from +72% to −7%.
+  - Givinga's Schedule G names a charity sweepstakes operator as its main fundraiser, so its "accounts" are likely player records. This is an inference and is pending validation.
+  - Recommendation: exclude SDG Impact Fund from market totals and footnote it.
+
 **Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
 - Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
 - The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.

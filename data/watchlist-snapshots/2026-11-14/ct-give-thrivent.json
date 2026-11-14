@@ -1,0 +1,36 @@
+{
+  "check_id": "ct-give-thrivent",
+  "check_type": "ct_crtsh",
+  "date": "2026-11-14",
+  "detail": {
+    "names": {
+      "thrivent-sftp.int.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-10-05",
+        "last_not_before": "2026-10-05"
+      },
+      "thriventcharitable-staging.giveinteractive.com": {
+        "certs": 6,
+        "first_not_before": "2026-08-14",
+        "last_not_before": "2026-10-07"
+      }
+    }
+  },
+  "entity": "Thrivent Charitable",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:25:03Z",
+  "ok": true,
+  "queue_items": "P-GIV-02",
+  "source_url": "https://crt.sh/?q=%25.giveinteractive.com",
+  "status": "200",
+  "summary": {
+    "name_count": 2,
+    "names": [
+      "thrivent-sftp.int.giveinteractive.com",
+      "thriventcharitable-staging.giveinteractive.com"
+    ],
+    "watch_hits": []
+  },
+  "target": "%.giveinteractive.com",
+  "watch_regex": "^thriventcharitable\\.giveinteractive\\.com$"
+}

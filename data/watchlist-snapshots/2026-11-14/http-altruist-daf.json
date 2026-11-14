@@ -1,0 +1,95 @@
+{
+  "check_id": "http-altruist-daf",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://altruist.com/donor-advised-funds/"
+      }
+    ],
+    "final_url": "https://altruist.com/donor-advised-funds/",
+    "form_actions": [],
+    "meta": {
+      "article:modified_time": "2026-10-06T18:55:37+00:00",
+      "description": "Grow your clients' giving, not your workload. Open and manage donor-advised funds on Altruist, alongside every other account in a household.",
+      "generator": "NitroPack",
+      "msapplication-tileimage": "https://cdn.prod.altruistnet.tech/wp-content/uploads/2025/06/cropped-favicon-96x96-1-270x270.png",
+      "msba-wordpress-proxy-base": "/a/msba/",
+      "og:description": "Grow your clients' giving, not your workload. Open and manage donor-advised funds on Altruist, alongside every other account in a household.",
+      "og:image": "https://cdn.prod.altruistnet.tech/wp-content/uploads/2026/10/river-bg.webp",
+      "og:image:height": "957",
+      "og:image:type": "image/webp",
+      "og:image:width": "1435",
+      "og:locale": "en_US",
+      "og:site_name": "Altruist",
+      "og:title": "Donor-Advised Funds - Altruist",
+      "og:type": "article",
+      "og:url": "https://altruist.com/donor-advised-funds/",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "twitter:card": "summary_large_image",
+      "twitter:data1": "64 minutes",
+      "twitter:label1": "Est. reading time",
+      "twitter:site": "@altruist",
+      "viewport": "width=device-width, initial-scale=1"
+    },
+    "raw_sha256": "84bb549f208a7b951d4a952760890f12f407983f255ab749e5135fa53232a15b",
+    "text_chars": 12206,
+    "text_sha256": "c1b27208113451d580f9ffeae9afb1bee8e53af5c25cbb097cb21e042360617c"
+  },
+  "entity": "Altruist DAF program",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:38Z",
+  "ok": true,
+  "queue_items": "P-BUY-01",
+  "source_url": "https://altruist.com/donor-advised-funds/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "altruist.com"
+    ],
+    "final_host": "altruist.com",
+    "final_status": "200",
+    "footers": [
+      "\u00a9 2026 Altruist Corp"
+    ],
+    "links": [
+      "https://altruist.com/legal/security/ | Security disclosures",
+      "https://altruist.com/terms/ | Terms of Service",
+      "https://altruist.com/terms/ | Terms of Use",
+      "https://app.altruist.com/login | Log in",
+      "https://endaoment.org/ | Endaoment"
+    ],
+    "title": "Donor-Advised Funds - AltruistProfile IconPercent IconLink IconRecurring IconWallet IconActivity IconShield IconShapes IconCopy IconHeart IconPie Chart IconStrategy IconOptions IconDollar IconExpand I",
+    "watch_hits_urls": [
+      "Endaoment",
+      "endaoment"
+    ],
+    "watch_sentences": [
+      "A donor-advised fund is a charitable account held at a public charity, called the sponsoring organization.",
+      "Advisors choose the investment options within the sponsor's investment policy.",
+      "Altruist shows you every detail the current sponsor's grant form will ask for, in one click.",
+      "Because DAF assets belong to the sponsor, a transfer works like a grant: open a DAF in Altruist, then ask the current sponsor to grant the balance to the new fund.",
+      "Because the sponsor already owns the assets, they sit outside the client's taxable estate.",
+      "DAFs on Altruist are sponsored by Endaoment, a 501(c)(3) public charity that is the legal owner of DAF assets.",
+      "Endaoment, a public charity.",
+      "Grant and investment recommendations are advisory only and subject to Endaoment's approval.",
+      "How fast it completes is up to the current sponsor.",
+      "Once the assets go to the sponsor, the client cannot get them back or redirect them to anything other than charity.",
+      "Some sponsors accept illiquid assets, like real estate, stakes in private businesses, cryptocurrency, and art.",
+      "Sponsoring organizations may set their own inactivity policies.",
+      "The public charity that sponsors DAFs owns the assets, confirms the receiving organization is eligible, approves and disburses each grant, and handles IRS reporting.",
+      "The sponsor approves all grant recommendations.",
+      "The sponsor has the final say",
+      "The sponsor issues the contribution receipt and annual acknowledgment, delivered through Altruist's Document Center.",
+      "The sponsor legally owns the assets, and its policy sets what's eligible.",
+      "These gifts have to be appraised and pass the sponsor's due diligence first, so they take longer than cash or stock, and the sponsor can decline.",
+      "Who sponsors Altruist DAFs?",
+      "Your client contributes cash or stock to the DAF sponsor, who administers the account."
+    ]
+  },
+  "target": "https://altruist.com/donor-advised-funds/",
+  "watch_regex": "(?i)Endaoment|Vanguard Charitable|Vanguard|50 ?b(asis )?p(oin)?ts|sponsor"
+}

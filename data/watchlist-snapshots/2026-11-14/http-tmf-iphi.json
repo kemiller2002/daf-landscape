@@ -1,0 +1,56 @@
+{
+  "check_id": "http-tmf-iphi",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://tmf.iphiview.com/tmf/LogIn/tabid/54/Default.aspx"
+      }
+    ],
+    "final_url": "https://tmf.iphiview.com/tmf/LogIn/tabid/54/Default.aspx",
+    "form_actions": [
+      "/tmf/LogIn/tabid/54/Default.aspx"
+    ],
+    "meta": {
+      "author": "The Minneapolis Foundation",
+      "copyright": "Copyright 2013 by The Minneapolis Foundation",
+      "distribution": "GLOBAL",
+      "rating": "GENERAL",
+      "resource-type": "DOCUMENT",
+      "revisit-after": "1 DAYS",
+      "robots": "INDEX, FOLLOW",
+      "viewport": "width=device-width"
+    },
+    "raw_sha256": "39d9641f6d617ac92b0e70f4fc6cfca68483581c64a78b2b8df0ba9fa0ee81cc",
+    "text_chars": 2322,
+    "text_sha256": "94bbb9c6d36d3010d508bbc9b4310b796364e98655fe3a3b97084be99b891d69"
+  },
+  "entity": "Minneapolis Foundation (iPhi login)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:34Z",
+  "ok": true,
+  "queue_items": "P-GIV-02",
+  "source_url": "https://tmf.iphiview.com/tmf/LogIn/tabid/54/Default.aspx",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "tmf.iphiview.com"
+    ],
+    "final_host": "tmf.iphiview.com",
+    "final_status": "200",
+    "footers": [],
+    "links": [],
+    "title": "Log In",
+    "watch_hits_urls": [],
+    "watch_sentences": [
+      "Minneapolis Foundation",
+      "Minneapolis, MN 55402",
+      "The Minneapolis Foundation"
+    ]
+  },
+  "target": "https://tmf.iphiview.com/tmf/LogIn/tabid/54/Default.aspx",
+  "watch_regex": "(?i)Minneapolis|Stellar|Copyright"
+}

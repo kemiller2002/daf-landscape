@@ -1,0 +1,85 @@
+{
+  "check_id": "http-assetmark-guidelines",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://intercom.help/assetmark-help-center/en/articles/10924891-assetmark-charitable-program-guidelines"
+      }
+    ],
+    "final_url": "https://intercom.help/assetmark-help-center/en/articles/10924891-assetmark-charitable-program-guidelines",
+    "form_actions": [
+      "/assetmark-help-center/en/"
+    ],
+    "meta": {
+      "description": "",
+      "og:description": "",
+      "og:image": "https://static.intercomassets.com/assets/educate/educate-favicon-64x64-at-2x-b32e3a0b.png",
+      "og:title": "AssetMark Charitable Program Guidelines | AssetMark Help Center",
+      "og:type": "article",
+      "robots": "noindex, nofollow",
+      "twitter:card": "summary",
+      "twitter:description": "",
+      "twitter:image": "https://static.intercomassets.com/assets/educate/educate-favicon-64x64-at-2x-b32e3a0b.png",
+      "twitter:title": "AssetMark Charitable Program Guidelines | AssetMark Help Center",
+      "viewport": "width=device-width, initial-scale=1"
+    },
+    "raw_sha256": "84f8f9528ff54face47602b6e9b0bf9644e0a783833254935ceff8a5468d7ed7",
+    "text_chars": 12842,
+    "text_sha256": "f63bcc060aef91018f343840e4dc25871f8dbdabb91fbf5d86ce374234fb7a80"
+  },
+  "entity": "AssetMark Charitable Program",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:37Z",
+  "ok": true,
+  "queue_items": "P-VEN-08",
+  "source_url": "https://intercom.help/assetmark-help-center/en/articles/10924891-assetmark-charitable-program-guidelines",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "intercom.help"
+    ],
+    "final_host": "intercom.help",
+    "final_status": "200",
+    "footers": [],
+    "links": [
+      "https://assetmarkcharitable-release.tifingive.com/auth | Login to AssetMark Charitable"
+    ],
+    "title": "AssetMark Charitable Program Guidelines | AssetMark Help Center",
+    "watch_hits_urls": [
+      "tifin"
+    ],
+    "watch_sentences": [
+      "*AssetMark, TIFIN Give and GiveClear Foundation reserve the right to modify the Donor Advised Fund (DAF) program and the Program Guidelines at any time.",
+      "All activities of GiveClear and all participation by Donors are subject to these DAF Program Guidelines and the policies referenced within.",
+      "AssetMark has contracted with GiveClear Foundation (\"GC\" or \"GiveClear\"), to be the 501(c)(3) Donor Advised Fund Sponsor, and TIFIN WealthTech, LLC (\"TIFIN Give\"), to provide a digital DAF platform.",
+      "Cash (USD): GiveClear accepts contributions of monies in US dollars to a DAF.",
+      "Contributions to your DAF are irrevocable when received and accepted by GiveClear, which retains exclusive legal control over contributions.",
+      "DAF Administration fees are used by GiveClear to pay for administrative and operating expenses incurred in the administration of the AssetMark DAF Program.",
+      "DAF Administrative Fees are used by GiveClear to pay for the administrative and operating expenses incurred in the administration of the AssetMark DAF Program.",
+      "DAF Transfers: GiveClear accepts incoming transfers of DAF assets held at external DAF Sponsors.",
+      "Donors and/or their Advisors must initiate a grant recommendation from external DAF to GiveClear and",
+      "Donors receive credit into their DAF effective the day the transfer is received by GiveClear.",
+      "Donors receive credit into their DAF for each contribution effective the day the funds are received by GiveClear.",
+      "Donors receive credit into their DAF for each contribution effective the day the security is received by GiveClear.",
+      "Funds must be received by GiveClear by close of business December 31st (or the last banking day of the year).",
+      "GiveClear Foundation is a 501(c)(3) organization, EIN: 81-3222963.",
+      "GiveClear Foundation will not accept gifts that do not meet the above specifications.",
+      "GiveClear also recommends that individuals seek Independent Legal Advice (ILA) prior to making any significant contributions, as there are IRS limits on the amounts of charitable contributions that can be deducted in any one year.",
+      "GiveClear and AssetMark will coordinate with the Successor to open a DAF and transfer the allocated amount.",
+      "GiveClear and TIFIN Give deliver an inspiring charitable giving experience through innovative technology, bringing additional accountability, transparency and effectiveness to philanthropy.",
+      "GiveClear and TIFIN Give envision a new model of philanthropy - a transparent system at your fingertips connecting people to trusted non-profits at scale.",
+      "GiveClear determines that following such a policy creates an inappropriate outcome, the board of GiveClear will place the funds with one or more approved charities of its choosing.",
+      "GiveClear enters into an advisory agreement with AssetMark or your Financial Advisor to open an individually managed account for benefit of each approved DAF.",
+      "GiveClear reserves the right to assess a DAF for extraordinary or unusual costs it incurs due to a Donor's requests.",
+      "GiveClear reserves the right to decline any contributions, for example a contribution that does not comply with IRS regulations.",
+      "GiveClear will follow all IRS guidelines and standard practice guidelines for the industry in valuing all contributions.",
+      "Grant Restrictions - All grants are under the exclusive legal control of GiveClear, which reserves the right to refuse a grant recommendation based on legal obligations, tax-exempt status, internal policies, or improper purposes."
+    ]
+  },
+  "target": "https://intercom.help/assetmark-help-center/en/articles/10924891-assetmark-charitable-program-guidelines",
+  "watch_regex": "(?i)GiveClear|TIFIN|ImpactAssets|0\\.60%|0\\.20%"
+}

@@ -1,0 +1,346 @@
+{
+  "check_id": "ct-tifingive",
+  "check_type": "ct_crtsh",
+  "date": "2026-11-14",
+  "detail": {
+    "names": {
+      "*.daf.tifingive.com": {
+        "certs": 1,
+        "first_not_before": "2022-10-06",
+        "last_not_before": "2022-10-06"
+      },
+      "*.tifingive.com": {
+        "certs": 180,
+        "first_not_before": "2022-06-27",
+        "last_not_before": "2026-10-03"
+      },
+      "assetmarkcharitable-release.tifingive.com": {
+        "certs": 3,
+        "first_not_before": "2024-03-05",
+        "last_not_before": "2026-01-05"
+      },
+      "assetmarkcharitable-uat.tifingive.com": {
+        "certs": 4,
+        "first_not_before": "2024-05-01",
+        "last_not_before": "2026-07-18"
+      },
+      "assetmarkcharitable.tifingive.com": {
+        "certs": 4,
+        "first_not_before": "2024-05-28",
+        "last_not_before": "2026-08-30"
+      },
+      "assetmarkcharitableapi-release.tifingive.com": {
+        "certs": 3,
+        "first_not_before": "2024-03-05",
+        "last_not_before": "2026-01-05"
+      },
+      "assetmarkcharitableapi-uat.tifingive.com": {
+        "certs": 4,
+        "first_not_before": "2024-05-01",
+        "last_not_before": "2026-07-18"
+      },
+      "assetmarkcharitableapi.tifingive.com": {
+        "certs": 4,
+        "first_not_before": "2024-05-28",
+        "last_not_before": "2026-08-30"
+      },
+      "assetmarkcharitablemc-release.tifingive.com": {
+        "certs": 3,
+        "first_not_before": "2024-03-05",
+        "last_not_before": "2026-01-05"
+      },
+      "assetmarkcharitablemc-uat.tifingive.com": {
+        "certs": 4,
+        "first_not_before": "2024-05-01",
+        "last_not_before": "2026-07-18"
+      },
+      "assetmarkcharitablemc.tifingive.com": {
+        "certs": 4,
+        "first_not_before": "2024-05-28",
+        "last_not_before": "2026-08-30"
+      },
+      "auth-give-amk.tifingive.com": {
+        "certs": 55,
+        "first_not_before": "2024-05-28",
+        "last_not_before": "2026-09-12"
+      },
+      "auth-give-demo.tifingive.com": {
+        "certs": 33,
+        "first_not_before": "2025-05-06",
+        "last_not_before": "2026-09-14"
+      },
+      "auth-give-dev.tifingive.com": {
+        "certs": 60,
+        "first_not_before": "2024-02-20",
+        "last_not_before": "2026-08-14"
+      },
+      "auth-give.tifingive.com": {
+        "certs": 2,
+        "first_not_before": "2024-02-26",
+        "last_not_before": "2024-02-26"
+      },
+      "auth.tifingive.com": {
+        "certs": 37,
+        "first_not_before": "2025-03-18",
+        "last_not_before": "2026-09-27"
+      },
+      "campaign.tifingive.com": {
+        "certs": 29,
+        "first_not_before": "2024-06-26",
+        "last_not_before": "2026-02-07"
+      },
+      "daf.tifingive.com": {
+        "certs": 1,
+        "first_not_before": "2022-10-06",
+        "last_not_before": "2022-10-06"
+      },
+      "dev-auth.tifingive.com": {
+        "certs": 70,
+        "first_not_before": "2023-10-03",
+        "last_not_before": "2026-08-23"
+      },
+      "dev-zions-auth.tifingive.com": {
+        "certs": 36,
+        "first_not_before": "2025-04-03",
+        "last_not_before": "2026-09-12"
+      },
+      "dlpgives-auth.tifingive.com": {
+        "certs": 34,
+        "first_not_before": "2025-04-07",
+        "last_not_before": "2026-08-16"
+      },
+      "dlpgives-dev-auth.tifingive.com": {
+        "certs": 34,
+        "first_not_before": "2025-04-05",
+        "last_not_before": "2026-08-14"
+      },
+      "dlpgives-uat-auth.tifingive.com": {
+        "certs": 34,
+        "first_not_before": "2025-04-14",
+        "last_not_before": "2026-08-23"
+      },
+      "gc-staging-auth.tifingive.com": {
+        "certs": 9,
+        "first_not_before": "2026-05-26",
+        "last_not_before": "2026-09-28"
+      },
+      "givingbridge-auth.tifingive.com": {
+        "certs": 16,
+        "first_not_before": "2025-05-28",
+        "last_not_before": "2025-12-31"
+      },
+      "go.tifingive.com": {
+        "certs": 31,
+        "first_not_before": "2022-07-18",
+        "last_not_before": "2025-04-29"
+      },
+      "grafana.tifingive.com": {
+        "certs": 6,
+        "first_not_before": "2025-02-01",
+        "last_not_before": "2026-05-12"
+      },
+      "loki.tifingive.com": {
+        "certs": 6,
+        "first_not_before": "2025-02-01",
+        "last_not_before": "2026-05-12"
+      },
+      "louise-release.daf.tifingive.com": {
+        "certs": 2,
+        "first_not_before": "2024-02-14",
+        "last_not_before": "2024-02-14"
+      },
+      "ms-release.tifingive.com": {
+        "certs": 7,
+        "first_not_before": "2022-12-22",
+        "last_not_before": "2026-07-05"
+      },
+      "ms-uat.tifingive.com": {
+        "certs": 4,
+        "first_not_before": "2023-02-17",
+        "last_not_before": "2025-11-19"
+      },
+      "msapi-release.tifingive.com": {
+        "certs": 7,
+        "first_not_before": "2022-12-22",
+        "last_not_before": "2026-07-05"
+      },
+      "msapi-uat.tifingive.com": {
+        "certs": 4,
+        "first_not_before": "2023-02-17",
+        "last_not_before": "2025-11-19"
+      },
+      "msatwork-auth.tifingive.com": {
+        "certs": 61,
+        "first_not_before": "2024-02-26",
+        "last_not_before": "2026-09-13"
+      },
+      "msatwork-giving-api.tifingive.com": {
+        "certs": 6,
+        "first_not_before": "2024-02-13",
+        "last_not_before": "2025-12-14"
+      },
+      "msatwork-giving-mc.tifingive.com": {
+        "certs": 6,
+        "first_not_before": "2024-02-13",
+        "last_not_before": "2025-12-14"
+      },
+      "msatwork-giving.tifingive.com": {
+        "certs": 6,
+        "first_not_before": "2024-02-13",
+        "last_not_before": "2025-12-14"
+      },
+      "msatwork.giving.tifingive.com": {
+        "certs": 65,
+        "first_not_before": "2024-03-07",
+        "last_not_before": "2026-08-22"
+      },
+      "mswmc-release.tifingive.com": {
+        "certs": 7,
+        "first_not_before": "2022-12-22",
+        "last_not_before": "2026-07-05"
+      },
+      "mswmc-uat.tifingive.com": {
+        "certs": 4,
+        "first_not_before": "2023-02-17",
+        "last_not_before": "2025-11-19"
+      },
+      "ops-auth.tifingive.com": {
+        "certs": 28,
+        "first_not_before": "2025-08-12",
+        "last_not_before": "2026-09-19"
+      },
+      "rbt-api-uat.tifingive.com": {
+        "certs": 5,
+        "first_not_before": "2022-10-07",
+        "last_not_before": "2022-10-09"
+      },
+      "rbt-mc-uat.tifingive.com": {
+        "certs": 5,
+        "first_not_before": "2022-10-07",
+        "last_not_before": "2022-10-09"
+      },
+      "rbt-uat.tifingive.com": {
+        "certs": 6,
+        "first_not_before": "2022-10-07",
+        "last_not_before": "2022-10-09"
+      },
+      "tempo.tifingive.com": {
+        "certs": 2,
+        "first_not_before": "2026-05-12",
+        "last_not_before": "2026-05-12"
+      },
+      "tifingive.com": {
+        "certs": 137,
+        "first_not_before": "2022-06-27",
+        "last_not_before": "2026-09-09"
+      },
+      "tracking.tifingive.com": {
+        "certs": 7,
+        "first_not_before": "2026-01-20",
+        "last_not_before": "2026-08-26"
+      },
+      "trust.tifingive.com": {
+        "certs": 15,
+        "first_not_before": "2025-12-11",
+        "last_not_before": "2026-08-04"
+      },
+      "uat-zions-auth.tifingive.com": {
+        "certs": 35,
+        "first_not_before": "2025-04-08",
+        "last_not_before": "2026-09-18"
+      },
+      "www.tifingive.com": {
+        "certs": 76,
+        "first_not_before": "2023-11-21",
+        "last_not_before": "2026-08-21"
+      },
+      "zions-auth-dev.tifingive.com": {
+        "certs": 4,
+        "first_not_before": "2025-03-24",
+        "last_not_before": "2025-03-24"
+      },
+      "zions-auth.tifingive.com": {
+        "certs": 6,
+        "first_not_before": "2025-03-19",
+        "last_not_before": "2025-05-20"
+      }
+    }
+  },
+  "entity": "TIFIN Give (all tenants)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:25:11Z",
+  "ok": true,
+  "queue_items": "P-VEN-08",
+  "source_url": "https://crt.sh/?q=%25.tifingive.com",
+  "status": "200",
+  "summary": {
+    "name_count": 52,
+    "names": [
+      "*.daf.tifingive.com",
+      "*.tifingive.com",
+      "assetmarkcharitable-release.tifingive.com",
+      "assetmarkcharitable-uat.tifingive.com",
+      "assetmarkcharitable.tifingive.com",
+      "assetmarkcharitableapi-release.tifingive.com",
+      "assetmarkcharitableapi-uat.tifingive.com",
+      "assetmarkcharitableapi.tifingive.com",
+      "assetmarkcharitablemc-release.tifingive.com",
+      "assetmarkcharitablemc-uat.tifingive.com",
+      "assetmarkcharitablemc.tifingive.com",
+      "auth-give-amk.tifingive.com",
+      "auth-give-demo.tifingive.com",
+      "auth-give-dev.tifingive.com",
+      "auth-give.tifingive.com",
+      "auth.tifingive.com",
+      "campaign.tifingive.com",
+      "daf.tifingive.com",
+      "dev-auth.tifingive.com",
+      "dev-zions-auth.tifingive.com",
+      "dlpgives-auth.tifingive.com",
+      "dlpgives-dev-auth.tifingive.com",
+      "dlpgives-uat-auth.tifingive.com",
+      "gc-staging-auth.tifingive.com",
+      "givingbridge-auth.tifingive.com",
+      "go.tifingive.com",
+      "grafana.tifingive.com",
+      "loki.tifingive.com",
+      "louise-release.daf.tifingive.com",
+      "ms-release.tifingive.com",
+      "ms-uat.tifingive.com",
+      "msapi-release.tifingive.com",
+      "msapi-uat.tifingive.com",
+      "msatwork-auth.tifingive.com",
+      "msatwork-giving-api.tifingive.com",
+      "msatwork-giving-mc.tifingive.com",
+      "msatwork-giving.tifingive.com",
+      "msatwork.giving.tifingive.com",
+      "mswmc-release.tifingive.com",
+      "mswmc-uat.tifingive.com",
+      "ops-auth.tifingive.com",
+      "rbt-api-uat.tifingive.com",
+      "rbt-mc-uat.tifingive.com",
+      "rbt-uat.tifingive.com",
+      "tempo.tifingive.com",
+      "tifingive.com",
+      "tracking.tifingive.com",
+      "trust.tifingive.com",
+      "uat-zions-auth.tifingive.com",
+      "www.tifingive.com",
+      "zions-auth-dev.tifingive.com",
+      "zions-auth.tifingive.com"
+    ],
+    "watch_hits": [
+      "assetmarkcharitable-release.tifingive.com",
+      "assetmarkcharitable-uat.tifingive.com",
+      "assetmarkcharitable.tifingive.com",
+      "assetmarkcharitableapi-release.tifingive.com",
+      "assetmarkcharitableapi-uat.tifingive.com",
+      "assetmarkcharitableapi.tifingive.com",
+      "assetmarkcharitablemc-release.tifingive.com",
+      "assetmarkcharitablemc-uat.tifingive.com",
+      "assetmarkcharitablemc.tifingive.com"
+    ]
+  },
+  "target": "%.tifingive.com",
+  "watch_regex": "assetmark"
+}

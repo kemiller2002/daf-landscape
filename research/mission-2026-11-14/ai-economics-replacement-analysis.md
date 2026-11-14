@@ -256,3 +256,13 @@ Market: [TIFIN Louise PR (2025-10-27)](https://www.prnewswire.com/news-releases/
 8. **Same doc, Candid.** Change the text to:
    > "cut staff (Chronicle reports 42, about one-fifth; count not independently verified) and is repositioning as a data supplier to AI platforms."
 9. **`ai-use-case-inventory.csv`.** Add Bonterra Que (2025-10-01, adjacent, act/recommend, announced, https://www.businesswire.com/news/home/20251001579571/en) and Bonterra Grantmaker (2026-02-19, announced). Change U20 `date_announced` to 2025-07-22, or note why it differs. Recount the §6.2 table.
+
+## Update from observed cost data (2026-11-14) — governing
+
+The Form 990 cost-structure analysis ([sponsor-cost-structure-and-sensitivities.md](sponsor-cost-structure-and-sensitivities.md)) changes several scenario assumptions:
+- **Refuted:** the "technology expense undisclosed" premise. 3,157 returns report IT spend.
+- **Refuted:** linear scaling of cost with grant volume. Cost elasticity is 0.41 for nationals and 0.84 for community foundations.
+- **Consistent:** the $4.32m base labour pool, at about 6–8% of observed operating cost per grant.
+- **Confirmed:** the $150k–$750k AI fixed-cost hurdle is prohibitive below about $250m of DAF assets, where median community-foundation IT spend is $17k–$116k.
+
+Observed cost per grant is about $55–68 at the largest nationals, $134 at Vanguard Charitable and $419 at NPT. These are total operating cost per grant, not labour only.

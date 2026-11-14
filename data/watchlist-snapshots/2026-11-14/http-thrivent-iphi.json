@@ -1,0 +1,68 @@
+{
+  "check_id": "http-thrivent-iphi",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://infaith.iphiview.com/infaith/LogIn/tabid/444/Default.aspx"
+      }
+    ],
+    "final_url": "https://infaith.iphiview.com/infaith/LogIn/tabid/444/Default.aspx",
+    "form_actions": [
+      "/infaith/LogIn/tabid/444/Default.aspx"
+    ],
+    "meta": {
+      "author": "Thrivent Charitable Impact & Investing",
+      "copyright": "Copyright 2025 by Thrivent Charitable Impact & Investing",
+      "description": "InFaith Community Foundation, established in 1995 as Lutheran Community Foundation, is a national charity with a mission to serve donors, spread joy and change lives. ",
+      "distribution": "GLOBAL",
+      "keywords": "philanthropy, giving, donor advised funds, donate, grants, nonprofits, professional advisors",
+      "rating": "GENERAL",
+      "resource-type": "DOCUMENT",
+      "revisit-after": "1 DAYS",
+      "robots": "INDEX, FOLLOW",
+      "viewport": "width=device-width"
+    },
+    "raw_sha256": "a4dd376c09f5c6fd6c47ea73b77cddcb8e7bae6ea0834c370ec22840bfb93a8e",
+    "text_chars": 1628,
+    "text_sha256": "086d09986155d06ba7e89ff1a4053ffe7588a8b07be01f5d6693e1453b8f0c88"
+  },
+  "entity": "Thrivent Charitable (iPhi login)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:35Z",
+  "ok": true,
+  "queue_items": "P-GIV-02",
+  "source_url": "https://infaith.iphiview.com/infaith/LogIn/tabid/444/Default.aspx",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "infaith.iphiview.com"
+    ],
+    "final_host": "infaith.iphiview.com",
+    "final_status": "200",
+    "footers": [
+      "\u00a9 2025 Thrivent Charitable\u2122 | All rights reserved"
+    ],
+    "links": [],
+    "title": "Log In",
+    "watch_hits_urls": [
+      "Thrivent"
+    ],
+    "watch_sentences": [
+      "Careers at ThriventFinancial advisors",
+      "It is a separate legal entity from Thrivent, the marketing name for Thrivent Financial for Lutherans.",
+      "New users: Click on the \"Forgot Password\" link above to complete your first time log-in using your User ID sent from Thrivent Charitable.",
+      "Thrivent Charitable",
+      "Thrivent Charitable works collaboratively with Thrivent and its financial advisors.",
+      "Thrivent Charitable\u2122, the marketing name for Thrivent Charitable Impact & Investing\u00ae, is a public charity that serves individuals, organizations and the community through charitable planning, donor-advised funds and endowments.",
+      "Thrivent support",
+      "Visit Thrivent.com or FINRA's BrokerCheck for more information about Thrivent's financial advisors.",
+      "\u00a9 2025 Thrivent Charitable\u2122 | All rights reserved"
+    ]
+  },
+  "target": "https://infaith.iphiview.com/infaith/LogIn/tabid/444/Default.aspx",
+  "watch_regex": "(?i)Thrivent|Stellar|Copyright"
+}

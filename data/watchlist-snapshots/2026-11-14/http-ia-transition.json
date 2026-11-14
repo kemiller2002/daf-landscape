@@ -1,0 +1,76 @@
+{
+  "check_id": "http-ia-transition",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://impactassets.org/daf-platform-transition/"
+      }
+    ],
+    "final_url": "https://impactassets.org/daf-platform-transition/",
+    "form_actions": [],
+    "meta": {
+      "article:modified_time": "2026-06-09T14:35:49+00:00",
+      "article:published_time": "2026-05-21T20:59:40+00:00",
+      "article:publisher": "https://www.facebook.com/ImpactAssets",
+      "description": "Client Login Open an ImpactAssets Donor Advised Fund account Home What We Offer Our Impact About Us Careers ImpactAssets 50 Contact Us PRODUCTS & SERVICES The ImpactAssets Donor Advised Fund Impact Investment Platform Philanthropic Solutions ABOUT Board Members Investment Committee Careers HELP CENT",
+      "generator": "All in One SEO (AIOSEO) 5.0.5",
+      "msapplication-tileimage": "https://impactassets.org/wp-content/uploads/2021/07/cropped-IA_LOGO_IconTmp-1-270x270.jpg",
+      "og:description": "Client Login Open an ImpactAssets Donor Advised Fund account Home What We Offer Our Impact About Us Careers ImpactAssets 50 Contact Us PRODUCTS & SERVICES The ImpactAssets Donor Advised Fund Impact Investment Platform Philanthropic Solutions ABOUT Board Members Investment Committee Careers HELP CENT",
+      "og:image": "https://impactassets.org/wp-content/uploads/2021/10/IAlogo_RGB_Big.png",
+      "og:image:height": "3810",
+      "og:image:secure_url": "https://impactassets.org/wp-content/uploads/2021/10/IAlogo_RGB_Big.png",
+      "og:image:width": "10336",
+      "og:locale": "en_US",
+      "og:site_name": "ImpactAssets - Invest with Meaning",
+      "og:title": "New DAF Platform Transition - ImpactAssets",
+      "og:type": "article",
+      "og:url": "https://impactassets.org/daf-platform-transition/",
+      "robots": "max-image-preview:large",
+      "twitter:card": "summary",
+      "twitter:creator": "@ImpactAssets",
+      "twitter:description": "Client Login Open an ImpactAssets Donor Advised Fund account Home What We Offer Our Impact About Us Careers ImpactAssets 50 Contact Us PRODUCTS & SERVICES The ImpactAssets Donor Advised Fund Impact Investment Platform Philanthropic Solutions ABOUT Board Members Investment Committee Careers HELP CENT",
+      "twitter:image": "https://impactassets.org/wp-content/uploads/2021/10/IAlogo_RGB_Big.png",
+      "twitter:site": "@ImpactAssets",
+      "twitter:title": "New DAF Platform Transition - ImpactAssets",
+      "viewport": "width=device-width, initial-scale=1.0"
+    },
+    "raw_sha256": "1be039c898488606dd6628e373042ac05c4f26ac977b6e3cc3a07a8858534beb",
+    "text_chars": 9121,
+    "text_sha256": "df1f711cb020de70347b367d30aafed1a45e67355864a4c7045bc3ad9d8cd5cb"
+  },
+  "entity": "ImpactAssets",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:26Z",
+  "ok": true,
+  "queue_items": "P-GIV-01",
+  "source_url": "https://impactassets.org/daf-platform-transition/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "impactassets.org"
+    ],
+    "final_host": "impactassets.org",
+    "final_status": "200",
+    "footers": [
+      "Copyright 2026 ImpactAssets. All rights Reserved."
+    ],
+    "links": [
+      "https://iphi.stellartechsol.com/calvert/LogIn/tabid/444/Default.aspx | CLIENT LOGIN",
+      "https://iphi.stellartechsol.com/calvert/LogIn/tabid/444/Default.aspx | Client Login"
+    ],
+    "title": "New DAF Platform Transition - ImpactAssets",
+    "watch_hits_urls": [],
+    "watch_sentences": [
+      "ImpactAssets is excited to share that we'll be transitioning to a new DAF hub on September 8, 2026 that's designed to elevate your experience and make it even easier to give and invest through your ImpactAssets Donor Advised Fund (DAF).",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit?",
+      "Now Live!",
+      "SEPTEMBER 8, 2026"
+    ]
+  },
+  "target": "https://impactassets.org/daf-platform-transition/",
+  "watch_regex": "(?i)September 8|June 1|Lorem ipsum|now live|giveinteractive|launched"
+}

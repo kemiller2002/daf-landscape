@@ -1,0 +1,67 @@
+{
+  "check_id": "http-thrivent-home",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "https://thriventcharitable.thrivent.com/",
+        "status": "301",
+        "url": "https://www.thriventcharitable.com/"
+      },
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://thriventcharitable.thrivent.com/"
+      }
+    ],
+    "final_url": "https://thriventcharitable.thrivent.com/",
+    "form_actions": [
+      "https://thriventcharitable.thrivent.com/search"
+    ],
+    "meta": {
+      "brightspot.cached": "false",
+      "brightspot.contentid": "00000183-c813-d577-a1d3-d9ffd1ae0000",
+      "description": "Through Thrivent Charitable Impact & Investing, thousands are taking action on their faith, values and life experiences by giving with donor-advised funds, endowments, and more.",
+      "og:site_name": "Thrivent Charitable",
+      "og:title": "Thrivent Charitable ",
+      "og:type": "website",
+      "og:url": "https://thriventcharitable.thrivent.com/",
+      "twitter:card": "summary_large_image",
+      "twitter:title": "Thrivent Charitable ",
+      "viewport": "width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=5"
+    },
+    "raw_sha256": "7b9823397c1ec80bba6af1dd53591dbe61a32a9006fd6bb99dec725b3ceb8427",
+    "text_chars": 6678,
+    "text_sha256": "8bf75daf6977b2f594b90313d7248b18c9162ec4398f44e5257684effdca1ba5"
+  },
+  "entity": "Thrivent Charitable",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:34Z",
+  "ok": true,
+  "queue_items": "P-GIV-02",
+  "source_url": "https://www.thriventcharitable.com/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "www.thriventcharitable.com",
+      "thriventcharitable.thrivent.com"
+    ],
+    "final_host": "thriventcharitable.thrivent.com",
+    "final_status": "200",
+    "footers": [
+      "\u00a92026 Thrivent Charitable | All rights reserved."
+    ],
+    "links": [
+      "https://infaith.iphiview.com/infaith/ | Manage Funds",
+      "https://infaith.iphiview.com/infaith/LogIn/tabid/444/Default.aspx | Log In"
+    ],
+    "title": "Thrivent Charitable - Thrivent Charitable",
+    "watch_hits_urls": [
+      "iphiview"
+    ],
+    "watch_sentences": []
+  },
+  "target": "https://www.thriventcharitable.com/",
+  "watch_regex": "(?i)iphiview|giveinteractive"
+}

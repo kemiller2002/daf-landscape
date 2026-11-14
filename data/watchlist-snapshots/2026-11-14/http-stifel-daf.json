@@ -1,0 +1,58 @@
+{
+  "check_id": "http-stifel-daf",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://www.stifel.com/individual/donor-advised-funds"
+      }
+    ],
+    "final_url": "https://www.stifel.com/individual/donor-advised-funds",
+    "form_actions": [
+      "https://tracker.stifel.com/tracker/uux.aspx#/login"
+    ],
+    "meta": {
+      "author": "Stifel",
+      "copyright": "Stifel - All rights reserved.",
+      "description": "Stifel is a full service brokerage and investment banking firm. The Company provides securities brokerage, investment banking, trading, investment advisory, and related financial services to individual investors, professional money managers, businesses, and municipalities.",
+      "keywords": "investment products, individuals, stifel, stifel nicolaus, financial advisor, broker, investment banking, capital markets, stock, rating, st. louis, baltimore",
+      "robots": "noodp, noydir",
+      "viewport": "width=device-width, initial-scale=1"
+    },
+    "raw_sha256": "0fb891a61d997e92e23bd497bfca8afa66bc52ca1202e4095ec0205a86cdd2ea",
+    "text_chars": 5793,
+    "text_sha256": "839974045ff0eb867600147ddff3af652df8e322c882953707f84e7f44e75c64"
+  },
+  "entity": "Stifel Charitable",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:36Z",
+  "ok": true,
+  "queue_items": "P-GIV-02",
+  "source_url": "https://www.stifel.com/individual/donor-advised-funds",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "www.stifel.com"
+    ],
+    "final_host": "www.stifel.com",
+    "final_status": "200",
+    "footers": [
+      "\u00a9 2026 STIFEL FINANCIAL CORP."
+    ],
+    "links": [
+      "https://sci.iphiview.com/sci/LogIn/tabid/444/Default.aspx | DonorView Portal",
+      "https://tracker.stifel.com/tracker/uux.aspx#/login | Client Login",
+      "https://tracker.stifel.com/tracker/uux.aspx#/login/resetPasswordUsername | Forgot password?"
+    ],
+    "title": "Stifel | Investment Products - Individuals",
+    "watch_hits_urls": [
+      "iphiview"
+    ],
+    "watch_sentences": []
+  },
+  "target": "https://www.stifel.com/individual/donor-advised-funds",
+  "watch_regex": "(?i)iphiview|giveinteractive"
+}

@@ -1,0 +1,59 @@
+{
+  "check_id": "http-ia-iphi",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "https://impactassets.iphiview.com/assetmark",
+        "status": "301",
+        "url": "https://impactassets.iphiview.com/"
+      },
+      {
+        "location": "https://assetmarkcharitablemc.tifingive.com:443/login",
+        "status": "301",
+        "url": "https://impactassets.iphiview.com/assetmark"
+      },
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://assetmarkcharitablemc.tifingive.com:443/login"
+      }
+    ],
+    "final_url": "https://assetmarkcharitablemc.tifingive.com:443/login",
+    "form_actions": [],
+    "meta": {
+      "viewport": "width=device-width, initial-scale=1.0"
+    },
+    "raw_sha256": "4bca31840a45a662be989d31680a5e421400faf4fe50dcc2a258f43771a68e01",
+    "text_chars": 1,
+    "text_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  "entity": "ImpactAssets / AssetMark (iPhi host)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:27Z",
+  "ok": true,
+  "queue_items": "P-GIV-01;P-VEN-08",
+  "source_url": "https://impactassets.iphiview.com/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "impactassets.iphiview.com",
+      "impactassets.iphiview.com",
+      "assetmarkcharitablemc.tifingive.com"
+    ],
+    "final_host": "assetmarkcharitablemc.tifingive.com",
+    "final_status": "200",
+    "footers": [],
+    "links": [],
+    "title": "AssetMark",
+    "watch_hits_urls": [
+      "assetmark",
+      "iphiview",
+      "tifingive.com"
+    ],
+    "watch_sentences": []
+  },
+  "target": "https://impactassets.iphiview.com/",
+  "watch_regex": "(?i)tifingive\\.com|assetmark|iphiview"
+}

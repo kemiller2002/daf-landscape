@@ -1,0 +1,75 @@
+{
+  "check_id": "http-stifel-iphi",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://sci.iphiview.com/sci/LogIn/tabid/444/Default.aspx"
+      }
+    ],
+    "final_url": "https://sci.iphiview.com/sci/LogIn/tabid/444/Default.aspx",
+    "form_actions": [
+      "/sci/LogIn/tabid/444/Default.aspx"
+    ],
+    "meta": {
+      "author": "Stifel Charitable",
+      "copyright": "Copyright 2026 by Stifel Charitable",
+      "description": "Stifel Charitable",
+      "distribution": "GLOBAL",
+      "keywords": "philanthropy, giving, donor advised funds, donate, grants, nonprofits, professional advisors",
+      "rating": "GENERAL",
+      "resource-type": "DOCUMENT",
+      "revisit-after": "1 DAYS",
+      "robots": "INDEX, FOLLOW",
+      "viewport": "width=device-width"
+    },
+    "raw_sha256": "f33e306a4d8cb9f790856a6be0550da6567ae8760e791b42198dbfc54e945eee",
+    "text_chars": 2025,
+    "text_sha256": "53d0153517ea125a2a1bdf1c499056b5798badcfff9055b500df4caf662851ef"
+  },
+  "entity": "Stifel Charitable (iPhi login)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:36Z",
+  "ok": true,
+  "queue_items": "P-GIV-02",
+  "source_url": "https://sci.iphiview.com/sci/LogIn/tabid/444/Default.aspx",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "sci.iphiview.com"
+    ],
+    "final_host": "sci.iphiview.com",
+    "final_status": "200",
+    "footers": [
+      "\u00a9 2025 STIFEL FINANCIAL CORP."
+    ],
+    "links": [],
+    "title": "Log In",
+    "watch_hits_urls": [
+      "STIFEL"
+    ],
+    "watch_sentences": [
+      "All investment changes and grant distributions must be reviewed and approved by Stifel Charitable, Inc.",
+      "COPYRIGHT \u00a9 2025 STIFEL FINANCIAL CORP.",
+      "Please contact our team at stifelcharitable@stifel.com with any questions.",
+      "Stifel Charitable Inc.",
+      "Stifel Donor-Advised Funds are handled by Stifel Charitable Inc., which is a 501(c)(3) non-profit organization.",
+      "Stifel Donor-Advised and Legacy Funds are administered by Stifel Charitable Inc., a 501(c)(3) nonprofit organization.",
+      "Stifel Financial Advisors may only conduct business with residents of the states in which they are properly registered.",
+      "Stifel Financial Corp.",
+      "Stifel does not provide legal or tax advice.",
+      "The current Terms and Conditions are available to you upon request from stifelcharitable@stifel.com.",
+      "The information on this website reflects your component fund administered by Stifel Charitable, Inc.",
+      "The services offered within this site are available through your Stifel Financial Advisor.",
+      "The underlying assets are the sole property of Stifel Charitable, Inc.",
+      "Welcome to your Stifel Charitable DonorView portal.",
+      "companies, including Stifel, Nicolaus & Company, Incorporated, Stifel Bank, and Stifel Trust Company, N.A., provide services to Stifel Charitable Inc.",
+      "www.stifel.com/privacy"
+    ]
+  },
+  "target": "https://sci.iphiview.com/sci/LogIn/tabid/444/Default.aspx",
+  "watch_regex": "(?i)Stifel|Stellar|Copyright"
+}
