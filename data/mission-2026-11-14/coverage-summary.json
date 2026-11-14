@@ -1,0 +1,33 @@
+{
+  "entities": 29,
+  "cells": 348,
+  "status_counts": {
+    "Not investigated": 156,
+    "Discovery started": 81,
+    "Evidence collected": 86,
+    "Partially validated": 12,
+    "Independently corroborated": 0,
+    "Contradictory evidence": 2,
+    "Insufficient public information": 11,
+    "Research completed to current evidence standard": 0
+  },
+  "share_cells_investigated_any": 0.552,
+  "share_cells_partially_validated_or_better": 0.034,
+  "entities_with_majority_not_investigated": [
+    "Bank of America Charitable Gift Fund",
+    "Benevity / workplace processors",
+    "Candid / IRS BMF (eligibility data)",
+    "DAF Direct",
+    "Givinga",
+    "Goldman Sachs (two DAF programs)",
+    "Jewish Communal Fund",
+    "Morgan Stanley (GIFT)",
+    "National Christian Foundation",
+    "OneAscent (OneGive)",
+    "Pave Finance",
+    "SEI (SEI Charitable Fund)",
+    "Silicon Valley Community Foundation",
+    "TIAA (Charityvest-sponsored DAF)"
+  ],
+  "caveat": "The research universe is incomplete: DAFRC counts ~1,500 sponsors; this matrix covers a purposive set of the largest and most strategically relevant entities."
+}

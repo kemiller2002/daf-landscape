@@ -1,0 +1,28 @@
+rank,eiv_score,question_id,question,area,importance,p_change,gap,commercial,availability,effort,depends_on,breadth_gap,state,assigned_to,conclusion_affected,dependency_factor,breadth_factor
+1,83.33,Q-M02,What is the minimum viable regulated footprint for an AI-native DAF entrant and which components can be partnered?,Entrant strategy,5.0,0.5,5.0,5.0,4.0,3.0,,no,in_progress,Entrant simulation agent,What new entrants should avoid building,1.0,1.0
+2,75.0,Q-M01,Which DAF operational processes have positive economics for AI vs conventional automation vs elimination?,AI economics,5.0,0.6,5.0,5.0,3.0,3.0,,no,in_progress,AI economics agent,What AI actually changes,1.0,1.0
+3,75.0,Q-M08,Where does AI create new risk rather than reduce it in eligibility / fraud / grant actions?,AI governance,5.0,0.5,5.0,4.0,3.0,2.0,,no,in_progress,AI economics agent,AI deployment boundaries,1.0,1.0
+4,75.0,Q-B02,How many DAF accounts are pass-through processor accounts vs invested traditional accounts?,Market structure,5.0,0.6,5.0,5.0,3.0,3.0,,no,open,,TAM interpretation,1.0,1.0
+5,66.67,Q-V01,Independent validation of the 20 most consequential repository claims,Validation,5.0,0.5,4.0,5.0,4.0,3.0,,no,open,,All conclusions,1.0,1.0
+6,64.0,Q-B17,Which sponsors publish data portability / DAF-to-DAF transfer terms and frictions?,Switching costs,4.0,0.5,4.0,4.0,4.0,2.0,,no,open,,Incumbent lock-in,1.0,1.0
+7,60.0,Q-M03,Do apparently independent sponsors/platforms share the same administration or software infrastructure?,Dependency graph,5.0,0.6,4.0,5.0,3.0,3.0,,no,in_progress,Vendor graph agent,Where incumbents are vulnerable,1.0,1.0
+8,60.0,Q-M05,Which industry inefficiencies are structural constraints vs historical habits?,Incentives,5.0,0.6,5.0,4.0,3.0,3.0,,no,in_progress,Incentives agent,What the industry believes that may be wrong,1.0,1.0
+9,60.0,Q-B09,What are the current status and contents of any final Treasury/IRS DAF regulations (2023 proposed) and 2025-26 legislation?,Regulation,5.0,0.5,3.0,4.0,4.0,2.0,,no,open,,Regulatory risk to models,1.0,1.0
+10,58.33,Q-B15,What fraction of DAF grants require human judgment (non-standard grantees; foreign; fiscal sponsors)?,Operations,5.0,0.7,5.0,5.0,2.0,3.0,,no,open,,Exception-only review design,1.0,1.0
+11,54.69,Q-B01,What share of the ~1500 sponsors pay an external platform vs administer internally?,Market structure,5.0,0.7,5.0,5.0,2.0,4.0,,yes,open,,Serviceable market for vendors,1.0,1.25
+12,42.19,Q-B18,Are Givinga and DAF Direct infrastructure for multiple sponsors?,Dependency graph,3.0,0.5,5.0,3.0,3.0,2.0,,yes,open,,Infrastructure concentration,1.0,1.25
+13,38.4,Q-B11,Is Chariot becoming a common disbursement dependency across sponsors (single point of failure)?,Dependency graph,4.0,0.5,4.0,4.0,4.0,2.0,Q-M03,no,in_progress,Vendor graph agent,Infrastructure concentration,0.6,1.0
+14,37.5,Q-B07,Do community foundations (SVCF; CFs on FIMS/Foundant/CSuite) represent a distinct software market?,Market structure,3.0,0.5,5.0,3.0,4.0,3.0,,yes,open,,Software market size,1.0,1.25
+15,36.0,Q-B04,Who provides technology/administration for Goldman Sachs Philanthropy Fund and Morgan Stanley GIFT today?,Dependency graph,4.0,0.5,4.0,4.0,3.0,2.0,Q-M03,yes,open,,Ren concentration,0.6,1.25
+16,32.0,Q-B12,What do nonprofits pay (fees / staff time) to receive DAF grants via each rail?,Economics,4.0,0.5,4.0,4.0,3.0,3.0,,no,open,,Nonprofit bargaining power,1.0,1.0
+17,28.8,Q-M04,Does public evidence establish Ren technology use or administrative services (or both) for each wirehouse channel incl. Edward Jones?,Dependency graph,4.0,0.4,3.0,4.0,3.0,2.0,,no,in_progress,Vendor graph agent,Ren distribution dependence,1.0,1.0
+18,24.0,Q-M06,Which companies repeatedly announce capabilities without evidence of delivery?,History,4.0,0.5,4.0,3.0,3.0,3.0,,no,in_progress,Timeline agent,Vendor credibility,1.0,1.0
+19,24.0,Q-M07,What is market concentration separately for assets / administration / software / custody / distribution?,Quantitative,5.0,0.5,4.0,4.0,3.0,3.0,Q-M03,no,in_progress,Datasets + vendor graph agents,Where value accrues,0.6,1.0
+20,22.5,Q-B08,Do faith/affinity sponsors (NCF; JCF; Signatry) use common platforms?,Market structure,3.0,0.4,5.0,3.0,3.0,3.0,,yes,open,,Software market size,1.0,1.25
+21,21.88,Q-B03,What are actual grant turnaround P50/P90 and exception rates at major sponsors?,Operations,5.0,0.7,5.0,5.0,1.0,4.0,,no,open,,Value of grant automation,1.0,1.0
+22,19.2,Q-B10,What evidence exists of DAF sponsor AI deployment beyond announcements?,AI adoption,4.0,0.6,5.0,4.0,2.0,3.0,Q-M01,no,in_progress,AI economics agent,What AI actually changes,0.6,1.0
+23,18.0,Q-B05,What are the Edward Jones private DAF sponsor and administrator?,Dependency graph,3.0,0.5,4.0,3.0,2.0,2.0,,no,open,,Ren channel durability,1.0,1.0
+24,15.0,Q-B13,Do DAF-integrated advisers retain households better than matched non-DAF advisers?,Relationships,5.0,0.6,5.0,5.0,1.0,5.0,,no,open,,What becomes more valuable,1.0,1.0
+25,12.0,Q-B06,What is Ren's total revenue and RCF share (customer concentration)?,Economics,4.0,0.6,5.0,4.0,1.0,4.0,,no,open,,Ren durability,1.0,1.0
+26,10.8,Q-B14,What happened to failed / exited DAF technology providers and why?,History,3.0,0.4,3.0,3.0,3.0,3.0,,no,open,,Entrant risk,1.0,1.0
+27,9.6,Q-B16,What is Daffy's unit economics under flat membership pricing?,Economics,3.0,0.4,4.0,3.0,2.0,3.0,,no,open,,Challenger viability,1.0,1.0
