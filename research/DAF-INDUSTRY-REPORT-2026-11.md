@@ -541,6 +541,27 @@ Donor-portal vendors at the top 40:
 
 The community-foundation channel is fragmented and largely runs its own ACH. That leaves an open payments field without a dominant rail.
 
+**Donor data portability, agentic products, fees and credit (batch 23; validated in [wave 8](mission-2026-11-14/validation-wave8-report.md))**
+- **No donor export at the top 10.** None of the 10 largest sponsors publishes a donor-side machine-readable export or a portability statement ([queue-donor-export-cf-payments-donorsphere.md](mission-2026-11-14/queue-donor-export-cf-payments-donorsphere.md)) [V]:
+  - Fidelity: PDF only.
+  - Vanguard: view only.
+  - AEF: two years of grant history.
+  - SVCF: its 2025 fund agreement bars automated collection for non-grantmaking purposes.
+
+  Greater Washington CF's CSV export shows that portability is technically trivial.
+- **No independent outcome evidence for agentic giving products.** None of 21 such products (2024–26) has any, and no product touches sponsor approval ([queue-agentic-products-dafpay-fees.md](mission-2026-11-14/queue-agentic-products-dafpay-fees.md)) [V].
+- **Nonprofit-side DAF fees are list prices only.**
+  - DAFpay is 2.9%, rounded to whole dollars.
+  - Platform add-ons run up to 4.85% (Bloomerang).
+  - DAF Direct and PayPal Giving Fund charge nonprofits $0 [V].
+- **Credit.** Detail: [queue-pe-lenders-labour-rates.md](mission-2026-11-14/queue-pe-lenders-labour-rates.md).
+  - Audax remains Foundation Source's first-lien lender (S+5.00%, 2030, at par) [V wave 8].
+  - The CyberGrants/Bonterra loan was refinanced in 2025 into an S+5.00% loan due 2032.
+  - FS KKR marks Momentive (Community Brands) at 96.1% [V].
+  - No BDC lender was found for Ren or Benevity.
+- **Labour rates.** The Form 990 median loaded rate is $38.87/h across 898 sponsors. It is $57–73/h at $250m+ sponsors and $86/h at DAFgiving360 [V].
+- **DonorSphere.** It is built by FidTech Partners (Stamford, CT) and used by Greater Houston CF, Hawaii CF, FJC and the Jewish Federation of Greater Pittsburgh [V].
+
 **Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
 - Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
 - The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.

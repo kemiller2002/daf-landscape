@@ -332,3 +332,7 @@ python3 scripts/mission_ai_economics_v2.py --draws 2000 --out /path/test.csv
 ```
 
 Inputs are read only: `ai-process-economics.csv`, `sponsor-cost-structure.csv` and `sponsor-cost-structure-summary.csv`. No network access is needed.
+
+## Labour-rate check (2026-11-14)
+
+Form 990 data for 898 sponsors with at least 5 staff puts the median loaded rate at $38.87/h (IQR $26.84–52.91), inside the model's $30.76–55.45 band. Sponsors with $250m+ in DAF assets run $57–73/h, above the band, so v2 understates labour value at the large nationals. 990 benefits add 1.19× to wages versus the model's 1.43× gross-up (the definitions differ). See [queue-pe-lenders-labour-rates.md](queue-pe-lenders-labour-rates.md).
