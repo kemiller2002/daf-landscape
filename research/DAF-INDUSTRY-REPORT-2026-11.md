@@ -515,6 +515,32 @@ Likely next deals (inference, medium confidence):
 - Foundation for the Carolinas and Chicago Community Trust run "Powered by GiftingNetwork" portals [V]. Give Interactive's role at CCT is unclear.
 - DAFgiving360's $976.6m FY2025 grant line to Fidelity Charitable cannot be attributed from public data, because Fidelity's Schedule B is redacted. A few very large account moves is the best reading (inference).
 
+**Community-foundation rails and portals (top 40 by FY2024 DAF assets)** ([queue-community-foundation-rails-portals.md](mission-2026-11-14/queue-community-foundation-rails-portals.md))
+
+Grant-payment rails at the top 30:
+
+| Rail | Foundations |
+|---|---|
+| Own ACH, no provider named | 10 (Seattle makes ACH mandatory from 2026-06-30) |
+| Named third party | 2: Chariot at Saint Paul & Minnesota; Bill.com at Greater Atlanta |
+| Check only | 2: Chicago Community Trust; New Hampshire, via Citizens Bank's Checkmint |
+| Nothing published | 15 |
+
+None of the 30 uses PayPal Grant Payments or Ren ACH. Outside the top 30, Greater Washington (#38) has used Blackbaud REPAY since Sept 2026.
+
+Donor-portal vendors at the top 40:
+
+| Portal vendor | Foundations |
+|---|---|
+| Foundant CommunitySuite | 13 |
+| Salesforce | 6 |
+| Ren/Stellar iPhi | 5 |
+| NPact | 3 |
+| GiftingNetwork | 2 (CCT, FFTC) |
+| One each: DonorSphere, Blackbaud NetCommunity, SmartSimple, Akoya, Power Pages | 5 |
+
+The community-foundation channel is fragmented and largely runs its own ACH. That leaves an open payments field without a dominant rail.
+
 **Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
 - Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
 - The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.
