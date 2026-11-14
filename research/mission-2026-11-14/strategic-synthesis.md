@@ -41,14 +41,14 @@
 3. **Exception-only human review.** Each routing decision records which rule or person decided.
 4. **Event-sourced ledger.** Grant status becomes one state machine shared by donor, adviser, sponsor and nonprofit, which also makes portability tractable.
 
-**The economic finding [S] (internal-demonstration; ranking assumption-sensitive, mechanism robust):**
-- Applying AI to existing workflows (option C) ranked last of four interventions in all 16 modelled processes under base assumptions. Redesign (D) or conventional automation (B) dominate.
-- Inference cost (≈$0.45 per heavy document review) is immaterial next to reviewer time (≈$83). **Review intensity is the binding, unmeasured parameter:** at 25% re-review, AI destroys value in every process. **[RT] sensitivity re-run in wave 2A.**
-- AI is best placed *after* redesign, on the residual unstructured tail: complex assets, non-standard grantee diligence, succession documents.
+**The economic finding [S] (internal-demonstration; the ranking is an artifact of assumptions, the mechanism is reasoned):**
+- Applying AI to existing workflows (option C) ranked last of four interventions in all 16 modelled processes under base assumptions. **[RT] Wave 2A showed this ranking is fixed by the inputs:** with manual improvement set at 15% and AI-amenability capped at 0.45, C cannot beat A in any process (that would need amenability > 0.50). P07 non-standard diligence is effectively a tie with conventional automation ($512 apart). The ranking is **not evidence about AI performance**.
+- What survives the red team: inference cost (≈$0.45 per heavy document review vs ≈$83 of reviewer time) is immaterial. **[RT] Correction:** QA/re-review intensity decides whether AI value is *positive* (at 25% re-review it is negative everywhere), but the *ranking* is driven by the unsourced amenability and redesign-share assumptions. With zero QA, C still ranks last in 12/16.
+- The directional rule "prevent exceptions before automating their handling" rests on reasoning (redesign removes exception classes; AI only shortens handling), not on the model. AI is best placed after redesign, on the residual unstructured tail: complex assets, non-standard grantee diligence, succession documents.
 
 **Market reality:**
 - Of 30 AI use cases inventoried, 10 are DAF-direct, and only 2 of those have deployment evidence (a navigation assistant at Fidelity Charitable; a corporate grantmaker's agents on the donor side).
-- **No public evidence of AI in sponsor-side approval or eligibility determination.**
+- **No public evidence of AI in sponsor-side approval or eligibility determination.** **[RT] Exception:** Daffy, which operates its own sponsor, announced back-end AI that unifies charity data and "flags issues for review" (2025-04-09; announced only). This is consistent with the flag-only rule below. Bonterra Que was missing from the inventory and has been added to the correction list.
 - The agentic frontier is **donor-side**: TIFIN Give's Louise, and Daffy's MCP server exposing `make_donation`. Sponsors will receive agent-originated recommendations before they deploy agents themselves.
 
 **Risk:**
@@ -91,7 +91,10 @@
 | Paper-check workflows and returned-check reconciliation | A process that should not exist; it generates its own exceptions | Electronic-only payee enrollment, with a manual tail for unbanked/foreign grantees | AI economics; incentives |
 
 **Smallest commercially meaningful products** (from the entrant simulation; falsifiable within 6–12 months):
-1. **Operating layer:** exception-only grant routing plus a continuous eligibility monitor for 2–3 independent or community-foundation sponsors. **Signal:** measured exception rate, reviewer minutes and time-to-approve vs baseline. These are the data no incumbent publishes.
+1. **Operating layer:** exception-only grant routing (routine tiers cleared by **deterministic, sponsor-approved rules only**; AI may add flags or evidence but never clear) plus a continuous eligibility monitor for 2–3 independent or community-foundation sponsors. **Signal:** measured exception rate, reviewer minutes and time-to-approve vs baseline. These are the data no incumbent publishes.
+   - **[RT] Economic caveat:** on the repository's own parameters, a $120k/yr product needs ≈369k grants/yr from grant-review value alone. Even if it captured all redesign and AI value in scope, it needs ≈76k. Most independent and community-foundation sponsors are below both.
+   - So Strategy 3 is a **conditional research probe**, not an unconditional recommendation. It must absorb reconciliation, servicing and monitoring value, sell to vendors or networks rather than single sponsors, or be priced well below $120k.
+   - Its "lowest capital" advantage is a headcount assumption: it needs about 42 customers for $5m ARR, against 5 for a full platform.
 2. **Modular infrastructure:** an eligibility-monitoring API and a reconciliation API. **Signal:** paid adoption by a platform that already has a sponsor.
 3. **Complete platform:** only as S1-lite through a sponsor-of-record partner, after (1) produces data.
 
@@ -119,7 +122,7 @@ Administration is becoming cheaper through shared rails, continuous monitoring a
 | Conclusion | Would be revised if… | Monitor | Clarity posture |
 |---|---|---|---|
 | AI-on-existing-workflow is economically inferior (B) | Measured QA/re-review rates ≤5% with ≥40% handling-time saving at a real sponsor; or exception rates far above the 2.5–3% observable non-standard share | First sponsor time-and-motion study; vendor case studies with denominators | Experimental |
-| Operating layer is the best entry (D) | Incumbent vendors gate ledger/API access; wealth buyers insist on bundles; incumbents ship policy-as-code within 12–18 months | Sponsor contract API clauses; Ren/FS/TIFIN release notes; SEI-type channel decisions | Strategic |
+| Operating layer is the best *probe* (D) | Incumbent vendors gate ledger/API access; wealth buyers insist on bundles; incumbents ship policy-as-code within 12–18 months; measured cost pools below the ≈76k-grant break-even [RT] | Sponsor contract API clauses; Ren/FS/TIFIN release notes; SEI-type channel decisions | Strategic |
 | Ren's share claim is unsupported (A4) | Evidence of Ren components inside Fidelity Charitable, DAFgiving360, Vanguard Charitable or NPT; or Ren defines its denominator | Ren disclosures; sponsor audited statements; Give Interactive/Vanguard scope | Guardrail (diligence) |
 | Concentration is moderate (A3) | Census-level FY2025 DAFRC data shows CR3 above 55% on a consistent measure | DAFRC 2026 release | Fast |
 | Manual review of listed public charities is habit (A6) | Final §4966/6033 guidance imposes per-grant diligence duties; enforcement actions against sponsors for grants to listed charities | Federal Register; IRS guidance plan; litigation | Guardrail |
@@ -160,10 +163,11 @@ Each entry gives the evidence, the uncertainty, the implication and the next act
    - **Implication:** treat Ren's scale claims as unverified in any diligence.
    - **Next:** request Ren's denominator; check Give Interactive's scope at Vanguard Charitable.
 
-5. **AI on inherited workflows is the wrong investment; redesign is the lever.** **[S]** C ranks last in 16/16 processes under base assumptions; inference cost is immaterial; QA intensity decides.
-   - **Uncertainty:** no measured exception or QA rates anywhere; **[RT]** sensitivity in wave 2A.
-   - **Implication:** sponsors should fund continuous monitoring, electronic payee enrollment and policy-as-code before AI.
-   - **Next:** one real time-and-motion study.
+5. **The economic value pool for DAF operations AI is thin, and redesign should precede it.**
+   - **Evidence:** inference cost is immaterial (≈$0.45 vs ≈$83 per heavy review) **[V wave 2A]**. Grant-review value is ≈$16k/yr at a 48,744-grant sponsor **[S]**. An operating-layer product at $120k/yr needs ≈76k–369k grants/yr to break even **[RT]**.
+   - **Uncertainty:** "AI ranks last" is an artifact of model inputs **[RT]**. No measured exception, QA or handling-time data exist anywhere in the market.
+   - **Implication:** sponsors should fund continuous monitoring, electronic payee enrollment and policy-as-code first. AI economics work at vendor or network scale, not per sponsor.
+   - **Next:** one real time-and-motion study at a sponsor, which is the gating evidence for every AI and entrant conclusion here.
 
 6. **The agentic AI frontier is donor-side, and sponsors have no stated controls for it.** TIFIN's Louise executes donor requests; Daffy's MCP exposes `make_donation`; no spend limits are documented. No public evidence of AI in sponsor approval.
    - **Implication:** sponsors need agent-origin tagging and authority separation now.

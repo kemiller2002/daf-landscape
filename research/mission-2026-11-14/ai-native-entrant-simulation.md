@@ -1,4 +1,7 @@
 # AI-native DAF technology entrant: first-principles simulation
+
+> **Red-team status (2026-11-14):** this document was independently reviewed in [red-team-wave2a-ai-and-entrant.md](red-team-wave2a-ai-and-entrant.md). The corrections in the final section govern where they conflict with the text.
+
 **Date:** 2026-11-14 · **Status:** Analytical simulation. Regulatory items are drawn from primary sources. Capital, headcount and pricing figures are **SCENARIO assumptions**, labeled as such. No company facts are invented. This is not legal advice.
 **Data:** `data/mission-2026-11-14/ai-native-component-buy-build-matrix.csv` (20 components) · `data/mission-2026-11-14/entry-strategy-comparison.csv` (3 strategies × dimensions)
 **Builds on, does not repeat:** `startups-and-emerging-competitors-2026-11-12.md`, `challenger-economics-daffy-chariot-charityvest-2026-11-12.md`, `pave-finance-daf-market-entry-study-2026-11-11.md`, `expanded-daf-ecosystem-2026-11-11.md`, `daf-grant-exception-unit-economics-evidence-and-sensitivity-2026-11-12.md`, `ren-instant-grant-approval-rcf-policy-clarity-audit-2026-11-12.md`, `batch-2a-charity-vetting-grant-approval-2026-11-12.md`.
@@ -269,3 +272,26 @@ These cut cost but do not change who is accountable. Incumbents are already mark
 | basis_or_formula | Formula or reasoning that generates the value |
 | anchor_source_url | Public source for any comparable used (blank when purely assumed) |
 | notes | Comparability limits and caveats |
+
+## Red-team corrections (wave 2A, 2026-11-14) — governing
+
+10. **`ai-native-entrant-simulation.md`, Exec #3 and §8.** Replace "Recommended entry: Strategy 3" with:
+    > "Preferred research probe: Strategy 3, conditional on measuring operating cost pools. On the repo's own parameters, $120k/yr requires ≈369k grants/yr from grant review alone, or ≈76k grants/yr if S3 captured all redesign and AI value in its scope; most independent and community-foundation sponsors are below both."
+
+    Replace "lowest scenario capital" with:
+    > "lowest assumed capital (by headcount assumption; S3 needs ~42 customers for $5m ARR vs 5 for S1)."
+11. **Same doc, §6 S3 row and the CSV `falsifiable_signal_6_12m`.** Replace "zero false clears… model-assisted clearing" with:
+    > "routine-tier clearing by deterministic, sponsor-approved rules only; AI may add flags or evidence but not clear (consistent with ai-governance-failure-modes.md §5)."
+12. **Same doc, R9 and §8 condition 4.** Replace "Commentary… says §4966 guidance remains listed" with:
+    > "The 2026–27 Priority Guidance Plan (2026-09-29) lists 'Guidance under sections 4966 and 6033 regarding certain donor advised fund arrangements', replacing the prior plan's final §4966 regulations item."
+
+    Change condition 4 to "Forthcoming §4966/6033 guidance…".
+13. **Same doc, §4 and §5.2.** Add the missing players:
+    - Daffy for Developers (open APIs, 2023) as a second sponsor-of-record API.
+    - Goodstack (nonprofit verification and eligibility API) as an S2 competitor.
+    - Every.org APIs.
+    - Bonterra Que, Benevity and Blackbaud as incumbents able to bundle S3 features.
+    - Givinga, Stellar/iPhi, DAFtech and Give Interactive as DAF-tech vendors.
+14. **Same doc, §9 Q7.** Answer it: the RCF policy states that Charity Check "Includes the result of GuideStar's OFAC verification".
+15. **Same doc, Endaoment custodians.** Replace "are named as supporting Endaoment DAF accounts" with "are named on Endaoment's institutions page ('The DAF follows the assets…'); custodial agreements not verified".
+16. **Same doc, §5.4.** Note that the $65/h rate and exception model differ from the economics doc's $55.45/h model, and reconcile them.

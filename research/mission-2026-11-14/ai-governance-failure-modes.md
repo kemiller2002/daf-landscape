@@ -1,5 +1,8 @@
 # AI governance, trust and failure modes in DAF operations
 
+> **Red-team status (2026-11-14):** this document was independently reviewed in [red-team-wave2a-ai-and-entrant.md](red-team-wave2a-ai-and-entrant.md). The corrections in the final section govern where they conflict with the text.
+
+
 **Date:** 2026-11-14. **Status:** desk research; regulatory text and public market evidence; no access to any sponsor's AI systems, model-risk documentation or incident data. **Data:** `data/mission-2026-11-14/ai-failure-mode-register.csv` (16 failure modes). **Companion:** `research/mission-2026-11-14/ai-economics-replacement-analysis.md` (process IDs P01–P16 used below). **Builds on:** decision state machine and adversarial cases in `research/batch-2c-grant-approval-decision-system-benchmark-2026-11-12.md`; failure mechanisms in `research/batch-2a-charity-vetting-grant-approval-2026-11-12.md`; responsibility map in `research/technology-control-map.md`.
 
 Notation: **[F]** sourced fact; **[I]** inference; **[S]** scenario/judgment rating.
@@ -196,3 +199,8 @@ Market: [TIFIN Louise](https://www.prnewswire.com/news-releases/tifin-give-launc
 | human_decision_required | What an authorized person must decide |
 | monitoring_metric | Metric that would reveal the failure |
 | risk_owner | Suggested accountable function |
+
+## Red-team corrections (wave 2A, 2026-11-14) — governing
+
+17. **`ai-governance-failure-modes.md`, Exec #2.** Add:
+    > "These counts are rubric ratings against unconstrained AI, with no observed DAF AI incidents and no baseline for human error rates."

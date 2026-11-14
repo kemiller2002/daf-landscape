@@ -1,5 +1,8 @@
 # AI economics and replacement analysis for DAF operations
 
+> **Red-team status (2026-11-14):** this document was independently reviewed in [red-team-wave2a-ai-and-entrant.md](red-team-wave2a-ai-and-entrant.md). The corrections in the final section govern where they conflict with the text.
+
+
 **Date:** 2026-11-14. **Status:** desk research plus a transparent SCENARIO model. No sponsor operational data, no vendor demos, no measured exception rates. **Data:** `data/mission-2026-11-14/ai-process-economics.csv`, `data/mission-2026-11-14/ai-use-case-inventory.csv`. **Builds on (does not repeat):** `research/daf-grant-exception-unit-economics-evidence-and-sensitivity-2026-11-12.md` (exception labor formula, grant-volume baselines), `research/daf-reconciliation-economics-scenario-model-2026-11-11.md`, `research/batch-2a-…`, `research/batch-2c-…` (decision state machine, 20 synthetic cases), `research/ren-instant-grant-approval-rcf-policy-clarity-audit-2026-11-12.md` (three-metric distinction, A/B/C benchmark design), `research/tax-opportunity-lifecycle-2026-11-11.md` (TIFIN Tax Intelligence).
 
 Notation: **[F]** = sourced fact; **[I]** = inference by this analysis; **[S]** = SCENARIO assumption or output. Every [S] number is an assumption chosen to make the logic inspectable, not an estimate of any sponsor's costs.
@@ -235,3 +238,21 @@ Market: [TIFIN Louise PR (2025-10-27)](https://www.prnewswire.com/news-releases/
 | human_oversight_stated | Oversight language in the source, if any |
 | source_url, source_date | Primary or best available source and its date |
 | notes | Caveats |
+
+## Red-team corrections (wave 2A, 2026-11-14) — governing
+
+1. **`ai-economics-replacement-analysis.md`, Exec #2.** Replace "This ranking is driven by stated assumptions (Section 5), but the structural reason is robust" with:
+   > "This ranking is determined by stated assumptions: with A fixed at 15% and AI-amenability capped at 0.45, C cannot exceed A in any process (that requires a > 0.50). It is not evidence about AI performance. The directional point — prevent exceptions before automating their handling — rests on reasoning, not on the model."
+2. **Same doc, §4.3 readings.** Replace "QA intensity is the single most important AI parameter" with:
+   > "QA intensity decides whether AI value is positive; the ranking is driven mainly by the assumed AI-amenability (a) and redesign share (d), both unsourced. With QA = 0, C still ranks last in 12/16 processes at s_C = 40%."
+3. **Same doc, §3 table and CSV `rank_base` for P07.** Annotate: "B and C within $512 (0.3%); treat as tied."
+4. **Same doc, §4.4.** Add P09 to the list of processes where A clears $25k.
+5. **Same doc, §1 #5 and §6.3.** Add:
+   > "Exception: Daffy, which operates its own sponsor (Daffy Charitable Fund), announced back-end AI that unifies charity data and 'flags issues for review' (2025-04-09; announced only)."
+
+   Also change "at institutional scale" to "at one corporate DAF".
+6. **Same doc, Benevity mentions.** Change "500+ clients" to "500+ clients across Grant Summaries and Match Assurance". Change "match decline rate" to "external match decline rate".
+7. **Same doc, Chariot.** Replace "(vendor citing DAFRC)" with "(vendor figure, unattributed)".
+8. **Same doc, Candid.** Change the text to:
+   > "cut staff (Chronicle reports 42, about one-fifth; count not independently verified) and is repositioning as a data supplier to AI platforms."
+9. **`ai-use-case-inventory.csv`.** Add Bonterra Que (2025-10-01, adjacent, act/recommend, announced, https://www.businesswire.com/news/home/20251001579571/en) and Bonterra Grantmaker (2026-02-19, announced). Change U20 `date_announced` to 2025-07-22, or note why it differs. Recount the §6.2 table.
