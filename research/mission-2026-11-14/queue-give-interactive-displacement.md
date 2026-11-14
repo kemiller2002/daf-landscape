@@ -201,3 +201,10 @@ Classification as of 2026-11-14. The categories are migrated / migrating (dual t
 | S16 | [National Heritage Foundation TY2022](https://projects.propublica.org/nonprofits/organizations/582085326/202343179349306884/full); [United Charitable 990s](https://projects.propublica.org/nonprofits/organizations/204286082); [nhcf.org/mynhcf](https://www.nhcf.org/mynhcf/) | `nhf` candidates |
 | S17 | [Give company page](https://www.giveinteractive.com/company); [The Racket News 2023-01-23](https://www.theracketnews.com/p/who-is-he-gets-us-and-why-you-cant) | Founder history; no ownership disclosure |
 | S18 | [thesignatry.giveinteractive.com/log-in](https://thesignatry.giveinteractive.com/log-in); [fftc.org](https://www.fftc.org/); [kzcf.org](https://kzcf.org/) | Live / lapsed tenants |
+
+## Validation corrections (wave 5, 2026-11-14) — governing
+Source: [validation-wave5-report.md](validation-wave5-report.md). Where these conflict with the text above, these govern.
+
+8. **`research/mission-2026-11-14/queue-give-interactive-displacement.md`, line 60.**
+   - Replace: "Stellar in **every year FYE 3/2014–3/2025**, rising from $119,943 to $366,469"
+   - With: "Stellar in **every e-filed year FYE 3/2013–3/2025**, from $121,482 (FYE 3/2013) to $366,469. The new login page's 'Open A Fund' button still links to iphi.stellartechsol.com (2026-11-14)."

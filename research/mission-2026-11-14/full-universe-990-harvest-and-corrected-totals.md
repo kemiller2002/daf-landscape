@@ -330,3 +330,11 @@ python3 scripts/mission_990_contractors.py --irs-dir DIR --soi-dir SOI --cache-d
 python3 scripts/mission_dafrc_corrected_totals.py --irs-dir DIR --cache-dir CACHE --fetch
 ```
 With 16–24 threads, a full network run took a few minutes. Re-runs from the cache are offline: under a minute each.
+
+## Validation corrections (wave 5, 2026-11-14) — governing
+Source: [validation-wave5-report.md](validation-wave5-report.md). Where these conflict with the text above, these govern.
+
+7. **`research/mission-2026-11-14/full-universe-990-harvest-and-corrected-totals.md`, line 141.**
+   - Replace: "Ren's 990-evidenced reach is **14.8% of DAFRC assets**. It is a floor:"
+   - With: "Ren's 990-evidenced reach is **14.8% of DAFRC assets** cumulatively: 30 sponsors named in any FY2022–25 return. Only 18 sponsors holding $30.18bn (9.2%) name Ren or Stellar in their latest parsed return; GS DAPF ($11.84bn) appears in FY2022 only. On corrected FY2024 assets the cumulative share is 15.0%. It is a floor for current use only in the sense that Part VII-B lists just the top five contractors over $100k:"
+   - Apply the same qualifier to `strategic-synthesis.md` and `FINAL-STATUS.md` ("14.8% 990-paid").

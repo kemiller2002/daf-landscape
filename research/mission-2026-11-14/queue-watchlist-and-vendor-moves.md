@@ -188,3 +188,8 @@ The columns are the same as the other edge files. ED001–ED008 add one new rela
 ### `queue-proposals-watchlist.csv`
 
 Format per [queue-proposals-README.md](../../data/mission-2026-11-14/queue-proposals-README.md), prefix `P-WAT-`.
+
+## Validation corrections (wave 5, 2026-11-14) — governing
+Source: [validation-wave5-report.md](validation-wave5-report.md). Where these conflict with the text above, these govern.
+
+9. **`research/mission-2026-11-14/queue-watchlist-and-vendor-moves.md`, line 28 (P-VEN-08).** After "GiveClear as a whole reported **228 DAFs and $215.3m**", add: "The count of 228 is identical to CY2023's despite 8.7× asset growth, so treat it as unreliable."

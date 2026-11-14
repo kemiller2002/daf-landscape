@@ -315,3 +315,20 @@ Six proposals, P-COST-01 to P-COST-06, in the format of `queue-proposals-README.
 python3 scripts/mission_sponsor_cost_structure.py --cache-dir CACHE --fetch --task all   # first run: ~1.8 GB of XML streamed, 24 threads
 python3 scripts/mission_sponsor_cost_structure.py --cache-dir CACHE --task all           # offline re-run from the JSON cache
 ```
+
+## Validation corrections (wave 5, 2026-11-14) — governing
+Source: [validation-wave5-report.md](validation-wave5-report.md). Where these conflict with the text above, these govern.
+
+1. **`research/mission-2026-11-14/sponsor-cost-structure-and-sensitivities.md`, §6 line 27.**
+   - Replace: "**[I]** The 1.5m "accounts" are most plausibly player and app-user records."
+   - With: "**[I]** The account unit is undefined. For CY2022, game and app-user records (GHG, SoftGiving) are the most consistent reading. Employer-provisioned employee accounts are an alternative candidate (see P-INF-01). Neither is confirmed."
+2. **Same file, line 217.**
+   - Replace: "and the persistence of the 1.42m count in CY2024 after the fundraiser lines vanish (dormant records carried forward)."
+   - With: "but not the path of the count. It fell to 955,569 in CY2023, as GHG receipts dropped to $3.42m, then rose by 465,442 to 1,421,011 in CY2024 with no Schedule G fundraiser. Carried-forward dormant records cannot produce that rise, so the CY2024 count needs another source (for example, employer programs)."
+3. **Same file, line 25.** After "as Givinga's largest "online fundraising" agent", insert "in CY2022 (SoftGiving was larger in CY2021 and Brandfluence in CY2023)".
+5. **`sponsor-cost-structure-and-sensitivities.md`, line 10.**
+   - Replace: "operating cost (total functional expenses minus grants, excluding investment-management fees)"
+   - With: "operating cost (total functional expenses minus grants on lines 1–3, member benefits on line 4 and investment-management fees on line 11f)"
+6. **Same file, after the table in §4.4.**
+   - Add: "Fidelity's $203.1m includes $15.6m of 'other charitable investment advisor program' and $5.7m of taxes (about $59 per grant without them). Against a period-matched count of about 2.85m (average of CY2024 and CY2025) the figure is about $71. Vanguard's FY Jun-2025 990 (object 202621329349306657) is in the IRS index but not yet mirrored; use it when it is."
+   - Wherever these figures are cited as "FY2024", relabel them "latest 990 (FY Jun-2024/25)".

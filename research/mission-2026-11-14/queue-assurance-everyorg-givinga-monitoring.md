@@ -372,3 +372,14 @@ Holds the same fields as the manifest row, plus `document`, `content_type`, `raw
 ### queue-proposals-assurance-monitoring.csv
 
 Columns and scales follow [queue-proposals-README.md](../../data/mission-2026-11-14/queue-proposals-README.md). IDs are P-ASR-01..07.
+
+## Validation corrections (wave 5, 2026-11-14) — governing
+Source: [validation-wave5-report.md](validation-wave5-report.md). Where these conflict with the text above, these govern.
+
+4. **`research/mission-2026-11-14/queue-assurance-everyorg-givinga-monitoring.md`, P-INF-01.**
+   - Replace: "**[I]** The 1.4m most plausibly counts employee accounts provisioned by employer programs, most with near-zero balances ($1.37 average)."
+   - With: "**[I]** The unit is undefined. Candidates are employer-provisioned employee accounts and game/app-user records from Schedule G fundraisers (Golden Hearts Games, SoftGiving/Brandfluence; see sponsor-cost-structure-and-sensitivities.md §6). Average balance is $1.37."
+10. **`queue-assurance-everyorg-givinga-monitoring.md`, P-QA2-04.** After "falling to 1.1% in 2024 [C]", add: "This is a floor, because CY2024 reports $6.58m in aggregate to recipients under $25k."
+11. **`queue-assurance-everyorg-givinga-monitoring.md`, P-QA1-04.** After "Foundant, Give Interactive, Chariot, Blackbaud, Benevity", add: "(Foundant names its auditor, Linford & Co, and all five Trust Services Criteria, but not the period)". Also add: "reninc.com, candid.org and tifin.com returned 403 to the wave-5 validator."
+
+No corrections are needed for V5-02, V5-04, V5-06 (numbers), V5-07, V5-08, V5-09 or V5-10 (numbers).
