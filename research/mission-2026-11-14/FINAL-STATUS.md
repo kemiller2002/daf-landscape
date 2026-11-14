@@ -8,20 +8,25 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts
+## Counts (refreshed after round 2, 2026-11-14)
+
+Round 1 is the original mission. Round 2 covers citations, the research queue, deep research, the quadrants and validation waves 3–4.
 
 | Item | Count | How computed |
 |---|---|---|
-| Commits added by this mission | 24 (including this file's commit) | `git rev-list --count main..HEAD` |
-| Research documents (markdown) | 81 → 96 (+15 mission documents) | `scripts/mission_inventory.py` |
-| Words in research documents | ~105.8k → ~164.5k | same |
-| Datasets | 60 → 89; data rows 1,119 → 13,658 (8,751 of them are the DAFRC sponsor panel) | same; baseline = state before mission files |
-| **Sources reviewed: unique URLs cited across the repository** | **431 → 886** (147 → 288 domains). Mission agents reported about 600 distinct URLs across their files, with overlap. | same. A cited URL is referenced, not necessarily read in full. About 60 mission sources rely on search summaries and are flagged. |
-| **Organizations investigated** | **140 distinct organizations** profiled with sourced evidence (graph nodes excluding 25 branded programs, plus the breadth profiles). Deep checklist coverage covers 33 entities. Timeline events cover 57 named companies. | `relationship-graph-nodes.csv` ∪ `breadth-entity-profiles.csv`; coverage matrix |
-| **Independently validated findings** | **80 claims checked by non-authoring agents:** 45 confirmed, 25 partially confirmed, 7 contradicted, 3 unable to verify | `validation-register.csv` (22), `-wave2a` (31), `-wave2b` (27) |
-| **AI use cases investigated** | **30 inventoried** (13 announced, 7 demonstrated, 8 deployed with evidence, 2 unverified; 10 DAF-direct). 2 more (Bonterra Que, Bonterra Grantmaker) were identified by red team and logged as corrections. 16 operational processes were modelled for AI economics, and 16 AI failure modes registered. | `ai-use-case-inventory.csv`, `ai-process-economics.csv`, `ai-failure-mode-register.csv` |
-| **Major hypotheses tested** | **33**: 10 industry beliefs (synthesis §A); 3 entry strategies; 11 structural-vs-habit classifications; 3 EDF diagnoses of observed outcomes; 6 Clarity-only hypotheses (incentives §7). Separately, 39 announced-vs-delivered capability claims were checked. | listed in the cited documents |
-| Coverage matrix | 33 entities × 12 checklist items = 396 cells. 56.6% have any investigation (was 55.2% on 29 entities); 8.8% are partially validated or better (was 3.4%); 23 cells are independently corroborated (was 0) | `scripts/mission_coverage.py` |
+| Commits added on the branch | 62 before this refresh | `git rev-list --count main..HEAD` |
+| Research documents (markdown) | 81 → 121 | `scripts/mission_inventory.py` |
+| Words in research documents | ~105.8k → ~268k | same |
+| Datasets | 60 → 177; 1,119 → 57,229 data rows | Most rows are machine-harvested panels: the DAFRC sponsor panel, Form 990 harvests for 1,512 sponsors, and the entry/exit panel |
+| **Sources: curated unique URLs** | **1,744** curated (1,304 cited in narrative documents plus 440 more in curated CSVs). Baseline: 431. | Inventory script. A further ~17,700 URLs are machine-harvested IRS e-file and filing links in the bulk datasets; they are counted separately and not as "sources reviewed". The total including bulk is 19,468 across 509 domains. |
+| **Organizations investigated** | **~300 distinct organizations** with sourced evidence: graph nodes, breadth profiles, 89 interested firms and 50 failed or retreated ventures, after de-duplication. **1,512 sponsors** have machine-parsed Form 990 data. **33 entities** have deep checklist coverage. | Normalized-name union of `relationship-graph-nodes`, `breadth-entity-profiles`, `daf-interested-firms` and `failed-daf-startups`; plus `form990-harvest-sponsor-universe-full.csv` |
+| **Independently validated findings** | **103 claims** checked by non-authoring agents: 59 confirmed, 33 partially confirmed, 8 contradicted, 3 unable to verify | `validation-register*.csv`: waves 1 (22), 2A (31), 2B (27), 3 (10 incl. 1 new finding), 4 (13) |
+| **Evidence Quadrant reproducibility** | 43 providers in 5 areas, two blind scorers. 67% exact cell agreement; 99.7% within 1 point. 18 positions reproduced, 18 adjudicated, 7 insufficient evidence | `quadrant-calibration.md` |
+| **AI use cases investigated** | **30 inventoried** (10 DAF-direct) plus 2 identified by red team. Also: agentic-integration controls for 8 services, 16 processes modelled, 16 failure modes | `ai-use-case-inventory.csv`, `agentic-integration-controls.csv` |
+| **Major hypotheses tested** | **33** in round 1, plus round 2 tests: Fidelity EFT-only (not in effect); Give Interactive systematic displacement (not yet: 2 migrations); Ren share claim (footprint ~28% software, 14.8% 990-paid; 60% unreachable); sponsor mortality (0.2–1.5%/yr); entrant data access without vendor consent (live access no; batch export yes); anti-passthrough clause spread (NPact only). That is **39** in total. | listed in the cited documents |
+| Complaints corpus / failure cases | 244 records (149 complaints, 16 mixed, 79 praise) and 50 venture cases | `daf-user-complaints-corpus.csv`, `failed-daf-startups.csv` |
+| Research queue | 50 questions done, 1 blocked (needs vendor outreach), 128 open, re-ranked by expected information value; agents add proposals through `queue-proposals-*.csv` | `research-priority-queue.csv` |
+| Coverage matrix | 33 entities × 12 items = 396 cells. 62.1% have any investigation (round 1: 56.6%). 12.6% are partially validated or better (round 1: 8.8%). 28 cells are independently corroborated. | `scripts/mission_coverage.py` |
 
 ## Most important new discoveries
 

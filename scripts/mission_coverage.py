@@ -215,10 +215,40 @@ MISSION_NEW_ENTITIES = (
 )
 
 
+# Round 2 (queue research after the first final status, 2026-11-14): contracts, assurance scope,
+# 990 contractor harvest, Give Interactive, complaints, failures, quadrants. Coordinator assessment.
+ROUND2_UPDATES = {
+    "Ren (RenPSG)": dict(tech_admin="PV", assurance="CE", custody_invest="DS", operating_evidence="DS"),
+    "TIFIN Give": dict(assurance="DS", ai="PV"),
+    "Foundation Source": dict(assurance="IP", tech_admin="PV"),
+    "Chariot": dict(assurance="EC", grant_workflow="PV", fees="PV"),
+    "Daffy": dict(ai="PV", assurance="IP", operating_evidence="EC"),
+    "Fidelity Charitable": dict(grant_workflow="PV", operating_evidence="EC", custody_invest="PV"),
+    "DAFgiving360 (Schwab Charitable)": dict(grant_workflow="PV", operating_evidence="DS"),
+    "Vanguard Charitable": dict(tech_admin="PV"),
+    "National Philanthropic Trust (NPT)": dict(tech_admin="PV"),
+    "Stellar Technology Solutions / iPhi": dict(distribution="PV", financials="DS"),
+    "Givinga": dict(financials="EC", assurance="IP", operating_evidence="CE", distribution="EC"),
+    "Morgan Stanley (GIFT)": dict(tech_admin="PV", financials="PV"),
+    "Goldman Sachs (two DAF programs)": dict(tech_admin="PV", financials="PV", fees="IP"),
+    "Bank of America Charitable Gift Fund": dict(financials="DS"),
+    "National Christian Foundation": dict(tech_admin="EC", financials="PV"),
+    "Jewish Communal Fund": dict(tech_admin="DS"),
+    "Silicon Valley Community Foundation": dict(grant_workflow="EC"),
+    "Benevity / workplace processors": dict(assurance="EC", operating_evidence="EC"),
+    "Candid / IRS BMF (eligibility data)": dict(assurance="IP", ai="EC", distribution="DS"),
+    "DAF Direct": dict(tech_admin="EC", ownership_funding="EC", grant_workflow="EC"),
+    "Give Interactive": dict(ownership_funding="PV", tech_admin="PV", distribution="EC", assurance="EC", financials="EC", timeline="EC"),
+    "Endaoment": dict(ai="EC", grant_workflow="EC", ownership_funding="EC", assurance="IP"),
+    "Foundant (CommunitySuite)": dict(assurance="EC", tech_admin="EC"),
+    "NPact (FIMS / DonorCentral)": dict(assurance="IP", tech_admin="EC"),
+}
+
+
 def apply_updates(baseline, updates, new_entities):
     return tuple(
-        (e, seg, {**st, **updates.get(e, {})}, files, notes) for e, seg, st, files, notes in baseline
-    ) + tuple(new_entities)
+        (e, seg, {**st, **updates.get(e, {})}, files, notes) for e, seg, st, files, notes in baseline + tuple(new_entities)
+    )
 
 
 def rows(baseline, validated=frozenset()):
@@ -285,7 +315,7 @@ if __name__ == "__main__":
     root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
     out = root / "data" / "mission-2026-11-14"
     out.mkdir(parents=True, exist_ok=True)
-    records = rows(apply_updates(BASELINE, MISSION_UPDATES, MISSION_NEW_ENTITIES), load_validated(out))
+    records = rows(apply_updates(BASELINE, {k: {**MISSION_UPDATES.get(k, {}), **ROUND2_UPDATES.get(k, {})} for k in set(MISSION_UPDATES) | set(ROUND2_UPDATES)}, MISSION_NEW_ENTITIES), load_validated(out))
     write_csv(out / "coverage-matrix-entities.csv", records)
     (out / "coverage-summary.json").write_text(json.dumps(summary(records), indent=2))
     print(json.dumps(summary(records), indent=2))

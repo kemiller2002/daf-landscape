@@ -317,6 +317,63 @@ The open questions behind each are in the research queue (`P-QCAL-*`).
 
 ---
 
+## 11. Round-2 findings: failures, complaints, buyers, payments, contracts, mortality
+
+Each item links to its workstream. Every workstream carries inline primary-source citations, and corrections from validation wave 4 are appended to each as governing notes.
+
+**Failed and retreated ventures** ([failed-daf-startups-deep-research.md](mission-2026-11-14/failed-daf-startups-deep-research.md); 50 cases)
+- Outcomes: 12 acquisitions, 11 voluntary shutdowns, 6 regulator or insolvency events, 5 pivots.
+- **Donor money was lost only where one operator held unsegregated funds:** Ammado, Flipcause and SDG Impact Fund.
+- Most DAF-tech exits are acquisitions by consolidators (Ren, Foundation Source, TIFIN).
+- Crypto-giving revenue is cyclical. Shift4 cut The Giving Block earnout liability by $47.1m [V].
+- Entrant rule: never hold donor funds, disclaim title to donations in transit, and check processor reserve terms.
+
+**User complaints** ([daf-user-complaints-deep-research.md](mission-2026-11-14/daf-user-complaints-deep-research.md); 244 records)
+- Top themes: app login and crash failures (mostly the Fidelity Charitable app, 2012–2026), grant delays (nonprofits), sponsor discretion (the 2026 SPLC holds; letter from 16 AGs [V]) and gift-receipt friction.
+- Of complaint and mixed records, 117 are fixable and 47 structural. All critical records are structural.
+- Every donor lawsuit found failed or is pending (Fairbairn lost after a bench trial [V]).
+- Counts lack customer-base denominators, and Reddit was inaccessible.
+
+**Who is interested in DAF organizations** ([firms-interested-in-daf-organizations.md](mission-2026-11-14/firms-interested-in-daf-organizations.md); 89 firms)
+- Revealed interest comes from private-equity incumbents (GTCR; Bain, majority in 2023 and a significant shareholder after 2025 [V]; Great Hill) and wealth platforms (SEI, LPL, AssetMark, Envestnet).
+- Vanguard signed to acquire Altruist (not closed). Altruist launched DAFs sponsored by Endaoment 41 days later [V].
+- Platforms sign white-label deals rather than buy DAF vendors, and common PE ownership has not forced vendor alignment.
+- Sponsors themselves cannot be acquired. They merge or affiliate under charity law.
+
+**Payments** ([queue-payment-rails-cluster.md](mission-2026-11-14/queue-payment-rails-cluster.md); [nonprofit costs](mission-2026-11-14/queue-infrastructure-nonprofit-costs-emerging.md))
+- Fidelity's EFT-only policy is **not in effect**. Its 2026 Giving Report states 67% of grants go by EFT [V], and unenrolled charities still receive checks.
+- No sponsor publishes a grant-timing SLA. Checks are voided or returned at 90 days.
+- Nonprofit cost per $1,000 grant: about $1–2 on free EFT rails, about $5–8 by check, about $32 on DAFpay at its 2.9% default.
+- DAF Direct is a Fidelity-run recommendation router for three sponsors; no funds flow through it. Givinga is a single-sponsor platform whose account counts are unstable.
+
+**Contracts, data rights and agent controls** ([queue-contract-data-rights-agent-controls.md](mission-2026-11-14/queue-contract-data-rights-agent-controls.md))
+- Sponsors own their data, but no incumbent public template grants API access.
+- NPact §2.4 (Aug 2025) bars third-party transaction access [V]. iPhi allows a 15-day export window [V].
+- So an entrant can reach batch exports without vendor consent, but **not live integration**.
+- Daffy's MCP documents no spend limits [V], and TIFIN publishes no Louise controls. Endaoment and Chariot show better patterns.
+
+**Assurance** ([queue-assurance-everyorg-givinga-monitoring.md](mission-2026-11-14/queue-assurance-everyorg-givinga-monitoring.md))
+- None of 13 vendors publishes a SOC report with period and system scope.
+- Ren's statements alternate between Type 2 and Type 1.
+- A dated terms monitor (`scripts/mission_terms_monitor.py`) now snapshots 18 vendor and sponsor terms for change tracking.
+
+**Sponsor mortality** ([sponsor-mortality-analysis.md](mission-2026-11-14/sponsor-mortality-analysis.md))
+- Verified exit rate is 0.19–1.48% a year by count and about 0.2% by assets, recomputed exactly [V].
+- In every confirmed closure, assets moved to another sponsor.
+- DAFRC marks some still-active sponsors as closed (Donors Fund, amended FY2024 990: 6,290 DAFs, $315.8m [V]).
+
+**Analyst and education coverage** ([analyst-and-education-landscape.md](mission-2026-11-14/analyst-and-education-landscape.md))
+- No analyst firm covers DAF platforms: no Gartner MQ or Hype Cycle, no Forrester Wave, and no coverage from IDC, Celent or Datos.
+- Curricula, including the new DAFCP credential, repeat the aggregate 25.2% payout framing.
+- New adviser data: 35% of advisers recommend DAFs most or all of the time (DAFRC 2026, n=669) [V].
+
+**Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
+- Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
+- The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.
+- Two Ren clients have completed migrations (WaterStone, The Signatry). About $5.9bn of Ren-paying assets are at risk.
+
+---
+
 ## Source register
 
 Every external URL cited inline in this document, deduplicated, in order of first citation. Dates are publication or access dates as recorded in the repository's workstream source registers and validation registers.
