@@ -268,6 +268,51 @@ See [synthesis §F](mission-2026-11-14/strategic-synthesis.md) and the [research
 
 ---
 
+## 10. DAF Evidence Quadrants (consensus, 2026-11-14)
+
+This is the repository's own evidence-scored positioning method. It is **not** a Gartner Magic Quadrant, and no analyst firm publishes one for DAF platforms ([analyst landscape](mission-2026-11-14/analyst-and-education-landscape.md)).
+- **Method:** [evidence-quadrant-methodology.md](mission-2026-11-14/evidence-quadrant-methodology.md).
+- **Two blind scorers plus adjudication:** [quadrant-calibration.md](mission-2026-11-14/quadrant-calibration.md).
+- **Positions:** `data/mission-2026-11-14/quadrant-positions.csv` (rows with scorer = consensus).
+- **Charts:** `mission-2026-11-14/quadrants/A1-consensus.svg` … `A5-consensus.svg`.
+
+**Calibration statistics.**
+- 305 cells were scored by both scorers: 67% matched exactly and 99.7% were within 1 point.
+- Of 43 providers, 18 positions were reproduced by both scorers and 18 were adjudicated. The other 7 have insufficient evidence.
+- Every position is *internal-demonstration* under the EDF claim policy. "(b)" marks a boundary position: the point estimate is within 0.25 of a midline.
+
+| Area | Proven Leaders | Scale Operators | Forward Builders | Focused Specialists | Insufficient evidence |
+|---|---|---|---|---|---|
+| A1 Platform & administration | Ren; Give Interactive (b); Foundation Source (b) | Fidelity in-house; NPT GivingPoint*; TIFIN Give (b); Foundant (b) | Blackbaud FE NXT (b) | Givinga; NPact | NCF; SVCF |
+| A2 Disbursement rails | Chariot Disbursements; PayPal Grant Payments; Chariot DAFpay (b); Ren RDE (b); Every.org (b) | Fidelity EFT (b) | — | DAF Direct | — |
+| A3 Adviser-channel sponsors | DAFgiving360 (b); RCF (b); Charityvest (b) | Fidelity Charitable; AEF; NPT (b); Vanguard Charitable (b); GiveClear (b) | — | — | GS PF; MS GIFT; BofA CGF; NCF |
+| A4 Consumer sponsors | Daffy; DAFgiving360 (b); Endaoment (b); Charityvest (b) | Fidelity Charitable | Every.org (b) | — | Givinga |
+| A5 Eligibility data | IRS baseline; Candid; Goodstack; Benevity (b); Chariot verification (b) | — | — | — | — |
+
+\*NPT GivingPoint is Ren-built and Ren-hosted on wave-3 evidence. Its row is mis-scoped and should be merged into Ren at the next re-score.
+
+**What the quadrants show.**
+- **Most providers sit near the midlines.** Forward-capability evidence (data export, SOC scope, portability terms) is the scarcest input, so the uncertainty bands are wide.
+- **The bank-affiliated programs are opaque.** Goldman, Morgan Stanley GIFT and BofA CGF cannot be placed on public evidence.
+- **Large incumbents** (Fidelity, NPT, Vanguard, AEF) score high on execution and low on openness and portability.
+- **Challengers and infrastructure** (Daffy, Endaoment, Chariot) score higher on forward capability.
+
+**AI-governance overlay.**
+- **AMBER (high):** TIFIN Give's Louise. It acts on donor requests with no published controls, but GiveClear still approves every grant.
+- **AMBER:** Daffy. Its MCP server exposes a donation tool with no documented limits.
+- **Watch:** Benevity. Its AI auto-submits, and oversight is undocumented.
+
+**What would move positions.**
+- Published SOC report scopes.
+- Data-export clauses in executed contracts.
+- Outbound transfer terms.
+- Measured grant timing.
+- Bank-program disclosures.
+
+The open questions behind each are in the research queue (`P-QCAL-*`).
+
+---
+
 ## Source register
 
 Every external URL cited inline in this document, deduplicated, in order of first citation. Dates are publication or access dates as recorded in the repository's workstream source registers and validation registers.
