@@ -303,7 +303,7 @@ These are **open**. I did not invent any funding figures.
 | Column | Type | Definition |
 |---|---|---|
 | entity | text | Common name of the organization or product. Legal names are in `legal_role` where they differ. |
-| segment | enum-ish text | community_foundation_sponsor; cf_software_vendor; daf_software_vendor; faith_affinity_sponsor; ideological_affinity_sponsor; impact_sponsor; giving_platform_sponsor; workplace_giving; nonprofit_daf_capture; charity_data_provider; fiscal_sponsor_grantee_class; emerging_direct; emerging_adjacent |
+| segment | enum-ish text | community_foundation_sponsor; cf_software_vendor; daf_software_vendor; faith_affinity_sponsor; ideological_affinity_sponsor; impact_sponsor; giving_platform_sponsor; workplace_giving; nonprofit_daf_capture; charity_data_provider; fiscal_sponsor_grantee_class; national_sponsor_context; emerging_direct; emerging_adjacent |
 | legal_role | text | Role in DAF flows: sponsor (501(c)(3) holding DAF assets), technology vendor, payment/intake, data provider, or a combination. |
 | EIN_if_charity | text | IRS EIN in NN-NNNNNNN format. Blank if not a charity or not verified. |
 | latest_assets_or_scale_with_period | text | Latest dated scale metric with its period and basis (Form 990 total assets, Schedule D DAF value, or vendor-stated count). Vendor-stated figures are marked "(vendor-stated)". |
