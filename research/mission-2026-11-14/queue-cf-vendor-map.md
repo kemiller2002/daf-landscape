@@ -310,3 +310,9 @@ All checks were made on 2026-11-14 with read-only requests. No search form was s
 - `cf-vendor-map-summary.json`: coverage, shares, certificate tenant counts, v2 agreement and edge counts.
 
 **To reproduce:** `python3 scripts/mission_cf_vendor_map.py --fetch --cache-dir <dir>` makes network calls. Without `--fetch` the script runs from the cache only.
+
+## Validation corrections (wave 9, 2026-11-14) — governing
+Source: [validation-wave9-report.md](validation-wave9-report.md). Where these conflict with the text above, these govern.
+
+1. **§ Stellar/Ren → Foundant switches.** Replace "These are probably 2023–2025 migrations [I]. Dates are not established." with "These are probably 2025–2026 migrations [I]. Arkansas CF's 'announces database transition' post is dated 2026-04-20, and Acadiana still paid Stellar $118,458 in TY2024. Flint keeps a legacy `cfgf.iphiview.com` link."
+2. **Accuracy section.** Add: "Wave-9 spot-check: 15 random high/medium rows, vendor correct 15/15 (0%; 95% upper bound 21.8%); 2 evidence-label defects."

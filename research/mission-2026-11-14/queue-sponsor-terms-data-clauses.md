@@ -233,3 +233,16 @@ Ranks are from [dafrc-sponsor-schedule-d-fy2019-2024.csv](../../data/mission-202
 ### `queue-proposals-terms.csv`
 
 The columns and scales follow [`queue-proposals-README.md`](../../data/mission-2026-11-14/queue-proposals-README.md). The prefix is P-TRM-.
+
+## Validation corrections (wave 9, 2026-11-14) — governing
+Source: [validation-wave9-report.md](validation-wave9-report.md). Where these conflict with the text above, these govern.
+
+1. **§1 table, P-EXP-03 row.**
+   - Replace "It also expressly *permits* account holders to use read-only \"aggregators\" [F]." with: "It also expressly permits an Authorized Person to use \"aggregators or similar web crawler devices for the purpose of aggregating information\" [F]; a third party using the holder's credentials is an \"Unauthorized Third Party\" and may not [F]. That this is in effect read-only, self-run aggregation is [I]."
+   - Replace "and use of site data to build AI tools [F]" with "and use of site data or user data for the development or operation of any software, model or AI system [F]".
+2. **§1 table, P-QA2-07 row.**
+   - Replace "bars republication" with "bars republication except as expressly permitted (Licensee Customers via the Licensee Site; Order Form)".
+   - Replace "expressly bars extraction for \"artificial intelligence\"" with "applies its database-building/resale/competition ban expressly to extraction \"for use in or through the use of artificial intelligence\" (internal business use is outside the ban)".
+3. **§3 "Reading", item 2.** Mark "**Allowed:** read-only aggregation by the account holder." as [I]. Add: "Vanguard may block 'systematic, commercial or otherwise inappropriate' automated access in its discretion."
+4. **§3 "Reading", item 3.** After "Its License Agreement provides for third-party export", insert "(s.8, permissive 'may provide', undated; no live feature found)".
+5. **§4 (AEF).** Add: "The instruction sits on AEF's 'Technology Upgrade' (Ren) support site and covers only a grants-paid list in legacy DonorCentral."

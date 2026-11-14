@@ -348,3 +348,19 @@ The columns are v2's (`record_type`, `archetype`, `process_id`, `process`, `inte
 ### `queue-proposals-bdc-labour.csv`
 
 The format follows [queue-proposals-README.md](../../data/mission-2026-11-14/queue-proposals-README.md). IDs are P-BLB-01 to P-BLB-04: φ measurement, archived Benevity fee schedules, AOGF audited statements, and the commitment-note parser.
+
+## Validation corrections (wave 9, 2026-11-14) — governing
+Source: [validation-wave9-report.md](validation-wave9-report.md). Where these conflict with the text above, these govern.
+
+1. **§1 item 2, Golub bullets.**
+   - Replace "Golub Capital BDC: 2024-09-30, facility 98.5%." with "Golub Capital BDC: 2024-12-31, 100.0% of par ($104.7m; 10-Q 0001476765-25-000016)."
+   - Replace "Golub Capital Direct Lending: 2024-09-30, 98.5%." with "Golub Capital Direct Lending: 2024-12-31, 100.0% of par ($9.55m; 10-Q 0001868878-25-000011)."
+2. **§1 item 2, 2032 facility.**
+   - Replace "is held at **2026-09-30** at 99.0–99.5%:" with "is held at **2026-09-30** at 98.2–99.5%:".
+   - Add a bullet: "New Mountain Finance, NM Guardian IV BDC, NM Guardian IV Income Fund, NM Private Credit Fund and NMF SLF I: SOFR(Q)+5.00%, 03/2032, 98.25% (e.g. NMFC 14,876 par / 14,615 FV, $000). Not captured by the parser (borrower printed on its own row)."
+   - Change "FS KKR: SF+4.8 (as printed)" to keep "(as printed; rounded, 4.75 not confirmed from FSK)".
+3. **§2.2 (line "Golub Capital BDC (rows 4047–4050) and Golub Capital Direct Lending (rows 2478–2481): **2024-09-30**.")** Append: "These are the latest marks *in the filings the script selected*. The 12/31/2024 10-Qs carry current-period rows at par (see wave-9 V9-07)."
+4. **§2.3 table, Golub rows.**
+   - Change `| Golub Capital BDC | 09/2027 one-stop | 2024-09-30 | ... | 98.5 | not in schedule at 2025-09-30 |` to period `2024-12-31` and mark `100.0`.
+   - Make the same change for Golub Capital Direct Lending.
+   - Add a row: `| New Mountain family (5 BDCs) | 03/2032 | 2026-09-30 | SOFR+5.00% | 98.25 | held; missed by parser |`.

@@ -562,6 +562,30 @@ The community-foundation channel is fragmented and largely runs its own ACH. Tha
 - **Labour rates.** The Form 990 median loaded rate is $38.87/h across 898 sponsors. It is $57–73/h at $250m+ sponsors and $86/h at DAFgiving360 [V].
 - **DonorSphere.** It is built by FidTech Partners (Stamford, CT) and used by Greater Houston CF, Hawaii CF, FJC and the Jewish Federation of Greater Pittsburgh [V].
 
+**Sponsor terms, community-foundation vendor map, credit fix (batch 24; validated in [wave 9](mission-2026-11-14/validation-wave9-report.md))**
+- **Sponsor terms restricting automation and credential sharing** ([queue-sponsor-terms-data-clauses.md](mission-2026-11-14/queue-sponsor-terms-data-clauses.md)):
+  - NCF's 2025 Program Agreement bans credential sharing with third-party services and scraping, and authorizes no third-party access [V].
+  - Vanguard's User Agreement treats an outside service that uses the donor's login as an "Unauthorized Third Party" [V].
+  - NPT's 2026 terms ban robot harvesting and using its data to build AI tools [V].
+  - Fidelity's licence only says Fidelity "may provide" an export [V].
+
+  These terms conflict with credential-based rails (DAFpay) and with donor-side AI agents.
+- **Candid API licence (2026-09-14)** [V]:
+  - On termination, licensees must stop all use of the data.
+  - Data mining is barred for building a database, reselling or competing with Candid.
+  - Charity Check draws on Pub78, the BMF, the IRB, revocations and the OFAC SDN list.
+- **Community-foundation portal vendors** ([queue-cf-vendor-map.md](mission-2026-11-14/queue-cf-vendor-map.md); `scripts/mission_cf_vendor_map.py`):
+  - Coverage: 481 of 803 foundations mapped, holding 90.5% of community-foundation DAF assets. Spot-check vendor error was 0/15 [V].
+  - By count: Foundant CommunitySuite runs 361 foundations (45%).
+  - By assets: Foundant holds 32.7%, Salesforce 23.7% (19 foundations), GiftingNetwork 11.5% (2) and Ren/Stellar iPhi 5.9% (22).
+  - Give Interactive has no live community-foundation portals.
+  - Three foundations migrated from Stellar to Foundant (likely 2025–26).
+  - Portal does not equal ledger: about 43% of mapped assets sit behind portal-only front ends.
+- **Credit data fix** ([queue-bdc-fix-labour-benevity.md](mission-2026-11-14/queue-bdc-fix-labour-benevity.md)):
+  - The BDC parser now dates each row by its own period.
+  - The Bonterra 2032 loan is held at 98.2–99.5%. Five New Mountain funds are missed by the parser (queued).
+  - Audax holds Foundation Source's loans at par (Sept 2026).
+
 **Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
 - Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
 - The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.
