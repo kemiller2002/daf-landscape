@@ -1,0 +1,29 @@
+{
+  "content_type": "application/pdf",
+  "document": "Blackbaud AI Terms (2026-06 PDF)",
+  "extractor": "pdftotext",
+  "fetched_at_utc": "2026-11-14T11:03:19Z",
+  "final_url": "https://www.blackbaud.com/wp-content/uploads/2026/06/blackbaud-ai-terms-2026.pdf",
+  "format": "pdf",
+  "http_status": "200",
+  "raw_bytes": 135241,
+  "raw_sha256": "9b0bda73661a5c95b47d647f87f487afc533d385f90e89f9c05a9521e52fe827",
+  "slug": "blackbaud-ai-terms-2026",
+  "text_chars": 10317,
+  "text_sha256": "bbafb3798b3c500e109f406464a4d1ec98a47cb674c90cbc068e27074aefe50c",
+  "url": "https://www.blackbaud.com/wp-content/uploads/2026/06/blackbaud-ai-terms-2026.pdf",
+  "vendor": "Blackbaud",
+  "watch_counts": {
+    "agent": 1,
+    "aggregator": 0,
+    "api": 0,
+    "artificial_intelligence": 65,
+    "automated": 0,
+    "bot_scrape": 1,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 0,
+    "pass_through": 0,
+    "third_party": 9
+  }
+}

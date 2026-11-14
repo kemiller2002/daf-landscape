@@ -1,0 +1,30 @@
+{
+  "check_id": "http-ws-login",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "403",
+        "url": "https://waterstone.org/login/"
+      }
+    ],
+    "final_url": "https://waterstone.org/login/"
+  },
+  "entity": "WaterStone",
+  "error": "Forbidden",
+  "observed_at_utc": "2026-11-14T11:19:32Z",
+  "ok": false,
+  "queue_items": "P-GIV-02",
+  "status": "403",
+  "summary": {
+    "chain_hosts": [
+      "waterstone.org"
+    ],
+    "final_host": "waterstone.org",
+    "final_status": "403"
+  },
+  "target": "https://waterstone.org/login/",
+  "watch_regex": "(?i)giveinteractive|iphi|November 1"
+}

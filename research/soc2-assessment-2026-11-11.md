@@ -65,3 +65,8 @@ Search results for [`tryren.com` SOC 2 Type II](https://tryren.com/blog/ren-achi
 It is **not defensible** to rank these as “Ren vs. TIFIN vs. Chariot” on one numeric axis. Ren publicly combines administration and platform services; TIFIN Give markets institutional platform capabilities; Chariot documents transaction connectivity. Their overlap depends on use case. No demonstrated relationship between the extent of their product features and their assurance maturity has been established.
 
 For buyer selection, require separate security and capability evaluations. See [capability assessment](capabilities-2026-11-11.md) and [next steps](next-steps.md).
+
+## Validation correction (2026-11-14, independent validation wave 1)
+Source: [validation-wave1-report.md](mission-2026-11-14/validation-wave1-report.md), register `data/mission-2026-11-14/validation-register.csv`. Original text above is preserved for traceability; where it conflicts with this note, this note governs.
+
+- **V1-13 partially confirmed / reframed:** The AEF-hosted joint releases carry Ren's own 'About Ren' boilerplate stating Ren 'holds a SOC 2 Type 2 certification' (2025-07-23) and 'SOC 2 Type 1 certification' (2026-04-08). These are vendor marketing claims about Ren, not AEF attestations about its platform; no SOC report has been seen. Treat as unverified.

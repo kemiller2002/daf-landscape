@@ -1,0 +1,36 @@
+{
+  "check_id": "ct-give-clients",
+  "check_type": "ct_crtsh",
+  "date": "2026-11-14",
+  "detail": {
+    "names": {
+      "*.giveinteractive-clients.com": {
+        "certs": 6,
+        "first_not_before": "2024-10-15",
+        "last_not_before": "2026-07-13"
+      },
+      "giveinteractive-clients.com": {
+        "certs": 44,
+        "first_not_before": "2024-10-15",
+        "last_not_before": "2026-07-13"
+      }
+    }
+  },
+  "entity": "Give Interactive client microsites",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:25:09Z",
+  "ok": true,
+  "queue_items": "P-GIV-02",
+  "source_url": "https://crt.sh/?q=%25.giveinteractive-clients.com",
+  "status": "200",
+  "summary": {
+    "name_count": 2,
+    "names": [
+      "*.giveinteractive-clients.com",
+      "giveinteractive-clients.com"
+    ],
+    "watch_hits": []
+  },
+  "target": "%.giveinteractive-clients.com",
+  "watch_regex": ""
+}

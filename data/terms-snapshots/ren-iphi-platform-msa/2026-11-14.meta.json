@@ -1,0 +1,29 @@
+{
+  "content_type": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+  "document": "Ren iPhi Platform MSA Final Draft 2023-06-20 v2 (DOCX)",
+  "extractor": "docx-xml",
+  "fetched_at_utc": "2026-11-14T11:03:20Z",
+  "final_url": "https://www.reninc.com/wp-content/uploads/2025/08/Ren-iPhi-Platform-MSA-Final-Draft-2023-06-20v2.docx",
+  "format": "docx",
+  "http_status": "200",
+  "raw_bytes": 33480,
+  "raw_sha256": "91053817fa475359366eb329344e64feab9ad2adc2f5528ff706c376bdf98845",
+  "slug": "ren-iphi-platform-msa",
+  "text_chars": 22814,
+  "text_sha256": "00c7e532ea8f0786565f1649654dd8f0ed8a6c0991e366e7fc4d577ceebbb190",
+  "url": "https://www.reninc.com/wp-content/uploads/2025/08/Ren-iPhi-Platform-MSA-Final-Draft-2023-06-20v2.docx",
+  "vendor": "Ren iPhi (Stellar Technology Solutions)",
+  "watch_counts": {
+    "agent": 2,
+    "aggregator": 5,
+    "api": 0,
+    "artificial_intelligence": 0,
+    "automated": 1,
+    "bot_scrape": 0,
+    "initiate": 1,
+    "mcp": 0,
+    "on_behalf_of": 0,
+    "pass_through": 0,
+    "third_party": 10
+  }
+}

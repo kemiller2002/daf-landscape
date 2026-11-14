@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-label="DAF Evidence Quadrant A2">
+<style>:root{--fg:#1f2328;--muted:#59636e;--grid:#d0d7de;--box:rgba(9,105,218,.12);--dot:#0969da}@media (prefers-color-scheme: dark){:root{--fg:#e6edf3;--muted:#9198a1;--grid:#3d444d;--box:rgba(88,166,255,.18);--dot:#58a6ff}}text{fill:var(--fg);font:12px system-ui,sans-serif}.m{fill:var(--muted)}</style>
+<rect x="70" y="70" width="580" height="580" fill="none" stroke="var(--grid)"/>
+<line x1="360.0" y1="70" x2="360.0" y2="650" stroke="var(--grid)"/>
+<line x1="70" y1="360.0" x2="650" y2="360.0" stroke="var(--grid)"/>
+<text x="360.0" y="30" text-anchor="middle" style="font-weight:600">DAF Evidence Quadrant — Grant disbursement &amp; nonprofit-side rails (v11blind)</text>
+<text x="360.0" y="695" text-anchor="middle" class="m">Evidenced Execution →</text>
+<text x="22" y="360.0" text-anchor="middle" class="m" transform="rotate(-90 22 360.0)">Evidenced Forward Capability →</text>
+<text x="505.0" y="91.75" text-anchor="middle" class="m">Proven Leaders</text>
+<text x="215.0" y="91.75" text-anchor="middle" class="m">Forward Builders</text>
+<text x="505.0" y="628.25" text-anchor="middle" class="m">Scale Operators</text>
+<text x="215.0" y="628.25" text-anchor="middle" class="m">Focused Specialists</text>
+<rect x="389.0" y="215.0" width="0.0" height="0.0" fill="var(--box)"/>
+<circle cx="389.0" cy="215.0" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="398.0" y="207.0">Chariot DAFpay</text>
+<rect x="432.5" y="157.0" width="0.0" height="0.0" fill="var(--box)"/>
+<circle cx="432.5" cy="157.0" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="441.5" y="149.0">Chariot Disbursements</text>
+<rect x="222.25" y="302.0" width="145.0" height="232.0" fill="var(--box)"/>
+<circle cx="273.0" cy="457.15" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="282.0" y="449.15">DAF Direct</text>
+<rect x="229.5" y="280.25" width="261.0" height="87.0" fill="var(--box)"/>
+<circle cx="360.0" cy="317.95" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="369.0" y="309.95">Every.org</text>
+<rect x="418.0" y="258.5" width="87.0" height="232.0" fill="var(--box)"/>
+<circle cx="478.9" cy="384.65" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="487.9" y="376.65">Fidelity Charitable EFT (Stripe/ACH)</text>
+<rect x="410.75" y="207.75" width="145.0" height="232.0" fill="var(--box)"/>
+<circle cx="523.8499999999999" cy="299.1" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="532.8499999999999" y="291.1">PayPal Grant Payments</text>
+<rect x="352.75" y="273.0" width="58.0" height="232.0" fill="var(--box)"/>
+<circle cx="384.65" cy="407.85" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="393.65" y="399.85">Ren Rapid Disbursement Engine</text>
+<text x="70" y="712" class="m">Boxes = range if unknown criteria scored 0–4; hollow = evidence coverage &lt; 0.5. Not a Gartner Magic Quadrant.</text></svg>

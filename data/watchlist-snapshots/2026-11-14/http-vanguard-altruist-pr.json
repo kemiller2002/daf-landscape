@@ -1,0 +1,66 @@
+{
+  "check_id": "http-vanguard-altruist-pr",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://corporate.vanguard.com/content/corporatesite/us/en/corp/who-we-are/pressroom/press-release-vanguard-announcement-082626.html"
+      }
+    ],
+    "final_url": "https://corporate.vanguard.com/content/corporatesite/us/en/corp/who-we-are/pressroom/press-release-vanguard-announcement-082626.html",
+    "form_actions": [],
+    "meta": {
+      "cid": "5870154",
+      "description": "Vanguard and Altruist, an AI-forward wealth technology and custody platform serving financial advisors, announced that they have entered into a definitive agreement under which Vanguard will acquire Altruist. ",
+      "keywords": "Altruist, advice, financial advisors, RIAs, registered investment advisors, AI, wealth management, Jason Wenk, Salim Ramji ",
+      "og:description": "Vanguard and Altruist, an AI-forward wealth technology and custody platform serving financial advisors, announced that they have entered into a definitive agreement under which Vanguard will acquire Altruist. ",
+      "og:image": "https://corporate.vanguard.com/content/dam/corp/articles/images/social_v_test.jpg",
+      "og:title": "Vanguard to Acquire Altruist, Expanding the Reach and Impact of Financial Advice",
+      "og:type": "website",
+      "og:url": "https://corporate.vanguard.com/content/corporatesite/us/en/corp/who-we-are/pressroom/press-release-vanguard-announcement-082626.html",
+      "publishdate": "08/26/2026",
+      "readtime": "00:02:44",
+      "source": "PR",
+      "tags": "vanguard:content-types/press-release",
+      "template": "press-releases-template",
+      "title": "Vanguard to Acquire Altruist, Expanding the Reach and Impact of Financial Advice | Vanguard",
+      "topic": "News release",
+      "twitter:card": "summary",
+      "twitter:description": "Vanguard and Altruist, an AI-forward wealth technology and custody platform serving financial advisors, announced that they have entered into a definitive agreement under which Vanguard will acquire Altruist. ",
+      "twitter:image": "https://corporate.vanguard.com/content/dam/corp/articles/images/twitter_card_small_news_release.png",
+      "twitter:title": "Vanguard to Acquire Altruist, Expanding the Reach and Impact of Financial Advice",
+      "twitter:url": "https://corporate.vanguard.com/content/corporatesite/us/en/corp/who-we-are/pressroom/press-release-vanguard-announcement-082626.html",
+      "type": "News release",
+      "viewport": "width=device-width, initial-scale=1"
+    },
+    "raw_sha256": "cdc58ce2e30f639e94dde78d01f977241da65c32c7afa0afa5f500f84927c5da",
+    "text_chars": 6184,
+    "text_sha256": "5276981ed91ee358003ec66ee9bd417779edb1f992beed2c31c11bed5570598f"
+  },
+  "entity": "Vanguard\u2013Altruist deal",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:39Z",
+  "ok": true,
+  "queue_items": "P-BUY-01",
+  "source_url": "https://corporate.vanguard.com/content/corporatesite/us/en/corp/who-we-are/pressroom/press-release-vanguard-announcement-082626.html",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "corporate.vanguard.com"
+    ],
+    "final_host": "corporate.vanguard.com",
+    "final_status": "200",
+    "footers": [],
+    "links": [],
+    "title": "Vanguard to Acquire Altruist, Expanding the Reach and Impact of Financial Advice | Vanguard",
+    "watch_hits_urls": [],
+    "watch_sentences": [
+      "The transaction is expected to close later this year, subject to customary closing conditions, including receipt of required regulatory approvals."
+    ]
+  },
+  "target": "https://corporate.vanguard.com/content/corporatesite/us/en/corp/who-we-are/pressroom/press-release-vanguard-announcement-082626.html",
+  "watch_regex": "(?i)expected to close|has closed|completed|completion|regulatory approval"
+}

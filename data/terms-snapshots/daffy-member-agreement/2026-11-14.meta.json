@@ -1,0 +1,29 @@
+{
+  "content_type": "text/html; charset=utf-8",
+  "document": "Daffy Charitable Fund Member Agreement",
+  "extractor": "html-parser",
+  "fetched_at_utc": "2026-11-14T11:03:21Z",
+  "final_url": "https://www.daffy.org/legal/agreement",
+  "format": "html",
+  "http_status": "200",
+  "raw_bytes": 77079,
+  "raw_sha256": "0da46a0df7998897b7a9c9013a5bfbbc5f2c676a31857b5d0f8c214ae0c566f7",
+  "slug": "daffy-member-agreement",
+  "text_chars": 60833,
+  "text_sha256": "ea40a44ea18540f55e0b1efc006b76543ddb2bd49091d48ccbebd7e21e8d14a6",
+  "url": "https://www.daffy.org/legal/agreement",
+  "vendor": "Daffy Charitable Fund",
+  "watch_counts": {
+    "agent": 5,
+    "aggregator": 0,
+    "api": 0,
+    "artificial_intelligence": 0,
+    "automated": 1,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 3,
+    "pass_through": 0,
+    "third_party": 8
+  }
+}

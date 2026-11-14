@@ -1,0 +1,29 @@
+{
+  "content_type": "application/pdf",
+  "document": "Online RAC MSA v1 (public template PDF)",
+  "extractor": "pdftotext",
+  "fetched_at_utc": "2026-11-14T11:03:20Z",
+  "final_url": "https://www.reninc.com/wp-content/uploads/2025/08/Online-RAC-MSA_v1.pdf",
+  "format": "pdf",
+  "http_status": "200",
+  "raw_bytes": 70701,
+  "raw_sha256": "b6e252a9baedf8a0e5482d68f77d54b483c70482635d96dbf9836cbbca7b0f69",
+  "slug": "ren-rac-msa-v1",
+  "text_chars": 28235,
+  "text_sha256": "b14479fe4aabd39e06cd4743acc50a29c50beb789b25853d4e13abd404f3af94",
+  "url": "https://www.reninc.com/wp-content/uploads/2025/08/Online-RAC-MSA_v1.pdf",
+  "vendor": "Ren (Renaissance Acquisition Company LLC)",
+  "watch_counts": {
+    "agent": 4,
+    "aggregator": 0,
+    "api": 0,
+    "artificial_intelligence": 0,
+    "automated": 1,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 0,
+    "pass_through": 0,
+    "third_party": 12
+  }
+}

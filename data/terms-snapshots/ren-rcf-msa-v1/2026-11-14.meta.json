@@ -1,0 +1,29 @@
+{
+  "content_type": "application/pdf",
+  "document": "Online RCF MSA v1 (sponsor-facing template PDF)",
+  "extractor": "pdftotext",
+  "fetched_at_utc": "2026-11-14T11:03:20Z",
+  "final_url": "https://www.reninc.com/wp-content/uploads/2025/08/Online-RCF-MSA_v1.pdf",
+  "format": "pdf",
+  "http_status": "200",
+  "raw_bytes": 76560,
+  "raw_sha256": "3e1b59aa378f6035f02cf4f2631d0bc8a93372e5de0c2765f9c9229f3a80c8d3",
+  "slug": "ren-rcf-msa-v1",
+  "text_chars": 28513,
+  "text_sha256": "fa2db4096138835e6112031a9f87708ce68430c336d8e68e900cb358568a484a",
+  "url": "https://www.reninc.com/wp-content/uploads/2025/08/Online-RCF-MSA_v1.pdf",
+  "vendor": "Renaissance Charitable Foundation",
+  "watch_counts": {
+    "agent": 5,
+    "aggregator": 0,
+    "api": 0,
+    "artificial_intelligence": 0,
+    "automated": 1,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 0,
+    "pass_through": 0,
+    "third_party": 12
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "content_type": "text/html;charset=utf-8",
+  "document": "Nonprofit FAQs (EFT and grant delivery)",
+  "extractor": "html-parser",
+  "fetched_at_utc": "2026-11-14T11:03:24Z",
+  "final_url": "https://www.fidelitycharitable.org/nonprofits/faqs.html",
+  "format": "html",
+  "http_status": "200",
+  "raw_bytes": 254889,
+  "raw_sha256": "ff3798c59bfeb9cda5bb30077e3674eee96946ad5b382fe9d5fd4e85d0f47359",
+  "slug": "fidelity-charitable-nonprofit-faqs",
+  "text_chars": 28207,
+  "text_sha256": "8692b2e330e4f176c86ee4a4ee077a4e171919719f9c0e6ea2f57d5d86fdcde6",
+  "url": "https://www.fidelitycharitable.org/nonprofits/faqs.html",
+  "vendor": "Fidelity Charitable",
+  "watch_counts": {
+    "agent": 0,
+    "aggregator": 0,
+    "api": 0,
+    "artificial_intelligence": 0,
+    "automated": 1,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 0,
+    "pass_through": 0,
+    "third_party": 0
+  }
+}

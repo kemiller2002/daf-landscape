@@ -1,0 +1,29 @@
+{
+  "content_type": "text/html; charset=utf-8",
+  "document": "Agents overview documentation",
+  "extractor": "html-parser",
+  "fetched_at_utc": "2026-11-14T11:03:23Z",
+  "final_url": "https://docs.daffy.org/agents",
+  "format": "html",
+  "http_status": "200",
+  "raw_bytes": 47323,
+  "raw_sha256": "77501ccae93fc0a308774d1b8e45b7f9a694f4334801ab05245e28137442fe56",
+  "slug": "daffy-agents-docs",
+  "text_chars": 3801,
+  "text_sha256": "8c2740577f138ae90229afadd75ba3004f3dea6faa0b4ff518b742a33724eff6",
+  "url": "https://docs.daffy.org/agents",
+  "vendor": "Daffy",
+  "watch_counts": {
+    "agent": 17,
+    "aggregator": 0,
+    "api": 13,
+    "artificial_intelligence": 3,
+    "automated": 0,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 12,
+    "on_behalf_of": 0,
+    "pass_through": 0,
+    "third_party": 0
+  }
+}

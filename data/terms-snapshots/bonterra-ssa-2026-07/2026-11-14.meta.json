@@ -1,0 +1,29 @@
+{
+  "content_type": "application/pdf",
+  "document": "Subscription and Services Agreement (online 07-13-26 PDF)",
+  "extractor": "pdftotext",
+  "fetched_at_utc": "2026-11-14T11:03:20Z",
+  "final_url": "https://www.bonterratech.com/wp-content/uploads/2026/07/bonterra-subscription-and-services-agreement-online_071326.pdf",
+  "format": "pdf",
+  "http_status": "200",
+  "raw_bytes": 509919,
+  "raw_sha256": "0363d236a27b75a3444d88abb1002fd7b892d1dd07b8592da77c6a48090ef123",
+  "slug": "bonterra-ssa-2026-07",
+  "text_chars": 52078,
+  "text_sha256": "3f9050b050dc7e4adbceac5da7fe7e9eca6140d7c35511cd362825f5da1610c2",
+  "url": "https://www.bonterratech.com/wp-content/uploads/2026/07/bonterra-subscription-and-services-agreement-online_071326.pdf",
+  "vendor": "Bonterra",
+  "watch_counts": {
+    "agent": 4,
+    "aggregator": 7,
+    "api": 0,
+    "artificial_intelligence": 5,
+    "automated": 2,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 2,
+    "pass_through": 0,
+    "third_party": 17
+  }
+}

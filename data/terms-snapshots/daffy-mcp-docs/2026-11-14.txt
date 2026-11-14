@@ -1,0 +1,86 @@
+For Developers
+(opens in a new tab)
+Home
+Getting Started
+Authentication
+Sample code
+AI Agents
+Overview
+MCP Server
+CLI & Skill
+API Reference
+Balance
+Causes
+Contributions
+Donations
+Gifts
+Non Profits
+Pagination
+Users
+Light
+AI Agents
+MCP Server
+Daffy MCP server
+Connect Claude, ChatGPT or any other AI assistant to your Daffy account and it can search charities, check your
+balance, see how your fund is invested, pull your activity statements, and make or cancel donations, all in the
+conversation.
+https://public.daffy.org/mcp
+It's available to every Daffy member. There's nothing to install and no code to write: add the URL to an assistant
+that supports MCP (opens in a new tab) connectors, sign in with your Daffy account, and start asking.
+Everything happens on your own fund, and anything your assistant does shows up in the Daffy app like any other
+activity.
+Prefer working in a terminal? CLI & Skill covers daffy-cli, and the AI Agents overview
+compares all the options.
+Connect your assistant
+ClaudeChatGPTClaude CodeOther clients
+In the Claude web or desktop app, add a custom connector and give it the server URL:
+https://public.daffy.org/mcp
+Claude will ask you to authenticate: sign in with your Daffy account and approve access. No API key needed. Custom
+connectors are only available if your Claude plan supports them.
+Things to try
+Once your assistant is connected, ask in plain language:
+"What's my Daffy balance?"
+"How is my fund invested, and how has it performed this year?"
+"Show my donations from 2025."
+"Find the EIN for Doctors Without Borders."
+"Donate $50 to Khan Academy with the note 'Keep going'."
+"Cancel my scheduled donation to X."
+"Download my 2025 activity statement as CSV."
+What your assistant can do
+Nine tools, all scoped to your fund. Your assistant picks the right one; you'll usually see the name when it asks
+for permission.
+Tool
+What it does
+search_charities
+Search Daffy's directory of 1.5M+ US charities by name, keyword or EIN
+get_charity
+Look up one charity by EIN and confirm it's eligible for donations
+list_donations
+Your donations, newest first, filtered by year if you like
+list_contributions
+Money added to your fund: cash, transfers, card, stock and crypto
+get_fund_balance
+What's in your fund, and how much you can donate right now
+get_portfolio
+How your fund is invested and how it has performed
+get_statement_csv
+Your activity statement for a date range, as CSV
+make_donation
+Donate to a charity by EIN. Moves real money
+cancel_donation
+Cancel a donation that hasn't been paid out. Permanent
+Daffy Gifts aren't part of the MCP server; use the CLI for those.
+Signing in
+You can connect in one of two ways.
+Sign in with Daffy. This is the path for chat assistants. Give the client the server URL and it handles the
+rest: it sends you to Daffy's normal sign-in page, you approve access, and it gets its own token. There's nothing to
+pre-register and no key to paste.
+Use an API key. Handy for clients that run on your own machine, like Claude Code. Create a key at
+daffy.org/settings/developers (opens in a new tab) and give it to the client as an
+Authorization: Bearer daffy_production_... header. See Authentication for the walkthrough.
+Treat an API key like a password: it can move money in your fund. Only production keys work here, and you can
+revoke a key at any time from the same settings page.
+Something not working, or a donation that doesn't look right? Contact support and mention what you asked your
+assistant to do. The AI Agents overview covers the other ways to connect, and CLI & Skill
+is the terminal-first alternative.
+OverviewCLI & Skill

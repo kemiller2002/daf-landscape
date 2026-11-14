@@ -1,0 +1,243 @@
+Blackbaud Solutions Agreement
+1. Purpose; Definitions
+This Blackbaud Solutions Agreement is entered into by You and Blackbaud. It governs Your access to and use of Our
+Solutions and Our delivery of Services to You. All terms used with initial capitalization have the meanings provided in
+Section 18 (Definitions).
+2. Order Form; Order of Precedence
+We will provide You access to Our Solutions and deliver the Services detailed in the applicable Order Form. The Order Form,
+along with its attachments and this Agreement, which may include statements of work for Services (each an "SOW"),
+constitutes the complete and entire agreement between Us, and supersedes all other agreements between Us concerning
+Our Solutions and Services. In the event of a conflict among this Agreement, an Order Form, and/or an SOW, the following
+order of precedence shall apply, except where the Order Form explicitly amends a provision of this Agreement for the
+purposes of that Order Form, as to such amended provision only: (1) Agreement; (2) Order Form; (3) SOW.
+3. Subscription Access and Use
+a. Access. You and Your Users may access and use Solutions to which you are Subscribed under an Order Form and
+Documentation for Your internal business purposes during the term set forth in the Order Form. Solutions may only be
+used or accessed from Your devices and systems that meet the System Requirements.
+b. Suspension; Acceptable Use Policy. We may suspend access to any Solution upon ten days' written notice if You fail to pay
+fees when due, or immediately upon notice if You violate this Agreement, or violate Blackbaud's AUP. Suspensions are rare
+and exercised in a manner proportionate to the severity of the violation. We agree to work with You in good faith to
+reinstate the affected Solutions as quickly as possible.
+4. Subscriptions, Fees And Payment
+The Subscriptions, pricing, quantities ordered, payment of fees and related financial terms for the Solutions and Services
+are set forth in the applicable Order Form.
+5. Confidential Information
+a. "Confidential Information" means (i) all information disclosed by one of Us ("Owner") to the other ("Recipient") in any
+manner and that is (a) marked as "confidential" (or similar legend), (b) identified as being confidential, or (c) reasonably
+understood to be confidential or proprietary; (ii) the terms and/or existence of this Agreement and the relationship
+between the parties, Our architecture, software, data, and technology that comprise the Solutions, Order Form(s), SOW(s),
+and any proposals or other documents that preceded this Agreement; and (iii) personal data or personal information (or
+other analogous terms) as defined under relevant privacy and data protection laws ("Personal Data"). If We process
+Personal Data for You, we will do so in accordance with the Blackbaud Data Processing Addendum located at: data-
+processing-addendum.pdf. Confidential Information does not include data relating to or obtained in connection with the
+operation, support, or use of the Solutions that Blackbaud may use for its legitimate business purposes. Recipient shall not
+obtain any rights, title, or interest in any Confidential Information of Owner. The obligations in (b) below shall not apply
+to: (i) information generally known to the public; (ii) information independently developed by Recipient without access to
+the Confidential Information of the Owner; (iii) information in the possession of Recipient without an obligation of
+confidentiality; or (iv) information required to be disclosed by court order or applicable law.
+b. Treatment of Confidential Information. Recipient may only (i) use Owner's Confidential Information to carry out the purposes
+of this Agreement; and (ii) disclose Owner's Confidential Information to those third parties operating under non-disclosure
+provisions no less restrictive than those set forth in this Agreement and who have a justified business need to know. Recipient
+is responsible for any mistreatment of Confidential Information by such third parties. Recipient must protect Owner's
+Confidential Information using the same degree of care it uses to protect its own confidential information of a similar
+sensitivity, but in any case, not less than reasonable care, and protect such information in accordance with applicable laws.
+Upon termination of this agreement, Recipient must return or destroy all Owner Confidential Information in its possession
+Page 1 of 5
+65 Fairchild Street, Charleston, SC 29492 T 1.800.443.9441 F 1.843.216.6100 blackbaud.com
+March 2026
+Sensitivity: Public
+or control, if feasible. If not destroyed, Recipient will continue to protect such Confidential Information as required above.
+6. Security
+a. We have implemented and will maintain administrative, physical, and technical safeguards designed to: (i) protect against
+anticipated threats or hazards to the security of Your Confidential Information; (ii) protect against unauthorized access to
+or use of Confidential Information that could materially harm You; (iii) comply with applicable data protection and privacy
+laws; and (iv) be consistent with the Data Security Addendum.
+b. Upon request You may obtain a copy of our most recent third party security audit summary report (for example, a SOC 2,
+Type 2, where applicable) for the applicable Solutions.
+c. Within seventy-two (72) hours of Blackbaud becoming aware that a Security Breach has occurred, We will report any
+Security Breach to You.
+d. Blackbaud will provide information regarding the nature and consequences of the Security Breach to enable You to notify
+affected individuals, government agencies, credit bureaus and/or any other third parties to whom notification is required
+(collectively "Notification Recipients"). You are solely responsible for determining whether Notification Recipients must be
+notified of a Security Breach and for making such notifications. Blackbaud will take reasonable measures designed to mitigate
+the cause of the Security Breach and will take reasonable corrective measures designed to prevent future Security Breaches.
+7. Your Obligations
+You shall take commercially reasonable security precautions to prevent unauthorized or fraudulent use of Your Data and
+Our Solutions. You and Your Users shall protect the security of Your access credentials using the standard of care required
+for Confidential Information under Section 5 of this Agreement. You and Your Users shall comply with the AUP. You are
+responsible for Your Users' compliance with this Agreement.
+8. Indemnity
+Each party shall indemnify and defend the other party against any Claims to the extent arising from the indemnifying
+party's gross negligence or willful misconduct. You shall indemnify and defend Blackbaud against any Claims to the extent
+arising from Your breach of the AUP or Your obligations under Section 7 above. The indemnified party shall give the
+indemnifying party prompt written notice of any Claims for which indemnification is required and the indemnified party
+agrees to relinquish control of defending any such Claim to the indemnifying party, including the right to settle; provided
+however, that the indemnifying party will not settle any such Claim without the indemnified party's prior written consent
+if such settlement would be adverse to the indemnified party's interests. This section states the entire liability of each party
+with respect to any type of Claim.
+9. Representations, Warranties, And Disclaimer
+a. Mutual Representations and Warranties. Each party represents and warrants that (i) it has the right and power to enter
+into this Agreement; (ii) an authorized representative has accepted this Agreement; and (iii) it will comply with all
+applicable laws and regulations pertaining to this Agreement, including as applicable a) corruption and anti-bribery
+laws, including but not limited to the FCPA and the UK Anti-Bribery Act; b) anti-slavery and human trafficking laws; c)
+fair labor standards and laws regarding health and safety, equal employment opportunity and anti-harassment of all
+forms; d) data protection and privacy laws, including, without limitation the GDPR, CCPA (and other U.S. state laws) and
+HIPAA; and e) environmental protection laws.
+b. Blackbaud Limited Warranties. Solutions will materially perform pursuant to their then-current Documentation. All
+Services will be performed in a professional manner in accordance with industry standards. If You believe that a Solution
+fails to perform as described in the Documentation, You must notify Blackbaud in writing within thirty (30) days of the
+days of the occurrence of the suspected failure, Blackbaud will use reasonable efforts to repair or replace the Solution
+without charge. If You believe a Service has been improperly performed, You must notify Blackbaud in writing within
+thirty (30) days of completion of the Service, and Blackbaud will reperform the Service without charge. Services after
+such time will require a new SOW. The foregoing provides Your sole remedy for Solutions or Services that do not comply
+with the foregoing warranty.
+c. Disclaimer. EXCEPT FOR THE WARRANTIES SET FORTH IN THIS SECTION 9, BLACKBAUD EXPRESSLY DISCLAIMS ALL
+REPRESENTATIONS AND WARRANTIES, WHETHER EXPRESS, IMPLIED, OR STATUTORY (BY ANY TERRITORY OR
+Page 2 of 5
+65 Fairchild Street, Charleston, SC 29492 T 1.800.443.9441 F 1.843.216.6100 blackbaud.com
+March 2026
+Sensitivity: Public
+JURISDICTION) TO THE EXTENT PERMITTED BY LAW, AND FURTHER BLACKBAUD EXPRESSLY EXCLUDES ANY
+WARRANTY OF NON-INFRINGEMENT, TITLE, FITNESS FOR A PARTICULAR PURPOSE, OR MERCHANTABILITY.
+10. Limitation Of Liability
+EXCEPT FOR THE INDEMNIFICATION OBLIGATIONS SET FORTH IN SECTION 8, A PARTY'S FRAUD OR WILLFUL
+MISCONDUCT, AND YOUR PAYMENT OBLIGATIONS, EACH PARTY'S MAXIMUM LIABILITY TO THE OTHER PARTY FOR ANY
+ACTION ARISING UNDER THIS AGREEMENT, REGARDLESS OF THE FORM OF ACTION AND WHETHER IN TORT OR
+CONTRACT, SHALL BE LIMITED TO THE GREATER OF (X) $25,000 OR (Y) THE AMOUNT OF FEES PAID OR PAYABLE BY YOU
+FOR THE SOLUTION FROM WHICH THE CLAIM AROSE DURING THE SIX (6) MONTHS PRECEDING THE CLAIM.
+IN NO EVENT SHALL EITHER PARTY BE LIABLE FOR INDIRECT, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES OF
+ANY KIND, INCLUDING LOST PROFITS, GOODWILL, INTERNAL STAFF RESOURCES OR TIME, ATTORNEY'S FEES OR LOST
+DONATIONS EVEN IF A PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES. YOU AND BLACKBAUD
+AGREE TO THE ALLOCATION OF RISK SET FORTH HEREIN.
+11. Ownership
+a. Your Ownership and License. You own Your data, Your Confidential Information and any artwork, trade names, and
+trademarks You provide to Blackbaud for the purpose of providing the Solutions and Services ("Your Data"). You grant
+to Blackbaud a nonexclusive, fully paid-up license to use, reproduce, store, modify, display and share Your Data with
+third parties (in compliance with Section 5(b) of this Agreement) for the purpose of providing the Solutions and Services.
+Blackbaud may aggregate information from Your use of Solutions and Services with information from other customers'
+use, and use and disclose such results on an aggregated and de-identified basis for any purpose, provided We do not
+individually identify You, Your Confidential Information, or Your use of Our Solutions.
+b. Blackbaud Ownership and License. Subject to Your rights to Your Data set forth above, Blackbaud has all right, title, and
+interest in and to (i) the Solutions, Services and all expressions and outputs thereof; and (ii) the work, findings, analyses,
+conclusions, opinions, recommendations, ideas, techniques, know-how, designs, programs, tools, applications,
+interfaces, enhancements, other technical information, and all derivatives of the foregoing created in connection with
+this Agreement ("Work Product"). Blackbaud grants to You a nonexclusive, fully paid-up license to use Work Product
+solely to the extent necessary for You and Your end users to use Solutions and Services in accordance with this
+Agreement. If You provide any feedback, comments, suggestions, ideas, requests, or recommendations for
+modifications or improvements to Blackbaud ("Feedback"), You hereby assign all right, title, and interest in any such
+Feedback to Blackbaud, to be used for any purpose, provided we do not, without Your consent, identify You as the
+source of such Feedback. All rights not expressly granted to You hereunder are reserved by Blackbaud.
+12. Notice
+All notices or other communications sent pursuant to or in connection with this Agreement shall be made in writing and
+sent physically or electronically to i) the address set forth in the Order Form or ii) a contact provided by You or designated
+from time to time in writing by either of Us. All notices shall be deemed received the same day if delivered using email or
+on the date of delivery if sent via registered or certified first class mail or recognized courier delivery.
+You are solely responsible for maintaining accurate and current contact names and email addresses for all communications
+and for notifying Blackbaud of any changes thereto.
+13. Force Majeure
+Neither party shall be liable for any failure to perform its obligations under this Agreement if prevented from doing so by
+a cause beyond such party's reasonable control.
+14. Dispute Resolution; Governing Law
+The parties agree to submit all unresolved disputes between them to arbitration administered by the American Arbitration
+Association ("AAA") and governed by the AAA Commercial Arbitration Rules then in effect, except that (a) either party may
+(i) seek injunctive relief for infringement of intellectual property rights or other proprietary rights in court or (ii) seek a
+determination as to whether a claim is arbitrable in court (the arbitrator may not rule on his or her own jurisdiction); and
+(b) Blackbaud may sue in court to collect unpaid amounts under this or any other agreement between Us. For all arbitrated
+Page 3 of 5
+65 Fairchild Street, Charleston, SC 29492 T 1.800.443.9441 F 1.843.216.6100 blackbaud.com
+March 2026
+Sensitivity: Public
+matters, one arbitrator will be appointed under the AAA Commercial Rules, and the locale of arbitration will be mutually
+agreed upon before appointment of the arbitrator. YOU AND BLACKBAUD EXPRESSLY WAIVE ANY RIGHT TO A TRIAL BY
+JURY IN ANY PROCEEDING ARISING UNDER OR RELATED TO THIS AGREEMENT. This Agreement is governed by the laws
+of the State of New York, excluding choice of law principles. The parties agree to waive their right to file a class action, to
+seek relief on a class basis, or to pursue claims in any consolidated proceeding. The parties acknowledge that their consent
+to arbitrate is conditioned on the waiver in the preceding sentence ("Waiver"). If any court or arbitrator determines the
+Waiver is void or unenforceable or that an arbitration involving the parties can proceed on a class or consolidated basis,
+then the parties will be deemed to have not consented to arbitration.
+15. Term And Termination
+a. Term. The term of this Agreement commences on the Effective Date and continues until terminated pursuant to this
+Section 15 or until the expiration of the current term if cancelled in accordance with an Order Form.
+b. Material Breach. Either party may terminate this Agreement if the other party commits a material breach of its
+obligations under this Agreement and the material breach remains uncured for at least thirty (30) days following receipt
+of written notice from the party requesting termination, or by Blackbaud upon ten (10) days' written notice for Your
+failure to pay undisputed invoices when due. In addition, this Agreement may be terminated by either party upon
+written notice if the other party makes an assignment for the benefit of its creditors or dissolves its entity.
+c. Effect of Termination. Upon termination of this agreement or termination of a Solution or Service, Blackbaud may
+immediately cease providing the terminated Solution(s) and/or Service(s). All earned and unpaid fees and expenses are
+due upon termination.
+d. Return/Destruction of Your Data. After the effective date of expiration or termination ("Termination Date"), You will no
+longer have a right to access Your Data within the Solution or to receive a copy of Your Data. Blackbaud will, within a
+reasonable time after the Termination Date and consistent with applicable data privacy laws, destroy Your Data. In order
+to receive a copy of Your Data before it is destroyed, You must extract Your Data from the Solution while you have
+access, or submit a request to Blackbaud Support a minimum of thirty (30) days prior to the Termination Date to allow
+Support sufficient time to fulfill the request. Upon receipt of such a timely request, Blackbaud Support, at Blackbaud's
+option, will either provide guidance to You in extracting Your Data, or where applicable, a backup copy. If Blackbaud
+creates backup copies of Your Data during the course of performing its obligations under this Agreement, You agree
+that Blackbaud may retain such copies following termination until destroyed pursuant to Blackbaud's internal practices
+for record destruction, which data will be subject to the provisions of this Agreement until destroyed.
+16. Statutory Exception
+If You are a qualified public educational or government institution, any part of this Agreement which may be invalid or
+unenforceable against You because of applicable state or federal law (example: all or part of the Indemnity section) shall be
+deemed invalid or unenforceable, as the case may be, and instead construed in a manner most consistent with applicable
+governing law. If required by law this Agreement will be governed by applicable state or federal law.
+17. General
+a. Entire Agreement. Except as specifically stated herein, remedies are cumulative. No failure or delay in enforcing any
+term or exercising any option shall be construed as a waiver. If any provision of this Agreement is held to be
+unenforceable, the other provisions shall remain in full force and effect. No purchase order or other ordering document
+that purports to modify or supplement the printed text of this Agreement or any attached or referenced document shall
+add to or vary the terms of this Agreement. All proposed modifications to this Agreement, Order Form(s) or SOW(s) are
+objected to and deemed material unless otherwise mutually agreed to in writing.
+b. Execution. Order Forms may be executed electronically, and in counterparts, which together form one legal instrument.
+A copy of an executed Order Form and any purchases within a Solution and made by reliable means, including electronic
+acceptance, shall be considered an original. You have accepted this Agreement by the signing of an Order Form by
+Your duly authorized officer or officer representative.
+c. Assignment. Neither party may assign this Agreement without the prior written consent of the other party, which
+consent shall not be unreasonably withheld, but either party may sell all, or substantially all, of its assets or stock, or
+merge with or into another entity, without the other party's consent, but in such case shall provide such notice as is
+Page 4 of 5
+65 Fairchild Street, Charleston, SC 29492 T 1.800.443.9441 F 1.843.216.6100 blackbaud.com
+March 2026
+Sensitivity: Public
+feasible under the circumstances. Any assignment to such a successor shall be subject to compliance and/or regulatory
+due diligence by the non-assigning party.
+d. Relationship of the parties. Blackbaud performs its obligations under this Agreement as an independent contractor, not
+as Your employee, partner, or agent.
+e. Survival. Obligations which by their nature should survive termination shall survive termination of this Agreement.
+f. Third party applications. We make no warranty with respect to any applications purchased by You from third parties,
+including from Blackbaud partners. We shall have no liability should Your Data become unavailable from such
+applications for any reason. Your use and remedies with respect to such applications shall be pursuant to the applicable
+third-party agreements in place between You and the third-party provider of the application.
+18. Definitions
+a. "AUP" means Blackbaud's acceptable use policy, located at https://www.blackbaud.com/company/acceptable-use-
+policy, as updated from time to time by Blackbaud.
+b. "Blackbaud," "Our," and "We" mean Blackbaud, Inc., BB YourCause, Inc., and their affiliates and subsidiaries.
+c. "Claim" means a lawsuit filed by a third party against Blackbaud or You for which process has been served.
+d. "Data Security Addendum" means the Data Security Addendum located at Data-Security-Addendum.pdf
+e. "Documentation" means applicable manuals and documentation that Blackbaud generally provides or makes available
+for Solutions.
+f. "Effective Date" means the date of Your signature on the Order Form.
+g. "Order Form" means the Blackbaud order form signed by You (electronically or otherwise) and accepted by Blackbaud
+setting forth the Solutions and Services You have ordered.
+h. "Security Breach" means any confirmed unauthorized access, use or disclosure, modification, or destruction affecting
+the confidentiality of Your Confidential Information. Security Breaches shall not include: (a) "pings" on an information
+system firewall; (b) port scans; (c) attempts to log on to an information system or enter a database with an invalid
+password or user name; (d) denial-of-service attacks that do not result in a server being taken offline; or (e) malware
+(e.g., a worm or virus) that (in each of (a) - (e)) does not result in unauthorized access, use or disclosure, modification,
+or destruction of Your Confidential Information.
+i. "Services" means services provided by Blackbaud other than Solutions that are pursuant to an Order Form (and SOW if
+applicable) and may include professional, consulting, analytics or training services.
+j. "Solutions" means Blackbaud SaaS applications You have the right to access and use in a Subscription model based on
+an Order Form and this Agreement.
+k. "Subscription" means the right to access and use a Solution or to receive certain Services for a term pursuant to an
+Order Form.
+l. "System Requirements" means the requirements located at https://www.blackbaud.com/training-
+support/support/system-requirements, as updated from time to time by Blackbaud.
+m. ""Us" means Blackbaud and You collectively.
+n. "Users" means Your employees, the employees of Your affiliates and Your contractors (if You permit such persons to
+use the Solutions and include them in the itemization of permitted users You provide to Blackbaud).
+o. "You" and "Your" mean the customer set forth on the Order Form.
+Page 5 of 5
+65 Fairchild Street, Charleston, SC 29492 T 1.800.443.9441 F 1.843.216.6100 blackbaud.com
+March 2026
+Sensitivity: Public

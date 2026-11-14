@@ -1,0 +1,256 @@
+area_id,scorer,provider,x_point,x_low,x_high,x_coverage,y_point,y_low,y_high,y_coverage,quadrant
+A1,blind,Blackbaud Financial Edge NXT (foundations),1.64,1.15,2.35,0.7,2.15,2.15,2.15,1.0,Forward Builders (boundary)
+A1,blind,"Fidelity Charitable (in-house, FMR-administered)",2.82,2.4,3.0,0.85,1.4,1.4,1.4,1.0,Scale Operators
+A1,blind,Foundant CommunitySuite,2.11,1.9,2.3,0.9,2.0,1.1,2.9,0.55,Proven Leaders (boundary)
+A1,blind,Foundation Source (DAF OS / Vennfi),2.4,1.8,2.8,0.75,1.88,1.6,2.2,0.85,Scale Operators (boundary)
+A1,blind,Give Interactive,2.75,2.2,3.0,0.8,2.15,2.15,2.15,1.0,Proven Leaders (boundary)
+A1,blind,Givinga,1.55,0.85,2.65,0.55,1.73,0.95,2.75,0.55,Focused Specialists
+A1,blind,"NCF (sponsor-built, Salesforce)",2.87,2.15,3.15,0.75,1.0,0.15,3.55,0.15,insufficient evidence
+A1,blind,NPT GivingPoint (sponsor-built),2.87,2.15,3.15,0.75,1.85,1.2,2.6,0.65,Scale Operators (boundary)
+A1,blind,NPact (FIMS / DonorCentral),1.4,1.05,2.05,0.75,0.83,0.5,2.1,0.6,Focused Specialists
+A1,blind,"Ren (incl. iPhi/Stellar, DonorFirstX)",2.94,2.65,3.05,0.9,2.35,2.35,2.35,1.0,Proven Leaders
+A1,blind,"SVCF (sponsor-built, Salesforce)",2.54,1.65,3.05,0.65,2.0,0.3,3.7,0.15,insufficient evidence
+A1,blind,TIFIN Give,2.44,2.2,2.6,0.9,2.0,2.0,2.0,1.0,Proven Leaders (boundary)
+A1,consensus,Blackbaud Financial Edge NXT (foundations),1.88,1.88,1.88,1.0,2.09,1.77,2.38,0.85,Forward Builders (boundary)
+A1,consensus,"Fidelity Charitable (in-house, FMR-administered)",3.06,2.6,3.2,0.85,1.57,1.57,1.57,1.0,Scale Operators
+A1,consensus,Foundant CommunitySuite,2.1,2.1,2.1,1.0,1.9,1.43,2.42,0.75,Scale Operators (boundary)
+A1,consensus,Foundation Source (DAF OS / Vennfi),2.27,1.7,2.7,0.75,2.03,1.73,2.33,0.85,Proven Leaders (boundary)
+A1,consensus,Give Interactive,2.47,1.98,2.77,0.8,2.08,2.08,2.08,1.0,Proven Leaders (boundary)
+A1,consensus,Givinga,1.77,0.98,2.77,0.55,1.73,0.95,2.75,0.55,Focused Specialists (boundary)
+A1,consensus,"NCF (sponsor-built, Salesforce)",2.63,1.98,2.98,0.75,1.0,0.15,3.55,0.15,insufficient evidence
+A1,consensus,NPT GivingPoint (sponsor-built),3.1,2.33,3.33,0.75,1.73,1.12,2.52,0.65,Scale Operators
+A1,consensus,NPact (FIMS / DonorCentral),1.5,1.12,2.12,0.75,1.04,0.62,2.23,0.6,Focused Specialists
+A1,consensus,"Ren (incl. iPhi/Stellar, DonorFirstX)",2.81,2.52,2.93,0.9,2.33,2.33,2.33,1.0,Proven Leaders
+A1,consensus,"SVCF (sponsor-built, Salesforce)",2.64,1.45,3.25,0.55,2.0,0.3,3.7,0.15,insufficient evidence
+A1,consensus,TIFIN Give,2.44,2.2,2.6,0.9,1.93,1.93,1.93,1.0,Scale Operators (boundary)
+A1,primary,Blackbaud Financial Edge NXT (foundations),2.2,1.65,2.65,0.75,2.62,1.05,3.45,0.4,insufficient evidence
+A1,primary,"Fidelity Charitable (in-house, FMR-administered)",3.29,2.8,3.4,0.85,2.0,1.5,2.5,0.75,Proven Leaders (boundary)
+A1,primary,Foundant CommunitySuite,2.1,2.1,2.1,1.0,1.8,1.35,2.35,0.75,Scale Operators (boundary)
+A1,primary,Foundation Source (DAF OS / Vennfi),2.12,1.8,2.4,0.85,2.18,1.85,2.45,0.85,Proven Leaders (boundary)
+A1,primary,Give Interactive,2.25,1.35,2.95,0.6,2.0,2.0,2.0,1.0,Proven Leaders (boundary)
+A1,primary,Givinga,2.0,0.7,3.3,0.35,1.73,0.95,2.75,0.55,insufficient evidence
+A1,primary,"NCF (sponsor-built, Salesforce)",2.18,1.2,3.0,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A1,primary,NPT GivingPoint (sponsor-built),3.45,1.9,3.7,0.55,2.0,0.8,3.2,0.4,insufficient evidence
+A1,primary,NPact (FIMS / DonorCentral),1.45,0.8,2.6,0.55,1.25,0.75,2.35,0.6,Focused Specialists
+A1,primary,"Ren (incl. iPhi/Stellar, DonorFirstX)",2.67,2.4,2.8,0.9,2.3,2.3,2.3,1.0,Proven Leaders
+A1,primary,"SVCF (sponsor-built, Salesforce)",3.0,1.05,3.65,0.35,,0.0,4.0,0,insufficient evidence
+A1,primary,TIFIN Give,2.44,2.2,2.6,0.9,1.85,1.85,1.85,1.0,Scale Operators (boundary)
+A1,v11,Blackbaud Financial Edge NXT (foundations),2.22,2.0,2.4,0.9,2.15,2.15,2.15,1.0,Proven Leaders (boundary)
+A1,v11,"Fidelity Charitable (in-house, FMR-administered)",3.18,2.7,3.3,0.85,2.07,1.55,2.55,0.75,Proven Leaders (boundary)
+A1,v11,Foundant CommunitySuite,2.14,1.5,2.7,0.7,2.0,1.1,2.9,0.55,Proven Leaders (boundary)
+A1,v11,Foundation Source (DAF OS / Vennfi),2.27,1.7,2.7,0.75,2.25,1.35,2.95,0.6,Proven Leaders
+A1,v11,Give Interactive,1.89,1.7,2.1,0.9,2.25,1.35,2.95,0.6,Forward Builders (boundary)
+A1,v11,Givinga,1.36,0.75,2.55,0.55,2.0,0.3,3.7,0.15,insufficient evidence
+A1,v11,"NCF (sponsor-built, Salesforce)",2.27,1.25,3.05,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A1,v11,NPact (FIMS / DonorCentral),1.0,0.7,1.9,0.7,0.92,0.55,2.15,0.6,Focused Specialists
+A1,v11,"Ren (incl. iPhi/Stellar, DonorFirstX)",3.05,3.05,3.05,1.0,2.1,2.1,2.1,1.0,Proven Leaders (boundary)
+A1,v11,"SVCF (sponsor-built, Salesforce)",2.09,1.15,2.95,0.55,,0.0,4.0,0,insufficient evidence
+A1,v11,TIFIN Give,2.5,2.5,2.5,1.0,1.8,1.8,1.8,1.0,Scale Operators (boundary)
+A1,v11blind,Blackbaud Financial Edge NXT (foundations),2.29,1.6,2.8,0.7,2.53,1.9,2.9,0.75,Proven Leaders
+A1,v11blind,"Fidelity Charitable (in-house, FMR-administered)",3.05,3.05,3.05,1.0,1.87,1.4,2.4,0.75,Scale Operators (boundary)
+A1,v11blind,Foundant CommunitySuite,2.64,1.85,3.05,0.7,2.0,0.8,3.2,0.4,insufficient evidence
+A1,v11blind,Foundation Source (DAF OS / Vennfi),2.4,1.8,2.8,0.75,2.25,1.35,2.95,0.6,Proven Leaders
+A1,v11blind,Give Interactive,2.67,2.4,2.8,0.9,2.12,1.8,2.4,0.85,Proven Leaders (boundary)
+A1,v11blind,Givinga,1.36,0.75,2.55,0.55,2.0,0.8,3.2,0.4,insufficient evidence
+A1,v11blind,"NCF (sponsor-built, Salesforce)",2.86,2.0,3.2,0.7,1.0,0.15,3.55,0.15,insufficient evidence
+A1,v11blind,NPact (FIMS / DonorCentral),1.0,0.7,1.9,0.7,1.0,0.45,2.65,0.45,insufficient evidence
+A1,v11blind,"Ren (incl. iPhi/Stellar, DonorFirstX)",2.85,2.85,2.85,1.0,2.12,1.8,2.4,0.85,Proven Leaders (boundary)
+A1,v11blind,"SVCF (sponsor-built, Salesforce)",2.27,1.25,3.05,0.55,,0.0,4.0,0,insufficient evidence
+A1,v11blind,TIFIN Give,2.5,2.5,2.5,1.0,1.65,1.65,1.65,1.0,Scale Operators
+A1,v11consensus,Blackbaud Financial Edge NXT (foundations),2.22,2.0,2.4,0.9,2.15,2.15,2.15,1.0,Proven Leaders (boundary)
+A1,v11consensus,"Fidelity Charitable (in-house, FMR-administered)",3.29,2.8,3.4,0.85,2.07,1.55,2.55,0.75,Proven Leaders (boundary)
+A1,v11consensus,Foundant CommunitySuite,2.39,1.68,2.88,0.7,2.0,1.1,2.9,0.55,Proven Leaders (boundary)
+A1,v11consensus,Foundation Source (DAF OS / Vennfi),2.33,1.75,2.75,0.75,2.25,1.35,2.95,0.6,Proven Leaders
+A1,v11consensus,Give Interactive,1.97,1.78,2.18,0.9,2.25,1.35,2.95,0.6,Forward Builders (boundary)
+A1,v11consensus,Givinga,1.36,0.75,2.55,0.55,2.0,0.3,3.7,0.15,insufficient evidence
+A1,v11consensus,"NCF (sponsor-built, Salesforce)",2.55,1.4,3.2,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A1,v11consensus,NPact (FIMS / DonorCentral),1.0,0.7,1.9,0.7,0.92,0.55,2.15,0.6,Focused Specialists
+A1,v11consensus,"Ren (incl. iPhi/Stellar, DonorFirstX)",2.95,2.95,2.95,1.0,2.12,1.8,2.4,0.85,Proven Leaders (boundary)
+A1,v11consensus,"SVCF (sponsor-built, Salesforce)",2.18,1.2,3.0,0.55,,0.0,4.0,0,insufficient evidence
+A1,v11consensus,TIFIN Give,2.5,2.5,2.5,1.0,1.73,1.73,1.73,1.0,Scale Operators
+A2,blind,Chariot DAFpay,2.44,2.2,2.6,0.9,3.0,3.0,3.0,1.0,Proven Leaders
+A2,blind,Chariot Disbursements,2.44,2.2,2.6,0.9,3.4,3.4,3.4,1.0,Proven Leaders
+A2,blind,DAF Direct,1.73,1.3,2.3,0.75,1.24,1.05,1.65,0.85,Focused Specialists
+A2,blind,Every.org,2.27,1.7,2.7,0.75,2.53,2.15,2.75,0.85,Proven Leaders
+A2,blind,Fidelity Charitable EFT (Stripe/ACH),3.06,2.6,3.2,0.85,1.59,1.35,1.95,0.85,Scale Operators
+A2,blind,PayPal Grant Payments,2.83,2.55,2.95,0.9,2.53,2.15,2.75,0.85,Proven Leaders
+A2,blind,Ren Rapid Disbursement Engine,2.17,1.95,2.35,0.9,2.15,2.15,2.15,1.0,Proven Leaders (boundary)
+A2,consensus,Chariot DAFpay,2.2,2.2,2.2,1.0,2.88,2.88,2.88,1.0,Proven Leaders (boundary)
+A2,consensus,Chariot Disbursements,2.44,2.2,2.6,0.9,3.17,3.17,3.17,1.0,Proven Leaders
+A2,consensus,DAF Direct,1.53,1.15,2.15,0.75,1.47,1.25,1.85,0.85,Focused Specialists
+A2,consensus,Every.org,2.0,1.5,2.5,0.75,2.24,1.9,2.5,0.85,Proven Leaders (boundary)
+A2,consensus,Fidelity Charitable EFT (Stripe/ACH),2.9,2.9,2.9,1.0,1.82,1.55,2.15,0.85,Scale Operators (boundary)
+A2,consensus,PayPal Grant Payments,2.72,2.45,2.85,0.9,2.41,2.05,2.65,0.85,Proven Leaders
+A2,consensus,Ren Rapid Disbursement Engine,2.17,1.95,2.35,0.9,2.15,2.15,2.15,1.0,Proven Leaders (boundary)
+A2,primary,Chariot DAFpay,2.0,2.0,2.0,1.0,2.75,2.75,2.75,1.0,Proven Leaders (boundary)
+A2,primary,Chariot Disbursements,2.44,2.2,2.6,0.9,2.95,2.95,2.95,1.0,Proven Leaders
+A2,primary,DAF Direct,1.67,1.25,2.25,0.75,2.0,1.2,2.8,0.6,Forward Builders (boundary)
+A2,primary,Every.org,1.44,0.65,2.85,0.45,2.24,1.9,2.5,0.85,insufficient evidence
+A2,primary,Fidelity Charitable EFT (Stripe/ACH),2.9,2.9,2.9,1.0,2.06,1.75,2.35,0.85,Proven Leaders (boundary)
+A2,primary,PayPal Grant Payments,2.73,2.05,3.05,0.75,2.29,1.95,2.55,0.85,Proven Leaders
+A2,primary,Ren Rapid Disbursement Engine,2.17,1.95,2.35,0.9,2.15,2.15,2.15,1.0,Proven Leaders (boundary)
+A2,v11,Chariot DAFpay,2.35,2.35,2.35,1.0,2.85,2.85,2.85,1.0,Proven Leaders
+A2,v11,Chariot Disbursements,3.1,3.1,3.1,1.0,3.65,3.65,3.65,1.0,Proven Leaders
+A2,v11,DAF Direct,1.87,1.4,2.4,0.75,1.71,1.45,2.05,0.85,Focused Specialists (boundary)
+A2,v11,Every.org,2.36,1.3,3.1,0.55,2.82,2.4,3.0,0.85,Proven Leaders
+A2,v11,Fidelity Charitable EFT (Stripe/ACH),3.06,2.6,3.2,0.85,1.83,1.1,2.7,0.6,Scale Operators (boundary)
+A2,v11,PayPal Grant Payments,3.13,2.35,3.35,0.75,2.42,1.45,3.05,0.6,Proven Leaders
+A2,v11,Ren Rapid Disbursement Engine,2.17,1.95,2.35,0.9,2.37,0.95,3.35,0.4,insufficient evidence
+A2,v11blind,Chariot DAFpay,2.2,2.2,2.2,1.0,3.0,3.0,3.0,1.0,Proven Leaders (boundary)
+A2,v11blind,Chariot Disbursements,2.5,2.5,2.5,1.0,3.4,3.4,3.4,1.0,Proven Leaders
+A2,v11blind,DAF Direct,1.4,1.05,2.05,0.75,1.33,0.8,2.4,0.6,Focused Specialists
+A2,v11blind,Every.org,2.0,1.1,2.9,0.55,2.29,1.95,2.55,0.85,Proven Leaders (boundary)
+A2,v11blind,Fidelity Charitable EFT (Stripe/ACH),2.82,2.4,3.0,0.85,1.83,1.1,2.7,0.6,Scale Operators (boundary)
+A2,v11blind,PayPal Grant Payments,3.13,2.35,3.35,0.75,2.42,1.45,3.05,0.6,Proven Leaders
+A2,v11blind,Ren Rapid Disbursement Engine,2.17,1.95,2.35,0.9,1.67,1.0,2.6,0.6,Scale Operators (boundary)
+A2,v11consensus,Chariot DAFpay,2.28,2.28,2.28,1.0,2.92,2.92,2.92,1.0,Proven Leaders
+A2,v11consensus,Chariot Disbursements,2.8,2.8,2.8,1.0,3.52,3.52,3.52,1.0,Proven Leaders
+A2,v11consensus,DAF Direct,1.63,1.23,2.23,0.75,1.47,1.25,1.85,0.85,Focused Specialists
+A2,v11consensus,Every.org,2.18,1.2,3.0,0.55,2.56,2.17,2.77,0.85,Proven Leaders (boundary)
+A2,v11consensus,Fidelity Charitable EFT (Stripe/ACH),2.94,2.5,3.1,0.85,1.83,1.1,2.7,0.6,Scale Operators (boundary)
+A2,v11consensus,PayPal Grant Payments,3.13,2.35,3.35,0.75,2.42,1.45,3.05,0.6,Proven Leaders
+A2,v11consensus,Ren Rapid Disbursement Engine,2.17,1.95,2.35,0.9,1.67,1.0,2.6,0.6,Scale Operators (boundary)
+A3,blind,AEF,2.5,2.25,2.65,0.9,1.29,1.1,1.7,0.85,Scale Operators
+A3,blind,BofA Charitable Gift Fund,2.43,1.7,2.9,0.7,1.0,0.15,3.55,0.15,insufficient evidence
+A3,blind,Charityvest (adviser programs),1.78,1.6,2.0,0.9,1.65,1.4,2.0,0.85,Focused Specialists (boundary)
+A3,blind,DAFgiving360,3.1,3.1,3.1,1.0,2.0,1.7,2.3,0.85,Proven Leaders (boundary)
+A3,blind,Fidelity Charitable,3.2,3.2,3.2,1.0,1.65,1.4,2.0,0.85,Scale Operators
+A3,blind,GiveClear,1.94,1.75,2.15,0.9,1.18,1.0,1.6,0.85,Focused Specialists (boundary)
+A3,blind,Goldman Sachs Philanthropy Fund,2.43,1.7,2.9,0.7,1.0,0.15,3.55,0.15,insufficient evidence
+A3,blind,Morgan Stanley GIFT,2.43,1.7,2.9,0.7,1.0,0.15,3.55,0.15,insufficient evidence
+A3,blind,NCF,3.2,1.6,3.6,0.5,2.0,0.3,3.7,0.15,insufficient evidence
+A3,blind,NPT,3.39,3.05,3.45,0.9,1.92,1.15,2.75,0.6,Scale Operators (boundary)
+A3,blind,Renaissance Charitable Foundation,3.39,3.05,3.45,0.9,2.0,2.0,2.0,1.0,Proven Leaders (boundary)
+A3,blind,Vanguard Charitable,3.2,3.2,3.2,1.0,1.47,1.25,1.85,0.85,Scale Operators
+A3,consensus,AEF,2.47,2.23,2.62,0.9,1.29,1.1,1.7,0.85,Scale Operators
+A3,consensus,BofA Charitable Gift Fund,2.5,1.38,3.18,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,consensus,Charityvest (adviser programs),2.1,2.1,2.1,1.0,2.21,1.33,2.92,0.6,Proven Leaders (boundary)
+A3,consensus,DAFgiving360,3.18,2.7,3.3,0.85,2.0,1.7,2.3,0.85,Proven Leaders (boundary)
+A3,consensus,Fidelity Charitable,3.12,3.12,3.12,1.0,1.65,1.65,1.65,1.0,Scale Operators
+A3,consensus,GiveClear,2.06,1.85,2.25,0.9,1.7,1.7,1.7,1.0,Scale Operators (boundary)
+A3,consensus,Goldman Sachs Philanthropy Fund,2.55,1.4,3.2,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,consensus,Morgan Stanley GIFT,2.73,1.5,3.3,0.55,1.5,0.22,3.62,0.15,insufficient evidence
+A3,consensus,NCF,2.95,1.48,3.48,0.5,1.5,0.22,3.62,0.15,insufficient evidence
+A3,consensus,NPT,3.11,2.8,3.2,0.9,1.92,1.15,2.75,0.6,Scale Operators (boundary)
+A3,consensus,Renaissance Charitable Foundation,3.06,2.75,3.15,0.9,2.15,2.15,2.15,1.0,Proven Leaders (boundary)
+A3,consensus,Vanguard Charitable,2.93,2.93,2.93,1.0,1.83,1.1,2.7,0.6,Scale Operators (boundary)
+A3,primary,AEF,2.44,2.2,2.6,0.9,1.42,0.85,2.45,0.6,Scale Operators
+A3,primary,BofA Charitable Gift Fund,2.18,1.2,3.0,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,primary,Charityvest (adviser programs),1.95,1.95,1.95,1.0,2.5,1.5,3.1,0.6,Forward Builders (boundary)
+A3,primary,DAFgiving360,3.08,2.0,3.4,0.65,2.0,1.2,2.8,0.6,Proven Leaders (boundary)
+A3,primary,Fidelity Charitable,3.05,3.05,3.05,1.0,1.75,1.75,1.75,1.0,Scale Operators (boundary)
+A3,primary,GiveClear,2.17,1.95,2.35,0.9,2.33,1.75,2.75,0.75,Proven Leaders (boundary)
+A3,primary,Goldman Sachs Philanthropy Fund,2.27,1.25,3.05,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,primary,Morgan Stanley GIFT,2.64,1.45,3.25,0.55,2.0,0.3,3.7,0.15,insufficient evidence
+A3,primary,NCF,2.29,0.8,3.4,0.35,1.0,0.15,3.55,0.15,insufficient evidence
+A3,primary,NPT,3.64,2.0,3.8,0.55,1.92,1.15,2.75,0.6,Scale Operators (boundary)
+A3,primary,Renaissance Charitable Foundation,2.72,2.45,2.85,0.9,2.4,1.8,2.8,0.75,Proven Leaders
+A3,primary,Vanguard Charitable,2.8,2.8,2.8,1.0,2.0,0.9,3.1,0.45,insufficient evidence
+A3,v11,AEF,2.65,2.25,2.85,0.85,1.67,1.0,2.6,0.6,Scale Operators
+A3,v11,BofA Charitable Gift Fund,2.18,1.2,3.0,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,v11,Charityvest (adviser programs),2.5,2.5,2.5,1.0,2.58,1.55,3.15,0.6,Proven Leaders
+A3,v11,DAFgiving360,2.71,2.3,2.9,0.85,1.25,0.75,2.35,0.6,Scale Operators
+A3,v11,Fidelity Charitable,3.15,3.15,3.15,1.0,2.07,1.55,2.55,0.75,Proven Leaders (boundary)
+A3,v11,GiveClear,2.3,2.3,2.3,1.0,1.8,1.8,1.8,1.0,Scale Operators (boundary)
+A3,v11,Goldman Sachs Philanthropy Fund,2.64,1.45,3.25,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,v11,Morgan Stanley GIFT,2.64,1.45,3.25,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,v11,NCF,2.71,1.9,3.1,0.7,1.0,0.15,3.55,0.15,insufficient evidence
+A3,v11,NPT,3.33,2.5,3.5,0.75,3.0,1.2,3.6,0.4,insufficient evidence
+A3,v11,Renaissance Charitable Foundation,3.33,3.0,3.4,0.9,2.1,2.1,2.1,1.0,Proven Leaders (boundary)
+A3,v11,Vanguard Charitable,3.25,3.25,3.25,1.0,2.08,1.25,2.85,0.6,Proven Leaders (boundary)
+A3,v11blind,AEF,2.76,2.35,2.95,0.85,1.67,1.0,2.6,0.6,Scale Operators
+A3,v11blind,BofA Charitable Gift Fund,2.18,1.2,3.0,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,v11blind,Charityvest (adviser programs),2.11,1.9,2.3,0.9,2.33,1.4,3.0,0.6,Proven Leaders (boundary)
+A3,v11blind,DAFgiving360,3.69,2.4,3.8,0.65,1.5,0.9,2.5,0.6,Scale Operators
+A3,v11blind,Fidelity Charitable,3.25,3.25,3.25,1.0,2.07,1.55,2.55,0.75,Proven Leaders (boundary)
+A3,v11blind,GiveClear,1.91,1.05,2.85,0.55,1.87,1.4,2.4,0.75,Focused Specialists (boundary)
+A3,v11blind,Goldman Sachs Philanthropy Fund,2.64,1.45,3.25,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,v11blind,Morgan Stanley GIFT,2.64,1.45,3.25,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,v11blind,NCF,2.86,2.0,3.2,0.7,2.0,0.3,3.7,0.15,insufficient evidence
+A3,v11blind,NPT,4.0,2.2,4.0,0.55,2.75,1.1,3.5,0.4,insufficient evidence
+A3,v11blind,Renaissance Charitable Foundation,3.43,2.4,3.6,0.7,1.94,1.65,2.25,0.85,Scale Operators (boundary)
+A3,v11blind,Vanguard Charitable,3.25,3.25,3.25,1.0,2.08,1.25,2.85,0.6,Proven Leaders (boundary)
+A3,v11consensus,AEF,2.71,2.3,2.9,0.85,1.67,1.0,2.6,0.6,Scale Operators
+A3,v11consensus,BofA Charitable Gift Fund,2.18,1.2,3.0,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,v11consensus,Charityvest (adviser programs),2.35,2.35,2.35,1.0,2.46,1.48,3.08,0.6,Proven Leaders
+A3,v11consensus,DAFgiving360,3.0,2.55,3.15,0.85,1.38,0.82,2.42,0.6,Scale Operators
+A3,v11consensus,Fidelity Charitable,3.2,3.2,3.2,1.0,2.07,1.55,2.55,0.75,Proven Leaders (boundary)
+A3,v11consensus,GiveClear,2.3,2.3,2.3,1.0,1.8,1.8,1.8,1.0,Scale Operators (boundary)
+A3,v11consensus,Goldman Sachs Philanthropy Fund,2.64,1.45,3.25,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,v11consensus,Morgan Stanley GIFT,2.64,1.45,3.25,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A3,v11consensus,NCF,2.79,1.95,3.15,0.7,1.5,0.22,3.62,0.15,insufficient evidence
+A3,v11consensus,NPT,3.53,2.65,3.65,0.75,3.19,1.27,3.67,0.4,insufficient evidence
+A3,v11consensus,Renaissance Charitable Foundation,3.33,3.0,3.4,0.9,2.1,2.1,2.1,1.0,Proven Leaders (boundary)
+A3,v11consensus,Vanguard Charitable,3.25,3.25,3.25,1.0,2.08,1.25,2.85,0.6,Proven Leaders (boundary)
+A4,blind,Charityvest (direct),1.95,1.95,1.95,1.0,1.65,1.4,2.0,0.85,Focused Specialists (boundary)
+A4,blind,DAFgiving360 (direct),3.1,3.1,3.1,1.0,2.0,1.7,2.3,0.85,Proven Leaders (boundary)
+A4,blind,Daffy,2.45,2.45,2.45,1.0,2.35,2.35,2.35,1.0,Proven Leaders
+A4,blind,Endaoment,2.22,2.0,2.4,0.9,2.85,2.85,2.85,1.0,Proven Leaders (boundary)
+A4,blind,Every.org,1.43,1.0,2.2,0.7,2.29,1.95,2.55,0.85,Forward Builders
+A4,blind,Fidelity Charitable (direct),3.4,3.4,3.4,1.0,1.65,1.4,2.0,0.85,Scale Operators
+A4,blind,Givinga consumer accounts,1.29,0.45,3.05,0.35,2.0,0.3,3.7,0.15,insufficient evidence
+A4,consensus,Charityvest (direct),2.15,2.15,2.15,1.0,2.21,1.33,2.92,0.6,Proven Leaders (boundary)
+A4,consensus,DAFgiving360 (direct),3.18,2.7,3.3,0.85,2.0,1.7,2.3,0.85,Proven Leaders (boundary)
+A4,consensus,Daffy,2.76,2.35,2.95,0.85,2.65,2.65,2.65,1.0,Proven Leaders
+A4,consensus,Endaoment,2.17,1.95,2.35,0.9,3.0,3.0,3.0,1.0,Proven Leaders (boundary)
+A4,consensus,Every.org,1.55,0.85,2.65,0.55,2.0,1.7,2.3,0.85,Forward Builders (boundary)
+A4,consensus,Fidelity Charitable (direct),3.23,3.23,3.23,1.0,1.65,1.65,1.65,1.0,Scale Operators
+A4,consensus,Givinga consumer accounts,1.45,0.8,2.6,0.55,2.0,0.8,3.2,0.4,insufficient evidence
+A4,primary,Charityvest (direct),2.0,2.0,2.0,1.0,2.5,1.5,3.1,0.6,Proven Leaders (boundary)
+A4,primary,DAFgiving360 (direct),3.08,2.0,3.4,0.65,2.0,1.2,2.8,0.6,Proven Leaders (boundary)
+A4,primary,Daffy,2.82,2.4,3.0,0.85,2.65,2.65,2.65,1.0,Proven Leaders
+A4,primary,Endaoment,1.55,0.85,2.65,0.55,2.47,2.1,2.7,0.85,Forward Builders
+A4,primary,Every.org,,0.0,4.0,0,2.0,0.5,3.5,0.25,insufficient evidence
+A4,primary,Fidelity Charitable (direct),3.05,3.05,3.05,1.0,1.75,1.75,1.75,1.0,Scale Operators (boundary)
+A4,primary,Givinga consumer accounts,1.36,0.75,2.55,0.55,2.0,0.8,3.2,0.4,insufficient evidence
+A4,v11,Charityvest (direct),2.5,2.5,2.5,1.0,2.58,1.55,3.15,0.6,Proven Leaders
+A4,v11,DAFgiving360 (direct),2.71,2.3,2.9,0.85,1.25,0.75,2.35,0.6,Scale Operators
+A4,v11,Daffy,2.53,2.15,2.75,0.85,2.55,2.55,2.55,1.0,Proven Leaders
+A4,v11,Endaoment,2.2,1.65,2.65,0.75,3.12,2.5,3.3,0.8,Proven Leaders (boundary)
+A4,v11,Every.org,1.91,1.05,2.85,0.55,2.38,1.55,2.95,0.65,Forward Builders (boundary)
+A4,v11,Fidelity Charitable (direct),3.15,3.15,3.15,1.0,2.07,1.55,2.55,0.75,Proven Leaders (boundary)
+A4,v11,Givinga consumer accounts,1.36,0.75,2.55,0.55,2.0,0.3,3.7,0.15,insufficient evidence
+A4,v11blind,Charityvest (direct),2.2,2.2,2.2,1.0,2.33,1.4,3.0,0.6,Proven Leaders (boundary)
+A4,v11blind,DAFgiving360 (direct),3.38,2.2,3.6,0.65,1.5,0.9,2.5,0.6,Scale Operators
+A4,v11blind,Daffy,2.53,2.15,2.75,0.85,2.4,2.4,2.4,1.0,Proven Leaders
+A4,v11blind,Endaoment,1.55,0.85,2.65,0.55,3.12,2.5,3.3,0.8,Forward Builders
+A4,v11blind,Every.org,1.55,0.85,2.65,0.55,2.38,1.55,2.95,0.65,Forward Builders
+A4,v11blind,Fidelity Charitable (direct),3.25,3.25,3.25,1.0,2.07,1.55,2.55,0.75,Proven Leaders (boundary)
+A4,v11blind,Givinga consumer accounts,1.36,0.75,2.55,0.55,2.0,0.8,3.2,0.4,insufficient evidence
+A4,v11consensus,Charityvest (direct),2.35,2.35,2.35,1.0,2.46,1.48,3.08,0.6,Proven Leaders
+A4,v11consensus,DAFgiving360 (direct),2.88,2.45,3.05,0.85,1.38,0.82,2.42,0.6,Scale Operators
+A4,v11consensus,Daffy,2.53,2.15,2.75,0.85,2.48,2.48,2.48,1.0,Proven Leaders
+A4,v11consensus,Endaoment,1.93,1.45,2.45,0.75,3.12,2.5,3.3,0.8,Forward Builders (boundary)
+A4,v11consensus,Every.org,1.73,0.95,2.75,0.55,2.38,1.55,2.95,0.65,Forward Builders
+A4,v11consensus,Fidelity Charitable (direct),3.2,3.2,3.2,1.0,2.07,1.55,2.55,0.75,Proven Leaders (boundary)
+A4,v11consensus,Givinga consumer accounts,1.36,0.75,2.55,0.55,2.0,0.3,3.7,0.15,insufficient evidence
+A5,blind,Benevity validation,2.73,2.05,3.05,0.75,2.31,1.85,2.65,0.8,Proven Leaders
+A5,blind,Candid (GuideStar APIs / Charity Check),2.87,2.15,3.15,0.75,2.6,2.6,2.6,1.0,Proven Leaders
+A5,blind,Chariot verification,2.22,2.0,2.4,0.9,2.55,2.55,2.55,1.0,Proven Leaders (boundary)
+A5,blind,Goodstack,2.65,2.65,2.65,1.0,2.62,2.1,2.9,0.8,Proven Leaders
+A5,blind,IRS BMF / Pub 78 / TEOS (public baseline),3.53,3.0,3.6,0.85,3.41,2.9,3.5,0.85,Proven Leaders
+A5,consensus,Benevity validation,2.53,2.15,2.75,0.85,2.17,2.17,2.17,1.0,Proven Leaders (boundary)
+A5,consensus,Candid (GuideStar APIs / Charity Check),3.03,2.28,3.28,0.75,2.62,2.62,2.62,1.0,Proven Leaders
+A5,consensus,Chariot verification,2.22,2.0,2.4,0.9,2.55,2.55,2.55,1.0,Proven Leaders (boundary)
+A5,consensus,Goodstack,2.45,2.45,2.45,1.0,2.47,1.98,2.77,0.8,Proven Leaders
+A5,consensus,IRS BMF / Pub 78 / TEOS (public baseline),3.45,3.45,3.45,1.0,3.18,2.7,3.3,0.85,Proven Leaders
+A5,primary,Benevity validation,2.41,2.05,2.65,0.85,1.85,1.85,1.85,1.0,Scale Operators (boundary)
+A5,primary,Candid (GuideStar APIs / Charity Check),3.2,2.4,3.4,0.75,2.65,2.65,2.65,1.0,Proven Leaders
+A5,primary,Chariot verification,2.22,2.0,2.4,0.9,2.69,2.15,2.95,0.8,Proven Leaders (boundary)
+A5,primary,Goodstack,2.0,0.3,3.7,0.15,2.38,1.55,2.95,0.65,insufficient evidence
+A5,primary,IRS BMF / Pub 78 / TEOS (public baseline),3.45,3.45,3.45,1.0,2.94,2.5,3.1,0.85,Proven Leaders
+A5,v11,Benevity validation,2.7,2.7,2.7,1.0,2.31,1.85,2.65,0.8,Proven Leaders
+A5,v11,Candid (GuideStar APIs / Charity Check),3.11,2.8,3.2,0.9,3.0,3.0,3.0,1.0,Proven Leaders
+A5,v11,Chariot verification,2.65,2.65,2.65,1.0,2.65,2.65,2.65,1.0,Proven Leaders
+A5,v11,Goodstack,2.0,1.4,2.6,0.7,2.12,1.7,2.5,0.8,Proven Leaders (boundary)
+A5,v11,IRS BMF / Pub 78 / TEOS (public baseline),3.53,3.0,3.6,0.85,2.94,2.5,3.1,0.85,Proven Leaders
+A5,v11blind,Benevity validation,2.45,2.45,2.45,1.0,2.0,1.6,2.4,0.8,Scale Operators (boundary)
+A5,v11blind,Candid (GuideStar APIs / Charity Check),2.83,2.55,2.95,0.9,2.4,2.4,2.4,1.0,Proven Leaders
+A5,v11blind,Chariot verification,2.0,1.4,2.6,0.7,2.62,1.05,3.45,0.4,insufficient evidence
+A5,v11blind,Goodstack,2.0,0.7,3.3,0.35,2.44,1.95,2.75,0.8,insufficient evidence
+A5,v11blind,IRS BMF / Pub 78 / TEOS (public baseline),3.53,3.0,3.6,0.85,3.18,2.7,3.3,0.85,Proven Leaders
+A5,v11consensus,Benevity validation,2.45,2.45,2.45,1.0,2.31,1.85,2.65,0.8,Proven Leaders
+A5,v11consensus,Candid (GuideStar APIs / Charity Check),2.97,2.68,3.08,0.9,2.7,2.7,2.7,1.0,Proven Leaders
+A5,v11consensus,Chariot verification,2.58,2.58,2.58,1.0,2.65,2.65,2.65,1.0,Proven Leaders
+A5,v11consensus,Goodstack,2.0,1.4,2.6,0.7,2.12,1.7,2.5,0.8,Proven Leaders (boundary)
+A5,v11consensus,IRS BMF / Pub 78 / TEOS (public baseline),3.53,3.0,3.6,0.85,3.06,2.6,3.2,0.85,Proven Leaders

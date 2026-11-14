@@ -1,0 +1,43 @@
+area_id,provider,primary_x,blind_x,primary_y,blind_y,primary_quadrant,blind_quadrant,status
+A1,Blackbaud Financial Edge NXT (foundations),2.22,2.29,2.15,2.53,Proven Leaders (boundary),Proven Leaders,reproduced
+A1,"Fidelity Charitable (in-house, FMR-administered)",3.18,3.05,2.07,1.87,Proven Leaders (boundary),Scale Operators (boundary),disputed
+A1,Foundant CommunitySuite,2.14,2.64,2.0,2.0,Proven Leaders (boundary),insufficient evidence,insufficient evidence
+A1,Foundation Source (DAF OS / Vennfi),2.27,2.4,2.25,2.25,Proven Leaders,Proven Leaders,reproduced
+A1,Give Interactive,1.89,2.67,2.25,2.12,Forward Builders (boundary),Proven Leaders (boundary),disputed
+A1,Givinga,1.36,1.36,2.0,2.0,insufficient evidence,insufficient evidence,insufficient evidence
+A1,"NCF (sponsor-built, Salesforce)",2.27,2.86,1.0,1.0,insufficient evidence,insufficient evidence,insufficient evidence
+A1,NPact (FIMS / DonorCentral),1.0,1.0,0.92,1.0,Focused Specialists,insufficient evidence,insufficient evidence
+A1,"Ren (incl. iPhi/Stellar, DonorFirstX)",3.05,2.85,2.1,2.12,Proven Leaders (boundary),Proven Leaders (boundary),reproduced
+A1,"SVCF (sponsor-built, Salesforce)",2.09,2.27,,,insufficient evidence,insufficient evidence,insufficient evidence
+A1,TIFIN Give,2.5,2.5,1.8,1.65,Scale Operators (boundary),Scale Operators,reproduced
+A2,Chariot DAFpay,2.35,2.2,2.85,3.0,Proven Leaders,Proven Leaders (boundary),reproduced
+A2,Chariot Disbursements,3.1,2.5,3.65,3.4,Proven Leaders,Proven Leaders,reproduced
+A2,DAF Direct,1.87,1.4,1.71,1.33,Focused Specialists (boundary),Focused Specialists,reproduced
+A2,Every.org,2.36,2.0,2.82,2.29,Proven Leaders,Proven Leaders (boundary),reproduced
+A2,Fidelity Charitable EFT (Stripe/ACH),3.06,2.82,1.83,1.83,Scale Operators (boundary),Scale Operators (boundary),reproduced
+A2,PayPal Grant Payments,3.13,3.13,2.42,2.42,Proven Leaders,Proven Leaders,reproduced
+A2,Ren Rapid Disbursement Engine,2.17,2.17,2.37,1.67,insufficient evidence,Scale Operators (boundary),insufficient evidence
+A3,AEF,2.65,2.76,1.67,1.67,Scale Operators,Scale Operators,reproduced
+A3,BofA Charitable Gift Fund,2.18,2.18,1.0,1.0,insufficient evidence,insufficient evidence,insufficient evidence
+A3,Charityvest (adviser programs),2.5,2.11,2.58,2.33,Proven Leaders,Proven Leaders (boundary),reproduced
+A3,DAFgiving360,2.71,3.69,1.25,1.5,Scale Operators,Scale Operators,reproduced
+A3,Fidelity Charitable,3.15,3.25,2.07,2.07,Proven Leaders (boundary),Proven Leaders (boundary),reproduced
+A3,GiveClear,2.3,1.91,1.8,1.87,Scale Operators (boundary),Focused Specialists (boundary),disputed
+A3,Goldman Sachs Philanthropy Fund,2.64,2.64,1.0,1.0,insufficient evidence,insufficient evidence,insufficient evidence
+A3,Morgan Stanley GIFT,2.64,2.64,1.0,1.0,insufficient evidence,insufficient evidence,insufficient evidence
+A3,NCF,2.71,2.86,1.0,2.0,insufficient evidence,insufficient evidence,insufficient evidence
+A3,NPT,3.33,4.0,3.0,2.75,insufficient evidence,insufficient evidence,insufficient evidence
+A3,Renaissance Charitable Foundation,3.33,3.43,2.1,1.94,Proven Leaders (boundary),Scale Operators (boundary),disputed
+A3,Vanguard Charitable,3.25,3.25,2.08,2.08,Proven Leaders (boundary),Proven Leaders (boundary),reproduced
+A4,Charityvest (direct),2.5,2.2,2.58,2.33,Proven Leaders,Proven Leaders (boundary),reproduced
+A4,DAFgiving360 (direct),2.71,3.38,1.25,1.5,Scale Operators,Scale Operators,reproduced
+A4,Daffy,2.53,2.53,2.55,2.4,Proven Leaders,Proven Leaders,reproduced
+A4,Endaoment,2.2,1.55,3.12,3.12,Proven Leaders (boundary),Forward Builders,disputed
+A4,Every.org,1.91,1.55,2.38,2.38,Forward Builders (boundary),Forward Builders,reproduced
+A4,Fidelity Charitable (direct),3.15,3.25,2.07,2.07,Proven Leaders (boundary),Proven Leaders (boundary),reproduced
+A4,Givinga consumer accounts,1.36,1.36,2.0,2.0,insufficient evidence,insufficient evidence,insufficient evidence
+A5,Benevity validation,2.7,2.45,2.31,2.0,Proven Leaders,Scale Operators (boundary),disputed
+A5,Candid (GuideStar APIs / Charity Check),3.11,2.83,3.0,2.4,Proven Leaders,Proven Leaders,reproduced
+A5,Chariot verification,2.65,2.0,2.65,2.62,Proven Leaders,insufficient evidence,insufficient evidence
+A5,Goodstack,2.0,2.0,2.12,2.44,Proven Leaders (boundary),insufficient evidence,insufficient evidence
+A5,IRS BMF / Pub 78 / TEOS (public baseline),3.53,3.53,2.94,3.18,Proven Leaders,Proven Leaders,reproduced

@@ -64,3 +64,8 @@ Success criteria: account and grant totals reconcile; no orphaned identity/payme
 - Other Ren institutional customers' disclosed direct service payments.
 - Sponsor-specific retention and exit terms; independent security and disaster-recovery assurance.
 - Grant approval staff and exception rates with a defined denominator and cohort.
+
+## Validation correction (2026-11-14, independent validation wave 1)
+Source: [validation-wave1-report.md](mission-2026-11-14/validation-wave1-report.md), register `data/mission-2026-11-14/validation-register.csv`. Original text above is preserved for traceability; where it conflicts with this note, this note governs.
+
+- **V1-02 scope:** The 95%/98% rate applies to administrative-fee revenue from individual fundholder accounts only (not all fundholder fees); the 98% rate began in FY2023.
