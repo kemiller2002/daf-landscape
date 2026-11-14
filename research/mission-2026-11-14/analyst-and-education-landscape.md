@@ -280,3 +280,8 @@ Columns and scales follow [`queue-proposals-README.md`](../../data/mission-2026-
 - **Absence findings** (no analyst DAF landscape; no IDC, Javelin or Bain title): Medium. They rest on public search and site abstracts. Client-only research portals may hold titles that public search does not index.
 - **Adviser and HNW figures:** Medium. Most come via press coverage of sponsor-funded studies; primary PDFs returned 403 or sit behind forms. Exact wording should be re-checked against the primary reports before publication (P-ANL-02).
 - **Teaching-claim comparison:** Medium-High for the claims quoted verbatim (T1, T2, T3, T5). Medium for the absence findings (T4).
+
+## Validation corrections (wave 4, 2026-11-14) — governing
+Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
+
+- **W4-12** (research/mission-2026-11-14/analyst-and-education-landscape.md line 107 and lines 111, 187): replace "Advised HNW clients using a DAF … Advised and sponsor-linked sample" / "advised-client penetration (51% of TPI's HNW clients)" → "Philanthropically active HNW individuals ($5m+) using a DAF: 51% (TPI 2026, n=103; not screened for having an adviser)"

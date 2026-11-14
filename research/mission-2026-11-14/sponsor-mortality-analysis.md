@@ -239,3 +239,12 @@ Every row carries its own definition.
 python3 scripts/mission_sponsor_mortality.py                                   # panel + summary, offline
 python3 scripts/mission_sponsor_mortality.py --irs-dir DIR --cache-dir CACHE --fetch   # + verification
 ```
+
+## Validation corrections (wave 4, 2026-11-14) — governing
+Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
+
+- **W4-1** (research/mission-2026-11-14/sponsor-mortality-analysis.md (§ tier-A table, TIAA row)): replace "The narrative says 244 accounts were moved into new RCF DAFs" → "A separate 2021-05-17 residual transfer of $354,551 went into 244 new RCF DAF accounts (plus $75,944 to a 'TIAA Charitable Director's Fund'); TIAA held 1,548 DAFs at FY2020 year-end"
+- **W4-2** (same file (line ~149)): replace "accounts were rebuilt one-for-one at the successor (244 accounts), recurring grants did not carry over, and a reserve was held" → "the bulk ($138.46m) moved to RCF on 2021-03-09; a residual $354,551 was placed in 244 new RCF accounts in May 2021, and an $86,511 reserve was held for wind-down costs" (keep "recurring grants did not carry over" only if a source is added; this validator did not verify it)
+- **W4-3** (same file (headline, line ~12)): replace "Exposure is 5,746 sponsor-years (FY2020–FY2023)" → "Exposure is 5,746 sponsor-years at risk (panel rows FY2019–FY2022, for exits dated FY2020–FY2023); exit years for imputed-trailing cases lag cessation by about a year (e.g. JRCF ceased TY2022, dated FY2023)"
+- **W4-4** (same file (JRCF bullet)): replace list of four recipients → add "(Schwab $750.6m, Fidelity $548.9m, Dechomai $23.7m, Vanguard $0.05m)"
+- **W4-5** (same file (Donors Fund row)): replace "The FY2024 990 reports 6,290 DAFs and $315.8m" → "The amended FY2024 990 (filed 2026-03-12) reports 6,290 DAFs and $315.8m; the original TY2023/TY2024 returns omitted Schedule D Part I. DAFRC's flag is 'Assume Sponsor Closed 2023'"

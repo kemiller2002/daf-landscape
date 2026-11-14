@@ -413,3 +413,8 @@ Every record's own URL is in the CSV.
 | notes | text | Provenance (App Store review id; "carried from repo"; extraction caveats) |
 
 **Reproduction:** App Store rows come from `https://itunes.apple.com/us/rss/customerreviews/page=N/id=<appId>/sortby=mostrecent/json` (pages 1–10). The coding map is applied by review id, and review ids are kept in `notes`.
+
+## Validation corrections (wave 4, 2026-11-14) — governing
+Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
+
+- **W4-16** (research/mission-2026-11-14/daf-user-complaints-deep-research.md line 31): replace "Fairbairn lost at trial; Pinkert dismissed for standing" → "Fairbairn lost after a bench trial (N.D. Cal., 2021-02-26); Pinkert v. Schwab Charitable dismissed for lack of Article III standing, affirmed 48 F.4th 1051 (9th Cir. 2022)"

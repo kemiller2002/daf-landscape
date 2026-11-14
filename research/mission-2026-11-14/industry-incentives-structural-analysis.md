@@ -498,3 +498,8 @@ The repo already documents several sources of lock-in:
 - **incentive-map.csv.**
   - Treasury/IRS row: change `clarity_status` to "documented (status); suggestive, Low-Medium (effect)".
   - Vanguard row: change `structural_or_habit` to `mixed`.
+
+## Validation corrections (wave 4, 2026-11-14) — governing
+Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
+
+- **W4-13** (research/mission-2026-11-14/industry-incentives-structural-analysis.md line 143): replace "Sixteen attorneys general asked them on May 22, 2026" → "Sixteen attorneys general, led by Minnesota, asked them in a letter dated May 21, 2026 (California release May 22)"

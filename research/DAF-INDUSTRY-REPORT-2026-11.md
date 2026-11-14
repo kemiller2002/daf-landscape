@@ -446,3 +446,8 @@ Every external URL cited inline in this document, deduplicated, in order of firs
 - Daffy for Developers (May 2023): https://www.daffy.org/resources/daffy-for-developers
 - Charityvest 2025 results release (2026-02-11): https://foundationsource.com/newsroom/press-releases/charityvest-reports-record-2025-charitable-giving-more-than-doubling-contributions-and-grants/
 - Fidelity Charitable 2026 Giving Report (2026 (CY2025 data)): https://www.fidelitycharitable.org/insights/2026-giving-report.html
+
+## Validation corrections (wave 4, 2026-11-14) — governing
+Source: [validation-wave4-report.md](mission-2026-11-14/validation-wave4-report.md). Where these conflict with the text above, these govern.
+
+- **W4-14** (research/DAF-INDUSTRY-REPORT-2026-11.md line 96): replace "About 67% of Fidelity grants already go by EFT ([Chariot …])" → cite first-party: "Fidelity's 2026 Giving Report: 'Today, 67% of our grants are distributed via EFT' ([PDF](https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2026-giving-report.pdf))"

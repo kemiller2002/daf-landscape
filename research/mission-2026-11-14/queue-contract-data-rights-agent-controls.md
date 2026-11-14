@@ -315,3 +315,8 @@ Full detail, with columns documented below, is in `data/mission-2026-11-14/vendo
 | confidence, notes | As above |
 
 *Not publicly documented* in either file means the item was searched for in the vendor's own public materials on 2026-11-14 and not found.
+
+## Validation corrections (wave 4, 2026-11-14) — governing
+Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
+
+- **W4-18** (research/mission-2026-11-14/queue-contract-data-rights-agent-controls.md lines 24, 89): replace "iPhi MSA" → add "(Ren published template, titled 'Final Draft 2023-06-20 v2'; executed customer terms may differ, and Order Forms prevail on conflict)"

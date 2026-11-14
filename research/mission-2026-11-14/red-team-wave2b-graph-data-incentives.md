@@ -232,3 +232,8 @@ Period-aligned, using DAFRC FY2024:
 - Whether Fidelity's EFT-only switch actually took effect.
 - Whether the SPLC holds have been lifted.
 - The DAFgiving360 fee page and the Benevity help page were blocked (403).
+
+## Validation corrections (wave 4, 2026-11-14) — governing
+Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
+
+- **W4-15** (research/mission-2026-11-14/red-team-wave2b-graph-data-incentives.md line 69): replace "(about 1m checks in 2025)" → drop this, or mark it "[inference: about 33% of about 3m grants]"; the report does not state it

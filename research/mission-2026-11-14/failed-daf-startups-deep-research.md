@@ -587,3 +587,9 @@ Columns follow [queue-proposals-README.md](../../data/mission-2026-11-14/queue-p
 | S68 | [FA Mag: ImpactAssets lowers fees](https://www.fa-mag.com/news/impactassets-lowers-fees-and-minimums-37664.html) | 2018-03 | FD45 |
 
 The remaining URLs for no-adverse-outcome checks are in the CSV `evidence_urls` column. Reused prior-repo sources: TA14–TA34, HL01–HL33, X01–X11, EV01–EV24.
+
+## Validation corrections (wave 4, 2026-11-14) — governing
+Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
+
+- **W4-10** (research/mission-2026-11-14/failed-daf-startups-deep-research.md line 243): replace "in December 2025, **Stripe froze a $1.45M reserve**" → "in December 2025 Stripe terminated processing and held a reserve that Flipcause's filings list at $1.45M (Stripe's objection puts it below $1M, about $790k at issue)"
+- **W4-11** (same file line 251): replace "The founder testified that the donations belonged to Flipcause" → "Co-founder and Executive Chairman Emerson Ravyn testified at the 2025-12-22 bankruptcy hearing that donations belonged to Flipcause (the debtor's position, not a court finding)"

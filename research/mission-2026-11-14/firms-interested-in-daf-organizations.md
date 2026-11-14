@@ -415,3 +415,11 @@ Reused from the repo, not re-fetched: Bain/Ren, Great Hill/Ren, GTCR/FS, FS add-
 ### `data/mission-2026-11-14/queue-proposals-interested-firms.csv`
 
 Format per [`queue-proposals-README.md`](../../data/mission-2026-11-14/queue-proposals-README.md); prefix `P-BUY-`.
+
+## Validation corrections (wave 4, 2026-11-14) — governing
+Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
+
+- **W4-6** (research/mission-2026-11-14/firms-interested-in-daf-organizations.md line 27): replace "**Bain Capital** owns a majority of Ren (2023)" → "**Bain Capital** (Tech Opportunities) took a majority of Ren in 2023 and remained a 'significant shareholder' after Great Hill's Oct-2025 round"
+- **W4-7** (same file line 27): replace "Envestnet chose **Foundation Source**, Ren's rival, as its philanthropy integration" → "Envestnet added **Foundation Source** (a Ren competitor) as a philanthropy integration covering foundations, DAFs and planned giving; Envestnet also lists GiftingNetwork"
+- **W4-8** (same file lines 44, 104, 270, 303): replace "Owns Ren majority" / "2023 majority deal" → "Took Ren majority in 2023; significant shareholder after 2025"
+- **W4-9** (same file lines 40, 205, 267): replace "$54m upfront … ([Payments Dive])" and "earnout write-down" → "$53.3m non-contingent consideration ($111.1m total including $57.8m contingent) … $(47.1)m fair-value reduction of the earnout liability in FY2022 ([Shift4 FY2022 10-K](https://www.sec.gov/Archives/edgar/data/1794669/000179466923000006/four-20221231.htm))"

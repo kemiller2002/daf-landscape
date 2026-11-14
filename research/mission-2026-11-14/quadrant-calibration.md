@@ -336,3 +336,8 @@ These are ranked by how many positions the gap could change. Proposed questions 
 - **Means hide judgement.** Rounding 1-point gaps to the 0.5 mean narrows apparent disagreement. Positions are bands, not ranks.
 - **Inspection was partial.** Opened sources included the Charityvest, NCF, NPT and Endaoment financial documents, the Benevity eligibility page and the Daffy for Work page. The Google for Nonprofits help page returned 429, and the DAFgiving360 financials page returned 403. Cells resting on those pages use the scorers' recorded summaries.
 - **Never compare positions across areas.** Fidelity Charitable, DAFgiving360, Charityvest and Every.org appear in more than one area and are scored separately in each.
+
+## Validation corrections (wave 4, 2026-11-14) — governing
+Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
+
+- **W4-17** (research/mission-2026-11-14/quadrant-calibration.md line 87 and any "Foundation Source fee" wording): replace "Vennfi / Foundation Source services agreement ($653,138 in 2024)" is correct → keep it; where elsewhere it is called a "Foundation Source fee", write "fee to Vennfi/Foundation Source (Vennfi acquired by FS in 2024)"
