@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-label="DAF Evidence Quadrant A3">
+<style>:root{--fg:#1f2328;--muted:#59636e;--grid:#d0d7de;--box:rgba(9,105,218,.12);--dot:#0969da}@media (prefers-color-scheme: dark){:root{--fg:#e6edf3;--muted:#9198a1;--grid:#3d444d;--box:rgba(88,166,255,.18);--dot:#58a6ff}}text{fill:var(--fg);font:12px system-ui,sans-serif}.m{fill:var(--muted)}</style>
+<rect x="70" y="70" width="580" height="580" fill="none" stroke="var(--grid)"/>
+<line x1="360.0" y1="70" x2="360.0" y2="650" stroke="var(--grid)"/>
+<line x1="70" y1="360.0" x2="650" y2="360.0" stroke="var(--grid)"/>
+<text x="360.0" y="30" text-anchor="middle" style="font-weight:600">DAF Evidence Quadrant — Sponsors for the adviser / wealth channel (primary)</text>
+<text x="360.0" y="695" text-anchor="middle" class="m">Evidenced Execution →</text>
+<text x="22" y="360.0" text-anchor="middle" class="m" transform="rotate(-90 22 360.0)">Evidenced Forward Capability →</text>
+<text x="505.0" y="91.75" text-anchor="middle" class="m">Proven Leaders</text>
+<text x="215.0" y="91.75" text-anchor="middle" class="m">Forward Builders</text>
+<text x="505.0" y="628.25" text-anchor="middle" class="m">Scale Operators</text>
+<text x="215.0" y="628.25" text-anchor="middle" class="m">Focused Specialists</text>
+<rect x="389.0" y="294.75" width="58.0" height="232.0" fill="var(--box)"/>
+<circle cx="423.8" cy="444.1" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="432.8" y="436.1">AEF</text>
+<rect x="244.0" y="135.25" width="261.0" height="493.0" fill="var(--box)"/>
+<circle cx="386.1" cy="505.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="395.1" y="497.0">BofA Charitable Gift Fund</text>
+<rect x="352.75" y="200.5" width="0.0" height="232.0" fill="var(--box)"/>
+<circle cx="352.75" cy="287.5" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="361.75" y="279.5">Charityvest (adviser programs)</text>
+<rect x="360.0" y="244.0" width="203.0" height="232.0" fill="var(--box)"/>
+<circle cx="516.6" cy="360.0" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="525.6" y="352.0">DAFgiving360</text>
+<rect x="512.25" y="396.25" width="0.0" height="0.0" fill="var(--box)"/>
+<circle cx="512.25" cy="396.25" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="521.25" y="388.25">Fidelity Charitable</text>
+<rect x="352.75" y="251.25" width="58.0" height="145.0" fill="var(--box)"/>
+<circle cx="384.65" cy="312.15" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="393.65" y="304.15">GiveClear</text>
+<rect x="251.25" y="135.25" width="261.0" height="493.0" fill="var(--box)"/>
+<circle cx="399.15" cy="505.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="408.15" y="497.0">Goldman Sachs Philanthropy Fund</text>
+<rect x="280.25" y="113.5" width="261.0" height="493.0" fill="var(--box)"/>
+<circle cx="452.8" cy="360.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="461.8" y="352.0">Morgan Stanley GIFT</text>
+<rect x="186.0" y="135.25" width="377.0" height="493.0" fill="var(--box)"/>
+<circle cx="402.05" cy="505.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="411.05" y="497.0">NCF</text>
+<rect x="360.0" y="251.25" width="261.0" height="232.0" fill="var(--box)"/>
+<circle cx="597.8000000000001" cy="371.6" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="606.8000000000001" y="363.6">NPT</text>
+<rect x="425.25" y="244.0" width="58.0" height="145.0" fill="var(--box)"/>
+<circle cx="464.40000000000003" cy="302.0" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="473.40000000000003" y="294.0">Renaissance Charitable Foundation</text>
+<rect x="476.0" y="200.5" width="0.0" height="319.0" fill="var(--box)"/>
+<circle cx="476.0" cy="360.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="485.0" y="352.0">Vanguard Charitable</text>
+<text x="70" y="712" class="m">Boxes = range if unknown criteria scored 0–4; hollow = evidence coverage &lt; 0.5. Not a Gartner Magic Quadrant.</text></svg>

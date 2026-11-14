@@ -213,7 +213,7 @@ The repo's [`sponsor-fee-schedules.csv`](../../data/mission-2026-11-14/sponsor-f
 
 ## 8. Source register
 
-The full register is in [`analyst-education-sources.csv`](../../data/mission-2026-11-14/analyst-education-sources.csv). These are the principal sources:
+The full register is in [`analyst-education-sources.csv`](../../data/mission-2026-11-14/analyst-education-sources.csv). These are the principal sources. IDs match the CSV; the CSV holds 44 rows, so the IDs here are not consecutive.
 
 | ID | Source | Type | Date | Access | URL |
 |---|---|---|---|---|---|
@@ -225,26 +225,26 @@ The full register is in [`analyst-education-sources.csv`](../../data/mission-202
 | ANL-06 | InvestmentNews on DAFRC adviser study and OBBBA | media | 2026-10-28 | free | https://www.investmentnews.com/practice-management/charitable-giving-season/268629 |
 | ANL-07 | Fidelity Charitable, *Differentiating with charitable planning* | sponsor-research | 2024 | free | https://www.fidelitycharitable.org/insights/differentiating-with-charitable-planning.html |
 | ANL-08 | 2025 BofA Study of Philanthropy (coverage) | academic / sponsor-research | 2025-09-30 | free | https://www.investmentnews.com/practice-management/affluent-americans-are-leading-the-way-in-philanthropy-finds-bofa-study/262336 |
-| ANL-09 | Goldman Sachs *Philanthropy in Focus* (coverage) | sponsor-research | 2026-11-11 | free | https://www.investmentnews.com/practice-management/ultra-wealthy-donors-step-up-as-government-funding-retreats/268977 |
-| ANL-10 | Celent, *World of Philanthropy* | analyst | 2003-03-07 | abstract-only | https://www.celent.com/en/insights/312707366 |
-| ANL-11 | Datos Insights, *Expanding Delivery of Philanthropic Advisory* | analyst | 2021-09 | abstract-only | https://datos-insights.com/?p=13920 |
-| ANL-12 | Gartner Peer Insights, Blackbaud non-profit accounting | analyst | 2026 | free | https://www.gartner.com/reviews/market/non-profit-accounting-software/vendor/blackbaud |
-| ANL-13 | Gartner, *AI Agents: Use-Case Examples for Investment Services* | analyst | 2025-10-16 | abstract-only | https://www.gartner.com/en/documents/7078098 |
-| ANL-14 | Forrester Now Tech: Digital Wealth Management Platforms Q4 2021 | analyst | 2021 | abstract-only | https://www.forrester.com/report/now-tech-digital-wealth-management-platforms-q4-2021/RES176506 |
-| ANL-15 | Cerulli HNW/UHNW 2024 (wealth-transfer projection, via NAPA) | analyst | 2024-12 | secondary | https://www.napa-net.org/news/2024/12/wealth-transfers-expected-to-hit-%24124-trillion-through-2048/ |
-| ANL-16 | Morningstar, Vanguard Charitable review | analyst | 2023 data | free | https://www.morningstar.com/personal-finance/our-take-vanguards-charitable-endowment-program |
-| ANL-17 | Kitces, Rules/strategies/tactics for DAFs | curriculum / media | 2015-06-17 | free | https://www.kitces.com/blog/rules-strategies-and-tactics-when-using-donor-advised-funds-for-charitable-giving/ |
-| ANL-18 | FINRA, Investing with Charitable Giving in Mind | curriculum (regulator) | 2024-09-04 | free | https://www.finra.org/investors/insights/charitable-giving |
-| ANL-19 | CCS Philanthropic Landscape 2024 | consultancy | 2024 | free | https://hub.ccsfundraising.com/hubfs/Images%20and%20Files/Corporate%20Meeting%20Team/Publications/Philanthropic%20Landscape/2024%20Landscape/2024-Philanthropic-Landscape-13th-Edition_CCS-Fundraising.pdf |
-| ANL-20 | Chronicle, "Caught in a web of DAF transfers" | media | 2026-03-06 | free (partial) | https://www.philanthropy.com/news/caught-in-a-web-of-daf-transfers/ |
-| ANL-21 | Philanthropy Roundtable, DAF payout trends and inactivity policies | academic / advocacy | 2024 (2022 data) | free | https://www.philanthropyroundtable.org/resource/donor-advised-funds-payout-trends-inactivity-policies-and-accessibility/ |
-| ANL-22 | NBER w27888, Calculating DAF payout | academic | 2020 | free | https://nber.org/papers/w27888 |
-| ANL-23 | Schwab RIA Benchmarking 2025 | sponsor-research | 2025 | secondary (403) | https://advisorservices.schwab.com/insights-hub/perspectives/ria-benchmarking-study-2025 |
-| ANL-24 | Salesforce Nonprofit Trends Report, 7th ed. | sponsor-research (vendor) | 2025-05 | free | https://www.salesforce.com/en-us/wp-content/uploads/sites/4/2025/05/s-org-7th-edition-nonprofit-trends-report-2025.pdf?d=pb |
-| ANL-25 | DAFRC Annual DAF Report 2025 (ScholarWorks record) | academic | 2025 | free | https://scholarworks.gvsu.edu/jcppubs/116 |
-| ANL-26 | DAFRC National Survey of DAF Donors | academic | 2025 | free | https://scholarworks.gvsu.edu/jcppubs/104 |
-| ANL-27 | Stax DAF adviser survey (NY) | consultancy | 2023-06-28 | free | https://www.stax.com/insights/donor-advised-fund-survey |
-| ANL-28 | Giving USA 2026 (product page; coverage) | academic | 2026-06 | paywalled | https://givingusa.org/product/2026-annual-report/ |
+| ANL-10 | Goldman Sachs *Philanthropy in Focus* (coverage) | sponsor-research | 2026-11-11 | free | https://www.investmentnews.com/practice-management/ultra-wealthy-donors-step-up-as-government-funding-retreats/268977 |
+| ANL-11 | Celent, *World of Philanthropy* | analyst | 2003-03-07 | abstract-only | https://www.celent.com/en/insights/312707366 |
+| ANL-12 | Datos Insights, *Expanding Delivery of Philanthropic Advisory* | analyst | 2021-09 | abstract-only | https://datos-insights.com/?p=13920 |
+| ANL-13 | Gartner Peer Insights, Blackbaud non-profit accounting | analyst | 2026 | free | https://www.gartner.com/reviews/market/non-profit-accounting-software/vendor/blackbaud |
+| ANL-15 | Gartner, *AI Agents: Use-Case Examples for Investment Services* | analyst | 2025-10-16 | abstract-only | https://www.gartner.com/en/documents/7078098 |
+| ANL-17 | Forrester Now Tech: Digital Wealth Management Platforms Q4 2021 | analyst | 2021 | abstract-only | https://www.forrester.com/report/now-tech-digital-wealth-management-platforms-q4-2021/RES176506 |
+| ANL-18 | Cerulli HNW/UHNW 2024 (wealth-transfer projection, via NAPA) | analyst | 2024-12 | secondary | https://www.napa-net.org/news/2024/12/wealth-transfers-expected-to-hit-%24124-trillion-through-2048/ |
+| ANL-19 | Morningstar, Vanguard Charitable review | analyst | 2023 data | free | https://www.morningstar.com/personal-finance/our-take-vanguards-charitable-endowment-program |
+| ANL-20 | Kitces, Rules/strategies/tactics for DAFs | curriculum / media | 2015-06-17 | free | https://www.kitces.com/blog/rules-strategies-and-tactics-when-using-donor-advised-funds-for-charitable-giving/ |
+| ANL-23 | FINRA, Investing with Charitable Giving in Mind | curriculum (regulator) | 2024-09-04 | free | https://www.finra.org/investors/insights/charitable-giving |
+| ANL-24 | CCS Philanthropic Landscape 2024 | consultancy | 2024 | free | https://hub.ccsfundraising.com/hubfs/Images%20and%20Files/Corporate%20Meeting%20Team/Publications/Philanthropic%20Landscape/2024%20Landscape/2024-Philanthropic-Landscape-13th-Edition_CCS-Fundraising.pdf |
+| ANL-25 | Chronicle, "Caught in a web of DAF transfers" | media | 2026-03-06 | free (partial) | https://www.philanthropy.com/news/caught-in-a-web-of-daf-transfers/ |
+| ANL-26 | Philanthropy Roundtable, DAF payout trends and inactivity policies | academic / advocacy | 2024 (2022 data) | free | https://www.philanthropyroundtable.org/resource/donor-advised-funds-payout-trends-inactivity-policies-and-accessibility/ |
+| ANL-27 | NBER w27888, Calculating DAF payout | academic | 2020 | free | https://nber.org/papers/w27888 |
+| ANL-28 | Schwab RIA Benchmarking 2025 | sponsor-research | 2025 | secondary (403) | https://advisorservices.schwab.com/insights-hub/perspectives/ria-benchmarking-study-2025 |
+| ANL-31 | Salesforce Nonprofit Trends Report, 7th ed. | sponsor-research (vendor) | 2025-05 | free | https://www.salesforce.com/en-us/wp-content/uploads/sites/4/2025/05/s-org-7th-edition-nonprofit-trends-report-2025.pdf?d=pb |
+| ANL-36 | DAFRC Annual DAF Report 2025 (ScholarWorks record) | academic | 2025 | free | https://scholarworks.gvsu.edu/jcppubs/116 |
+| ANL-37 | DAFRC National Survey of DAF Donors | academic | 2025 | free | https://scholarworks.gvsu.edu/jcppubs/104 |
+| ANL-30 | Stax DAF adviser survey (NY) | consultancy | 2023-06-28 | free | https://www.stax.com/insights/donor-advised-fund-survey |
+| ANL-42 | Giving USA 2026 (product page; coverage) | academic | 2026-06 | paywalled | https://givingusa.org/product/2026-annual-report/ |
 
 ---
 
