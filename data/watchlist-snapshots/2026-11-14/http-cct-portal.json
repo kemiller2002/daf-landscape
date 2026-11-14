@@ -1,0 +1,73 @@
+{
+  "check_id": "http-cct-portal",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "https://donorportal.cct.org/m/login",
+        "status": "302",
+        "url": "https://donorportal.cct.org/"
+      },
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://donorportal.cct.org/m/login"
+      }
+    ],
+    "final_url": "https://donorportal.cct.org/m/login",
+    "form_actions": [
+      "https://donorportal.cct.org/m/logout",
+      "https://donorportal.cct.org/m/login"
+    ],
+    "meta": {
+      "author": "alkeshkumar@gmail.com",
+      "csrf-token": "HBDLXLwX9r0DEAKYkQ8k8v5h1jYgd7hQVe5AEdym",
+      "description": "",
+      "og:description": "The Chicago Community Trust",
+      "og:title": "The Chicago Community Trust",
+      "og:type": "website",
+      "robots": "noindex",
+      "twitter:description": "The Chicago Community Trust",
+      "twitter:title": "The Chicago Community Trust",
+      "viewport": "width=device-width, initial-scale=1"
+    },
+    "raw_sha256": "ca1080fddd67bd9019efb9984325cbe2c30e773c50be7fc3b3abe5c9cdd50510",
+    "text_chars": 1621,
+    "text_sha256": "cd70ae45614a1ea02e8b38d56808f1b3c8f2e3ddfdf74cc209a717f2c2fceb3d"
+  },
+  "entity": "Chicago Community Trust donor portal",
+  "error": "",
+  "observed_at_utc": "2026-11-14T13:50:53Z",
+  "ok": true,
+  "queue_items": "P-PRC-04;P-GIV-02",
+  "source_url": "https://donorportal.cct.org/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "donorportal.cct.org",
+      "donorportal.cct.org"
+    ],
+    "final_host": "donorportal.cct.org",
+    "final_status": "200",
+    "footers": [
+      "Powered by GiftingNetwork"
+    ],
+    "links": [
+      "https://donorportal.cct.org/ma/docs/cct/CCT-DAF-Application-Form.pdf | DAF Application Form",
+      "https://donorportal.cct.org/ma/docs/cct/CCT-Donor-Portal-FAQ.pdf | Donor Advised Fund FAQ's",
+      "https://donorportal.cct.org/ma/docs/cct/CCT-Donor-Portal-User-Guide.pdf | Donor Portal User Guide",
+      "https://giftingnetwork.com/ | Powered by GiftingNetwork"
+    ],
+    "title": "The Chicago Community Trust",
+    "watch_hits_urls": [
+      "GiftingNetwork",
+      "giftingnetwork"
+    ],
+    "watch_sentences": [
+      "Powered by GiftingNetwork"
+    ]
+  },
+  "target": "https://donorportal.cct.org/",
+  "watch_regex": "(?i)GiftingNetwork|giveinteractive|Give Interactive"
+}
