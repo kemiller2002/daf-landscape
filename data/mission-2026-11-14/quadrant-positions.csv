@@ -1,4 +1,16 @@
 area_id,scorer,provider,x_point,x_low,x_high,x_coverage,y_point,y_low,y_high,y_coverage,quadrant
+A1,primary,Blackbaud Financial Edge NXT (foundations),2.2,1.65,2.65,0.75,2.62,1.05,3.45,0.4,insufficient evidence
+A1,primary,"Fidelity Charitable (in-house, FMR-administered)",3.29,2.8,3.4,0.85,2.0,1.5,2.5,0.75,Proven Leaders (boundary)
+A1,primary,Foundant CommunitySuite,2.1,2.1,2.1,1.0,1.8,1.35,2.35,0.75,Scale Operators (boundary)
+A1,primary,Foundation Source (DAF OS / Vennfi),2.12,1.8,2.4,0.85,2.18,1.85,2.45,0.85,Proven Leaders (boundary)
+A1,primary,Give Interactive,2.25,1.35,2.95,0.6,2.0,2.0,2.0,1.0,Proven Leaders
+A1,primary,Givinga,2.0,0.7,3.3,0.35,1.73,0.95,2.75,0.55,insufficient evidence
+A1,primary,"NCF (sponsor-built, Salesforce)",2.18,1.2,3.0,0.55,1.0,0.15,3.55,0.15,insufficient evidence
+A1,primary,NPT GivingPoint (sponsor-built),3.45,1.9,3.7,0.55,2.0,0.8,3.2,0.4,insufficient evidence
+A1,primary,NPact (FIMS / DonorCentral),1.45,0.8,2.6,0.55,1.25,0.75,2.35,0.6,Focused Specialists
+A1,primary,"Ren (incl. iPhi/Stellar, DonorFirstX)",2.67,2.4,2.8,0.9,2.3,2.3,2.3,1.0,Proven Leaders
+A1,primary,"SVCF (sponsor-built, Salesforce)",3.0,1.05,3.65,0.35,,0.0,4.0,0,insufficient evidence
+A1,primary,TIFIN Give,2.44,2.2,2.6,0.9,1.85,1.85,1.85,1.0,Scale Operators
 A2,primary,Chariot DAFpay,2.0,2.0,2.0,1.0,2.75,2.75,2.75,1.0,Proven Leaders
 A2,primary,Chariot Disbursements,2.44,2.2,2.6,0.9,2.95,2.95,2.95,1.0,Proven Leaders
 A2,primary,DAF Direct,1.67,1.25,2.25,0.75,2.0,1.2,2.8,0.6,Forward Builders (boundary)
