@@ -120,3 +120,9 @@ The calibration ([quadrant-calibration.md](quadrant-calibration.md)) showed that
 - **GREEN:** controls documented, including flag-only and authority separation.
 - **AMBER:** capability live with undocumented limits, but sponsor approval remains.
 - **RED:** AI can complete a money-moving or status-clearing action without documented sponsor or human approval.
+
+## 8. Recency rule (owner direction, 2026-11-14) — binding from v1.2
+
+Evidence older than five years (dated before 2021-11-14) is **not admissible for scoring current capability or terms**. Older material may be cited only as dated historical context, and the affected criterion scores **U** unless current evidence exists.
+
+Example: Goldman Sachs Philanthropy Fund's 2008, 2012 and 2017 circulars cannot score its payment-rail or portability criteria, so GS PF stays "insufficient evidence" until a 2021+ source is found. Audited financials and Form 990 data for FY2021+ remain admissible.

@@ -333,3 +333,24 @@ One row per company–owner/investor/lender relationship.
 ### `data/mission-2026-11-14/queue-proposals-private-equity.csv`
 
 Format per [`queue-proposals-README.md`](../../data/mission-2026-11-14/queue-proposals-README.md). The prefix is `P-PE-`. The file links to existing items P-BUY-02, P-BUY-05 and P-BUY-08 through `depends_on`.
+
+## Validation corrections (wave 7, 2026-11-14) — governing
+Source: [validation-wave7-report.md](validation-wave7-report.md). Where these conflict with the text above, these govern.
+
+1. **Line 13**
+   - Current: "Altruist backer)"
+   - Replace with: "Altruist backer, led the 2023 Series D; Vanguard agreed to acquire Altruist on 2026-08-26, pending)"
+2. **Line 17**
+   - Current: "also took **25% of CAPTRUST** in 2020"
+   - Replace with: "also took **25% of CAPTRUST** in 2020 and stayed a minority investor when Carlyle joined (2023-09-19; current stake undisclosed) ([CAPTRUST](https://www.captrust.com/carlyle-joins-gtcr-as-captrust-investor/))"
+   - Apply the same change to line 175 ("CAPTRUST (25%)" → "CAPTRUST (25% in 2020)") and line 236 ("25% of CAPTRUST" → "a CAPTRUST minority stake (25% in 2020)").
+3. **Line 18**
+   - Current: "**General Atlantic** and **TPG** each hold both"
+   - Replace with: "**General Atlantic** and **TPG** each hold both (Benevity stakes evidenced only at the 2020–21 Hg deal; TPG via The Rise Fund at Benevity and TPG Capital at Creative Planning)"
+4. **Line 19**
+   - Current: "**TA Associates** owns Orion"
+   - Replace with: "**TA Associates** co-owns Orion with Genstar (equal stakes since 2020)"
+   - Apply the same change to line 178 ("Orion; Momentive" → "Orion (with Genstar); Momentive").
+5. **Line 24.** Append: "(historical facility; probably refinanced at GTCR's 2023 buyout, not a current lender)."
+
+No correction is needed for Warburg/Bloomerang, Bain Capital Double Impact/FreeWill or Bonterra/Deed.
