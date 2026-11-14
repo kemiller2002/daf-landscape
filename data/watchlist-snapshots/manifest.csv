@@ -26,7 +26,6 @@ date,check_id,check_type,entity,queue_items,status,state,previous_date,signals,e
 2026-11-14,irs-giveclear,irs_index,GiveClear Foundation (EIN 81-3222963),P-VEN-08,ok,baseline,,,
 2026-11-14,irs-endaoment,irs_index,Endaoment (EIN 84-4661797),P-BUY-01,ok,baseline,,,
 2026-11-14,ct-give-certspotter,ct_certspotter,Give Interactive (currently valid issuances),P-GIV-02,200,baseline,,,
-2026-11-14,ct-give-all,ct_crtsh,Give Interactive (all tenants),P-GIV-02;P-VEN-10,200,baseline,,,
 2026-11-14,ct-give-tmf,ct_crtsh,Minneapolis Foundation,P-GIV-02,200,baseline,,,
 2026-11-14,ct-give-thrivent,ct_crtsh,Thrivent Charitable,P-GIV-02,200,baseline,,,
 2026-11-14,ct-give-stifel,ct_crtsh,Stifel Charitable,P-GIV-02,200,baseline,,,
@@ -36,3 +35,4 @@ date,check_id,check_type,entity,queue_items,status,state,previous_date,signals,e
 2026-11-14,ct-give-clients,ct_crtsh,Give Interactive client microsites,P-GIV-02,200,baseline,,,
 2026-11-14,ct-tifingive,ct_crtsh,TIFIN Give (all tenants),P-VEN-08,200,baseline,,,
 2026-11-14,ct-vanguardcharitable,ct_crtsh,Vanguard Charitable own domain,P-VEN-02,200,baseline,,,
+2026-11-14,ct-give-all,ct_crtsh,Give Interactive (all tenants),P-GIV-02;P-VEN-10,200,baseline,,,

@@ -382,6 +382,22 @@ Each item links to its workstream. Every workstream carries inline primary-sourc
   - Givinga's Schedule G names a charity sweepstakes operator as its main fundraiser, so its "accounts" are likely player records. This is an inference and is pending validation.
   - Recommendation: exclude SDG Impact Fund from market totals and footnote it.
 
+**Agentic donation controls and sponsor audits** ([queue-agentic-controls-and-sponsor-audits.md](mission-2026-11-14/queue-agentic-controls-and-sponsor-audits.md))
+
+No public contract at Daffy, TIFIN Give/GiveClear, Endaoment or Chariot treats an AI agent as a distinct actor. All four allocate the loss from erroneous actions to the donor or customer.
+
+| Provider | Agent-initiated donation controls |
+|---|---|
+| Daffy | Sponsor approval before payment is the binding control. Its member agreement predates its MCP server and does not identify which agent acted. |
+| TIFIN Give / GiveClear | Louise has 8 of 10 controls undocumented. |
+| Endaoment | The partner grant call needs only the partner's API key, and no review step is documented for that path. |
+| Chariot | Best pattern: a Chariot-hosted confirmation step with sponsor review preserved. It has no human-vs-agent field. |
+
+**Sponsor audits.**
+- Read: Fidelity, Vanguard (FY2026), RCF, NCF and Charityvest. All have unmodified opinions, none has a going-concern paragraph, and none references a SOC report.
+- Available on request only: Daffy and AEF.
+- Not public or not reachable: GS PF, MS GIFT and BofA CGF post nothing, and NPT posts summaries only.
+
 **Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
 - Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
 - The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.
