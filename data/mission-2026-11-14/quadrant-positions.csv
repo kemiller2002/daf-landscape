@@ -1,0 +1,13 @@
+area_id,scorer,provider,x_point,x_low,x_high,x_coverage,y_point,y_low,y_high,y_coverage,quadrant
+A2,primary,Chariot DAFpay,2.0,2.0,2.0,1.0,2.75,2.75,2.75,1.0,Proven Leaders
+A2,primary,Chariot Disbursements,2.44,2.2,2.6,0.9,2.95,2.95,2.95,1.0,Proven Leaders
+A2,primary,DAF Direct,1.67,1.25,2.25,0.75,2.0,1.2,2.8,0.6,Forward Builders (boundary)
+A2,primary,Every.org,1.44,0.65,2.85,0.45,2.24,1.9,2.5,0.85,insufficient evidence
+A2,primary,Fidelity Charitable EFT (Stripe/ACH),2.9,2.9,2.9,1.0,2.06,1.75,2.35,0.85,Proven Leaders (boundary)
+A2,primary,PayPal Grant Payments,2.73,2.05,3.05,0.75,2.29,1.95,2.55,0.85,Proven Leaders
+A2,primary,Ren Rapid Disbursement Engine,2.17,1.95,2.35,0.9,2.15,2.15,2.15,1.0,Proven Leaders (boundary)
+A5,primary,Benevity validation,2.41,2.05,2.65,0.85,1.85,1.85,1.85,1.0,Scale Operators
+A5,primary,Candid (GuideStar APIs / Charity Check),3.2,2.4,3.4,0.75,2.65,2.65,2.65,1.0,Proven Leaders
+A5,primary,Chariot verification,2.22,2.0,2.4,0.9,2.69,2.15,2.95,0.8,Proven Leaders
+A5,primary,Goodstack,2.0,0.3,3.7,0.15,2.38,1.55,2.95,0.65,insufficient evidence
+A5,primary,IRS BMF / Pub 78 / TEOS (public baseline),3.45,3.45,3.45,1.0,2.94,2.5,3.1,0.85,Proven Leaders
