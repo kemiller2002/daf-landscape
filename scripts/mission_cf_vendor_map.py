@@ -75,6 +75,8 @@ VENDORS = (
     ("Microsoft Power Pages", "Microsoft Power Pages", "unknown", r"powerappsportals\.(com|us)$|powerpages\.microsoft\.com$", r"powerappsportals|Microsoft\.Dynamic365\.Portal", True),
     ("SmartSimple", "SmartSimple", "unknown", r"(^|\.)smartsimple\.(com|ca)$", r"smartsimple", True),
     ("Bonterra", "Bonterra CyberGrants", "unknown", r"cybergrants\.com$", r"cybergrants", True),
+    ("Fund-Miner", "Fund-Miner", "unknown", r"(^|\.)fund-miner\.com$", r"fund-miner\.com|Fund-Miner|FundMiner", False),
+    ("Foundant GLM (grants module only)", "Foundant Grant Lifecycle Manager (grantinterface.com)", "no", r"(^|\.)grantinterface\.com$|gosmartlog\.com$", r"grantinterface\.com", True),
 )
 VENDOR_HOST_RE = tuple((v[0], v[1], v[2], re.compile(v[3], re.I), v[5]) for v in VENDORS)
 VENDOR_MARK_RE = tuple((v[0], v[1], v[2], re.compile(v[4], re.I)) for v in VENDORS)
@@ -104,9 +106,10 @@ LOGIN_TXT = re.compile(r"log\s*-?\s*in|sign\s*-?\s*in|fund\s*-?\s*holder|donor\s
                        r"my\s*fund|access\s+(your|my)\s+fund|fund\s+(advisor|adviser|manager|login|portal|access|account)|manage\s+(your|my)\s+fund|"
                        r"online\s+access|\bportal\b|account\s+access|giving\s+(portal|center)|\bmy[a-z]{2,8}\b", re.I)
 DONOR_TXT = re.compile(r"donor|fund|advis|holder|giving|\bmy[a-z]{2,8}\b|account", re.I)
-EXCLUDE_TXT = re.compile(r"grant\s*(application|portal|seeker|applicant|report|lifecycle)|apply|scholarship|nonprofit|non-profit|grantee|applicant|"
+EXCLUDE_TXT = re.compile(r"grants?\s*(application|portal|seeker|applicant|report|lifecycle)|apply|scholarship|nonprofit|non-profit|grantee|applicant|"
                          r"employment|career|newsletter|subscribe|e-?news|facebook|twitter|linkedin|instagram|youtube|board\s+portal|staff|volunteer|event|ticket", re.I)
 EXCLUDE_PATH = re.compile(r"grantee|grant-?app|grantseeker|funding|apply|applica|scholar|nonprofit|/np/|vendor|employ", re.I)
+PORTAL_NOISE = re.compile(r"(^|\.)(amazon\.com|wordpress\.com|google\.com|microsoftonline\.com|office\.com|live\.com|paypal\.com|zoom\.us|eventbrite\.com|givebutter\.com|constantcontact\.com|mailchimp\.com|wix\.com|squarespace\.com)$", re.I)
 LOGIN_HREF = re.compile(r"login|log-in|signin|sign-in|portal|fundholder|fund-holder|donor-?(login|portal|access|central)|myfund|access-your-fund|fund-access|donorview|/erp/", re.I)
 
 ANCHOR_RE = re.compile(r"<a\b([^>]*)>(.*?)</a\s*>", re.I | re.S)
@@ -250,7 +253,7 @@ class Net:
                 pass
         except Exception as e:  # noqa: BLE001 - network errors are data here
             out = {"url": url, "status": f"error:{type(e).__name__}:{str(e)[:120]}", "final_url": "", "headers": {}, "body": ""}
-        if cache_fail or out["status"] == 200:
+        if (cache_fail and isinstance(out["status"], int)) or out["status"] == 200:  # transport errors are retried on rerun
             os.makedirs(os.path.dirname(path), exist_ok=True)
             with open(path, "w", encoding="utf-8") as fh:
                 json.dump(out, fh)
@@ -358,7 +361,7 @@ def link_signals(links: Iterable[tuple[str, str]], page_url: str, own_domain: st
         if v and (ctx or not v[3]):
             sigs.append(signal(v[0], v[1], v[2], "homepage_link_vendor_host" if ctx else "site_link_vendor_host", page_url,
                                f"link '{text[:60]}' -> {url[:150]}", 3 if ctx else 2, ctx))
-        elif ctx and not v:
+        elif ctx and not v and not PORTAL_NOISE.search(h):
             bucket = internal if h in (own_domain, "www." + own_domain) else portals
             bucket.append((login_score(url, text), url, text))
     return sigs, internal, portals
@@ -519,7 +522,8 @@ def v2_signals() -> dict[str, list[dict]]:
     for r in read_csv(V2_CSV):
         fam = next((f for rx, f in V2_FAMILY if re.search(rx, r["portal_vendor"], re.I)), "")
         if fam and not re.match(r"(?i)unknown", r["portal_vendor"]):
-            out[ein9(r["ein"])] = [{"family": fam, "product": r["portal_vendor"], "ledger_implied": "",
+            led = "yes" if fam in STRONG_990 - {"GiftingNetwork"} else "unknown"
+            out[ein9(r["ein"])] = [{"family": fam, "product": r["portal_vendor"], "ledger_implied": led,
                                     "evidence_type": "repo_v2_manual_check", "evidence_url": r["source_urls"].split(" ; ")[0],
                                     "detail": r["portal_evidence"][:280], "strength": 3, "first_party": True, "login_context": True}]
     return out
@@ -531,7 +535,8 @@ PRIORITY = {"homepage_link_vendor_host": 9, "homepage_link_redirect_vendor_host"
 
 
 def decide(row: Mapping, sigs: Sequence[Mapping]) -> dict:
-    named = [s for s in sigs if s.get("family")]
+    named_all = [s for s in sigs if s.get("family")]
+    named = [s for s in named_all if not s["family"].startswith("Foundant GLM")] or named_all  # GLM is a grants module, not a fund ledger
     crawl_named = [s for s in named if s["evidence_type"] not in ("990_part_vii_b_contractor", "ct_tenant_label_matches_domain_stem", "repo_v2_manual_check")]
     fams = collections.Counter(s["family"] for s in named)
     best = max(named, key=lambda s: (PRIORITY.get(s["evidence_type"], 0), fams[s["family"]], s.get("login_context", False)), default=None)
@@ -547,11 +552,16 @@ def decide(row: Mapping, sigs: Sequence[Mapping]) -> dict:
     if PRIORITY.get(et, 0) >= 6:
         conf = "high"
     elif et == "site_link_vendor_host":
-        conf = "high" if best["family"] in STRONG_990 or len(corroborate) else "medium"
+        conf = "high" if best["family"] in STRONG_990 - {"akoyaGO"} or len(corroborate) else "medium"
     elif et == "990_part_vii_b_contractor":
         conf = "medium" if best["family"] in STRONG_990 else "low"
     else:
         conf = "medium" if any(s["evidence_type"] == "990_part_vii_b_contractor" and s["family"] == best["family"] for s in named) else "low"
+    if best["family"].startswith("Foundant GLM"):
+        conf = "low"  # grant-application module only: no fund-ledger inference
+    fam_hosts = " ".join(s["detail"] for s in named if s["family"] == best["family"])
+    if best["family"] == "akoyaGO" and conf == "high" and "gofund" not in fam_hosts.lower() and "godonate" not in fam_hosts.lower():
+        conf = "medium"  # GoApply (grant applications) only
     portal_url = ""
     m = re.search(r"https?://[^\s'\"]+", best["detail"])
     if et in ("homepage_link_vendor_host", "site_link_vendor_host", "homepage_link_redirect_vendor_host", "portal_redirect_vendor_host", "portal_page_redirect_vendor_host") and m:
@@ -597,12 +607,18 @@ EDGE_VENDOR = {"Foundant": "Foundant Technologies", "Ren / Stellar iPhi": "Stell
                "Foundation Cloud (spectrumportal.net; NPact [R])": "NPact (Foundation Cloud)", "akoyaGO": "Akoya",
                "DonorSphere / FidTech": "DonorSphere", "Give Interactive": "Give Interactive", "GiftingNetwork": "GiftingNetwork",
                "Blackbaud": "Blackbaud", "Salesforce": "Salesforce", "Microsoft Power Pages": "Microsoft (Power Pages)",
-               "SmartSimple": "SmartSimple", "Bonterra": "Bonterra"}
+               "SmartSimple": "SmartSimple", "Bonterra": "Bonterra", "Fund-Miner": "Fund-Miner"}
 
 
 def name_key(s: str) -> frozenset:
     stop = {"the", "inc", "of", "for", "community", "foundation", "fdn", "and", "&", "a", "trust", "area", "greater", "county", "co"}
     return frozenset(t for t in re.findall(r"[a-z0-9]+", s.lower()) if t not in stop)
+
+
+VENDOR_IDENTITY_R = {
+    "Foundation Cloud (spectrumportal.net; NPact [R])": "spectrumportal.net attributed to NPact by third-party sources only [R]",
+    "Blackbaud": "donorcentral.com host: Blackbaud product name; one sampled tenant (pacf) loads Blackbaud SKY UX assets",
+}
 
 
 def v2_names() -> dict[str, str]:
@@ -622,6 +638,8 @@ def edges(rows: Sequence[Mapping]) -> list[dict]:
     for i, r in enumerate(keep, 1):
         fp = r["evidence_type"] != "ct_tenant_label_matches_domain_stem" and r["confidence"] == "high"
         status = "confirmed" if fp or (r["evidence_type"] == "990_part_vii_b_contractor" and r["vendor_family"] in STRONG_990) else "inferred"
+        if r["vendor_family"] in VENDOR_IDENTITY_R:  # host is first-party, vendor identity of the host is not
+            status = "inferred"
         display = f"{alias.get(r['ein'], r['name'])} (EIN {r['ein'][:2]}-{r['ein'][2:]}; {reg_domain(host_of(r['homepage'])) or 'no website'})"
         out.append({"edge_id": f"EI{i:03d}", "source_entity": EDGE_VENDOR[r["vendor_family"]], "source_type": "technology_vendor",
                     "target_entity": display, "target_type": "daf_sponsor",
@@ -629,7 +647,8 @@ def edges(rows: Sequence[Mapping]) -> list[dict]:
                     "evidence_summary": f"{r['portal_vendor']}: {r['evidence_type']} - {r['evidence_detail'][:220]}",
                     "source_url": r["evidence_url"], "source_date": "live 2026-11-14" if "990" not in r["evidence_type"] else r["evidence_detail"][:6],
                     "accessed_date": RETRIEVED,
-                    "notes": f"P-QA1-05 automated map (scripts/mission_cf_vendor_map.py); confidence {r['confidence']}; portal vendor, ledger_implied={r['ledger_implied']}"})
+                    "notes": f"P-QA1-05 automated map (scripts/mission_cf_vendor_map.py); confidence {r['confidence']}; portal vendor, ledger_implied={r['ledger_implied']}"
+                             + (f"; {VENDOR_IDENTITY_R[r['vendor_family']]}" if r["vendor_family"] in VENDOR_IDENTITY_R else "")})
     return out
 
 
