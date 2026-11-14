@@ -1,5 +1,8 @@
 # DAF quantitative datasets and data dictionary (mission 2026-11-14)
 
+> **Red-team status (2026-11-14):** independently reviewed in [red-team-wave2b-graph-data-incentives.md](red-team-wave2b-graph-data-incentives.md). The corrections in the final section govern where they conflict with the text.
+
+
 Prepared 2026-11-14. This file covers the machine-readable datasets in `data/mission-2026-11-14/` and the two scripts that build them and compute metrics from them. All values come from the cited sources. A blank cell means the value was not published or could not be retrieved, and the reason is in `notes`.
 
 ## 0. Reuse of existing repo data (no duplication)
@@ -150,3 +153,7 @@ No sponsor publishes a grant turnaround time or processing SLA in the sources re
 - "Pave" could not be identified as a DAF-ecosystem company; the search found only unrelated firms with that name, so no row was added. No disclosed funding was found for GivingIQ (row left blank). TIFIN Give has no segment-level disclosures.
 - NPT's FY2025 grants conflict between $6.44b and $6.61b. Daffy's 2026 figures come via a secondary outlet.
 - There is no sponsor-level evidence on account-level payout. Use the repo's DAFRC National Study (M10–M15).
+
+## Red-team corrections (wave 2B, 2026-11-14) — governing
+- **§4 / §6, NPT.** Replace "NPT's FY2025 grants conflict between $6.44b and $6.61b" with "NPT FY2025 grants: $6.44b for the U.S. DAF program only (annual report); $6.61b in the Dec-2025 release likely includes NPT UK/Transatlantic (inferred). Use $6.44b."
+- **§3.** Add: "Never divide June-2025 sponsor values by the DAFRC FY2024 total; DAFRC FY2024 = period ending June 2024 for June-FYE sponsors (verified against the Fidelity and Vanguard audits)."

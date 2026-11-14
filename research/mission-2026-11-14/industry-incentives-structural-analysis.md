@@ -1,5 +1,8 @@
 # Why the DAF system operates as it does: incentives, structural constraints and habits
 
+> **Red-team status (2026-11-14):** independently reviewed in [red-team-wave2b-graph-data-incentives.md](red-team-wave2b-graph-data-incentives.md). The corrections in the final section govern where they conflict with the text.
+
+
 **Research date:** 2026-11-14 | **Evidence cutoff:** sources retrieved or re-read 2026-11-11 to 2026-11-14 | **Companion data:** [`data/mission-2026-11-14/incentive-map.csv`](../../data/mission-2026-11-14/incentive-map.csv)
 
 **Framework basis.** This document applies Clarity and EDF as pinned in [`clarity-edf-application-guide.md`](clarity-edf-application-guide.md): Clarity commit `8cd4801`, EDF v0.3 commit `41fea6f`. EDF's sequence is used **only for observed outcomes** (§6). Unobserved hypotheses get Clarity treatment only: posture, admissibility and reconsideration criteria (§7).
@@ -480,3 +483,18 @@ The repo already documents several sources of lock-in:
 | `structural_or_habit` | enum | `structural constraint` / `historical habit` / `mixed` / `unknown`, under the mission guide's test (§2) |
 | `clarity_status` | text | Claim state from the EDF claim policy (documented = bounded fact; suggestive; unsupported; contradicted) plus confidence label (Low to High) |
 | `notes` | text | Fact versus inference, contested points, reconsideration trigger |
+
+## Red-team corrections (wave 2B, 2026-11-14) — governing
+- **§1.3 and §3.4 Status.** Replace it with: "No final rule in the Federal Register as of 2026-11-14 (only the NPRM 2023-11-14, the comment extension to Feb 15, 2024, and the 2024 hearing notices). The 2026–2027 PGP (released 2026-09-29) lists 'Guidance under §§4966 and 6033 regarding certain donor advised fund arrangements', replacing the prior 'final regulations' item." Also change "Comments were due January 16, 2024" to "February 15, 2024 (extended)".
+- **§3.4 SPLC.** Change "DAF Giving" to "DAFgiving360 (Donor Advised Charitable Giving, Inc.)". Add the indictment date, April 21, 2026, and the source [S16].
+- **§6.1 Outcome A.**
+  - Add: "Fidelity states it is 'transitioning grant payments to EFT' as part of a 'digital-first policy'; Chariot (Mar 2026) reports 67% of Fidelity grants by EFT and a planned move to electronic-only in July 2026 (not confirmed on Fidelity's live FAQ, which still says EFT is not required)."
+  - Delete "neither faces a forcing incentive".
+  - Change "Industry-wide check share is not observed" to "Fidelity: ~33% of grants by check in 2025 (secondary)".
+- **§9.**
+  - Change "Asset-based fee alignment favouring retention | Structural … | Medium-High" to "Mixed (incentive documented; effect unsupported) | Medium (existence) / Low (effect)".
+  - Add the DAFRC segment payout medians as counter-evidence.
+  - Change "Manual review of listed public charities | Mixed, leaning habit" to "Mixed".
+- **incentive-map.csv.**
+  - Treasury/IRS row: change `clarity_status` to "documented (status); suggestive, Low-Medium (effect)".
+  - Vanguard row: change `structural_or_habit` to `mixed`.

@@ -168,6 +168,59 @@ BASELINE = (
 )
 
 
+# Mission 2026-11-14 research updates (coordinator assessment of the new mission files;
+# still not independent validation). Applied on top of BASELINE.
+MISSION_UPDATES = {
+    "Ren (RenPSG)": dict(timeline="EC", ai="IP", distribution="PV"),
+    "Renaissance Charitable Foundation (RCF)": dict(timeline="EC"),
+    "TIFIN Give": dict(timeline="EC", ai="EC", ownership_funding="EC"),
+    "GiveClear Foundation": dict(timeline="DS", distribution="PV"),
+    "Foundation Source": dict(timeline="EC", ownership_funding="PV"),
+    "Charityvest": dict(timeline="EC"),
+    "Chariot": dict(timeline="EC", ai="EC", ownership_funding="EC", distribution="PV"),
+    "Daffy": dict(timeline="EC", ai="EC", ownership_funding="EC", fees="PV"),
+    "Fidelity Charitable": dict(timeline="EC", ai="EC", grant_workflow="PV"),
+    "DAFgiving360 (Schwab Charitable)": dict(timeline="EC"),
+    "Vanguard Charitable": dict(timeline="EC", tech_admin="EC"),
+    "National Philanthropic Trust (NPT)": dict(timeline="EC", operating_evidence="EC"),
+    "Stellar Technology Solutions / iPhi": dict(timeline="EC", distribution="EC"),
+    "Givinga": dict(timeline="DS", legal_role="EC", operating_evidence="EC"),
+    "Morgan Stanley (GIFT)": dict(tech_admin="EC", financials="EC"),
+    "Bank of America Charitable Gift Fund": dict(fees="EC"),
+    "SEI (SEI Charitable Fund)": dict(legal_role="EC", tech_admin="EC", distribution="EC"),
+    "National Christian Foundation": dict(legal_role="EC", financials="EC", tech_admin="DS", grant_workflow="DS"),
+    "Jewish Communal Fund": dict(financials="EC", grant_workflow="DS"),
+    "Silicon Valley Community Foundation": dict(legal_role="EC", financials="EC", tech_admin="DS", grant_workflow="DS"),
+    "Benevity / workplace processors": dict(timeline="EC", ai="EC"),
+    "Candid / IRS BMF (eligibility data)": dict(ai="DS"),
+    "DAF Direct": dict(ownership_funding="DS"),
+    "Pave Finance": dict(ownership_funding="IP"),
+    "Edward Jones": dict(tech_admin="PV"),
+}
+
+MISSION_NEW_ENTITIES = (
+    ("Give Interactive", "tech_admin_vendor",
+     dict(legal_role="DS", tech_admin="EC", distribution="DS"),
+     "mission-2026-11-14/breadth-community-faith-infrastructure-emerging.md",
+     "New 2026-11-14: Vanguard Charitable DAF recordkeeping (press release 2025-11-04); Signatry portal; claims $40bn+."),
+    ("Endaoment", "independent_sponsor",
+     dict(legal_role="EC", tech_admin="DS", distribution="DS"),
+     "mission-2026-11-14/ai-native-entrant-simulation.md", "Sponsor-of-record API tiers; custodian list unverified."),
+    ("Foundant (CommunitySuite)", "tech_admin_vendor",
+     dict(legal_role="EC", distribution="DS", ownership_funding="EC"),
+     "mission-2026-11-14/breadth-community-faith-infrastructure-emerging.md", "Claims 700+ community foundations; SmartSimple merger 2024."),
+    ("NPact (FIMS / DonorCentral)", "tech_admin_vendor",
+     dict(legal_role="DS", ownership_funding="EC"),
+     "mission-2026-11-14/breadth-community-faith-infrastructure-emerging.md", "Acquired FIMS/DonorCentral from Blackbaud 2022."),
+)
+
+
+def apply_updates(baseline, updates, new_entities):
+    return tuple(
+        (e, seg, {**st, **updates.get(e, {})}, files, notes) for e, seg, st, files, notes in baseline
+    ) + tuple(new_entities)
+
+
 def rows(baseline, validated=frozenset()):
     return tuple(
         {
@@ -186,15 +239,19 @@ def rows(baseline, validated=frozenset()):
     )
 
 
-def load_validated(path: Path) -> frozenset:
-    if not path.exists():
-        return frozenset()
+def read_rows(path: Path) -> tuple:
     with path.open(newline="", encoding="utf-8") as fh:
-        return frozenset(
-            (r.get("entity", ""), r.get("checklist_item", ""))
-            for r in csv.DictReader(fh)
-            if r.get("validation_result", "").lower() == "confirmed" and r.get("checklist_item")
-        )
+        return tuple(csv.DictReader(fh))
+
+
+def load_validated(directory: Path) -> frozenset:
+    """(entity, checklist_item) pairs confirmed by any independent validation register."""
+    return frozenset(
+        (r.get("entity", ""), r.get("checklist_item", ""))
+        for path in sorted(directory.glob("validation-register*.csv"))
+        for r in read_rows(path)
+        if r.get("validation_result", "").lower() == "confirmed" and r.get("checklist_item")
+    )
 
 
 def summary(records):
@@ -228,7 +285,7 @@ if __name__ == "__main__":
     root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
     out = root / "data" / "mission-2026-11-14"
     out.mkdir(parents=True, exist_ok=True)
-    records = rows(BASELINE, load_validated(out / "validation-register.csv"))
+    records = rows(apply_updates(BASELINE, MISSION_UPDATES, MISSION_NEW_ENTITIES), load_validated(out))
     write_csv(out / "coverage-matrix-entities.csv", records)
     (out / "coverage-summary.json").write_text(json.dumps(summary(records), indent=2))
     print(json.dumps(summary(records), indent=2))

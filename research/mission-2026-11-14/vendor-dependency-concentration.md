@@ -1,5 +1,8 @@
 # DAF vendor dependency graph and concentration analysis
 
+> **Red-team status (2026-11-14):** independently reviewed in [red-team-wave2b-graph-data-incentives.md](red-team-wave2b-graph-data-incentives.md). The corrections in the final section govern where they conflict with the text.
+
+
 **Date:** 2026-11-14. **Status:** public-source evidence only. No contracts, SOC reports, production systems or authenticated portals were reviewed.
 **Data:** [`data/mission-2026-11-14/relationship-graph-edges.csv`](../../data/mission-2026-11-14/relationship-graph-edges.csv) has 167 edges. [`data/mission-2026-11-14/relationship-graph-nodes.csv`](../../data/mission-2026-11-14/relationship-graph-nodes.csv) has 131 nodes.
 **Builds on:** `data/expanded-ecosystem-relationships-2026.csv` (edges L01–L21), `data/expanded-daf-market-map-2026.csv`, the Edward Jones, Ren-distribution, BofA/Morgan Stanley, NPT, Goldman, Charityvest/TIAA, DNS-reconnaissance, technology-audit and startup research files dated 2026-11-11/12.
@@ -387,3 +390,19 @@ An edge is marked as a SPOF where failure of that one node or edge would interru
 - CapShift Commonwealth and MS GIFT pages
 
 The full URL list is in the edge file (88 distinct URLs).
+
+## Red-team corrections (wave 2B, 2026-11-14) — governing
+- **§1 item 4.** Replace "Together they hold about **49%**" with: "Together they held about **39%** of DAFRC's FY2024 sponsor assets (period-aligned: June-2024 values for June-FYE sponsors)."
+- **§1 item 5.** Replace it with: "**Sponsor assets are unconcentrated at the all-sponsor level and moderately concentrated among national sponsors.** DAFRC FY2024 census: CR3 45.5%, CR5 55.8%, HHI 830; national-only CR3 63.2%, HHI 1,566 (see `derived-metrics.csv`)."
+- **§1 item 6 and §5.2.**
+  - Replace "about 66%. That leaves at most about 34%" with "about 52%. That leaves at most about 48%".
+  - Replace '"$200bn" (Apr 2026) of US DAF assets' with '"approximately $200 billion of donor-advised funds and other charitable assets" (AEF/Ren release, 2026-04-08; not a DAF-only figure)'.
+  - Add: "The residual 47.8% plus NPT (12.9%) ≈ 60.6%, matching Ren's '60%+'; this would hold only if Ren counts NPT (Stellar/iPhi lineage) and nearly all other sponsors. Unverified."
+- **§5.1 table.**
+  - Replace the June-2025 values with the DAFRC FY2024 values: Fidelity 66.20, NPT 42.12, DAFgiving360 40.94, Vanguard 21.95, GS 11.84, SVCF 9.58, AEF 9.48, MS GIFT 9.43, RCF 5.63, NCF 5.46, BofA 5.11.
+  - Delete the "±2 pp/±100" line.
+  - Delete the caveat "the full DAFRC sponsor file has not been downloaded".
+- **§4.1.** Replace "RCF's FY2024 Schedule D shows $5.91bn across 25,824 DAFs" with "RCF's FY2024 audited net assets were $5.90bn across 25,824 DAFs (DAFRC's Schedule D row is imputed at $5.63bn / 22,366)".
+- **Edge E086.** Change `inferred` to `confirmed`. Add evidence: AEF 2025-07-23: "Ren will serve as a trusted technology and administrative services partner". Update §5.2 to read "Administration is confirmed for RCF, MS GIFT and AEF".
+- **Edge E151.** Note "DAFpay checkout access only". Either retype it or add `scope=donor_checkout`.
+- **§4 / S7.** Change "Vanguard" to "Vanguard (hybrid: Vanguard Group provides recordkeeping/admin support for $4.0m; admin fee funds Vanguard Charitable's own operations)".

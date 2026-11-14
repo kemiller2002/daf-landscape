@@ -39,7 +39,7 @@ def score(row: dict, still_open: frozenset) -> dict:
 
 def rank(rows) -> tuple:
     still_open = open_ids(rows)
-    scored = sorted((score(r, still_open) for r in rows), key=lambda r: -r["eiv_score"])
+    scored = sorted((score(r, still_open) for r in rows), key=lambda r: (r.get("state") == "done", -r["eiv_score"]))
     return tuple({**r, "rank": i + 1} for i, r in enumerate(scored))
 
 
