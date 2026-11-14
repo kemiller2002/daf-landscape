@@ -94,7 +94,7 @@ This confirms a search-summary report from a Ren help article (now 404) that BNY
 
 1. **The repo statement "no sponsor publishes an outbound transfer policy" needs a qualification.** It still holds for *procedures*, but Fidelity and NCF now mention outbound grants to other sponsors in their published terms. NCF is the only sponsor that restricts them, and only for succession funds. Both texts treat a DAF-to-DAF grant as an ordinary grant to a public charity, not as a portability right.
 2. **History export is not a published right at any of the eight sponsors.** Terms speak only of viewing (Fidelity, DAFgiving360) or of statements (NPT, Vanguard, BofA, NCF). NPT's "available for download" is the only download language found. **[I]** A3/A4 Y5 should stay at most 2 for all eight.
-3. **Fidelity has made in-kind DAF-to-DAF grants.** Its FY2022 Schedule I shows $271.4m noncash to Schwab Charitable, on top of $235.3m cash ([XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202430459349302913_public.xml)). The repo's "transfers are generally cash after liquidation" holds for most rows but not universally. **Confirmed (filing); the terms are silent.**
+3. **Fidelity has made in-kind DAF-to-DAF grants.** Its FY2022 Schedule I shows $271.4m noncash to Schwab Charitable, on top of $235.3m cash ([XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202430459349302913_public.xml)). AEF also labels some sponsor grants "IN KIND TRANSFER" while reporting them as cash: ImpactAssets $102.0m (CY2022), Bradley Impact Fund $25.6m (CY2023) and MS GIFT $9.7m (CY2023). The repo's "transfers are generally cash after liquidation" holds for most rows but not universally. **Confirmed (filing); the terms are silent.**
 
 ---
 
@@ -133,8 +133,8 @@ This confirms a search-summary report from a Ren help article (now 404) that BNY
 | Flow | FY2022 | FY2023 | FY2024 | FY2025 |
 |---|---|---|---|---|
 | DAFgiving360 → Fidelity | 129.1 | 120.9 | 127.7 | **976.6** |
-| Fidelity → DAFgiving360 | **506.8** (235.3 cash + 271.4 noncash) | 183.1 | 100.9 | 117.8 |
-| Net to Fidelity | −377.7 | −62.2 | +26.8 | **+858.7** |
+| Fidelity → DAFgiving360 | **506.8** (235.3 cash + 271.4 noncash) | 183.3 | 100.9 | 117.8 |
+| Net to Fidelity | −377.7 | −62.4 | +26.8 | **+858.7** |
 
 **Context, FY2025:**
 - **DAFgiving360:** Schedule I grants rose $2.25bn, to $8.62bn. The Fidelity increment of $848.9m is 38% of that rise. Grants to all national sponsors reached $1,549.8m (18.0% of Schedule I).
