@@ -1,0 +1,13 @@
+area_id,provider,primary_x,blind_x,primary_y,blind_y,primary_quadrant,blind_quadrant,status
+A2,Chariot DAFpay,2.0,2.44,2.75,3.0,Proven Leaders (boundary),Proven Leaders,reproduced
+A2,Chariot Disbursements,2.44,2.44,2.95,3.4,Proven Leaders,Proven Leaders,reproduced
+A2,DAF Direct,1.67,1.73,2.0,1.24,Forward Builders (boundary),Focused Specialists,disputed
+A2,Every.org,1.44,2.27,2.24,2.53,insufficient evidence,Proven Leaders,insufficient evidence
+A2,Fidelity Charitable EFT (Stripe/ACH),2.9,3.06,2.06,1.59,Proven Leaders (boundary),Scale Operators,disputed
+A2,PayPal Grant Payments,2.73,2.83,2.29,2.53,Proven Leaders,Proven Leaders,reproduced
+A2,Ren Rapid Disbursement Engine,2.17,2.17,2.15,2.15,Proven Leaders (boundary),Proven Leaders (boundary),reproduced
+A5,Benevity validation,2.41,2.73,1.85,2.31,Scale Operators (boundary),Proven Leaders,disputed
+A5,Candid (GuideStar APIs / Charity Check),3.2,2.87,2.65,2.6,Proven Leaders,Proven Leaders,reproduced
+A5,Chariot verification,2.22,2.22,2.69,2.55,Proven Leaders (boundary),Proven Leaders (boundary),reproduced
+A5,Goodstack,2.0,2.65,2.38,2.62,insufficient evidence,Proven Leaders,insufficient evidence
+A5,IRS BMF / Pub 78 / TEOS (public baseline),3.45,3.53,2.94,3.41,Proven Leaders,Proven Leaders,reproduced

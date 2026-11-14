@@ -42,7 +42,6 @@ import time
 import urllib.error
 import urllib.request
 from collections import Counter, defaultdict
-from difflib import SequenceMatcher
 from itertools import groupby
 from typing import Callable, Iterable, Mapping, NamedTuple, Sequence
 
@@ -371,13 +370,32 @@ def parse_return_xml(txt: str | None) -> dict:
     return {**first, "has_schedule_n": bool(sched_n), "schedule_n_recipients": "; ".join(dict.fromkeys(recips))}
 
 
+MAIN_FORMS = ("990", "990EZ", "990PF")
+CEASED = ("revoked_auto_nonfiling", "terminated_final_return", "removed_from_irs_bmf_terminated_or_merged",
+          "merged_daf_assets_transferred", "converted_to_private_foundation_990pf")
+STOPPED = ("stopped_reporting_dafs_org_still_files_990",)
+
+
+def outcome_tier(outcome: str) -> str:
+    if outcome in CEASED:
+        return "A_org_ceased_or_converted"
+    if outcome in STOPPED:
+        return "B_org_survives_no_dafs_reported"
+    if outcome.startswith("reporting_artifact"):
+        return "D_reporting_artifact"
+    return "C_unresolved"
+
+
 def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Mapping | None,
-                 xml_later: Mapping, xml_last: Mapping, successor: str = "") -> dict:
-    """Combine evidence and assign a rule-based outcome. Pure."""
+                 xml_later: Mapping, xml_last: Mapping, successor: str = "",
+                 later_filing: Mapping | None = None) -> dict:
+    """Combine evidence and assign a rule-based outcome. Pure.
+    xml_later: parsed XML of the newest *fetchable* Form 990 filed for a period after the last
+    filed DAFRC period (later_filing); xml_last: newest main-form return of any period."""
     e = h["ein"]
     b, rv, filings = bmf.get(e), revoc.get(e), idx.get(e, ())
     ref_period = (h["last_filed_period_end"] or f"{h['last_filed_fy'] or h['last_fy']}-12-31").replace("-", "")[:6]
-    later = tuple(f for f in filings if f["TAX_PERIOD"] > ref_period)
+    later = tuple(f for f in filings if f["TAX_PERIOD"] > ref_period and f["RETURN_TYPE"] in MAIN_FORMS)
     latest = later[-1] if later else None
     pp_org = (pp or {}).get("organization") or {}
     pp_periods = sorted({str(f.get("tax_prd")) for k in ("filings_with_data", "filings_without_data")
@@ -398,24 +416,26 @@ def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Map
         outcome = "revoked_auto_nonfiling"
     elif terminated_flag:
         outcome = "terminated_final_return"
+    elif latest and latest["RETURN_TYPE"] == "990PF":
+        outcome = "converted_to_private_foundation_990pf"
     elif not b:
         outcome = "removed_from_irs_bmf_terminated_or_merged"
-    elif latest and latest["RETURN_TYPE"] in ("990EZ", "990PF", "990N"):
-        outcome = f"form_change_to_{latest['RETURN_TYPE']}_no_schedule_d_daf_data"
-    elif latest and latest["RETURN_TYPE"] == "990" and xml_later and daf_later:
+    elif latest and latest["RETURN_TYPE"] == "990EZ":
+        outcome = "form_change_to_990ez_no_schedule_d_daf_data"
+    elif xml_later and daf_later:
         outcome = "reporting_artifact_later_990_reports_dafs"
-    elif latest and latest["RETURN_TYPE"] == "990" and xml_later:
+    elif xml_later:
         outcome = "stopped_reporting_dafs_org_still_files_990"
     elif latest:
-        outcome = "later_return_filed_daf_status_unknown"
+        outcome = "later_990_filed_xml_unavailable_daf_status_unknown"
     elif pp_later:
         outcome = "later_paper_or_unparsed_return_daf_status_unknown"
     else:
         outcome = "unresolved_in_bmf_no_later_return_found"
-    true_exit = outcome in ("revoked_auto_nonfiling", "terminated_final_return",
-                            "removed_from_irs_bmf_terminated_or_merged",
-                            "stopped_reporting_dafs_org_still_files_990", "merged_daf_assets_transferred")
-    artifact = outcome.startswith("reporting_artifact")
+    tier = outcome_tier(outcome)
+    true_exit = tier in ("A_org_ceased_or_converted", "B_org_survives_no_dafs_reported")
+    artifact = tier == "D_reporting_artifact"
+    latest = later_filing or latest
     src = [PP_API.format(ein=e)] if pp is not None else []
     src += [BMF_URL.format(n="1-4")] + ([REVOC_URL] if rv else [])
     src += [latest["_index_url"]] if latest else []
@@ -446,7 +466,7 @@ def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Map
         "propublica_checked": pp is not None, "propublica_found": bool(pp_org),
         "propublica_latest_tax_prd": pp_periods[-1] if pp_periods else "",
         "propublica_periods_after_last_filed": ";".join(pp_later),
-        "outcome": outcome, "true_exit": true_exit, "reporting_artifact": artifact,
+        "outcome": outcome, "outcome_tier": tier, "true_exit": true_exit, "reporting_artifact": artifact,
         "possible_successor_ein": successor,
         "manual_note": manual.get("note", ""),
         "source_urls": " ; ".join(dict.fromkeys(src + [PP_ORG.format(ein=e), DAFRC_URL])),
@@ -472,8 +492,9 @@ def verified_bounds(ver: Sequence[Mapping], hists: Mapping[str, Mapping],
     in_window = [v for v in ver if v["exit_fy"] and FIRST_FY < int(v["exit_fy"]) < LAST_FY]
     sampled = [v for v in in_window if v["sample_stratum"]]
     sets = {
-        "lower_verified_true_exits_all_candidates": [v for v in in_window if v["true_exit"]],
-        "upper_true_plus_unresolved_plus_form_change": [v for v in in_window if not v["reporting_artifact"]],
+        "lower_A_org_ceased_or_converted": [v for v in in_window if v["outcome_tier"].startswith("A")],
+        "central_A_plus_B_no_dafs_reported": [v for v in in_window if v["true_exit"]],
+        "upper_A_B_plus_C_unresolved": [v for v in in_window if not v["reporting_artifact"]],
         "naive_panel_exits_only": [v for v in in_window if v["exit_kind"] == "panel_exit"],
         "naive_all_candidates": in_window,
     }
@@ -500,6 +521,10 @@ def verified_bounds(ver: Sequence[Mapping], hists: Mapping[str, Mapping],
              "value": c, "numerator": None, "denominator": len(sampled),
              "definition": "rule-based outcome, sampled candidates with exit FY2020-FY2023"}
             for k, c in sorted(Counter(v["outcome"] for v in sampled).items())]
+    out += [{"dimension": "verified_tier_by_type", "group": f"{t}|{tier}", "fiscal_year": "2020-2023",
+             "measure": "candidates_n", "value": c, "numerator": None, "denominator": None,
+             "definition": "exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier"}
+            for (t, tier), c in sorted(Counter((v["type"], v["outcome_tier"]) for v in in_window).items())]
     return out
 
 
@@ -514,25 +539,25 @@ def write_csv(path: str, rows: Sequence[Mapping], fields: Sequence[str]) -> None
                      for k in fields} for r in rows)
 
 
-STOPWORDS = frozenset({"INC", "THE", "OF", "FOR", "AND", "CORP", "CORPORATION", "FUND", "FOUNDATION", "TRUST", "CO"})
+GENERIC = frozenset({"INC", "THE", "OF", "FOR", "AND", "CORP", "CORPORATION", "FUND", "FOUNDATION",
+                     "TRUST", "CO", "COMMUNITY", "AREA", "GREATER", "COUNTY", "REGIONAL", "CHARITABLE",
+                     "JEWISH", "FEDERATION", "CENTER", "ENDOWMENT", "GIFT", "OTHER", "NC", "INCORPORATED"})
 
 
-def norm_name(name: str) -> str:
-    toks = re.sub(r"[^A-Z0-9 ]", " ", name.upper()).split()
-    return " ".join(t for t in toks if t not in STOPWORDS)
+def distinct_tokens(name: str) -> frozenset[str]:
+    return frozenset(t for t in re.sub(r"[^A-Z0-9 ]", " ", name.upper()).split() if t not in GENERIC)
 
 
-def successor_links(hists: Mapping[str, Mapping], threshold: float = 0.82) -> dict[str, str]:
-    """Exit candidate EIN -> 'EIN|name|first_fy' of a *different* EIN with a near-identical
-    name that appears in the panel no later than the exit year (possible re-EIN / merger). Pure."""
+def successor_links(hists: Mapping[str, Mapping]) -> dict[str, str]:
+    """Exit candidate EIN -> other EINs whose distinctive name tokens are identical (e.g. both
+    {'OMAHA'}) and which are still in the panel at the exit year: possible re-EIN, successor or
+    sister entity. A lead for manual review, not proof. Pure."""
     exits = [h for h in hists.values() if h["exit_kind"] in EXIT_KINDS]
-    others = list(hists.values())
 
     def match(h):
-        n = norm_name(h["name"])
-        hits = [o for o in others if o["ein"] != h["ein"] and n and
-                SequenceMatcher(None, n, norm_name(o["name"])).ratio() >= threshold and
-                o["last_fy"] >= (h["exit_fy"] or LAST_FY)]
+        n = distinct_tokens(h["name"])
+        hits = [o for o in hists.values() if o["ein"] != h["ein"] and n and distinct_tokens(o["name"]) == n
+                and o["last_fy"] >= (h["exit_fy"] or LAST_FY)]
         return "; ".join(f"{o['ein']}|{o['name']}|first_fy={o['first_fy']}" for o in hits)
 
     return {h["ein"]: m for h in exits if (m := match(h))}
@@ -578,12 +603,15 @@ def run_verification(hists, by_ein, irs_dir, cache_dir, fetch) -> list[dict]:
         e = h["ein"]
         filings = idx.get(e, ())
         later = [f for f in filings if f["TAX_PERIOD"] > ref_period(h) and f["RETURN_TYPE"] == "990"]
-        last_any = filings[-1] if filings else None
+        mains = [f for f in filings if f["RETURN_TYPE"] in MAIN_FORMS]
+        last_any = mains[-1] if mains else None
+        # newest later 990 whose XML is retrievable (recent filings may not be mirrored yet)
+        parsed = next(((f, x) for f in reversed(later) if (x := xml_for(f))), (None, {}))
         pp_txt = fetch_cached(PP_API.format(ein=e), os.path.join(cache_dir, "propublica", f"{e}.json"),
                               fetch) if e in sample else None
         pp = json.loads(pp_txt) if pp_txt else ({} if e in sample and fetch else None)
-        ev = evidence_for(h, bmf, revoc, idx, pp, xml_for(later[-1] if later else None), xml_for(last_any),
-                         links.get(e, ""))
+        ev = evidence_for(h, bmf, revoc, idx, pp, parsed[1], xml_for(last_any),
+                         links.get(e, ""), parsed[0])
         return {**ev, "sample_stratum": sample.get(e, "")}
 
     return sorted((one(h) for h in cands), key=lambda v: (v["sample_stratum"] == "", -(v["exit_ref_daf_assets"] or 0)))

@@ -11,6 +11,13 @@ A1,primary,NPact (FIMS / DonorCentral),1.45,0.8,2.6,0.55,1.25,0.75,2.35,0.6,Focu
 A1,primary,"Ren (incl. iPhi/Stellar, DonorFirstX)",2.67,2.4,2.8,0.9,2.3,2.3,2.3,1.0,Proven Leaders
 A1,primary,"SVCF (sponsor-built, Salesforce)",3.0,1.05,3.65,0.35,,0.0,4.0,0,insufficient evidence
 A1,primary,TIFIN Give,2.44,2.2,2.6,0.9,1.85,1.85,1.85,1.0,Scale Operators (boundary)
+A2,blind,Chariot DAFpay,2.44,2.2,2.6,0.9,3.0,3.0,3.0,1.0,Proven Leaders
+A2,blind,Chariot Disbursements,2.44,2.2,2.6,0.9,3.4,3.4,3.4,1.0,Proven Leaders
+A2,blind,DAF Direct,1.73,1.3,2.3,0.75,1.24,1.05,1.65,0.85,Focused Specialists
+A2,blind,Every.org,2.27,1.7,2.7,0.75,2.53,2.15,2.75,0.85,Proven Leaders
+A2,blind,Fidelity Charitable EFT (Stripe/ACH),3.06,2.6,3.2,0.85,1.59,1.35,1.95,0.85,Scale Operators
+A2,blind,PayPal Grant Payments,2.83,2.55,2.95,0.9,2.53,2.15,2.75,0.85,Proven Leaders
+A2,blind,Ren Rapid Disbursement Engine,2.17,1.95,2.35,0.9,2.15,2.15,2.15,1.0,Proven Leaders (boundary)
 A2,primary,Chariot DAFpay,2.0,2.0,2.0,1.0,2.75,2.75,2.75,1.0,Proven Leaders (boundary)
 A2,primary,Chariot Disbursements,2.44,2.2,2.6,0.9,2.95,2.95,2.95,1.0,Proven Leaders
 A2,primary,DAF Direct,1.67,1.25,2.25,0.75,2.0,1.2,2.8,0.6,Forward Builders (boundary)
@@ -37,6 +44,11 @@ A4,primary,Endaoment,1.55,0.85,2.65,0.55,2.47,2.1,2.7,0.85,Forward Builders
 A4,primary,Every.org,,0.0,4.0,0,2.0,0.5,3.5,0.25,insufficient evidence
 A4,primary,Fidelity Charitable (direct),3.05,3.05,3.05,1.0,1.75,1.75,1.75,1.0,Scale Operators (boundary)
 A4,primary,Givinga consumer accounts,1.36,0.75,2.55,0.55,2.0,0.8,3.2,0.4,insufficient evidence
+A5,blind,Benevity validation,2.73,2.05,3.05,0.75,2.31,1.85,2.65,0.8,Proven Leaders
+A5,blind,Candid (GuideStar APIs / Charity Check),2.87,2.15,3.15,0.75,2.6,2.6,2.6,1.0,Proven Leaders
+A5,blind,Chariot verification,2.22,2.0,2.4,0.9,2.55,2.55,2.55,1.0,Proven Leaders (boundary)
+A5,blind,Goodstack,2.65,2.65,2.65,1.0,2.62,2.1,2.9,0.8,Proven Leaders
+A5,blind,IRS BMF / Pub 78 / TEOS (public baseline),3.53,3.0,3.6,0.85,3.41,2.9,3.5,0.85,Proven Leaders
 A5,primary,Benevity validation,2.41,2.05,2.65,0.85,1.85,1.85,1.85,1.0,Scale Operators (boundary)
 A5,primary,Candid (GuideStar APIs / Charity Check),3.2,2.4,3.4,0.75,2.65,2.65,2.65,1.0,Proven Leaders
 A5,primary,Chariot verification,2.22,2.0,2.4,0.9,2.69,2.15,2.95,0.8,Proven Leaders (boundary)
