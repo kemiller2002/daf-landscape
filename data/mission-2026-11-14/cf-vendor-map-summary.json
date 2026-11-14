@@ -1,0 +1,235 @@
+{
+ "universe_cfs": 30,
+ "universe_daf_assets_usd": 39359694548,
+ "homepages_found": 30,
+ "crawl_status": [
+  [
+   "ok",
+   30
+  ]
+ ],
+ "confidence": [
+  [
+   "high",
+   28
+  ],
+  [
+   "none",
+   2
+  ]
+ ],
+ "evidence_type_of_decision": [
+  [
+   "homepage_link_vendor_host",
+   21
+  ],
+  [
+   "repo_v2_manual_check",
+   4
+  ],
+  [
+   "portal_fetch",
+   2
+  ],
+  [
+   "portal_response_header",
+   1
+  ],
+  [
+   "portal_page_marker",
+   1
+  ],
+  [
+   "dns_cname",
+   1
+  ]
+ ],
+ "shares_high_medium": [
+  {
+   "vendor_family": "Salesforce",
+   "cfs": 6,
+   "share_cfs": 0.2,
+   "daf_assets_usd": 13479693353,
+   "share_daf_assets": 0.3425
+  },
+  {
+   "vendor_family": "GiftingNetwork",
+   "cfs": 2,
+   "share_cfs": 0.0667,
+   "daf_assets_usd": 7598116467,
+   "share_daf_assets": 0.193
+  },
+  {
+   "vendor_family": "Foundant",
+   "cfs": 9,
+   "share_cfs": 0.3,
+   "daf_assets_usd": 6537642806,
+   "share_daf_assets": 0.1661
+  },
+  {
+   "vendor_family": "donor-portal.org (unidentified white-label)",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 2574010894,
+   "share_daf_assets": 0.0654
+  },
+  {
+   "vendor_family": "Unidentified portal",
+   "cfs": 2,
+   "share_cfs": 0.0667,
+   "daf_assets_usd": 2129182770,
+   "share_daf_assets": 0.0541
+  },
+  {
+   "vendor_family": "Ren / Stellar iPhi",
+   "cfs": 3,
+   "share_cfs": 0.1,
+   "daf_assets_usd": 1876652860,
+   "share_daf_assets": 0.0477
+  },
+  {
+   "vendor_family": "Foundation Cloud (spectrumportal.net; NPact [R])",
+   "cfs": 2,
+   "share_cfs": 0.0667,
+   "daf_assets_usd": 1401900834,
+   "share_daf_assets": 0.0356
+  },
+  {
+   "vendor_family": "SmartSimple",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 1097047767,
+   "share_daf_assets": 0.0279
+  },
+  {
+   "vendor_family": "DonorSphere / FidTech",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 922093010,
+   "share_daf_assets": 0.0234
+  },
+  {
+   "vendor_family": "Microsoft Power Pages",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 687723877,
+   "share_daf_assets": 0.0175
+  },
+  {
+   "vendor_family": "akoyaGO",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 529385653,
+   "share_daf_assets": 0.0134
+  },
+  {
+   "vendor_family": "Blackbaud",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 526244257,
+   "share_daf_assets": 0.0134
+  }
+ ],
+ "shares_high_only": [
+  {
+   "vendor_family": "Salesforce",
+   "cfs": 6,
+   "share_cfs": 0.2,
+   "daf_assets_usd": 13479693353,
+   "share_daf_assets": 0.3425
+  },
+  {
+   "vendor_family": "GiftingNetwork",
+   "cfs": 2,
+   "share_cfs": 0.0667,
+   "daf_assets_usd": 7598116467,
+   "share_daf_assets": 0.193
+  },
+  {
+   "vendor_family": "Foundant",
+   "cfs": 9,
+   "share_cfs": 0.3,
+   "daf_assets_usd": 6537642806,
+   "share_daf_assets": 0.1661
+  },
+  {
+   "vendor_family": "donor-portal.org (unidentified white-label)",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 2574010894,
+   "share_daf_assets": 0.0654
+  },
+  {
+   "vendor_family": "Unidentified portal",
+   "cfs": 2,
+   "share_cfs": 0.0667,
+   "daf_assets_usd": 2129182770,
+   "share_daf_assets": 0.0541
+  },
+  {
+   "vendor_family": "Ren / Stellar iPhi",
+   "cfs": 3,
+   "share_cfs": 0.1,
+   "daf_assets_usd": 1876652860,
+   "share_daf_assets": 0.0477
+  },
+  {
+   "vendor_family": "Foundation Cloud (spectrumportal.net; NPact [R])",
+   "cfs": 2,
+   "share_cfs": 0.0667,
+   "daf_assets_usd": 1401900834,
+   "share_daf_assets": 0.0356
+  },
+  {
+   "vendor_family": "SmartSimple",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 1097047767,
+   "share_daf_assets": 0.0279
+  },
+  {
+   "vendor_family": "DonorSphere / FidTech",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 922093010,
+   "share_daf_assets": 0.0234
+  },
+  {
+   "vendor_family": "Microsoft Power Pages",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 687723877,
+   "share_daf_assets": 0.0175
+  },
+  {
+   "vendor_family": "akoyaGO",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 529385653,
+   "share_daf_assets": 0.0134
+  },
+  {
+   "vendor_family": "Blackbaud",
+   "cfs": 1,
+   "share_cfs": 0.0333,
+   "daf_assets_usd": 526244257,
+   "share_daf_assets": 0.0134
+  }
+ ],
+ "ct_tenants_2021plus": {
+  "Foundant": 11,
+  "Ren / Stellar iPhi": 7,
+  "Foundation Cloud (spectrumportal.net; NPact [R])": 2,
+  "DonorSphere / FidTech": 31,
+  "Give Interactive": 138,
+  "donor-portal.org (unidentified white-label)": 0
+ },
+ "v2_agreement": {
+  "v2_rows_with_vendor": 28,
+  "crawl_found": 25,
+  "crawl_agrees": 25,
+  "disagreements": []
+ },
+ "edges_written": 2,
+ "edges_confirmed": 2
+}
