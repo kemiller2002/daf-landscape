@@ -70,8 +70,8 @@ def quadrant(x: dict, y: dict) -> str:
         return "insufficient evidence"
     if x["coverage"] < 0.5 or y["coverage"] < 0.5:
         return "insufficient evidence"
-    crosses = (x["low"] < MID < x["high"] and abs(x["point"] - MID) < 0.25) or \
-              (y["low"] < MID < y["high"] and abs(y["point"] - MID) < 0.25)
+    # Boundary: point estimate within 0.25 of a midline (inclusive), whether or not unknowns widen the band.
+    crosses = abs(x["point"] - MID) <= 0.25 or abs(y["point"] - MID) <= 0.25
     name = {(True, True): "Proven Leaders", (True, False): "Scale Operators",
             (False, True): "Forward Builders", (False, False): "Focused Specialists"}[(x["point"] >= MID, y["point"] >= MID)]
     return f"{name} (boundary)" if crosses else name
