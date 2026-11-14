@@ -230,3 +230,21 @@ The portal signature checked is the GiftingNetwork pattern: `/m/login`, `/ma/ima
 - **Single portals:** Akoya→EBCF, SmartSimple→Boston and Power Pages→Seattle.
 - **Foundant:** 10 new CommunitySuite portal edges (Columbus, Atlanta and Denver already exist as EC008–EC010).
 - **Salesforce:** 5 portal edges.
+
+## Validation corrections (wave 7, 2026-11-14) — governing
+Source: [validation-wave7-report.md](validation-wave7-report.md). Where these conflict with the text above, these govern.
+
+1. **Line 84**
+   - Current: "**Greater Washington CF (#38): Blackbaud REPAY**, live since September 2026."
+   - Replace with: "**Greater Washington CF (#38): REPAY (payments partner, alongside Blackbaud Financial Edge NXT)**. GWCF says it 'partnered with Blackbaud and REPAY' in 'systems transformation upgrades completed in September 2026'."
+2. **Line 90**
+   - Current: "(Bill.com, Blackbaud REPAY, Citizens Checkmint)"
+   - Replace with: "(Bill.com, REPAY, Citizens Checkmint)"
+3. **Line 30**
+   - Current: "**NPact Foundation Cloud (spectrumportal.net): 3**"
+   - Replace with: "**Foundation Cloud on spectrumportal.net (NPact per third-party sources [R]): 3**"
+   - Optionally add to line 111: "The GWCF sign-in page loads `payments.blackbaud.com/Checkout/bbCheckout.2.0.js` [F]."
+4. **Line 29**
+   - Current: "**2 are check-only:** Chicago Community Trust (DAF grants are mailed checks)"
+   - Replace with: "**2 document checks only:** Chicago Community Trust (for DAF grants; discretionary-grant rail not documented)"
+5. **Line 73 (SPMF row).** Append: "Chariot's own post (dated 'Sep 15', © 2026) says the move is expected 'with a few exceptions' ([Chariot](https://givechariot.com/resources/insights/enrolling-with-chariot-for-electronic-grant-payments-from-the-saint-paul--minnesota-foundation)) [V]. The year of 'this fall' is inferred from the footers."

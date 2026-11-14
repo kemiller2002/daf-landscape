@@ -284,3 +284,22 @@ The columns follow `queue-proposals-README.md`.
 | proposed_by | string | `FCGV agent` |
 | rationale | string | Why the question matters now |
 | evidence_pointer | string | URL or repo path that starts the work |
+
+## Validation corrections (wave 7, 2026-11-14) — governing
+Source: [validation-wave7-report.md](validation-wave7-report.md). Where these conflict with the text above, these govern.
+
+1. **Line 28**
+   - Current: "Goodstack's donation rails run through its own DAF-style foundations."
+   - Replace with: "Goodstack's donation rails run through partner foundations that its Donation Delivery Policy names as exclusive recipients. The US foundation describes itself as one of a 'stack of independent charitable foundations' that 'work with Goodstack, a technology company' ([giftall.org](https://www.giftall.org/))."
+2. **Line 28**
+   - Current: "reported **7,268 DAFs and $1.81m year-end DAF value for FY2024** [F]."
+   - Replace with: "reported **7,268 DAFs and $1.81m year-end DAF value for FY2024**. Its FY2025 return (filed 2026-09-02) reports **$10,772,483 year-end DAF value, $11,582,483 DAF contributions, $1,660,000 DAF grants and 3 DAFs** (an apparent change in how accounts are counted), with total assets of $12,779,329 ([XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202602459349300235_public.xml)) [F]."
+3. **Line 150**
+   - Current: "**Goodstack runs DAF-style sponsors itself.**"
+   - Replace with: "**Goodstack routes donations exclusively through affiliated DAF-style foundations, which present themselves as independent.**"
+4. **Line 161.** After "revenue of $268,231", add: "CY2024 revenue was $3,116,428 and CY2025 revenue $16,344,032 (ProPublica)."
+5. **Line 162**
+   - Current: "Its DAF operation is minor in dollar terms."
+   - Replace with: "Its DAF operation is small but grew about 6x in 2025 ($10.8m year-end DAF value)."
+6. **Line 94 (agent row).** Append: "Note: the Terms do make Chariot itself the donor's authorized actor ('you hereby authorize Chariot to take the following actions on your behalf'). 'No agent clause' means no clause on third-party or AI agents."
+7. **Line 27.** Add the privacy policy's effective date: "Privacy Policy effective 'Janurary 8th, 2025' (sic)."

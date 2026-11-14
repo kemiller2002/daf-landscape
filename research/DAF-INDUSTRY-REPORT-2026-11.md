@@ -498,9 +498,9 @@ Lenders found: Audax to Foundation Source (2020); Golub to Momentive and Orion; 
 
 Portfolio adjacencies, where one owner holds a DAF asset alongside a distribution or software asset:
 - **Bain:** Ren, Envestnet and FreeWill.
-- **GTCR:** Foundation Source, AssetMark and 25% of CAPTRUST.
-- **General Atlantic and TPG:** Benevity and Creative Planning.
-- **TA:** Orion (which distributes GiftingNetwork DAFs) and Momentive.
+- **GTCR:** Foundation Source, AssetMark and a CAPTRUST stake (25% in 2020; undisclosed since Carlyle joined in 2023) [V wave 7].
+- **General Atlantic and TPG:** Benevity (stakes evidenced only from 2020–21) and Creative Planning.
+- **TA:** Orion (co-owned with Genstar; distributes GiftingNetwork DAFs) and Momentive.
 
 No owner has steered its wealth platform to its own DAF vendor.
 
@@ -526,7 +526,7 @@ Grant-payment rails at the top 30:
 | Check only | 2: Chicago Community Trust; New Hampshire, via Citizens Bank's Checkmint |
 | Nothing published | 15 |
 
-None of the 30 uses PayPal Grant Payments or Ren ACH. Outside the top 30, Greater Washington (#38) has used Blackbaud REPAY since Sept 2026.
+None of the 30 uses PayPal Grant Payments or Ren ACH. Outside the top 30, Greater Washington (#38) has used Blackbaud and REPAY (two separate firms) since Sept 2026 [V wave 7].
 
 Donor-portal vendors at the top 40:
 
