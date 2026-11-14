@@ -1369,6 +1369,46 @@ verified,naive_panel_exits_only,2020-2023,annual_exit_rate_count,0.014271,82,574
 verified,naive_panel_exits_only,2020-2023,annual_exit_rate_asset_weighted,0.002625,2009536491,765495547210,last positive filed DAF assets of exits / sum of prior-year DAF assets at risk
 verified,naive_all_candidates,2020-2023,annual_exit_rate_count,0.017403,100,5746,exits dated FY2020-FY2023 / sponsor-years at risk (rows in FY2019-FY2022)
 verified,naive_all_candidates,2020-2023,annual_exit_rate_asset_weighted,0.002862,2190972826,765495547210,last positive filed DAF assets of exits / sum of prior-year DAF assets at risk
+verified_by_year,lower_A_org_ceased_or_converted,2020,exit_rate_count,0,0,1341,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,lower_A_org_ceased_or_converted,2020,exit_rate_asset_weighted,0,0,132713561956,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,central_A_plus_B_no_dafs_reported,2020,exit_rate_count,0.005966,8,1341,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,central_A_plus_B_no_dafs_reported,2020,exit_rate_asset_weighted,0.000049,6565311,132713561956,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,upper_A_B_plus_C_unresolved,2020,exit_rate_count,0.007457,10,1341,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,upper_A_B_plus_C_unresolved,2020,exit_rate_asset_weighted,0.000077,10186945,132713561956,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,naive_panel_exits_only,2020,exit_rate_count,0.006711,9,1341,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,naive_panel_exits_only,2020,exit_rate_asset_weighted,0.000056,7478073,132713561956,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,naive_all_candidates,2020,exit_rate_count,0.007457,10,1341,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,naive_all_candidates,2020,exit_rate_asset_weighted,0.000077,10186945,132713561956,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,lower_A_org_ceased_or_converted,2021,exit_rate_count,0.002073,3,1447,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,lower_A_org_ceased_or_converted,2021,exit_rate_asset_weighted,0.000051,8610152,168760443636,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,central_A_plus_B_no_dafs_reported,2021,exit_rate_count,0.012440,18,1447,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,central_A_plus_B_no_dafs_reported,2021,exit_rate_asset_weighted,0.000243,41011931,168760443636,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,upper_A_B_plus_C_unresolved,2021,exit_rate_count,0.013822,20,1447,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,upper_A_B_plus_C_unresolved,2021,exit_rate_asset_weighted,0.000514,86815846,168760443636,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,naive_panel_exits_only,2021,exit_rate_count,0.013131,19,1447,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,naive_panel_exits_only,2021,exit_rate_asset_weighted,0.000514,86814049,168760443636,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,naive_all_candidates,2021,exit_rate_count,0.014513,21,1447,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,naive_all_candidates,2021,exit_rate_asset_weighted,0.000820,138442629,168760443636,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,lower_A_org_ceased_or_converted,2022,exit_rate_count,0.002042,3,1469,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,lower_A_org_ceased_or_converted,2022,exit_rate_asset_weighted,0.000701,164204685,234333986152,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,central_A_plus_B_no_dafs_reported,2022,exit_rate_count,0.012934,19,1469,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,central_A_plus_B_no_dafs_reported,2022,exit_rate_asset_weighted,0.001124,263378099,234333986152,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,upper_A_B_plus_C_unresolved,2022,exit_rate_count,0.014976,22,1469,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,upper_A_B_plus_C_unresolved,2022,exit_rate_asset_weighted,0.001243,291285681,234333986152,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,naive_panel_exits_only,2022,exit_rate_count,0.014976,22,1469,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,naive_panel_exits_only,2022,exit_rate_asset_weighted,0.001227,287540307,234333986152,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,naive_all_candidates,2022,exit_rate_count,0.017699,26,1469,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,naive_all_candidates,2022,exit_rate_asset_weighted,0.001348,315816196,234333986152,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,lower_A_org_ceased_or_converted,2023,exit_rate_count,0.003358,5,1489,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,lower_A_org_ceased_or_converted,2023,exit_rate_asset_weighted,0.006223,1429239541,229687555466,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,central_A_plus_B_no_dafs_reported,2023,exit_rate_count,0.016118,24,1489,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,central_A_plus_B_no_dafs_reported,2023,exit_rate_asset_weighted,0.006541,1502496190,229687555466,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,upper_A_B_plus_C_unresolved,2023,exit_rate_count,0.022163,33,1489,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,upper_A_B_plus_C_unresolved,2023,exit_rate_asset_weighted,0.006753,1551138751,229687555466,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,naive_panel_exits_only,2023,exit_rate_count,0.021491,32,1489,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,naive_panel_exits_only,2023,exit_rate_asset_weighted,0.007087,1627704062,229687555466,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
+verified_by_year,naive_all_candidates,2023,exit_rate_count,0.028878,43,1489,exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1
+verified_by_year,naive_all_candidates,2023,exit_rate_asset_weighted,0.007517,1726527056,229687555466,exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk
 verified,sample_outcomes,2020-2024,sampled_candidates_n,50,,,exit candidates in the top-25 + random-25 verification sample
 verified_outcome,form_change_to_990ez_no_schedule_d_daf_data,all,candidates_n,1,,100,"rule-based outcome, all exit candidates"
 verified_outcome,no_schedule_d_daf_data_but_return_text_mentions_dafs,all,candidates_n,12,,100,"rule-based outcome, all exit candidates"
@@ -1392,14 +1432,18 @@ verified_tier_by_type,Single Issue Charity|B_org_survives_no_dafs_reported,2020-
 verified_tier_by_type,Single Issue Charity|C_unresolved,2020-2023,candidates_n,8,,,exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier
 verified_tier_by_type,Single Issue Charity|D_reporting_artifact,2020-2023,candidates_n,4,,,exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier
 entrant_class,existing_organization_new_to_panel,2020,entries_n,92,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
-entrant_class,new_organization_ruling_within_1y,2020,entries_n,16,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
-entrant_class,possible_successor_ein_of_exiting_sponsor,2020,entries_n,5,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
+entrant_class,name_match_to_exiting_ein_lead,2020,entries_n,5,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
+entrant_class,new_organization_ruling_within_1y,2020,entries_n,12,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
+entrant_class,ruling_after_entry_reinstated_or_reorganized,2020,entries_n,4,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
 entrant_class,unknown_not_in_bmf,2020,entries_n,2,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
 entrant_class,existing_organization_new_to_panel,2021,entries_n,34,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
-entrant_class,new_organization_ruling_within_1y,2021,entries_n,7,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
+entrant_class,new_organization_ruling_within_1y,2021,entries_n,6,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
+entrant_class,ruling_after_entry_reinstated_or_reorganized,2021,entries_n,1,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
 entrant_class,existing_organization_new_to_panel,2022,entries_n,31,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
-entrant_class,new_organization_ruling_within_1y,2022,entries_n,11,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
+entrant_class,new_organization_ruling_within_1y,2022,entries_n,10,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
+entrant_class,ruling_after_entry_reinstated_or_reorganized,2022,entries_n,1,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
 entrant_class,existing_organization_new_to_panel,2023,entries_n,28,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
-entrant_class,new_organization_ruling_within_1y,2023,entries_n,8,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
+entrant_class,new_organization_ruling_within_1y,2023,entries_n,7,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
+entrant_class,ruling_after_entry_reinstated_or_reorganized,2023,entries_n,1,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
 entrant_class,existing_organization_new_to_panel,2024,entries_n,16,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN
 entrant_class,new_organization_ruling_within_1y,2024,entries_n,3,,,entrants classified by IRS BMF ruling year and name-match to an exiting EIN

@@ -64,9 +64,9 @@ SIZE_BANDS = ((1e9, "e_1bn_plus"), (1e8, "d_100m_1bn"), (1e7, "c_10m_100m"),
 SAMPLE_SEED = 20261114
 SAMPLE_TOP, SAMPLE_RANDOM = 25, 25
 
-# Manually researched evidence for sampled exits (merger/transfer facts that
-# IRS files cannot show). Keyed by EIN; every entry carries its source URL.
-# Only facts read on the cited page are recorded here.
+# Optional manual overrides for exits whose outcome IRS files cannot show, keyed by EIN:
+# {"outcome": ..., "note": ..., "source_url": ...}. Empty in the 2026-11-14 run: every sampled
+# transfer was documented in the sponsor's own e-filed Schedule N, which the script parses.
 MANUAL_EVIDENCE: Mapping[str, Mapping[str, str]] = {}
 
 
@@ -414,7 +414,7 @@ def parse_irs_date(d: str) -> str:
 
 def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Mapping | None,
                  xml_later: Mapping, xml_last: Mapping, successor: str = "",
-                 later_filing: Mapping | None = None) -> dict:
+                 later_filing: Mapping | None = None, last_filing: Mapping | None = None) -> dict:
     """Combine evidence and assign a rule-based outcome. Pure.
     xml_later: parsed XML of the newest *fetchable* Form 990 filed for a period after the last
     filed DAFRC period (later_filing); xml_last: newest main-form return of any period."""
@@ -469,6 +469,7 @@ def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Map
     src += [BMF_URL.format(n="1-4")] + ([REVOC_URL] if rv else [])
     src += [latest["_index_url"]] if latest else []
     src += [XML_URL.format(oid=latest["OBJECT_ID"])] if latest and xml_later else []
+    src += [last_filing["_index_url"], XML_URL.format(oid=last_filing["OBJECT_ID"])] if last_filing and xml_last else []
     src += [manual["source_url"]] if manual.get("source_url") else []
     return {
         "ein": e, "name": h["name"], "type": h["type"], "subtype": h["subtype"],
@@ -484,6 +485,7 @@ def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Map
         "irs_revocation_posting_date": (rv or {}).get("posting_date", ""),
         "irs_reinstatement_date": (rv or {}).get("reinstatement_date", "").strip(),
         "efile_returns_after_last_filed": len(later),
+        "latest_main_efile_object_id": last_filing["OBJECT_ID"] if last_filing else "",
         "latest_later_efile_period": latest["TAX_PERIOD"] if latest else "",
         "latest_later_efile_type": latest["RETURN_TYPE"] if latest else "",
         "latest_later_efile_object_id": latest["OBJECT_ID"] if latest else "",
@@ -541,6 +543,20 @@ def verified_bounds(ver: Sequence[Mapping], hists: Mapping[str, Mapping],
              "value": safe_div(a, exposure_a), "numerator": a, "denominator": exposure_a,
              "definition": "last positive filed DAF assets of exits / sum of prior-year DAF assets at risk"},
         ]
+    for t in years:
+        risk = [e for e in by_ein if (e, t - 1) in row_at]
+        r_a = sum((row_at[(e, t - 1)].assets or 0) for e in risk)
+        for label, s_ in sets.items():
+            ex = [v for v in s_ if int(v["exit_fy"]) == t]
+            ex_a = sum(num(fmt(v["exit_ref_daf_assets"])) or 0 for v in ex)
+            out += [
+                {"dimension": "verified_by_year", "group": label, "fiscal_year": t, "measure": "exit_rate_count",
+                 "value": safe_div(len(ex), len(risk)), "numerator": len(ex), "denominator": len(risk),
+                 "definition": "exits dated FY t in this evidence set / EINs with a DAFRC row in FY t-1"},
+                {"dimension": "verified_by_year", "group": label, "fiscal_year": t, "measure": "exit_rate_asset_weighted",
+                 "value": safe_div(ex_a, r_a), "numerator": ex_a, "denominator": r_a,
+                 "definition": "exiting sponsors' last positive filed DAF assets / FY t-1 DAF assets of EINs at risk"},
+            ]
     out.append({"dimension": "verified", "group": "sample_outcomes", "fiscal_year": "2020-2024",
                 "measure": "sampled_candidates_n", "value": len([v for v in ver if v["sample_stratum"]]),
                 "numerator": None, "denominator": None,
@@ -602,9 +618,11 @@ def entrant_rows(hists: Mapping[str, Mapping], bmf: Mapping[str, Mapping], links
         b = bmf.get(h["ein"])
         ruling = int(b["RULING"][:4]) if b and b.get("RULING", "")[:4].isdigit() else None
         if h["ein"] in succ_targets:
-            c = "possible_successor_ein_of_exiting_sponsor"
+            c = "name_match_to_exiting_ein_lead"
         elif ruling is None:
             c = "unknown_not_in_bmf"
+        elif ruling > h["entry_fy"]:
+            c = "ruling_after_entry_reinstated_or_reorganized"
         elif ruling >= h["entry_fy"] - 1:
             c = "new_organization_ruling_within_1y"
         else:
@@ -642,7 +660,7 @@ def run_verification(hists, by_ein, irs_dir, cache_dir, fetch) -> list[dict]:
                               fetch) if e in sample else None
         pp = json.loads(pp_txt) if pp_txt else ({} if e in sample and fetch else None)
         ev = evidence_for(h, bmf, revoc, idx, pp, parsed[1], xml_for(last_any),
-                         links.get(e, ""), parsed[0])
+                         links.get(e, ""), parsed[0], last_any)
         return {**ev, "sample_stratum": sample.get(e, "")}
 
     return sorted((one(h) for h in cands), key=lambda v: (v["sample_stratum"] == "", -(v["exit_ref_daf_assets"] or 0)))
@@ -659,15 +677,23 @@ def main(argv: Sequence[str] | None = None) -> int:
         rows = tuple(to_row(d) for d in csv.DictReader(fh))
     by_ein = group_by_ein(rows)
     hists = {e: sponsor_history(rs) for e, rs in by_ein.items()}
-    panel = [p for e, rs in by_ein.items() for p in panel_rows(rs, hists[e])]
-    write_csv(os.path.join(a.data_dir, PANEL_OUT), panel, list(panel[0].keys()))
-    summ = summary_rows(by_ein, hists)
     ver: list[dict] = []
+    ent: list[dict] = []
     if a.irs_dir:
         ver = run_verification(hists, by_ein, a.irs_dir, a.cache_dir, a.fetch)
-        write_csv(os.path.join(a.data_dir, VERIFY_OUT), ver, ["sample_stratum"] + [k for k in ver[0] if k != "sample_stratum"])
         ent = entrant_rows(hists, load_bmf(a.irs_dir, frozenset(h["ein"] for h in hists.values() if h["entry_fy"])),
                            successor_links(hists))
+    ver_by, ent_by = {v["ein"]: v for v in ver}, {r["ein"]: r for r in ent}
+    panel = [{**p, "sponsor_entry_class": ent_by.get(e, {}).get("entry_class", ""),
+              "sponsor_irs_ruling": ent_by.get(e, {}).get("irs_ruling", ""),
+              "sponsor_exit_outcome": ver_by.get(e, {}).get("outcome", ""),
+              "sponsor_exit_outcome_tier": ver_by.get(e, {}).get("outcome_tier", "")}
+             for e, rs in by_ein.items() for p in panel_rows(rs, hists[e])]
+    write_csv(os.path.join(a.data_dir, PANEL_OUT), panel, list(panel[0].keys()))
+    summ = summary_rows(by_ein, hists)
+    if ver:
+        write_csv(os.path.join(a.data_dir, VERIFY_OUT), ver,
+                  ["sample_stratum"] + [k for k in ver[0] if k != "sample_stratum"])
         summ = summ + verified_bounds(ver, hists, by_ein) + [
             {"dimension": "entrant_class", "group": c, "fiscal_year": fy, "measure": "entries_n", "value": n,
              "numerator": None, "denominator": None,
