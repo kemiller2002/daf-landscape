@@ -24,11 +24,11 @@ def base(q: str) -> str:
     return q.replace(" (boundary)", "")
 
 
-def criterion_rows(cs: dict) -> tuple:
-    pairs = {(a, p) for (a, s, p) in cs if s == "primary"} & {(a, p) for (a, s, p) in cs if s == "blind"}
+def criterion_rows(cs: dict, s1: str = "primary", s2: str = "blind") -> tuple:
+    pairs = {(a, p) for (a, s, p) in cs if s == s1} & {(a, p) for (a, s, p) in cs if s == s2}
     crits = [f"X{i}" for i in range(1, 7)] + [f"Y{i}" for i in range(1, 6)]
     def row(a, p, c):
-        sp, sb = cs[(a, "primary", p)].get(c), cs[(a, "blind", p)].get(c)
+        sp, sb = cs[(a, s1, p)].get(c), cs[(a, s2, p)].get(c)
         diff = None if sp is None or sb is None else round(sb - sp, 2)
         flag = ("one_scorer_unknown" if (sp is None) != (sb is None)
                 else "gap_gt_1" if diff is not None and abs(diff) > 1 else "")
@@ -38,11 +38,11 @@ def criterion_rows(cs: dict) -> tuple:
     return tuple(row(a, p, c) for a, p in sorted(pairs) for c in crits)
 
 
-def provider_rows(positions: tuple) -> tuple:
+def provider_rows(positions: tuple, s1: str = "primary", s2: str = "blind") -> tuple:
     idx = {(r["area_id"], r["scorer"], r["provider"]): r for r in positions}
-    pairs = sorted({(a, p) for (a, s, p) in idx if s == "primary"} & {(a, p) for (a, s, p) in idx if s == "blind"})
+    pairs = sorted({(a, p) for (a, s, p) in idx if s == s1} & {(a, p) for (a, s, p) in idx if s == s2})
     def row(a, p):
-        pr, bl = idx[(a, "primary", p)], idx[(a, "blind", p)]
+        pr, bl = idx[(a, s1, p)], idx[(a, s2, p)]
         insufficient = "insufficient" in pr["quadrant"] or "insufficient" in bl["quadrant"]
         same = base(pr["quadrant"]) == base(bl["quadrant"])
         return {"area_id": a, "provider": p,
@@ -64,13 +64,15 @@ def write(path: Path, rows: tuple):
 
 if __name__ == "__main__":
     root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
+    s1, s2 = (sys.argv[2], sys.argv[3]) if len(sys.argv) > 3 else ("primary", "blind")
+    suffix = "" if (s1, s2) == ("primary", "blind") else f"-{s1}-vs-{s2}"
     mq = load_engine(root)
     data = root / "data" / "mission-2026-11-14"
     cs = mq.criterion_scores(mq.read_scores(data))
-    crit = criterion_rows(cs)
-    prov = provider_rows(mq.positions(cs))
-    write(data / "quadrant-calibration-criteria.csv", crit)
-    write(data / "quadrant-calibration-providers.csv", prov)
+    crit = criterion_rows(cs, s1, s2)
+    prov = provider_rows(mq.positions(cs), s1, s2)
+    write(data / f"quadrant-calibration-criteria{suffix}.csv", crit)
+    write(data / f"quadrant-calibration-providers{suffix}.csv", prov)
     flagged = [r for r in crit if r["flag"]]
     print(f"criterion pairs: {len(crit)}; flagged: {len(flagged)} "
           f"(gap>1: {sum(r['flag']=='gap_gt_1' for r in crit)}, one-U: {sum(r['flag']=='one_scorer_unknown' for r in crit)})")
