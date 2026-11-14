@@ -362,12 +362,29 @@ XML_TAGS = ("DonorAdvisedFundInd", "DonorAdvisedFundsHeldCnt", "DonorAdvisedFund
 
 
 def parse_return_xml(txt: str | None) -> dict:
+    """Pull DAF (Sch D Part I), termination (header FinalReturnInd / ContractTerminationInd,
+    Part IV line 31) and Schedule N asset-transfer detail from one e-filed return. Pure."""
     if not txt:
         return {}
     first = {t: (re.search(rf"<{t}>([^<]*)</{t}>", txt) or [None, None])[1] for t in XML_TAGS}
     sched_n = re.findall(r"<IRS990ScheduleN\b.*?</IRS990ScheduleN>", txt, re.S)
-    recips = re.findall(r"<BusinessNameLine1Txt>([^<]*)</BusinessNameLine1Txt>", sched_n[0]) if sched_n else []
-    return {**first, "has_schedule_n": bool(sched_n), "schedule_n_recipients": "; ".join(dict.fromkeys(recips))}
+    blocks = re.findall(r"<(LiquidationOfAssetsDetail|DispositionOfAssetsDetail)>(.*?)</\1>",
+                        sched_n[0], re.S) if sched_n else []
+
+    def field(blk, tags):
+        return next((m.group(1).strip() for t in tags if (m := re.search(rf"<{t}>([^<]*)</{t}>", blk))), "")
+
+    recips = tuple(
+        f"{field(blk, ('BusinessNameLine1Txt', 'PersonNm'))} (EIN {field(blk, ('EIN',)) or 'n/a'}; "
+        f"FMV {field(blk, ('FairMarketValueOfAssetAmt',)) or 'n/a'}; {field(blk, ('AssetsDistriOrExpnssPaidDesc', 'AssetsDistributedDesc'))[:60]})"
+        for _, blk in blocks)
+    final = any(re.search(rf"<{t}>(X|1|true)</{t}>", txt) for t in ("FinalReturnInd", "ContractTerminationInd",
+                                                                     "TerminateOperationsInd"))
+    narrative = re.sub(r"<[^>]+>", " ", txt)
+    return {**first, "final_return": final,
+            "daf_text_mention": bool(re.search(r"donor[\s-]+advised|\bDAFs?\b", narrative, re.I)), "has_schedule_n": bool(sched_n),
+            "schedule_n_recipients": " ; ".join(dict.fromkeys(recips)),
+            "schedule_n_fmv_total": sum(num(field(blk, ("FairMarketValueOfAssetAmt",))) or 0 for _, blk in blocks)}
 
 
 MAIN_FORMS = ("990", "990EZ", "990PF")
@@ -384,6 +401,15 @@ def outcome_tier(outcome: str) -> str:
     if outcome.startswith("reporting_artifact"):
         return "D_reporting_artifact"
     return "C_unresolved"
+
+
+MONTHS = {m: i + 1 for i, m in enumerate(("JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"))}
+
+
+def parse_irs_date(d: str) -> str:
+    """'15-MAY-2019' -> '201905' (YYYYMM); '' -> ''."""
+    m = re.fullmatch(r"(\d{2})-([A-Z]{3})-(\d{4})", d.strip())
+    return f"{m.group(3)}{MONTHS[m.group(2)]:02d}" if m else ""
 
 
 def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Mapping | None,
@@ -407,23 +433,26 @@ def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Map
     acct_pd = (b or {}).get("ACCT_PD", "")
     last_month = (h["last_filed_period_end"] or "")[5:7]
     fy_change = bool(b and acct_pd and last_month and acct_pd.zfill(2) != last_month)
-    terminated_flag = (xml_last.get("TerminateOperationsInd") in ("1", "true")
-                       or xml_later.get("TerminateOperationsInd") in ("1", "true"))
+    terminated_flag = bool(xml_last.get("final_return") or xml_later.get("final_return"))
+    rev_after = bool(rv and parse_irs_date(rv.get("revocation_date", "")) > ref_period
+                     and not rv.get("reinstatement_date", "").strip())
     manual = MANUAL_EVIDENCE.get(e, {})
     if manual.get("outcome"):
         outcome = manual["outcome"]
-    elif rv and not rv.get("reinstatement_date", "").strip():
+    elif rev_after:
         outcome = "revoked_auto_nonfiling"
     elif terminated_flag:
         outcome = "terminated_final_return"
     elif latest and latest["RETURN_TYPE"] == "990PF":
         outcome = "converted_to_private_foundation_990pf"
+    elif xml_later and daf_later:
+        outcome = "reporting_artifact_later_990_reports_dafs"
     elif not b:
         outcome = "removed_from_irs_bmf_terminated_or_merged"
     elif latest and latest["RETURN_TYPE"] == "990EZ":
         outcome = "form_change_to_990ez_no_schedule_d_daf_data"
-    elif xml_later and daf_later:
-        outcome = "reporting_artifact_later_990_reports_dafs"
+    elif xml_later and xml_later.get("daf_text_mention"):
+        outcome = "no_schedule_d_daf_data_but_return_text_mentions_dafs"
     elif xml_later:
         outcome = "stopped_reporting_dafs_org_still_files_990"
     elif latest:
@@ -461,8 +490,10 @@ def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Map
         "later_990_daf_accounts": xml_later.get("DonorAdvisedFundsHeldCnt") or "",
         "later_990_daf_assets_eoy": xml_later.get("DonorAdvisedFundsVlEOYAmt") or "",
         "later_990_daf_ind": xml_later.get("DonorAdvisedFundInd") or "",
-        "terminate_operations_ind": "1" if terminated_flag else "",
+        "later_990_text_mentions_dafs": xml_later.get("daf_text_mention", ""),
+        "final_return_or_termination_ind": "1" if terminated_flag else "",
         "schedule_n_recipients": xml_later.get("schedule_n_recipients") or xml_last.get("schedule_n_recipients") or "",
+        "schedule_n_fmv_total": xml_later.get("schedule_n_fmv_total") or xml_last.get("schedule_n_fmv_total") or "",
         "propublica_checked": pp is not None, "propublica_found": bool(pp_org),
         "propublica_latest_tax_prd": pp_periods[-1] if pp_periods else "",
         "propublica_periods_after_last_filed": ";".join(pp_later),

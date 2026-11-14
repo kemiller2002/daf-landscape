@@ -1359,10 +1359,10 @@ size_band_prior_year,z_zero_or_missing,2024,exits_zero_daf_assets_terminal_n,0,,
 size_band_prior_year,z_zero_or_missing,2024,exits_zero_daf_assets_terminal_assets,0,,,sum of last positive filed eoy_daf_assets of exiting sponsors; exit = EIN files Schedule D with zero DAF assets from FY t to FY2024 after a positive year
 size_band_prior_year,z_zero_or_missing,2024,exit_rate_zero_daf_assets_terminal_count,0,0,6,count-weighted rate = exits/at_risk_n; exit = EIN files Schedule D with zero DAF assets from FY t to FY2024 after a positive year
 size_band_prior_year,z_zero_or_missing,2024,exit_rate_zero_daf_assets_terminal_asset_weighted,,0,0,asset-weighted rate = exiting sponsors' last positive filed DAF assets / at_risk_assets; exit = EIN files Schedule D with zero DAF assets from FY t to FY2024 after a positive year
-verified,lower_A_org_ceased_or_converted,2020-2023,annual_exit_rate_count,0.002262,13,5746,exits dated FY2020-FY2023 / sponsor-years at risk (rows in FY2019-FY2022)
-verified,lower_A_org_ceased_or_converted,2020-2023,annual_exit_rate_asset_weighted,0.002095,1603765248,765495547210,last positive filed DAF assets of exits / sum of prior-year DAF assets at risk
-verified,central_A_plus_B_no_dafs_reported,2020-2023,annual_exit_rate_count,0.014445,83,5746,exits dated FY2020-FY2023 / sponsor-years at risk (rows in FY2019-FY2022)
-verified,central_A_plus_B_no_dafs_reported,2020-2023,annual_exit_rate_asset_weighted,0.002532,1938466889,765495547210,last positive filed DAF assets of exits / sum of prior-year DAF assets at risk
+verified,lower_A_org_ceased_or_converted,2020-2023,annual_exit_rate_count,0.002088,12,5746,exits dated FY2020-FY2023 / sponsor-years at risk (rows in FY2019-FY2022)
+verified,lower_A_org_ceased_or_converted,2020-2023,annual_exit_rate_asset_weighted,0.002095,1603757018,765495547210,last positive filed DAF assets of exits / sum of prior-year DAF assets at risk
+verified,central_A_plus_B_no_dafs_reported,2020-2023,annual_exit_rate_count,0.014271,82,5746,exits dated FY2020-FY2023 / sponsor-years at risk (rows in FY2019-FY2022)
+verified,central_A_plus_B_no_dafs_reported,2020-2023,annual_exit_rate_asset_weighted,0.002532,1938458659,765495547210,last positive filed DAF assets of exits / sum of prior-year DAF assets at risk
 verified,upper_A_B_plus_C_unresolved,2020-2023,annual_exit_rate_count,0.014967,86,5746,exits dated FY2020-FY2023 / sponsor-years at risk (rows in FY2019-FY2022)
 verified,upper_A_B_plus_C_unresolved,2020-2023,annual_exit_rate_asset_weighted,0.002536,1941129863,765495547210,last positive filed DAF assets of exits / sum of prior-year DAF assets at risk
 verified,naive_panel_exits_only,2020-2023,annual_exit_rate_count,0.014271,82,5746,exits dated FY2020-FY2023 / sponsor-years at risk (rows in FY2019-FY2022)
@@ -1370,19 +1370,18 @@ verified,naive_panel_exits_only,2020-2023,annual_exit_rate_asset_weighted,0.0026
 verified,naive_all_candidates,2020-2023,annual_exit_rate_count,0.017403,100,5746,exits dated FY2020-FY2023 / sponsor-years at risk (rows in FY2019-FY2022)
 verified,naive_all_candidates,2020-2023,annual_exit_rate_asset_weighted,0.002862,2190972826,765495547210,last positive filed DAF assets of exits / sum of prior-year DAF assets at risk
 verified,sample_outcomes,2020-2024,sampled_candidates_n,50,,,exit candidates in the top-25 + random-25 verification sample
-verified_outcome,converted_to_private_foundation_990pf,all,candidates_n,1,,100,"rule-based outcome, all exit candidates"
-verified_outcome,removed_from_irs_bmf_terminated_or_merged,all,candidates_n,10,,100,"rule-based outcome, all exit candidates"
+verified_outcome,form_change_to_990ez_no_schedule_d_daf_data,all,candidates_n,1,,100,"rule-based outcome, all exit candidates"
+verified_outcome,removed_from_irs_bmf_terminated_or_merged,all,candidates_n,1,,100,"rule-based outcome, all exit candidates"
 verified_outcome,reporting_artifact_later_990_reports_dafs,all,candidates_n,14,,100,"rule-based outcome, all exit candidates"
-verified_outcome,revoked_auto_nonfiling,all,candidates_n,2,,100,"rule-based outcome, all exit candidates"
 verified_outcome,stopped_reporting_dafs_org_still_files_990,all,candidates_n,70,,100,"rule-based outcome, all exit candidates"
+verified_outcome,terminated_final_return,all,candidates_n,11,,100,"rule-based outcome, all exit candidates"
 verified_outcome,unresolved_in_bmf_no_later_return_found,all,candidates_n,3,,100,"rule-based outcome, all exit candidates"
-verified_outcome_sample,converted_to_private_foundation_990pf,all,candidates_n,1,,50,"rule-based outcome, sampled candidates with exit FY2020-FY2023"
-verified_outcome_sample,removed_from_irs_bmf_terminated_or_merged,all,candidates_n,7,,50,"rule-based outcome, sampled candidates with exit FY2020-FY2023"
 verified_outcome_sample,reporting_artifact_later_990_reports_dafs,all,candidates_n,10,,50,"rule-based outcome, sampled candidates with exit FY2020-FY2023"
 verified_outcome_sample,stopped_reporting_dafs_org_still_files_990,all,candidates_n,32,,50,"rule-based outcome, sampled candidates with exit FY2020-FY2023"
-verified_tier_by_type,Community Foundation|A_org_ceased_or_converted,2020-2023,candidates_n,7,,,exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier
+verified_outcome_sample,terminated_final_return,all,candidates_n,8,,50,"rule-based outcome, sampled candidates with exit FY2020-FY2023"
+verified_tier_by_type,Community Foundation|A_org_ceased_or_converted,2020-2023,candidates_n,6,,,exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier
 verified_tier_by_type,Community Foundation|B_org_survives_no_dafs_reported,2020-2023,candidates_n,32,,,exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier
-verified_tier_by_type,Community Foundation|C_unresolved,2020-2023,candidates_n,1,,,exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier
+verified_tier_by_type,Community Foundation|C_unresolved,2020-2023,candidates_n,2,,,exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier
 verified_tier_by_type,Community Foundation|D_reporting_artifact,2020-2023,candidates_n,6,,,exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier
 verified_tier_by_type,National|A_org_ceased_or_converted,2020-2023,candidates_n,2,,,exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier
 verified_tier_by_type,National|B_org_survives_no_dafs_reported,2020-2023,candidates_n,2,,,exit candidates dated FY2020-FY2023 by DAFRC type and evidence tier
