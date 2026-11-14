@@ -25,6 +25,10 @@ Tasks:
   contractors  top-N sponsor harvest -> form990-contractors-harvest.csv,
                form990-returns-schedule-d-harvest.csv, vendor-footprint-from-990.csv
   gaps         DAFRC closed / imputed sponsor-years checked against filed 990s -> dafrc-processing-gaps.csv
+  outside      (P-MOR-01) 990 filers answering Part IV line 6 'Yes' in the IRS SOI annual extracts whose EIN is not in
+               the DAFRC panel, FY2020-2025; Schedule D Part I parsed from each return ->
+               non-dafrc-daf-filers-990.csv, non-dafrc-daf-filers-summary.csv
+  --n-sponsors 0 --out-tag=-full harvests every FY2024 DAFRC sponsor (P-990-04) into *-full.csv files.
 
 Usage:
   python3 scripts/mission_990_contractors.py --irs-dir DIR --cache-dir CACHE --fetch [--task all]
@@ -50,8 +54,10 @@ from typing import Callable, Iterable, Mapping, Sequence
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, "data", "mission-2026-11-14")
 DAFRC_CSV = os.path.join(DATA, "dafrc-sponsor-schedule-d-fy2019-2024.csv")
+EDGES_OUT = "relationship-graph-edges-additions-3.csv"      # written by task 'edges' (P-990-05); never read back as input
 GRAPH_EDGES = (os.path.join(DATA, "relationship-graph-edges.csv"),
-               os.path.join(DATA, "relationship-graph-edges-additions.csv"))
+               os.path.join(DATA, "relationship-graph-edges-additions.csv"),
+               os.path.join(DATA, "relationship-graph-edges-additions-2.csv"))
 MANUAL_CSV = os.path.join(DATA, "form990-top-contractors.csv")
 
 DAFRC_URL = "https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx"
@@ -114,15 +120,18 @@ def load_dafrc(path: str = DAFRC_CSV) -> tuple[dict, ...]:
 
 def select_targets(rows: Sequence[Mapping], n_total: int = 250) -> tuple[dict, ...]:
     """All National sponsors present in FY2024 plus the largest Community / Single Issue sponsors by
-    FY2024 DAFRC eoy_daf_assets until n_total EINs are reached. Pure."""
+    FY2024 DAFRC eoy_daf_assets until n_total EINs are reached. n_total <= 0 selects every FY2024
+    DAFRC sponsor (full universe, P-990-04). Pure."""
     fy24 = sorted((r for r in rows if r["fy"] == 2024), key=lambda r: -(num(r["eoy_daf_assets"]) or 0))
     national = tuple(r for r in fy24 if r["type"] == "National")
-    others = tuple(r for r in fy24 if r["type"] != "National")[: max(0, n_total - len(national))]
+    non_nat = tuple(r for r in fy24 if r["type"] != "National")
+    others = non_nat if n_total <= 0 else non_nat[: max(0, n_total - len(national))]
     rank = {r["ein"]: i + 1 for i, r in enumerate(fy24)}
     return tuple({"ein": r["ein"], "sponsor_name": r["name"], "type": r["type"], "subtype": r["subtype"],
                   "fy2024_daf_assets": num(r["eoy_daf_assets"]), "fy2024_assets_source": r["source_eoy_daf_assets"],
                   "fy2024_asset_rank": rank[r["ein"]],
-                  "selection": "national_all" if r["type"] == "National" else "top_non_national_by_fy2024_assets"}
+                  "selection": "national_all" if r["type"] == "National" else
+                  ("all_fy2024_dafrc" if n_total <= 0 else "top_non_national_by_fy2024_assets")}
                  for r in national + others)
 
 
@@ -278,7 +287,11 @@ def fetch_extract(oid: str, cache_dir: str, fetch: bool, retries: int = 2) -> di
     return result
 
 
-def fetch_all(oids: Sequence[str], cache_dir: str, fetch: bool, workers: int = 8) -> dict[str, dict]:
+WORKERS = int(os.environ.get("MISSION990_WORKERS", "8"))
+
+
+def fetch_all(oids: Sequence[str], cache_dir: str, fetch: bool, workers: int | None = None) -> dict[str, dict]:
+    workers = workers or WORKERS
     uniq = tuple(dict.fromkeys(oids))
     with ThreadPoolExecutor(max_workers=workers) as ex:
         res = tuple(ex.map(lambda o: fetch_extract(o, cache_dir, fetch), uniq))
@@ -328,6 +341,8 @@ VENDOR_RULES: tuple[tuple[str, str, str, str], ...] = (
     (r"civicore", "CiviCore", "CiviCore", "giving_platform_or_outsourced_admin"),
     (r"^gloo\b", "Gloo", "Gloo", "giving_platform_or_outsourced_admin"),
     (r"charitable\s+solutions", "Charitable Solutions", "Charitable Solutions", "giving_platform_or_outsourced_admin"),
+    (r"northeast\s+retirement\s+services", "Northeast Retirement Services", "Northeast Retirement Services", "giving_platform_or_outsourced_admin"),
+    (r"\bgivegab\b", "GiveGab", "GiveGab", "giving_platform_or_outsourced_admin"),
     (r"total\s+administrative\s+services", "Total Administrative Services Corp (TASC)", "Total Administrative Services Corp (TASC)", "giving_platform_or_outsourced_admin"),
     (r"daf\s*direct", "DAF Direct", "DAF Direct", "payment_processor"),
     (r"charities\s+aid\s+foundation|caf\s+america", "CAF America", "CAF America", "grant_admin_due_diligence"),
@@ -535,7 +550,7 @@ def graph_links(edge_paths: Sequence[str], targets: Sequence[Mapping]) -> tuple[
     def ein_for(name: str) -> str | None:
         if name in GRAPH_SPONSOR_ALIASES and GRAPH_SPONSOR_ALIASES[name] in tok:
             return GRAPH_SPONSOR_ALIASES[name]
-        nt = sponsor_tokens(name)
+        nt = sponsor_tokens(re.sub(r"\(.*?\)", " ", name))   # drop '(dba ...)' / '(unconfirmed)' qualifiers
         scored = sorted(((len(nt & v) / len(nt | v), e) for e, v in tok.items() if nt and v and (nt <= v or v <= nt or len(nt & v) >= 2)), reverse=True)
         return scored[0][1] if scored and scored[0][0] >= 0.5 else None
 
@@ -631,6 +646,206 @@ def gap_summary(rows: Sequence[Mapping]) -> tuple[dict, ...]:
     return ({"by_kind_fy_class": agg(lambda r: (r["gap_kind"], r["dafrc_fy"], r["gap_class"]))},)
 
 
+# ----------------------------------------------------------------------------- P-990-05: new graph edges from Part VII-B
+DAF_SPECIALIST_GROUPS = frozenset({"Ren (incl. Stellar/iPhi)", "Foundation Source", "Give Interactive", "TIFIN", "Foundant Technologies",
+                                   "NPact", "CSuite (CommunitySuite)", "Crown Philanthropic Solutions", "Pinkaloo", "Groundswell",
+                                   "Chariot", "DAF Direct", "CAF America"})
+EDGE_TYPES = {"daf_tech_admin_vendor": ("technology_admin_vendor", "technology_provider"),
+              "daf_tech_vendor": ("technology_vendor", "technology_provider"),
+              "payment_processor": ("payment_processor", "payment_processor"),
+              "giving_platform_or_outsourced_admin": ("administrator", "technology_provider"),
+              "grant_admin_due_diligence": ("charity_data_vendor", "charity_verification"),
+              "charity_data_vendor": ("charity_data_vendor", "charity_verification")}
+OUTSOURCED_ADMIN_SERVICE = re.compile(r"admin|donor\s+serv|fd\s+acct|fund\s+acc|managed\s+serv|grant\s+process|ops\s+system|"
+                                      r"operational|donor\s+account|grant\s+admin|fiduciary|unitization|fund\s+accounting", re.I)
+GRAPH_VENDOR_LABEL = {"Ren (incl. Stellar/iPhi)": "Ren", "TIFIN": "TIFIN Give", "Bonterra (CyberGrants/Network for Good)": "Bonterra",
+                      "Total Administrative Services Corp (TASC)": "Total Administrative Services Corp (TASC)"}
+
+
+def edge_eligible(c: Mapping) -> bool:
+    """DAF-specialist vendors at any sponsor; general donor-tech / payments vendors only at National and Community
+    sponsors (at universities and hospitals they evidence fundraising CRM, not DAF administration). Pure."""
+    if c["match_method"] != "rule" or c["vendor_category"] not in EDGE_TYPES:
+        return False
+    return c["vendor_group"] in DAF_SPECIALIST_GROUPS or c["vendor_category"] in ("daf_tech_admin_vendor", "giving_platform_or_outsourced_admin") \
+        or c["sponsor_type"] in ("National", "Community Foundation")
+
+
+ENTITY_LABEL = {"Stellar Technology Solutions (iPhi)": "Stellar Technology Solutions (iPhi)"}
+
+
+def edge_rows(contractors: Sequence[Mapping], pairs: frozenset, names: Mapping | None = None,
+              accessed: str = "2026-11-14", prefix: str = "EC") -> tuple[dict, ...]:
+    """One edge per (vendor group, sponsor EIN) Part VII-B relationship absent from the existing graph. Status is
+    'confirmed' because the filed 990 names the vendor as payee; ordering by sponsor DAF assets is not used. Pure."""
+    elig = tuple(c for c in contractors if edge_eligible(c) and (c["vendor_group"], c["ein"]) not in pairs)
+    groups = sorted(_group_by_fast(elig, lambda c: (c["vendor_group"], c["ein"])).items(),
+                    key=lambda kv: (kv[0][0], -sum(float(c["compensation"] or 0) for c in kv[1])))
+
+    def one(i, key, cs):
+        latest = max(cs, key=lambda c: (int(c["fiscal_year"]), float(c["compensation"] or 0)))
+        src_type, rel = EDGE_TYPES[latest["vendor_category"]]
+        if latest["vendor_category"] in ("daf_tech_admin_vendor", "giving_platform_or_outsourced_admin") \
+                and OUTSOURCED_ADMIN_SERVICE.search(latest["services"]):
+            rel = "administers"
+        by_fy = sorted({(int(c["fiscal_year"]), c["contractor_name"].strip(), c["services"].strip(), float(c["compensation"] or 0)) for c in cs})
+        amounts = "; ".join(f"FY{fy} {nm} '{sv}' ${amt:,.0f}" for fy, nm, sv, amt in by_fy)
+        return {"edge_id": f"{prefix}{i:03d}",
+                "source_entity": ENTITY_LABEL.get(latest["vendor_entity"]) or GRAPH_VENDOR_LABEL.get(key[0], key[0]), "source_type": src_type,
+                "target_entity": (names or {}).get(key[1]) or latest["sponsor_name"], "target_type": "daf_sponsor", "relationship_type": rel, "status": "confirmed",
+                "evidence_summary": f"Form 990 Part VII-B (EIN {key[1]}) names payee: {amounts}"[:900],
+                "source_url": latest["source_url"], "source_date": f"FY{latest['fiscal_year']} (tax period end {latest['tax_period_end']})",
+                "accessed_date": accessed,
+                "notes": (f"Vendor group: {key[0]}; entities seen: {' / '.join(sorted({c['vendor_entity'] for c in cs}))}. "
+                          f"DAFRC name: {latest['sponsor_name']}; DAFRC type: {latest['sponsor_type']}. Filing page: {latest['filing_page_url']}. "
+                          "Part VII-B lists only the five largest contractors >$100k, so scope and absence elsewhere are not implied.")}
+    return tuple(one(i + 1, k, v) for i, (k, v) in enumerate(groups))
+
+
+EDGE_FIELDS = ("edge_id", "source_entity", "source_type", "target_entity", "target_type", "relationship_type", "status",
+               "evidence_summary", "source_url", "source_date", "accessed_date", "notes")
+
+
+# ----------------------------------------------------------------------------- P-MOR-01: DAF filers outside DAFRC
+SOI_URL = "https://www.irs.gov/pub/irs-soi/{yy}eoextract990.zip"
+SOI_PAGE = "https://www.irs.gov/statistics/soi-tax-stats-annual-extract-of-tax-exempt-organization-financial-data"
+SOI_YEARS = (20, 21, 22, 23, 24, 25)               # SOI extract (processing) years 2020..2025
+OUTSIDE_FYS = tuple(range(2020, 2026))
+OUTSIDE_INDEX_YEARS = tuple(range(2020, 2027))
+
+
+def ensure_soi(soi_dir: str, fetch: bool) -> tuple[str, ...]:
+    """Locate (and with --fetch download/unzip) the IRS SOI annual Form 990 extracts."""
+    import zipfile
+    os.makedirs(soi_dir, exist_ok=True)
+    out = []
+    for yy in SOI_YEARS:
+        csv_p, zip_p = (os.path.join(soi_dir, f"{yy}eoextract990.{x}") for x in ("csv", "zip"))
+        if not os.path.exists(csv_p) and not os.path.exists(zip_p) and fetch:
+            print(f"downloading {SOI_URL.format(yy=yy)}", file=sys.stderr)
+            urllib.request.urlretrieve(SOI_URL.format(yy=yy), zip_p)
+        if not os.path.exists(csv_p) and os.path.exists(zip_p):
+            with zipfile.ZipFile(zip_p) as z:
+                z.extract(next(n for n in z.namelist() if n.lower().endswith(".csv")), soi_dir)
+        if os.path.exists(csv_p):
+            out.append(csv_p)
+    return tuple(out)
+
+
+def soi_yes_rows(paths: Sequence[str], fys: Sequence[int] = OUTSIDE_FYS) -> tuple[dict, ...]:
+    """Every SOI extract row answering Part IV line 6 (dnradvisedfundscd) 'Y' for a tax period ending in fys.
+    One row per (EIN, tax_pd); a later processing-year extract supersedes an earlier one."""
+    def rows(p):
+        yy = re.search(r"(\d{2})eoextract990", os.path.basename(p)).group(1)
+        with open(p, newline="", encoding="latin-1") as fh:
+            rd = csv.reader(fh)
+            hdr = [h.replace("\ufeff", "").replace("\xef\xbb\xbf", "").strip().lower() for h in next(rd)]
+            ix = {h: i for i, h in enumerate(hdr)}
+            for r in rd:
+                if len(r) > ix["dnradvisedfundscd"] and r[ix["dnradvisedfundscd"]] == "Y" and r[ix["tax_pd"]][:4].isdigit() \
+                        and int(r[ix["tax_pd"]][:4]) in fys:
+                    yield {"ein": ein9(r[ix["ein"]]), "tax_pd": r[ix["tax_pd"]], "fiscal_year": int(r[ix["tax_pd"]][:4]),
+                           "soi_extract_year": 2000 + int(yy), "soi_total_assets_eoy": num(r[ix["totassetsend"]]),
+                           "soi_url": SOI_URL.format(yy=yy)}
+    allr = tuple(r for p in sorted(paths) for r in rows(p))
+    return tuple({(r["ein"], r["tax_pd"]): r for r in allr}.values())
+
+
+def outside_status(ex: Mapping) -> str:
+    if ex.get("xml_status") != "ok":
+        return "xml_" + (ex.get("xml_status") or "missing")
+    v, c = ex.get("sched_d_daf_eoy_value") or 0, ex.get("sched_d_daf_count") or 0
+    if implausible_count(ex.get("sched_d_daf_count"), ex.get("sched_d_daf_eoy_value")):
+        return "reports_daf_data_implausible"
+    if v > 0:
+        return "reports_daf_value"
+    if c > 0:
+        return "reports_daf_count_value_blank_or_zero"
+    if (ex.get("sched_d_other_funds_eoy_value") or 0) > 0 or (ex.get("sched_d_other_funds_count") or 0) > 0:
+        return "flag_yes_other_funds_column_only"
+    return "flag_yes_but_no_sched_d_daf_data"
+
+
+def outside_row(y: Mapping, filing: Mapping | None, ex: Mapping, bmf_name: str) -> dict:
+    v = ex.get("sched_d_daf_eoy_value")
+    ta = ex.get("total_assets_eoy") or y["soi_total_assets_eoy"]
+    return {**y, "name": ex.get("filer_name") or (filing or {}).get("taxpayer_name") or bmf_name,
+            "return_object_id": (filing or {}).get("object_id", ""), "index_year": (filing or {}).get("index_year", ""),
+            "return_ts": (ex.get("return_ts") or "")[:10], "daf_ind_part_iv_xml": ex.get("daf_ind_part_iv", ""),
+            "sched_d_daf_count": ex.get("sched_d_daf_count"), "sched_d_daf_contributions": ex.get("sched_d_daf_contributions"),
+            "sched_d_daf_grants": ex.get("sched_d_daf_grants"), "sched_d_daf_eoy_value": v,
+            "sched_d_other_funds_count": ex.get("sched_d_other_funds_count"),
+            "sched_d_other_funds_eoy_value": ex.get("sched_d_other_funds_eoy_value"),
+            "total_assets_eoy": ta, "daf_value_share_of_total_assets": (v / ta) if v and ta else None,
+            "status": outside_status(ex) if filing else "no_990_object_in_irs_index",
+            "xml_url": XML_URL.format(oid=filing["object_id"]) if filing else "",
+            "index_url": (filing or {}).get("index_url", "")}
+
+
+def outside_summary(rows: Sequence[Mapping], dafrc: Sequence[Mapping], soi_in: Sequence[Mapping]) -> tuple[dict, ...]:
+    """Per fiscal year: non-DAFRC 'Y' filers and their Schedule D DAF totals vs the DAFRC panel."""
+    d_by_fy = _group_by_fast(dafrc, lambda r: r["fy"])
+    in_by_fy = _group_by_fast(soi_in, lambda r: r["fiscal_year"])
+
+    def one(fy, rs):
+        val = tuple(r for r in rs if r["status"] == "reports_daf_value")
+        big = tuple(r for r in val if (r["sched_d_daf_eoy_value"] or 0) >= 1e9)
+        d = d_by_fy.get(fy, ())
+        d_tot = sum(num(r["eoy_daf_assets"]) or 0 for r in d)
+        v = sum(r["sched_d_daf_eoy_value"] or 0 for r in val)
+        return {"fiscal_year": fy, "soi_yes_returns_dafrc_eins": len(in_by_fy.get(fy, ())),
+                "soi_yes_returns_non_dafrc": len(rs),
+                **{f"n_{k}": sum(1 for r in rs if r["status"] == k) for k in
+                   ("reports_daf_value", "reports_daf_count_value_blank_or_zero", "reports_daf_data_implausible",
+                    "flag_yes_other_funds_column_only", "flag_yes_but_no_sched_d_daf_data", "no_990_object_in_irs_index")},
+                "n_xml_not_mirrored": sum(1 for r in rs if r["status"].startswith("xml_")),
+                "non_dafrc_daf_assets": v, "non_dafrc_daf_accounts": sum(r["sched_d_daf_count"] or 0 for r in val),
+                "non_dafrc_daf_contributions": sum(r["sched_d_daf_contributions"] or 0 for r in val),
+                "non_dafrc_daf_grants": sum(r["sched_d_daf_grants"] or 0 for r in val),
+                "non_dafrc_daf_assets_excl_ge_1bn": v - sum(r["sched_d_daf_eoy_value"] or 0 for r in big),
+                "filers_ge_1bn": " | ".join(f"{r['name']} ({r['ein']}) {r['sched_d_daf_eoy_value']:.0f}" for r in big),
+                "dafrc_sponsors_fy": len(d), "dafrc_daf_assets_fy": d_tot,
+                "non_dafrc_assets_pct_of_dafrc": (v / d_tot) if d_tot else None,
+                "fy_complete_in_soi": int(fy <= 2023)}
+    return tuple(one(fy, rs) for fy, rs in sorted(_group_by_fast(rows, lambda r: r["fiscal_year"]).items()))
+
+
+OUTSIDE_FIELDS = ("ein", "name", "fiscal_year", "tax_pd", "soi_extract_year", "status", "sched_d_daf_count",
+                  "sched_d_daf_contributions", "sched_d_daf_grants", "sched_d_daf_eoy_value", "sched_d_other_funds_count",
+                  "sched_d_other_funds_eoy_value", "total_assets_eoy",
+                  "daf_value_share_of_total_assets", "daf_ind_part_iv_xml", "return_object_id", "return_ts", "index_year",
+                  "soi_total_assets_eoy", "xml_url", "index_url", "soi_url")
+OUTSIDE_SUMMARY_FIELDS = ("fiscal_year", "fy_complete_in_soi", "soi_yes_returns_dafrc_eins", "soi_yes_returns_non_dafrc",
+                          "n_reports_daf_value", "n_reports_daf_count_value_blank_or_zero", "n_reports_daf_data_implausible",
+                          "n_flag_yes_other_funds_column_only", "n_flag_yes_but_no_sched_d_daf_data", "n_no_990_object_in_irs_index", "n_xml_not_mirrored",
+                          "non_dafrc_daf_assets", "non_dafrc_daf_assets_excl_ge_1bn", "non_dafrc_daf_accounts",
+                          "non_dafrc_daf_contributions", "non_dafrc_daf_grants", "dafrc_sponsors_fy", "dafrc_daf_assets_fy",
+                          "non_dafrc_assets_pct_of_dafrc", "filers_ge_1bn")
+
+
+def run_outside(dafrc, irs_dir, soi_dir, cache_dir, fetch, out_dir) -> dict:
+    d_eins = frozenset(r["ein"] for r in dafrc)
+    yes = soi_yes_rows(ensure_soi(soi_dir, fetch))
+    soi_in = tuple(r for r in yes if r["ein"] in d_eins)
+    out = tuple(r for r in yes if r["ein"] not in d_eins)
+    idx_paths = tuple(p for p in (os.path.join(irs_dir, f"index_{y}.csv") for y in OUTSIDE_INDEX_YEARS) if os.path.exists(p))
+    index = load_index(idx_paths, frozenset(r["ein"] for r in out))
+    pick = {(r["ein"], r["tax_pd"]): next((f for f in reversed(index.get(r["ein"], ()))
+                                           if f["return_type"] == "990" and f["tax_period"] == r["tax_pd"]), None) for r in out}
+    ex = fetch_all(tuple(f["object_id"] for f in pick.values() if f), cache_dir, fetch)
+    rows = tuple(outside_row(r, pick[(r["ein"], r["tax_pd"])], ex.get((pick[(r["ein"], r["tax_pd"])] or {}).get("object_id"), {}), "")
+                 for r in out)
+    summ = outside_summary(rows, dafrc, soi_in)
+    write_csv(os.path.join(out_dir, "non-dafrc-daf-filers-990.csv"),
+              sorted(rows, key=lambda r: (-r["fiscal_year"], -(r["sched_d_daf_eoy_value"] or 0))), OUTSIDE_FIELDS)
+    write_csv(os.path.join(out_dir, "non-dafrc-daf-filers-summary.csv"), summ, OUTSIDE_SUMMARY_FIELDS)
+    dafrc_fy = {(r["ein"], r["fy"]) for r in dafrc}
+    return {"soi_yes_rows": len(yes), "soi_yes_dafrc_ein_rows": len(soi_in), "soi_yes_non_dafrc_rows": len(out),
+            "non_dafrc_eins": len({r["ein"] for r in out}),
+            "dafrc_fy2020_2024_rows_flagged_yes_same_fy": sum(1 for r in soi_in if (r["ein"], r["fiscal_year"]) in dafrc_fy),
+            "by_fy": summ}
+
+
 # ----------------------------------------------------------------------------- orchestration
 HARVEST_FIELDS = ("ein", "sponsor_name", "sponsor_type", "tax_year", "fiscal_year", "tax_period_end", "return_object_id",
                   "contractor_name", "services", "compensation", "contractor_city", "contractor_state",
@@ -654,7 +869,17 @@ UNIVERSE_FIELDS = ("ein", "sponsor_name", "type", "subtype", "selection", "fy202
                    "fy2024_assets_source", "returns_fy2022_2025_in_index", "returns_parsed", "fiscal_years_parsed")
 
 
-def run_contractors(dafrc, index, cache_dir, fetch, n_total, out_dir) -> dict:
+def out_names(tag: str, footprint_name: str = "") -> dict:
+    """File names for a harvest run. tag '' reproduces the original top-250 names; a tag such as
+    '-full' writes side-by-side files so earlier outputs are not overwritten. Pure."""
+    return {"harvest": f"form990-contractors-harvest{tag}.csv", "returns": f"form990-returns-schedule-d-harvest{tag}.csv",
+            "universe": f"form990-harvest-sponsor-universe{tag}.csv",
+            "footprint": footprint_name or f"vendor-footprint-from-990{tag}.csv",
+            "edges": EDGES_OUT if tag == "-full" else ""}
+
+
+def run_contractors(dafrc, index, cache_dir, fetch, n_total, out_dir, names: Mapping | None = None) -> dict:
+    names = names or out_names("")
     targets = select_targets(dafrc, n_total)
     filings = tuple((t, f) for t in targets for f in latest_per_period(index.get(t["ein"], ()), HARVEST_FYS))
     ex = fetch_all(tuple(f["object_id"] for _, f in filings), cache_dir, fetch)
@@ -668,12 +893,16 @@ def run_contractors(dafrc, index, cache_dir, fetch, n_total, out_dir) -> dict:
                       "returns_parsed": sum(1 for r in by_ein.get(t["ein"], ()) if r["xml_status"] == "ok"),
                       "fiscal_years_parsed": " ".join(sorted({str(r["fiscal_year"]) for r in by_ein.get(t["ein"], ()) if r["xml_status"] == "ok"}))}
                      for t in targets)
-    write_csv(os.path.join(out_dir, "form990-contractors-harvest.csv"),
+    write_csv(os.path.join(out_dir, names["harvest"]),
               sorted(contractors, key=lambda r: (r["sponsor_name"], -int(r["fiscal_year"]), -(r["compensation"] or 0))), HARVEST_FIELDS)
-    write_csv(os.path.join(out_dir, "form990-returns-schedule-d-harvest.csv"),
+    write_csv(os.path.join(out_dir, names["returns"]),
               sorted(returns, key=lambda r: (r["fy2024_asset_rank"], -r["fiscal_year"])), RETURN_FIELDS)
-    write_csv(os.path.join(out_dir, "form990-harvest-sponsor-universe.csv"), universe, UNIVERSE_FIELDS)
-    write_csv(os.path.join(out_dir, "vendor-footprint-from-990.csv"), fp, FOOTPRINT_FIELDS)
+    write_csv(os.path.join(out_dir, names["universe"]), universe, UNIVERSE_FIELDS)
+    write_csv(os.path.join(out_dir, names["footprint"]), fp, FOOTPRINT_FIELDS)
+    if names.get("edges"):
+        names990 = {e: max(v, key=lambda r: r["fiscal_year"])["filer_name_990"] for e, v in by_ein.items()}
+        edges = edge_rows(tuple({**c, "compensation": c["compensation"] or 0} for c in contractors), pairs, names990)
+        write_csv(os.path.join(out_dir, names["edges"]), edges, EDGE_FIELDS)
     return {"coverage": coverage_stats(targets, index, returns), "graph_sponsors_unmatched": unmatched,
             "graph_pairs_matched": len(pairs), "contractor_lines": len(contractors)}
 
@@ -693,15 +922,28 @@ def main(argv: Sequence[str] | None = None) -> int:
     ap.add_argument("--irs-dir", required=True)
     ap.add_argument("--cache-dir", default=os.path.expanduser("~/.cache/daf-landscape"))
     ap.add_argument("--fetch", action="store_true")
-    ap.add_argument("--task", choices=("contractors", "gaps", "all"), default="all")
-    ap.add_argument("--n-sponsors", type=int, default=250)
+    ap.add_argument("--task", choices=("contractors", "gaps", "outside", "all"), default="all")
+    ap.add_argument("--soi-dir", default="", help="dir for IRS SOI {yy}eoextract990.csv (task outside); default <irs-dir>/../soi")
+    ap.add_argument("--n-sponsors", type=int, default=250, help="0 = every FY2024 DAFRC sponsor")
+    ap.add_argument("--out-tag", default="", help="suffix for harvest output files, e.g. -full")
+    ap.add_argument("--footprint-name", default="", help="override vendor footprint file name")
     ap.add_argument("--out-dir", default=DATA)
     ap.add_argument("--summary-json", default="")
     a = ap.parse_args(argv)
     dafrc = load_dafrc()
     eins = frozenset(r["ein"] for r in dafrc)
+    if a.task == "outside":
+        summary = {"outside": run_outside(dafrc, a.irs_dir, a.soi_dir or os.path.join(os.path.dirname(os.path.abspath(a.irs_dir)), "soi"),
+                                          a.cache_dir, a.fetch, a.out_dir)}
+        txt = json.dumps(summary, indent=1, default=str)
+        print(txt)
+        if a.summary_json:
+            with open(a.summary_json, "w", encoding="utf-8") as fh:
+                fh.write(txt)
+        return 0
     index = load_index(ensure_indexes(a.irs_dir, a.fetch), eins)
-    summary = {**({"contractors": run_contractors(dafrc, index, a.cache_dir, a.fetch, a.n_sponsors, a.out_dir)}
+    summary = {**({"contractors": run_contractors(dafrc, index, a.cache_dir, a.fetch, a.n_sponsors, a.out_dir,
+                                                             out_names(a.out_tag, a.footprint_name))}
                   if a.task in ("contractors", "all") else {}),
                **({"gaps": {str(k): v for k, v in run_gaps(dafrc, index, a.cache_dir, a.fetch, a.out_dir)["by_kind_fy_class"].items()}}
                   if a.task in ("gaps", "all") else {})}
