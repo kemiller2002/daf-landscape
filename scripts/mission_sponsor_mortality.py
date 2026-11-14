@@ -42,6 +42,7 @@ import time
 import urllib.error
 import urllib.request
 from collections import Counter, defaultdict
+from difflib import SequenceMatcher
 from itertools import groupby
 from typing import Callable, Iterable, Mapping, NamedTuple, Sequence
 
@@ -371,7 +372,7 @@ def parse_return_xml(txt: str | None) -> dict:
 
 
 def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Mapping | None,
-                 xml_later: Mapping, xml_last: Mapping) -> dict:
+                 xml_later: Mapping, xml_last: Mapping, successor: str = "") -> dict:
     """Combine evidence and assign a rule-based outcome. Pure."""
     e = h["ein"]
     b, rv, filings = bmf.get(e), revoc.get(e), idx.get(e, ())
@@ -446,6 +447,7 @@ def evidence_for(h: Mapping, bmf: Mapping, revoc: Mapping, idx: Mapping, pp: Map
         "propublica_latest_tax_prd": pp_periods[-1] if pp_periods else "",
         "propublica_periods_after_last_filed": ";".join(pp_later),
         "outcome": outcome, "true_exit": true_exit, "reporting_artifact": artifact,
+        "possible_successor_ein": successor,
         "manual_note": manual.get("note", ""),
         "source_urls": " ; ".join(dict.fromkeys(src + [PP_ORG.format(ein=e), DAFRC_URL])),
     }
@@ -512,11 +514,58 @@ def write_csv(path: str, rows: Sequence[Mapping], fields: Sequence[str]) -> None
                      for k in fields} for r in rows)
 
 
+STOPWORDS = frozenset({"INC", "THE", "OF", "FOR", "AND", "CORP", "CORPORATION", "FUND", "FOUNDATION", "TRUST", "CO"})
+
+
+def norm_name(name: str) -> str:
+    toks = re.sub(r"[^A-Z0-9 ]", " ", name.upper()).split()
+    return " ".join(t for t in toks if t not in STOPWORDS)
+
+
+def successor_links(hists: Mapping[str, Mapping], threshold: float = 0.82) -> dict[str, str]:
+    """Exit candidate EIN -> 'EIN|name|first_fy' of a *different* EIN with a near-identical
+    name that appears in the panel no later than the exit year (possible re-EIN / merger). Pure."""
+    exits = [h for h in hists.values() if h["exit_kind"] in EXIT_KINDS]
+    others = list(hists.values())
+
+    def match(h):
+        n = norm_name(h["name"])
+        hits = [o for o in others if o["ein"] != h["ein"] and n and
+                SequenceMatcher(None, n, norm_name(o["name"])).ratio() >= threshold and
+                o["last_fy"] >= (h["exit_fy"] or LAST_FY)]
+        return "; ".join(f"{o['ein']}|{o['name']}|first_fy={o['first_fy']}" for o in hits)
+
+    return {h["ein"]: m for h in exits if (m := match(h))}
+
+
+def entrant_rows(hists: Mapping[str, Mapping], bmf: Mapping[str, Mapping], links: Mapping[str, str]) -> list[dict]:
+    """Classify each entrant (first panel FY > 2019) by IRS ruling year. Pure."""
+    succ_targets = {t.split("|")[0]: src for src, v in links.items() for t in v.split("; ")}
+
+    def cls(h):
+        b = bmf.get(h["ein"])
+        ruling = int(b["RULING"][:4]) if b and b.get("RULING", "")[:4].isdigit() else None
+        if h["ein"] in succ_targets:
+            c = "possible_successor_ein_of_exiting_sponsor"
+        elif ruling is None:
+            c = "unknown_not_in_bmf"
+        elif ruling >= h["entry_fy"] - 1:
+            c = "new_organization_ruling_within_1y"
+        else:
+            c = "existing_organization_new_to_panel"
+        return {"ein": h["ein"], "name": h["name"], "type": h["type"], "subtype": h["subtype"],
+                "entry_fy": h["entry_fy"], "irs_ruling": (b or {}).get("RULING", ""), "entry_class": c,
+                "predecessor_ein": succ_targets.get(h["ein"], "")}
+
+    return [cls(h) for h in hists.values() if h["entry_fy"]]
+
+
 def run_verification(hists, by_ein, irs_dir, cache_dir, fetch) -> list[dict]:
     cands = [h for h in hists.values() if h["exit_kind"] in EXIT_KINDS]
     eins = frozenset(h["ein"] for h in cands)
     bmf, revoc, idx = load_bmf(irs_dir, eins), load_revocations(irs_dir, eins), load_efile_index(irs_dir, eins)
     sample = draw_sample(cands)
+    links = successor_links(hists)
 
     def ref_period(h):
         return (h["last_filed_period_end"] or f"{h['last_filed_fy'] or h['last_fy']}-12-31").replace("-", "")[:6]
@@ -533,7 +582,8 @@ def run_verification(hists, by_ein, irs_dir, cache_dir, fetch) -> list[dict]:
         pp_txt = fetch_cached(PP_API.format(ein=e), os.path.join(cache_dir, "propublica", f"{e}.json"),
                               fetch) if e in sample else None
         pp = json.loads(pp_txt) if pp_txt else ({} if e in sample and fetch else None)
-        ev = evidence_for(h, bmf, revoc, idx, pp, xml_for(later[-1] if later else None), xml_for(last_any))
+        ev = evidence_for(h, bmf, revoc, idx, pp, xml_for(later[-1] if later else None), xml_for(last_any),
+                         links.get(e, ""))
         return {**ev, "sample_stratum": sample.get(e, "")}
 
     return sorted((one(h) for h in cands), key=lambda v: (v["sample_stratum"] == "", -(v["exit_ref_daf_assets"] or 0)))
@@ -557,7 +607,14 @@ def main(argv: Sequence[str] | None = None) -> int:
     if a.irs_dir:
         ver = run_verification(hists, by_ein, a.irs_dir, a.cache_dir, a.fetch)
         write_csv(os.path.join(a.data_dir, VERIFY_OUT), ver, ["sample_stratum"] + [k for k in ver[0] if k != "sample_stratum"])
-        summ = summ + verified_bounds(ver, hists, by_ein)
+        ent = entrant_rows(hists, load_bmf(a.irs_dir, frozenset(h["ein"] for h in hists.values() if h["entry_fy"])),
+                           successor_links(hists))
+        summ = summ + verified_bounds(ver, hists, by_ein) + [
+            {"dimension": "entrant_class", "group": c, "fiscal_year": fy, "measure": "entries_n", "value": n,
+             "numerator": None, "denominator": None,
+             "definition": "entrants classified by IRS BMF ruling year and name-match to an exiting EIN"}
+            for (fy, c), n in sorted(Counter((r["entry_fy"], r["entry_class"]) for r in ent).items())]
+        print(f"entrant classes={dict(Counter(r['entry_class'] for r in ent))}")
     write_csv(os.path.join(a.data_dir, SUMMARY_OUT), summ,
               ["dimension", "group", "fiscal_year", "measure", "value", "numerator", "denominator", "definition"])
     kinds = Counter(h["exit_kind"] or "survivor_or_censored" for h in hists.values())
