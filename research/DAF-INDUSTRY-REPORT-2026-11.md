@@ -309,7 +309,30 @@ The v1.1 AI overlay has no GREEN providers:
 - **AMBER (near red):** TIFIN Give/GiveClear Louise.
 - **AMBER:** Daffy MCP, Chariot, Foundant, Blackbaud, Goodstack, and Candid (low).
 
-v1.1 positions are a single fresh scorer and are **not yet calibrated**. The v1.0 consensus table above remains the reference until a blind v1.1 second scorer runs (queued).
+**v1.1 consensus: the current reference** ([quadrant-v11-blind-and-calibration.md](mission-2026-11-14/quadrant-v11-blind-and-calibration.md)).
+
+A blind second scorer under v1.1 matched the fresh scorer exactly on 74% of commonly scored cells and within 1 point on 99.7%. 22 of 28 placeable providers landed in the same quadrant. Final status: 22 reproduced, 11 adjudicated, 9 insufficient evidence. This table **supersedes the v1.0 table above**, which is retained for history.
+
+| Area | Proven Leaders | Scale Operators | Forward Builders | Focused Specialists | Insufficient evidence |
+|---|---|---|---|---|---|
+| A1 Platform & administration | Foundation Source; Ren (b); Fidelity in-house (b); Foundant (b); Blackbaud FE NXT (b) | TIFIN Give | Give Interactive (b) | NPact | Givinga; NCF; SVCF |
+| A2 Disbursement rails | Chariot Disbursements; Chariot DAFpay; PayPal Grant Payments; Every.org (b) | Fidelity EFT (b); Ren RDE (b) | — | DAF Direct | — |
+| A3 Adviser-channel sponsors | Charityvest; Fidelity Charitable (b); RCF (b); Vanguard Charitable (b) | AEF; DAFgiving360; GiveClear (b) | — | — | GS PF; MS GIFT; BofA CGF; NCF; NPT |
+| A4 Consumer sponsors | Daffy; Charityvest; Fidelity Charitable (b) | DAFgiving360 | Every.org; Endaoment (b) | — | Givinga |
+| A5 Eligibility data | IRS baseline; Candid; Chariot verification; Benevity; Goodstack (b) | — | — | — | — |
+
+**v1.1 AI overlay.** No provider is GREEN.
+- **RED (provisional):** Benevity. Its AI auto-submits match requests with no documented approval step.
+- **AMBER, near red:** TIFIN Give/GiveClear.
+- **AMBER:** Chariot, Daffy, Blackbaud, Foundant, Goodstack.
+- **AMBER (low):** Candid.
+- **Inform-only:** Fidelity.
+
+**Main movers from v1.0 to v1.1 and why.**
+- **DAFgiving360 → Scale Operators.** The vendor's evidence no longer counts toward the sponsor, and it documents only inbound transfers and check payments.
+- **NPT → insufficient evidence.** GivingPoint was merged into Ren, and its summary statements do not count as an audit.
+- **Ren → boundary.** It absorbed the NPT evidence, but its SOC statements contradict each other.
+- **Give Interactive → Forward Builders (boundary).**
 
 **What the quadrants show.**
 - **Most providers sit near the midlines.** Forward-capability evidence (data export, SOC scope, portability terms) is the scarcest input, so the uncertainty bands are wide.
