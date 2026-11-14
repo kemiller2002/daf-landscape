@@ -1,0 +1,281 @@
+Skip to main content
+The Giving Account
+How it works
+Charities you can support
+What you can donate
+What it costs
+Investment options
+Working with your financial advisor
+Private Donor Group
+Research & Insights
+Research & insights
+Blog
+Donor stories
+Guidance
+Philanthropy 101
+Family philanthropy
+Tax strategies
+Estate planning
+Disaster relief
+Research charities
+Philanthropic Journey Guide
+Philanthropic Advice Referral Network
+Tools and calculators
+Virtual Assistant
+For companies
+For advisors
+For nonprofits
+About us
+Help Center
+Open a Giving Account
+Log In
+About us
+Try Demo
+Help Center
+Virtual Assistant
+Open a Giving Account
+Log in
+Open a Giving Account
+Log In
+The Giving Account
+How it works
+Charities you can support
+What you can donate
+What it costs
+Investment options
+Working with your financial advisor
+Private Donor Group
+Research & Insights
+Research & insights
+Blog
+Donor stories
+Guidance
+Philanthropy 101
+Family philanthropy
+Tax strategies
+Estate planning
+Disaster relief
+Research charities
+Philanthropic Journey Guide
+Philanthropic Advice Referral Network
+Tools and calculators
+For companies
+For advisors
+For nonprofits
+Please enter a search term
+Time is running out to make tax-deductible contributions in 2026. Review our year-end contribution guidelines.
+For nonprofits
+Nonprofits and Fidelity Charitable:
+Frequently asked questions
+Enroll in Electronic Funds Transfer (EFT) for a safer and faster grantmaking. Please note, the ACH enrollment queue may take several weeks. We recommend Stripe for faster EFT enrollment.
+Enroll through Stripe or Enroll through ACH
+Learn how a donor-advised fund works and find answers to common questions about receiving grants from Fidelity Charitable donors. Don't see an answer to your question?
+Connect with our Nonprofit Organization Service team at 800-952-4438, prompt 4.
+General
+Receiving grants
+Electronic Funds Transfer
+EFT grant detail report
+What is a donor-advised fund?
+A donor-advised fund, or DAF, is like a charitable investment account. A DAF program is sponsored by a public charity, called a "DAF sponsor" or "sponsoring organization." A donor makes a charitable contribution to a DAF sponsor, becomes eligible to claim a tax deduction, and then recommends grants to IRS-qualified 501(c)(3) public charities. Donors can also recommend how their contribution is invested by the DAF sponsor, to potentially grow the contribution tax-free, which may ultimately provide more dollars to support nonprofits.
+What is Fidelity Charitable?
+Fidelity Charitable is an independent, 501(c)(3) public charity. We sponsor the largest donor-advised fund program in the country. Our donor-advised fund is called the Giving Account. In 2025, our donors recommended more than $18.3 billion in grants to support nearly 227,000 charitable organizations in every state and around the globe.
+How do I know if I am eligible to receive grants from Fidelity Charitable donors?
+Fidelity Charitable generally makes grants only to IRS-qualified public charities, and all grant recommendations must comply with its Program Guidelines. Donors who are logged in to our website can search for nonprofits by name or Tax Identification Number (TIN) in our database (see image below). To make sure donors can find your organization, ensure that the name your organization is doing business as matches the name you have registered with the IRS, and make it easy for donors to find your TIN on your website. Fidelity Charitable uses IRS data to display your organization's name to donors logged in to our site. You can see exactly what this process looks like for a Fidelity Charitable donor by trying out our demo.
+If you would like to make it easier for Fidelity Charitable donors to recommend grants to your nonprofit directly from your website, consider adding the DAF Direct widget to your website.
+If your organization is a supporting organization, review the supporting organization guidelines here.
+Can I apply for a grant from Fidelity Charitable?
+Fidelity Charitable grants are recommended by donors using a donor-advised fund (the Giving Account), typically an individual or corporate philanthropy team. A donor makes a contribution to Fidelity Charitable to establish a Giving Account. The donor can then recommend grants to IRS-qualified 501(c)(3) public charities. Fidelity Charitable does not accept applications for funding. Nonprofits should work directly with their donors who use donor-advised funds to discuss giving opportunities and needs. We recommend specifically naming donor-advised funds on your website as a way to support your organization, right alongside using a credit card or other form of online payment.
+If you would like to make it easier for Fidelity Charitable donors to recommend grants to your nonprofit directly from your website, consider adding the DAF Direct widget to your website and enrolling in Fidelity Charitable's EFT program (Stripe or ACH).
+How do I contact Fidelity Charitable?
+You can contact us with questions at 800-952-4438, prompt 4, Monday-Friday from 8:30 a.m.-8:00 p.m. ET.
+How can I make sure Fidelity Charitable is able to contact me if needed to release a grant?
+We may reach out to you via phone or email while reviewing a donor's grant recommendation to your nonprofit. If your best contact information currently does not match what is on file with the IRS, or if you would like to provide additional contact information, please contact us at 800-952-4438, option 4, Monday-Friday from 8:30 a.m.-8:00 p.m. ET
+How do I update my organization's address or contact information with Fidelity Charitable?
+If you are enrolled in Stripe, please use the Stripe dashboard to update your organization's contact information. See Update bank account or debit card for payouts (opens in new tab or window) on Stripe Support for instructions to update your details.
+If you are enrolled in ACH, please resubmit the ACH enrollment form here (opens in new tab or window). This form is used for both new enrollments and updates to banking, contact, or address information. Please fill out the initial registration page and select "complete enrollment". You will receive an email with a link to a secure enrollment form. Once inside the form, please select "Update ACH Information" from the dropdown menu, then check the appropriate field(s) to update. Enter the new account information and attach any supporting documentation.
+Does Fidelity Charitable require Electronic Funds Transfer (EFT) to receive grants?
+As Fidelity Charitable moves towards a digital-first policy we are transitioning grant payments to EFT to ensure faster, safer, and more reliable delivery of funds. While we do not currently require EFT enrollment for nonprofit organizations, we encourage you to enroll for more secure grantmaking. (Enroll through Stripe (opens in new tab or window) or Enroll through ACH (opens in new tab or window)).
+Can my organization still receive checks if our board or financial policy prohibits EFT?
+We encourage you to work with your board to update your policy so you can continue receiving grants recommended by Fidelity Charitable donors.
+How do I know when I've received a grant?
+If your organization is enrolled in EFT through Stripe with Fidelity Charitable, grant notices are emailed each Monday to notify you of grants from the week prior. Additionally, you can log in to your organization's Stripe dashboard at any time to view and export grant details. Bank statements from grants made through Stripe will show up as "Fidelity grant".
+If your organization has enrolled in EFT through ACH with Fidelity Charitable, grant notices are emailed daily with a consolidated grant detail report (GDR) of recent grant activity. Bank statements with grants made through ACH will show as "Fidelity Charitable" as the source.
+Nonprofits that have never enrolled in our EFT program receive grants through checks mailed to the addresses listed on your organization's IRS Form 990. We invite you to learn more about our EFT program.
+Where do I find a donor's information?
+If you receive grants through Stripe
+Stripe refers to funds sent to your charity's account as Payouts. See Where can I view recent payouts and transactions? on Stripe Support for instructions to view Payouts in the dashboard.
+When you export the transaction details, you can see additional information, such as all available donor information, not visible in the dashboard. See Can I export a list of my transactions and payouts from Stripe? on Stripe Support for instructions to export the complete transaction details.
+Once the export pop-up window displays, you can select a specific date range. If you are missing expected transactions after exporting, try changing the date range.
+Under the Columns field, you should also select All columns from the drop-down options to view all transaction details.
+If you receive grants through ACH
+Any donor-provided contact information will be securely emailed to the email address(es) your organization provided during the ACH enrollment process in a document called a grant detail report (GDR). If you are having trouble accessing your grant detail report, please read our troubleshooting tips in the "EFT grant report" section below. View a sample ACH grant detail report here.
+If you receive grants via paper checks
+Any donor-provided contact information can be found on the grant transmittal letter mailed with the check. We encourage you to enroll your organization in our EFT program for a safer and faster alternative to receiving paper checks. Learn more about our EFT program and how to have future grants directly deposited into your nonprofit's bank account.
+Sample grant transmittal letters:
+Full acknowledgement
+Partial acknowledgement
+Anonymous acknowledgement
+Can you give me information about a donor who recommended a grant anonymously?
+Only 4% of Fidelity Charitable grants are made anonymously. We encourage donors to provide contact information to the nonprofits they recommend grants to by defaulting to provide a name and mailing address when a donor recommends a grant. You can see what this process looks like for a donor by trying out our demo. Any information the donor has permitted us to share with you will show up on grant reports.
+How can my nonprofit receive grants electronically?
+We offer two opportunities for receiving grants through EFT: Stripe and ACH. We encourage your organization to pick whichever method of EFT works best for you. Both Stripe and ACH are free services offered by Fidelity Charitable and incur no cost or fee for your organization.
+How to enroll in Stripe
+To enroll in Stripe, your organization can fill out our secure Stripe enrollment form. Enrollment requires you to provide your organization's Employer Identification Number (EIN), bank account number and routing number, an email address, and a phone number that can receive text messages.
+Enroll through Stripe
+How to enroll in ACH
+To enroll in ACH, your organization can fill out our secure ACH enrollment form. Enrollment requires you to provide your organization's Employer Identification Number (EIN), bank account number and routing number, a primary and secondary contact, and a voided check or bank letter dated within the last 12 months.
+Enroll through ACH
+I received a grant. How do I thank the donor who made the grant?
+Using any donor-provided information, thank the donor who recommended the grant to your organization, not Fidelity Charitable. The donor was eligible to claim their tax deduction upon making a contribution to Fidelity Charitable, not when recommending grants to charities like yours. Therefore, the donor is not eligible to claim a tax deduction in connection to their grant recommendations, and any language implying such should be removed from your acknowledgment and you should not send the donor a tax receipt.
+Looking for more guidance on how to thank a DAF donor? This article includes tips and a customizable template you can download.
+How can I make sure Fidelity Charitable can contact me about a grant recommended to my nonprofit?
+Fidelity Charitable will generally use the contact information on file with the IRS to reach you, information provided by the recommending donor, or information you have provided us over the phone, directly to include in our records. The best way to help ensure that we can reach you with any questions would be to provide us with a preferred contact email address and phone number by calling 800-952-4438, prompt 4, Monday-Friday from 8:30 a.m.-8:00 p.m. ET.
+Can I apply for a grant from Fidelity Charitable?
+Fidelity Charitable grants are recommended by donors using a donor-advised fund (the Giving Account). A donor makes a contribution to Fidelity Charitable to establish a Giving Account. The donor can then recommend grants to IRS-qualified 501(c)(3) public charities. Fidelity Charitable does not accept applications for funding. Nonprofits should work directly with their donors who use donor-advised funds to discuss giving opportunities and needs. We recommend specifically naming donor-advised funds on your website as a way to support your organization, right alongside using a credit card or other form of online payment.
+If you would like to make it easier for Fidelity Charitable donors to recommend grants to your nonprofit directly from your website, consider adding the DAF Direct widget to your website.
+How do I get a Fidelity Charitable grant check reissued?
+Fidelity Charitable cannot reissue a grant check unless requested by the recommending donor. At the request of the receiving organization, we can void a grant check and notify the recommending donor; however, it will be up to the recommending donor to decide whether to reissue the grant. If your organization is looking to have a grant check reissued, we encourage you to contact the recommending donor directly. Fidelity Charitable cannot provide you with the donor's contact information.
+Why should I enroll my nonprofit in Electronic Funds Transfer?
+Electronic Funds Transfer is the fastest, safest, and most direct way to receive grants from Fidelity Charitable. When you sign up your nonprofit for Fidelity Charitable's EFT program, grants will be directly deposited in your nonprofit's bank account-no trips to the post office or bank needed. You'll receive the same donor information as you would with a paper check. Enroll in EFT (Stripe or ACH)
+Benefits of receiving grants through EFT:
+Our EFT program is free
+Receive grants up to 9x faster than through paper checks
+With 1 in 5 organizations reporting mail fraud, EFT helps protect grants recommended by your donors
+Get access to detailed grant reports with donor-provided information
+Focus more on your mission and less on administrative tasks through improved operational efficiency
+Should my organization enroll in Stripe or ACH?
+We offer two secure options for EFT enrollment so that your organization has more opportunities to receive grants in a method that best fits your financial operations. Fidelity Charitable has no preference on which method you should choose, and there is little difference in the speed of grant delivery or grant security between Stripe and ACH.
+Stripe and ACH differ most in how you receive grant detail reports. With Stripe, grant detail reports (a.k.a. "Payouts") can be downloaded from your organization's Stripe dashboard. With ACH, consolidated grant detail reports are sent daily.
+Stripe
+What is Stripe?
+Stripe is a secure, modern service that helps process online payments, allows Fidelity Charitable to more easily verify bank account details, and also allows funds to be deposited directly into your bank account.
+How fast do I receive grant funds with Stripe?
+1-2 days
+How often do I receive information about a grant with Stripe?
+When your organization receives a grant, a grant notice will be sent the following Monday with a link to your Stripe dashboard, where grant details can be exported.
+Enroll through Stripe
+ACH
+What is ACH?
+ACH (Automated Clearing House) is a secure system that moves money electronically between banks and allows for funds to be deposited directly into your bank account.
+How fast do I receive grant funds with ACH?
+1-2 days
+How often do I receive information about a grant with ACH?
+Grant notices are sent daily, and a consolidated grant detail report can be sent to up to 5 recipients. View a sample grant detail report here.
+Enroll through ACH
+Will Fidelity Charitable contact my organization to verify banking information for EFT enrollment?
+In our efforts to protect your organization's information and ensure grants are securely disbursed, we may call your organization's publicly available phone number to verify banking and/or contact information. During these calls, we will request verification of bank details and/or names, job titles, emails, and phone numbers of contacts that have been submitted as part of your organization's request to enroll or update EFT information.
+Do I have to have a preexisting account with Stripe to enroll in EFT through Stripe?
+No, you can create a Stripe account for the first time during enrollment. If you have an existing Stripe account, you can use the same email address on the existing account to complete your Stripe enrollment with Fidelity Charitable. Using the same email address will link the accounts, so you can access your information with one log in.
+How do I view information from a particular grant when enrolled in EFT?
+Both Stripe and ACH allow your organization to see any information the donor has chosen to share with the grant-receiving nonprofit. A donor can choose to recommend a grant anonymously.
+Stripe
+Stripe refers to funds sent to your charity's account as Payouts. See Where can I view recent payouts and transactions? on Stripe Support for instructions to view Payouts.
+When you export the transaction details, you can see additional information, such as donor contact information or special designations, not available in the dashboard. See Can I export a list of my transactions and payouts from Stripe? on Stripe Support for instructions to export the complete transaction details.
+Once the export pop-up window displays, you can select a specific date range. If you are missing expected transactions after exporting, try changing the date range.
+Under the Columns field, you should also select All columns from the drop-down options to view all transaction details.
+ACH
+A grant detail report, including all available donor information, will be sent to you in a secure email every time you get a grant, or each day if you receive more than one grant in a day. You can choose up to five email addresses to receive grant detail reports. Want to see what an ACH grant detail report looks like? See the ACH grant detail report.
+Having trouble accessing your grant detail reports? Check out our "EFT grant report" section below.
+How can I enroll to get my grants deposited electronically?
+We offer two opportunities for receiving grants through EFT: Stripe and ACH. We encourage your organization to pick whichever method of EFT works best for you. Both Stripe and ACH are free services offered by Fidelity Charitable and incur no cost or fee for your organization.
+How to enroll in Stripe
+To enroll in Stripe, your organization can fill out our secure Stripe enrollment form. Enrollment requires you to provide your Employer Identification Number (EIN), bank account number and routing number, an email address, and a phone number that can receive text messages.
+Enroll through Stripe
+How to enroll in ACH
+To enroll in ACH, your organization can fill out our secure ACH enrollment form. Enrollment requires you to provide your Employer Identification Number (EIN), bank account number and routing number, a primary and secondary contact, and a voided check or bank letter dated within the last 12 months.
+Enroll through ACH
+How do I update my organization's EFT banking information?
+Stripe
+Your organization can update your bank information and contacts in the Stripe dashboard at any time. See Update bank account or debit card for payouts on Stripe Support for instructions to update your details. Note that only a bank account is allowed for Fidelity Charitable Stripe accounts.
+ACH
+You can update the ACH banking information on file for your organization by resubmitting this online form. Note that the enrollment form is also used for updates.
+My organization uses Stripe. How can I log in?
+See How do I login to my Stripe Express account? on Stripe Support for instructions. Note that organizations may have multiple Stripe accounts.
+My organization uses Stripe. How can I differentiate between Payouts from Giving Marketplace and Fidelity Charitable in Stripe?
+When you view the Payouts for your charity, the Description will start with the following text depending on who issued the Payout:
+Giving Marketplace: will start with Giving Marketplace
+Fidelity Charitable: will start with Fidelity Charitable Grant
+When you export the transaction details with all available columns, you can see additional information not available in the transaction list online. See Can I export a list of my transactions and payouts from Stripe? on Stripe Support for instructions on exporting the complete transaction details.
+Note: Fidelity Charitable and Giving Marketplace are serviced by National Charitable Services, LLC, a Fidelity Investments company that supports customers, companies, financial advisors, and more with their philanthropic needs.
+My organization uses Stripe. How do I tell if my Charity's Stripe account is Express or not?
+Non-express accounts enable you to use the same email address for multiple connected accounts.
+Fidelity Charitable and the Fidelity Giving Marketplace use the Stripe Express view for all users; though you may have a connected Non-express account, you will always view Fidelity Charitable transactions through your Express dashboard.
+Once you are logged in to Stripe, your dashboard will vary depending on your charity's account type.
+Express: There will only be two tabs available. One for Overview and one for Transactions or Balance.
+Non-express: There will be more than two tabs available for viewing account information, which may include Home, Payments, Balances, Customers, Products, Billing, Reports, and More. You can select your various connected accounts from a dropdown in the top left corner.
+You should see "Natl Charitbl Svcs" in the top left corner when viewing Fidelity Charitable transactions.
+These FAQs are written primarily to assist with Stripe Express. If your charity has a Non-express Stripe account, the instructions may differ slightly. See Stripe Non-express Support as needed.
+My organization uses Stripe. How can I obtain technical support from Stripe?
+You can visit https://support.stripe.com/express to Contact Stripe support or browse a list of topics.
+Additionally, once you log into Stripe, you will have additional options to obtain Stripe support by selecting the help icon at the bottom left of the dashboard.
+How do I transfer ownership of my organizations Stripe account?
+A transfer of ownership can be completed through the Stripe dashboard. Please see Stripe's FAQ on how to change the owner of a Stripe account (opens in new tab or window) for step-by-step instructions on how to complete the transfer.
+As a donor, how do I encourage a nonprofit I support to enroll in EFT?
+Customize an easy-to-use email template to start a conversation with nonprofits you support.
+Stripe Express FAQs
+Who can receive grant detail reports once I enroll in EFT?
+Stripe
+Multiple users can be added to a charity's account in Stripe. To add a user to the charity's account, see Does Stripe Express support multiple users under the same account? on Stripe Support.
+ACH
+The primary contacts and up to three secondary contacts provided during the enrollment process can access the grant detail reports. Please note that the two primary contacts must use an individual email account, but any of the secondary contacts can be a group/shared inbox.
+How do I see all of the information on my grant detail report?
+Stripe
+Stripe refers to funds sent to your charity's account as Payouts. See Where can I view recent payouts and transactions? on Stripe
+Support for instructions to view Payouts.
+When you export the transaction details, you can see additional information, such as donor contact information or special designations, not available in the dashboard. See Can I export a list of my transactions and payouts from Stripe? on Stripe Support for instructions to export the complete transaction details.
+Once the export pop-up window displays, you can select a specific date range. If you are missing expected transactions after exporting, try changing the date range.
+Under the Columns field, you should also select All columns from the drop-down options to view all transaction details.
+ACH
+Once your organization has received a grant detail report, in Excel, click "Format" toward the top right of the Excel sheet and select "AutoFit Column Width" from the drop-down menu. The columns will expand to reveal all available donor information.
+How do I update my organization's EFT contact emails?
+Stripe
+To update a user's login information, see How can I update my login information? on Stripe Support.
+Note: The user information may only be updated this way for Express accounts. To access your account after a staff transition, you can submit a request to Stripe Support.
+Fidelity Charitable strongly recommends that the person holding the title of Company Representative also maintain control of the Owner Administrator log-in for the Stripe account.
+ACH
+You can update your organization's EFT contact information using this online form. Note, this form is used for enrollments and updates.
+How will grants show up in my bank account?
+Stripe
+For nonprofits enrolled in our EFT program through Stripe, deposited funds will show up on bank statements as "Fidelity grant". Details for individual grants, including whether the grant was made through Fidelity Charitable or Fidelity Giving Marketplace, can be found on the Stripe "Balance" dashboard and exported details.
+ACH
+For nonprofits enrolled in our EFT program through ACH, deposited funds will appear on bank statements a "Fidelity Charitable". Details for individual grants can be found in the grant detail report emailed with grant notifications.
+I'm having trouble accessing my ACH grant detail report. What should I do?
+Having trouble receiving the one-time passcode email?
+It may have arrived in your spam, junk, or quarantine folder. Your technical team may be blocking or rejecting the one-time passcode email from Microsoft. The passcode email will come from the following email address: Microsoftoffice365@messaging.microsoft.com. You can whitelist or add this address to your safe sender list.
+Getting a white screen or permission error when you try to open the Fidelity secure email?
+Make sure you are accessing the original secure email. Forwarded emails will not work. You can also open the message in a private web browsing window.
+What if I have more questions?
+We're here to help! If you have EFT or grant detail report questions that aren't addressed here, feel free to reach out to us at 800-952-4438, option 4, Monday-Friday from 8:30 a.m.-8:00 p.m. ET.
+Ready to get started?
+Opening a Giving Account is fast and easy, and there is no minimum initial contribution.
+Open a Giving Account
+Or call us at 800-262-6039
+Who we Serve
+Donors
+Advisors
+Companies
+Nonprofits
+Learn
+Donor-Advised Fund
+Tax Strategies
+Research Charities
+Calculators
+Security Practices
+Giving Account
+How it Works
+Minimum and Fees
+What You Can Donate
+Investment Options
+Open a Giving Account
+Support
+Help Center
+Virtual Assistant
+Forms
+FAQs
+Governance and Board
+Site map
+Legal note
+Privacy policy
+Cookie policy
+Share screen
+©1998-2026 FMR LLC. All rights reserved. Portions ©1998-2026 Fidelity Investments® Charitable Gift Fund. All rights reserved. Fidelity Investments® Charitable Gift Fund is recognized as a tax-exempt public charity as described in Sections 501(c)(3), 509(a)(1), and 170(b)(1)(A)(vi) of the Internal Revenue Code.

@@ -1,0 +1,244 @@
+RENAISSANCE ACQUISITION COMPANY LLC
+MASTER SERVICES AGREEMENT
+This Master Services Agreement is entered into by and between RENAISSANCE ACQUISITION COMPANY LLC. ("Ren") and the organization
+("Customer") executing an Order Form or similar form referencing or otherwise incorporating this Agreement ("Order Form"). This Agreement shall be
+effective as of the "Effective Date" of the first Order Form between Customer and Ren. The parties agree as follows:
+permitted by applicable usury law, whichever is less, determined and
+1. SERVICES, WORK ORDERS, AND CHANGE ORDERS compounded daily from the date due until the date paid. Customer will
+1.1 Services. Subject to the terms and conditions of this also reimburse any costs or expenses (including, but not limited to,
+Agreement, Ren will perform for Customer certain services reasonable attorneys' fees) incurred by Ren to collect any amount that
+("Services"). is not paid when due.
+1.2 Work Orders. The specific details of the Services to be 3.3 Taxes. Other than federal and state net income taxes
+performed will be described in one or more written work orders, imposed on Ren by the United States, Customer will bear all taxes,
+substantially in the form of the work order set forth in Exhibit A, that is duties, and other governmental charges (collectively, "taxes") resulting
+executed by both parties ("Work Order"). Once executed by both from this Agreement. Unless otherwise specified in the applicable
+parties, each Work Order will be a unique agreement that incorporates Work Orders, the Service Fees payable to Ren under this Agreement
+the terms of this Agreement and stands alone with respect to all other do not include any taxes or other amounts assessed or imposed by any
+Work Orders. If there is a conflict between the terms of this Agreement governmental authority.
+and the terms of a Work Order, the terms of this Agreement will control 4. TERM AND TERMINATION
+unless the Work Order states that a specific provision of this Agreement
+will be superseded by a specific provision of the Work Order. 4.1 Term. Each Work Order will commence on the specified
+effective date and will continue thereafter until the End Date specified
+1.3 Change Orders. Unless otherwise specified in a Work Order, in the Work Order, or the Work order is terminated as provided in this
+Customer may reasonably request in writing that revisions be made Section 4 (the "Initial Term"). Thereafter, the Work Order will
+with respect to the Services or deliverables set forth in that Work Order automatically renew for additional periods of one (1) year unless either
+("Change Order"). If a Change Order recites revisions that materially party provides written notice of its intention not to renew at least sixty
+increase the scope of the Services or the effort required to deliver (60) days prior to the expiration of the then-current term (each, a
+deliverables under the applicable Work Order, then within a reasonable "Renewal Term," and collectively with the Initial Term, the "Term").
+time after Ren's receipt of the Change Order, Ren will deliver to
+Customer a written, revised Work Order reflecting Ren's reasonable 4.2 Notice of Material Breach. If either party commits a material
+determination of the revised Services, deliverables, delivery schedule, breach in the performance of any of its obligations under any Work
+and payment schedule, if any, that will apply to the implementation of Order, then the other party may give the breaching party written notice
+the revisions. If Customer approves the revised Work Order, then the of the breach (including without limitation a description of the Services
+parties will execute it, and upon execution, the revised Work Order will with respect to which the breach has occurred, a statement of the facts
+supersede the then-existing Work Order. If Customer does not approve relating to the breach, the applicable provisions of this Agreement or
+the revised Work Order within ten business days after its receipt by the applicable Work Order, and the action required to cure the breach)
+Customer, the then-existing Work Order will remain in full force and and the non-breaching party's intent to terminate the applicable Work
+effect, and Ren will have no further obligation with respect to the Order pursuant to this Section 4.2 if the breach is not cured within 30
+applicable Change Order. days after the date of the notice (or a later date as may be specified in
+the notice). Without limitation, any failure by Customer to timely pay to
+2. PERFORMANCE OF SERVICES Ren any amounts to be paid under the Work Order will constitute a
+2.1 Project Management. For each Work Order, each party will material breach of this Agreement, and Ren may, without limitation of
+designate a single point of contact within its organization to manage the any of its other rights and remedies available, suspend performance of
+responsibilities and duties described in a Work Order ("Project any Services under any Work Order then in progress during any time
+Leader"). The Project Leaders will meet as necessary to manage the that Customer fails to pay any amounts owed to Ren.
+Services to be performed under a Work Order. Disputes will be 4.3 Notice of Termination. If the breaching party fails to cure any
+escalated to more senior executives, if the Project Leaders are unable material breach specified in any notice under Section 4.2 within 30 days
+to resolve a problem. after the date of the notice (or a later date as may be specified in the
+2.2 Performance Standard. Ren will perform the Services in notice), then the non-breaching party may terminate the Work Order
+accordance with the applicable Work Order, including any covering the Services with respect to which the breach or default
+specifications in the Work Order. Ren will use reasonable efforts to occurred by giving the breaching party written notice of termination.
+complete the Services, including the delivery of any deliverables, in 4.4 Effect of Termination. If any Work Order is terminated in
+accordance with the schedule of times and milestones specified in the accordance with this Section 4, then, unless otherwise specifically
+Work Order. provided for in the applicable Work Order, the following will apply:
+2.3 Subcontractors. Ren may utilize independent contractors to (a) the parties will cooperate to effect an orderly, efficient, effective, and
+perform all or part of the Services. Ren will remain solely responsible expeditious termination of the parties' respective activities under the
+for the performance of all of the Services that are subcontracted. terminated Work Order; (b) Ren will have no obligation to perform any
+Services under the terminated Work Order after the effective date of
+3. COMPENSATION the termination; (c) Customer will pay to Ren any Service Fees and
+other amounts payable for the Services performed under the
+3.1 Fees. Customer will pay Ren for Services as specified in a terminated Work Order through the effective date of the termination;
+Work Order ("Service Fees"). (d) any and all liabilities accrued prior to the effective date of the
+3.2 Payment. Unless otherwise specified in a Work Order: (a) termination will survive; and (e) the parties' respective rights and
+Ren will issue invoices for Service Fees for Services that have been obligations under Sections 3, 4.4, 4.5, 5, 6, 7.2, 8, and 10 of this
+performed; and (b) Customer will pay any undisputed amount set forth Agreement with respect to any Services covered by the terminated
+in an invoice no later than 30 days after receipt of Ren's invoice. Any Work Order, will survive. If a Work Order is terminated by Ren pursuant
+amount not paid when due will be subject to finance charges equal to to Section 4.2 or by Customer otherwise than pursuant to Section 4.2
+one and one-half percent (1.5%) per month or the highest rate (i.e., other than as a result of a material breach by Ren that is not cured
+as provided above), Customer will pay to Ren the amount of Services
+-1- Confidential
+Fees, calculated through the end of the calendar quarter during which donor information, business volumes or usage, financial information,
+the Work Order is terminated, that Ren would have been paid under pricing information, information related to mergers or acquisitions,
+the Work Order had the Work Order not been terminated and had the software/hardware, and any information concerning data,
+Services been fully performed in accordance with the schedule then in documentation, procedures, or inventions that is disclosed or otherwise
+effect, which amount owing will be evidenced in a final termination supplied in confidence by the party who disclosed the information
+invoice to be provided by Ren to Customer. The amount of Services ("Disclosing Party") to the other party, its subcontractors or agents
+Fees specified in the foregoing termination invoice will be final and ("Receiving Party"), or acquired by a party in the course of carrying out
+binding on the parties, absent manifest error. the tasks hereunder, or as a result of access to the premises of a party.
+This includes information meeting the definition of "Confidential
+4.5 Return of Materials. Upon the termination of this Agreement, Information" which is furnished to a party or learned in the course of
+or upon Customer's earlier request, Ren will deliver to Customer all performance under this Agreement. Confidential Information includes:
+Customer Materials (as defined in Section 5.1) that are in Ren's (i) information disclosed in a written or other tangible form which is
+possession or control. clearly marked with a "confidential" or "proprietary" legend or other
+5. PROPRIETARY RIGHTS comparable legend; (ii) information disclosed orally or visually which is
+identified as confidential at the time of disclosure and confirmed in
+5.1 Customer Materials. Any materials provided by Customer to writing within a reasonable time; and (iii) any other information which a
+Ren ("Customer Materials") will be used and disclosed solely as reasonable person would deem confidential under the context of
+required to perform the Services. Customer will own the Customer disclosure or due to the nature of the information itself. Each Party shall
+Materials. Ren will take reasonable steps to maintain the confidentiality protect and keep confidential any and all confidential, non-public
+of any non-public Customer Materials that are either marked as information of the other party, and neither party shall use, disclose or
+"Confidential" or which a reasonable person would deem confidential allow any third-party access to any such confidential information,
+under the context of disclosure or due to the nature of the information except as permitted by this Section 6.
+itself.
+6.2 Limited Access. Each Party shall use its best efforts to
+5.2 Inventions. Except as expressly set forth to the contrary in a ensure that only employees and third parties whose duties give them a
+Work Order, all works of authorship, inventions, discoveries, need to know such confidential information of another party shall have
+improvements, methods, processes, formulas, designs, techniques, access thereto. All such individuals and entities shall be instructed to
+and information (a) conceived, discovered, developed or otherwise treat the same as proprietary and confidential and the receiving party
+made (as necessary to establish authorship, inventorship, or shall take such other measures to protect the confidentiality of such
+ownership) by Ren, solely or in collaboration with others, in the course confidential information as it deems reasonable under the
+of performing the Services; or (b) that form all or part of a deliverable circumstances. Without limiting the generality of the foregoing, each
+provided as part of the Services, whether developed as part of the party shall require any third party to whom it discloses any confidential
+Services or separately, but excluding Customer Materials (as defined information to sign a confidentiality agreement, enforceable by the
+in Section 5.1) (collectively, "Inventions") will be the sole property of disclosing party, whereby such third party agrees to be bound by the
+Ren. Upon and subject to final payment by Customer of all amounts confidentiality provisions that are substantially similar to the provisions
+owing to Ren under the applicable Work Order, Ren hereby grants to set forth in this Section 6.
+Customer a nonexclusive, nontransferable, non-sublicensable, limited,
+worldwide, license to use the unmodified deliverables in object code 6.3 Permitted Disclosures. Notwithstanding the foregoing or
+only, subject to the restrictions and payment of the fees described in anything in this Agreement to the contrary, Confidential Information
+the applicable Work Order. excludes any information which: (a) was known to the receiving party,
+without restriction, at the time of disclosure, as shown by the files of the
+5.3 Third Party Products. Any third party products that are receiving party; or (b) becomes public at no fault of the receiving party;
+provided by Ren in connection with the Services are provided pursuant or (c) is disclosed with the prior written approval of the disclosing party;
+to the terms of the applicable third party agreement, and Ren assumes or (d) was independently developed by the receiving party, without any
+no responsibility for, and specifically disclaims any liability or obligation use of the confidential information by employees or other agents of (or
+with respect to, any third party products. independent contractors hired by) the receiving party who have not
+been exposed to such information; or (e) becomes known to the
+5.4 Ownership Retained. Except as expressly provided herein, receiving party, without restriction, from a source who the receiving
+no right or license with respect to any copyrights, patents, trademark party reasonably believed (i) had obtained such information other than
+rights or other proprietary rights is granted under this Agreement. All through the breach of this Agreement or an agreement by which the
+rights not expressly granted hereunder by a party are expressly source is bound; and (ii) had not otherwise violated the disclosing
+reserved to such party and its licensors. Each party represents and party's rights; or (f) is produced by a party with the intent that the
+warrants that it owns or has the right to license all trademarks used information will be released to the public and is delivered to the
+under this Agreement, and that such trademarks do not infringe or receiving party for such release. This Section 6 shall not apply to a
+otherwise violate the rights of any third party. disclosure made to comply with tax or regulatory requirements,
+5.5 No Agency or Joint Venture. All decisions regarding including disclosure to auditing and other professional service firms
+effectuation of this Agreement and any action to be taken hereunder relating to tax and regulatory advice.
+will be solely at the discretion of the party making such decision. No 7. WARRANTIES AND DISCLAIMER
+party will hold itself out as an agent of the other except as expressly
+provided in this Agreement. No party will have any authority to bind or 7.1 Mutual Warranties. Each party represents and warrants to
+obligate the other in any manner except as expressly provided in this the other that: (a) this Agreement has been duly executed and
+Agreement. The parties are acting to promote mutuality of interests but delivered and constitutes a valid and binding agreement enforceable
+are not forming a partnership or joint venture by this Agreement. All against such party in accordance with its terms; (b) no authorization or
+services being provided hereunder are being provided on a approval from any third party is required in connection with such party's
+nonexclusive basis. execution, delivery, or performance of this Agreement; and (c) the
+execution, delivery, and performance of this Agreement does not
+6. CONFIDENTIALITY violate the laws of any jurisdiction or the terms or conditions of any
+6.1 Proprietary Non-Public Information. The Parties intend to other agreement to which it is a party or by which it is otherwise bound.
+disclose and exchange proprietary and otherwise confidential 7.2 Disclaimer. EXCEPT FOR THE EXPRESS
+information. "Confidential Information" means any and all technical REPRESENTATIONS AND WARRANTIES STATED IN THIS
+and non-technical information, including trade secrets, know-how and SECTION 7, Ren MAKES NO ADDITIONAL REPRESENTATION OR
+proprietary information, firmware, designs, schematics, techniques, WARRANTY OF ANY KIND WHETHER EXPRESS, IMPLIED
+plans or any other information relating to any research project, work in (EITHER IN FACT OR BY OPERATION OF LAW), OR STATUTORY,
+process, future development, marketing or business plans or financial AS TO ANY MATTER WHATSOEVER. Ren EXPRESSLY
+or personnel matters relating to either party or its present or future DISCLAIMS ALL IMPLIED WARRANTIES OF MERCHANTABILITY,
+products, sales, suppliers, customers, employees, investors, affiliates, FITNESS FOR A PARTICULAR PURPOSE, QUALITY, ACCURACY,
+Master Services Agreement -2- Confidential
+TITLE, AND NON-INFRINGEMENT. Ren DOES NOT WARRANT BETWEEN THE PARTIES. THIS ALLOCATION IS REFLECTED IN
+AGAINST INTERFERENCE WITH THE ENJOYMENT OF ANY THE PRICING OFFERED BY Ren TO CUSTOMER AND IS AN
+DELIVERABLES, OR AGAINST INFRINGEMENT. Ren DOES NOT ESSENTIAL ELEMENT OF THE BASIS OF THE BARGAIN
+WARRANT THAT ANY DELIVERABLES ARE ERROR-FREE OR BETWEEN THE PARTIES. EACH OF THESE PROVISIONS IS
+THAT OPERATION OF THE DELIVERABLES WILL BE SECURE OR SEVERABLE AND INDEPENDENT OF ALL OTHER PROVISIONS OF
+UNINTERRUPTED. THIS AGREEMENT. THE LIMITATIONS IN THIS SECTION 9 WILL
+APPLY NOTWITHSTANDING THE FAILURE OF ESSENTIAL
+8. INDEMNIFICATION PURPOSE OF ANY LIMITED REMEDY IN THIS AGREEMENT.
+8.1 Reciprocal. Each party agrees to indemnify, defend and hold 10. MISCELLANEOUS
+harmless the other party, their respective affiliates, and each other
+party's and its affiliates' respective directors, officers, employees and 10.1 Independent Contractor. It is the express intention of the
+agents (any party entitled to be indemnified under this Section an parties that Ren perform the Services as an independent contractor.
+"Indemnified Party,'' and any party obligated to provide indemnification Without limiting the generality of the foregoing, Ren is not authorized to
+under this Section, an "Indemnifying Party"), from and against any and bind Customer to any liability or obligation or to represent that Ren has
+all claims, suits, damages, losses, actions, proceedings and liabilities, any authority.
+costs and expenses (including, without limitation, costs of investigation
+and defense and reasonable attorney's fees and expenses), involving 10.2 Governing Law. This Agreement will be interpreted,
+a third party claim (collectively, "Liabilities"), in connection with, relating construed, and enforced in all respects in accordance with the local
+to, arising out of or resulting from (a) any breach of a representation or laws of the State of Indiana. Except as specified in Section 10.3, the
+warranty of such Indemnifying Party contained in this Agreement, (b) parties agree that any action arising out of or in connection with this
+any material breach of any covenant, obligation or other agreement of Agreement will be heard in the federal, state, or local courts in Marion
+such Indemnifying Party contained in this Agreement, or (c) a claim that County, Indiana, and each party hereby irrevocably consents to the
+the Indemnifying Party or any of its affiliates has infringed the patent, exclusive jurisdiction and venue of these courts. The parties agree to
+copyright, trademark, trade secret, or other proprietary right of a third litigate in federal court, if possible.
+party. 10.3 Arbitration. Except for the right of either party to apply to a
+8.2 Procedure. The Indemnified Party shall give the court of competent jurisdiction for a temporary restraining order, a
+Indemnifying Party prompt notice of any claim, and, provided that the preliminary injunction, or other equitable relief to preserve the status
+Indemnifying Party acknowledges in writing its obligation to indemnify quo or prevent irreparable harm, any dispute as to the interpretation,
+in accordance with the terms of this Agreement, the Indemnifying Party enforcement, breach, or termination of this Agreement will be settled
+will have the right to control the defense, compromise or settlement of by binding arbitration in Marion County, Indiana under the Rules of the
+that claim by representatives chosen by it and reasonably satisfactory American Arbitration Association by one arbitrator appointed in
+to the Indemnified Party. Any such notice of a claim shall identify with accordance with such rules. All other disputes (excluding the right of
+reasonable specificity the basis for the claim, the facts giving rise to the either party to apply to a court of competent jurisdiction for a temporary
+claim and the amount of the claim (or, if such amount is not yet known, restraining order, a preliminary injunction, or other equitable relief to
+a reasonable estimate of the amount of the Third-Party Claim). The preserve the status quo or prevent irreparable harm) will be resolved
+Indemnified Party shall make available to the Indemnifying Party copies by a court specified in Section 10.2. Judgment upon the award
+of all relevant documents and records in its possession. Failure of an rendered by the arbitrators may be entered in any court of competent
+Indemnified Party to give prompt notice shall not relieve the jurisdiction. The prevailing party will be entitled to receive from the
+Indemnifying Party of its obligation to indemnify, except to the extent other party its attorneys' fees and costs incurred in connection with any
+that the Indemnifying Party is materially prejudiced by the delay in arbitration or litigation instituted in connection with this Agreement.
+giving notice. 10.4 Nonassignment; Subcontractors. Neither this Agreement
+9. LIMITATIONS OF LIABILITY nor any rights under this Agreement may be assigned or otherwise
+transferred by either party, in whole or in part, whether voluntarily or by
+9.1 Disclaimer of Consequential Damages. operation of law, without the prior written consent of the other party.
+NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED Subject to the foregoing, this Agreement will be binding upon and will
+IN THIS AGREEMENT, NO PARTY WILL, UNDER ANY inure to the benefit of the parties and their respective successors and
+CIRCUMSTANCES, BE LIABLE TO ANOTHER PARTY FOR assigns. Any assignment in violation of the foregoing will be null and
+CONSEQUENTIAL, INCIDENTAL, SPECIAL, OR EXEMPLARY void.
+DAMAGES ARISING OUT OF OR RELATED TO THE TRANSACTION
+CONTEMPLATED UNDER THIS AGREEMENT, INCLUDING BUT 10.5 Mitigation. Each party must mitigate the impact of any
+NOT LIMITED TO LOST PROFITS OR LOSS OF BUSINESS, EVEN damage arising out of or related to this Agreement.
+IF SUCH PARTY IS APPRISED OF THE LIKELIHOOD OF SUCH 10.6 Notices. Any notice required or permitted under the terms of
+DAMAGES OCCURRING. this Agreement or required by law must be in writing and must be:
+9.2 Cap on Liability. UNDER NO CIRCUMSTANCES WILL (a) delivered in person or (b) sent by overnight air courier with some
+EITHER PARTY'S TOTAL LIABILITY OF ALL KINDS ARISING OUT sort of tracking mechanism, in each case properly posted and fully
+OF OR RELATED TO THIS AGREEMENT (INCLUDING BUT NOT prepaid to the appropriate address as set forth below. Either party may
+LIMITED TO WARRANTY CLAIMS, AND CLAIMS FOR INDEMNITY), change its address for notices by notice to the other party given in
+REGARDLESS OF THE FORUM AND REGARDLESS OF WHETHER accordance with this Section 10.6. Notices will be deemed given at the
+ANY ACTION OR CLAIM IS BASED ON CONTRACT, TORT, OR time of actual delivery in person, three business days after deposit in
+OTHERWISE, EXCEED THE TOTAL AMOUNT PAID BY CUSTOMER the mail as set forth above, or one day after delivery to an overnight air
+TO Ren UNDER THE APPLICABLE WORK ORDER DURING THE 12 courier service.
+MONTHS IMMEDIATELY PRIOR TO THE EVENT GIVING RISE TO 10.7 Waiver. Any waiver of the provisions of this Agreement or of
+THE APPLICABLE CLAIM (DETERMINED AS OF THE DATE OF ANY a party's rights or remedies under this Agreement must be in writing to
+FINAL JUDGMENT IN AN ACTION), AND EACH PARTY HEREBY be effective. Failure, neglect, or delay by a party to enforce the
+WAIVES AND RELEASES THE OTHER PARTY FROM ALL provisions of this Agreement or its rights or remedies at any time, will
+LIABILITY, KNOWN OR UNKNOWN, WITH RESPECT TO SUCH not be construed as a waiver of the party's rights under this Agreement
+CLAIMS. THE LIMITATIONS IN THIS SECTION 9.2 SHALL NOT and will not in any way affect the validity of the whole or any part of this
+APPLY TO GROSS NEGLIGENCE, WILLFUL MISCONDUCT, OR Agreement or prejudice the party's right to take subsequent action.
+WHERE SUCH LIMITATIONS ARE EXPRESSLY PROBHIBITED AT Exercise or enforcement by either party of any right or remedy under
+LAW. this Agreement will not preclude the enforcement by the party of any
+9.3 Independent Allocations of Risk. EACH PROVISION OF other right or remedy under this Agreement or that the party is entitled
+THIS AGREEMENT THAT PROVIDES FOR A LIMITATION OF by law to enforce.
+LIABILITY, DISCLAIMER OF WARRANTIES, OR EXCLUSION OF
+DAMAGES IS TO ALLOCATE THE RISKS OF THIS AGREEMENT
+Master Services Agreement -3- Confidential
+10.8 Severability. If any term, condition, or provision in this transmission and such execution and delivery will have the same force
+Agreement is found to be invalid, unlawful, or unenforceable to any and effect of an original document with original signatures.
+extent, the parties will endeavor in good faith to agree to amendments
+that will preserve, as far as possible, the intentions expressed in this 10.11 Headings. Headings are used in this Agreement for
+Agreement. If the parties fail to agree on an amendment, the invalid reference only and will not be considered when interpreting this
+term, condition, or provision will be severed from the remaining terms, Agreement.
+conditions, and provisions of this Agreement, which will continue to be 10.12 Integration. This Agreement and all exhibits contain the
+valid and enforceable to the fullest extent permitted by law. entire agreement of the parties with respect to the subject matter of this
+10.9 Force Majeure. No Party will be liable for any delay or failure Agreement and supersede all previous communications,
+to meet its obligations pursuant to this Agreement due to circumstances representations, understandings, and agreements, either oral or
+beyond its reasonable control, including, but not limited to war, riots, written, between the parties with respect to said subject matter. No
+insurrection, civil commotion, fire, flood, storm or inability to obtain terms, provisions, or conditions of any purchase order,
+necessary labor using commercially reasonable efforts, materials or acknowledgement, or other business form that either party may use in
+manufacturing facilities as a direct result of such natural disasters, connection with the transactions contemplated by this Agreement will
+disruptions of the internet, telecommunications common carriers, or have any effect on the rights, duties, or obligations of the parties under,
+failure of telecommunication service providers or internet service or otherwise modify, this Agreement, regardless of any failure of a
+providers. receiving party to object to these terms, provisions, or conditions. This
+Agreement may not be amended, except by a writing signed by both
+10.10 Counterparts. This Agreement may be executed in parties.
+counterparts, each of which will be deemed to be an original and
+together will constitute one and the same agreement. This Agreement 10.13 Non-Exclusivity. Ren offers (and will continue to offer) the
+may also be executed and delivered by facsimile or other electronic same Services performed under this Agreement to other persons
+Master Services Agreement -4- Confidential

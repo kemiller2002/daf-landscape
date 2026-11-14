@@ -534,25 +534,31 @@ GRAPH_SPONSOR_ALIASES = {"DAFgiving360": "311640316", "Schwab Charitable": "3116
                          "Fidelity Charitable": "110303001", "Vanguard Charitable": "232888152",
                          "ImpactAssets": "262048480", "Thrivent Charitable": "411802412",
                          "National Philanthropic Trust": "237825575", "NPT": "237825575",
-                         "National Christian Foundation": "581493949"}
+                         "National Christian Foundation": "581493949", "American Endowment Foundation": "341747398"}
 
 
 def sponsor_tokens(name: str) -> frozenset[str]:
     return frozenset(t for t in re.findall(r"[a-z0-9]+", (name or "").lower()) if t not in SPONSOR_STOP and len(t) > 1)
 
 
-def graph_links(edge_paths: Sequence[str], targets: Sequence[Mapping]) -> tuple[frozenset, frozenset, tuple]:
+def graph_links(edge_paths: Sequence[str], targets: Sequence[Mapping], alt_names: Mapping | None = None) -> tuple[frozenset, frozenset, tuple]:
     """Map existing graph edges to (vendor_group, sponsor_ein) pairs via the same normaliser plus
     sponsor-name token matching. Returns (pairs, vendor_groups_in_graph, unmatched_sponsor_names)."""
     edges = tuple(e for p in edge_paths if os.path.exists(p) for e in read_csv(p))
-    tok = {t["ein"]: sponsor_tokens(t["sponsor_name"]) for t in targets}
+    # DAFRC names are sometimes truncated ("COMMUNITY FOUNDATION"); the 990 filer name (alt_names) is added when given
+    tok = {t["ein"]: sponsor_tokens(t["sponsor_name"]) | sponsor_tokens((alt_names or {}).get(t["ein"], "")) for t in targets}
 
     def ein_for(name: str) -> str | None:
         if name in GRAPH_SPONSOR_ALIASES and GRAPH_SPONSOR_ALIASES[name] in tok:
             return GRAPH_SPONSOR_ALIASES[name]
-        nt = sponsor_tokens(re.sub(r"\(.*?\)", " ", name))   # drop '(dba ...)' / '(unconfirmed)' qualifiers
+        # try the label without its '(dba ...)' / '(unconfirmed)' qualifier, then the qualifier itself, then the raw label
+        variants = (re.sub(r"\(.*?\)", " ", name), *re.findall(r"\((.*?)\)", name), name)
+        return next(filter(None, (best_ein(sponsor_tokens(v)) for v in variants)), None)
+
+    def best_ein(nt: frozenset) -> str | None:
         scored = sorted(((len(nt & v) / len(nt | v), e) for e, v in tok.items() if nt and v and (nt <= v or v <= nt or len(nt & v) >= 2)), reverse=True)
-        return scored[0][1] if scored and scored[0][0] >= 0.5 else None
+        tied = len(scored) > 1 and scored[1][0] == scored[0][0]       # ambiguous label (e.g. a single shared token)
+        return scored[0][1] if scored and scored[0][0] >= 0.5 and not tied else None
 
     def vendor_side(e: Mapping) -> tuple[str, str] | None:
         for s, st, o in (("source_entity", "source_type", "target_entity"), ("target_entity", "target_type", "source_entity")):
@@ -886,9 +892,10 @@ def run_contractors(dafrc, index, cache_dir, fetch, n_total, out_dir, names: Map
     dkey = {(r["ein"], r["fy"]): r for r in dafrc}
     returns = tuple(return_row(t, f, ex[f["object_id"]], dkey) for t, f in filings)
     contractors = tuple(c for (t, f), r in zip(filings, returns) for c in contractor_rows(r, ex[f["object_id"]]))
-    pairs, gvendors, unmatched = graph_links(GRAPH_EDGES, targets)
-    fp = footprint(contractors, returns, targets, pairs, gvendors)
     by_ein = _group_by_fast(returns, lambda r: r["ein"])
+    names990 = {e: max(v, key=lambda r: r["fiscal_year"])["filer_name_990"] for e, v in by_ein.items()}
+    pairs, gvendors, unmatched = graph_links(GRAPH_EDGES, targets, names990)
+    fp = footprint(contractors, returns, targets, pairs, gvendors)
     universe = tuple({**t, "returns_fy2022_2025_in_index": len(by_ein.get(t["ein"], ())),
                       "returns_parsed": sum(1 for r in by_ein.get(t["ein"], ()) if r["xml_status"] == "ok"),
                       "fiscal_years_parsed": " ".join(sorted({str(r["fiscal_year"]) for r in by_ein.get(t["ein"], ()) if r["xml_status"] == "ok"}))}
@@ -900,7 +907,6 @@ def run_contractors(dafrc, index, cache_dir, fetch, n_total, out_dir, names: Map
     write_csv(os.path.join(out_dir, names["universe"]), universe, UNIVERSE_FIELDS)
     write_csv(os.path.join(out_dir, names["footprint"]), fp, FOOTPRINT_FIELDS)
     if names.get("edges"):
-        names990 = {e: max(v, key=lambda r: r["fiscal_year"])["filer_name_990"] for e, v in by_ein.items()}
         edges = edge_rows(tuple({**c, "compensation": c["compensation"] or 0} for c in contractors), pairs, names990)
         write_csv(os.path.join(out_dir, names["edges"]), edges, EDGE_FIELDS)
     return {"coverage": coverage_stats(targets, index, returns), "graph_sponsors_unmatched": unmatched,

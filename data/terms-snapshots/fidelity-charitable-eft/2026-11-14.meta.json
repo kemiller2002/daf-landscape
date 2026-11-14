@@ -1,0 +1,29 @@
+{
+  "content_type": "text/html;charset=utf-8",
+  "document": "Nonprofit EFT enrollment page",
+  "extractor": "html-parser",
+  "fetched_at_utc": "2026-11-14T11:03:23Z",
+  "final_url": "https://www.fidelitycharitable.org/nonprofits/eft.html",
+  "format": "html",
+  "http_status": "200",
+  "raw_bytes": 124255,
+  "raw_sha256": "85509e96a2c805948ae24bf2b06c70141fd21f2913bed0d81ee1f95aa4a21d83",
+  "slug": "fidelity-charitable-eft",
+  "text_chars": 4356,
+  "text_sha256": "867a32ac0807196e735603f2f807f51aa2364438ee65fe5606838da9341d20bb",
+  "url": "https://www.fidelitycharitable.org/nonprofits/eft.html",
+  "vendor": "Fidelity Charitable",
+  "watch_counts": {
+    "agent": 0,
+    "aggregator": 0,
+    "api": 0,
+    "artificial_intelligence": 0,
+    "automated": 0,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 0,
+    "pass_through": 0,
+    "third_party": 0
+  }
+}

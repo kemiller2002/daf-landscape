@@ -1,0 +1,74 @@
+For Developers
+(opens in a new tab)
+Home
+Getting Started
+Authentication
+Sample code
+AI Agents
+Overview
+MCP Server
+CLI & Skill
+API Reference
+Balance
+Causes
+Contributions
+Donations
+Gifts
+Non Profits
+Pagination
+Users
+Light
+AI Agents
+Overview
+Let an AI agent use your Daffy account
+There are four ways to connect an agent to your Daffy account. They differ in where the agent runs, how it signs in and how much setup it takes, but every one of them acts as you, on your fund, and sees only what you could see in the Daffy app.
+This page helps you pick one. The full references live on the sibling pages: MCP Server and CLI & Skill.
+Pick an option
+MCP server→daffy-cli→Skill file→REST API→
+Best for
+Auth
+Setup
+MCP server
+Chat assistants and IDE agents
+Daffy sign-in (OAuth) or an API key
+Paste the server URL into your client, then sign in
+daffy-cli
+Coding agents, scripts and CI
+API key
+npx daffy-cli auth <your-key>
+Skill file
+Agent frameworks that load skills
+Same as the CLI
+Install one Markdown file as a skill
+REST API
+Your own apps, in any language
+API key
+Write the HTTP calls yourself
+The MCP server is hosted by Daffy, so there is nothing to install; the others run wherever your agent does. The skill file adds no access of its own: it teaches an agent to drive the CLI well.
+You can mix them. An assistant connected over MCP and a coding agent using the CLI both act on the same fund, so a donation made through one shows up when you list donations through the other.
+Getting an API key
+The CLI, the skill file and the REST API all need an API key, and so does the MCP server if your client can't sign in with OAuth. Create one at daffy.org/settings/developers (opens in a new tab): it's shown once, so copy it somewhere safe, and you can revoke it from the same page. See Authentication for the walkthrough.
+Treat the key like a password. Give it to the agent through the environment, the credentials file or your MCP client's configuration rather than pasting it into a prompt, and revoke it if it ever leaks.
+Connecting a chat assistant over the MCP server with OAuth? You don't need a key at all: the client
+asks you to sign in with your Daffy account.
+A taste of each
+MCP server
+Once your client is connected, just ask. The two tools that move money, make_donation and cancel_donation, are annotated as destructive, so clients that honour tool annotations ask you to approve them before they run.
+Find the EIN for Doctors Without Borders, then donate $50 with the note "Keep going".
+Setup for Claude, ChatGPT, Claude Code and other clients is on the MCP Server page.
+daffy-cli
+Every command takes --json, so an agent can parse the output instead of reading a table:
+npx daffy-cli search "doctors without borders" --json
+Commands, flags and agent workflows are on the CLI & Skill page.
+Skill file
+Download daffy-donation-SKILL.md and install it the way your agent framework loads skills; it follows the Claude Code skill format (opens in a new tab). The agent then knows the CLI commands, the required --json/--yes flags, pagination, and the confirmation protocol for anything that moves money. See Skill file for what it covers.
+REST API
+The same account, one HTTPS call at a time:
+curl "https://public.daffy.org/v1/donations" -H 'X-Api-Key: daffy_production_1234'
+Start with Getting Started, then browse the reference for donations, non-profits, balance and gifts.
+Where next
+MCP Server: connecting Claude, ChatGPT and other assistants, and what they can do.
+CLI & Skill: installing and authenticating daffy-cli, every command, and the downloadable skill file.
+Getting Started and the API Reference, starting with users and donations: the REST API the other options are built on.
+daffyorg/examples (opens in a new tab): example agent code and skill files on GitHub.
+Sample codeMCP Server
