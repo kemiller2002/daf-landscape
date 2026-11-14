@@ -190,3 +190,27 @@ The comprehensive industry research plan now has **45 topics across eight pillar
 - **No independent auditor report was inspected.** All other organizations remain unverified in this scoped review; no negative assurance conclusion follows.
 
 No confidential or client-specific material is included.
+
+## Mission 2026-11-14: consolidated report, AI economics, dependency graph, validation
+
+- **[Consolidated DAF industry report (Nov 2026)](DAF-INDUSTRY-REPORT-2026-11.md)**, the current top-level synthesis across all research.
+- [Strategic synthesis A–G](mission-2026-11-14/strategic-synthesis.md): mistaken industry beliefs, what AI changes, incumbent vulnerabilities, what entrants should not build, value shift, falsification criteria, top ten discoveries.
+- [Final status report](mission-2026-11-14/FINAL-STATUS.md) and [baseline inventory and plan](mission-2026-11-14/00-baseline-inventory-and-mission-plan.md).
+- Workstreams:
+  - [AI economics](mission-2026-11-14/ai-economics-replacement-analysis.md)
+  - [AI failure modes](mission-2026-11-14/ai-governance-failure-modes.md)
+  - [AI-native entrant](mission-2026-11-14/ai-native-entrant-simulation.md)
+  - [vendor dependency graph](mission-2026-11-14/vendor-dependency-concentration.md)
+  - [industry incentives](mission-2026-11-14/industry-incentives-structural-analysis.md)
+  - [competitive histories](mission-2026-11-14/competitive-history-timelines.md)
+  - [quantitative datasets](mission-2026-11-14/quantitative-datasets-and-data-dictionary.md)
+  - [regulation, processor share and portability](mission-2026-11-14/regulation-market-structure-portability.md)
+  - [breadth: community, faith, infrastructure](mission-2026-11-14/breadth-community-faith-infrastructure-emerging.md)
+- Validation: [wave 1](mission-2026-11-14/validation-wave1-report.md), [red team 2A](mission-2026-11-14/red-team-wave2a-ai-and-entrant.md), [red team 2B](mission-2026-11-14/red-team-wave2b-graph-data-incentives.md); registers in `data/mission-2026-11-14/validation-register*.csv`.
+- Frameworks: [Clarity/EDF application guide](mission-2026-11-14/clarity-edf-application-guide.md), pinned to the canonical repositories.
+- Reproducible scripts:
+  - `scripts/mission_inventory.py`
+  - `scripts/mission_coverage.py`
+  - `scripts/mission_prioritize.py`
+  - `scripts/mission_daf_metrics.py`
+  - `scripts/mission_build_source_extracts.py`
