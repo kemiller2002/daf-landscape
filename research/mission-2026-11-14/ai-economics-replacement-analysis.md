@@ -28,10 +28,10 @@ Notation: **[F]** = sourced fact; **[I]** = inference by this analysis; **[S]** 
 1. Enumerate 16 processes (15 sponsor-side plus nonprofit-side attribution) and, for each, gather public evidence of volume, effort, technology, compliance hooks and exceptions.
 2. Where evidence is absent (most cases), set **explicit SCENARIO parameters**: annual volume V, share of cases needing human touch e, minutes per touched case m (low/base/high), labor role, rules-amenability b, AI-amenability a, redesign elimination share d, and tokens per case.
 3. Compute the **annual human labor pool** L = V × e × m/60 × loaded rate, then the **gross annual capture** of each intervention before its fixed cost:
-   - A (improve manual workflow): 15% × L
-   - B (conventional automation): 50% × b × L
-   - C (AI on existing workflow): s_C × a × L − QA − inference, with s_C = 40% base, QA = 10% of touched cases re-reviewed at half the original minutes, inference = cases × tokens × Sonnet 5.5 price × 3
-   - D (eliminate/redesign): d × L
+   - A (improve manual workflow): 15% × L ([S] assumption; model: `data/mission-2026-11-14/ai-process-economics.csv`)
+   - B (conventional automation): 50% × b × L ([S] assumption; model: `data/mission-2026-11-14/ai-process-economics.csv`)
+   - C (AI on existing workflow): s_C × a × L − QA − inference, with s_C = 40% base, QA = 10% of touched cases re-reviewed at half the original minutes, inference = cases × tokens × Sonnet 5.5 price ([Anthropic pricing](https://platform.claude.com/docs/en/about-claude/pricing)) × 3 ([S]; model: `data/mission-2026-11-14/ai-process-economics.csv`)
+   - D (eliminate/redesign): d × L ([S]; model: `data/mission-2026-11-14/ai-process-economics.csv`)
 4. Compare gross capture with plausible fixed-cost ranges per intervention type and test the ranking against optimistic/pessimistic AI assumptions.
 
 **Why gross capture rather than net value:** fixed costs (build, licences, governance, model-risk management, integration) are unknown and usually shared across processes. Gross capture tells a buyer the **maximum annual spend an intervention can justify**, which is a more defensible output than an invented net figure. Because L scales linearly with V, e and m, the **ranking of interventions within a process does not change between the low/base/high labor scenarios**; only whether any intervention clears its fixed cost does. Sensitivity therefore focuses on pool size and on the AI parameters.
@@ -48,28 +48,28 @@ Full parameters and evidence fields are in the CSV. "Pool" is the base-case annu
 
 | # | Process | Public evidence on effort / exceptions | Judgment | Base pool [S] | Rank of gross capture [S] | Should the process exist as is? [I] |
 |---|---|---|---|---:|---|---|
-| P01 | Account opening / KYC | None published | Low-Med | $55k | B > D > A > C | Redesign: reuse custodian/adviser KYC |
+| P01 | Account opening / KYC | None published (pool [S]: `data/mission-2026-11-14/ai-process-economics.csv`) | Low-Med | $55k | B > D > A > C | Redesign: reuse custodian/adviser KYC |
 | P02 | Cash & public-securities intake | 170(f)(8)/(18) acknowledgments required ([26 USC 170](https://www.law.cornell.edu/uscode/text/26/170)); no exception data | Low | $44k | D > B > A > C | Redesign: pre-announced transfers with structured fund reference |
 | P03 | Noncash complex assets | Qualified appraisal / Form 8283 ([IRS](https://www.irs.gov/instructions/i8283)); 4943 holdings ([26 USC 4943](https://www.law.cornell.edu/uscode/text/26/4943)) | High | $532k | A > D > B > C (C first if optimistic) | Keep; judgment is the product |
-| P04 | Investment allocation / rebalancing | None | Low | $9k | B > D > A > C | Keep, automated |
+| P04 | Investment allocation / rebalancing | None (pool [S]: `data/mission-2026-11-14/ai-process-economics.csv`) | Low | $9k | B > D > A > C | Keep, automated |
 | P05 | Grant recommendation intake | DAFgiving360 FY2025: 38% recurring, 70%+ unrestricted ([press release](https://www.dafgiving360.org/press-release/fiscal-year-2025-results)) | Low-Med | $174k | D > B > A > C | Redesign: structured purpose and attestation |
 | P06 | Routine eligibility verification | RCF 2023 policy: Charity Check adequate for >98% of historical grants (coverage, not exception rate) ([RCF policy](https://renaissancecharitable.org/wp-content/uploads/2026/02/Grantmaking-Due-Diligence-Policy.pdf)); IRS files monthly | Low | $139k | D > B > A > C | **Should not exist per grant** |
 | P07 | Non-standard grantee due diligence | 4966(c)(1)(B) expenditure responsibility; 4966(d)(4) disqualified supporting orgs ([26 USC 4966](https://www.law.cornell.edu/uscode/text/26/4966)); RCF 2023: ~$4k typical international cost, $50k minimum | High | $1.25M | D > A > B > C | Partially redesign (shared determinations) |
 | P08 | Prohibited/excess-benefit review | 4967: 125% tax on benefited person ([26 USC 4967](https://www.law.cornell.edu/uscode/text/26/4967)); 4958(c)(2) automatic excess benefit ([26 USC 4958](https://www.law.cornell.edu/uscode/text/26/4958)) | Med-High | $462k | D > B > A > C | Keep control; move upstream |
 | P09 | Disbursement & payment | Fidelity: Stripe/ACH paths; review may take 10+ business days ([FAQ](https://www.fidelitycharitable.org/faqs/all/grant-processing-timeline.html)) | Low | $174k | D > B > A > C | **Checks should be phased out** |
-| P10 | Returned/uncashed checks & reconciliation | No public data; repo model bounded under assumptions | Low-Med | $348k | D > B > A > C | **Largely should not exist** |
+| P10 | Returned/uncashed checks & reconciliation | No public data; repo model bounded under assumptions (`research/daf-reconciliation-economics-scenario-model-2026-11-11.md`; pool [S]: `data/mission-2026-11-14/ai-process-economics.csv`) | Low-Med | $348k | D > B > A > C | **Largely should not exist** |
 | P11 | Donor/advisor service inquiries | Fidelity routes servicing to phone; site assistant is navigation-only ([terms](https://www.fidelitycharitable.org/legal/virtual-assistant.html)) | Med | $656k | D > A > B > C | Reduce via proactive status |
-| P12 | Tax receipts & statements | 170(f)(8), (f)(18) content rules | Low | $26k | B > D > A > C | Keep, deterministic |
-| P13 | Succession | None | Med-High | $222k | D > A > B > C | Reduce via pre-registered successors |
+| P12 | Tax receipts & statements | 170(f)(8), (f)(18) content rules ([26 USC 170](https://www.law.cornell.edu/uscode/text/26/170)) | Low | $26k | B > D > A > C | Keep, deterministic |
+| P13 | Succession | None (pool [S]: `data/mission-2026-11-14/ai-process-economics.csv`) | Med-High | $222k | D > A > B > C | Reduce via pre-registered successors |
 | P14 | Fraud/AML/sanctions alerts | OFAC Framework is risk-based ([OFAC 2019](https://ofac.treasury.gov/media/16331/download)); BSA applicability to standalone sponsors not established | Med | $139k | B > D > A > C | Keep |
 | P15 | 990 Schedule D / audit data | 6033(k) DAF reporting ([26 USC 6033](https://www.law.cornell.edu/uscode/text/26/6033)) | Low-Med | $92k | D > B > A > C | Keep; fix data upstream |
-| P16 | Nonprofit-side DAF gift attribution | 1,200+ DAF formats (Chariot citing DAFRC); Chariot AI agent codes gifts | Low | $1.04M (sector-side) | D > B > A > C | **Largely should not exist** |
+| P16 | Nonprofit-side DAF gift attribution | 1,200+ DAF formats (Chariot citing DAFRC); Chariot AI agent codes gifts ([Chariot, 2026-01-28](https://givechariot.com/resources/insights/chariot-launches-first-gift-processing-platform-for-nonprofits)) | Low | $1.04M (sector-side) | D > B > A > C | **Largely should not exist** |
 
 **Totals [S]:** sponsor-side pools (P01–P15) sum to **$0.87M / $4.32M / $18.7M** (low/base/high) at 1M grants. Base gross capture: A $0.65M, B $0.81M, C $0.33M, D $1.81M. These figures are as uncertain as the touch rates and minutes behind them (Section 5). The spread (21×) is itself the main message: **no one can price DAF AI replacement until exception rates and handling times are measured.**
 
 ### Notes on the twelve dimensions requested
 
-- **Current human effort and exception rates:** no sponsor publishes either. The only quantified rate-like figure (RCF's >98% Charity Check adequacy) measures data coverage, and the repo has already rejected using it as an exception rate.
+- **Current human effort and exception rates:** no sponsor publishes either. The only quantified rate-like figure (RCF's >98% Charity Check adequacy, [RCF policy](https://renaissancecharitable.org/wp-content/uploads/2026/02/Grantmaking-Due-Diligence-Policy.pdf)) measures data coverage, and the repo has already rejected using it as an exception rate.
 - **Technology expense:** undisclosed in public sources for every sponsor; repo fee-audit documents cover vendor fees, not operations-technology cost per process.
 - **Compliance:** the federal hooks concentrate in P05–P08 (4966/4967/4958) and P02/P03/P12 (substantiation). Penalties fall on the sponsor (20% of a taxable distribution) and managers (5%, capped at $10,000 per distribution) under 4966, and on donors/advisors (125%) and managers (10%) under 4967 ([26 USC 4966](https://www.law.cornell.edu/uscode/text/26/4966); [26 USC 4967](https://www.law.cornell.edu/uscode/text/26/4967)). These asymmetric stakes are why automated *approval* is the wrong target even where automated *screening* is cheap.
 - **Judgment, oversight cost, QA burden:** high-judgment processes (P03, P07, P08, P13) are exactly where AI output needs the most expensive review, which offsets AI's appeal there.
@@ -96,7 +96,7 @@ But D carries constraints the dollar figures omit:
 
 ### 4.3 Sensitivity of AI value (base pool, gross, USD/yr at 1M grants) [S]
 
-| Process | C pessimistic (s_C 20%, QA 25%) | C base (40%, 10%) | C optimistic (60%, 5%) | Best non-C (base) |
+| Process [S] (`data/mission-2026-11-14/ai-process-economics.csv`) | C pessimistic (s_C 20%, QA 25%) | C base (40%, 10%) | C optimistic (60%, 5%) | Best non-C (base) |
 |---|---:|---:|---:|---:|
 | P03 Complex assets | −30,718 | 46,469 | 97,039 | 79,848 (A or D) |
 | P07 Non-standard DD | −50,417 | 155,441 | 298,918 | 499,050 (D) |
@@ -115,10 +115,10 @@ Readings:
 
 | Intervention | Plausible annual fixed/governance cost range | Processes whose base gross capture clears the low end at 1M grants |
 |---|---|---|
-| A manual improvement | $25k–$100k | P03, P05, P07, P08, P10, P11, P13 |
-| B conventional automation | $100k–$500k | P07 only clears at the low end; most B value requires a shared platform |
-| C AI on workflow | $150k–$750k incl. evaluation, model-risk, security review | P07 only (base); none at the high end |
-| D redesign | $200k–$2M plus coordination | P07, P10, P11 (and P16 sector-side) |
+| A manual improvement | $25k–$100k [S] | P03, P05, P07, P08, P10, P11, P13 (gross values: `data/mission-2026-11-14/ai-process-economics.csv`) |
+| B conventional automation | $100k–$500k [S] | P07 only clears at the low end; most B value requires a shared platform (gross values: `data/mission-2026-11-14/ai-process-economics.csv`) |
+| C AI on workflow | $150k–$750k incl. evaluation, model-risk, security review [S] | P07 only (base); none at the high end (gross values: `data/mission-2026-11-14/ai-process-economics.csv`) |
+| D redesign | $200k–$2M plus coordination [S] | P07, P10, P11 (and P16 sector-side) (gross values: `data/mission-2026-11-14/ai-process-economics.csv`) |
 
 These ranges are assumptions; their purpose is to show that **per-process business cases fail for most DAF processes at sub-Fidelity scale**, which pushes economics toward (i) shared utilities (registry, payment network, remittance standard) and (ii) vendor platforms that amortize AI governance across many sponsors (Ren, TIFIN, Foundation Source/Vennfi, Stellar/iPhi). [I] This is a structural argument for AI being bought from a DAF technology vendor or infrastructure provider rather than built by a mid-sized sponsor.
 
@@ -132,13 +132,13 @@ These ranges are assumptions; their purpose is to show that **per-process busine
 
 | Parameter | Base [S] | Why it matters | What would overturn the ranking |
 |---|---|---|---|
-| A saving 15% uniform | 15% | A could be larger where practice varies across reviewers | Measured reviewer-variance studies |
-| B saving 50% × rules-amenability | 0.2–0.85 | Encodes mature lookups/validation | Evidence that rules are already maxed out (then B ≈ 0 and C rises) |
-| C saving s_C × AI-amenability | 40% × 0.1–0.45 | Single largest AI uncertainty | Time-and-motion trial showing s_C × a > 0.3 with QA ≤ 5% |
-| QA re-review | 10% of touched cases at half minutes | Automation bias pressures QA down; regulators push it up | Measured error/override rates |
+| A saving 15% uniform | 15% [S] (`data/mission-2026-11-14/ai-process-economics.csv`) | A could be larger where practice varies across reviewers | Measured reviewer-variance studies |
+| B saving 50% × rules-amenability | 0.2–0.85 [S] (`data/mission-2026-11-14/ai-process-economics.csv`) | Encodes mature lookups/validation | Evidence that rules are already maxed out (then B ≈ 0 and C rises) |
+| C saving s_C × AI-amenability | 40% × 0.1–0.45 [S] (`data/mission-2026-11-14/ai-process-economics.csv`) | Single largest AI uncertainty | Time-and-motion trial showing s_C × a > 0.3 with QA ≤ 5% |
+| QA re-review | 10% of touched cases at half minutes [S] | Automation bias pressures QA down; regulators push it up | Measured error/override rates |
 | Redesign elimination | 0.15–0.9 | Assumes counterparties adopt | Failure of standards adoption; charities refusing electronic payment |
 | Touch rates and minutes | see CSV | Set pool size, not ranking | Any sponsor time study |
-| Inference multiplier | ×3 | Agents loop | Irrelevant unless >100× (inference remains <1% of labor) |
+| Inference multiplier | ×3 [S] (`data/mission-2026-11-14/ai-process-economics.csv`; price per [Anthropic pricing](https://platform.claude.com/docs/en/about-claude/pricing)) | Agents loop | Irrelevant unless >100× (inference remains <1% of labor) |
 
 **The most important unknowns (to be measured, not modeled):** true exception incidence by type; handling minutes; reviewer error and override rates; share of grants still paid by check; share of service contacts that are status inquiries.
 
@@ -177,14 +177,14 @@ These ranges are assumptions; their purpose is to show that **per-process busine
 
 ## 7. Implications for the repo's existing conclusions
 
-- Consistent with the 2026-11-12 exception model ("prevention before complex AI") and Ren/RCF audit ("instant approval ≠ AI"): this analysis extends the point to 16 processes and adds that **inference cost is negligible, QA cost decisive**.
+- Consistent with the 2026-11-12 exception model ("prevention before complex AI"; `research/daf-grant-exception-unit-economics-evidence-and-sensitivity-2026-11-12.md`) and Ren/RCF audit ("instant approval ≠ AI"; `research/ren-instant-grant-approval-rcf-policy-clarity-audit-2026-11-12.md`): this analysis extends the point to 16 processes and adds that **inference cost is negligible, QA cost decisive**.
 - New: the **unit of AI investment is a shared platform**; per-process AI cases fail at sub-Fidelity scale under every base assumption. This favors vendors that serve many sponsors and infrastructure that serves many charities.
 - New: the **agentic risk surface has moved upstream** (donor-side agents creating recommendations), increasing the importance of the repo's recommendation-vs-approval state separation.
 
 ## 8. Open questions
 
 1. What share of grants at each major sponsor still pays by check, and what fraction of those are reissued or escheated?
-2. What are the true exception incidence and minutes for P06–P08 at any sponsor? (A 90-day time study, as designed in the 2026-11-12 exception document, is the gating evidence.)
+2. What are the true exception incidence and minutes for P06–P08 at any sponsor? (A 90-day time study, as designed in the 2026-11-12 exception document (`research/daf-grant-exception-unit-economics-evidence-and-sensitivity-2026-11-12.md`), is the gating evidence.)
 3. Does TIFIN's Louise execution path stop at a sponsor approval state, and with what limits?
 4. Will Daffy or others add per-agent spending limits, and how do sponsors receiving agent-originated recommendations distinguish them?
 5. Would a Candid/IRS-based continuous status feed be accepted by sponsors' auditors as replacing per-grant verification?
@@ -220,7 +220,7 @@ Market: [TIFIN Louise PR (2025-10-27)](https://www.prnewswire.com/news-releases/
 | inference_tokens_in/out, inference_cost_per_case_usd, inference_cost_annual_base_usd | Tokens per case; cost at Sonnet 5.5 list price ×3 loop multiplier |
 | gross_A/B/C/D_base_usd | Gross annual capture before fixed costs at base [S] |
 | rank_base | Ranking of gross capture |
-| best_if_C_optimistic / best_if_C_pessimistic | Best intervention if s_C=60%/QA=5% or s_C=20%/QA=25% |
+| best_if_C_optimistic / best_if_C_pessimistic | Best intervention if s_C=60%/QA=5% or s_C=20%/QA=25% [S] |
 | recommended_intervention, should_process_exist, rationale | Analytical judgment [I] |
 | evidence_status | Which fields are sourced vs scenario |
 
@@ -242,13 +242,13 @@ Market: [TIFIN Louise PR (2025-10-27)](https://www.prnewswire.com/news-releases/
 ## Red-team corrections (wave 2A, 2026-11-14) — governing
 
 1. **`ai-economics-replacement-analysis.md`, Exec #2.** Replace "This ranking is driven by stated assumptions (Section 5), but the structural reason is robust" with:
-   > "This ranking is determined by stated assumptions: with A fixed at 15% and AI-amenability capped at 0.45, C cannot exceed A in any process (that requires a > 0.50). It is not evidence about AI performance. The directional point — prevent exceptions before automating their handling — rests on reasoning, not on the model."
+   > "This ranking is determined by stated assumptions: with A fixed at 15% and AI-amenability capped at 0.45, C cannot exceed A in any process (that requires a > 0.50). It is not evidence about AI performance. The directional point — prevent exceptions before automating their handling — rests on reasoning, not on the model." ([S]; model: `data/mission-2026-11-14/ai-process-economics.csv`)
 2. **Same doc, §4.3 readings.** Replace "QA intensity is the single most important AI parameter" with:
-   > "QA intensity decides whether AI value is positive; the ranking is driven mainly by the assumed AI-amenability (a) and redesign share (d), both unsourced. With QA = 0, C still ranks last in 12/16 processes at s_C = 40%."
-3. **Same doc, §3 table and CSV `rank_base` for P07.** Annotate: "B and C within $512 (0.3%); treat as tied."
-4. **Same doc, §4.4.** Add P09 to the list of processes where A clears $25k.
+   > "QA intensity decides whether AI value is positive; the ranking is driven mainly by the assumed AI-amenability (a) and redesign share (d), both unsourced. With QA = 0, C still ranks last in 12/16 processes at s_C = 40%." ([S]; model: `data/mission-2026-11-14/ai-process-economics.csv`)
+3. **Same doc, §3 table and CSV `rank_base` for P07.** Annotate: "B and C within $512 (0.3%); treat as tied." ([S]; P07 `gross_B_base_usd` 155,953 vs `gross_C_base_usd` 155,441 in `data/mission-2026-11-14/ai-process-economics.csv`)
+4. **Same doc, §4.4.** Add P09 to the list of processes where A clears $25k ([S]; P09 `gross_A_base_usd` 26,100 in `data/mission-2026-11-14/ai-process-economics.csv`).
 5. **Same doc, §1 #5 and §6.3.** Add:
-   > "Exception: Daffy, which operates its own sponsor (Daffy Charitable Fund), announced back-end AI that unifies charity data and 'flags issues for review' (2025-04-09; announced only)."
+   > "Exception: Daffy, which operates its own sponsor (Daffy Charitable Fund), announced back-end AI that unifies charity data and 'flags issues for review' (2025-04-09; announced only)." ([FF News, 2025-04-09](https://ffnews.com/newsarticle/paytech/daffy-is-using-ai-to-reshape-the-future-of-charitable-giving/))
 
    Also change "at institutional scale" to "at one corporate DAF".
 6. **Same doc, Benevity mentions.** Change "500+ clients" to "500+ clients across Grant Summaries and Match Assurance". Change "match decline rate" to "external match decline rate".
