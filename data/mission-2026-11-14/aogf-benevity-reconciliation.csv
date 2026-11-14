@@ -1,0 +1,161 @@
+fiscal_year_end,fiscal_year,metric,value,unit,basis,note
+2022-03-31,2022,benevity_payment,29274268.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2022-03-31,2022,bluesnap_payment,4739030.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2022-03-31,2022,paypal_payment,753384.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2022-03-31,2022,merchant_fees_part_ix,5951690.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2022-03-31,2022,non_grant_expense,38971479.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2022-03-31,2022,contributions_total,1801253261.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,noncash_contributions,,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),tag absent in the return -> no noncash (securities) contributions reported
+2022-03-31,2022,schedule_m_filed,0.0,count,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,program_service_revenue_admin_fee,22313882.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,investment_income,12939.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,total_revenue,1823580082.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,grants_paid_part_i,1675525576.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,grants_domestic_l1,1630903278.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,grants_foreign_l3,44622298.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,fees_management_l11a,32419026.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,daf_accounts,763149.0,count,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,daf_contributions,1819519485.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,daf_grants,1665156183.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,sched_i_recipients,31735.0,count,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,sched_i_cash_total,1476008544.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,sched_i_cash_at_recipients_ge_cap_threshold,1299719975.0,usd,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,sched_i_recipients_ge_cap_threshold,12495.0,count,990 XML 202340469349301209 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202340469349301209_public.xml),
+2022-03-31,2022,benevity_pct_of_grants,0.017472,ratio,computed,
+2022-03-31,2022,benevity_pct_of_contributions,0.016252,ratio,computed,
+2022-03-31,2022,benevity_pct_of_contributions_plus_admin_fee,0.016053,ratio,computed,
+2022-03-31,2022,benevity_less_admin_fee_revenue,6960386.0,usd,computed,only if the administrative service fee revenue funds part of the Benevity payment (not stated in the return)
+2022-03-31,2022,benevity_less_admin_fee_pct_of_contributions,0.003864,ratio,computed,
+2022-03-31,2022,full_rate_equivalent_share_of_contributions,0.543551,ratio,computed,"Benevity / contributions / 0.0299 (Benevity Foundations Fees Schedule, last updated 2026-10-01, https://go.benevity.com/hubfs/website/en/Benevity-Fees-Schedule.pdf (p.2))"
+2022-03-31,2022,min_share_capped_or_discounted_contributions,0.456449,ratio,computed,1 - full-rate-equivalent share
+2022-03-31,2022,full_rate_equivalent_share_if_admin_fee_funds_part,0.129237,ratio,computed,
+2022-03-31,2022,upper_bound_capped_volume_share_of_grants,0.802341,ratio,computed,"(Sched I $ at recipients >= $16,722 + foreign grants) / grants"
+2022-03-31,2022,merchant_fees_pct_of_grants,0.003552,ratio,computed,
+2022-03-31,2022,min_card_share_of_grants,0.120411,ratio,computed,"merchant fees / grants / 0.0295 (processor share of the card fee <= 0.0295, so a lower bound)"
+2022-03-31,2022,benevity_less_admin_fee_and_investment_income,6947447.0,usd,computed,residual if both revenue lines funded the Benevity payment (not stated in the return)
+2022-03-31,2022,admin_fee_pct_of_contributions,0.012388,ratio,computed,
+2022-03-31,2022,investment_income_pct_of_benevity,0.000442,ratio,computed,
+2022-03-31,2022,noncash_pct_of_contributions,0.0,usd,computed,
+2022-03-31,2022,avg_contribution_per_daf_account,2384.225734,usd,computed,
+2023-03-31,2023,benevity_payment,33485352.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2023-03-31,2023,bluesnap_payment,4635981.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2023-03-31,2023,paypal_payment,1412027.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2023-03-31,2023,merchant_fees_part_ix,5128556.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2023-03-31,2023,non_grant_expense,37938465.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2023-03-31,2023,contributions_total,1731034259.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,noncash_contributions,,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),tag absent in the return -> no noncash (securities) contributions reported
+2023-03-31,2023,schedule_m_filed,0.0,count,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,program_service_revenue_admin_fee,21242500.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,investment_income,3426674.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,total_revenue,1755703433.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,grants_paid_part_i,1721473365.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,grants_domestic_l1,1674467577.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,grants_foreign_l3,47005788.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,fees_management_l11a,32436270.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,daf_accounts,678086.0,count,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,daf_contributions,1751640669.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,daf_grants,1714106332.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,sched_i_recipients,35829.0,count,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,sched_i_cash_total,1529199090.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,sched_i_cash_at_recipients_ge_cap_threshold,1327198754.0,usd,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,sched_i_recipients_ge_cap_threshold,13798.0,count,990 XML 202410469349300741 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202410469349300741_public.xml),
+2023-03-31,2023,benevity_pct_of_grants,0.019452,ratio,computed,
+2023-03-31,2023,benevity_pct_of_contributions,0.019344,ratio,computed,
+2023-03-31,2023,benevity_pct_of_contributions_plus_admin_fee,0.01911,ratio,computed,
+2023-03-31,2023,benevity_less_admin_fee_revenue,12242852.0,usd,computed,only if the administrative service fee revenue funds part of the Benevity payment (not stated in the return)
+2023-03-31,2023,benevity_less_admin_fee_pct_of_contributions,0.007073,ratio,computed,
+2023-03-31,2023,full_rate_equivalent_share_of_contributions,0.646961,ratio,computed,"Benevity / contributions / 0.0299 (Benevity Foundations Fees Schedule, last updated 2026-10-01, https://go.benevity.com/hubfs/website/en/Benevity-Fees-Schedule.pdf (p.2))"
+2023-03-31,2023,min_share_capped_or_discounted_contributions,0.353039,ratio,computed,1 - full-rate-equivalent share
+2023-03-31,2023,full_rate_equivalent_share_if_admin_fee_funds_part,0.236541,ratio,computed,
+2023-03-31,2023,upper_bound_capped_volume_share_of_grants,0.798272,ratio,computed,"(Sched I $ at recipients >= $16,722 + foreign grants) / grants"
+2023-03-31,2023,merchant_fees_pct_of_grants,0.002979,ratio,computed,
+2023-03-31,2023,min_card_share_of_grants,0.100989,ratio,computed,"merchant fees / grants / 0.0295 (processor share of the card fee <= 0.0295, so a lower bound)"
+2023-03-31,2023,benevity_less_admin_fee_and_investment_income,8816178.0,usd,computed,residual if both revenue lines funded the Benevity payment (not stated in the return)
+2023-03-31,2023,admin_fee_pct_of_contributions,0.012272,ratio,computed,
+2023-03-31,2023,investment_income_pct_of_benevity,0.102334,ratio,computed,
+2023-03-31,2023,noncash_pct_of_contributions,0.0,usd,computed,
+2023-03-31,2023,avg_contribution_per_daf_account,2583.213146,usd,computed,
+2024-03-31,2024,benevity_payment,45968145.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2024-03-31,2024,bluesnap_payment,5040419.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2024-03-31,2024,paypal_payment,754004.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2024-03-31,2024,merchant_fees_part_ix,5793489.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2024-03-31,2024,non_grant_expense,62425699.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2024-03-31,2024,contributions_total,2035366731.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,noncash_contributions,,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),tag absent in the return -> no noncash (securities) contributions reported
+2024-03-31,2024,schedule_m_filed,0.0,count,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,program_service_revenue_admin_fee,24931688.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,investment_income,10672614.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,total_revenue,2070971033.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,grants_paid_part_i,1953619162.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,grants_domestic_l1,1896056972.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,grants_foreign_l3,57562190.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,fees_management_l11a,54577401.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,daf_accounts,720545.0,count,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,daf_contributions,2056906750.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,daf_grants,1950227494.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,sched_i_recipients,40985.0,count,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,sched_i_cash_total,1749293136.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,sched_i_cash_at_recipients_ge_cap_threshold,1520065353.0,usd,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,sched_i_recipients_ge_cap_threshold,16002.0,count,990 XML 202530159349302758 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202530159349302758_public.xml),
+2024-03-31,2024,benevity_pct_of_grants,0.02353,ratio,computed,
+2024-03-31,2024,benevity_pct_of_contributions,0.022585,ratio,computed,
+2024-03-31,2024,benevity_pct_of_contributions_plus_admin_fee,0.022311,ratio,computed,
+2024-03-31,2024,benevity_less_admin_fee_revenue,21036457.0,usd,computed,only if the administrative service fee revenue funds part of the Benevity payment (not stated in the return)
+2024-03-31,2024,benevity_less_admin_fee_pct_of_contributions,0.010335,ratio,computed,
+2024-03-31,2024,full_rate_equivalent_share_of_contributions,0.755341,ratio,computed,"Benevity / contributions / 0.0299 (Benevity Foundations Fees Schedule, last updated 2026-10-01, https://go.benevity.com/hubfs/website/en/Benevity-Fees-Schedule.pdf (p.2))"
+2024-03-31,2024,min_share_capped_or_discounted_contributions,0.244659,ratio,computed,1 - full-rate-equivalent share
+2024-03-31,2024,full_rate_equivalent_share_if_admin_fee_funds_part,0.345668,ratio,computed,
+2024-03-31,2024,upper_bound_capped_volume_share_of_grants,0.807541,ratio,computed,"(Sched I $ at recipients >= $16,722 + foreign grants) / grants"
+2024-03-31,2024,merchant_fees_pct_of_grants,0.002966,ratio,computed,
+2024-03-31,2024,min_card_share_of_grants,0.100526,ratio,computed,"merchant fees / grants / 0.0295 (processor share of the card fee <= 0.0295, so a lower bound)"
+2024-03-31,2024,benevity_less_admin_fee_and_investment_income,10363843.0,usd,computed,residual if both revenue lines funded the Benevity payment (not stated in the return)
+2024-03-31,2024,admin_fee_pct_of_contributions,0.012249,ratio,computed,
+2024-03-31,2024,investment_income_pct_of_benevity,0.232174,ratio,computed,
+2024-03-31,2024,noncash_pct_of_contributions,0.0,usd,computed,
+2024-03-31,2024,avg_contribution_per_daf_account,2854.654116,usd,computed,
+2025-03-31,2025,benevity_payment,54453559.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2025-03-31,2025,bluesnap_payment,5539920.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2025-03-31,2025,paypal_payment,734061.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2025-03-31,2025,merchant_fees_part_ix,6484944.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2025-03-31,2025,non_grant_expense,61698183.0,usd,processor-vendor-economics-990.csv (from 990 Part VII-B / Part IX),
+2025-03-31,2025,contributions_total,2027047275.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,noncash_contributions,,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),tag absent in the return -> no noncash (securities) contributions reported
+2025-03-31,2025,schedule_m_filed,0.0,count,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,program_service_revenue_admin_fee,27455940.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,investment_income,11042488.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,total_revenue,2065545703.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,grants_paid_part_i,2125739182.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,grants_domestic_l1,2060606474.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,grants_foreign_l3,65132708.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,fees_management_l11a,54685090.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,daf_accounts,710352.0,count,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,daf_contributions,2052883248.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,daf_grants,2124119215.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,sched_i_recipients,44583.0,count,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,sched_i_cash_total,1897031384.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,sched_i_cash_at_recipients_ge_cap_threshold,1649379714.0,usd,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,sched_i_recipients_ge_cap_threshold,17737.0,count,990 XML 202641969349302754 (https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641969349302754_public.xml),
+2025-03-31,2025,benevity_pct_of_grants,0.025616,ratio,computed,
+2025-03-31,2025,benevity_pct_of_contributions,0.026863,ratio,computed,
+2025-03-31,2025,benevity_pct_of_contributions_plus_admin_fee,0.026504,ratio,computed,
+2025-03-31,2025,benevity_less_admin_fee_revenue,26997619.0,usd,computed,only if the administrative service fee revenue funds part of the Benevity payment (not stated in the return)
+2025-03-31,2025,benevity_less_admin_fee_pct_of_contributions,0.013319,ratio,computed,
+2025-03-31,2025,full_rate_equivalent_share_of_contributions,0.898444,ratio,computed,"Benevity / contributions / 0.0299 (Benevity Foundations Fees Schedule, last updated 2026-10-01, https://go.benevity.com/hubfs/website/en/Benevity-Fees-Schedule.pdf (p.2))"
+2025-03-31,2025,min_share_capped_or_discounted_contributions,0.101556,ratio,computed,1 - full-rate-equivalent share
+2025-03-31,2025,full_rate_equivalent_share_if_admin_fee_funds_part,0.445441,ratio,computed,
+2025-03-31,2025,upper_bound_capped_volume_share_of_grants,0.806549,ratio,computed,"(Sched I $ at recipients >= $16,722 + foreign grants) / grants"
+2025-03-31,2025,merchant_fees_pct_of_grants,0.003051,ratio,computed,
+2025-03-31,2025,min_card_share_of_grants,0.103413,ratio,computed,"merchant fees / grants / 0.0295 (processor share of the card fee <= 0.0295, so a lower bound)"
+2025-03-31,2025,benevity_less_admin_fee_and_investment_income,15955131.0,usd,computed,residual if both revenue lines funded the Benevity payment (not stated in the return)
+2025-03-31,2025,admin_fee_pct_of_contributions,0.013545,ratio,computed,
+2025-03-31,2025,investment_income_pct_of_benevity,0.202787,ratio,computed,
+2025-03-31,2025,noncash_pct_of_contributions,0.0,usd,computed,
+2025-03-31,2025,avg_contribution_per_daf_account,2889.952091,usd,computed,
+2025-03-31,2025,sched_a_admin_service_fee_tax_year_2020,19557045.0,usd,990 XML 202641969349302754 Schedule A support schedule,tax year = FYE March of the following year
+2025-03-31,2025,sched_a_admin_service_fee_tax_year_2021,22313882.0,usd,990 XML 202641969349302754 Schedule A support schedule,tax year = FYE March of the following year
+2025-03-31,2025,sched_a_admin_service_fee_tax_year_2022,21242500.0,usd,990 XML 202641969349302754 Schedule A support schedule,tax year = FYE March of the following year
+2025-03-31,2025,sched_a_admin_service_fee_tax_year_2023,24931688.0,usd,990 XML 202641969349302754 Schedule A support schedule,tax year = FYE March of the following year
+2025-03-31,2025,sched_a_admin_service_fee_tax_year_2024,27455940.0,usd,990 XML 202641969349302754 Schedule A support schedule,tax year = FYE March of the following year
+,ALL,published_cause_support_fee,0.0299,ratio,"Benevity Foundations Fees Schedule, last updated 2026-10-01, https://go.benevity.com/hubfs/website/en/Benevity-Fees-Schedule.pdf (p.2)",per donation; may differ under a client's master agreement
+,ALL,published_cause_support_fee_cap,500.0,usd,"Benevity Foundations Fees Schedule, last updated 2026-10-01, https://go.benevity.com/hubfs/website/en/Benevity-Fees-Schedule.pdf (p.2)",per donation; the CAP does not apply to matching transactions or gifts of securities
+,ALL,cap_threshold_donation_size,16722.41,usd,computed,500 / 0.0299

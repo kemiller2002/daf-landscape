@@ -270,3 +270,7 @@ Governing corrections W4-10 and W4-11 apply. The Stripe reserve is $1.45M per Fl
 
 ### `queue-proposals-processor-profiles.csv`
 Format per [`queue-proposals-README.md`](../../data/mission-2026-11-14/queue-proposals-README.md). Prefix `P-PRC-`.
+
+## Correction (2026-11-14, from queue-bdc-fix-labour-benevity.md) — governing
+
+Benevity's published schedule waives the **$500 cap**, not the 2.99% fee, for matching gifts and securities, so those gifts pay the full 2.99%. They cannot explain AOGF's lower effective rate. AOGF's payment as a share of contributions (1.63% to 2.69%) implies the share of gifts paying the full fee rose from about 54% to 90%. The 990 cannot say whether gift mix or contract terms drove this. See [queue-bdc-fix-labour-benevity.md](queue-bdc-fix-labour-benevity.md).

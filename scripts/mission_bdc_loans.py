@@ -12,7 +12,17 @@ value. This script:
      par / cost / fair value with simple heuristics. Raw cells are kept for audit.
 No numbers are typed by hand: everything in the output comes from the filing text.
 
-Output: data/mission-2026-11-14/bdc-loans-daf-ecosystem.csv (one row per schedule line)
+Q-N15 fix (2026-11-14): 10-K/10-Q schedules print a prior-period comparative schedule (prior fiscal year-end) after
+the current one, so stamping every row with the filing's period mislabels comparatives. Each row now carries its own
+`period_ending` (= `row_period`), taken from (1) the inline-XBRL contexts referenced inside the row
+(<xbrli:instant>/<xbrli:endDate>), else (2) the nearest preceding "Schedule(s) of Investments ... <date>" heading,
+else (3) the filing period (flagged). The filing's own period moves to `filing_period_ending`. Rows that repeat the
+same schedule line (same lender, borrower, instrument terms, par, fair value and row period) across filings are
+deduplicated, preferring the filing whose own period equals the row period. A latest-mark-per-loan table is written
+alongside (bdc-loans-latest-marks.csv).
+
+Output: data/mission-2026-11-14/bdc-loans-daf-ecosystem.csv (one row per schedule line per period, deduplicated)
+        data/mission-2026-11-14/bdc-loans-latest-marks.csv (one row per loan tranche at the lender's latest period)
         CACHE/edgar_hits.json (search hits), CACHE/edgar_docs/*.htm (filing documents)
 Usage:  python3 scripts/mission_bdc_loans.py --cache-dir CACHE [--fetch]
 Stdlib only; functional style (pure transforms, I/O at the edges).
@@ -20,6 +30,7 @@ Stdlib only; functional style (pure transforms, I/O at the edges).
 from __future__ import annotations
 
 import argparse
+import bisect
 import html
 import json
 import os
@@ -36,6 +47,7 @@ import mission_990_contractors as m990  # noqa: E402
 
 DATA = m990.DATA
 OUT = os.path.join(DATA, "bdc-loans-daf-ecosystem.csv")
+OUT_LATEST = os.path.join(DATA, "bdc-loans-latest-marks.csv")
 UA = {"User-Agent": "research-client contact@example.org"}
 EFTS = "https://efts.sec.gov/LATEST/search-index"
 START, END = "2021-01-01", "2026-11-14"
@@ -160,8 +172,59 @@ def cells_of(tr: str) -> tuple[str, ...]:
     return tuple(c for c in raw if c and c not in ("$", "%", ")", "(", "€", "£", "C$"))
 
 
+def tr_matches(text: str) -> tuple:
+    return tuple(re.finditer(r"<tr[\s>].*?</tr>", text, flags=re.I | re.S))
+
+
 def table_rows(text: str) -> tuple[tuple[str, ...], ...]:
-    return tuple(cells_of(m.group(0)) for m in re.finditer(r"<tr[\s>].*?</tr>", text, flags=re.I | re.S))
+    return tuple(cells_of(m.group(0)) for m in tr_matches(text))
+
+
+# ----------------------------------------------------------------------------- row period (Q-N15)
+MONTHS = {m: i + 1 for i, m in enumerate(("january", "february", "march", "april", "may", "june", "july", "august",
+                                          "september", "october", "november", "december"))}
+LONGDATE = re.compile(r"(January|February|March|April|May|June|July|August|September|October|November|December)"
+                      r"\s+(\d{1,2})\s*,\s*(\d{4})", re.I)
+SOI_HEAD = re.compile(r"Schedules?(?:\s|&#160;|&nbsp;|<[^>]+>)+of(?:\s|&#160;|&nbsp;|<[^>]+>)+Investments", re.I)
+
+
+def plain_text(raw: str) -> str:
+    return re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", raw))).replace("\xa0", " ").strip()
+
+
+def iso_date(m) -> str:
+    return f"{int(m.group(3)):04d}-{MONTHS[m.group(1).lower()]:02d}-{int(m.group(2)):02d}"
+
+
+def xbrl_context_dates(text: str) -> dict:
+    """Inline-XBRL context id -> period date (instant, else duration end date)."""
+    ctx = re.finditer(r"<xbrli:context\b[^>]*\bid=\"([^\"]+)\"[^>]*>(.*?)</xbrli:context>", text, flags=re.I | re.S)
+    return {m.group(1): d.group(1) for m in ctx
+            for d in (re.search(r"<xbrli:(?:instant|endDate)>\s*(\d{4}-\d{2}-\d{2})", m.group(2), re.I),) if d}
+
+
+def schedule_headings(text: str) -> tuple[tuple[int, str], ...]:
+    """(position, ISO date) for each 'Schedule(s) of Investments' heading followed by exactly one date within
+    ~160 characters of plain text (headings that list two dates, e.g. table-of-contents or note text, are skipped)."""
+    def one(m):
+        tail = plain_text(text[m.end():m.end() + 3000])[:160]
+        d = LONGDATE.search(tail)
+        two = d is not None and re.match(r"\s*(?:and|,)\s*(?:\w+\s+\d{1,2},\s*)?\d{4}", tail[d.end():])
+        return (m.start(), iso_date(d)) if d is not None and d.start() < 60 and not two else None
+    return tuple(h for h in (one(m) for m in SOI_HEAD.finditer(text)) if h)
+
+
+def row_period(raw_row: str, start: int, ctx: Mapping, heads: Sequence, filing_period: str) -> dict:
+    """Own period of a schedule row: XBRL contexts in the row > preceding schedule heading > filing period."""
+    refs = re.findall(r"contextRef=\"([^\"]+)\"", raw_row, flags=re.I)
+    xd = tuple(sorted({ctx[r] for r in refs if r in ctx}))
+    x = xd[-1] if xd else ""  # rows with current + prior columns (commitment notes): take the current (latest) date
+    k = bisect.bisect_right(tuple(p for p, _ in heads), start) - 1
+    h = heads[k][1] if k >= 0 else ""
+    src = "xbrl_context" if x else ("schedule_heading" if h else "filing_period_fallback")
+    return {"period_ending": x or h or filing_period, "row_period_source": src, "row_period_xbrl": x,
+            "row_period_heading": h, "row_period_conflict": ";".join(c for c in ("xbrl_vs_heading" if x and h and x != h else "",
+                                                       "multi_xbrl_dates:" + "|".join(xd) if len(xd) > 1 else "") if c)}
 
 
 def matched_rows(rows: Sequence[tuple], rx: str) -> tuple[tuple[int, tuple], ...]:
@@ -273,20 +336,26 @@ def units_hint(text: str) -> str:
 
 def rows_for_filing(f: Mapping, text: str) -> tuple[dict, ...]:
     target, rx = next((t, r) for t, p, r in TARGETS if p == f["phrase"])
-    rows = table_rows(text)
+    trs = tr_matches(text)
+    rows = tuple(cells_of(m.group(0)) for m in trs)
     hint = units_hint(text)
     hits = matched_rows(rows, rx)
+    ctx = xbrl_context_dates(text) if hits else {}
+    heads = schedule_headings(text) if hits else ()
     def name_for(i, r):
         return r[0] if re.search(rx, r[0], re.I) else next((rows[k][0] for k in range(i, -1, -1) if rows[k] and re.search(rx, rows[k][0], re.I)), "")
     out = tuple({"target_company": target, "edgar_phrase": f["phrase"], "lender_bdc": f["entity"], "lender_cik": f["cik"],
                  "file_num": f["file_num"], "form": f["form"], "filing_date": f["file_date"],
-                 "period_ending": f["period_ending"], "which_filing": f["which"], "units_hint": hint,
-                 "table_row_index": i, **parse_row(r, name_for(i, r)), "filing_url": f["url"], "efts_query_url": f["query_url"]}
+                 "filing_period_ending": f["period_ending"], "adsh": f["adsh"], "which_filing": f["which"], "units_hint": hint,
+                 "table_row_index": i, **parse_row(r, name_for(i, r)),
+                 **row_period(trs[i].group(0), trs[i].start(), ctx, heads, f["period_ending"]),
+                 "filing_url": f["url"], "efts_query_url": f["query_url"]}
                 for i, r in hits)
     return out if out else ({"target_company": target, "edgar_phrase": f["phrase"], "lender_bdc": f["entity"],
                              "lender_cik": f["cik"], "file_num": f["file_num"], "form": f["form"],
                              "filing_date": f["file_date"], "period_ending": f["period_ending"],
-                             "which_filing": f["which"], "units_hint": hint, "row_type": "text_hit_no_table_row",
+                             "filing_period_ending": f["period_ending"], "adsh": f["adsh"],
+                             "row_period_source": "filing_period_fallback", "which_filing": f["which"], "units_hint": hint, "row_type": "text_hit_no_table_row",
                              "filing_url": f["url"], "efts_query_url": f["query_url"]},)
 
 
@@ -318,8 +387,8 @@ def identity_note(r: Mapping) -> str:
         if re.search(r"cybergrants|everyaction", raw + r.get("borrower_name_as_listed", ""), re.I) or "2027" in mat:
             return "linked: CyberGrants/EveryAction lineage facility (Apax; CyberGrants Holdings renamed Bonterra LLC)"
         if "2032" in mat:
-            return ("unconfirmed: same name 'Bonterra LLC', 3/5/2032 facility; FS KKR lists Software & Services, AB lists "
-                    "Diversified Consumer Services; 2027 Apax facility still held by other BDCs at the same dates")
+            return ("probable: 2025 refinancing of Apax Bonterra (AB 'Software & Tech Services' label; "
+                    "2027 holders exited 2025)")
         return "unconfirmed: name match only"
     return {"Foundation Source": "probable: exact name; Audax was the 2020 lender; 9/6/2030 maturity fits the Sept-2023 GTCR buyout",
             "Orion Advisor Solutions": "confirmed: exact legal name",
@@ -337,10 +406,124 @@ def no_hit_rows(hits: Sequence[Mapping]) -> tuple[dict, ...]:
 
 
 FIELDS = ("target_company", "identity_note", "edgar_phrase", "borrower_name_as_listed", "lender_bdc", "lender_cik", "file_num", "form",
-          "filing_date", "period_ending", "which_filing", "row_type", "instrument", "ref_rate", "spread_pct",
+          "filing_date", "adsh", "period_ending", "filing_period_ending", "is_comparative", "row_period_source", "row_period_xbrl",
+          "row_period_heading", "row_period_conflict", "dup_count", "dup_filings", "also_matched_phrases", "which_filing", "row_type", "instrument", "ref_rate", "spread_pct",
           "floor_pct", "pik_flag", "dates_in_row", "maturity", "par_or_principal", "amortized_cost", "fair_value",
           "units_hint", "fv_pct_of_par", "fv_pct_of_cost", "below_par_signal", "parse_check", "table_row_index", "row_cells_raw",
           "filing_url", "efts_query_url")
+
+
+# ----------------------------------------------------------------------------- dedupe + latest marks (Q-N15)
+LOAN_TYPES = ("debt", "revolver_or_ddtl_commitment_basis", "unfunded_or_zero_position", "possible_unfunded_commitment", "equity")
+
+
+def norm_name(x: str) -> str:
+    return re.sub(r"[^a-z0-9]", "", re.sub(r"\(.*?\)|\b(llc|inc|corp|lp|l\.p|ltd|co)\b\.?", "", (x or "").lower()))
+
+
+def fnum(x) -> str:
+    v = num(x)
+    return "" if v is None else f"{v:.4f}"
+
+
+def line_key(r: Mapping) -> tuple:
+    """(lender, borrower, instrument, period) - instrument identity includes the terms, par and fair value, because
+    the instrument label alone ('One stop', 'First Lien Term Loan') does not distinguish tranches of one facility."""
+    return (r.get("lender_cik", ""), norm_name(r.get("borrower_name_as_listed", "")), (r.get("instrument") or "").lower(),
+            r.get("ref_rate", ""), fnum(r.get("spread_pct")), r.get("pik_flag", ""), r.get("maturity", ""),
+            fnum(r.get("par_or_principal")), fnum(r.get("fair_value")), r.get("row_type", ""), r.get("period_ending", ""))
+
+
+def dedupe(rows: Sequence[Mapping]) -> tuple[dict, ...]:
+    """Keep every table row of ONE filing per line_key (rows of a single filing are distinct schedule lines);
+    prefer the filing whose own period equals the row period, then the earliest filing date. Rows without a table
+    row (no-hit / text-hit rows) pass through. Output order follows the input order."""
+    seen, tab, also = set(), (), {}
+    for r in rows:  # stage 1: one filing row matched by two EDGAR phrases (e.g. Bonterra + CyberGrants) -> first target wins
+        if r.get("table_row_index") in (None, ""):
+            continue
+        k = (r["adsh"], r["table_row_index"])
+        if k in seen:
+            also[k] = also.get(k, ()) + (r["edgar_phrase"],)
+        else:
+            seen.add(k)
+            tab += (r,)
+    rows = tuple(r for r in rows if r.get("table_row_index") in (None, "") or any(r is t for t in tab))
+    groups = {}
+    for r in tab:
+        groups.setdefault(line_key(r), []).append(r)
+    def pick(rs):
+        best = min(rs, key=lambda r: (r.get("filing_period_ending") != r.get("period_ending"), r.get("filing_date", ""), r.get("adsh", "")))
+        return best["adsh"]
+    keep = {k: pick(v) for k, v in groups.items()}
+    meta = {k: (len({r["adsh"] for r in v}), ";".join(sorted({r["adsh"] for r in v}))) for k, v in groups.items()}
+    def tabular(r):
+        return r.get("table_row_index") not in (None, "")
+    return tuple({**r, "is_comparative": "yes" if r.get("period_ending") != r.get("filing_period_ending") else "",
+                  "dup_count": meta[line_key(r)][0], "dup_filings": meta[line_key(r)][1],
+                  "also_matched_phrases": ";".join(also.get((r["adsh"], r["table_row_index"]), ()))} if tabular(r) else
+                 {**r, "is_comparative": "", "dup_count": 1, "dup_filings": r.get("adsh", "")}
+                 for r in rows if not tabular(r) or r["adsh"] == keep[line_key(r)])
+
+
+def target_group(r: Mapping) -> str:
+    """Legacy-name phrases (e.g. 'Bonterra (Apax) - legacy CyberGrants') belong to the same company group."""
+    return (r.get("target_company") or "").split(" - legacy")[0]
+
+
+def maturity_month(m: str) -> str:
+    """'9/8/2027', '09/08/2027', '09/2027', '03/2032' -> 'YYYY-MM' (facility identity; the day is printed inconsistently)."""
+    a = re.fullmatch(r"(\d{1,2})/(?:\d{1,2}/)?(\d{2,4})", (m or "").strip())
+    if not a:
+        return (m or "").strip()
+    y = int(a.group(2))
+    return f"{y + 2000 if y < 100 else y:04d}-{int(a.group(1)):02d}"
+
+
+def facility_key(r: Mapping) -> tuple:
+    """(lender, company group, maturity month) for debt; instrument label for equity / undated rows. The borrower name
+    is not in the key because lenders rename it over time (CyberGrants Holdings -> Bonterra LLC (fka ...))."""
+    return (r.get("lender_cik", ""), target_group(r), maturity_month(r.get("maturity", "")) or
+            "instr:" + (r.get("instrument") or "").lower())
+
+
+def latest_marks(rows: Sequence[Mapping]) -> tuple[dict, ...]:
+    """Per (lender, target, borrower, maturity) facility: all tranche rows at the facility's latest row period, plus
+    the lender's latest schedule date for that target (latest filing period searched) and a status flag. Rows whose
+    cells reference two XBRL periods (unfunded-commitment notes printing current | prior columns) are excluded."""
+    loans = tuple(r for r in rows if r.get("row_type") in LOAN_TYPES  # two-period commitment-note rows are not marks
+                  and "multi_xbrl_dates" not in (r.get("row_period_conflict") or ""))
+    lender_latest = {}
+    for r in rows:
+        k = (r.get("lender_cik", ""), target_group(r))
+        lender_latest[k] = max(lender_latest.get(k, ""), r.get("filing_period_ending") or "")
+    fac_latest = {}
+    for r in loans:
+        fac_latest[facility_key(r)] = max(fac_latest.get(facility_key(r), ""), r["period_ending"])
+    at = tuple(r for r in loans if r["period_ending"] == fac_latest[facility_key(r)])
+    def agg(k):
+        rs = tuple(r for r in at if facility_key(r) == k and r.get("row_type") == "debt")
+        par = sum(num(r.get("par_or_principal")) or 0 for r in rs)
+        fv = sum(num(r.get("fair_value")) or 0 for r in rs)
+        return (round(par, 4), round(fv, 4), round(100 * fv / par, 2) if par else None)
+    aggs = {k: agg(k) for k in {facility_key(r) for r in at}}
+    def status(r):
+        ll = lender_latest[(r.get("lender_cik", ""), target_group(r))]
+        return "held_at_lender_latest_period" if r["period_ending"] >= ll else f"not_in_schedule_at_{ll}"
+    out = tuple({**r, "company_group": target_group(r), "maturity_month": maturity_month(r.get("maturity", "")),
+                 "lender_latest_schedule_period": lender_latest[(r.get("lender_cik", ""), target_group(r))],
+                 "status": status(r), "facility_debt_par": aggs[facility_key(r)][0],
+                 "facility_debt_fv": aggs[facility_key(r)][1], "facility_fv_pct_of_par": aggs[facility_key(r)][2]} for r in at)
+    return tuple(sorted(out, key=lambda r: (r["company_group"], r["lender_bdc"], r["maturity_month"], r["period_ending"],
+                                            int(r["table_row_index"]))))
+
+
+LATEST_FIELDS = ("company_group", "target_company", "identity_note", "borrower_name_as_listed", "lender_bdc", "lender_cik", "period_ending",
+                 "row_period_source", "lender_latest_schedule_period", "status", "row_type", "instrument", "ref_rate",
+                 "spread_pct", "floor_pct", "pik_flag", "maturity", "maturity_month", "par_or_principal", "amortized_cost",
+                 "fair_value", "units_hint", "fv_pct_of_par", "fv_pct_of_cost", "below_par_signal", "parse_check",
+                 "facility_debt_par", "facility_debt_fv", "facility_fv_pct_of_par", "form", "filing_date",
+                 "filing_period_ending", "is_comparative", "table_row_index", "row_cells_raw", "filing_url")
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -350,10 +533,19 @@ def main(argv: Sequence[str] | None = None) -> int:
     a = ap.parse_args(argv)
     hits = cached_hits(a.cache_dir, a.fetch)
     filings = select_filings(hits)
-    rows = tuple({**r, "below_par_signal": below_par(r), "identity_note": identity_note(r), "parse_check": parse_check(r)} for f in filings
-                 for r in rows_for_filing(f, doc_text(a.cache_dir, f["url"], a.fetch))) + no_hit_rows(hits)
+    raw = tuple({**r, "below_par_signal": below_par(r), "identity_note": identity_note(r), "parse_check": parse_check(r)} for f in filings
+                for r in rows_for_filing(f, doc_text(a.cache_dir, f["url"], a.fetch))) + no_hit_rows(hits)
+    rows = dedupe(raw)
+    latest = latest_marks(rows)
     m990.write_csv(OUT, rows, FIELDS)
-    print(f"hits={len(hits)} bdc_filings={len(filings)} rows={len(rows)}")
+    m990.write_csv(OUT_LATEST, latest, LATEST_FIELDS)
+    cnt = lambda rs, f: sum(1 for r in rs if f(r))
+    print(f"hits={len(hits)} bdc_filings={len(filings)} rows_before_dedupe={len(raw)} rows_after_dedupe={len(rows)} "
+          f"latest_mark_rows={len(latest)}")
+    print("comparative rows (row period != filing period):", cnt(raw, lambda r: r.get("filing_period_ending") and r["period_ending"] != r["filing_period_ending"]),
+          "| row_period_source:", {k: cnt(raw, lambda r, k=k: r.get("row_period_source") == k) for k in
+                                   ("xbrl_context", "schedule_heading", "filing_period_fallback")},
+          "| period conflicts flagged:", cnt(raw, lambda r: bool(r.get("row_period_conflict"))))
     by = {}
     for h in hits:
         by.setdefault(h["phrase"], set()).add((h["entity"], h["file_num"].startswith("814-")))
