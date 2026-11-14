@@ -295,6 +295,22 @@ This is the repository's own evidence-scored positioning method. It is **not** a
 
 \*NPT GivingPoint is Ren-built and Ren-hosted on wave-3 evidence. Its row is mis-scoped and should be merged into Ren at the next re-score.
 
+**v1.1 re-score (fresh scorer under the tightened rules; [quadrant-v11-rescore.md](mission-2026-11-14/quadrant-v11-rescore.md)).** 30 of 42 providers keep their v1.0 consensus quadrant. Of the 12 that move, 7 sit on a midline in both versions. The 5 substantive changes:
+- **DAFgiving360 (A3/A4) → Scale Operators.** Its DAFpay evidence now belongs to the vendor, it documents only inbound transfers, and the only rail it documents is the mailed check.
+- **NPT (A3) → insufficient evidence.** GivingPoint was merged into Ren, and its 2-page summary statements score U on assurance.
+- **Ren Rapid Disbursement Engine → insufficient evidence.** Nothing public covers the engine's API, controls or portability.
+- **Givinga (A1) → insufficient evidence.**
+- **Fidelity → Proven Leaders (boundary).** This rests on the scorer's reading, not new evidence, so treat it as unresolved.
+
+New evidence: GiveClear's audited 2024 statements, which carry an unmodified opinion.
+
+The v1.1 AI overlay has no GREEN providers:
+- **RED (provisional):** Benevity Match Assurance.
+- **AMBER (near red):** TIFIN Give/GiveClear Louise.
+- **AMBER:** Daffy MCP, Chariot, Foundant, Blackbaud, Goodstack, and Candid (low).
+
+v1.1 positions are a single fresh scorer and are **not yet calibrated**. The v1.0 consensus table above remains the reference until a blind v1.1 second scorer runs (queued).
+
 **What the quadrants show.**
 - **Most providers sit near the midlines.** Forward-capability evidence (data export, SOC scope, portability terms) is the scarcest input, so the uncertainty bands are wide.
 - **The bank-affiliated programs are opaque.** Goldman, Morgan Stanley GIFT and BofA CGF cannot be placed on public evidence.
