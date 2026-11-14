@@ -414,6 +414,21 @@ No public contract at Daffy, TIFIN Give/GiveClear, Endaoment or Chariot treats a
 - Available on request only: Daffy and AEF.
 - Not public or not reachable: GS PF, MS GIFT and BofA CGF post nothing, and NPT posts summaries only.
 
+**AI economics v2 on observed costs** ([ai-economics-v2-observed-costs.md](mission-2026-11-14/ai-economics-v2-observed-costs.md); `scripts/mission_ai_economics_v2.py`, seeded Monte Carlo with 10,000 draws)
+
+Cost pools are anchored to Form 990 operating cost with elasticity-based scaling. The process-handling share, amenability, redesign share, QA rate and fixed costs remain stated assumptions.
+
+What survives from v1:
+- Redesign or conventional fixes are the most likely winners in all 16 processes.
+- AI on the existing workflow ranks first in at most 17% of draws.
+- Inference cost is immaterial.
+- One AI project exceeds the entire IT line of a $250m community foundation in 67% of draws.
+
+What changes:
+- "AI ranks last everywhere" fails for complex-asset and non-standard-grantee review.
+- A shared AI platform breaks even in 43% of draws with the five largest nationals in the network, and in 0.4% with community foundations under $250m alone.
+- A $120k/yr AI product cannot be funded from process savings below about $1bn of DAF assets. The economic buyer is an administrator or platform vendor, not an individual sponsor.
+
 **Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
 - Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
 - The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.

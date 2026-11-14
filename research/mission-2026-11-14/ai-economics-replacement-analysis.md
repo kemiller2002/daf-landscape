@@ -266,3 +266,7 @@ The Form 990 cost-structure analysis ([sponsor-cost-structure-and-sensitivities.
 - **Confirmed:** the $150k–$750k AI fixed-cost hurdle is prohibitive below about $250m of DAF assets, where median community-foundation IT spend is $17k–$116k.
 
 Observed cost per grant is about $55–68 at the largest nationals, $134 at Vanguard Charitable and $419 at NPT. These are total operating cost per grant, not labour only.
+
+## Superseded in part by v2 (2026-11-14)
+
+See [ai-economics-v2-observed-costs.md](ai-economics-v2-observed-costs.md), a Monte Carlo model (seed 42, 10,000 draws) on observed sponsor costs. The v1 result "C ranks last in all 16 processes" does not survive: C is last in only 41% of draws for P07 and 48% for P03, and ranks first in at most 17%. The v1 first choice remains the most likely winner in all 16 processes (probability 0.44–0.94). "Shared platform pays" holds only when the five largest nationals are in the network (break-even in 43% of draws; 0.4% with community foundations under $250m alone).
