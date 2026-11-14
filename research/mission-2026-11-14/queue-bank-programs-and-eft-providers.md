@@ -405,3 +405,28 @@ Rubric: [evidence-quadrant-methodology.md](evidence-quadrant-methodology.md) §2
 | `retrieved` | Date fetched |
 
 **`data/mission-2026-11-14/queue-proposals-bank-programs.csv`** follows [queue-proposals-README.md](../../data/mission-2026-11-14/queue-proposals-README.md). The prefix is `P-BNK-`.
+
+## Validation corrections (wave 6, 2026-11-14) — governing
+Source: [validation-wave6-report.md](validation-wave6-report.md). Where these conflict with the text above, these govern.
+
+1. **Line 38 (P-QCAL-04)**
+   - Current: "**Goldman Sachs Philanthropy Fund (PWM):** the only public program document is a Program Circular **last revised August 2008**"
+   - Replace with: "**Goldman Sachs Philanthropy Fund (PWM):** three Program Circulars are publicly retrievable from gspf.goldman.com, dated August 2008, November 2012 and **December 5, 2017** ([2017 circular](https://gspf.goldman.com/gspf/Portals/29/docs/2017.11%20GSPF%20Program%20Circular.pdf)) [F]. The latest public version is dated 2017. None is linked from the login page."
+2. **Line 51**
+   - Current: "**The only public Program Circular is dated 2008.**"
+   - Replace with: "**The latest public Program Circular is dated December 5, 2017** (doc 9055278v.19). The 2008 ('Last Revised: August 2008') and November 2012 versions are also still served."
+   - Apply the same change in §S1 of the source table (line 333) and add the 2017 circular as a new source row.
+3. **Lines 40, 44, 260 and 298**
+   - Current: "check, per the 2008 circular; the 2026 rail is unknown", "GS PF (2008)" and "The only terms date from 2008".
+   - Replace with: "check, per the 2008, 2012 and 2017 circulars; the 2026 rail is unknown", "GS PF (2017 circular)" and "The latest public terms date from 2017".
+4. **Lines 39 and 66 (footer)**
+   - Current: "Its footer reads 'iPhi™ ::: Copyright © 2001 - 2026 Stellar Technology Solutions, LLC'" and "© 2001–2026".
+   - Add: "The end year '2026' is the page's current-date label (`dnnCURRENTDATE`). The static meta copyright reads '2001-2010'. The Ren attribution rests on Stellar's ownership: stellartechsol.com now redirects to reninc.com."
+5. **Line 210 (NCF)**
+   - Current: "No Ren DFX or iPhi marker is visible."
+   - Replace with: "The login HTML shows no Ren DFX or iPhi marker. However, ncfgiving.com's page data still carries an `iphiDonorWebId` field for every regional office, a legacy Stellar iPhi identifier. Together with the Stellar payment of $2.50m, this means a Ren-owned back-office dependency cannot be ruled out [I]."
+6. **Line 157 (BofA termination)**
+   - Keep the wording, and add: "The guidelines do not bar ordinary grants to another sponsor. 'Qualified Organization' covers 509(a)(1), (2) and (3) public charities, which includes national DAF sponsors. This clause is the only *explicit* DAF-to-DAF wording, not an exclusive permission [I]."
+7. **Line 44 (Charityvest)**
+   - Current: "Charityvest (from Aug 2026, replacing PayPal)"
+   - Replace with: "Charityvest (transitioning from Aug 2026, per Chariot; Charityvest's own charity guide still describes PayPal Grant Payments)"

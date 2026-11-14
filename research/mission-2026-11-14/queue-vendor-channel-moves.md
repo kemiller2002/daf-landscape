@@ -266,3 +266,24 @@ The columns are as documented in `scripts/mission_watchlist.py`:
 - `link_regex` and `watch_regex`, for the signals;
 - `params`: for `irs_index`, `min_tax_period` and `types`;
 - `notes`: the baseline and what counts as a change.
+
+## Validation corrections (wave 6, 2026-11-14) — governing
+Source: [validation-wave6-report.md](validation-wave6-report.md). Where these conflict with the text above, these govern.
+
+1. **Line 23 (P-PRC-04) and line 89 (CCT row)**
+   - Current: "CCT's GiftingNetwork portal documents were created 2025-12-02, after Give's CCT production host (2025-06-11). This argues against an imminent Give cut-over at CCT [I]."
+   - Replace with: "CCT's current GiftingNetwork portal documents were created 2025-12-02. An earlier CCT guide at `donorportal.cct.org/ma/docs/cct/DonorPortalUserGuide.pdf` (created 2024-02-06) already says 'Powered by The GiftingNetwork'. GiftingNetwork was therefore CCT's documented front end at least 16 months before Give's CCT production host (2025-06-11). The Dec 2025 refresh fits continued incumbency, not a new deployment [I]."
+   - Line 89's third column: change "Whether it ran GiftingNetwork from day one is [U]" to "GiftingNetwork documented by 2024-02-06 [F]".
+2. **Line 135 (table "Largest single Schedule I line")**
+   - DAFgiving360 FY2024: replace "—" with "Johns Hopkins $517.4m".
+   - Fidelity FY2024: replace "JHU $273.1m" with "Memorial Sloan-Kettering $219.7m".
+   - Fidelity's FY2024 grant to JHU was $95.5m. The $273.1m is not in the filed FY2024 XML.
+3. **Line 149**
+   - Current: "The FY2024 maximum line is $273.1m"
+   - Replace with: "The FY2024 maximum line is $219.7m (Memorial Sloan-Kettering)".
+   - The conclusion still holds.
+4. **Line 24, item (4)**
+   - Current: "can only sit in its FY2025 Vanguard line"
+   - Replace with: "most likely sits in its FY2025 Vanguard line. It is the only FY2025 Schedule I line of $430m or more, and no FY2024 line reaches that amount [I, strong]. The report does not name the recipient or say it was a DAF-to-DAF grant."
+5. **Line 36 (sponsor confirmed)**
+   - Add: "The circular is not linked from the portal home page, which links only the 2022 Donor User Guide."

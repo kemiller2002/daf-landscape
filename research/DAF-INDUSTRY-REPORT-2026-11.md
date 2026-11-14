@@ -334,6 +334,22 @@ A blind second scorer under v1.1 matched the fresh scorer exactly on 74% of comm
 - **Ren → boundary.** It absorbed the NPT evidence, but its SOC statements contradict each other.
 - **Give Interactive → Forward Builders (boundary).**
 
+**v1.2 targeted update (bank programs and NCF; [quadrant-v12-targeted-rescore.md](mission-2026-11-14/quadrant-v12-targeted-rescore.md); evidence validated in [wave 6](mission-2026-11-14/validation-wave6-report.md)).** Public program terms were found for Morgan Stanley GIFT, BofA CGF and NCF, which lets these providers be placed:
+
+| Provider | v1.1 | v1.2 (X / Y) |
+|---|---|---|
+| BofA Charitable Gift Fund (A3) | insufficient evidence | **Scale Operators** (2.47 / 1.18) |
+| Morgan Stanley GIFT (A3) | insufficient evidence | **Scale Operators** (2.76 / 1.33) |
+| NCF (A3) | insufficient evidence | **Proven Leaders**, effectively boundary (2.80 / 2.42) |
+| NCF platform (A1) | insufficient evidence | **Proven Leaders (boundary)** |
+| Goldman Sachs PF (A3) | insufficient evidence | still insufficient evidence |
+
+On Goldman Sachs PF, wave 6 found that its 2012 and 2017 circulars are also public. All of them state check payment, so a further re-score could place it.
+
+AI overlay: MS GIFT is AMBER (provisional), because its "automated" vetting has undocumented controls. Its board still approves every grant.
+
+Caveat: both scoring passes were run by one agent, so independence is weaker than the five-area calibrations.
+
 **What the quadrants show.**
 - **Most providers sit near the midlines.** Forward-capability evidence (data export, SOC scope, portability terms) is the scarcest input, so the uncertainty bands are wide.
 - **The bank-affiliated programs are opaque.** Goldman, Morgan Stanley GIFT and BofA CGF cannot be placed on public evidence.
@@ -451,6 +467,53 @@ What changes:
 - "AI ranks last everywhere" fails for complex-asset and non-standard-grantee review.
 - A shared AI platform breaks even in 43% of draws with the five largest nationals in the network, and in 0.4% with community foundations under $250m alone.
 - A $120k/yr AI product cannot be funded from process savings below about $1bn of DAF assets. The economic buyer is an administrator or platform vendor, not an individual sponsor.
+
+**Bank-program terms and EFT providers** ([queue-bank-programs-and-eft-providers.md](mission-2026-11-14/queue-bank-programs-and-eft-providers.md), with wave-6 corrections)
+
+| Sponsor | What the public terms show |
+|---|---|
+| MS GIFT | Donor Circular (Aug 2024) is public via its Ren DFX portal. Grants paid by mail or bank details; statements view-only; no outbound-transfer terms. |
+| BofA CGF | Check-only grants. Contributions (not grants) can be exported to Excel. Balances can go to another DAF only if BofA terminates the donor's advisory rights. |
+| Goldman Sachs PF | Circulars from 2008, 2012 and 2017 all state check payment. The live donor web runs on Ren iPhi. |
+| NCF | Says most grants go by its own "eGrants" electronic payment, on a Salesforce portal. Its site data still carries iPhi donor-web IDs, so a Ren back-office link cannot be ruled out. |
+
+2026 EFT providers by sponsor:
+
+| Rail | Sponsors |
+|---|---|
+| PayPal Grant Payments | NPT (up to $250k); Vanguard (up to $10m) |
+| Chariot | Daffy; TIFIN Give; Charityvest (transitioning from Aug 2026); seven community foundations |
+| Stripe plus own ACH | Fidelity |
+| Own or administrator ACH | AEF (via Ren), NCF, three community foundations |
+| Check only | BofA; DAFgiving360 (per its 2024 policies) |
+
+**Private equity across the DAF ecosystem** ([private-equity-daf-ecosystem-map.md](mission-2026-11-14/private-equity-daf-ecosystem-map.md); 120 ownership rows across ~60 companies)
+
+The map adds about 40 investors beyond the earlier list, across three groups:
+- **Nonprofit-software investors:** JMI, Summit, Susquehanna, Fulcrum, FTV, Metamorph/ABS, LLR, Rubicon, Warburg (Bloomerang 2024).
+- **Benevity co-owners:** General Atlantic, TPG Rise, Generation.
+- **Wealth-platform owners:** Carlyle, Madison Dearborn, CD&R, Reverence, GIC, ICONIQ.
+
+Lenders found: Audax to Foundation Source (2020); Golub to Momentive and Orion; Ares, Blue Owl and Benefit Street to Envestnet. No lenders were found for Ren, Bonterra or Benevity.
+
+Portfolio adjacencies, where one owner holds a DAF asset alongside a distribution or software asset:
+- **Bain:** Ren, Envestnet and FreeWill.
+- **GTCR:** Foundation Source, AssetMark and 25% of CAPTRUST.
+- **General Atlantic and TPG:** Benevity and Creative Planning.
+- **TA:** Orion (which distributes GiftingNetwork DAFs) and Momentive.
+
+No owner has steered its wealth platform to its own DAF vendor.
+
+Likely next deals (inference, medium confidence):
+- Hg exits or uses a continuation vehicle for Benevity (2026–28).
+- Apax sells or recapitalises Bonterra (2027–28). Bonterra bought Deed in Mar 2026, putting it head-to-head with Benevity.
+- GTCR sells Foundation Source (2027–29).
+- TA/Genstar exit Orion.
+
+**Channel moves** ([queue-vendor-channel-moves.md](mission-2026-11-14/queue-vendor-channel-moves.md))
+- The Commonwealth Charitable Fund is unchanged on LPL's conversion day. Its circular confirms RCF as sponsor and RenPSG as administrator [V].
+- Foundation for the Carolinas and Chicago Community Trust run "Powered by GiftingNetwork" portals [V]. Give Interactive's role at CCT is unclear.
+- DAFgiving360's $976.6m FY2025 grant line to Fidelity Charitable cannot be attributed from public data, because Fidelity's Schedule B is redacted. A few very large account moves is the best reading (inference).
 
 **Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
 - Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
