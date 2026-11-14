@@ -4,15 +4,15 @@
   "status_counts": {
     "Not investigated": 150,
     "Discovery started": 59,
-    "Evidence collected": 117,
-    "Partially validated": 22,
-    "Independently corroborated": 28,
+    "Evidence collected": 115,
+    "Partially validated": 21,
+    "Independently corroborated": 31,
     "Contradictory evidence": 3,
     "Insufficient public information": 17,
     "Research completed to current evidence standard": 0
   },
   "share_cells_investigated_any": 0.621,
-  "share_cells_partially_validated_or_better": 0.126,
+  "share_cells_partially_validated_or_better": 0.131,
   "entities_with_majority_not_investigated": [
     "Bank of America Charitable Gift Fund",
     "Candid / IRS BMF (eligibility data)",
