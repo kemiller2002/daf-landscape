@@ -204,3 +204,17 @@ Scope: 898 sponsors with at least 5 W-2 employees and line 7 > 0, using each spo
    - Replace with: Foundation Source: Audax (L01). Bonterra: the Golub-led one-stop with Monroe, BlackRock and AB (9/8/2027; PIK amendment 2023) (L03–L07, L10).
    - Add Bloomerang: Golub and Monroe (L19–L22).
 3. **[pe-ownership-by-company.csv](../../data/mission-2026-11-14/pe-ownership-by-company.csv)**: add `lender` rows from §1 when the owning agent next writes that file.
+
+## Validation corrections (wave 8, 2026-11-14) — governing
+Source: [validation-wave8-report.md](validation-wave8-report.md). Where these conflict with the text above (including the earlier wave-7 Audax note), these govern.
+
+1. **Line 28.** Replace "was priced at L+6.50% with a 0.75% floor" with: "was priced at L+6.50% with a 0.75% floor at 9/30/2021, and at L+6.25% throughout 2022 (Golub 10-K FY2022; AB 10-K FY2022; BKCC 10-K FY2022)".
+2. **Line 35.** After "the revolver at 91.75%", add: "(the revolver is on a commitment basis; term-loan marks across holders were 96.7–99.0% in 2022–23)".
+3. **Line 37.** Replace the whole bullet with: "**Exited in 2025.** The SOFR+7.00% / 7.75% PIK marks of 98.5–99.1% are the **2024** comparatives (Golub 9/30/2024; BlackRock and Monroe 12/31/2024) printed in the FY2025 10-Ks. None of Golub, BlackRock TCP, BlackRock Direct Lending or Monroe shows the 9/8/2027 facility at its 2025 period-end (2025 unfunded commitments 'NA'/'n/a'). The facility was refinanced in 2025 into the S+5.00% loan maturing 3/5/2032 (AB PCI 10-Q Q3-2025; FS KKR 10-Q Q3-2026)."
+4. **Line 38.** Delete "[I] The facility matures in about 10 months, so a refinancing or extension is imminent."
+5. **Line 39.** Replace the heading with: "**The 3/5/2032 'Bonterra LLC' facility is most likely the 2025 refinancing of Apax's Bonterra.**"
+6. **Line 42.** Replace "The 2027 Apax facility was also still held by Golub, BlackRock and Monroe at the same dates." with: "AB Private Credit Investors labelled the 3/5/2032 loan 'Software & Tech Services' at 9/30/2025, the same label it used for the 2027 loan. The 2027 holders had all exited by their 2025 period-ends."
+7. **Line 50.** After "at SF+6.00%", add: "(origination; repriced to SF+6.50% with 3.50% PIK by 12/2025 and to SF+5.50% with 6.57% cash / 3.00% PIK in 2026)".
+8. **Line 52.** Replace "marked 99.0%" with "marked 99.0% at Golub (6/30/2026) and ~100.5% at Monroe Capital Income Plus (9/30/2026)".
+9. **Line 58.** After "**96.1%**", add: "(listed as 'Community Brands Inc'; FS KKR $50.8m par / $48.8m FV)".
+10. **Line 204.** Replace "Bonterra: the Golub-led one-stop with Monroe, BlackRock and AB (9/8/2027; PIK amendment 2023)" with: "Bonterra: the Golub-led one-stop with Monroe, BlackRock and AB (9/8/2027; PIK amendment 2023; refinanced 2025), then the S+4.75–5.00% 3/5/2032 facility (FS KKR, KKR FS Income Trusts, Crescent, AB, CCS IX, New Mountain)".

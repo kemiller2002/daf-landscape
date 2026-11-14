@@ -263,3 +263,11 @@ BofA CGF is #11 and falls outside the ten.
 **`queue-proposals-export-cf.csv`**
 - **Format:** per [queue-proposals-README.md](../../data/mission-2026-11-14/queue-proposals-README.md).
 - **IDs:** P-EXP-01 to P-EXP-05.
+
+## Validation corrections (wave 8, 2026-11-14) — governing
+Source: [validation-wave8-report.md](validation-wave8-report.md). Where these conflict with the text above (including the earlier wave-7 Audax note), these govern.
+
+17. **Line 38.** Replace "its DAF agreement bars advisors from collecting portal data 'through automated means or otherwise'" with: "its DAF agreement bars advisors from collecting website or portal information '(through automated means or otherwise) … for any purposes unrelated to' their grantmaking privileges, and puts third-party portal access without SVCF approval at the advisor's risk, with an indemnity".
+18. **Line 86.** Replace "Its ban on automated collection is the only top-10 contractual limit" with: "Its purpose-limited bar on automated collection, together with the third-party-access indemnity, is the only top-10 contractual limit".
+19. **Line 113 and the P-CFR-01 summary.** Replace "Check for DAF grants (5)" with "Check by default for DAF grants (5; SVCF 'generally', GKCCF 'in most cases', Tulsa 'mailed')".
+20. **P-CFR-02, the "990 payees" bullet.** Add: "990 payee is not the same as a DonorSphere user. Baltimore books FidTech as 'accounting services' and JEWISHColorado as 'investment management', which points to back-office (FoundationHub) use."

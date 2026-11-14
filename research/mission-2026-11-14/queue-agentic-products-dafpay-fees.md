@@ -232,3 +232,10 @@ Calculated from the ToS rounding rule and Give Lively's $1 minimum:
 ### `queue-proposals-agentic-fees.csv`
 
 Format per `data/mission-2026-11-14/queue-proposals-README.md`; prefix P-AGF-.
+
+## Validation corrections (wave 8, 2026-11-14) — governing
+Source: [validation-wave8-report.md](validation-wave8-report.md). Where these conflict with the text above (including the earlier wave-7 Audax note), these govern.
+
+21. **Line 15 and line 47 (AP13).** Replace "external match decline 30% → <3%" with: "external match decline 30% → <3% at **one unnamed early-adopter partner** (vendor blog)". Keep "500+ clients" as a separate adoption figure, not an outcome.
+22. **Line 109 (Every.org).** Add: "Every.org currently absorbs the For Good fee for bank-account gifts; nonprofits avoid it by linking Stripe or PayPal Grants (0%). The live pricing page was not re-read (HTTP 429) on 2026-11-14."
+23. **§3.4.** Add: "The rounding applies only where no platform agreement sets the fee, and most platforms let donors cover the fee, so 4.0% at $25 is the nonprofit's worst case."

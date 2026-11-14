@@ -358,3 +358,10 @@ No correction is needed for Warburg/Bloomerang, Bain Capital Double Impact/FreeW
 ## Update from BDC filings (2026-11-14) — supersedes wave-7 correction 5 pending wave-8 validation
 
 Audax Private Credit Fund's 2021+ BDC schedules still list a GTCR-era Foundation Source first-lien term loan, a delayed-draw loan and a revolver (S+5.00%, maturing 2030, revolver 2029, marked at par), plus LP equity. Audax therefore remains a lender. Detail: [queue-pe-lenders-labour-rates.md](queue-pe-lenders-labour-rates.md); `data/mission-2026-11-14/bdc-loans-daf-ecosystem.csv`.
+
+## Validation corrections (wave 8, 2026-11-14) — governing
+Source: [validation-wave8-report.md](validation-wave8-report.md). Where these conflict with the text above (including the earlier wave-7 Audax note), these govern.
+
+15. **Line 28 ("Not found: lenders to GTCR-era Foundation Source, Ren, Bonterra and Benevity").** Replace with: "Not found: lenders to Ren and Benevity. Foundation Source: Audax Private Credit Fund, S+5.00%, 9/6/2030, at par (10-Q filed 2026-11-12). Bonterra: Golub/Monroe/BlackRock/AB 9/8/2027 one-stop, refinanced 2025 into a 3/5/2032 S+4.75–5.00% facility (FS KKR lead holder)."
+16. **Line 203.** Make the same change, and remove Bonterra and Foundation Source from the "Not found" list.
+25. **Wave-7 correction 5.** Apply the queue document's own proposed replacement (§5 item 1). It is verified: Audax Private Credit Fund holds the term loan, DDTL and revolver at S+5.00% (9/6/2030; revolver 9/6/2029) at par, plus Class A and Class B LP interests at 1.38x cost (Q3-2026 10-Q).
