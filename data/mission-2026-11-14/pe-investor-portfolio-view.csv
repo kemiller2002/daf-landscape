@@ -1,0 +1,61 @@
+investor,type,holdings,layers,adjacency_flag,est_exit_window,notes
+Bain Capital,pe_buyout_growth,"Ren (majority 2023-07; significant shareholder after 2025-10); Envestnet (majority 2024-11); FreeWill (Bain Capital Double Impact, led Series B 2022-03)",daf_platform_admin; wealth_distribution; planned_giving_tax,Y (DAF admin + wealth distribution + planned-giving),"Ren 2027-2029; Envestnet 2028-2030 [inference: 4-6 yr hold]","Triple adjacency; FreeWill link is new to repo. Envestnet still added Foundation Source (rival) as integration (W4-7) — no forced cross-sell observed"
+GTCR,pe_buyout,"Foundation Source (majority 2023-09; 4 add-ons); AssetMark (majority 2024-09); CAPTRUST (25% minority 2020)",daf_platform_admin; planned_giving_tax; wealth_distribution,Y (DAF admin + two wealth distributors),"Foundation Source 2027-2029; AssetMark 2028-2030; CAPTRUST 2027+ [inference]","CAPTRUST stake is new to repo; AssetMark DAF partner is TIFIN Give/GiveClear, not FS"
+Great Hill Partners,pe_growth,Ren (minority 2025-10),daf_platform_admin,N,2029-2031 [inference],
+Valeas Capital Partners,pe_growth,Ren (co-investor 2023-07),daf_platform_admin,N,"Likely alongside Bain [inference]",
+Incline Equity Partners,pe_buyout,"Foundation Source (2020-01 to 2023-09, exited to GTCR); iWave (majority 2022-10)",daf_platform_admin; charity_data_prospect_research,Y (sequential: DAF admin then donor-data),"iWave 2026-2028 [inference: 4-6 yr from 2022-10]","Repeat philanthropy-tech sponsor; iWave holding new to repo"
+Apax Partners,pe_buyout,"Bonterra (CyberGrants 2021-06; EveryAction + Social Solutions 2021-08; Network for Good software 2022-01; OneCause 2025-10; Deed 2026-03)",nonprofit_fundraising_crm; workplace_giving_csr; grant_management,Y (nonprofit intake + corporate giving; DAFpay-integrated OneCause),"2026-2028 [inference; 5+ yrs held but Apax 2026-05 cites 'further M&A ambitions', pushing exit later]","No DAF sponsor or wealth asset; >$100m EBITDA per Apax 2026-05-28"
+Hg,pe_buyout,Benevity (majority since 2021-02-01),workplace_giving_csr; charity_data,N,2026-2028 [inference: 5.75 yrs held at 2026-11],"US$90.1m equity/option sale 2024-09 to 2025-12 = liquidity not exit; Hg exited Quantios (to Vista, 2026-07) and GTreasury (to Ripple, 2025-10) showing active exits"
+General Atlantic,growth_equity,"Benevity (minority, pre-2020, continuing); Creative Planning (minority 2020-02)",workplace_giving_csr; wealth_distribution,Y (workplace giving + RIA distribution),"Creative Planning partial sale sought 2024 (reported); Benevity alongside Hg [inference]",New to repo
+TPG (The Rise Fund / TPG Capital),pe_growth,"Benevity (Rise Fund minority 2021-02); Creative Planning (TPG Capital minority 2024-09-30)",workplace_giving_csr; wealth_distribution,Y (workplace giving + RIA distribution),"Benevity with Hg exit; Creative Planning 2029+ [inference]",New to repo
+JMI Equity,growth_equity,"Bloomerang (2020-09; continuing after Warburg 2024); Benevity (minority, continuing); Classy (led 2016 round; exited via GoFundMe 2022)",nonprofit_fundraising_crm; workplace_giving_csr,Y (nonprofit CRM + workplace giving),"Bloomerang 2025-2027 [inference: 6 yrs from entry; Warburg 2024 entry may have given partial liquidity — not confirmed]",New to repo; most repeated nonprofit-software growth investor found
+Warburg Pincus,pe_growth,"Bloomerang (2024-02); Kestra (majority, exited 2025-02 to Stone Point)",nonprofit_fundraising_crm; wealth_distribution,Y (sequential),Bloomerang 2028-2030 [inference],Existing repo row scored 1 'none found' — now revealed in nonprofit software (DAFpay-integrated Bloomerang)
+TA Associates,pe_buyout_growth,"Orion (majority 2015; co-control with Genstar 2020); Momentive Software (majority 2024-07; Personify 2026-01, VolunteerMatters 2025-07)",wealth_distribution; nonprofit_fundraising_crm,Y (wealth distribution + nonprofit/association software),"Orion: window open now (11 yrs held) [inference]; Momentive 2028-2030","Orion partners GiftingNetwork for white-label DAFs"
+Genstar Capital,pe_buyout,Orion (co-control 2020),wealth_distribution,N,Window open (6 yrs held) [inference],
+Stone Point Capital,pe_buyout,"Kestra (majority 2016 and again 2025-02); Focus Financial (co-investor with CD&R 2023-08)",wealth_distribution,N (wealth only),Kestra 2029+; Focus 2027-2029 [inference],
+Insight Partners,growth_equity,"EveryAction (exited 2021-08 to Apax); Community Brands (exited 2024-07 to TA); Altruist (led Series B 2021, co-led D 2023)",nonprofit_fundraising_crm; wealth_distribution,Y (sequential; Altruist launched Endaoment-sponsored DAF 2026-10),"Altruist exit via Vanguard agreement 2026-08-26 (pending)",Existing repo row scored 1 — repeat seller of nonprofit software
+Vista Equity Partners,pe_buyout,"Social Solutions (2014; sold to Apax 2021, rollover stake); MicroEdge (sold to Blackbaud 2014-10)",nonprofit_fundraising_crm; grant_management,N (exited),Residual Bonterra rollover with Apax exit [inference],Repeat seller into consolidators
+Clearlake Capital,pe_buyout,Blackbaud (18.4% minority 13D 2022-10; take-private proposals 2023-03 and 2024-04),nonprofit_fundraising_crm; community_foundation_software; workplace_giving_csr,Y (Blackbaud runs Blackbaud Giving Fund + YourCause + grant software),Unknown; no post-2024-04 filing found,
+L Squared Capital Partners,pe_growth_buyout,"Foundant (2023-02) + SmartSimple (2024-08) + GivingData",community_foundation_software; grant_management,N (no wealth asset found),2027-2029 [inference],Foundant CommunitySuite serves 700+ community foundations (DAF hosts)
+Metamorph Partners,pe_buyout,Fluxx (majority 2021-10; Grantseeker add-on 2025-11),grant_management,N,2026-2028 [inference],New to repo
+ABS Capital Partners,growth_equity,Fluxx (co-investor 2021-10),grant_management,N,with Metamorph [inference],New to repo
+LLR Partners,growth_equity,"WizeHive (2021-06, sold to Submittable 2024-08); Submittable (investor)",grant_management; workplace_giving_csr,N,2026-2028 [inference],New to repo; Submittable owns Bright Funds/WeHero workplace giving
+Summit Partners,growth_equity,"Fundraise Up (minority 2024-12/2025-01); Instrumentl (minority 2025-04)",nonprofit_fundraising_crm; grant_management,Y (two nonprofit-revenue assets),2029-2031 [inference],New to repo
+Susquehanna Growth Equity,growth_equity,Virtuous ($100m 2024-09),nonprofit_fundraising_crm,N,2028-2030 [inference],New to repo
+Fulcrum Equity Partners,growth_equity,Virtuous (Series B 2021-07),nonprofit_fundraising_crm,N,With SGE round or later [inference],New to repo
+FTV Capital,growth_equity,Neon One (2018),nonprofit_fundraising_crm,N,Window open (8 yrs held) [inference],New to repo
+Blue Star Innovation Partners,growth_equity,Neon One (2018),nonprofit_fundraising_crm,N,With FTV [inference],New to repo
+Rubicon Technology Partners,pe_buyout,"EverTrue/ThankView (majority recap 2021-10; DonorSearch add-on 2025)",charity_data_prospect_research,N,2026-2028 [inference],New to repo
+Sverica Capital Management,pe_buyout,iWave (2017-2022; exited to Incline),charity_data_prospect_research,N,Exited,New to repo
+Waud Capital Partners,pe_buyout,CyberGrants (exited 2021-06 to Apax),workplace_giving_csr,N,Exited,New to repo (aggregator-sourced)
+Bregal Sagemount,growth_equity,MicroEdge (exited 2014 to Blackbaud),grant_management,N,Exited,New to repo
+Pamlico Capital,pe_growth,Personify (exited 2026-01 to Momentive),nonprofit_fundraising_crm,N,Exited,New to repo
+Motive Partners,growth_equity,TIFIN (co-led Series D 2022-05),daf_platform_admin; wealth_distribution,Y (TIFIN is both wealth-tech and DAF tech),"TIFIN liquidity unclear; TIFIN sold Giving Place 2025 [inference: unit sales more likely than whole-co exit]",
+Hamilton Lane,growth_minority,TIFIN (Series C 2021-10),daf_platform_admin,N,Unknown,New to repo
+SEI (SEI Ventures),strategic_corporate_venture,TIFIN (2024-02 per aggregator),daf_platform_admin; wealth_distribution,Y (SEI runs RCF/Ren and GiveClear/TIFIN DAF stacks),n/a,Aggregator-only; unverified
+Reverence Capital Partners,pe_financial_services,Envestnet (co-investor 2024-11),wealth_distribution,N,With Bain [inference],New to repo
+Carlyle,pe_buyout,CAPTRUST (minority 2023-09),wealth_distribution,N,2028+ [inference],New to repo
+Madison Dearborn Partners,pe_buyout,Wealthspire (2025),wealth_distribution,N,2029+ [inference],New to repo
+Clayton Dubilier & Rice,pe_buyout,Focus Financial (2023-08),wealth_distribution,N,2027-2029 [inference],New to repo
+Leonard Green & Partners,pe_buyout,Mariner (minority 2021-04),wealth_distribution,N,2026-2028 [inference],New to repo
+Neuberger Berman Private Markets,pe_minority,Mariner (minority 2024-10),wealth_distribution,N,2029+ [inference],New to repo
+Oak Hill Capital,pe_buyout,Kestra (minority continuing 2025),wealth_distribution,N,Unknown,New to repo
+GIC,sovereign_growth,Altruist (led Series F 2025-04),wealth_distribution,N,Vanguard deal pending,New to repo
+ICONIQ Growth,growth_equity,"Altruist (Series F 2025); FreeWill (led Series A)",wealth_distribution; planned_giving_tax,Y (custodian with DAF + planned-giving),Altruist via Vanguard [pending],New to repo
+Vitruvian Partners / WestCap,growth_equity,Addepar (co-led Series G 2025-05),wealth_distribution,N,2029+ [inference],New to repo
+Lead Edge Capital,growth_equity,Holistiplan (date not found),planned_giving_tax,N,Unknown,New to repo (aggregator-only)
+Earlybird,venture,Deed (exited 2026-03 to Bonterra),workplace_giving_csr,N,Exited,New to repo
+General Catalyst,venture,Goodstack (Series A 2024-11),workplace_giving_csr,N,2028+ [inference],New to repo
+Norwest Venture Partners,venture_growth,Classy (Series D 2021; exited 2022 to GoFundMe),nonprofit_fundraising_crm,N,Exited,New to repo
+Accel / TCV,venture_growth,GoFundMe (controlling investor group 2015-06),payments_rails_consumer_daf; nonprofit_fundraising_crm,Y (consumer DAF sponsor services via GoFundMe Giving Funds + Classy),Unknown (11 yrs held) [inference: IPO/sale overdue],New to repo
+FINTOP Capital,venture,Kindful (exited 2021 to Bloomerang),nonprofit_fundraising_crm,N,Exited,New to repo
+Squadra Ventures,venture,Pinkaloo (exited 2021 to Ren),daf_platform_admin,N,Exited,New to repo
+Ribbit Capital,venture,Daffy (Series A 2022),payments_rails_consumer_daf,N,Unknown,Existing repo row
+Maveron,venture,Chariot (Series A 2024),payments_rails_consumer_daf,N,Unknown,Existing repo row
+GV,venture,Groundswell (seed 2021),workplace_giving_csr,N,Unknown,Existing repo row
+Golub Capital,private_credit_lender,"Momentive Software (admin agent, unitranche 2024-07); Orion (first-lien lender, Redtail financing 2022-06)",nonprofit_fundraising_crm; wealth_distribution,Y (credit exposure to nonprofit software + wealth distribution),Loan maturities not disclosed,New to repo
+Ares Management,private_credit_lender,Envestnet (committed debt 2024),wealth_distribution,N,Loan maturity not verified,New to repo
+Blue Owl Capital,private_credit_lender,Envestnet (committed debt 2024),wealth_distribution,N,Loan maturity not verified,New to repo
+Benefit Street Partners,private_credit_lender,Envestnet (committed debt 2024),wealth_distribution,N,Loan maturity not verified,New to repo
+Audax Private Debt,private_credit_lender,Foundation Source (unitranche 2020-01),daf_platform_admin,N,Likely repaid at 2023 sale [inference; not confirmed],New to repo; only disclosed lender to a DAF admin vendor found
+CIBC Innovation Banking,venture_lender,Bloomerang (~$60m debt; date not captured),nonprofit_fundraising_crm,N,Unknown,New to repo

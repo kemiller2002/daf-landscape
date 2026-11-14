@@ -1,0 +1,58 @@
+{
+  "check_id": "http-cfn-portal",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://cfndaf.donorfirstx.com/"
+      }
+    ],
+    "final_url": "https://cfndaf.donorfirstx.com/",
+    "form_actions": [
+      "/"
+    ],
+    "meta": {
+      "dd-trace-id": "10137519790611254621",
+      "dd-trace-time": "1794664239924",
+      "viewport": "width=device-width, minimum-scale=1.0, maximum-scale=1.0"
+    },
+    "raw_sha256": "5c8340f9dcc36390ad7c5cdece710a49945d8c5233f2dc0f50543651ea0207b9",
+    "text_chars": 1320,
+    "text_sha256": "81f97643e13e040d6ccafacd187668d1a0e180398786e5bde2d0c6c3a6d85293"
+  },
+  "entity": "Commonwealth Charitable Fund (RCF program CFNDAF id 680)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T13:50:39Z",
+  "ok": true,
+  "queue_items": "P-PRC-05",
+  "source_url": "https://cfndaf.donorfirstx.com/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "cfndaf.donorfirstx.com"
+    ],
+    "final_host": "cfndaf.donorfirstx.com",
+    "final_status": "200",
+    "footers": [],
+    "links": [
+      "https://cfndaf.donorfirstx.com/Terms of Service.pdf | Terms of Service",
+      "https://cfndaf.donorfirstx.com/pdf/CFNDAF/CFNDAF Donor User Guide.pdf | DFX Donor User Guide"
+    ],
+    "title": "Login Page",
+    "watch_hits_urls": [
+      "CFNDAF",
+      "cfndaf"
+    ],
+    "watch_sentences": [
+      "Commonwealth is a trade name of LPL Financial.",
+      "Securities and advisory services offered through LPL Financial, Member FINRA/SIPC, a registered investment advisor.",
+      "Standard site maintenance will be performed starting Friday, November 13th between the times of 8:00PM EST to 11:00PM EST.",
+      "Welcome to your login experience for your Commonwealth Charitable Fund."
+    ]
+  },
+  "target": "https://cfndaf.donorfirstx.com/",
+  "watch_regex": "(?i)Commonwealth|LPL|Renaissance|CFNDAF|maintenance"
+}

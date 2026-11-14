@@ -1,0 +1,12 @@
+area_id,provider,criterion_id,score,evidence_class,evidence_summary,source_url,source_date,scorer,notes
+A1,"NCF (sponsor-built, Salesforce)",X1,2,primary,"Platform serves one sponsor: 31,943 DAFs, $5.68bn (mid-tier footprint)",https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513109349303201_public.xml,2025-11-06,v12a,
+A1,"NCF (sponsor-built, Salesforce)",X2,3,primary,2014 Skuid/Salesforce portal revamp delivered; live MyGiving login on sfdc/skuid in 2026; eGrants live,https://secure.ncfgiving.com/grant,2026,v12a,
+A1,"NCF (sponsor-built, Salesforce)",X3,U,,No SOC or control disclosure for platform; sponsor audit does not prove platform controls (entity scope),,,v12a,
+A1,"NCF (sponsor-built, Salesforce)",X4,1,primary,In-house platform used only by NCF and affiliates,https://secure.ncfgiving.com/grant,2026,v12a,single operator
+A1,"NCF (sponsor-built, Salesforce)",X5,2,primary,Operator audited (FY2025) with capitalized software; but single-customer by design,https://site.ncfgiving.com//wp-content/uploads/2026/07/NCF-25-Consolidated-FS-Final.pdf,2026-07-08,v12a,
+A1,"NCF (sponsor-built, Salesforce)",X6,U,,No platform complaints or metrics,,,v12a,
+A1,"NCF (sponsor-built, Salesforce)",Y1,U,,No API or export documented,,,v12a,
+A1,"NCF (sponsor-built, Salesforce)",Y2,2,primary,Electronic-first grants with in-house eGrants enrolment and recurring EFT,https://www.ncfgiving.com/eft-charity-sign-up,2026,v12a,
+A1,"NCF (sponsor-built, Salesforce)",Y3,U,,None found,,,v12a,
+A1,"NCF (sponsor-built, Salesforce)",Y4,1,primary,Single faith-sponsor platform,https://www.ncfgiving.com/guide-to-giving-at-NCF,2026,v12a,
+A1,"NCF (sponsor-built, Salesforce)",Y5,2,primary,"Multi-rail (EFT, check, wire) and outbound grants to other sponsors permitted; no history export",https://www.ncfgiving.com/guide-to-giving-at-NCF,2026,v12a,

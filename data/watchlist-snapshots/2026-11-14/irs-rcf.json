@@ -1,0 +1,41 @@
+{
+  "check_id": "irs-rcf",
+  "check_type": "irs_index",
+  "date": "2026-11-14",
+  "detail": {
+    "index_last_modified": {
+      "2025": "Wed, 21 Jan 2026 14:11:16 GMT",
+      "2026": "Wed, 21 Oct 2026 13:03:05 GMT",
+      "2027": "http_404"
+    },
+    "propublica": "https://projects.propublica.org/nonprofits/organizations/352129262",
+    "rows": [
+      {
+        "index_file": "index_2025.csv",
+        "object_id": "202543189349301959",
+        "return_type": "990",
+        "sub_date": "2025",
+        "tax_period": "202412",
+        "taxpayer_name": "Renaissance Charitable Foundation Inc"
+      }
+    ],
+    "xml_urls": {}
+  },
+  "entity": "Renaissance Charitable Foundation (EIN 35-2129262)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T13:50:52Z",
+  "ok": true,
+  "queue_items": "P-PRC-05;P-STF-02",
+  "source_url": "https://apps.irs.gov/pub/epostcard/990/xml/2026/index_2026.csv",
+  "status": "ok",
+  "summary": {
+    "min_tax_period": "202512",
+    "returns": [
+      "202412 | 990 | 202543189349301959"
+    ],
+    "target_return_present": false,
+    "target_returns": []
+  },
+  "target": "352129262",
+  "watch_regex": ""
+}
