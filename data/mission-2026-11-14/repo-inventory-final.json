@@ -1,79 +1,79 @@
 {
-  "markdown_documents": 151,
-  "markdown_words": 387550,
-  "datasets": 321,
-  "dataset_rows": 104735,
-  "unique_urls_cited": 22939,
-  "unique_domains_cited": 1832,
+  "markdown_documents": 164,
+  "markdown_words": 448906,
+  "datasets": 348,
+  "dataset_rows": 112166,
+  "unique_urls_cited": 26136,
+  "unique_domains_cited": 1921,
   "organizations_from_fixed_list_mentioned": 67,
   "organization_file_mentions": {
-    "Altruist": 44,
-    "American Endowment Foundation": 52,
-    "Ameriprise": 27,
-    "AssetMark": 71,
-    "BNY": 56,
-    "Bank of America": 50,
-    "Benevity": 107,
-    "Blackbaud": 130,
+    "Altruist": 46,
+    "American Endowment Foundation": 58,
+    "Ameriprise": 31,
+    "AssetMark": 75,
+    "BNY": 70,
+    "Bank of America": 52,
+    "Benevity": 116,
+    "Blackbaud": 152,
     "Blue Trust": 22,
-    "Bonterra": 63,
-    "CSuite": 12,
-    "Candid": 63,
-    "Chariot": 208,
-    "Charityvest": 151,
-    "DAF Direct": 67,
-    "DAFgiving360": 172,
-    "Daffy": 145,
-    "DonorFirstX": 41,
+    "Bonterra": 67,
+    "CSuite": 15,
+    "Candid": 67,
+    "Chariot": 219,
+    "Charityvest": 156,
+    "DAF Direct": 74,
+    "DAFgiving360": 192,
+    "Daffy": 156,
+    "DonorFirstX": 42,
     "DonorsTrust": 5,
-    "Edward Jones": 50,
-    "Every.org": 64,
-    "FIMS": 50,
-    "Fidelity Charitable": 198,
-    "Foundant": 99,
-    "Foundation Source": 158,
-    "Founders Pledge": 18,
-    "GiveClear": 129,
+    "Edward Jones": 57,
+    "Every.org": 68,
+    "FIMS": 68,
+    "Fidelity Charitable": 217,
+    "Foundant": 114,
+    "Foundation Source": 161,
+    "Founders Pledge": 20,
+    "GiveClear": 132,
     "Givefront": 11,
     "GivingIQ": 11,
-    "GivingPoint": 59,
-    "Givinga": 77,
-    "Goldman Sachs": 86,
-    "Greater Horizons": 32,
-    "Groundswell": 42,
-    "GuideStar": 40,
-    "ImpactAssets": 62,
-    "J.P. Morgan": 25,
-    "Jewish Communal Fund": 32,
-    "LPL": 46,
+    "GivingPoint": 75,
+    "Givinga": 82,
+    "Goldman Sachs": 90,
+    "Greater Horizons": 38,
+    "Groundswell": 44,
+    "GuideStar": 42,
+    "ImpactAssets": 73,
+    "J.P. Morgan": 40,
+    "Jewish Communal Fund": 33,
+    "LPL": 50,
     "Merrill": 22,
-    "Morgan Stanley": 97,
-    "National Christian Foundation": 34,
+    "Morgan Stanley": 101,
+    "National Christian Foundation": 37,
     "National Heritage Foundation": 15,
-    "National Philanthropic Trust": 68,
+    "National Philanthropic Trust": 81,
     "Network for Good": 36,
     "Northern Trust": 15,
-    "OneAscent": 41,
-    "Pave": 16,
-    "PayPal Giving Fund": 33,
-    "Raymond James": 23,
-    "Ren": 287,
-    "RenPSG": 72,
-    "Renaissance Charitable": 108,
-    "SEI": 65,
-    "Schwab Charitable": 47,
-    "Signatry": 45,
-    "Silicon Valley Community Foundation": 40,
-    "Stellar": 123,
-    "TIAA": 61,
-    "TIFIN": 196,
-    "UBS": 44,
-    "Vanguard Charitable": 173,
-    "Vennfi": 85,
-    "Wells Fargo": 23,
-    "YourCause": 25,
+    "OneAscent": 43,
+    "Pave": 17,
+    "PayPal Giving Fund": 38,
+    "Raymond James": 26,
+    "Ren": 312,
+    "RenPSG": 75,
+    "Renaissance Charitable": 117,
+    "SEI": 67,
+    "Schwab Charitable": 55,
+    "Signatry": 48,
+    "Silicon Valley Community Foundation": 48,
+    "Stellar": 138,
+    "TIAA": 64,
+    "TIFIN": 203,
+    "UBS": 57,
+    "Vanguard Charitable": 189,
+    "Vennfi": 87,
+    "Wells Fargo": 25,
+    "YourCause": 27,
     "Zions": 26,
-    "iPhi": 145
+    "iPhi": 167
   },
   "per_file": [
     {
@@ -87,12 +87,13 @@
     },
     {
       "path": "research/DAF-INDUSTRY-REPORT-2026-11.md",
-      "words": 9405,
+      "words": 10942,
       "rows": 0,
       "orgs": [
         "Altruist",
         "Ameriprise",
         "AssetMark",
+        "BNY",
         "Bank of America",
         "Benevity",
         "Blackbaud",
@@ -117,6 +118,7 @@
         "Greater Horizons",
         "Groundswell",
         "ImpactAssets",
+        "J.P. Morgan",
         "LPL",
         "Morgan Stanley",
         "OneAscent",
@@ -877,7 +879,7 @@
     },
     {
       "path": "research/mission-2026-11-14/FINAL-STATUS.md",
-      "words": 2144,
+      "words": 2072,
       "rows": 0,
       "orgs": [
         "Ameriprise",
@@ -1010,6 +1012,99 @@
       "url_count": 95
     },
     {
+      "path": "research/mission-2026-11-14/archive/DAF-INDUSTRY-REPORT-2026-11.pre-consolidation.md",
+      "words": 9946,
+      "rows": 0,
+      "orgs": [
+        "Altruist",
+        "Ameriprise",
+        "AssetMark",
+        "Bank of America",
+        "Benevity",
+        "Blackbaud",
+        "Bonterra",
+        "Candid",
+        "Chariot",
+        "Charityvest",
+        "DAF Direct",
+        "DAFgiving360",
+        "Daffy",
+        "Edward Jones",
+        "Every.org",
+        "FIMS",
+        "Fidelity Charitable",
+        "Foundant",
+        "Foundation Source",
+        "Founders Pledge",
+        "GiveClear",
+        "GivingPoint",
+        "Givinga",
+        "Goldman Sachs",
+        "Greater Horizons",
+        "Groundswell",
+        "ImpactAssets",
+        "J.P. Morgan",
+        "LPL",
+        "Morgan Stanley",
+        "OneAscent",
+        "PayPal Giving Fund",
+        "Ren",
+        "RenPSG",
+        "Renaissance Charitable",
+        "SEI",
+        "Schwab Charitable",
+        "Signatry",
+        "Stellar",
+        "TIAA",
+        "TIFIN",
+        "UBS",
+        "Vanguard Charitable",
+        "Vennfi",
+        "iPhi"
+      ],
+      "url_count": 130
+    },
+    {
+      "path": "research/mission-2026-11-14/archive/strategic-synthesis.pre-consolidation.md",
+      "words": 6912,
+      "rows": 0,
+      "orgs": [
+        "Altruist",
+        "Ameriprise",
+        "BNY",
+        "Bonterra",
+        "Candid",
+        "Chariot",
+        "Charityvest",
+        "DAFgiving360",
+        "Daffy",
+        "Edward Jones",
+        "Fidelity Charitable",
+        "Foundant",
+        "Foundation Source",
+        "GiveClear",
+        "GivingPoint",
+        "Givinga",
+        "ImpactAssets",
+        "LPL",
+        "OneAscent",
+        "Pave",
+        "Ren",
+        "RenPSG",
+        "SEI",
+        "Schwab Charitable",
+        "Signatry",
+        "Stellar",
+        "TIAA",
+        "TIFIN",
+        "UBS",
+        "Vanguard Charitable",
+        "Vennfi",
+        "iPhi"
+      ],
+      "url_count": 110
+    },
+    {
       "path": "research/mission-2026-11-14/breadth-community-faith-infrastructure-emerging.md",
       "words": 6165,
       "rows": 0,
@@ -1099,6 +1194,36 @@
         "iPhi"
       ],
       "url_count": 134
+    },
+    {
+      "path": "research/mission-2026-11-14/consolidation-changelog.md",
+      "words": 3279,
+      "rows": 0,
+      "orgs": [
+        "Benevity",
+        "Bonterra",
+        "Candid",
+        "Chariot",
+        "Charityvest",
+        "DAF Direct",
+        "DAFgiving360",
+        "Daffy",
+        "Edward Jones",
+        "FIMS",
+        "Fidelity Charitable",
+        "Foundant",
+        "Foundation Source",
+        "GivingPoint",
+        "Givinga",
+        "ImpactAssets",
+        "J.P. Morgan",
+        "Morgan Stanley",
+        "Ren",
+        "TIFIN",
+        "Vanguard Charitable",
+        "iPhi"
+      ],
+      "url_count": 0
     },
     {
       "path": "research/mission-2026-11-14/daf-user-complaints-deep-research.md",
@@ -1645,6 +1770,28 @@
       "url_count": 44
     },
     {
+      "path": "research/mission-2026-11-14/queue-adviser-fees-pools-npact.md",
+      "words": 3924,
+      "rows": 0,
+      "orgs": [
+        "Ameriprise",
+        "Blackbaud",
+        "Chariot",
+        "DAFgiving360",
+        "Daffy",
+        "Edward Jones",
+        "FIMS",
+        "Fidelity Charitable",
+        "Founders Pledge",
+        "Groundswell",
+        "LPL",
+        "Schwab Charitable",
+        "UBS",
+        "Vanguard Charitable"
+      ],
+      "url_count": 47
+    },
+    {
       "path": "research/mission-2026-11-14/queue-agentic-controls-and-sponsor-audits.md",
       "words": 3892,
       "rows": 0,
@@ -1690,7 +1837,7 @@
     },
     {
       "path": "research/mission-2026-11-14/queue-all-in-cost-dafpay-access.md",
-      "words": 5343,
+      "words": 5446,
       "rows": 0,
       "orgs": [
         "American Endowment Foundation",
@@ -1770,6 +1917,27 @@
         "iPhi"
       ],
       "url_count": 49
+    },
+    {
+      "path": "research/mission-2026-11-14/queue-batch28-ledgers-voids-cf-apps.md",
+      "words": 5733,
+      "rows": 0,
+      "orgs": [
+        "Blackbaud",
+        "Chariot",
+        "DAFgiving360",
+        "Daffy",
+        "FIMS",
+        "Fidelity Charitable",
+        "National Christian Foundation",
+        "Ren",
+        "Schwab Charitable",
+        "Silicon Valley Community Foundation",
+        "Stellar",
+        "Vanguard Charitable",
+        "iPhi"
+      ],
+      "url_count": 40
     },
     {
       "path": "research/mission-2026-11-14/queue-bdc-coverage-migrations-goodstack.md",
@@ -1933,6 +2101,20 @@
       "url_count": 80
     },
     {
+      "path": "research/mission-2026-11-14/queue-ledger-segment-npact-owner.md",
+      "words": 4626,
+      "rows": 0,
+      "orgs": [
+        "Blackbaud",
+        "FIMS",
+        "Foundant",
+        "Ren",
+        "Stellar",
+        "iPhi"
+      ],
+      "url_count": 58
+    },
+    {
       "path": "research/mission-2026-11-14/queue-ledgers-behind-portals.md",
       "words": 3988,
       "rows": 0,
@@ -1946,6 +2128,45 @@
         "Vanguard Charitable"
       ],
       "url_count": 41
+    },
+    {
+      "path": "research/mission-2026-11-14/queue-net-payout-fidelity-outliers.md",
+      "words": 3872,
+      "rows": 0,
+      "orgs": [
+        "BNY",
+        "DAFgiving360",
+        "Fidelity Charitable",
+        "Goldman Sachs",
+        "Greater Horizons",
+        "ImpactAssets",
+        "National Philanthropic Trust",
+        "Schwab Charitable",
+        "Vanguard Charitable"
+      ],
+      "url_count": 15
+    },
+    {
+      "path": "research/mission-2026-11-14/queue-nonprofit-side-panel.md",
+      "words": 3005,
+      "rows": 0,
+      "orgs": [
+        "Benevity",
+        "Blackbaud",
+        "Chariot",
+        "Charityvest",
+        "DAF Direct",
+        "DAFgiving360",
+        "Daffy",
+        "Every.org",
+        "FIMS",
+        "Fidelity Charitable",
+        "PayPal Giving Fund",
+        "Ren",
+        "Vanguard Charitable",
+        "YourCause"
+      ],
+      "url_count": 29
     },
     {
       "path": "research/mission-2026-11-14/queue-npt-dafgiving360-misc.md",
@@ -1980,6 +2201,25 @@
         "iPhi"
       ],
       "url_count": 47
+    },
+    {
+      "path": "research/mission-2026-11-14/queue-npt-givingpoint-fidelity-stack.md",
+      "words": 4155,
+      "rows": 0,
+      "orgs": [
+        "BNY",
+        "DAFgiving360",
+        "Fidelity Charitable",
+        "GivingPoint",
+        "J.P. Morgan",
+        "National Philanthropic Trust",
+        "Ren",
+        "Stellar",
+        "UBS",
+        "Wells Fargo",
+        "iPhi"
+      ],
+      "url_count": 53
     },
     {
       "path": "research/mission-2026-11-14/queue-payment-rails-cluster.md",
@@ -2053,6 +2293,36 @@
         "YourCause"
       ],
       "url_count": 42
+    },
+    {
+      "path": "research/mission-2026-11-14/queue-ren-iphi-attrition.md",
+      "words": 6291,
+      "rows": 0,
+      "orgs": [
+        "American Endowment Foundation",
+        "AssetMark",
+        "BNY",
+        "Blackbaud",
+        "CSuite",
+        "Chariot",
+        "DonorFirstX",
+        "Edward Jones",
+        "Foundant",
+        "GivingPoint",
+        "ImpactAssets",
+        "J.P. Morgan",
+        "Jewish Communal Fund",
+        "National Philanthropic Trust",
+        "Raymond James",
+        "Ren",
+        "RenPSG",
+        "Renaissance Charitable",
+        "Stellar",
+        "TIFIN",
+        "UBS",
+        "iPhi"
+      ],
+      "url_count": 109
     },
     {
       "path": "research/mission-2026-11-14/queue-sponsor-terms-data-clauses.md",
@@ -2296,12 +2566,14 @@
     },
     {
       "path": "research/mission-2026-11-14/strategic-synthesis.md",
-      "words": 6912,
+      "words": 9817,
       "rows": 0,
       "orgs": [
         "Altruist",
         "Ameriprise",
         "BNY",
+        "Benevity",
+        "Blackbaud",
         "Bonterra",
         "Candid",
         "Chariot",
@@ -2309,6 +2581,7 @@
         "DAFgiving360",
         "Daffy",
         "Edward Jones",
+        "FIMS",
         "Fidelity Charitable",
         "Foundant",
         "Foundation Source",
@@ -2316,6 +2589,7 @@
         "GivingPoint",
         "Givinga",
         "ImpactAssets",
+        "J.P. Morgan",
         "LPL",
         "OneAscent",
         "Pave",
@@ -2332,7 +2606,7 @@
         "Vennfi",
         "iPhi"
       ],
-      "url_count": 110
+      "url_count": 111
     },
     {
       "path": "research/mission-2026-11-14/validation-wave1-report.md",
@@ -2377,6 +2651,68 @@
         "TIFIN"
       ],
       "url_count": 6
+    },
+    {
+      "path": "research/mission-2026-11-14/validation-wave11-report.md",
+      "words": 1967,
+      "rows": 0,
+      "orgs": [
+        "Blackbaud",
+        "DAFgiving360",
+        "FIMS",
+        "Foundant",
+        "GivingPoint",
+        "Goldman Sachs",
+        "ImpactAssets",
+        "J.P. Morgan",
+        "National Philanthropic Trust",
+        "Ren",
+        "Stellar",
+        "UBS",
+        "Vanguard Charitable",
+        "iPhi"
+      ],
+      "url_count": 0
+    },
+    {
+      "path": "research/mission-2026-11-14/validation-wave12-report.md",
+      "words": 1329,
+      "rows": 0,
+      "orgs": [
+        "Benevity",
+        "Blackbaud",
+        "DAFgiving360",
+        "FIMS",
+        "GivingPoint",
+        "Ren",
+        "Stellar",
+        "iPhi"
+      ],
+      "url_count": 24
+    },
+    {
+      "path": "research/mission-2026-11-14/validation-wave13-report.md",
+      "words": 1844,
+      "rows": 0,
+      "orgs": [
+        "BNY",
+        "Blackbaud",
+        "Bonterra",
+        "Candid",
+        "DAF Direct",
+        "DAFgiving360",
+        "Edward Jones",
+        "FIMS",
+        "Fidelity Charitable",
+        "Foundant",
+        "GivingPoint",
+        "Givinga",
+        "Greater Horizons",
+        "J.P. Morgan",
+        "Vanguard Charitable",
+        "iPhi"
+      ],
+      "url_count": 1
     },
     {
       "path": "research/mission-2026-11-14/validation-wave3-report.md",
@@ -3584,6 +3920,24 @@
       "url_count": 0
     },
     {
+      "path": "data/mission-2026-11-14/adviser-fees-observed-2026.csv",
+      "words": 1013,
+      "rows": 16,
+      "orgs": [
+        "American Endowment Foundation",
+        "Ameriprise",
+        "DAFgiving360",
+        "Fidelity Charitable",
+        "LPL",
+        "National Philanthropic Trust",
+        "Renaissance Charitable",
+        "Schwab Charitable",
+        "UBS",
+        "Vanguard Charitable"
+      ],
+      "url_count": 22
+    },
+    {
       "path": "data/mission-2026-11-14/agentic-control-gap-matrix.csv",
       "words": 2780,
       "rows": 40,
@@ -3910,6 +4264,23 @@
       "url_count": 71
     },
     {
+      "path": "data/mission-2026-11-14/cf-ledger-families-2026.csv",
+      "words": 14122,
+      "rows": 491,
+      "orgs": [
+        "Blackbaud",
+        "FIMS",
+        "Foundant",
+        "Greater Horizons",
+        "National Christian Foundation",
+        "Ren",
+        "Silicon Valley Community Foundation",
+        "Stellar",
+        "iPhi"
+      ],
+      "url_count": 480
+    },
+    {
       "path": "data/mission-2026-11-14/cf-ledger-vendors-2026.csv",
       "words": 1453,
       "rows": 34,
@@ -4140,6 +4511,16 @@
         "TIAA"
       ],
       "url_count": 0
+    },
+    {
+      "path": "data/mission-2026-11-14/daf-grant-voids-disclosures.csv",
+      "words": 2273,
+      "rows": 41,
+      "orgs": [
+        "Renaissance Charitable",
+        "Silicon Valley Community Foundation"
+      ],
+      "url_count": 67
     },
     {
       "path": "data/mission-2026-11-14/daf-interested-firms.csv",
@@ -4604,6 +4985,28 @@
       "url_count": 1
     },
     {
+      "path": "data/mission-2026-11-14/net-payout-by-sponsor.csv",
+      "words": 47985,
+      "rows": 6180,
+      "orgs": [
+        "BNY",
+        "Daffy",
+        "GiveClear",
+        "Greater Horizons",
+        "Renaissance Charitable",
+        "Silicon Valley Community Foundation",
+        "TIAA"
+      ],
+      "url_count": 7536
+    },
+    {
+      "path": "data/mission-2026-11-14/net-payout-summary.csv",
+      "words": 71,
+      "rows": 70,
+      "orgs": [],
+      "url_count": 0
+    },
+    {
       "path": "data/mission-2026-11-14/non-dafrc-daf-filers-990.csv",
       "words": 30272,
       "rows": 6675,
@@ -4653,6 +5056,81 @@
         "Vanguard Charitable"
       ],
       "url_count": 17
+    },
+    {
+      "path": "data/mission-2026-11-14/nonprofit-side-panel-2026-cf-supplement.csv",
+      "words": 1809,
+      "rows": 54,
+      "orgs": [
+        "Silicon Valley Community Foundation"
+      ],
+      "url_count": 24
+    },
+    {
+      "path": "data/mission-2026-11-14/nonprofit-side-panel-2026-evidence.csv",
+      "words": 1892,
+      "rows": 79,
+      "orgs": [
+        "BNY",
+        "Benevity",
+        "Chariot",
+        "DAF Direct",
+        "DAFgiving360",
+        "Daffy",
+        "Every.org",
+        "Fidelity Charitable",
+        "GuideStar",
+        "PayPal Giving Fund",
+        "Ren",
+        "Vanguard Charitable"
+      ],
+      "url_count": 34
+    },
+    {
+      "path": "data/mission-2026-11-14/nonprofit-side-panel-2026.csv",
+      "words": 3119,
+      "rows": 33,
+      "orgs": [
+        "American Endowment Foundation",
+        "BNY",
+        "Bank of America",
+        "Benevity",
+        "Blackbaud",
+        "Chariot",
+        "Charityvest",
+        "DAF Direct",
+        "DAFgiving360",
+        "Daffy",
+        "Every.org",
+        "Fidelity Charitable",
+        "GuideStar",
+        "Morgan Stanley",
+        "National Christian Foundation",
+        "National Philanthropic Trust",
+        "PayPal Giving Fund",
+        "Ren",
+        "Renaissance Charitable",
+        "Schwab Charitable",
+        "Silicon Valley Community Foundation",
+        "Vanguard Charitable",
+        "YourCause"
+      ],
+      "url_count": 111
+    },
+    {
+      "path": "data/mission-2026-11-14/npt-givingpoint-programs-2026.csv",
+      "words": 848,
+      "rows": 15,
+      "orgs": [
+        "GivingPoint",
+        "J.P. Morgan",
+        "National Philanthropic Trust",
+        "Ren",
+        "UBS",
+        "Wells Fargo",
+        "iPhi"
+      ],
+      "url_count": 43
     },
     {
       "path": "data/mission-2026-11-14/pe-investor-portfolio-view.csv",
@@ -5847,6 +6325,18 @@
       "url_count": 0
     },
     {
+      "path": "data/mission-2026-11-14/queue-proposals-adviser-fees.csv",
+      "words": 533,
+      "rows": 5,
+      "orgs": [
+        "Blackbaud",
+        "Chariot",
+        "DAFgiving360",
+        "FIMS"
+      ],
+      "url_count": 10
+    },
+    {
       "path": "data/mission-2026-11-14/queue-proposals-agentic-audits.csv",
       "words": 470,
       "rows": 6,
@@ -5940,6 +6430,17 @@
         "iPhi"
       ],
       "url_count": 8
+    },
+    {
+      "path": "data/mission-2026-11-14/queue-proposals-batch28.csv",
+      "words": 398,
+      "rows": 4,
+      "orgs": [
+        "Blackbaud",
+        "Daffy",
+        "Fidelity Charitable"
+      ],
+      "url_count": 4
     },
     {
       "path": "data/mission-2026-11-14/queue-proposals-bdc-labour.csv",
@@ -6104,6 +6605,19 @@
       "url_count": 1
     },
     {
+      "path": "data/mission-2026-11-14/queue-proposals-givingpoint.csv",
+      "words": 281,
+      "rows": 3,
+      "orgs": [
+        "GivingPoint",
+        "J.P. Morgan",
+        "Ren",
+        "UBS",
+        "iPhi"
+      ],
+      "url_count": 1
+    },
+    {
       "path": "data/mission-2026-11-14/queue-proposals-infrastructure.csv",
       "words": 611,
       "rows": 9,
@@ -6139,6 +6653,19 @@
       "url_count": 16
     },
     {
+      "path": "data/mission-2026-11-14/queue-proposals-ledger-segment.csv",
+      "words": 505,
+      "rows": 4,
+      "orgs": [
+        "Blackbaud",
+        "FIMS",
+        "Foundant",
+        "Ren",
+        "iPhi"
+      ],
+      "url_count": 6
+    },
+    {
       "path": "data/mission-2026-11-14/queue-proposals-ledgers.csv",
       "words": 399,
       "rows": 4,
@@ -6165,6 +6692,33 @@
         "Vanguard Charitable"
       ],
       "url_count": 0
+    },
+    {
+      "path": "data/mission-2026-11-14/queue-proposals-net-payout.csv",
+      "words": 425,
+      "rows": 4,
+      "orgs": [
+        "DAFgiving360",
+        "Fidelity Charitable",
+        "Greater Horizons",
+        "ImpactAssets"
+      ],
+      "url_count": 0
+    },
+    {
+      "path": "data/mission-2026-11-14/queue-proposals-nonprofit-panel.csv",
+      "words": 426,
+      "rows": 4,
+      "orgs": [
+        "Benevity",
+        "Blackbaud",
+        "Chariot",
+        "DAFgiving360",
+        "FIMS",
+        "PayPal Giving Fund",
+        "Vanguard Charitable"
+      ],
+      "url_count": 6
     },
     {
       "path": "data/mission-2026-11-14/queue-proposals-npt-misc.csv",
@@ -6309,6 +6863,21 @@
       "url_count": 3
     },
     {
+      "path": "data/mission-2026-11-14/queue-proposals-ren-attrition.csv",
+      "words": 477,
+      "rows": 5,
+      "orgs": [
+        "Foundant",
+        "GivingPoint",
+        "ImpactAssets",
+        "National Philanthropic Trust",
+        "Ren",
+        "Stellar",
+        "iPhi"
+      ],
+      "url_count": 5
+    },
+    {
       "path": "data/mission-2026-11-14/queue-proposals-sponsor-mortality.csv",
       "words": 452,
       "rows": 7,
@@ -6425,6 +6994,57 @@
         "Silicon Valley Community Foundation"
       ],
       "url_count": 26
+    },
+    {
+      "path": "data/mission-2026-11-14/relationship-graph-edges-additions-11.csv",
+      "words": 1383,
+      "rows": 34,
+      "orgs": [
+        "American Endowment Foundation",
+        "AssetMark",
+        "BNY",
+        "Blackbaud",
+        "GivingPoint",
+        "ImpactAssets",
+        "J.P. Morgan",
+        "National Philanthropic Trust",
+        "Raymond James",
+        "Ren",
+        "Renaissance Charitable",
+        "Stellar",
+        "TIFIN",
+        "iPhi"
+      ],
+      "url_count": 31
+    },
+    {
+      "path": "data/mission-2026-11-14/relationship-graph-edges-additions-12.csv",
+      "words": 930,
+      "rows": 28,
+      "orgs": [
+        "Fidelity Charitable",
+        "GivingPoint",
+        "J.P. Morgan",
+        "National Philanthropic Trust",
+        "Ren",
+        "Stellar",
+        "UBS",
+        "iPhi"
+      ],
+      "url_count": 17
+    },
+    {
+      "path": "data/mission-2026-11-14/relationship-graph-edges-additions-13.csv",
+      "words": 1323,
+      "rows": 35,
+      "orgs": [
+        "Blackbaud",
+        "FIMS",
+        "Ren",
+        "Silicon Valley Community Foundation",
+        "iPhi"
+      ],
+      "url_count": 23
     },
     {
       "path": "data/mission-2026-11-14/relationship-graph-edges-additions-2.csv",
@@ -6685,6 +7305,52 @@
       "url_count": 0
     },
     {
+      "path": "data/mission-2026-11-14/ren-charity-ach-program-evidence.csv",
+      "words": 4472,
+      "rows": 58,
+      "orgs": [
+        "American Endowment Foundation",
+        "Edward Jones",
+        "Ren"
+      ],
+      "url_count": 36
+    },
+    {
+      "path": "data/mission-2026-11-14/ren-iphi-attrition-summary.json",
+      "words": 944,
+      "rows": 0,
+      "orgs": [
+        "BNY",
+        "CSuite",
+        "Foundant",
+        "TIFIN"
+      ],
+      "url_count": 0
+    },
+    {
+      "path": "data/mission-2026-11-14/ren-iphi-tenant-census.csv",
+      "words": 3507,
+      "rows": 76,
+      "orgs": [
+        "AssetMark",
+        "BNY",
+        "CSuite",
+        "Foundant",
+        "GivingPoint",
+        "ImpactAssets",
+        "J.P. Morgan",
+        "National Philanthropic Trust",
+        "Raymond James",
+        "Ren",
+        "Renaissance Charitable",
+        "Stellar",
+        "TIFIN",
+        "UBS",
+        "iPhi"
+      ],
+      "url_count": 219
+    },
+    {
       "path": "data/mission-2026-11-14/repo-inventory-baseline.json",
       "words": 3384,
       "rows": 0,
@@ -6761,8 +7427,8 @@
     },
     {
       "path": "data/mission-2026-11-14/research-priority-inputs.csv",
-      "words": 19269,
-      "rows": 290,
+      "words": 22385,
+      "rows": 319,
       "orgs": [
         "Altruist",
         "AssetMark",
@@ -6815,12 +7481,12 @@
         "YourCause",
         "iPhi"
       ],
-      "url_count": 158
+      "url_count": 184
     },
     {
       "path": "data/mission-2026-11-14/research-priority-queue.csv",
-      "words": 19269,
-      "rows": 290,
+      "words": 22385,
+      "rows": 319,
       "orgs": [
         "Altruist",
         "AssetMark",
@@ -6873,7 +7539,27 @@
         "YourCause",
         "iPhi"
       ],
-      "url_count": 158
+      "url_count": 184
+    },
+    {
+      "path": "data/mission-2026-11-14/spectrumportal-tenant-audit.csv",
+      "words": 433,
+      "rows": 16,
+      "orgs": [
+        "Blackbaud",
+        "Foundant"
+      ],
+      "url_count": 16
+    },
+    {
+      "path": "data/mission-2026-11-14/sponsor-app-defects-2021plus.csv",
+      "words": 741,
+      "rows": 55,
+      "orgs": [
+        "Daffy",
+        "Fidelity Charitable"
+      ],
+      "url_count": 2
     },
     {
       "path": "data/mission-2026-11-14/sponsor-audit-notes.csv",
@@ -7230,6 +7916,76 @@
         "Vanguard Charitable"
       ],
       "url_count": 25
+    },
+    {
+      "path": "data/mission-2026-11-14/validation-register-wave11.csv",
+      "words": 2216,
+      "rows": 24,
+      "orgs": [
+        "American Endowment Foundation",
+        "BNY",
+        "Blackbaud",
+        "DAFgiving360",
+        "FIMS",
+        "Fidelity Charitable",
+        "Foundant",
+        "GivingPoint",
+        "Goldman Sachs",
+        "ImpactAssets",
+        "J.P. Morgan",
+        "National Philanthropic Trust",
+        "Ren",
+        "Renaissance Charitable",
+        "Stellar",
+        "UBS",
+        "Vanguard Charitable",
+        "iPhi"
+      ],
+      "url_count": 46
+    },
+    {
+      "path": "data/mission-2026-11-14/validation-register-wave12.csv",
+      "words": 1661,
+      "rows": 27,
+      "orgs": [
+        "Benevity",
+        "Blackbaud",
+        "DAFgiving360",
+        "FIMS",
+        "Fidelity Charitable",
+        "GivingPoint",
+        "J.P. Morgan",
+        "Morgan Stanley",
+        "National Philanthropic Trust",
+        "Ren",
+        "Stellar",
+        "UBS",
+        "Vanguard Charitable",
+        "iPhi"
+      ],
+      "url_count": 46
+    },
+    {
+      "path": "data/mission-2026-11-14/validation-register-wave13.csv",
+      "words": 1540,
+      "rows": 12,
+      "orgs": [
+        "BNY",
+        "Blackbaud",
+        "DAF Direct",
+        "DAFgiving360",
+        "FIMS",
+        "Fidelity Charitable",
+        "Foundant",
+        "Givinga",
+        "Ren",
+        "Schwab Charitable",
+        "Signatry",
+        "Silicon Valley Community Foundation",
+        "Vanguard Charitable",
+        "iPhi"
+      ],
+      "url_count": 14
     },
     {
       "path": "data/mission-2026-11-14/validation-register-wave2a.csv",

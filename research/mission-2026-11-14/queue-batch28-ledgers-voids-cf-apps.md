@@ -381,3 +381,18 @@ Columns follow `queue-proposals-README.md`.
 - **Void figures appear only where the book and 990 treatments differ.** Sponsors without itemised figures are not void-free. SVCF's TY2023–24 amounts are masked in the public XML.
 - **The App Store RSS returns only the latest written reviews,** about 50 per app. Ratings without text and Android were not analysed (P-B28-04). Defect classification is mine, made from short texts.
 - **Community-foundation cadence is often a service target,** e.g. "typically", "generally", not a guarantee.
+
+## Validation corrections (wave 13, 2026-11-15) — governing
+Source: [validation-wave13-report.md](validation-wave13-report.md).
+
+1. **§3.2 table, Fidelity row, TY2021 cell.** Replace "n/s" with "$16,130,006 (0.141%; amended return 202430459349302913, same as original 202321309349304807)".
+2. **Line 52 (P-PAY-03).**
+   - Replace: "**$16.04m (FY2023), $16.59m (FY2024), $11.15m (FY2025)**, equal to **0.155%, 0.131% and 0.073%**"
+   - With: "**$16.13m (FY2022), $16.04m (FY2023), $16.59m (FY2024), $11.15m (FY2025)**, equal to **0.141%, 0.155%, 0.131% and 0.073%**"
+3. **Line 51 (P-NPP-04).**
+   - Replace: "NPact, which trades as Fusion Laboratories LLC,"
+   - With: "NPact (the trade name of Fusion Laboratories LLC)"
+4. **Line 50 (P-LSG-01).**
+   - Replace: "**Pittsburgh: NetSuite + Salesforce is the current core ERP**, now under \"remediation\". The first-party CIO posting (deadline 2026-03-20) says \"core ERP system encapsulated by NetSuite, Salesforce\" [F]."
+   - With: "**Pittsburgh: NetSuite + Salesforce is the current core ERP** (\"core ERP system encapsulated by NetSuite, Salesforce and a cloud-based data warehouse\"). A consultant is to \"assist in remediation of the implementation of a technology plan\" (CIO posting, deadline 2026-03-20) [F]."
+5. **Line 54 and §5.2 (P-CMP-06).** After "20 of them describing defects", add: "(18 excluding 2 feature regressions)".

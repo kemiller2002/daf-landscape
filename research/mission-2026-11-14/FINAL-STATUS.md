@@ -8,21 +8,19 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refreshed 2026-11-15, after queue batches through #25)
+## Counts (refreshed 2026-11-15, after queue batches through #28)
 
 | Item | Count | How computed |
 |---|---|---|
-| Pull requests merged | #20–#24 merged; #25 merges with this refresh | GitHub |
-| Research documents (markdown) | 81 → 151, ~388k words | `scripts/mission_inventory.py` |
-| Datasets | 60 → 321; 104,735 data rows | Most rows are machine-harvested Form 990, DAFRC and BDC panels |
-| **Sources: curated unique URLs in narrative documents** | **1,851** (baseline 431) | Inventory script, narrative markdown only. Machine-harvested filing URLs in bulk datasets are counted separately and not as "sources reviewed". |
-| **Organizations investigated** | ~300 sponsors, vendors, investors and channels with sourced profiles; 89 interested firms; 50 venture cases; ~60 companies in the PE ownership map; **1,512 sponsors** with parsed Form 990 data; **803 community foundations** scanned for portal vendors (481 mapped) | Graph, breadth, interested-firm, failure, PE and CF-map datasets |
-| **Independent validation** | **190 validation-register rows across 10 waves**: 127 confirmed (incl. with caveats or corrections), 50 partially confirmed, 8 contradicted, 1 refuted, 3 unable to verify, 1 plausible | `validation-register*.csv`. Corrections are appended to source documents as governing notes. |
-| **Evidence Quadrants** | v1.1 calibrated (42 providers, 5 areas; 74% exact / 99.7% within-1 agreement); v1.2 targeted update places BofA CGF, MS GIFT and NCF | `quadrant-v11-blind-and-calibration.md`, `quadrant-v12-targeted-rescore.md` |
-| **AI** | 30 + 21 inventoried use cases and products; no agentic giving product has independent outcome evidence; AI-economics v1, v2 and v2b (seeded Monte Carlo on observed costs and labour rates) | AI CSVs and docs |
-| **Major hypotheses tested** | ~55 (45 at the previous refresh, plus portability, credential terms, all-in cost, CF vendor concentration, ledger opacity, credit stress, labour rates, agentic outcomes, DAFpay access, Foundant migration trend) | cited documents |
-| Recency rule | Pre-2021 evidence is historical context only (methodology §8) | owner direction 2026-11-14 |
-| Research queue | 116 done, 19 monitoring, 10 blocked (human operator, gated registries, unreachable archives), 5 deprioritized historical, 1 declined (no outreach), 139 open | `research-priority-queue.csv` |
+| Pull requests merged | #20–#27 merged; #28 merges with this refresh | GitHub |
+| Research documents (markdown) | 81 → 164, ~449k words | `scripts/mission_inventory.py` |
+| Datasets | 60 → 348; 112,166 data rows | Most rows are machine-harvested Form 990, DAFRC, BDC and CF-portal panels |
+| **Sources: curated unique URLs in narrative documents** | **~1,850+** (baseline 431) | Narrative markdown only. Bulk machine-harvested filing URLs are counted separately. |
+| **Organizations investigated** | ~300 sponsors, vendors, investors and channels with sourced profiles; 89 interested firms; 50 venture cases; ~60 companies in the PE ownership map; **1,512 sponsors** with parsed Form 990 data; **803 community foundations** scanned for portal vendors (481 mapped) | Respective datasets |
+| **Independent validation** | **253 validation-register rows across 13 waves**: 177 confirmed (incl. with caveats or corrections), ~54 partially confirmed or weakly supported, 10 contradicted or refuted, 3 unable to verify, and 8 consolidation-audit rows (all fixed) | `validation-register*.csv` |
+| **Evidence Quadrants** | v1.1 calibrated (42 providers, 5 areas); v1.2 targeted update for BofA CGF, MS GIFT and NCF | quadrant docs |
+| **Consolidation** | Report §11 rewritten thematically; synthesis A–G and top 10 re-ranked; originals archived; changelog and wave-13 audit | `consolidation-changelog.md`, `validation-wave13-report.md` |
+| Research queue | 139 done, 28 monitoring, 18 blocked (partner data, gated registries, unreachable archives, API credentials), 5 deprioritized historical, 1 declined (no outreach), 128 open (mostly narrow refinements) | `research-priority-queue.csv` |
 | Coverage matrix | 62.6% of entity cells investigated; 14.4% partially validated or better | `scripts/mission_coverage.py` |
 
 ## Most important new discoveries

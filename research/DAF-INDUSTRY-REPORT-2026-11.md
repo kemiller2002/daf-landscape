@@ -24,7 +24,7 @@ This report sits on top of the repository's 96 research documents and 89 dataset
 | Charitable assets in DAFs | $327.87bn | FY2020→FY2024 CAGR 18.1% ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`derived-metrics.csv`](../data/mission-2026-11-14/derived-metrics.csv)) |
 | Contributions | $90.57bn | +38.6% YoY after declines in FY2022–23 ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Annual DAF Report page](https://www.dafresearchcollaborative.org/research/annual-daf-report)) |
 | Grants | $64.60bn | CAGR 16.1% ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`derived-metrics.csv`](../data/mission-2026-11-14/derived-metrics.csv)) |
-| Reported accounts | 3.59m | **79.5% are in 22 donation-processor sponsors holding 0.9% of assets**; about 59–67% if Givinga, whose account unit is undefined, is excluded (§11.1) ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`dafrc-sponsor-schedule-d-fy2019-2024.csv`](../data/mission-2026-11-14/dafrc-sponsor-schedule-d-fy2019-2024.csv)) |
+| Reported accounts | 3.59m | **79.5% are in 22 donation-processor sponsors holding 0.9% of assets**; about 66% (59.2% on corrected data) if Givinga, whose account unit is undefined, is excluded (§11.1) ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`dafrc-sponsor-schedule-d-fy2019-2024.csv`](../data/mission-2026-11-14/dafrc-sponsor-schedule-d-fy2019-2024.csv)) |
 | Traditional invested accounts | ≤ 737k | upper bound; no lower bound from public data ([DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`dafrc-sponsor-schedule-d-fy2019-2024.csv`](../data/mission-2026-11-14/dafrc-sponsor-schedule-d-fy2019-2024.csv); repo [`regulation-market-structure-portability.md`](../research/mission-2026-11-14/regulation-market-structure-portability.md)) |
 | Sponsors | ~1,500 (1,512 reported) | about 803 community foundations ([DAFRC Annual DAF Report page](https://www.dafresearchcollaborative.org/research/annual-daf-report); [DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf)) |
 
@@ -391,7 +391,7 @@ This section consolidates the round-2 workstreams (failures, complaints, buyers,
 - **Scale economies are strong:** cost elasticity to scale is 0.41 for nationals and 0.84 for community foundations.
 
 **Sensitivity of the market statistics** (same workstream)
-- Excluding Givinga drops the processor share of accounts from about 80% to about 59–67%.
+- Excluding Givinga drops the processor share of accounts from 80.5/77.4/79.5% (FY2022/23/24) to 63.0/67.0/66.0% (59.2% for FY2024 on corrected data).
 - FY2022 account growth flips from +72% to −7%.
 - Givinga's account unit is undefined [V wave 5]. In CY2022 its largest fundraiser was a charity sweepstakes operator, so game or app-user records are one candidate explanation and employer-provisioned employee accounts are another. Neither is confirmed, and the count fell in 2023 and rose by 465k in 2024 with no named fundraiser.
 - Recommendation: exclude SDG Impact Fund from market totals and footnote it.
@@ -432,7 +432,7 @@ This section consolidates the round-2 workstreams (failures, complaints, buyers,
 - Destinations: Foundant 4, akoyaGO 1, Give Interactive 1.
 - Separately, the migration census found that Ren iPhi lost 4 of 8 flagged foundations in 2025–26 [V wave 10].
 
-**Community-foundation vendor switches all end on Foundant** ([queue-bdc-coverage-migrations-goodstack.md](mission-2026-11-14/queue-bdc-coverage-migrations-goodstack.md)) [V wave 10]
+**All six dated community-foundation portal switches end on Foundant (Yakima, undated, went to akoyaGO)** ([queue-bdc-coverage-migrations-goodstack.md](mission-2026-11-14/queue-bdc-coverage-migrations-goodstack.md)) [V wave 10]
 - From Ren iPhi: Arkansas (instructions emailed 2026-06-01), Flint (about 2026, weakly dated), Acadiana (2025).
 - From Blackbaud: Winston-Salem (2024).
 - From donor-portal.org: Indian River (2023).
@@ -471,7 +471,7 @@ Donor-portal vendors at the top 40 by FY2024 DAF assets ([queue-community-founda
 **Ledgers behind the portals**
 - **Named ledgers at portal-only foundations** ([queue-ledgers-behind-portals.md](mission-2026-11-14/queue-ledgers-behind-portals.md)) [V wave 10]: named for only 3 of the 29 portal-only community foundations. These are Sage Intacct at CF Northeast Florida, Fund 360 on Salesforce at Maine CF (Accounting Seed underneath not confirmed for Maine), and GKCCF's own platform. Arizona CF moved from Blackbaud FIMS to Sage Intacct + Salesforce.
 - **Salesforce-centred ledger segment** ([queue-ledger-segment-npact-owner.md](mission-2026-11-14/queue-ledger-segment-npact-owner.md)) [V wave 12]:
-  - Named at 11 sponsors holding $3.5bn (Fund 360/Accounting Seed; Sage Intacct + Salesforce). A further $15.6bn possibly on NetSuite + Salesforce is low confidence.
+  - Named at 11 sponsors holding $3.5bn (Fund 360/Accounting Seed; Sage Intacct + Salesforce). NetSuite is now confirmed at SVCF ($9.58bn, with NPact FIT; vendor case study, medium-high) and Pittsburgh ($0.53bn, with Salesforce; high). NCF ($5.46bn) is unresolved [V wave 13].
   - Moves off FIMS are confirmed at Arizona, Vermont and JCF San Diego.
   - The NYCT and California CF ledger readings rest only on job-posting skills (weak).
 - **Other back-office facts** ([queue-ledgers-behind-portals.md](mission-2026-11-14/queue-ledgers-behind-portals.md)) [V wave 10]: donor-portal.org is run by GKCCF/Greater Horizons. Northeast Retirement Services is owned by Community Financial System.
@@ -527,7 +527,7 @@ Grant-payment rails at the top 30 community foundations ([queue-community-founda
 - Nonprofit cost per $1,000 grant ([nonprofit costs](mission-2026-11-14/queue-infrastructure-nonprofit-costs-emerging.md)): about $1–2 on free EFT rails, about $5–8 by check, about $32 on DAFpay at its 2.9% default.
 
 **Payment intermediaries**
-- DAF Direct is a Fidelity-run recommendation router for three sponsors; no funds flow through it ([queue-payment-rails-cluster.md](mission-2026-11-14/queue-payment-rails-cluster.md)).
+- DAF Direct is a recommendation router for three sponsors (Fidelity Charitable, DAFgiving360, BNY Mellon CGF). Its legal operator is DAF Direct Trust, and technical evidence suggests Fidelity runs it. No funds flow through it ([queue-infrastructure-nonprofit-costs-emerging.md](mission-2026-11-14/queue-infrastructure-nonprofit-costs-emerging.md) §Q-B18).
 - Givinga is a single-sponsor platform whose account counts are unstable.
 - **DAFpay access** ([queue-all-in-cost-dafpay-access.md](mission-2026-11-14/queue-all-in-cost-dafpay-access.md)) [V wave 10]: Chariot's default flow passes donor credentials through to the sponsor. Its credential-free method is named only for DAFgiving360 and Foundant-hosted community foundations. How it reaches Vanguard and NCF donors, whose terms bar this (§11.4), is not public.
 

@@ -185,3 +185,13 @@ Qualifications added in §11 from governing corrections (wording only; no figure
 5. **Givinga's account unit.** Two candidate explanations (game or app-user records; employer-provisioned accounts) remain unresolved (V5-01).
 6. **Bonterra 2032 spread.** S+4.75–5.00% per wave 8. FS KKR's 4.75% is not confirmed from its filings (wave-9 correction 2).
 7. **§10 history.** The v1.0 quadrant table and overlays remain for history beside v1.1 and v1.2. They are now labelled but not removed.
+
+## Validation corrections (wave 13, 2026-11-15) — governing
+Source: [validation-wave13-report.md](validation-wave13-report.md).
+
+1. **§3.** Add a sub-table, "Synthesis items dropped or reworded", that logs V13-B04 items (d), (e) and (f):
+   - "about three times earlier estimates" → retained as "8.7% → 9.0% → 28%" (line 22);
+   - "EIN-match vendor client lists to the DAFRC panel" → superseded by the EIN-level CF vendor map (V9-09);
+   - the Schedule R "related partnership" wording → "held 99% since CY2020" (validation wave 3).
+2. **R9 and Y1.** Replace "[validation-wave4-report.md] W4-14" with "[validation-wave4-report.md] row 14 (W4-14 in the report's governing wave-4 section)".
+3. **"Rules applied", first bullet.** Append: "Wave-13 audit: six synthesis items were initially dropped without an entry; see validation-wave13-report.md."
