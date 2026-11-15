@@ -43,7 +43,8 @@ P-BLB-04 (2026-11-15, batch 38; additive, earlier outputs keep their columns):
       one <tr> (e.g. "Bloomerang, LLC (Delayed Draw) | 3,200 | 3,186"). Such rows are still excluded from latest marks
       (row_period_conflict multi_xbrl_dates); in addition each inline-XBRL numeric fact in a hit row is now read with
       its own context date (`xbrl_facts`), and every row with facts on two or more dates is split into one row per
-      date -> data/mission-2026-11-14/bdc-unfunded-commitments-two-period.csv. The split rows carry the fact's
+      date -> data/mission-2026-11-14/bdc-unfunded-commitments-two-period.csv (money facts only: unitRef in USD;
+      rate facts such as spreads are dropped). The split rows carry the fact's
       concept (e.g. us-gaap:InvestmentCompanyFinancialCommitmentToInvesteeFutureAmount, tcpc:UnfundedBalances),
       the printed value, the XBRL scale and the value in dollars; dates printed with no numeric fact (e.g. "NA")
       are listed in `periods_without_value`.
@@ -328,7 +329,7 @@ def xbrl_facts(raw_row: str, ctx: Mapping) -> tuple[dict, ...]:
         v = to_num(txt) if txt else None
         sc = int(_attr(attrs, "scale") or 0)
         sign = -1 if _attr(attrs, "sign") == "-" else 1
-        return {"date": ctx.get(_attr(attrs, "contextRef"), ""), "concept": _attr(attrs, "name"), "printed": txt,
+        return {"date": ctx.get(_attr(attrs, "contextRef"), ""), "concept": _attr(attrs, "name"), "unit": _attr(attrs, "unitRef"), "printed": txt,
                 "scale": sc, "value_usd": None if v is None else sign * v * 10 ** sc}
     return tuple(one(m) for m in IX_NUM.finditer(raw_row))
 
@@ -660,7 +661,7 @@ def two_period_rows(rows: Sequence[Mapping]) -> tuple[dict, ...]:
     def split(r, fs):
         periods = sorted({d for d in (r.get("row_period_conflict") or "").split("multi_xbrl_dates:")[-1].split("|")
                           if re.fullmatch(r"\d{4}-\d{2}-\d{2}", d)} | {f["date"] for f in fs if f["date"]})
-        valued = {f["date"] for f in fs if f["date"] and f["value_usd"] is not None}
+        valued = {f["date"] for f in fs if f["date"] and f["value_usd"] is not None and "usd" in f.get("unit", "").lower()}
         return tuple({"company_group": target_group(r), "target_company": r.get("target_company", ""),
                       "identity_note": r.get("identity_note", ""), "borrower_name_as_listed": r.get("borrower_name_as_listed", ""),
                       "lender_bdc": r.get("lender_bdc", ""), "lender_cik": r.get("lender_cik", ""), "period_ending": f["date"],
@@ -673,7 +674,7 @@ def two_period_rows(rows: Sequence[Mapping]) -> tuple[dict, ...]:
                       "filing_date": r.get("filing_date", ""), "adsh": r.get("adsh", ""),
                       "table_row_index": r.get("table_row_index", ""), "row_cells_raw": r.get("row_cells_raw", ""),
                       "filing_url": r.get("filing_url", "")}
-                     for f in fs if f["date"] and f["value_usd"] is not None and not f["concept"].endswith("MaturityDate"))
+                     for f in fs if f["date"] and f["value_usd"] is not None and "usd" in f.get("unit", "").lower())  # money facts only
     out = tuple(x for r, fs in multi for x in split(r, fs))
     key = lambda x: (x["lender_cik"], norm_name(x["borrower_name_as_listed"]), x["instrument"].lower(), x["maturity_month"],  # noqa: E731
                      x["period_ending"], x["xbrl_concept"], fnum(x["value_usd"]))

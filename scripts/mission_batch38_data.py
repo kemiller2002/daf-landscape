@@ -275,8 +275,95 @@ def line6_status(ex: Mapping) -> str:
     return "line6_yes" if v in ("true", "1") else "line6_no" if v in ("false", "0") else "line6_blank"
 
 
-# Manual reading [I] of every A and B1 row and of B2 rows with assets >= $25m (2026-11-15); see review_note.
-REVIEW: dict[str, tuple[str, str]] = {}
+# Manual reading [I] of every A and B row (2026-11-15). Verdicts:
+#   sponsor_likely          the return says the filer itself holds / offers DAFs for donors
+#   sponsor_possible        wording or Part I values imply own DAF-type funds, but could describe designated or outside funds
+#   part_i_values_unexplained  plausible Part I values with no DAF text; an operating charity (likely misuse of the DAF column)
+#   data_entry_suspect      a Part I count that cannot be a DAF count (no value, or count >> assets)
+#   affiliate_or_related    DAFs are run by an affiliate / related organisation named in the return (Schedule R, NCF affiliates)
+#   holder_at_other_sponsor the filer (or its advisers) holds or advises a DAF at another sponsor
+#   grant_or_receipt        grants paid into / received from someone else's DAF (incl. dissolution transfers)
+#   not_sponsor_negation    the text says the filer does NOT sponsor or maintain DAFs
+#   other_meaning           'sponsoring organization' (HUD, charter school, board) or DAF services, not DAF holding
+REVIEW: dict[str, tuple[str, str]] = {
+    "113035221": ("part_i_values_unexplained", "Children's museum: Part I 2 DAFs, $2.60m EOY, $300k in, $105k out; no DAF text anywhere"),
+    "411463499": ("sponsor_possible", "Samaritan Bethany Foundation (senior-care foundation): Part I 14 DAFs, $267,568 EOY; no DAF text"),
+    "541682189": ("part_i_values_unexplained", "Youth hockey club: Part I 3 DAFs, $84,689; no DAF text"),
+    "330739596": ("part_i_values_unexplained", "Challenged Athletes: Part I 1 DAF, $8,462; no DAF text"),
+    "930512235": ("part_i_values_unexplained", "Air-ambulance operator: Part I 1 DAF, $1,000; no DAF text"),
+    "823733402": ("data_entry_suspect", "Part I count 232,650 with no value; amount-like number in the count field"),
+    "362334632": ("part_i_values_unexplained", "Blood bank: Part I contributions $50,000 only; no DAF text"),
+    "222482796": ("part_i_values_unexplained", "Community-college foundation: Part I count 83, no values; no DAF text"),
+    "341244687": ("part_i_values_unexplained", "Social-service centre: Part I contributions $36,071 only; no DAF text"),
+    "133902012": ("data_entry_suspect", "Part I count 2,934,838 (amount-like) and contributions $667,568; US friends fund of a university"),
+    "813444643": ("data_entry_suspect", "Part I count 503,114 with no value; amount-like number in the count field"),
+    "986001269": ("not_sponsor_negation", "'THE UNIVERSITY DOES NOT SPONSOR DONOR ADVISED FUNDS'"),
+    "450368679": ("sponsor_likely", "Part III: Dakota Medical Charities 'serves as the home of ... more than 100 donor-advised funds' and runs Giving Hearts Day"),
+    "636155094": ("other_meaning", "'sponsoring organization' = UAB acknowledged as sponsor of grants"),
+    "540937279": ("other_meaning", "Sponsoring organisation of HUD housing corporations"),
+    "237396466": ("sponsor_possible", "'manages donor-directed funds that benefit departments of the former Miller-Dwan Medical Center' (may be designated funds)"),
+    "911139827": ("other_meaning", "Sponsoring organisation of HUD Section 202/811 housing projects"),
+    "310956562": ("other_meaning", "Its HUD sponsor is Retirement Housing Foundation"),
+    "383263853": ("holder_at_other_sponsor", "DAF established for it at Grand Rapids Community Foundation, 'not under control of the organization'"),
+    "854395064": ("sponsor_likely", "Mission: 'to manage and administer endowment and donor advised funds' for New Mexico nonprofits and communities"),
+    "521680647": ("not_sponsor_negation", "'did not sponsor any donor advised funds'"),
+    "206064460": ("other_meaning", "Refers to Deseret Trust Company 'offering donor advised funds' (a separate church auxiliary)"),
+    "237073438": ("not_sponsor_negation", "'does not maintain any donor advised funds'"),
+    "850762544": ("holder_at_other_sponsor", "Maintains a DAF with Charityvest"),
+    "942919237": ("other_meaning", "HUD sponsoring organisation (Self-Help for the Elderly)"),
+    "382886028": ("holder_at_other_sponsor", "DAF for it at Grand Rapids Community Foundation"),
+    "432104829": ("sponsor_possible", "'As a community foundation ... acts as fiscal sponsor for numerous donor-directed funds'"),
+    "943298967": ("other_meaning", "HUD sponsoring organisation (Self-Help for the Elderly)"),
+    "571018175": ("other_meaning", "Its sponsoring organisation is York County Council on Aging"),
+    "883982494": ("not_sponsor_negation", "'not a sponsoring organization that maintains donor advised funds'"),
+    "853420407": ("other_meaning", "'sponsoring organization' for a land-bank corporation"),
+    "810561072": ("not_sponsor_negation", "'does not maintain any donor advised funds'"),
+    "626048325": ("other_meaning", "Sponsoring organisation of a dental specialty board"),
+    "200955085": ("other_meaning", "Charter-school sponsor"),
+    "611143409": ("holder_at_other_sponsor", "Endowment contributed its holdings to a DAF held and maintained by another sponsor"),
+    "314379427": ("holder_at_other_sponsor", "Battelle Foundation Fund is a DAF at The Columbus Foundation"),
+    "205806345": ("affiliate_or_related", "Schedule R related organisation whose primary activity is 'administration of donor advised funds'"),
+    "752125945": ("grant_or_receipt", "Support provided to 'various donor advised funds' (impact-investing)"),
+    "486105561": ("affiliate_or_related", "Schedule R related organisation: 'sponsoring org of donor advised fund'"),
+    "953492461": ("sponsor_possible", "Articles allow it to 'solicit, receive and administer funds in the form of donor-advised funds'; Schedule D Part I blank"),
+    "274620963": ("other_meaning", "Impact-investing advice to community foundations and DAFs"),
+    "561366233": ("holder_at_other_sponsor", "Donor advised account balances held at Foundation For The Carolinas"),
+    "412140273": ("not_sponsor_negation", "Scholarship funds 'that are not donor-advised funds as defined in Sec. 4966(d)(2)'"),
+    "842810742": ("grant_or_receipt", "Supporting org: grants to CommunityGiving for 'designated community impact/donor advised funds'"),
+    "136189382": ("grant_or_receipt", "Receives gifts through DAFs"),
+    "953667812": ("other_meaning", "Administers the donor-advised scholarships of Marin Community Foundation (service provider)"),
+    "236226151": ("not_sponsor_negation", "Bank trust: 'not a sponsoring organization maintaining donor advised funds'"),
+    "042392828": ("not_sponsor_negation", "Bank trust: same boilerplate"),
+    "473245010": ("affiliate_or_related", "Text describes The Dallas Foundation's DAFs (supporting organisation)"),
+    "256018929": ("not_sponsor_negation", "Bank trust: same boilerplate"),
+    "670254280": ("holder_at_other_sponsor", "DAFs for it held at Community Foundation of the Virgin Islands"),
+    "481121712": ("sponsor_possible", "'endowment consists of one donor-advised fund' supporting Starkey, Inc. (one fund; may be mislabelled designated fund)"),
+    "611404015": ("affiliate_or_related", "NCF affiliate: DAFs 'in conjunction with National Christian Charitable Foundation'"),
+    "236225368": ("not_sponsor_negation", "Bank trust: same boilerplate"),
+    "256018836": ("not_sponsor_negation", "Bank trust: same boilerplate"),
+    "236226558": ("not_sponsor_negation", "Bank trust: same boilerplate"),
+    "814166805": ("holder_at_other_sponsor", "Grants via a DAF managed by East Bay Community Foundation"),
+    "387191488": ("not_sponsor_negation", "Bank trust: same boilerplate"),
+    "943251981": ("holder_at_other_sponsor", "Advises a DAF held at a local community foundation"),
+    "236597446": ("not_sponsor_negation", "Bank trust: same boilerplate"),
+    "256376434": ("not_sponsor_negation", "Bank trust: same boilerplate"),
+    "464671557": ("other_meaning", "Training for professionals incl. those administering DAFs"),
+    "726028003": ("holder_at_other_sponsor", "'donor advised funds held by GNOF, not by Friends'"),
+    "474374655": ("affiliate_or_related", "Schedule R related organisation: 'administration of donor advised funds'"),
+    "391387619": ("holder_at_other_sponsor", "Fund held by Madison Community Foundation 'as a donor advised endowment fund'"),
+    "208780315": ("affiliate_or_related", "NCF affiliate: DAFs 'through NCF'"),
+    "256690388": ("not_sponsor_negation", "Bank trust: same boilerplate"),
+    "472607964": ("grant_or_receipt", "Funds transferred to a Vanguard Charitable DAF"),
+    "431821818": ("grant_or_receipt", "Dissolved; assets to a DAF at Greater Kansas City Community Foundation"),
+    "581376003": ("grant_or_receipt", "Dissolution: assets to a fund at Jewish Federation of Greater Atlanta"),
+    "581927976": ("grant_or_receipt", "Dissolution: assets to a DAF at Jewish Federation of Greater Atlanta"),
+    "822913556": ("holder_at_other_sponsor", "Established a DAF at its supported organisation"),
+    "860790314": ("grant_or_receipt", "Dissolution: DAF created at Arizona Community Foundation"),
+    "860898996": ("grant_or_receipt", "Grant 'to establish a donor-advised fund' (Arizona Community Foundation)"),
+    "020465942": ("sponsor_possible", "Grant monitoring text: 'Grant awards from donor advised and designated funds' (health-conversion foundation)"),
+    "942518498": ("holder_at_other_sponsor", "Grants administered through a DAF at The San Francisco Foundation"),
+    "832205950": ("sponsor_likely", "Bayou Community Foundation: grants 'requested by donors through Donor Advised Funds and donor-directed gifts to the Foundation'"),
+}
 
 
 def ft_row(ein: str, f: Mapping, ex: Mapping, soi: Mapping, bmf: Mapping) -> dict:
@@ -285,7 +372,8 @@ def ft_row(ein: str, f: Mapping, ex: Mapping, soi: Mapping, bmf: Mapping) -> dic
     show = tuple(sorted(hits, key=lambda h: order.get(h["kind"], 9)))
     b = bmf.get(ein, {})
     v = REVIEW.get(ein, ("unreviewed", ""))
-    return {"ein": ein, "name": f["taxpayer_name"],   # index name (ReturnHeader's first BusinessNameLine1Txt can be the preparer) "bmf_ntee": b.get("ntee", ""),
+    # name from the index: the first BusinessNameLine1Txt in ReturnHeader can be the paid preparer's firm
+    return {"ein": ein, "name": f["taxpayer_name"], "bmf_ntee": b.get("ntee", ""), "bmf_ntee": b.get("ntee", ""),
             "state": ex.get("filer_state") or b.get("state", ""),
             "fiscal_year": fy_of(f["tax_period"]), "tax_period": f["tax_period"], "amended": ex.get("amended", ""),
             "line6_status": line6_status(ex), "soi_line6": soi["soi_line6"], "soi_tax_pd": soi["tax_pd"],
