@@ -245,6 +245,64 @@ def fetch_all(filings: Sequence[Mapping], work_dir: str, fetch: bool) -> dict[st
 
 
 # ----------------------------------------------------------------------------- P-99F-03 classification
+# Manual reading of every A/B/C row (2026-11-15). Verdicts are [I]: the text is quoted in evidence_text.
+#   sponsor_likely      the return says the filer itself holds/offers/operates DAFs, or reports Schedule D DAF values
+#   sponsor_possible    wording implies the filer runs DAF-type funds but could describe outside funds
+#   data_entry_suspect  a Schedule D value that cannot be a DAF count for this filer
+#   affiliate_or_related  DAFs are held by an affiliate or a related organisation (Schedule R) named in the return
+#   holder_at_other_sponsor  the filer (or its donors) holds a DAF at another sponsor, or refers donors to one
+#   grant_or_receipt    a grant paid into, or received from, someone else's DAF
+#   name_or_other       the match is a name or unrelated use of "DAF"
+REVIEW = {
+    "871530516": ("sponsor_likely", "Amended CY2024 return (filed 2026-01-28) adds Schedule D Part I: 12,808 DAFs, $10.08m EOY, $9.69m contributions; line 6 still 'No'. The original CY2024 return and CY2022-23 returns had Part I blank"),
+    "352012880": ("data_entry_suspect", "70,085 DAFs with no value, contributions or grants, on $2.2m of total assets"),
+    "883801559": ("sponsor_likely", "Part III: 'will serve as a sponsoring organization of donor advised funds' (corporate and employee giving)"),
+    "582348181": ("sponsor_likely", "Offers 'DONOR ADVISED FUNDS, SCHOLARSHIP FUNDS'; answered line 6 Yes in FY2020-24 (non-DAFRC file: $0.38m, 5 DAFs FY2021), No in FY2025"),
+    "203098434": ("sponsor_likely", "Mission: 'the ability to open Donor Advised Funds in support of the French Christian community'"),
+    "464499862": ("sponsor_possible", "Mission: 'facilitating charitable donations through donor advised funds'; does not say whose"),
+    "841516244": ("sponsor_possible", "Community foundation describes a pooled fund as an alternative to 'establishing an individual donor-advised fund' with it"),
+    "580623603": ("sponsor_possible", "Schedule D Part XIII reconciliation item 'DONOR ADVISED FUNDS -1,187,656' between audit and 990 revenue"),
+    "880889841": ("sponsor_likely", "Part III: grantmaking 'through the operation of a donor advised fund that processes charitable contributions made online'"),
+    "823036091": ("sponsor_possible", "Part III: 'through grantmaking, programming and donor advised funds'"),
+    "843243945": ("sponsor_possible", "990-EZ: 'a 501c3 donor-advised fund that will collect, authenticate and liquidate your wine collection'; $7k of assets"),
+    "841547618": ("sponsor_possible", "Schedule I: 'the CCF board approves the purpose statement of donor advised funds' and reviews recommendations against them"),
+    "391815260": ("sponsor_possible", "Schedule I: grantee selection 'determined by the community foundation and/or donor advised fund'"),
+    "311607501": ("sponsor_possible", "Same Schedule I wording as Whitewater CF (same administrative trustee)"),
+    "203395198": ("affiliate_or_related", "Tides Network describes the Tides entities; DAFs sit at Tides Foundation"),
+    "540506322": ("affiliate_or_related", "Schedule R related organisation's primary activity: 'Investing and distributing donor advised funds'"),
+    "912008707": ("affiliate_or_related", "Supports Seattle Foundation's donor advised funds"),
+    "261917492": ("affiliate_or_related", "NCF affiliate; funds held by National Christian Foundation"),
+    "203788055": ("holder_at_other_sponsor", "Contributions 'to donor advised funds held by National Christian Foundation'"),
+    "300118912": ("holder_at_other_sponsor", "'maintains a Donor Advised Fund, over which it has full authority to make recommendations' (as advisor)"),
+    "593383574": ("holder_at_other_sponsor", "Assets transferred to Pinellas Community Foundation; 'manages donor advised funds with the community foundation'"),
+    "020482034": ("holder_at_other_sponsor", "Funds 'held by the New Hampshire Charitable Fund and the Rotary Foundation donor advised fund'"),
+    "203651144": ("holder_at_other_sponsor", "Grant to funds 'held and managed by Hampton Roads Community Foundation'"),
+    "850535172": ("holder_at_other_sponsor", "DAF established with the Hartford Foundation for Public Giving; board acts as advisory committee"),
+    "814324857": ("holder_at_other_sponsor", "Schedule I recipient 'Charles Schwab Donor Advised Fund'"),
+    "475370542": ("holder_at_other_sponsor", "'Donation to donor advised fund'; recipient 'Cross Timbers Rotary Club DAF'"),
+    "475332690": ("holder_at_other_sponsor", "Recipient: the Ray and Dagmar Dolby Fund of Marin Community Foundation (DAF)"),
+    "812367982": ("holder_at_other_sponsor", "Grants made through Charityvest"),
+    "921391218": ("holder_at_other_sponsor", "Donation to a Schwab Charitable DAF"),
+    "863971267": ("holder_at_other_sponsor", "Greater Washington Community Foundation's Birdseed DAF"),
+    "440545992": ("grant_or_receipt", "Recipient name of a Greater Kansas City CF DAF"),
+    "474959497": ("grant_or_receipt", "Grant to Santa Barbara Foundation 'to establish a donor advised fund'"),
+    "200690144": ("grant_or_receipt", "Grant purpose 'donor advised fund and scholarship fund'"),
+    "834222626": ("grant_or_receipt", "Grant purpose 'fund new DAF'"),
+    "311583883": ("grant_or_receipt", "Grant purpose 'donor advised fund'"),
+    "922857918": ("grant_or_receipt", "'We received a donor advised fund' grant"),
+    "473162614": ("grant_or_receipt", "Receives grants from individuals and/or DAFs"),
+    "520607957": ("grant_or_receipt", "Campaign receipts, incl. DAF gifts"),
+    "231600703": ("grant_or_receipt", "Donors could not recommend grants from their DAFs to it while it was a private foundation"),
+    "043547092": ("grant_or_receipt", "Grants made indirectly through community foundations and/or DAFs"),
+    "472714377": ("name_or_other", "Schedule O line 'PROJECT PITCH IT (DAF)'"),
+    "834023550": ("name_or_other", "Scholarship text"),
+    "871305438": ("name_or_other", "Organisation name 'The Quick DAF'"),
+    "453962008": ("name_or_other", "Grantor name 'Charitable DAF HoldCo'"),
+}
+VERDICT_ORDER = {"sponsor_likely": 0, "sponsor_possible": 1, "data_entry_suspect": 2, "affiliate_or_related": 3,
+                 "holder_at_other_sponsor": 4, "grant_or_receipt": 5, "name_or_other": 6}
+
+
 def l6_class(f: Mapping, ex: Mapping) -> str:
     ind = (ex.get("daf_ind_part_iv") or "").lower()
     if f["return_type"] == "990EZ":
@@ -280,6 +338,7 @@ def l6_rows(universe: Mapping[str, dict], chosen: Mapping[str, dict], exts: Mapp
                 "fiscal_year": fy_of(f["tax_period"]), "tax_period": f["tax_period"], "return_type": f["return_type"],
                 "line6_status": l6_class(f, ex), "daf_ind_part_iv": ex.get("daf_ind_part_iv", ""),
                 "evidence_class": cls, "evidence_source": src,
+                "review_verdict": REVIEW.get(ein, ("unreviewed", ""))[0], "review_note": REVIEW.get(ein, ("", ""))[1],
                 "sd_daf_count": ex.get("sd_daf_count"), "sd_daf_eoy": ex.get("sd_daf_eoy"),
                 "sd_daf_contributions": ex.get("sd_daf_contributions"), "sd_daf_grants": ex.get("sd_daf_grants"),
                 "sd_other_count": ex.get("sd_other_count"), "sd_other_eoy": ex.get("sd_other_eoy"),
@@ -303,7 +362,12 @@ def l6_summary(rows: Sequence[Mapping], universe_n: int, filers_n: int) -> dict:
     by_cls = {s: count(tuple(r for r in scope if r["line6_status"] == s), "evidence_class")
               for s in ("line6_no", "990EZ", "line6_blank")}
     a_rows = tuple(r for r in scope if r["evidence_class"].startswith("A_"))
-    return {"bmf_universe_eins": universe_n, "eins_with_990_or_ez_fy2022plus": filers_n,
+    abc = tuple(r for r in scope if r["evidence_class"][0] in "ABC")
+    return {"verdicts": count(abc, "review_verdict"),
+            "verdict_by_status": {s: count(tuple(r for r in abc if r["line6_status"] == s), "review_verdict") for s in ("line6_no", "990EZ")},
+            "sponsor_rows": [{k: r[k] for k in ("ein", "name", "ntee", "fiscal_year", "return_type", "review_verdict", "total_assets_eoy",
+                                                "sd_daf_count", "sd_daf_eoy")} for r in abc if r["review_verdict"].startswith("sponsor")],
+            "bmf_universe_eins": universe_n, "eins_with_990_or_ez_fy2022plus": filers_n,
             "returns_read": len(rows), "xml_status": count(rows, "xml_status"),
             "line6_status": count(rows, "line6_status"), "evidence_by_status": by_cls,
             "a_daf_eoy_sum": sum(r["sd_daf_eoy"] or 0 for r in a_rows),
@@ -325,8 +389,8 @@ def task_line6(a) -> dict:
     ok = {e: f for e, f in chosen.items() if exts[f["object_id"]].get("xml_status") == "ok"}
     rows = l6_rows(universe, ok, exts)
     keep = tuple(r for r in rows if r["line6_status"] in ("line6_no", "990EZ", "line6_blank")
-                 and r["evidence_class"][0] in "AB")
-    keep = tuple(sorted(keep, key=lambda r: (r["evidence_class"], -(r["sd_daf_eoy"] or 0), -(r["total_assets_eoy"] or 0))))
+                 and r["evidence_class"][0] in "ABC")
+    keep = tuple(sorted(keep, key=lambda r: (VERDICT_ORDER.get(r["review_verdict"], 9), r["evidence_class"], -(r["sd_daf_eoy"] or 0), -(r["total_assets_eoy"] or 0))))
     write_csv(os.path.join(DATA, OUT["line6"]), [{k: fmt(v) for k, v in r.items()} for r in keep], tuple(rows[0]))
     s = l6_summary(rows, len(universe), len(chosen))
     s["not_ok"] = {k: v for k, v in _count(exts[f["object_id"]].get("xml_status") for f in chosen.values()).items() if k != "ok"}
