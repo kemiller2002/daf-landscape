@@ -866,6 +866,32 @@ Related customer-facing frictions are covered by theme: data export and credenti
    >   - CN rates 245,000+ charities, about 17% of Pub 78 records.
    >   - Church grants in the BMF but not Pub 78 ($2.17bn in the top-50 sample) are mostly group-ruling subordinates: a ratings gap, not an eligibility gap. Sources: [direction-sponsor-marketing-spend.md](mission-2026-11-14/direction-sponsor-marketing-spend.md), [direction-sponsor-executive-compensation.md](mission-2026-11-14/direction-sponsor-executive-compensation.md), [direction-ai-product-census.md](mission-2026-11-14/direction-ai-product-census.md), [direction-charity-ratings-integrations.md](mission-2026-11-14/direction-charity-ratings-integrations.md), [validation-wave28-report.md](mission-2026-11-14/validation-wave28-report.md).
 
+### 11.26 New directions N27–N30 (validated, wave 29)
+
+**New directions N27–N30 (validated, wave 29).**
+   > - **Sponsor financial resilience (Form 990, TY2021–24, top 100; the script reproduces exactly from a fresh download of all 415 returns).**
+   >   - At national sponsors, DAFs are 99–100% of net assets, so the 990 can only bound a sponsor's own reserve. Median non-DAF net assets cover 29.4 months of operating cost at bank- and broker-affiliated nationals, against 2.2 months at independent nationals.
+   >   - Several nationals show zero or negative non-DAF net assets. At MS GIFT the gap equals its liabilities exactly (−$133m in TY2024), so Schedule D reports DAF value before liabilities. NPT, Renaissance, CAF America and AOGF are also below zero.
+   >   - Fidelity's non-DAF net assets are exactly its Schedule D "other funds" ($381m). Program-service revenue is $0 at all 15 affiliated sponsors: the DAF fee is an internal transfer.
+   >   - Community foundations show 417 months of cover, but only 1.6 months once board-designated endowment is excluded.
+   >   - NPT's FY2023 Schedule D value ($22.84bn against $27.92bn of net assets) is a real filed figure, most likely a filer error.
+   > - **Nonprofit-side experience (60 coded rows, 2021–26).**
+   >   - Identity and data issues lead the nonprofit complaints: 16 of 48, and 15 of 34 excluding Benevity.
+   >   - Defaults, not chosen anonymity, drive the problem. Only 36% of sponsors default to full contact data, and 35% to fund name only (DAFRC, 128 sponsors, 86% community foundations). Only 49% of donors say they are always thanked.
+   >   - In Chariot's one-nonprofit sample, check-paying providers took 7–162 days and the fastest ACH providers 1–2 days.
+   >   - Only the donor can trigger a Fidelity reissue. YourCause's forfeiture rule is a workplace-giving rule.
+   >   - AFP's DAF curriculum is funded by Fidelity Charitable. NPT's "79% partially anonymous" headline is not supported by DAFRC data.
+   > - **Public opinion (2021–26).**
+   >   - The only DAF policy polls are advocate-sponsored Ipsos opt-ins (n=1,005): 69% (2022) and 71% (2024) back a 10% payout, and support for granting within 5 years rose from 72% to 79%.
+   >   - Only 17–19% know how DAFs work (Lilly: 11.4% familiar).
+   >   - Trust in high-net-worth philanthropy is 29% (2025), and trust in philanthropy fell from 33% to 29% (2026). Universal-deduction support runs at 85–88%.
+   >   - Elite opinion runs against reform, including a 33-member Ways and Means letter (2024).
+   > - **League table and concentration (corrected DAFRC values; reproduced and independently rebuilt).**
+   >   - Fidelity holds 20.5–21.7% of assets. NPT ($42.12bn) passed DAFgiving360 ($40.94bn) in FY2024. The top 50 hold 83–86% of assets and 78–81% of grants.
+   >   - Asset concentration rose (CR5 51.0 → 56.9%, HHI 734 → 853) while grant concentration fell (CR5 53.6 → 46.6%, HHI 803 → 653). Both are "unconcentrated" by HHI, and R5 netting barely moves them (FY2024 grant HHI 669).
+   >   - FY2023 uses NPT's anomalous filed value. Corrected, CR5 would be about 53.8% instead of 52.9%.
+   >   - FY2025 is partial: 899 filers, 67.6% of assets. Sources: [direction-sponsor-financial-resilience.md](mission-2026-11-14/direction-sponsor-financial-resilience.md), [direction-nonprofit-side-experience.md](mission-2026-11-14/direction-nonprofit-side-experience.md), [direction-public-opinion-dafs.md](mission-2026-11-14/direction-public-opinion-dafs.md), [direction-league-table-concentration.md](mission-2026-11-14/direction-league-table-concentration.md), [validation-wave29-report.md](mission-2026-11-14/validation-wave29-report.md).
+
 ---
 
 ## Source register
@@ -1107,3 +1133,8 @@ Source: [validation-wave27-report.md](mission-2026-11-14/validation-wave27-repor
 Source: [validation-wave28-report.md](mission-2026-11-14/validation-wave28-report.md).
 
 1. **New subsection after §11.24.** Add "### 11.25 New directions N23–N26 (validated, wave 28)", containing the paragraph below. If §11.25 is already taken, use the next free number.
+
+## Validation corrections (wave 29, 2026-11-15) — governing
+Source: [validation-wave29-report.md](mission-2026-11-14/validation-wave29-report.md).
+
+1. **New subsection after §11.25.** Add "### 11.26 New directions N27–N30 (validated, wave 29)", containing the paragraph below. If §11.26 is already taken, use the next free number.
