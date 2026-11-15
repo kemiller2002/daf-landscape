@@ -280,3 +280,10 @@ Source: [validation-wave21-report.md](validation-wave21-report.md); register `da
 6. **§5, reading 4 (Benevity overlay).**
    - **Find:** "4. **Suggested overlay change (not applied):** move A5 Benevity from **RED (provisional) to AMBER**. The basis is that the AI does not approve and humans approve by default. Keep a note that rule-based auto-approval can remove human review."
    - **Replace with:** "4. **Overlay change (validated wave 21; apply at the next re-score):** move A5 Benevity from **RED (provisional) to AMBER (provisional)**. First-party pages keep a human approval by default, so the §7 RED test (no documented human approval) is not met. It is not GREEN: the \"does not approve\" and auto-approval statements are [R] only, and an admin-enabled auto-approval rule can approve AI-built submissions with no human. Revert to RED if Benevity documents auto-approval keyed to the AI verification [V wave 21]."
+
+## Validation corrections (wave 22, 2026-11-15) — governing
+Source: [validation-wave22-report.md](validation-wave22-report.md); register `data/mission-2026-11-14/validation-register-wave22.csv`.
+
+1. **§1.2, reading 3** (batch 37C proposal 5, validated; applies on top of the wave-21 replacement of the bold lead).
+   - **Find:** "   - Whether such an account can hold its own API key is not documented. See P-B36B-01."
+   - **Replace with:** "   - Whether such an account can hold its own API key is not documented. See P-B36B-01.\n   - The Agreement also says \"Daffy is not responsible for reviewing the authority of designees for any corporation or trust\" [batch 37C; V wave 22]."
