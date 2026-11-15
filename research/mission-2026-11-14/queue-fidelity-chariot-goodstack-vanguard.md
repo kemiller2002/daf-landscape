@@ -303,3 +303,6 @@ Source: [validation-wave7-report.md](validation-wave7-report.md). Where these co
    - Replace with: "Its DAF operation is small but grew about 6x in 2025 ($10.8m year-end DAF value)."
 6. **Line 94 (agent row).** Append: "Note: the Terms do make Chariot itself the donor's authorized actor ('you hereby authorize Chariot to take the following actions on your behalf'). 'No agent clause' means no clause on third-party or AI agents."
 7. **Line 27.** Add the privacy policy's effective date: "Privacy Policy effective 'Janurary 8th, 2025' (sic)."
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

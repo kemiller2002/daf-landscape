@@ -57,6 +57,7 @@ def main():
         w=csv.DictWriter(f,fieldnames=fields);w.writeheader();w.writerows(records)
     ct=[]
     if a.ct:
+        raise SystemExit("--ct disabled: crt.sh robots.txt disallows all crawlers (see research/mission-2026-11-14/compliance-note-crtsh-robots.md)")
         for domain in ("stellartechsol.com","donorfirst.org","donorfirstx.com","reninc.com"):
             url="https://crt.sh/?"+urllib.parse.urlencode({"q":"%."+domain,"output":"json"})
             try:

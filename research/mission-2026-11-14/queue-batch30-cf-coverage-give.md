@@ -365,3 +365,6 @@ Source: [validation-wave15-report.md](validation-wave15-report.md); register `da
 5. **Line 208 (§3, gap bullet).** Append: "The gap compares FY2024 DAF assets with a 2025 claim, and it includes staging-only clients (Minneapolis, Thrivent, Stifel). Asset growth alone could close it [V wave 15]."
 6. **Line 160 (§1.6).** Replace "**Hand checks covered the top 20 plus Ventura.**" with "**Hand checks covered the top 20 plus Ventura, Savannah and the Pi Fund.**"
 7. **Line 114 (§1.3, Arizona row).** Append to Evidence: "Wave 15 could not re-read the sponsor page (403, and WebFetch returned nothing). The tenant `azfoundation.my.site.com` is confirmed to exist (it 301-redirects to `/s/`)."
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

@@ -308,3 +308,6 @@ Source: [validation-wave10-report.md](validation-wave10-report.md). Where these 
 - **§3.2 Arkansas row.** After "were emailed on June 1", add: "(the instruction-email date, used as the event date; no go-live date is stated)".
 - **§3.4 (line 191).** Replace "Three dates rest on stated inference rules: Acadiana (weekday), Winston-Salem (990 year) and Tampa Bay (pending-transition notice)." with "Two dates rest on stated inference rules: Acadiana (weekday) and Tampa Bay (pending-transition notice). Flint's date is a CMS page date only."
 - **§4 heading and any summary that uses "affiliated".** Keep "Goodstack Impact Foundation US (Percent Impact Foundation, EIN 87-3165286)". Wherever a summary calls it "Goodstack-affiliated", replace that with "Goodstack-linked (service-provider relationship; not a subsidiary or affiliate)".
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

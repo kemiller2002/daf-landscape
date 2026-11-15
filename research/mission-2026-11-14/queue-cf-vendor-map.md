@@ -316,3 +316,6 @@ Source: [validation-wave9-report.md](validation-wave9-report.md). Where these co
 
 1. **§ Stellar/Ren → Foundant switches.** Replace "These are probably 2023–2025 migrations [I]. Dates are not established." with "These are probably 2025–2026 migrations [I]. Arkansas CF's 'announces database transition' post is dated 2026-04-20, and Acadiana still paid Stellar $118,458 in TY2024. Flint keeps a legacy `cfgf.iphiview.com` link."
 2. **Accuracy section.** Add: "Wave-9 spot-check: 15 random high/medium rows, vendor correct 15/15 (0%; 95% upper bound 21.8%); 2 evidence-label defects."
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

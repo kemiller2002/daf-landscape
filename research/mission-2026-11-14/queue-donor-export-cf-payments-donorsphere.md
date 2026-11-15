@@ -271,3 +271,6 @@ Source: [validation-wave8-report.md](validation-wave8-report.md). Where these co
 18. **Line 86.** Replace "Its ban on automated collection is the only top-10 contractual limit" with: "Its purpose-limited bar on automated collection, together with the third-party-access indemnity, is the only top-10 contractual limit".
 19. **Line 113 and the P-CFR-01 summary.** Replace "Check for DAF grants (5)" with "Check by default for DAF grants (5; SVCF 'generally', GKCCF 'in most cases', Tulsa 'mailed')".
 20. **P-CFR-02, the "990 payees" bullet.** Add: "990 payee is not the same as a DonorSphere user. Baltimore books FidTech as 'accounting services' and JEWISHColorado as 'investment management', which points to back-office (FoundationHub) use."
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

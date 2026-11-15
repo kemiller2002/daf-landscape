@@ -249,7 +249,7 @@ CT_DOMAINS = ("iphiview.com", "stellartechsol.com", "donorfirstx.com", "reninc.c
 
 def ct_rows(domain: str, cache_dir: str, do_fetch: bool) -> tuple[dict, ...]:
     """Named-host certificate ranges from crt.sh (bare-domain identity query); falls back to certspotter."""
-    data = fetch_json(f"https://crt.sh/?q={domain}&output=json", cache_dir, do_fetch, timeout=180)
+    data = None  # crt.sh query disabled 2026-11-15: crt.sh robots.txt disallows all crawlers (see research/mission-2026-11-14/compliance-note-crtsh-robots.md)
     src = "crt.sh"
     if data is None:
         data = fetch_json(f"https://api.certspotter.com/v1/issuances?domain={domain}&include_subdomains=true&expand=dns_names",

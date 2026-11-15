@@ -38,8 +38,24 @@ Q-N16 fix (2026-11-14, after validation wave 9 V9-07):
       incremental hit cache: phrases already searched are read from edgar_hits.json / edgar_phrases.json, new
       ones are searched with --fetch.
 
+P-BLB-04 (2026-11-15, batch 38; additive, earlier outputs keep their columns):
+  (a) Two-period commitment-note rows. Unfunded-commitment notes print the current and prior period side by side in
+      one <tr> (e.g. "Bloomerang, LLC (Delayed Draw) | 3,200 | 3,186"). Such rows are still excluded from latest marks
+      (row_period_conflict multi_xbrl_dates); in addition each inline-XBRL numeric fact in a hit row is now read with
+      its own context date (`xbrl_facts`), and every row with facts on two or more dates is split into one row per
+      date -> data/mission-2026-11-14/bdc-unfunded-commitments-two-period.csv (money facts only: unitRef in USD;
+      rate facts such as spreads are dropped). The split rows carry the fact's
+      concept (e.g. us-gaap:InvestmentCompanyFinancialCommitmentToInvesteeFutureAmount, tcpc:UnfundedBalances),
+      the printed value, the XBRL scale and the value in dollars; dates printed with no numeric fact (e.g. "NA")
+      are listed in `periods_without_value`.
+  (b) Two-digit-year maturities. KKR FS Income Trust and KKR FS Income Trust Select print maturities as MM/YY
+      ("03/32"), which the DATE pattern did not match, so those rows had no maturity. DATE now also accepts MM/YY
+      (month 01-12 only); maturity_month() already maps YY to 20YY. identity_note() reads the maturity month, so
+      "03/32" counts as a 2032 maturity.
+
 Output: data/mission-2026-11-14/bdc-loans-daf-ecosystem.csv (one row per schedule line per period, deduplicated)
         data/mission-2026-11-14/bdc-loans-latest-marks.csv (one row per loan tranche at the lender's latest period)
+        data/mission-2026-11-14/bdc-unfunded-commitments-two-period.csv (P-BLB-04: one row per commitment-note fact date)
         CACHE/edgar_hits.json (search hits), CACHE/edgar_docs/*.htm (filing documents)
 Usage:  python3 scripts/mission_bdc_loans.py --cache-dir CACHE [--fetch]
 Stdlib only; functional style (pure transforms, I/O at the edges).
@@ -65,6 +81,7 @@ import mission_990_contractors as m990  # noqa: E402
 DATA = m990.DATA
 OUT = os.path.join(DATA, "bdc-loans-daf-ecosystem.csv")
 OUT_LATEST = os.path.join(DATA, "bdc-loans-latest-marks.csv")
+OUT_COMMIT = os.path.join(DATA, "bdc-unfunded-commitments-two-period.csv")
 UA = {"User-Agent": "research-client contact@example.org"}
 EFTS = "https://efts.sec.gov/LATEST/search-index"
 START, END = "2021-01-01", "2026-11-14"
@@ -100,7 +117,7 @@ TARGETS = (
 )
 INSTR = re.compile(r"(lien|revolv|term loan|delayed|unitranche|one stop|senior secured|second|subordinat|preferred|"
                    r"common|LP interest|units|warrant|equity|note|incremental|DDTL|first out|last out)", re.I)
-DATE = re.compile(r"^(\d{1,2}/\d{1,2}/\d{2,4}|\d{1,2}/\d{4}|[A-Z][a-z]{2,8}\.? \d{4}|[A-Z][a-z]{2,8}\.? \d{1,2}, \d{4}|\d{4}-\d{2}-\d{2})$")
+DATE = re.compile(r"^(\d{1,2}/\d{1,2}/\d{2,4}|\d{1,2}/\d{4}|(?:0[1-9]|1[0-2])/\d{2}|[A-Z][a-z]{2,8}\.? \d{4}|[A-Z][a-z]{2,8}\.? \d{1,2}, \d{4}|\d{4}-\d{2}-\d{2})$")
 SPREAD = re.compile(r"(SOFR|S|SF|L|LIBOR|E|Prime|P|Base|CDOR|SONIA|BSBY)\s*\+\s*([\d.]+)\s*%?", re.I)
 PCT = re.compile(r"^\(?([\d.]+)\s*%\)?$")
 NUMC = re.compile(r"^\(?[\d,]+(\.\d+)?\)?$")
@@ -296,6 +313,27 @@ def row_period(raw_row: str, start: int, ctx: Mapping, heads: Sequence, filing_p
                                                        "multi_xbrl_dates:" + "|".join(xd) if len(xd) > 1 else "") if c)}
 
 
+IX_NUM = re.compile(r"<ix:nonFraction\b([^>]*)>(.*?)</ix:nonFraction>", re.I | re.S)
+
+
+def _attr(attrs: str, name: str) -> str:
+    m = re.search(rf"\b{name}=\"([^\"]*)\"", attrs, re.I)
+    return m.group(1) if m else ""
+
+
+def xbrl_facts(raw_row: str, ctx: Mapping) -> tuple[dict, ...]:
+    """P-BLB-04 (a): every inline-XBRL numeric fact in a row with its own context date, concept, printed value and
+    scale (value_usd = printed x 10^scale, negated when sign="-")."""
+    def one(m):
+        attrs, txt = m.group(1), plain_text(m.group(2))
+        v = to_num(txt) if txt else None
+        sc = int(_attr(attrs, "scale") or 0)
+        sign = -1 if _attr(attrs, "sign") == "-" else 1
+        return {"date": ctx.get(_attr(attrs, "contextRef"), ""), "concept": _attr(attrs, "name"), "unit": _attr(attrs, "unitRef"), "printed": txt,
+                "scale": sc, "value_usd": None if v is None else sign * v * 10 ** sc}
+    return tuple(one(m) for m in IX_NUM.finditer(raw_row))
+
+
 def matched_rows(rows: Sequence[tuple], rx: str) -> tuple[tuple[int, tuple], ...]:
     """Rows whose first cell names the borrower, plus following continuation rows (first cell is an instrument)."""
     pat = re.compile(rx, re.I)
@@ -422,6 +460,7 @@ def rows_for_filing(f: Mapping, text: str) -> tuple[dict, ...]:
                  "filing_period_ending": f["period_ending"], "adsh": f["adsh"], "which_filing": f["which"], "units_hint": hint,
                  "table_row_index": i, **parse_row(r, name_for(i, r)),
                  **row_period(trs[i].group(0), trs[i].start(), ctx, heads, f["period_ending"]),
+                 "xbrl_facts": json.dumps(xbrl_facts(trs[i].group(0), ctx)),
                  "filing_url": f["url"], "efts_query_url": f["query_url"]}
                 for i, r in hits)
     return out if out else ({"target_company": target, "edgar_phrase": f["phrase"], "lender_bdc": f["entity"],
@@ -455,7 +494,8 @@ def num(x):
 
 def identity_note(r: Mapping) -> str:
     """How sure the borrower-as-listed is the target company (rules stated here, not judged row by row)."""
-    t, raw, mat = r.get("target_company", ""), r.get("row_cells_raw", ""), r.get("maturity", "") + r.get("dates_in_row", "")
+    t, raw = r.get("target_company", ""), r.get("row_cells_raw", "")
+    mat = r.get("maturity", "") + r.get("dates_in_row", "") + " " + maturity_month(r.get("maturity", ""))  # P-BLB-04 (b)
     if t.startswith("Bonterra"):
         if re.search(r"cybergrants|everyaction", raw + r.get("borrower_name_as_listed", ""), re.I) or "2027" in mat:
             return "linked: CyberGrants/EveryAction lineage facility (Apax; CyberGrants Holdings renamed Bonterra LLC)"
@@ -600,6 +640,54 @@ LATEST_FIELDS = ("company_group", "target_company", "identity_note", "borrower_n
                  "filing_period_ending", "is_comparative", "table_row_index", "row_cells_raw", "filing_url")
 
 
+COMMIT_FIELDS = ("company_group", "target_company", "identity_note", "borrower_name_as_listed", "lender_bdc", "lender_cik",
+                 "period_ending", "row_type_source", "instrument", "maturity", "maturity_month", "xbrl_concept",
+                 "value_printed", "xbrl_scale", "value_usd", "periods_in_row", "periods_without_value",
+                 "filing_period_ending", "form", "filing_date", "adsh", "dup_count", "dup_filings", "table_row_index",
+                 "row_cells_raw", "filing_url")
+
+
+def two_period_rows(rows: Sequence[Mapping]) -> tuple[dict, ...]:
+    """P-BLB-04 (a): split each row whose numeric XBRL facts sit on two or more dates into one row per (date, concept).
+    The same (lender, borrower, instrument, maturity, date, concept, value) seen in several filings is kept once,
+    preferring the filing whose own period equals the date, then the earliest filing."""
+    def facts(r):
+        try:
+            return tuple(json.loads(r.get("xbrl_facts") or "[]"))
+        except json.JSONDecodeError:
+            return ()
+    multi = tuple((r, fs) for r in rows for fs in (facts(r),) if len({f["date"] for f in fs if f["date"]}) >= 2
+                  or ("multi_xbrl_dates" in (r.get("row_period_conflict") or "") and fs))
+    def split(r, fs):
+        periods = sorted({d for d in (r.get("row_period_conflict") or "").split("multi_xbrl_dates:")[-1].split("|")
+                          if re.fullmatch(r"\d{4}-\d{2}-\d{2}", d)} | {f["date"] for f in fs if f["date"]})
+        valued = {f["date"] for f in fs if f["date"] and f["value_usd"] is not None and "usd" in f.get("unit", "").lower()}
+        return tuple({"company_group": target_group(r), "target_company": r.get("target_company", ""),
+                      "identity_note": r.get("identity_note", ""), "borrower_name_as_listed": r.get("borrower_name_as_listed", ""),
+                      "lender_bdc": r.get("lender_bdc", ""), "lender_cik": r.get("lender_cik", ""), "period_ending": f["date"],
+                      "row_type_source": r.get("row_type", ""), "instrument": r.get("instrument", ""),
+                      "maturity": r.get("maturity", ""), "maturity_month": maturity_month(r.get("maturity", "")),
+                      "xbrl_concept": f["concept"], "value_printed": f["printed"], "xbrl_scale": f["scale"],
+                      "value_usd": f["value_usd"], "periods_in_row": ";".join(periods),
+                      "periods_without_value": ";".join(p for p in periods if p not in valued),
+                      "filing_period_ending": r.get("filing_period_ending", ""), "form": r.get("form", ""),
+                      "filing_date": r.get("filing_date", ""), "adsh": r.get("adsh", ""),
+                      "table_row_index": r.get("table_row_index", ""), "row_cells_raw": r.get("row_cells_raw", ""),
+                      "filing_url": r.get("filing_url", "")}
+                     for f in fs if f["date"] and f["value_usd"] is not None and "usd" in f.get("unit", "").lower())  # money facts only
+    out = tuple(x for r, fs in multi for x in split(r, fs))
+    key = lambda x: (x["lender_cik"], norm_name(x["borrower_name_as_listed"]), x["instrument"].lower(), x["maturity_month"],  # noqa: E731
+                     x["period_ending"], x["xbrl_concept"], fnum(x["value_usd"]))
+    groups = {}
+    for x in out:
+        groups.setdefault(key(x), []).append(x)
+    def pick(xs):
+        best = min(xs, key=lambda x: (x["filing_period_ending"] != x["period_ending"], x["filing_date"], x["adsh"]))
+        return {**best, "dup_count": len({x["adsh"] for x in xs}), "dup_filings": ";".join(sorted({x["adsh"] for x in xs}))}
+    return tuple(sorted((pick(v) for v in groups.values()),
+                        key=lambda x: (x["company_group"], x["lender_bdc"], x["borrower_name_as_listed"], x["period_ending"])))
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--cache-dir", required=True)
@@ -616,11 +704,17 @@ def main(argv: Sequence[str] | None = None) -> int:
     latest = latest_marks(rows, raw)
     m990.write_csv(OUT, rows, FIELDS)
     m990.write_csv(OUT_LATEST, latest, LATEST_FIELDS)
+    commits = two_period_rows(raw)  # P-BLB-04 (a): all walked filings, before dedupe
+    m990.write_csv(OUT_COMMIT, commits, COMMIT_FIELDS)
     cnt = lambda rs, f: sum(1 for r in rs if f(r))
     print("filings by role:", {w: sum(1 for f in filings if f["which"] == w) for w in ("latest", "walkback", "earliest")},
           "| pre-Q-N16 earliest+latest selection would read:", len(select_filings(hits)))
     print(f"hits={len(hits)} bdc_filings={len(filings)} rows_before_dedupe={len(raw)} rows_after_dedupe={len(rows)} "
-          f"latest_mark_rows={len(latest)}")
+          f"latest_mark_rows={len(latest)} two_period_commitment_rows={len(commits)} "
+          f"(from {len({(r['adsh'], r['table_row_index']) for r in commits})} filing rows)")
+    print("maturity parsed, KKR FS Income Trust(s) debt rows:",
+          cnt(rows, lambda r: r.get("lender_bdc", "").startswith("KKR FS Income Trust") and r.get("row_type") == "debt" and bool(r.get("maturity"))),
+          "of", cnt(rows, lambda r: r.get("lender_bdc", "").startswith("KKR FS Income Trust") and r.get("row_type") == "debt"))
     print("comparative rows (row period != filing period):", cnt(raw, lambda r: r.get("filing_period_ending") and r["period_ending"] != r["filing_period_ending"]),
           "| row_period_source:", {k: cnt(raw, lambda r, k=k: r.get("row_period_source") == k) for k in
                                    ("xbrl_context", "schedule_heading", "filing_period_fallback")},

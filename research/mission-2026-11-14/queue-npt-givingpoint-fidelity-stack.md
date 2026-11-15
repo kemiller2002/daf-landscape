@@ -231,3 +231,6 @@ Source: [validation-wave12-report.md](validation-wave12-report.md). Where these 
 - Line 166 (b): replace "both buy technology *from* NPT US" with "NPT UK's 2025 accounts say administration, MIS and technology are provided by NPT Transatlantic **and** NPT US. Transatlantic's accounts say they are provided by Buzzacott LLP and NPT US."
 - Line 168: replace "its UK accounts say technology is provided *by NPT US*" with "its UK accounts say technology is provided by NPT Transatlantic and NPT US (NPT US is Transatlantic's sole shareholder)".
 - Sponsor-text criterion (line 60): add "(rendered client-side from the bundle; Transatlantic's copyright names NPT Transatlantic Limited, charity 1153376)".
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

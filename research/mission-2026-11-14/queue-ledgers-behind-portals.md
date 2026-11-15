@@ -260,3 +260,6 @@ Source: [validation-wave10-report.md](validation-wave10-report.md). Where these 
 - **Line 20, NPact.** After the Standard Terms quote, add: "The Terms of Use (modified 2025-08-05) instead call the company 'Fusion Laboratories dba NPact, a Delaware corporation', so NPact's documents disagree on entity form."
 - **Line 30, GKCCF audit.** Replace "books 'back-office accounting services' revenue." with "books income from services, which covers back-office accounting services for other nonprofits and administrative fees on pool investments by other entities."
 - **Line 180 limitations.** Replace "Arizona CF's go-live date is not stated." with "Arizona CF's go-live date is not stated (the case study itself is dated 2024-03-06)."
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

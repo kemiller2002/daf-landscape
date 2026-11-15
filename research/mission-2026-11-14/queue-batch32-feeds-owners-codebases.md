@@ -296,3 +296,6 @@ Source: [validation-wave21-report.md](validation-wave21-report.md); register `da
 1. **§1, custodial route** (batch 36C proposal 5, validated).
    - **Find:** "- **Wealth-captives.** These are unchanged from batch 31:"
    - **Replace with:** "- **Schwab registration codes (batch 36C; V wave 21).** BridgeFT's public registration-type reference (updated 2025-10-06) shows that Schwab passes DAF-specific registration codes: DASCG 'Charity Account (Donor Advised Account)' and DASPL 'Charity Account (Schwab Private Label)'. The NFS and Pershing tables show none. Which programs use the codes is not stated.\n- **Wealth-captives.** These are unchanged from batch 31:"
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

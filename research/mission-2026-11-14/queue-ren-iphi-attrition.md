@@ -312,3 +312,6 @@ Source: [validation-wave11-report.md](validation-wave11-report.md). Where these 
 **§6, $48K-per-second bullet (line 235).** Add: "Ren's own about page states '$35B Granted to charities annually' (about $1.1K per second, or about $66.6K per minute). The '$48K per second' is therefore most likely a per-minute figure mislabelled [I]."
 
 **Line 65, Yakima row.** No change is needed. Add a caution to the method notes: "`yvcf.org` is the Yampa Valley CF, not Yakima. Yakima is at `yakimavalleycf.org`."
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).
