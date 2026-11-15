@@ -335,6 +335,20 @@ def ntee_detail(ann: Mapping, prefix: str, n: int = 12) -> list:
     return sorted(((k, round(v)) for k, v in by.items()), key=lambda kv: -kv[1])[:n]
 
 
+def coverage(item: Mapping, panel: Mapping) -> dict:
+    """Schedule I itemised total (grants > $5,000 per recipient) vs Part IX line 1 (all grants to domestic orgs)
+    and vs Schedule D DAF grants, itemising sponsor-years, excluding university/hospital sponsors."""
+    def one(pred):
+        xs = [x for (e, _), x in item.items() if pred(panel[e]["segment"]) and panel[e]["segment"] != "university_hospital"]
+        si = sum(x.get("sched_i_total") or 0 for x in xs)
+        ix = sum(x.get("part_ix_line1_grants_domestic_orgs") or 0 for x in xs)
+        sd = sum(x.get("sched_d_daf_grants") or 0 for x in xs)
+        return {"sched_i_total": round(si), "part_ix_line1": round(ix), "sched_d_daf_grants": round(sd),
+                "sched_i_over_part_ix": round(si / ix, 4) if ix else None, "sched_i_over_daf_grants": round(si / sd, 4) if sd else None}
+    return {"all_ex_uh": one(lambda s: True), **{s: one(lambda g, s=s: g == s)
+                                                 for s in ("national", "community_foundation", "single_issue")}}
+
+
 # ----------------------------------------------------------------------------- main
 def main(argv: Sequence[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
@@ -382,6 +396,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "not_itemised": sorted(f"{panel[k[0]]['name']} FY{k[1]}" for k in sy if k not in item),
         "missing_returns": sorted(f"{panel[e]['name']} FY{fy}" for e in rank for fy in FYS if (e, fy) not in sy),
         "via": {s: sum(1 for v in good.values() if v.get("via") == s) for s in ("local", "mirror")},
+        "coverage_itemising_fy2023_2024": coverage(item, panel),
         "lines_total": sum(len(v["lines"]) for v in good.values()),
         "bmf_matched_eins": len(bmf), "distinct_eins": len(eins),
         "daf_weight_coverage": f"{len(weights)}/{len(good)}",
