@@ -178,7 +178,7 @@
 
 - **`queue-proposals-batch39-n4.csv`, P-B39N4-02:** narrow it to "check for remaining top-50 FY2024 rows still imputed". Note that ImpactAssets is already replaced by R1 in `dafrc-corrections-itemized.csv` (V24A-35).
 - **`daf-security-incidents-2021plus.csv`:** add to the notes of SI-08, SI-10, SI-14 and SI-06 that the counts were not re-verified in wave 24A. A one-line note is optional: a RenPSG 2018 California notice exists, pre-2021, and is excluded by the recency rule.
-- **`international-daf-vehicles-2026.csv`:** on the Australian PAF row, set `source_id` for the A$10.7bn to S24 if it currently lists S23.
+- **`international-daf-vehicles-2026.csv`:** no change. Row I24 already cites S24 for the A$10.7bn; only the .md table mixes the two sources.
 - **`daf-regs-2023-comments-summary.csv`:** optional. Add to the -0242 note that it is titled "Alder and Colvin" (Adler & Colvin).
 - **`daf-grant-recipient-sectors-top50.csv`, `daf-lobbying-lda-2021plus.csv`, `giving-tech-patents-2021plus.csv`, `daf-impact-pools-2026.csv`, `matching-gift-daf-policies-2026.csv`:** no change. The sector CSV was rebuilt byte-identical. The rest were checked where cited.
 
