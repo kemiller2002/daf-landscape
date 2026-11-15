@@ -8,7 +8,7 @@ Tasks
   news      GDELT DOC 2.0 API (http://api.gdeltproject.org/api/v2/doc/doc), 2021-01-01 .. 2026-11-14:
             daily raw article counts (mode=timelinevolraw) for the base DAF phrase query and for the base query AND
             each theme keyword group, summed to calendar months; plus up to 250 article titles per year
-            (mode=artlist, sort=hybridrel) for a headline sample. One request every >= 10 s (GDELT asks for <= 1 per 5 s).
+            (mode=artlist, sort=hybridrel) for a headline sample; responses cached in --work-dir/gdelt-cache. One request every >= 10 s (GDELT asks for <= 1 per 5 s).
             Output: data/mission-2026-11-14/daf-news-volume-2021-2026.csv and --work-dir/news-headlines.json
   hiring    Public ATS JSON endpoints (Greenhouse boards-api, Lever postings API, Ashby posting API) and
             robots-permitted career pages listed in HIRING_SOURCES. One row per open posting with keyword flags.
@@ -186,14 +186,25 @@ TITLE_THEMES = {
     "ai": r"artificial intelligence|generative ai|chatgpt|chatbot|machine learning|\bai\b",
     "giving_records": r"record|giving report|all-time high",
     "legislation": r"congress|senate|\birs\b|treasury|legislat|regulation|tax bill|big beautiful bill",
+    # headline-only genre (no GDELT query): personal-finance explainers and year-end how-to pieces
+    "explainer_howto": r"right for you|what is|what are|how to|pros and cons|benefit|guide|\btips?\b|smart|consider|"
+                       r"should you|ways to|year-end|end-of-year|end - of - year|year - end|tax - wise|tax-wise|tax break",
 }
 YEARS = [(y, f"{y}0101000000", f"{y}1231235959" if y < 2026 else "20261114235959") for y in range(2021, 2027)]
 _last_call = [0.0]
 
 
-def gdelt(params: Mapping[str, str]) -> dict | None:
+GDELT_CACHE = [""]  # set to <work-dir>/gdelt-cache by task_news; lets an interrupted run resume
+
+
+def gdelt(params: Mapping[str, str], attempts: int = 8) -> dict | None:
     url = GDELT + "?" + urllib.parse.urlencode({**params, "format": "json"})
-    for attempt in range(8):
+    import hashlib
+    cpath = os.path.join(GDELT_CACHE[0], hashlib.sha1(url.encode()).hexdigest() + ".json") if GDELT_CACHE[0] else ""
+    if cpath and os.path.exists(cpath):
+        with open(cpath, encoding="utf-8") as f:
+            return json.load(f)
+    for attempt in range(attempts):
         wait = GDELT_GAP_S - (time.time() - _last_call[0])
         if wait > 0:
             time.sleep(wait)
@@ -202,15 +213,22 @@ def gdelt(params: Mapping[str, str]) -> dict | None:
         text = body.decode("utf-8", "replace")
         if status == 200 and text.lstrip().startswith("{"):
             try:
-                return json.loads(text)
+                d = json.loads(text)
             except json.JSONDecodeError:
-                pass
+                d = None
+            if d is not None:
+                if cpath:
+                    with open(cpath, "w", encoding="utf-8") as f:
+                        json.dump({**d, "_fetched_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
+                                   "_url": url}, f)
+                return d
         print(f"  gdelt retry {attempt + 1} status={status} {text[:120]!r}", file=sys.stderr)
         time.sleep(60 * (attempt + 1))
     raise RuntimeError(f"GDELT request failed after retries: {url}")  # never write silent zeros
 
 
 RESOLUTIONS: dict[str, str] = {}
+UNAVAILABLE: list[str] = []
 
 
 def timeline(query: str, start: str, end: str) -> list[dict]:
@@ -233,7 +251,7 @@ def monthly(points: Iterable[dict]) -> dict[str, tuple[int, int]]:
 
 def artlist(query: str, start: str, end: str, n: int) -> list[dict]:
     d = gdelt({"query": query + " sourcelang:english", "mode": "artlist", "maxrecords": str(n),
-               "startdatetime": start, "enddatetime": end, "sort": "hybridrel"})
+               "startdatetime": start, "enddatetime": end, "sort": "hybridrel"}, attempts=5)
     return (d or {}).get("articles", []) or []
 
 
@@ -243,6 +261,8 @@ def title_themes(title: str) -> list[str]:
 
 
 def task_news(work: str) -> None:
+    GDELT_CACHE[0] = os.path.join(work, "gdelt-cache")
+    os.makedirs(GDELT_CACHE[0], exist_ok=True)
     # One full-window call per series keeps the request count low (GDELT rate-limits this shared egress hard);
     # the API chooses the bucket size for the window, recorded in RESOLUTIONS and summed to calendar months.
     start, end = YEARS[0][1], YEARS[-1][2]
@@ -267,18 +287,22 @@ def task_news(work: str) -> None:
     sample = {}
     for y, a, b in YEARS:
         print("artlist base", y)
-        arts = artlist(BASE_Q, a, b, 250)
+        try:
+            arts = artlist(BASE_Q, a, b, 250)
+        except RuntimeError as e:  # headline sample only; the year is marked unavailable, never filled in
+            print("  headline sample unavailable:", y, e, file=sys.stderr)
+            sample[str(y)] = []
+            UNAVAILABLE.append(str(y))
+            continue
         sample[str(y)] = [{"date": x.get("seendate", "")[:8], "domain": x.get("domain"), "title": x.get("title"),
                            "url": x.get("url"), "themes": title_themes(x.get("title") or "")} for x in arts]
-    theme_samples = {}
-    for theme, q in THEMES.items():
-        print("artlist", theme)
-        arts = artlist(f"{BASE_Q} {q}", YEARS[0][1], YEARS[-1][2], 15)
-        theme_samples[theme] = [{"date": x.get("seendate", "")[:8], "domain": x.get("domain"),
-                                 "title": x.get("title"), "url": x.get("url")} for x in arts]
+    # Theme headline examples come from the yearly base sample (title-level classification), not from extra
+    # per-theme calls: GDELT throttled this session's shared egress too hard for more requests.
+    theme_samples = {t: [a for y in sorted(sample) for a in sample[y] if t in a["themes"]] for t in TITLE_THEMES}
     dump(os.path.join(work, "news-headlines.json"), {"by_year": sample, "by_theme": theme_samples,
                                                       "queries": {"base": BASE_Q, **THEMES},
-                                                      "resolutions": RESOLUTIONS})
+                                                      "resolutions": RESOLUTIONS,
+                                                      "headline_years_unavailable": UNAVAILABLE})
     dump(os.path.join(work, "robots-log-news.json"), ROBOTS_LOG)
     print(summarize_news(rows, sample))
 
@@ -296,8 +320,11 @@ def summarize_news(rows: Sequence[Mapping], sample: Mapping[str, list]) -> str:
         c = by_year[y]
         sh = {t: round(100 * c[t] / c["daf"], 1) if c["daf"] else 0 for t in THEMES}
         ts = Counter(t for a in sample.get(y, []) for t in a["themes"])
+        q4 = sum(a["date"][4:6] in ("10", "11", "12") for a in sample.get(y, []))
+        doms = Counter(a["domain"] for a in sample.get(y, [])).most_common(5)
         out.append(f"{y}: daf={c['daf']} per_m={c['daf'] / c['norm'] * 1e6 if c['norm'] else 0:.2f} "
-                   f"theme%={sh} title_sample_n={len(sample.get(y, []))} title_themes={dict(ts)}")
+                   f"theme%={sh} title_sample_n={len(sample.get(y, []))} title_themes={dict(ts)} "
+                   f"sample_in_Q4={q4} no_theme={sum(not a['themes'] for a in sample.get(y, []))} top_domains={doms}")
     top = sorted(rows, key=lambda r: -int(r["articles_daf"]))[:8]
     out.append("top months: " + ", ".join(f"{r['month']}={r['articles_daf']}" for r in top))
     return "\n".join(out)
