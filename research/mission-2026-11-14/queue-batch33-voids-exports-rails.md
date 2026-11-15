@@ -270,3 +270,13 @@ Standard proposal columns per `queue-proposals-README.md`.
 - **P-B33B-01:** is GivingPoint's coded Excel export (grant payments and activity) available to NPT-family donors? Use public tutorials only.
 - **P-B33B-02:** read the 2026 DAFgiving360 Program Policies PDF from its public static host, for void, escheat, export and third-party clauses.
 - **P-B33B-03:** do the 13 Foundant top-40 tenants expose the 2024 grant-history export?
+
+## Validation corrections (wave 18, 2026-11-15) — governing
+Source: [validation-wave18-report.md](validation-wave18-report.md); register `data/mission-2026-11-14/validation-register-wave18.csv`.
+
+1. **§0, P-NPP-02 row (PPGF).**
+   - **Find:** "**PayPal Giving Fund (policy updated 2025-01-01):** a check to an unenrolled charity that \"is not cashed within the time period specified on the check\" may lead PPGF to remove the charity and reassign the funds. The period itself is not published."
+   - **Replace with:** "**PayPal Giving Fund (policy updated 2025-01-01):** a check to an unenrolled charity that \"is not cashed within the time period specified on the check\" may lead PPGF to remove the charity and reassign the funds. The same sentence is already in the 2022-03-15 policy, so this is a standing rule, not a 2025 change. The period itself is not published [V wave 18]."
+2. **§1.2, item 2.**
+   - **Find:** "2. **PPGF is the exception in design.** It sends no money back to a donor."
+   - **Replace with:** "2. **PPGF is the exception in design** (unchanged since at least the 2022-03-15 policy; V wave 18). It sends no money back to a donor."

@@ -272,3 +272,40 @@ No first-party notice was retrievable this pass. Amazon's `aboutamazon.com` upda
 | `notes` | Caveats and inferences ([I]) |
 
 Edges file `relationship-graph-edges-additions-18.csv` uses the columns of `relationship-graph-edges.csv`. Proposals file `queue-proposals-batch33c.csv` follows `queue-proposals-README.md`.
+
+## Validation corrections (wave 18, 2026-11-15) — governing
+Source: [validation-wave18-report.md](validation-wave18-report.md); register `data/mission-2026-11-14/validation-register-wave18.csv`.
+
+1. **§0, Q-B05 / Q-N08 row (Goldman).**
+   - **Find:** "**Goldman:** no 2021+ program document found. The newest public GSPF circular is dated **2017-12-05**, not 2008 as the repo states. It shows Ayco selecting the ETF options for a 50 bp fee. The live stack is unchanged: Ren iPhi donor web, Ayco admin, Goldman.com SSO. A new two-hop inference: GS Gives grant administration runs through CAF America, a Bonterra customer. | High (EJ text); GS stays "insufficient evidence" |"
+   - **Replace with:** "**Goldman:** a 2021+ program circular exists. FireAid's Sept 2025 investigative report reproduces the GS DAF Program Circular as Appendix B, with ETF expense ratios as of 2024-09-30 (batch 30; V15-09; re-confirmed wave 18). It sets a $20,000 minimum and $100 grants paid by check or wire, and the ETF option is selected by Goldman Sachs Wealth Services, L.P. (up to 50 bps). The 2017 and 2008 circulars on gspf.goldman.com are dated context only. Live stack: Ren iPhi donor web, Ayco/GS Wealth Services administration, Goldman.com SSO. A new two-hop inference: GS Gives grant administration runs through CAF America, a Bonterra customer. | High (EJ text; GS circular). GS PF's 'insufficient evidence' premise (no 2021+ source) no longer holds; re-scoring is for the quadrant agent [V wave 18] |"
+2. **§0, Edward Jones bullet.**
+   - **Find:** "- Edward Jones' 2024 report gives the program as \"nearly $535 million\" assets under care and \">$90 million\" granted in 2023."
+   - **Replace with:** "- Edward Jones' 2024 report says \"nearly $535 million\" invested by clients in the program and \">$90 million\" granted in 2023. One page calls the $535m \"assets under care\" in 2023; another says \"since inception\", so it may be cumulative investment rather than year-end assets [V wave 18]."
+3. **§4.1, "What changed" second bullet.**
+   - **Find:** "  - The program has a first-party size of about $535m (2023) (ER015)."
+   - **Replace with:** "  - The program has a first-party size of \"nearly $535 million\" invested by clients (described both as 2023 assets under care and as \"since inception\"), with more than $90m granted in 2023 (ER015) [V wave 18]."
+4. **§4.2, first bullet.**
+   - **Find:** "- **No 2021+ program circular, donor guide or terms were found.**"
+   - **Replace with:** "- **A 2021+ program circular exists, but not on Goldman's own public pages.** FireAid's investigative report ([PDF](https://www.fireaidla.org/assets/press-releases/pdfs/fireaid_investigative_report_09-08-2025.pdf), Appendix B) reproduces the GS DAF Program Circular, with ETF expense ratios \"in effect as of September 30, 2024\": $20,000 minimum, $100 minimum grant, payment \"in the form of a check or wire transfer\", admin fee 0.60% down to 0.03%, and ETFs selected by Goldman Sachs Wealth Services, L.P. (batch 30; V15-09; V18-01). No Goldman-hosted 2021+ circular was found."
+5. **§4.2, second bullet lead-in.**
+   - **Find:** "- **The newest public circular is dated 2017-12-05**, served from the donor-web domain"
+   - **Replace with:** "- **The newest circular on Goldman's own domain is dated 2017-12-05** (dated context only, superseded by the FireAid-reproduced circular above; gspf.goldman.com's robots.txt disallows non-search crawlers, so it was not re-fetched in wave 18), served from the donor-web domain"
+6. **§4.2, Quadrant status bullet.**
+   - **Find:** "- **Quadrant status:** GS PF stays \"insufficient evidence\". The 2017 circular is pre-2021 and cannot score 2026 criteria under the bounded-truth rule."
+   - **Replace with:** "- **Quadrant status:** the 2017 circular cannot score 2026 criteria, but the FireAid-reproduced circular (ratios as of 2024-09-30) is admissible 2021+ evidence for payment rail (check or wire) and terms. Caveats: it is undated, hosted by a third party, and the login page binds to an unversioned circular. Whether GS PF leaves \"insufficient evidence\" is for the quadrant agent [V wave 18]."
+7. **§5, item 1.**
+   - **Find:** "replace with \"The newest public Program Circular is dated 2017-12-05 ([PDF](https://gspf.goldman.com/gspf/Portals/29/docs/2017.11%20GSPF%20Program%20Circular.pdf)); a 2008 version and an undated v6 are also served. All are pre-2021.\""
+   - **Replace with:** "superseded by wave 18: see the governing text for `queue-bank-programs-and-eft-providers.md` in `validation-wave18-report.md` (newest known circular = FireAid App. B, ratios as of 2024-09-30; Goldman-hosted 2008, v6 and 2017 versions are dated context)."
+8. **§5, item 3.**
+   - **Find:** "Edward Jones' own figure for 2023 is \"nearly $535 million\" assets under care (ER015)."
+   - **Replace with:** "Edward Jones' own figure is \"nearly $535 million\" invested by clients (worded both as 2023 assets under care and as since inception) (ER015) [V wave 18]."
+9. **§1.2, item 2 (PPGF label).**
+   - **Find:** "PPGF FY2024: 694,979 DAF accounts, $626.6m grants ([DAFRC FY2024 row](../../data/mission-2026-11-14/dafrc-sponsor-schedule-d-fy2019-2024.csv)) [X]."
+   - **Replace with:** "PPGF FY2024: 694,979 DAF accounts, $626.6m grants ([DAFRC FY2024 row](../../data/mission-2026-11-14/dafrc-sponsor-schedule-d-fy2019-2024.csv); DAFRC-imputed values, not a filed 990) [V wave 18]."
+10. **§2.2, pass-through total.**
+    - **Find:** "  Those five sponsors made about $4.4bn of FY2024 DAF grants (DAFRC)."
+    - **Replace with:** "  Those five sponsors made about $4.4bn of FY2024 DAF grants (DAFRC; PPGF's $626.6m and NFG's $427.9m are imputed) [V wave 18]."
+11. **§3.2 table, NCF row.**
+    - **Find:** "| Salesforce captive portal (Stellar component behind it; GL inferred NetSuite) | NCF $5.46bn |"
+    - **Replace with:** "| Salesforce captive portal (Stellar component behind it; GL inferred NetSuite) | NCF $5.46bn (DAFRC-imputed FY2024 value; The Signatry's $0.40bn is also imputed) [V wave 18] |"

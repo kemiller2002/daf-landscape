@@ -364,3 +364,22 @@ python3 scripts/mission_daf_to_daf.py --np-cache NPCACHE        # NPCACHE holds 
 - `NPCACHE/netpayout990` comes from `mission_net_payout.py --cache-dir NPCACHE`.
 - `CACHE/extract990inv` is filled by `--fetch`. That run streams each of the 5,272 returns only up to Schedule D.
 - Both scripts print a JSON summary; every figure above comes from those summaries.
+
+## Validation corrections (wave 18, 2026-11-15) — governing
+Source: [validation-wave18-report.md](validation-wave18-report.md); register `data/mission-2026-11-14/validation-register-wave18.csv`.
+
+1. **§0, P-B32B-01 row (imputed total).**
+   - **Find:** "**$1.60bn summed over FY2021–24** ($0.49bn, $0.69bn, $0.22bn and $0.20bn)."
+   - **Replace with:** "**$1.60bn summed over FY2021–24** ($0.49bn, $0.69bn, $0.22bn and $0.20bn). This is a sum of year-end stocks across four years, and some sponsors (CFMT, Christian CF) count twice; the largest single-year amount is $0.69bn [V wave 18]."
+2. **§0, P-B32A-01 row (Pledgeling).**
+   - **Find:** "**Pledgeling's \"accounts\":** its 20,270–23,006 accounts match its own Part III text, \"pass-through grants to approximately 23,000 [20,000] organizations\". So they look like per-beneficiary records, not donor DAFs [I]."
+   - **Replace with:** "**Pledgeling's \"accounts\":** its 20,270–23,006 accounts fall in the same range as its Part III text, \"pass-through grants to approximately 23,000 [20,000] organizations\", but crossed by year: TY2023 reports 20,270 accounts against ~23,000 organisations, and TY2024 reports 23,006 against ~20,000. They may be per-beneficiary records rather than donor DAFs [I; V wave 18]."
+3. **§2, Reading item 3.**
+   - **Find:** "   - Its Part III narrative counts pass-through grantee organisations in exactly that range: \"approximately 23,000\" in the TY2023 return and \"approximately 20,000\" in TY2024"
+   - **Replace with:** "   - Its Part III narrative counts pass-through grantee organisations in the same range, but crossed by year: \"approximately 23,000\" in the TY2023 return (20,270 accounts) and \"approximately 20,000\" in TY2024 (23,006 accounts) [V wave 18]"
+4. **§3, broker and bank captives.**
+   - **Find:** "Every other broker or bank captive is at 131–641 bps in every year: Fidelity, Vanguard, GS DAPF, BofA, Raymond James, Stifel, T. Rowe, BNY Mellon, Comerica, USCGT, AEF, RCF and NPT."
+   - **Replace with:** "DAFgiving360 is at 95.6 bps (FY2024) and 114.3 bps (FY2023), with normal total returns. Every other broker or bank captive is at 131–641 bps in every year: Fidelity, Vanguard, GS DAPF, BofA, Raymond James, Stifel, T. Rowe, BNY Mellon, Comerica, USCGT, AEF, RCF and NPT [V wave 18]."
+5. **§0, P-B32A-03 row.**
+   - **Find:** "The next-lowest large captive is GS Charitable Gift Fund at 67 bps (FY2022); Bessemer is at 94–159. **No other broker captive shares the pattern.**"
+   - **Replace with:** "The next-lowest large captive is GS Charitable Gift Fund at 67 bps (FY2022, a down year); Bessemer is at 94–159 and DAFgiving360 at 96–114. **No other broker captive is under 50 bps.** [V wave 18]"

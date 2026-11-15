@@ -430,3 +430,22 @@ Source: [validation-wave6-report.md](validation-wave6-report.md). Where these co
 7. **Line 44 (Charityvest)**
    - Current: "Charityvest (from Aug 2026, replacing PayPal)"
    - Replace with: "Charityvest (transitioning from Aug 2026, per Chariot; Charityvest's own charity guide still describes PayPal Grant Payments)"
+
+## Validation corrections (wave 18, 2026-11-15) — governing
+Source: [validation-wave18-report.md](validation-wave18-report.md); register `data/mission-2026-11-14/validation-register-wave18.csv`.
+
+1. **§0, P-QCAL-04 row, Goldman bullet.**
+   - **Find:** "- **Goldman Sachs Philanthropy Fund (PWM):** the only public program document is a Program Circular **last revised August 2008** ([circular](https://gspf.goldman.com/gspf/LinkClick.aspx?fileticket=HLXWYjqZAGE%3D&mid=554&tabid=111)) [F]."
+   - **Replace with:** "- **Goldman Sachs Philanthropy Fund (PWM; now GS Donor Advised Philanthropy Fund for Wealth Management):** the newest known Program Circular, with ETF ratios as of 2024-09-30, is reproduced in FireAid's Sept 2025 investigative report, Appendix B ([PDF](https://www.fireaidla.org/assets/press-releases/pdfs/fireaid_investigative_report_09-08-2025.pdf)) [F, third-party-hosted; V15-09, V18-01]. Goldman's own domain serves only 2008, ~2012 (v6) and 2017 versions, which are dated context."
+2. **§0, Grant payment rails row.**
+   - **Find:** "- **GS PF:** check, per the 2008 circular; the 2026 rail is unknown."
+   - **Replace with:** "- **GS PF:** check or wire, per the circular with ratios as of 2024-09-30 (FireAid App. B) [V wave 18]."
+3. **§0, P-STF-05 row.**
+   - **Find:** "- **Check only:** BofA CGF, DAFgiving360 (as documented) and GS PF (2008)."
+   - **Replace with:** "- **Check only:** BofA CGF and DAFgiving360 (as documented). GS PF pays by check or wire (2024-ratio circular) [V wave 18]."
+4. **§0, Data export row.**
+   - **Find:** "- **BofA:** the 2025 portal guide shows \"export to Excel\" on the **contribution** listing ([guide](https://bofa.donorfirst.org/pdf/bofa/Guide%20to%20Navigating%20Your%20Donor%20Advised%20Fund.pdf)) [F]."
+   - **Replace with:** "- **BofA:** the portal guide (modified 2026-02-23) says \"export to Excel\" on the contribution listing (p.14, text). The Grant Listing screenshot (p.28) also shows an \"Export to Excel\" button; whether it covers paid as well as pending grants is not stated ([guide](https://bofa.donorfirst.org/pdf/bofa/Guide%20to%20Navigating%20Your%20Donor%20Advised%20Fund.pdf)) [F; batch 33B; V wave 18]."
+5. **§2, "Which document governs", first bullet.**
+   - **Find:** "- **The only public Program Circular is dated 2008.** It ends \"Last Revised: August 2008\" and is served from the GS DAF donor-web domain ([circular](https://gspf.goldman.com/gspf/LinkClick.aspx?fileticket=HLXWYjqZAGE%3D&mid=554&tabid=111)) [F]."
+   - **Replace with:** "- **The newest known Program Circular is 2024 or later.** FireAid's investigative report ([PDF](https://www.fireaidla.org/assets/press-releases/pdfs/fireaid_investigative_report_09-08-2025.pdf), Appendix B) reproduces the GS DAF circular, with ETF ratios as of 2024-09-30. Its terms are $20,000 minimum, $100 grants, check or wire, admin fee 0.60%→0.03%, and Goldman Sachs Wealth Services, L.P. in Ayco's former role (V15-09; V18-01). Goldman's donor-web domain serves older versions: one ending \"Last Revised: August 2008\" ([circular](https://gspf.goldman.com/gspf/LinkClick.aspx?fileticket=HLXWYjqZAGE%3D&mid=554&tabid=111)), an undated v6 (~2012) and a 2017-12-05 circular. These are dated context; the 2008 terms below are historical. (gspf.goldman.com's robots.txt disallows non-search crawlers; do not script-fetch it.)"
