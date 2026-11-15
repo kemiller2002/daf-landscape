@@ -159,7 +159,7 @@ A search extract attributed to GKCCF's annual report mentions "assets returned t
 | Legacy ERP name | Not found in any public source | n/a |
 | Target platform | "transitioning from a legacy Enterprise Resource Planning ('ERP') system to a modern, integrated platform built on Salesforce and Sage Intacct"; "three- to five-year digital transformation initiative"; start "Fall 2025". Seen only in search extracts of the Project Director posting. [PNY](https://philanthropynewyork.org/node/42089) returns 403, and the idealist, findroles and gih copies return 404 or 403 (2026-11-15) | [S]/[R] |
 | Primary text | [JobTarget, datePosted 2026-08-01](https://www.jobtarget.com/jobs/jt-ytfwftg0iq/director-investment-operations-and-treasury-new-york-city-new-york): "Experience with Sage Intacct, Salesforce, or similar investment/portfolio systems preferred". The [Paylocity copy](https://recruiting.paylocity.com/Recruiting/Jobs/Details/4366948) now reads "job does not exist or is not currently active" | [F] (repo) |
-| Implementer | None named. Searches of Armanino, Clark Nuber, Redpath and Sage case-study libraries turned up no NYCT story | n/a |
+| Implementer | None named. General web searches, whose results included Armanino, Sage and top10erp case studies, turned up no NYCT story. Partner libraries were not browsed one by one | n/a |
 | 990 | The TY2025 return is not in the IRS index (index files of 2026-11-14; the TY2024 return is 202523149349305672). TY2022–24 Part VII-B lists only investment managers and trustees | [F] |
 | Go-live | Not stated | n/a |
 
@@ -225,7 +225,7 @@ A search extract attributed to GKCCF's annual report mentions "assets returned t
 | S10 | Blackbaud on-demand session with NPact | vendor [V] | undated | https://www.blackbaud.com/events/all-events/automate-advanced-investment-calculations-with-blackbaud-and-npact |
 | S11 | AEF TY2024 990 (NPact line) | 990 [F] | TY2024 | https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513219349310376_public.xml |
 | S12 | GKCCF 2024 consolidated audit | audit [F] | 2025-11-12 | https://growyourgiving.org/wp-content/uploads/2025/11/Audit-Report-2024.pdf |
-| S13 | GKCCF 2023 consolidated audit | audit [F] | 2024-11-07 | https://growyourgiving.org/wp-content/uploads/2024/12/Audit-Report-2023.pdf |
+| S13 | GKCCF 2023 consolidated audit | audit [F] | 2024-11-07 (signing date per search extract [S]) | https://growyourgiving.org/wp-content/uploads/2024/12/Audit-Report-2023.pdf |
 | S14 | GKCCF TY2024 and TY2023 990 | 990 [F] | TY2023–24 | https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202533189349314033_public.xml ; https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202433199349316533_public.xml |
 | S15 | Greater Horizons TY2024 990 | 990 [F] | TY2024 | https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513189349309621_public.xml |
 | S16 | Greater Horizons "Access Your Fund Online" | sponsor [F] | live 2026 | https://www.greaterhorizons.org/access-fund-online/ |
