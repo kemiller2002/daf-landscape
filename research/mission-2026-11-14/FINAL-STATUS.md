@@ -8,7 +8,24 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (final refresh 2026-11-15 ~16:50 UTC, through PR #48) — governing
+## Counts (final refresh 2026-11-15 ~17:30 UTC, through PR #50) — governing
+
+Recomputed from the repository at merge commit `20a0eb8` (PR #50). Supersedes the tables below.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#50 (31 PRs) | GitHub |
+| Research documents | 248 documents, 835,836 words | `research/**/*.md` |
+| Datasets | 470 CSV files, 176,636 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,424 | regex over `research/**/*.md` |
+| Independent validation | **859 register rows** in 33 register files (waves 1–30): 659 confirmed, 158 partially confirmed, 23 contradicted, 12 unverifiable, 7 audit rows | `validation-register*.csv`, `validation_result` |
+| Research queue | 536 items: 299 done, 75 blocked (reasons recorded), 49 monitoring, 107 open, 5 deprioritized historical, 1 declined | `research-priority-queue.csv` |
+| Industry report | §11.1–§11.27 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+| Owner-directed new research directions | 33 (N1–N33), all validated | `research/mission-2026-11-14/direction-*.md` |
+
+**Seventh-round additions (validated, report §11.27):** direct foreign grants are 1.92% of top-50 sponsors' grants ($1.89bn over FY2023–24), lifting the international sector share from 5.6% to 7.8%; about 42% of covered DAF grant dollars go to charities that report any lobbying, with median lobbying intensity of about 0.2% of expenses (descriptive, lawful activity); 1,240 sponsors under $50m hold 2.84% of assets, pay out less (median 11.7%) and account for nearly all entries and exits.
+
+## Counts (final refresh 2026-11-15 ~16:50 UTC, through PR #48) (superseded by the table above)
 
 Recomputed from the repository at merge commit `ed840bd` (PR #48). Supersedes the tables below.
 
