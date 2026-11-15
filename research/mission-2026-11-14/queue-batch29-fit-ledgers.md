@@ -281,3 +281,12 @@ The file follows the format in `queue-proposals-README.md`. It holds 3 proposals
 - **P-B29A-01:** a REPAY/BILL grant-rail scan.
 - **P-B29A-02:** a portal-versus-GL split for the spectrumportal.net rows.
 - **P-B29A-03:** the date of FFTC's go-live and which portal its fundholders use.
+
+## Validation corrections (wave 14, 2026-11-15) — governing
+Source: [validation-wave14-report.md](validation-wave14-report.md); register `data/mission-2026-11-14/validation-register-wave14.csv`.
+
+1. **Line 43 (§0, P-LDG-02).**
+   - Replace: "One former or current client is confirmed by its tenant (Indian River CF), and IRCF now appears to have moved to Foundant."
+   - With: "One sponsor outside the GKCCF family, Indian River CF, is confirmed as a donor-portal.org portal tenant by its own site. Back-office accounting for IRCF is not shown. IRCF now links both `ircf.donor-portal.org` and Foundant's `indianriver.fcsuite.com`, so it is moving or running both."
+2. **Line 64 (§1.1 table, SVCF row).** Replace "FIT layered on NetSuite instead of a custom app" with "FIT used instead of a custom app that 'would layer on top of NetSuite' (a FIT–NetSuite integration at SVCF is implied, not stated)".
+3. **Line 138 (§2.3 Reading).** Replace "IRCF has moved, or is moving, from the GKCCF back office to Foundant CommunitySuite." with "IRCF has moved, or is moving, from the GKCCF donor portal to Foundant CommunitySuite. Its homepage still links both logins."

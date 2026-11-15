@@ -344,3 +344,19 @@ Columns follow [`queue-proposals-README.md`](../../data/mission-2026-11-14/queue
 - **Not covered:** platform or vendor regimes for money transmission (custody-related), and state "commercial coventurer" definitions as they apply to round-ups.
 - **Crypto shares of total inflow** for Fidelity could not be computed, because total contributions were not extracted. The Endaoment 990 series has a FY6/2023 filing anomaly.
 - **Allegations in pending cases are not findings.**
+
+## Validation corrections (wave 14, 2026-11-15) — governing
+Source: [validation-wave14-report.md](validation-wave14-report.md); register `data/mission-2026-11-14/validation-register-wave14.csv`.
+
+1. **Line 35 (§1, P-TRM-04).**
+   - Replace: "**Rev. Proc. 2011-33 §4(2)** makes reliance on third-party BMF data conditional on the grantor retaining \"a copy of the report\"."
+   - With: "**Rev. Proc. 2018-32 §8.01(2)** makes reliance on third-party BMF data conditional on the grantor retaining \"a paper or electronic copy of the report\". (Rev. Proc. 2018-32 superseded Rev. Proc. 2011-33, whose §4(2) is cited by Candid's FAQ, from 2018-05-16.)"
+2. **Line 183 (§4.1 IRS).**
+   - Replace the "Rev. Proc. 2011-33 §4" bullet with: "**Rev. Proc. 2018-32 §8.01** ([IRB 2018-23](https://www.irs.gov/irb/2018-23_IRB)), which \"modifies and supersedes … Rev. Proc. 2011–33\" (effective May 16, 2018). Reliance on third-party EO BMF data requires two things. (1) The report must include name, EIN and foundation status, deductibility, \"the revision date of the EO BMF Extract containing the information\", and the date and time provided. (2) \"The grantor or contributor retains a paper or electronic copy of the report.\" Candid's FAQ still cites the superseded Rev. Proc. 2011-33."
+3. **Line 197 (§4.2, Unknowns).** Replace "that §4(1)(B) requires" with "that Rev. Proc. 2018-32 §8.01(1)(b) requires".
+4. **Line 283 (R26).** Replace the row with: "| R26 | [Rev. Proc. 2018-32, IRB 2018-23](https://www.irs.gov/irb/2018-23_IRB) (supersedes [Rev. Proc. 2011-33, IRB 2011-25](https://www.irs.gov/irb/2011-25_IRB)) | 2018-05-16 (current) | §4 |".
+5. **Line 34 (§1, P-FAIL-08) and line 144 (§3.4 item 1).**
+   - Replace: "only CT, NJ, OH, GA and IL tie the bond" / "in only about five of 18 states (CT, NJ, OH, GA, IL)"
+   - With: "of the 18 states sampled, only CT, NJ, OH, GA and IL tie the bond … (the same 2023 survey shows custody-triggered counsel bonds in MN, NH, RI and LA, which are outside the sample, so this is not a national ratio)".
+6. **Line 75 (§2.2 Alaska).** Replace "JustGiving, Pledgeling and Network for Good" with "JustGiving, Pledge (\"Pledge to\" in the release) and Network for Good".
+7. **Line 215 (§5.1, Endaoment row, FY6/25 cell).** Append: "The FY6/25 990 (202631359349315978) is in the 2026 IRS index but not yet on the mirror. FY6/22 also shows Sch. D DAF contributions ($43.24M) above Part VIII ($41.34M)."

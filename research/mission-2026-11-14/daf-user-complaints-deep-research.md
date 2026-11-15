@@ -418,3 +418,10 @@ Every record's own URL is in the CSV.
 Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
 
 - **W4-16** (research/mission-2026-11-14/daf-user-complaints-deep-research.md line 31): replace "Fairbairn lost at trial; Pinkert dismissed for standing" → "Fairbairn lost after a bench trial (N.D. Cal., 2021-02-26); Pinkert v. Schwab Charitable dismissed for lack of Article III standing, affirmed 48 F.4th 1051 (9th Cir. 2022)"
+
+## Validation corrections (wave 14, 2026-11-15) — governing
+Source: [validation-wave14-report.md](validation-wave14-report.md); register `data/mission-2026-11-14/validation-register-wave14.csv`.
+
+1. **Line 238 (§5.5 Status).**
+   - Replace: "**Status: sources conflict.** Foley (May 2026) describes the motion to dismiss as pending … A Greenleaf Trust note suggests dismissal for standing ([Greenleaf](…))."
+   - With: "**Status: pending (D. Colo. No. 1:26-cv-00179-GPG-MDB).** The motion to dismiss the First Amended Complaint (Doc 34, 2026-04-21) has been fully briefed since 2026-05-26 (Doc 42). The court denied the motion for a partial stay of discovery on 2026-06-11 (Doc 45). Final productions are due 2027-02-14 (Doc 55). No ruling appears in RECAP through Doc 58 (2026-10-15). Greenleaf's 'dismissed for standing' refers to *Pinkert*, not Peterson [V wave 14]."

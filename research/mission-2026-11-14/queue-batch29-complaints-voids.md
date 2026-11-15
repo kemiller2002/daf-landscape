@@ -321,3 +321,18 @@ python3 scripts/mission_void_scan.py --irs-dir <dir with index_2021..2026.csv> -
 ```
 
 The extract cache (`voidscan/{object_id}.json`) holds only the matching explanations and the header amounts.
+
+## Validation corrections (wave 14, 2026-11-15) — governing
+Source: [validation-wave14-report.md](validation-wave14-report.md); register `data/mission-2026-11-14/validation-register-wave14.csv`.
+
+1. **Line 31 (§1, P-B28-02).**
+   - Replace: "**29 sponsors (14.5%) itemise at least one grant void, refund, rescission or reversal with a figure**, in 72 of 785 returns (9.2%). Those 29 hold **37.5%** of scanned top-200 DAF assets."
+   - With: "**The scan's hit rule finds 29 sponsors (14.5%), in 72 of 785 returns; validation wave 14 found at least 5 more that it misses** (\"recovery of prior year grants\": Greater Houston, Maine, the Fund for Charitable Giving; \"grant returns\": Fox Valley; \"prior year grant adjustments\": Vermont). The floor is therefore **at least 34 sponsors (17.0%)** in 85 returns (10.8%), holding about 38.0% of scanned DAF assets."
+   - Also replace "nationals 9 of 43 (20.9%), community foundations 17 of 113 (15.0%)" with "nationals at least 10 of 43 (23.3%), community foundations at least 21 of 113 (18.6%)".
+2. **§3.1 Hit rule.** Append: "Known misses (wave 14): 'recovery of prior year grants', 'grant returns', 'prior year grant adjustments'."
+3. **§3.2 table.** Add a footnote: "Rates are floors; see validation-wave14-report.md for 5 missed sponsors. Void-share statistics use n = 70 returns (two SVCF returns are redacted)."
+4. **Lines 187–188 (§3.4).** Replace "Nationals: 21% disclose, median 0.15%." and "Community foundations: 15% disclose, median 0.28%." with "Nationals: at least 23% disclose, median 0.15%. Community foundations: at least 19% disclose, median about 0.28%."
+5. **Line 30 (§1, P-QA3-04).**
+   - Replace: "Most of the big three's high-severity weight comes from the six shared 2026 SPLC records (CMP-215–220)."
+   - With: "The six shared 2026 SPLC records (CMP-215–220) supply most high-severity weight for Vanguard (6 of 8) and DAFgiving360 (6 of 9). For Fidelity they supply 6 of 21 on all venues (11 are App Store login reviews) and 6 of 10 without the App Store."
+6. **Line 198 (§4 table).** Replace "1 line; the largest of 2,733 lines" with "the one general-support line (a second NPT-EIN line, $10,000 'FBO Friends of UBS Optimus Foundation', also appears); the largest of 2,733 lines".
