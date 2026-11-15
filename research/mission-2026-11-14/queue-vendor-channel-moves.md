@@ -287,3 +287,6 @@ Source: [validation-wave6-report.md](validation-wave6-report.md). Where these co
    - Replace with: "most likely sits in its FY2025 Vanguard line. It is the only FY2025 Schedule I line of $430m or more, and no FY2024 line reaches that amount [I, strong]. The report does not name the recipient or say it was a DAF-to-DAF grant."
 5. **Line 36 (sponsor confirmed)**
    - Add: "The circular is not linked from the portal home page, which links only the 2022 Donor User Guide."
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

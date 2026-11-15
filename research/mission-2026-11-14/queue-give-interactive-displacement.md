@@ -208,3 +208,6 @@ Source: [validation-wave5-report.md](validation-wave5-report.md). Where these co
 8. **`research/mission-2026-11-14/queue-give-interactive-displacement.md`, line 60.**
    - Replace: "Stellar in **every year FYE 3/2014–3/2025**, rising from $119,943 to $366,469"
    - With: "Stellar in **every e-filed year FYE 3/2013–3/2025**, from $121,482 (FYE 3/2013) to $366,469. The new login page's 'Open A Fund' button still links to iphi.stellartechsol.com (2026-11-14)."
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

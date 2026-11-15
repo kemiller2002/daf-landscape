@@ -246,3 +246,6 @@ The top-30 rail map is unchanged: 3 not found among the 15, plus Marin unverifie
 - **Format:** per `queue-proposals-README.md`; `state` = `open`.
 - **P-B38A-01:** read the two Wayback captures (`ocf.iphiview.com/ocf/` 2025-12-20; `pnc.iphiview.com/scbf/` 2018-08-31) from an environment that can reach web.archive.org, to name the tenants.
 - **P-B38A-02:** FFTC's TY2025 990 VII-B and 2025 audit, once posted, to date the FE NXT / Foundation Cloud / GiftingNetwork spend.
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

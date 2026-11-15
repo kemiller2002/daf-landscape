@@ -248,3 +248,6 @@ Source: [validation-wave7-report.md](validation-wave7-report.md). Where these co
    - Current: "**2 are check-only:** Chicago Community Trust (DAF grants are mailed checks)"
    - Replace with: "**2 document checks only:** Chicago Community Trust (for DAF grants; discretionary-grant rail not documented)"
 5. **Line 73 (SPMF row).** Append: "Chariot's own post (dated 'Sep 15', © 2026) says the move is expected 'with a few exceptions' ([Chariot](https://givechariot.com/resources/insights/enrolling-with-chariot-for-electronic-grant-payments-from-the-saint-paul--minnesota-foundation)) [V]. The year of 'this fall' is inferred from the footers."
+
+## Compliance note (2026-11-15) — governing
+crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).
