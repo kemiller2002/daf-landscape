@@ -126,3 +126,10 @@ The calibration ([quadrant-calibration.md](quadrant-calibration.md)) showed that
 Evidence older than five years (dated before 2021-11-14) is **not admissible for scoring current capability or terms**. Older material may be cited only as dated historical context, and the affected criterion scores **U** unless current evidence exists.
 
 Example: Goldman Sachs Philanthropy Fund's 2008, 2012 and 2017 circulars cannot score its payment-rail or portability criteria, so GS PF stays "insufficient evidence" until a 2021+ source is found. Audited financials and Form 990 data for FY2021+ remain admissible.
+
+## Validation corrections (wave 18, 2026-11-15) — governing
+Source: [validation-wave18-report.md](validation-wave18-report.md); register `data/mission-2026-11-14/validation-register-wave18.csv`.
+
+1. **§8, example.**
+   - **Find:** "Example: Goldman Sachs Philanthropy Fund's 2008, 2012 and 2017 circulars cannot score its payment-rail or portability criteria, so GS PF stays \"insufficient evidence\" until a 2021+ source is found."
+   - **Replace with:** "Example: Goldman Sachs Philanthropy Fund's 2008, 2012 and 2017 circulars cannot score its payment-rail or portability criteria. A 2021+ source has since been found: the GS DAF circular with ratios as of 2024-09-30, reproduced in FireAid's Sept 2025 report (V15-09, V18-01). Criteria it covers (for example, check or wire payment) may be scored from it; criteria it does not cover stay U."
