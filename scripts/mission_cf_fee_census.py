@@ -14,7 +14,8 @@ Tasks
            Compares with national sponsors in sponsor-fee-schedules.csv (computed with the same engine).
   schedn   Scan local IRS e-file XML directories (--xml-dir, repeatable) for Schedule N (Part I liquidation /
            Part II >25% disposition) where filer or transferee is a community foundation, plus stream (--fetch)
-X
+           the 2021+ returns of all CF filers in cf-vendor-map-by-ein-v2.csv from the GivingTuesday e-file mirror to
+           </IRS990>, reading Part I line 2 and the final-return box, and pull Schedule N when either is set.
   consol   Write cf-consolidation-2021-2026.csv from CONSOLIDATION_EVENTS (transcribed from cited public sources)
            plus Schedule N rows found by `schedn`.
 
@@ -485,7 +486,8 @@ def task_schedn(cache_dir: str, xml_dirs: Sequence[str], fetch: bool, workers: i
         if r:
             found.append({**r, "source": "local_xml"})
     # CF filers' own returns (2021+ tax years) from the e-file mirror (no robots.txt on the S3 host: 404).
-    # Stream each return only to </IRS990> to read Part IV lines 31/32; fetch the full XML only when either is yes.
+    # Stream each return only to </IRS990> to read Part I line 2 (ContractTerminationInd: discontinued operations or disposed of
+    # >25% of net assets) and the final-return box (FinalReturnInd); fetch the full XML for Schedule N only when either is set.
     cf_eins = {r["ein"] for r in read_csv(CF_MAP)}
     rets = [r for r in read_csv(RETURNS_CSV) if r.get("ein", "").zfill(9) in cf_eins and num(r.get("tax_year")) >= 2021 and r.get("xml_url")]
     mdir = os.path.join(cache_dir, "partiv")
@@ -534,7 +536,7 @@ def task_schedn(cache_dir: str, xml_dirs: Sequence[str], fetch: bool, workers: i
     flags = [m for m in mirror if m.get("status") == 200 and (m.get("part1_line2_discontinued_ind") in YES or m.get("final_return_ind") in YES)]
     out = {"local_xml_scanned": len(files), "cf_filer_returns_2021plus": len(rets), "mirror_urls": len(urls),
            "mirror_ok": sum(m.get("status") == 200 for m in mirror), "mirror_errors": [m for m in mirror if m.get("status") != 200],
-           "schedn_found": found, "part_iv_31_32_yes": flags}
+           "schedn_found": found, "part1_line2_or_final_yes": flags}
     with open(os.path.join(cache_dir, "schedn.json"), "w", encoding="utf-8") as fh:
         json.dump(out, fh, indent=1)
     return {k: (len(v) if isinstance(v, list) else v) for k, v in out.items()}
