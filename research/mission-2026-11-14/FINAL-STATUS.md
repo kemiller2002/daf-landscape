@@ -8,7 +8,26 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (final refresh 2026-11-15 ~15:30 UTC, through PR #44) — governing
+## Counts (final refresh 2026-11-15 ~16:10 UTC, through PR #46) — governing
+
+Recomputed from the repository at merge commit `0ead3d8` (PR #46). Supersedes the tables below.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#46 (27 PRs) | GitHub |
+| Research documents | 239 documents, 792,725 words | `research/**/*.md` |
+| Datasets | 453 CSV files, 152,403 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,371 | regex over `research/**/*.md` |
+| Independent validation | **785 register rows** in 31 register files (waves 1–28): 597 confirmed, 148 partially confirmed, 22 contradicted, 11 unverifiable, 7 audit rows | `validation-register*.csv`, `validation_result` |
+| Research queue | 509 items: 292 done, 75 blocked (reasons recorded), 49 monitoring, 87 open, 5 deprioritized historical, 1 declined | `research-priority-queue.csv` |
+| Industry report | §11.1–§11.25 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+| Owner-directed new research directions | 26 (N1–N26), all validated | `research/mission-2026-11-14/direction-*.md` |
+
+**Fifth-round additions (validated, report §11.25):** sponsors tied to financial firms show little advertising or officer pay on their own 990s because parents bear it (cost appears as administrator or trustee fees); community foundations spend far more per new account. Of 30 philanthropy AI products, none is RED; only TIFIN Louise and Daffy's MCP server touch DAF money (both AMBER). No sponsor shows charity ratings inside its grant flow; Charity Navigator rates about 17% of eligible charities and its licence restricts AI use.
+
+**Compliance (added):** wave 28 found one fetch of an irs.gov path that irs.gov's robots.txt disallows; its facts were relabelled as carried from earlier repository sources.
+
+## Counts (final refresh 2026-11-15 ~15:30 UTC, through PR #44) (superseded by the table above)
 
 Recomputed from the repository at merge commit `9450c05` (PR #44). Supersedes the tables below.
 
