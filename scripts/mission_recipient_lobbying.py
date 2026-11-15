@@ -82,7 +82,7 @@ STATUS_CODE = {"lobby_501h": 1, "lobby_ii_b": 2, "lobby_part_iv_only": 3, "none_
                "none_part_iv_no": 6, "parsed_no_lobby_data": 7, "no_sched_c_990pf": 8, "no_return_church": 9,
                "no_return_990n": 10, "no_return_group_subordinate": 11, "no_return_government": 12,
                "no_return_other_in_bmf": 13, "no_return_not_in_bmf": 14, "fetch_or_parse_failed": 15,
-               "not_selected": 16, "blank_ein": 17}
+               "not_selected": 16, "blank_ein": 17, "parsed_non_501c3": 18}
 FORM_CODE = {"990": 1, "990EZ": 2, "990PF": 3, "": 0}
 SECTOR_CODE = {g: i + 1 for i, g in enumerate(RS.GROUPS)}
 
@@ -316,7 +316,10 @@ def classify_return(ret: Mapping, form: str) -> dict:
     ii_b = any(v is not None for v in b_inds.values()) or b_total is not None
     part1 = {k: v for k, v in sc.items() if k.split("/")[-1].endswith(("Amt", "Cnt")) and not is_part_ii(k)}
     pol_amt = sum(num(v) or 0.0 for k, v in part1.items() if k.endswith("Amt"))
-    if elector and (h_lobby or 0) > 0:
+    not_c3 = ind(m.get("Organization501c3Ind")) != 1 and "Organization501cInd" in m
+    if not_c3:
+        status, lobby = "parsed_non_501c3", None
+    elif elector and (h_lobby or 0) > 0:
         status, lobby = "lobby_501h", h_lobby
     elif ii_b and (b_any or (b_total or 0) > 0):
         status, lobby = "lobby_ii_b", b_total if b_total is not None else None
@@ -340,7 +343,7 @@ def classify_return(ret: Mapping, form: str) -> dict:
             "part_iv_line3_political": iv3, "part_iv_line4_lobbying": iv4,
             "sched_c_part_i_amount_usd": pol_amt, "sched_c_part_i_keys": sorted(part1),
             "political_reported": int(iv3 == 1 or pol_amt > 0),
-            "not_c3": int(ind(m.get("Organization501c3Ind")) != 1 and "Organization501cInd" in m)}
+            "not_c3": int(not_c3)}
 
 
 def recipient_record(ein: str, chosen: Mapping | None, ret: Mapping | None, bmf: Mapping) -> dict:
@@ -376,8 +379,10 @@ def agg_cell(lines: Sequence[Mapping], rec: Mapping) -> dict:
         if r.get("status") in COVERED:
             b = bin_of(r.get("lobby_to_expenses"))
             bins[b] = bins.get(b, 0.0) + l["amount"]
-    pol = sum(l["amount"] for l in lines if rec.get(l["ein"], {}).get("political_reported") == 1)
-    pol_iv3 = sum(l["amount"] for l in lines if rec.get(l["ein"], {}).get("part_iv_line3_political") == 1)
+    c3 = lambda l: rec.get(l["ein"], {}).get("status") in COVERED  # noqa: E731
+    pol = sum(l["amount"] for l in lines if c3(l) and rec[l["ein"]].get("political_reported") == 1)
+    pol_iv3 = sum(l["amount"] for l in lines if c3(l) and rec[l["ein"]].get("part_iv_line3_political") == 1)
+    nonc3 = [l for l in lines if rec.get(l["ein"], {}).get("status") == "parsed_non_501c3"]
     elect = sum(l["amount"] for l in lines if rec.get(l["ein"], {}).get("status") in COVERED and rec[l["ein"]].get("elector_501h") == 1)
     lob_usd_known = [(l["amount"], rec[l["ein"]]["lobby_to_expenses"]) for l in lines
                      if rec.get(l["ein"], {}).get("status") in COVERED and rec[l["ein"]].get("lobby_to_expenses") is not None]
@@ -389,6 +394,8 @@ def agg_cell(lines: Sequence[Mapping], rec: Mapping) -> dict:
             "lobbying_share_of_net_lower_bound": lob / tot if tot else None,
             "elector_501h_share_of_covered": elect / cov if cov else None,
             "political_reported_usd": pol, "part_iv_line3_yes_usd": pol_iv3,
+            "non_501c3_parsed_usd": sum(l["amount"] for l in nonc3),
+            "non_501c3_political_usd": sum(l["amount"] for l in nonc3 if rec[l["ein"]].get("political_reported") == 1),
             "dollar_weighted_mean_intensity": wavg, "dollar_weighted_mean_intensity_lobbying_only": wavg_lob,
             "recipients": len(eins), "recipients_covered": len(cov_eins), "recipients_lobbying": len(lob_eins),
             "recipient_count_share_lobbying": len(lob_eins) / len(cov_eins) if cov_eins else None,
@@ -398,7 +405,8 @@ def agg_cell(lines: Sequence[Mapping], rec: Mapping) -> dict:
 
 AGG_FIELDS = ("record_type", "scope", "scope_type", "fiscal_year", "ntee_major_group", "metric", "net_usd", "covered_usd",
               "coverage_share", "lobbying_usd_to", "lobbying_share_of_covered", "lobbying_share_of_net_lower_bound",
-              "elector_501h_share_of_covered", "political_reported_usd", "part_iv_line3_yes_usd",
+              "elector_501h_share_of_covered", "political_reported_usd", "part_iv_line3_yes_usd", "non_501c3_parsed_usd",
+              "non_501c3_political_usd",
               "dollar_weighted_mean_intensity", "dollar_weighted_mean_intensity_lobbying_only", "recipients", "recipients_covered", "recipients_lobbying",
               "recipient_count_share_lobbying", "bin_or_status", "bin_usd", "bin_share_of_covered")
 REC_FIELDS = ("ein", "object_id", "return_form_code", "tax_period_yyyymm", "status_code", "sector_code", "net_daf_grant_usd",
@@ -612,6 +620,12 @@ def main(argv: Sequence[str] | None = None) -> int:
                                 "not_c3": rec[e].get("not_c3"), "name": bmf_f.get(e, {}).get("name", "")} for e in pol[:40]],
         "political_reported_count": len(pol),
         "not_c3_covered": sum(1 for e in covered if rec[e].get("not_c3") == 1),
+        "non_c3_parsed": (lambda xs: {"recipients": len(xs), "usd": round(sum(rtot[e]["total"] for e in xs)),
+                                      "political_reported": sum(1 for e in xs if rec[e].get("political_reported") == 1),
+                                      "political_reported_usd": round(sum(rtot[e]["total"] for e in xs if rec[e].get("political_reported") == 1)),
+                                      "bmf_subsections": {s_: sum(1 for e in xs if bmf_f.get(e, {}).get("subsection") == s_)
+                                                          for s_ in sorted({bmf_f.get(e, {}).get("subsection", "") for e in xs})}})(
+            [e for e in sel if rec[e]["status"] == "parsed_non_501c3"]),
         "top20_lobbying_by_daf_usd": [{"ein": e, "name": bmf_f.get(e, {}).get("name", ""), "net_usd": round(rtot[e]["total"]),
                                        "lobby_usd": rec[e]["lobbying_usd"], "ratio": round(rec[e]["lobby_to_expenses"], 5),
                                        "h": rec[e]["elector_501h"], "group": rtot[e]["group"]} for e in top_int[:20]],
