@@ -332,3 +332,13 @@ python3 scripts/mission_foreign_grants.py --np-cache NPCACHE --lines-cache LINES
 - `XMLPATHS` lists local XML copies, one path per line.
 - Run time is about 20 s with a warm cache. Two consecutive runs gave identical totals.
 - Every figure in §0–3 comes from the script's printed JSON summary or the CSV. Ratios such as the top-3 share, the big-4 share and pass-through ÷ direct are arithmetic on those outputs.
+
+## Validation corrections (wave 30, 2026-11-15) — governing
+Source: [validation-wave30-report.md](validation-wave30-report.md); register `data/mission-2026-11-14/validation-register-wave30.csv`.
+
+1. **§0, ED vs ER row.**
+   - **Find:** "**Part V narratives:** of the 70 sponsor-years with foreign grants, 41 describe ED and/or ER (31 ED, 27 ER). Together they hold 94.7% of the foreign dollars [C]."
+   - **Replace with:** "**Part V narratives:** of the 70 top-50 sponsor-years with foreign grants (68 in the main scope), 41 describe ED and/or ER (31 ED, 27 ER). Together they hold 94.7% of all top-50 foreign dollars, or 96.0% in the main scope [C; V wave 30]."
+2. **§0, comparison with the NTEE sector analysis.**
+   - **Find:** "**International is therefore understated by about 2.2–2.5 points in the Schedule-I-only sector shares.**"
+   - **Replace with:** "**International is therefore understated by about 2.2–2.6 points against the published 5.6% (2.4–2.7 points like-for-like, since NTEE Q is 5.45% on the Schedule I + line 3 base) in the Schedule-I-only sector shares** [C; V wave 30]."

@@ -234,3 +234,13 @@ python3 scripts/mission_recipient_lobbying.py --np-cache NPCACHE --bmf-dir BMF -
 | S3 | [IRS EO BMF](https://www.irs.gov/pub/irs-soi/eo1.csv) eo1–eo4, eo_pr, eo_xx | Last-Modified 2026-11-09 (copy from the sectors run) | www.irs.gov: `/pub/` not disallowed (disallows include `/charities-non-profits/tax-exempt-organization-search`, which was not used) |
 | S4 | Repo: `mission_recipient_sectors.py` line cache and classification; `daf-to-daf-recipient-whitelist.csv`; DAFRC panel; `netpayout990/` cache | repo | n/a |
 | S5 | Form 990 Schedule C and Part IV structure (Parts I-A/I-B/I-C, II-A, II-B; 990-EZ lines 46–47) | IRS form and e-file schema field names as observed in the XML | n/a |
+
+## Validation corrections (wave 30, 2026-11-15) — governing
+Source: [validation-wave30-report.md](validation-wave30-report.md); register `data/mission-2026-11-14/validation-register-wave30.csv`.
+
+1. **§0, lobbying intensity row.**
+   - **Find:** "Among recipients reporting lobbying with an amount: median **0.20%**, 75th percentile 0.76%, 90th 2.1%, 99th 7.0%, maximum 16.1%."
+   - **Replace with:** "Among the 2,531 recipients reporting lobbying with a computable ratio (57 of them at $0): median **0.20%**, 75th percentile 0.76%, 90th 2.1%, 99th 7.0%, maximum 16.1%. Over the 2,474 with a positive amount the median is 0.21% [C; V wave 30]."
+2. **§2.3, quantiles.**
+   - **Find:** "- **Quantiles** among those 2,474: p10 0.006%, p25 0.036%, **median 0.20%**, p75 0.76%, p90 2.1%, p99 7.0%."
+   - **Replace with:** "- **Quantiles** among the 2,531 lobbying recipients with a computable ratio (the 2,474 above plus 57 Part II-B filers reporting $0): p10 0.006%, p25 0.036%, **median 0.20%**, p75 0.76%, p90 2.1%, p99 7.0%. Over the 2,474 with a positive ratio: p25 0.041%, median 0.21%, p75 0.79% [C; V wave 30]."

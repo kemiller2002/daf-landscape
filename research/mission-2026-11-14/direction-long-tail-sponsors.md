@@ -349,3 +349,16 @@ python3 scripts/mission_long_tail.py                 # without BMF: ruling, stat
   - the outside-DAFRC context;
   - the persistent low-payout set.
 - It runs in a few seconds.
+
+## Validation corrections (wave 30, 2026-11-15) — governing
+Source: [validation-wave30-report.md](validation-wave30-report.md); register `data/mission-2026-11-14/validation-register-wave30.csv`.
+
+1. **§1.2, BMF copy.**
+   - **Find:** "  - The copy was saved earlier in this session on 2026-11-15 under the `/pub/irs-soi/` path, which earlier batches fetched after the robots check. This run made no request."
+   - **Replace with:** "  - The copy was saved earlier in this session under the `/pub/irs-soi/` path, which earlier batches fetched after the robots check: eo1–eo3 on 2026-11-14 and eo4, eo_pr and eo_xx on 2026-11-15. Both dates postdate the files' Last-Modified of 2026-11-09, so the content is that version [V wave 30]. This run made no request."
+2. **§3.6, reading.**
+   - **Find:** "- A third of tail CFs, and two-thirds of those under $1m, show no vendor at all."
+   - **Replace with:** "- Over a third of tail CFs (37.8%), and two-thirds of those under $1m, show no vendor at all [V wave 30]."
+3. **§3.5, exits.**
+   - **Find:** "**Exits (candidate exits dated FY2021–23: 90; 85 had less than $50m at the last filing):**"
+   - **Replace with:** "**Exits (candidate exits dated FY2021–23: 90; 85 had less than $50m at the last filing, 4 of them $0):**"

@@ -892,6 +892,33 @@ Related customer-facing frictions are covered by theme: data export and credenti
    >   - FY2023 uses NPT's anomalous filed value. Corrected, CR5 would be about 53.8% instead of 52.9%.
    >   - FY2025 is partial: 899 filers, 67.6% of assets. Sources: [direction-sponsor-financial-resilience.md](mission-2026-11-14/direction-sponsor-financial-resilience.md), [direction-nonprofit-side-experience.md](mission-2026-11-14/direction-nonprofit-side-experience.md), [direction-public-opinion-dafs.md](mission-2026-11-14/direction-public-opinion-dafs.md), [direction-league-table-concentration.md](mission-2026-11-14/direction-league-table-concentration.md), [validation-wave29-report.md](mission-2026-11-14/validation-wave29-report.md).
 
+### 11.27 New directions N31–N33 (validated, wave 30)
+
+**New directions N31–N33 (validated, wave 30).**
+   > - **Foreign grants (Form 990 Part IX line 3 and Schedule F, top 50, FY2023–24; reproduced from a fresh download of all 118 returns).**
+   >   - Direct foreign grants are **$1.89bn of $98.27bn, 1.92%** ($845m in FY2023, $1,046m in FY2024).
+   >   - NPT gives 39% of the dollars, SVCF 19% and GS DAF 9.5%. Fidelity sends 0.5% of its grants abroad directly.
+   >   - Community foundations 2.60%, nationals 1.75%. Europe takes 49.6% and the Middle East and North Africa 12.4%.
+   >   - Narratives describing equivalency determination or expenditure responsibility cover 41 sponsor-years and about 95% of foreign dollars.
+   >   - SVCF reports 539 of the 672 foreign recipients not shown to be 501(c)(3)-equivalent.
+   >   - Nine US intermediaries received $216m, of which about $165m is estimated to have gone abroad. "Friends of" organisations received $433m.
+   >   - NPT's FY2024 Schedule F has shifted columns ($410m, verified in the XML and repaired).
+   >   - Adding direct foreign grants lifts the international share of DAF grants from 5.6% (Schedule I, NTEE Q) to 7.8%.
+   > - **Recipient lobbying (Schedule C, top-50 recipients; reproduced from a fresh download of 13,011 returns; 19 returns hand-checked).**
+   >   - Of $77.3bn of net DAF grants, 71.2% go to recipients with a parseable 501(c)(3) return. Of those covered dollars, **42.2% go to recipients that report any lobbying** (30.0–58.8% of all dollars). By count the share is 20%.
+   >   - The share is highest for environment (61%), education (55%) and health (51%) recipients, and lowest for religion (7%, mostly uncovered churches). It is 45.9% at national sponsors and 34.7% at community foundations.
+   >   - Lobbying is a small part of recipients' spending: median 0.20% of expenses, and none above 20%.
+   >   - 36 of 12,985 recipients (0.13% of covered dollars) disclose political campaign activity. These are self-disclosures needing review.
+   >   - Schedule C is self-reported. The measure describes recipients, not the use of DAF grants.
+   > - **The long tail (corrected DAFRC panel, FY2021–24; reproduced exactly).**
+   >   - 1,240 of 1,514 sponsors hold under $50m: $9.18bn, 2.84% of assets. 947 hold under $10m (0.69%) and 423 under $1m (0.04%). The top 50 hold 85.5%.
+   >   - Without Givinga and the terminated BNY Mellon fund, the tail's 46.4% of accounts is 3.49%.
+   >   - Half the tail sponsors are community foundations; the median tail sponsor is 29 years old.
+   >   - The median tail sponsor has 24 DAFs averaging $133k (top 50: 1,464 and $836k). Its median payout is 11.7% (top 50: 19.6%), and 26.8% pay out under 5% (37.6% under $1m).
+   >   - 134 of the 138 FY2021–24 entrants and 85 of the 90 candidate exits are in the tail.
+   >   - Foundant serves 80% of tail CFs with an identified vendor, and 38% show none.
+   >   - No tail sponsor has a published fee in the repo. AI-native implications are inference only. Sources: [direction-foreign-grants-schedule-f.md](mission-2026-11-14/direction-foreign-grants-schedule-f.md), [direction-recipient-lobbying.md](mission-2026-11-14/direction-recipient-lobbying.md), [direction-long-tail-sponsors.md](mission-2026-11-14/direction-long-tail-sponsors.md), [validation-wave30-report.md](mission-2026-11-14/validation-wave30-report.md).
+
 ---
 
 ## Source register
@@ -1138,3 +1165,11 @@ Source: [validation-wave28-report.md](mission-2026-11-14/validation-wave28-repor
 Source: [validation-wave29-report.md](mission-2026-11-14/validation-wave29-report.md).
 
 1. **New subsection after §11.25.** Add "### 11.26 New directions N27–N30 (validated, wave 29)", containing the paragraph below. If §11.26 is already taken, use the next free number.
+
+## Validation corrections (wave 30, 2026-11-15) — governing
+Source: [validation-wave30-report.md](mission-2026-11-14/validation-wave30-report.md).
+
+1. **§11.20, sector-share sentence (N1–N4 paragraph).**
+   - **Find:** "and 13.6% to religion, with the top 100 recipients taking 24.3%."
+   - **Replace with:** "and 13.6% to religion, with the top 100 recipients taking 24.3%. Schedule I shows international recipients (NTEE Q) at 5.6%, but direct foreign grants (Part IX line 3 / Schedule F, $1.89bn) sit outside Schedule I. Including them, international is 7.8% of Schedule I plus foreign grants [V wave 30]."
+2. **New subsection after §11.26.** Add "### 11.27 New directions N31–N33 (validated, wave 30)", containing the paragraph below. If §11.27 is already taken, use the next free number.

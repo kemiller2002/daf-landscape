@@ -329,3 +329,10 @@ Source: [validation-wave24a-report.md](validation-wave24a-report.md); register `
 2. **§1.3 Notes, after the year-split bullet.**
    - **Find:** "- **Year split (all ex university/hospital):** DAF-to-DAF rose from 11.3% (FY2023) to 16.4% (FY2024) of Schedule I. Sector shares moved by 1 pt or less [C]."
    - **Replace with:** "- **Year split (all ex university/hospital):** DAF-to-DAF rose from 11.3% (FY2023) to 16.4% (FY2024) of Schedule I. Sector shares moved by 1 pt or less [C].\n- **SVCF drives the community-foundation DAF-to-DAF share.** SVCF sent $2.07bn (25.8% of its Schedule I) to whitelisted sponsors, out of the segment's $2.59bn; without SVCF the share is 5.1%. This bears on literature flag F3 (CA AG: CFs 18%) [V wave 24A]."
+
+## Validation corrections (wave 30, 2026-11-15) — governing
+Source: [validation-wave30-report.md](validation-wave30-report.md); register `data/mission-2026-11-14/validation-register-wave30.csv`.
+
+1. **§0, sector row.**
+   - **Find:** "- environment/animals 5.7%; arts 5.6%; international 5.6%;"
+   - **Replace with:** "- environment/animals 5.7%; arts 5.6%; international 5.6% (Schedule I only; adding the top 50's direct foreign grants from Form 990 Part IX line 3 / Schedule F raises international to 7.8% of Schedule I + foreign grants, per direction-foreign-grants-schedule-f.md [V wave 30]);"
