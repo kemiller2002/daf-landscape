@@ -331,14 +331,23 @@ def task_urls(cache_dir: str, fetch: bool, urls: Sequence[str], workers: int) ->
 
 
 # ---------------------------------------------------------------- fee engine
-def effective_admin_fee(schedule: Mapping, balance: float) -> float | None:
-    """Annual admin fee in USD at a constant balance. tiers: ((lower, upper|None, rate_pct), ...).
-    basis 'marginal' (rates apply to the slice in each tier) or 'flat_on_total' (the rate of the tier containing the balance
-    applies to the whole balance). Minimum annual fee applied after; flat annual fee added."""
+def effective_admin_fee(schedule: Mapping, balance: float, basis: str | None = None) -> float | None:
+    """Annual admin fee in USD at a constant balance.
+    tiers: ((lower, upper|None, rate_pct), ...). basis 'marginal' (each rate applies to the slice in its tier) or
+    'flat_on_total' (the rate of the tier containing the balance applies to the whole balance).
+    flat_bands: ((threshold_usd, rate_pct), ...) - if balance > threshold, the highest such band's rate applies to the whole
+    balance (hybrid schedules, e.g. 'x% flat on funds over $5M'). cap_usd: balances above it are priced individually -> None.
+    Then: minimum annual fee, plus any flat annual fee."""
     tiers = schedule.get("tiers") or ()
     if not tiers and not schedule.get("flat_fee"):
         return None
-    if schedule.get("basis", "marginal") == "marginal":
+    if schedule.get("cap_usd") and balance > schedule["cap_usd"]:
+        return None
+    basis = basis or schedule.get("basis", "marginal")
+    bands = [r for t, r in sorted(schedule.get("flat_bands") or ()) if balance > t]
+    if bands:
+        fee = balance * bands[-1] / 100
+    elif basis == "marginal":
         fee = sum(max(0.0, min(balance, up if up is not None else balance) - lo) * rate / 100 for lo, up, rate in tiers)
     else:
         rate = next((r for lo, up, r in tiers if balance >= lo and (up is None or balance < up)), tiers[-1][2] if tiers else 0)
@@ -382,8 +391,13 @@ def task_census(cache_dir: str) -> dict:
         if not s.get("quotes"):
             return "no_quote"
         texts = [norm_ws(res_text(r)) for u in (s.get("url"), *s.get("alt_urls", ())) if u and (r := net.cached(u))]
+        if s.get("local"):
+            p = os.path.join(cache_dir, s["local"])
+            if os.path.exists(p):
+                with open(p, "rb") as fh:
+                    texts.append(norm_ws(pdf_to_text(fh.read())))
         if not texts:
-            return "not_cached(webfetch_or_search_capture)"
+            return "not_verifiable(webfetch_or_search_capture)"
         hits = [any(norm_ws(q) in t for t in texts) for q in s["quotes"]]
         return f"verified {sum(hits)}/{len(hits)}" if all(hits) else f"MISMATCH {sum(hits)}/{len(hits)}"
 
@@ -399,6 +413,9 @@ def task_census(cache_dir: str) -> dict:
                 "investment_fee_pass_through": s.get("invest", ""),
                 **{f"admin_fee_usd_{b // 1000}k": fees[b] if fees[b] is not None else "" for b in BALANCES},
                 **{f"admin_bps_{b // 1000}k": bps(fees[b], b) if fees[b] is not None else "" for b in BALANCES},
+                **{f"admin_bps_{b // 1000}k_alt_flat": bps(effective_admin_fee(s, b, "flat_on_total"), b) if s.get("basis_stated") is False and s.get("status") == "published_schedule" else "" for b in BALANCES},
+                "basis_stated": {True: "yes", False: "no"}.get(s.get("basis_stated", True) if s.get("tiers") else None, ""),
+                "cap_usd": s.get("cap_usd", ""), "contribution_fee_pct": s.get("contrib_fee", ""), "grant_fee_note": s.get("grant_fee", ""),
                 "source_url": s.get("url", ""), "source_date": s.get("as_of", ""), "source_method": s.get("method", ""),
                 "quote_check": verify(s) if s else "", "notes": s.get("notes", ""), "retrieved": RETRIEVED}
     rows = [row(c) for c in cfs]
