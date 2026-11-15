@@ -298,8 +298,9 @@ def purpose_of(txt: str) -> str:
 
 def flags_of(part5: Sequence[Mapping]) -> dict:
     txt = " ".join(p.get("ExplanationTxt", "") for p in part5)
-    return {"ed_text": bool(ED_RX.search(txt)), "er_text": bool(ER_RX.search(txt)), "ngosource_text": bool(NGO_RX.search(txt)),
-            "intermediary_text": bool(INTERMED_RX.search(txt)), "part5_chars": len(txt)}
+    return {"ed_text": int(bool(ED_RX.search(txt))), "er_text": int(bool(ER_RX.search(txt))),
+            "ngosource_text": int(bool(NGO_RX.search(txt))), "intermediary_text": int(bool(INTERMED_RX.search(txt))),
+            "part5_chars": len(txt)}
 
 
 METHOD_RX = re.compile(r"WIRE|ACH|EFT|ELECTRONIC|CHECK|CHEQUE|TRANSFER|BANK|PAYPAL|N/A")

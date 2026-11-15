@@ -382,12 +382,14 @@ def agg_cell(lines: Sequence[Mapping], rec: Mapping) -> dict:
     lob_usd_known = [(l["amount"], rec[l["ein"]]["lobby_to_expenses"]) for l in lines
                      if rec.get(l["ein"], {}).get("status") in COVERED and rec[l["ein"]].get("lobby_to_expenses") is not None]
     wavg = (sum(a * r for a, r in lob_usd_known) / sum(a for a, _ in lob_usd_known)) if lob_usd_known else None
+    lk = [(a, r) for a, r in lob_usd_known if r > 0]
+    wavg_lob = (sum(a * r for a, r in lk) / sum(a for a, _ in lk)) if lk else None
     return {"net_usd": tot, "covered_usd": cov, "coverage_share": cov / tot if tot else None,
             "lobbying_usd_to": lob, "lobbying_share_of_covered": lob / cov if cov else None,
             "lobbying_share_of_net_lower_bound": lob / tot if tot else None,
             "elector_501h_share_of_covered": elect / cov if cov else None,
             "political_reported_usd": pol, "part_iv_line3_yes_usd": pol_iv3,
-            "dollar_weighted_mean_intensity": wavg,
+            "dollar_weighted_mean_intensity": wavg, "dollar_weighted_mean_intensity_lobbying_only": wavg_lob,
             "recipients": len(eins), "recipients_covered": len(cov_eins), "recipients_lobbying": len(lob_eins),
             "recipient_count_share_lobbying": len(lob_eins) / len(cov_eins) if cov_eins else None,
             "by_status": {k: round(v) for k, v in sorted(by_status.items(), key=lambda kv: -kv[1])},
@@ -397,7 +399,7 @@ def agg_cell(lines: Sequence[Mapping], rec: Mapping) -> dict:
 AGG_FIELDS = ("record_type", "scope", "scope_type", "fiscal_year", "ntee_major_group", "metric", "net_usd", "covered_usd",
               "coverage_share", "lobbying_usd_to", "lobbying_share_of_covered", "lobbying_share_of_net_lower_bound",
               "elector_501h_share_of_covered", "political_reported_usd", "part_iv_line3_yes_usd",
-              "dollar_weighted_mean_intensity", "recipients", "recipients_covered", "recipients_lobbying",
+              "dollar_weighted_mean_intensity", "dollar_weighted_mean_intensity_lobbying_only", "recipients", "recipients_covered", "recipients_lobbying",
               "recipient_count_share_lobbying", "bin_or_status", "bin_usd", "bin_share_of_covered")
 REC_FIELDS = ("ein", "object_id", "return_form_code", "tax_period_yyyymm", "status_code", "sector_code", "net_daf_grant_usd",
               "net_usd_fy2023", "net_usd_fy2024", "net_usd_national", "net_usd_community_foundation",
@@ -408,21 +410,25 @@ REC_FIELDS = ("ein", "object_id", "return_form_code", "tax_period_yyyymm", "stat
 FIELDS = AGG_FIELDS + tuple(f for f in REC_FIELDS if f not in AGG_FIELDS)
 
 
-def scopes(panel: Mapping) -> list:
+def scopes(panel: Mapping, top10: frozenset) -> list:
     seg = lambda s: (lambda e: panel[e]["segment"] == s)  # noqa: E731
-    return ([("all_top50_itemising", "all", lambda e: True),
-             ("all_ex_university_hospital", "all", lambda e: panel[e]["segment"] != "university_hospital")]
-            + [(s, "segment", seg(s)) for s in ("national", "community_foundation", "single_issue", "processor",
-                                                 "university_hospital")]
-            + [("community_foundation_ex_svcf", "segment", lambda e: panel[e]["segment"] == "community_foundation" and e != RS.SVCF)])
+    not_uh = lambda e: panel[e]["segment"] != "university_hospital"  # noqa: E731
+    every = lambda r: True  # noqa: E731
+    return ([("all_top50_itemising", "all", lambda e: True, every),
+             ("all_ex_university_hospital", "all", not_uh, every),
+             ("all_ex_uh_ex_top10_recipients", "sensitivity", not_uh, lambda r: r["ein"] not in top10)]
+            + [(s, "segment", seg(s), every) for s in ("national", "community_foundation", "single_issue", "processor",
+                                                        "university_hospital")]
+            + [("community_foundation_ex_svcf", "segment",
+                lambda e: panel[e]["segment"] == "community_foundation" and e != RS.SVCF, every)])
 
 
-def aggregate_rows(ann: Mapping, panel: Mapping, rec: Mapping) -> tuple[list, dict]:
+def aggregate_rows(ann: Mapping, panel: Mapping, rec: Mapping, top10: frozenset) -> tuple[list, dict]:
     rows, summ = [], {}
     fyk = [(str(fy), (fy,)) for fy in FYS] + [("2023-2024", FYS)]
-    for name, stype, pred in scopes(panel):
+    for name, stype, pred, lpred in scopes(panel, top10):
         for fy_label, fys in fyk:
-            lines = [r for k, rs in ann.items() if pred(k[0]) and k[1] in fys for r in rs if not r["d2d"]]
+            lines = [r for k, rs in ann.items() if pred(k[0]) and k[1] in fys for r in rs if not r["d2d"] and lpred(r)]
             if not lines:
                 continue
             groups = [("ALL", lines)] + sorted(_group_by_fast(lines, lambda r: r["group"]).items())
@@ -439,7 +445,8 @@ def aggregate_rows(ann: Mapping, panel: Mapping, rec: Mapping) -> tuple[list, di
                     rows.extend({**base, "metric": "status", "bin_or_status": s, "bin_usd": v,
                                  "bin_share_of_covered": v / c["net_usd"] if c["net_usd"] else None}
                                 for s, v in c["by_status"].items())
-                if fy_label == "2023-2024" and (g == "ALL" or name in ("all_ex_university_hospital",)):
+                if fy_label == "2023-2024" and (g == "ALL" or name in ("all_ex_university_hospital", "national",
+                                                                       "community_foundation", "single_issue")):
                     summ.setdefault(name, {})[g] = {k: (round(v, 4) if isinstance(v, float) and abs(v) < 10 else
                                                         round(v) if isinstance(v, float) else v) for k, v in c.items()}
     return rows, summ
@@ -480,6 +487,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     ap.add_argument("--share-all", type=float, default=0.85)
     ap.add_argument("--share-seg", type=float, default=0.80)
     ap.add_argument("--select-only", action="store_true")
+    ap.add_argument("--sens-n", type=int, default=1500, help="top-N recipients for the return-year sensitivity")
     a = ap.parse_args(argv)
 
     dafrc = read_csv(DAFRC_CSV)
@@ -523,10 +531,49 @@ def main(argv: Sequence[str] | None = None) -> int:
                 print(f"  {i+1}/{len(todo)} {time.time()-t0:.0f}s", file=sys.stderr)
 
     rec = {e: recipient_record(e, choice[e], rets.get(choice[e]["oid"]) if choice[e] else None, bmf_f) for e in sel}
-    rows, summ = aggregate_rows(ann, panel, rec)
+    top10 = frozenset(sorted(rtot, key=lambda e: -sum(v for s_, v in rtot[e]["by_seg"].items()
+                                                         if s_ != "university_hospital"))[:10])
+    rows, summ = aggregate_rows(ann, panel, rec, top10)
     write_csv(OUT, rows + recipient_rows(rtot, rec, sel), FIELDS)
 
     covered = [e for e in sel if rec[e]["status"] in COVERED]
+    # return-year sensitivity: the latest 2023-period return (period end 2023-01..2023-12) of the top-N covered recipients
+    alt = {}
+    for e in sorted(covered, key=lambda e: -rtot[e]["total"])[:a.sens_n]:
+        c = [r for r in idx.get(e, ()) if 202301 <= r["period"] <= 202312 and r["form"] in ("990", "990EZ")]
+        if c and rec[e]["period"] // 100 != 2023:
+            alt[e] = max(c, key=lambda r: (0 if r["form"] == "990EZ" else 1, int(r["oid"])))
+    with ThreadPoolExecutor(max_workers=a.workers) as ex:
+        alt_ret = dict(ex.map(one, sorted({c["oid"] for c in alt.values()})))
+    alt_rec = {e: recipient_record(e, c, alt_ret.get(c["oid"]), bmf_f) for e, c in alt.items()}
+    pair = [e for e in alt if alt_rec[e]["status"] in COVERED]
+    agree = [e for e in pair if alt_rec[e]["reports_lobbying"] == rec[e]["reports_lobbying"]]
+    sens = {"compared": len(pair), "compared_usd": round(sum(rtot[e]["total"] for e in pair)),
+            "agree": len(agree), "agree_usd_share": round(sum(rtot[e]["total"] for e in agree) / max(1.0, sum(rtot[e]["total"] for e in pair)), 4),
+            "lobby_2024_not_2023": sum(1 for e in pair if rec[e]["reports_lobbying"] == 1 and alt_rec[e]["reports_lobbying"] == 0),
+            "lobby_2023_not_2024": sum(1 for e in pair if rec[e]["reports_lobbying"] == 0 and alt_rec[e]["reports_lobbying"] == 1),
+            "lobby_share_usd_chosen": round(sum(rtot[e]["total"] for e in pair if rec[e]["reports_lobbying"] == 1) / max(1.0, sum(rtot[e]["total"] for e in pair)), 4),
+            "lobby_share_usd_2023_returns": round(sum(rtot[e]["total"] for e in pair if alt_rec[e]["reports_lobbying"] == 1) / max(1.0, sum(rtot[e]["total"] for e in pair)), 4),
+            "median_abs_intensity_diff_both_lobby": (lambda xs: xs[len(xs) // 2] if xs else None)(sorted(
+                abs(rec[e]["lobby_to_expenses"] - alt_rec[e]["lobby_to_expenses"]) for e in pair
+                if rec[e]["reports_lobbying"] == 1 and alt_rec[e]["reports_lobbying"] == 1
+                and rec[e].get("lobby_to_expenses") is not None and alt_rec[e].get("lobby_to_expenses") is not None))}
+    el = [e for e in covered if rec[e].get("elector_501h") == 1]
+    over = [e for e in el if (rec[e].get("lobby_to_nontaxable_501h") or 0) > 1]
+    over_entry = [e for e in over if (lambda sc: (amount(sc, II_A_EXEMPT) or 0) <= (amount(sc, II_A_TOTAL) or 0) * 1.0001)(rets[rec[e]["oid"]].get("sched_c", {}))]
+    lob_r = [rec[e]["lobby_to_expenses"] for e in covered if rec[e]["status"].startswith("lobby_") and rec[e].get("lobby_to_expenses") is not None]
+    count_bins = {lbl: sum(1 for x in lob_r if bin_of(x) == lbl) for _, _, lbl in BINS[1:]}
+    pol_all = [e for e in covered if rec[e].get("political_reported") == 1]
+    pol_detail = {"recipients": len(pol_all), "usd": round(sum(rtot[e]["total"] for e in pol_all)),
+                  "part_iv_line3_yes": sum(1 for e in pol_all if rec[e].get("part_iv_line3_political") == 1),
+                  "part_iv_line3_yes_usd": round(sum(rtot[e]["total"] for e in pol_all if rec[e].get("part_iv_line3_political") == 1)),
+                  "part_i_amount_positive": sum(1 for e in pol_all if (rec[e].get("sched_c_part_i_amount_usd") or 0) > 0),
+                  "both": sum(1 for e in pol_all if rec[e].get("part_iv_line3_political") == 1 and (rec[e].get("sched_c_part_i_amount_usd") or 0) > 0),
+                  "part_i_amount_sum": round(sum(rec[e].get("sched_c_part_i_amount_usd") or 0 for e in pol_all)),
+                  "part_i_amount_median": (lambda xs: xs[len(xs) // 2] if xs else None)(sorted(rec[e]["sched_c_part_i_amount_usd"] for e in pol_all if (rec[e].get("sched_c_part_i_amount_usd") or 0) > 0)),
+                  "section4955_tax_positive": sum(1 for e in pol_all if any(k.startswith("Section4955") and (num(rets[rec[e]["oid"]]["sched_c"].get(k)) or 0) > 0 for k in rets[rec[e]["oid"]]["sched_c"])),
+                  "also_reports_lobbying": sum(1 for e in pol_all if rec[e]["reports_lobbying"] == 1),
+                  "covered_recipients": len(covered), "covered_usd": round(sum(rtot[e]["total"] for e in covered))}
     p1_keys = {}
     for e in covered:
         for k in rec[e].get("sched_c_part_i_keys", ()):
@@ -552,7 +599,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         "intensity_quantiles_lobbying_recipients": {p: q(p) for p in (0.1, 0.25, 0.5, 0.75, 0.9, 0.99)},
         "elector_ratio_to_nontaxable_quantiles": (lambda xs: {p: xs[min(len(xs) - 1, int(p * len(xs)))] for p in (0.5, 0.9, 0.99)} if xs else {})(
             sorted(rec[e]["lobby_to_nontaxable_501h"] for e in lob if rec[e].get("lobby_to_nontaxable_501h") is not None)),
-        "elector_over_nontaxable": sum(1 for e in lob if (rec[e].get("lobby_to_nontaxable_501h") or 0) > 1),
+        "elector_over_nontaxable": len(over), "elector_over_nontaxable_exempt_le_lobbying_entry": len(over_entry),
+        "electors_covered": len(el), "lobbying_recipient_count_bins": count_bins, "political_detail": pol_detail,
+        "return_year_sensitivity": sens, "top10_excluded_usd": round(sum(rtot[e]["total"] for e in top10)),
         "part_i_keys_seen": p1_keys,
         "main_keys_seen_by_form": {f: (lambda ks: {k: ks.count(k) for k in sorted(set(ks))})(
             [k for e in covered if rec[e]["form"] == f for k in rets[rec[e]["oid"]].get("main", {})]) for f in ("990", "990EZ")},
