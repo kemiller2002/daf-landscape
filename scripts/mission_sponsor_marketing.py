@@ -606,7 +606,10 @@ def main(argv: Sequence[str] | None = None) -> int:
                           key=lambda p: -p["adv_l12"]))[:12]
     cf_med = {k: quant(tuple(p[k] for p in pooled if p["sponsor_group"] == "community_foundation" and p[k] is not None), .5)
               for k in ("adv_share_of_opex", "adv_bps_of_daf_contrib", "adv_per_net_new_account", "account_growth_2021_2024")}
-    print(json.dumps({"sponsor_pooled_nationals_digital": show, "top_cf_by_l12": top_cf, "cf_pooled_medians": cf_med,
+    fshare = {g["sponsor_group"]: {k: round(g[k] / g["adv_l12_total"], 3) if g["adv_l12_total"] else None
+                                   for k in ("adv_l12_program", "adv_l12_mgmt", "adv_l12_fundraising")}
+              for g in summ if g["row_type"] == "group_pooled"}
+    print(json.dumps({"functional_shares_pooled": fshare, "sponsor_pooled_nationals_digital": show, "top_cf_by_l12": top_cf, "cf_pooled_medians": cf_med,
                       "rank_tests": rank_tests(pooled)}, indent=1, default=str), file=sys.stderr)
     print(json.dumps({"universe": len(uni), "index_returns": len(idx), "xml_status": status, "missing": missing,
                       "rows": len(rows), "dup_period_dropped": dup_dropped, "coverage": cov,
