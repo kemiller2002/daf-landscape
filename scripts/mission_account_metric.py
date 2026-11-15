@@ -262,6 +262,11 @@ def variant_adjs(vals, overridden, blank, aogf26, lfc) -> dict:
             "C1_advisory_plus_blank_cf": a1 + b1}
 
 
+def whole(x, m: str = ""):
+    """Integers for money and counts (write_csv's %.6g would truncate them); averages in whole dollars."""
+    return None if x is None else int(round(x))
+
+
 def total_rows(vals: Mapping, by_variant: Mapping) -> list[dict]:
     base = totals(vals)
     rows = []
@@ -275,7 +280,8 @@ def total_rows(vals: Mapping, by_variant: Mapping) -> list[dict]:
                        else base[(fy, m)])
                 hit = [a for a in adjs if a["fy"] == fy and (a["metric"] == m or m == "avg_assets_per_account")]
                 rows.append({"row_type": "total", "fiscal_year": fy, "variant": v, "rules": VARIANTS[v][0],
-                             "metric": m, "value": val, "corrected_value": ref, "delta": val - ref,
+                             "metric": m, "value": whole(val, m), "corrected_value": whole(ref, m),
+                             "delta": whole(val - ref, m),
                              "delta_pct": (val - ref) / ref if ref else None,
                              "sponsors_adjusted": len({a["ein"] for a in hit}), "variant_description": VARIANTS[v][1]})
     return rows
@@ -293,7 +299,7 @@ def adj_rows(by_variant: Mapping, names: Mapping, blank: Sequence[Mapping]) -> l
             seen.add(k)
             rows.append({"row_type": "adjustment", "fiscal_year": a["fy"], "variant": v, "rules": a["rule"],
                          "metric": a["metric"], "ein": a["ein"], "sponsor_name": names.get(a["ein"]) or bname.get(a["ein"], ""),
-                         "value": a["new"], "corrected_value": a["old"], "delta": a["delta"],
+                         "value": whole(a["new"]), "corrected_value": whole(a["old"]), "delta": whole(a["delta"]),
                          "delta_pct": a["delta"] / a["old"] if a["old"] else None, "note": a["note"]})
     return rows
 
