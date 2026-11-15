@@ -1,0 +1,680 @@
+{
+ "active_990_only": [
+  "CATHOLIC COMMUNITY FOUNDATION",
+  "NATL CHRISTIAN CHARITABLE FDN INC",
+  "THE GOLDMAN SACHS CHARITABLE GIFT FUND"
+ ],
+ "annualised_point": 0.028295360674439385,
+ "annualised_upper": 0.03827559151520443,
+ "attrition_lower_dated_only": 0.08771929824561403,
+ "attrition_point": 0.10526315789473684,
+ "attrition_upper_incl_unknown_and_990_only_active": 0.19298245614035087,
+ "attrition_upper_incl_unknown_and_migrating": 0.14035087719298245,
+ "attrition_wilson95": [
+  0.04914398953912691,
+  0.21123049107939723
+ ],
+ "cf_only": {
+  "assets": 4599809152.0,
+  "exit_assets": 690885324.0,
+  "exits": 5,
+  "n": 28,
+  "wilson95": [
+   0.07878385829430107,
+   0.35591791548591095
+  ]
+ },
+ "ct_named_iphiview_hosts": [
+  "cafa.iphiview.com",
+  "ccfnj.iphiview.com",
+  "eqt.iphiview.com",
+  "maintenance.iphiview.com",
+  "ocf.iphiview.com",
+  "rj.iphiview.com",
+  "www.iphiview.com"
+ ],
+ "ct_ranges": {
+  "aef-stg.donorfirstx.com": [
+   "2025-07-30",
+   "2025-07-31",
+   2,
+   "crt.sh"
+  ],
+  "api-boa-prod.donorfirstx.com": [
+   "2021-11-04",
+   "2026-06-15",
+   12,
+   "crt.sh"
+  ],
+  "api-boa-uat.donorfirstx.com": [
+   "2021-11-04",
+   "2026-06-15",
+   12,
+   "crt.sh"
+  ],
+  "argo-aws.reninc.com": [
+   "2026-08-26",
+   "2026-08-26",
+   1,
+   "crt.sh"
+  ],
+  "argocd-shared.stellartechsol.com": [
+   "2026-08-20",
+   "2026-08-20",
+   1,
+   "crt.sh"
+  ],
+  "assets.donorfirstx.com": [
+   "2026-07-07",
+   "2026-07-07",
+   1,
+   "crt.sh"
+  ],
+  "auth-int.donorfirstx.com": [
+   "2025-02-28",
+   "2026-02-20",
+   28,
+   "crt.sh"
+  ],
+  "auth-npt-int.stellartechsol.com": [
+   "2026-07-24",
+   "2026-07-24",
+   4,
+   "crt.sh"
+  ],
+  "auth-npt-stg.stellartechsol.com": [
+   "2026-08-25",
+   "2026-08-25",
+   4,
+   "crt.sh"
+  ],
+  "auth-reg.donorfirstx.com": [
+   "2025-02-28",
+   "2026-02-20",
+   28,
+   "crt.sh"
+  ],
+  "auth-stg.donorfirstx.com": [
+   "2025-02-28",
+   "2026-02-21",
+   28,
+   "crt.sh"
+  ],
+  "auth.dev.rcs.reninc.com": [
+   "2026-09-28",
+   "2026-09-28",
+   2,
+   "crt.sh"
+  ],
+  "auth.donorfirstx.com": [
+   "2025-02-28",
+   "2026-04-20",
+   32,
+   "crt.sh"
+  ],
+  "auth.rcs.reninc.com": [
+   "2026-09-29",
+   "2026-09-29",
+   1,
+   "crt.sh"
+  ],
+  "auth.stage.rcs.reninc.com": [
+   "2026-09-28",
+   "2026-09-28",
+   1,
+   "crt.sh"
+  ],
+  "auth.test.rcs.reninc.com": [
+   "2026-09-29",
+   "2026-09-29",
+   1,
+   "crt.sh"
+  ],
+  "blog.reninc.com": [
+   "2017-10-19",
+   "2026-09-18",
+   56,
+   "crt.sh"
+  ],
+  "boa-api.reninc.com": [
+   "2021-11-04",
+   "2026-06-15",
+   12,
+   "crt.sh"
+  ],
+  "boa-uat.donorfirstx.com": [
+   "2021-11-04",
+   "2026-06-15",
+   12,
+   "crt.sh"
+  ],
+  "c-vpn.stellartechsol.com": [
+   "2015-05-11",
+   "2015-05-11",
+   1,
+   "crt.sh"
+  ],
+  "cafa.iphiview.com": [
+   "2025-04-20",
+   "2025-04-20",
+   2,
+   "crt.sh"
+  ],
+  "ccfnj.iphiview.com": [
+   "2025-04-20",
+   "2025-04-20",
+   2,
+   "crt.sh"
+  ],
+  "cdn-dev.donorfirstx.com": [
+   "2020-01-14",
+   "2025-08-24",
+   59,
+   "crt.sh"
+  ],
+  "cdn-test.donorfirstx.com": [
+   "2025-01-07",
+   "2025-08-24",
+   3,
+   "crt.sh"
+  ],
+  "cdn.donorfirstx.com": [
+   "2025-01-08",
+   "2025-08-24",
+   3,
+   "crt.sh"
+  ],
+  "demo1.spectrumportal.net": [
+   "2019-03-14",
+   "2020-03-03",
+   26,
+   "crt.sh"
+  ],
+  "demo2.spectrumportal.net": [
+   "2019-03-20",
+   "2022-12-19",
+   94,
+   "crt.sh"
+  ],
+  "demo3.spectrumportal.net": [
+   "2020-03-13",
+   "2026-09-01",
+   98,
+   "crt.sh"
+  ],
+  "dev.rcs.reninc.com": [
+   "2026-09-29",
+   "2026-09-29",
+   1,
+   "crt.sh"
+  ],
+  "devops.reninc.com": [
+   "2020-03-20",
+   "2020-03-24",
+   2,
+   "crt.sh"
+  ],
+  "donorfirstx.com": [
+   "2017-05-02",
+   "2021-04-30",
+   7,
+   "crt.sh"
+  ],
+  "eqt.iphiview.com": [
+   "2025-04-20",
+   "2025-04-20",
+   2,
+   "crt.sh"
+  ],
+  "go.reninc.com": [
+   "2020-02-24",
+   "2026-08-17",
+   88,
+   "crt.sh"
+  ],
+  "help.donorfirstx.com": [
+   "2020-07-09",
+   "2025-07-24",
+   8,
+   "crt.sh"
+  ],
+  "info.reninc.com": [
+   "2017-10-19",
+   "2026-09-18",
+   85,
+   "crt.sh"
+  ],
+  "internal-status.reninc.com": [
+   "2025-12-22",
+   "2026-09-09",
+   21,
+   "crt.sh"
+  ],
+  "iphistatus.reninc.com": [
+   "2025-09-22",
+   "2026-09-13",
+   13,
+   "crt.sh"
+  ],
+  "iphiview.com": [
+   "2011-04-20",
+   "2025-01-06",
+   21,
+   "crt.sh"
+  ],
+  "ithelp.reninc.com": [
+   "2023-09-21",
+   "2026-08-17",
+   38,
+   "crt.sh"
+  ],
+  "itonly-status.reninc.com": [
+   "2021-01-04",
+   "2023-04-05",
+   6,
+   "crt.sh"
+  ],
+  "mail.reninc.com": [
+   "2010-10-13",
+   "2010-10-13",
+   1,
+   "crt.sh"
+  ],
+  "maintenance.iphiview.com": [
+   "2025-04-20",
+   "2025-04-20",
+   2,
+   "crt.sh"
+  ],
+  "msgift-uat.donorfirstx.com": [
+   "2019-05-30",
+   "2020-02-25",
+   2,
+   "crt.sh"
+  ],
+  "ocf.iphiview.com": [
+   "2025-04-20",
+   "2025-04-20",
+   2,
+   "crt.sh"
+  ],
+  "optisigns.reninc.com": [
+   "2024-06-27",
+   "2026-08-28",
+   27,
+   "crt.sh"
+  ],
+  "pardot.stellartechsol.com": [
+   "2022-04-13",
+   "2023-12-04",
+   22,
+   "crt.sh"
+  ],
+  "partners.reninc.com": [
+   "2025-09-30",
+   "2026-10-05",
+   38,
+   "crt.sh"
+  ],
+  "rcs.reninc.com": [
+   "2026-09-29",
+   "2026-09-29",
+   1,
+   "crt.sh"
+  ],
+  "rds.reninc.com": [
+   "2015-03-03",
+   "2018-03-05",
+   4,
+   "crt.sh"
+  ],
+  "rendc1.reninc.com": [
+   "2019-03-12",
+   "2019-03-12",
+   1,
+   "crt.sh"
+  ],
+  "rendev.reninc.com": [
+   "2018-07-13",
+   "2021-08-04",
+   3,
+   "crt.sh"
+  ],
+  "renhq-dc-a.reninc.com": [
+   "2021-03-10",
+   "2024-01-11",
+   4,
+   "crt.sh"
+  ],
+  "reni2.reninc.com": [
+   "2018-07-13",
+   "2022-07-29",
+   3,
+   "crt.sh"
+  ],
+  "reninc.com": [
+   "2011-12-09",
+   "2026-07-17",
+   109,
+   "crt.sh"
+  ],
+  "rentest.reninc.com": [
+   "2018-07-13",
+   "2021-08-06",
+   4,
+   "crt.sh"
+  ],
+  "rj.iphiview.com": [
+   "2025-04-20",
+   "2025-04-20",
+   2,
+   "crt.sh"
+  ],
+  "s-vpn.stellartechsol.com": [
+   "2015-05-11",
+   "2015-05-11",
+   1,
+   "crt.sh"
+  ],
+  "secure.reninc.com": [
+   "2010-10-13",
+   "2012-11-14",
+   2,
+   "crt.sh"
+  ],
+  "sitestatus.reninc.com": [
+   "2019-02-15",
+   "2023-03-28",
+   56,
+   "crt.sh"
+  ],
+  "spectrumportal.net": [
+   "2016-01-07",
+   "2026-01-06",
+   19,
+   "crt.sh"
+  ],
+  "sso-jpmc.stellartechsol.com": [
+   "2018-09-07",
+   "2020-11-06",
+   3,
+   "crt.sh"
+  ],
+  "sso-saml.stellartechsol.com": [
+   "2019-11-04",
+   "2026-02-19",
+   8,
+   "crt.sh"
+  ],
+  "stage.rcs.reninc.com": [
+   "2026-09-28",
+   "2026-09-28",
+   1,
+   "crt.sh"
+  ],
+  "stellartechsol.com": [
+   "2010-03-29",
+   "2025-01-06",
+   29,
+   "crt.sh"
+  ],
+  "stg-cdn.donorfirstx.com": [
+   "2022-08-01",
+   "2025-08-25",
+   4,
+   "crt.sh"
+  ],
+  "stg.stellartechsol.com": [
+   "2024-11-18",
+   "2024-11-18",
+   1,
+   "crt.sh"
+  ],
+  "swpnxtdemo.spectrumportal.net": [
+   "2019-03-20",
+   "2019-05-19",
+   6,
+   "crt.sh"
+  ],
+  "test.rcs.reninc.com": [
+   "2026-09-29",
+   "2026-09-29",
+   1,
+   "crt.sh"
+  ],
+  "uat-cdn.donorfirstx.com": [
+   "2025-01-08",
+   "2025-08-24",
+   3,
+   "crt.sh"
+  ],
+  "videos.stellartechsol.com": [
+   "2020-06-10",
+   "2026-10-08",
+   51,
+   "crt.sh"
+  ],
+  "webhooks.rcs.reninc.com": [
+   "2026-09-29",
+   "2026-09-29",
+   1,
+   "crt.sh"
+  ],
+  "windmill.stellartechsol.com": [
+   "2025-04-01",
+   "2026-07-18",
+   3,
+   "crt.sh"
+  ],
+  "www.devops.reninc.com": [
+   "2020-03-20",
+   "2020-03-24",
+   2,
+   "crt.sh"
+  ],
+  "www.help.donorfirstx.com": [
+   "2020-07-09",
+   "2025-07-24",
+   8,
+   "crt.sh"
+  ],
+  "www.iphiview.com": [
+   "2025-04-20",
+   "2025-04-20",
+   2,
+   "crt.sh"
+  ],
+  "www.rds.reninc.com": [
+   "2015-03-03",
+   "2017-01-02",
+   3,
+   "crt.sh"
+  ],
+  "www.reninc.com": [
+   "2015-11-16",
+   "2026-09-05",
+   138,
+   "crt.sh"
+  ],
+  "www.sso-saml.stellartechsol.com": [
+   "2019-11-04",
+   "2026-02-19",
+   8,
+   "crt.sh"
+  ],
+  "www.videos.stellartechsol.com": [
+   "2020-06-10",
+   "2021-05-26",
+   3,
+   "crt.sh"
+  ]
+ },
+ "destinations": {
+  "Foundant CommunitySuite": 3,
+  "Foundant CommunitySuite (CSuite)": 1,
+  "Give Interactive": 1,
+  "akoyaGO (GOfund / GOdonate)": 1
+ },
+ "exit_asset_share": 0.01540119881056434,
+ "exit_asset_share_ex_npt_gs": 0.048648464523335926,
+ "exit_daf_assets_usd": 1227726238.0,
+ "exits": [
+  "Arkansas Community Foundation -> Foundant CommunitySuite (2026-06-01)",
+  "Community Foundation of Acadiana -> Foundant CommunitySuite (CSuite) (2025-05-14)",
+  "Gulf Coast Community Foundation (Venice, FL) -> Foundant CommunitySuite (2026 [I] (in progress))",
+  "The Community Foundation of Greater Flint -> Foundant CommunitySuite (2026-01-20)",
+  "WaterStone (Christian Community Foundation Inc) -> Give Interactive (2025-2026 [I])",
+  "YAKIMA VALLEY COMMUNITY FOUNDATION -> akoyaGO (GOfund / GOdonate) (undated)"
+ ],
+ "exits_dated_2023_2026_n": 5,
+ "exits_n": 6,
+ "guess_labels": 1888,
+ "hosting_counts": {
+  "": 3,
+  "AWS Global Accelerator pair (35.71.183.32 / 13.248.164.2)": 60,
+  "legacy 67.216.67.0/24 (dbsintl.net)": 3,
+  "ren-workload-02 ELB (AWS)": 1
+ },
+ "labels_queried_dns": 1891,
+ "live_iphiview_hosts": [
+  "af.iphiview.com",
+  "arcf.iphiview.com",
+  "bbt.iphiview.com",
+  "bf.iphiview.com",
+  "bnym.iphiview.com",
+  "braf.iphiview.com",
+  "cafa.iphiview.com",
+  "ccfnj.iphiview.com",
+  "cfcf.iphiview.com",
+  "cfgf.iphiview.com",
+  "cfgm.iphiview.com",
+  "cfjh.iphiview.com",
+  "cfl.iphiview.com",
+  "cfr.iphiview.com",
+  "cfsbc.iphiview.com",
+  "cfwc.iphiview.com",
+  "cgf.iphiview.com",
+  "cvcf.iphiview.com",
+  "dmf.iphiview.com",
+  "dsf.iphiview.com",
+  "eqt.iphiview.com",
+  "facf.iphiview.com",
+  "fjf.iphiview.com",
+  "fuller.iphiview.com",
+  "gbf.iphiview.com",
+  "gccf.iphiview.com",
+  "ggbcf.iphiview.com",
+  "icgf.iphiview.com",
+  "impactassets.iphiview.com",
+  "infaith.iphiview.com",
+  "innovia.iphiview.com",
+  "jcgf.iphiview.com",
+  "jpmc.iphiview.com",
+  "keybank.iphiview.com",
+  "lcf.iphiview.com",
+  "maintenance.iphiview.com",
+  "mbf.iphiview.com",
+  "mccf.iphiview.com",
+  "mcf.iphiview.com",
+  "mfm.iphiview.com",
+  "mumf.iphiview.com",
+  "npt.iphiview.com",
+  "phf.iphiview.com",
+  "pnc.iphiview.com",
+  "rb.iphiview.com",
+  "rcf.iphiview.com",
+  "rj.iphiview.com",
+  "rsf.iphiview.com",
+  "scf.iphiview.com",
+  "sci.iphiview.com",
+  "sfacf.iphiview.com",
+  "spmf.iphiview.com",
+  "swfla.iphiview.com",
+  "tbf.iphiview.com",
+  "tff.iphiview.com",
+  "tmf.iphiview.com",
+  "truist.iphiview.com",
+  "tvcf.iphiview.com",
+  "ubs.iphiview.com",
+  "wccf.iphiview.com",
+  "www.iphiview.com"
+ ],
+ "migrating": [],
+ "migrating_n": 0,
+ "nxdomain_repo_or_ct_hosts": [
+  "cfacadiana.iphiview.com",
+  "ocf.iphiview.com",
+  "ocf.iphiview.com",
+  "yvcf.iphiview.com"
+ ],
+ "path_labels_probed": 830,
+ "path_probe_hits": [
+  "iphi.stellartechsol.com/bf",
+  "iphi.stellartechsol.com/bfi",
+  "iphi.stellartechsol.com/calvert",
+  "iphi.stellartechsol.com/icgf",
+  "iphi.stellartechsol.com/jpmc",
+  "iphi.stellartechsol.com/npt",
+  "iphi.stellartechsol.com/ubs",
+  "www.iphiview.com/tcf"
+ ],
+ "population_daf_assets_usd": 79716277486.0,
+ "population_n": 57,
+ "program_level_exits_within_active_sponsors": [
+  "impactassets.iphiview.com/impactassets -> lapsed",
+  "impactassets.iphiview.com/assetmark -> TIFIN Give"
+ ],
+ "repo_hosts": 35,
+ "status_by_org_type": {
+  "bank_program": {
+   "active": 1,
+   "lapsed": 0,
+   "migrated": 0,
+   "migrating": 0,
+   "unknown": 1
+  },
+  "community_foundation": {
+   "active": 23,
+   "lapsed": 0,
+   "migrated": 5,
+   "migrating": 0,
+   "unknown": 0
+  },
+  "faith_affinity_sponsor": {
+   "active": 15,
+   "lapsed": 0,
+   "migrated": 1,
+   "migrating": 0,
+   "unknown": 0
+  },
+  "national_sponsor": {
+   "active": 9,
+   "lapsed": 0,
+   "migrated": 0,
+   "migrating": 0,
+   "unknown": 1
+  },
+  "single_issue_charity": {
+   "active": 1,
+   "lapsed": 0,
+   "migrated": 0,
+   "migrating": 0,
+   "unknown": 0
+  }
+ },
+ "status_counts": {
+  "active": 49,
+  "lapsed": 0,
+  "migrated": 6,
+  "migrating": 0,
+  "unknown": 2
+ },
+ "unit": "sponsor (EIN; tenant identity where no EIN)",
+ "unknown": [
+  "BNY Mellon Charitable Gift Fund",
+  "THE AYCO CHARITABLE FOUNDATION"
+ ],
+ "unknown_n": 2,
+ "wildcard_probe": "NXDOMAIN",
+ "years_window": 3.875
+}

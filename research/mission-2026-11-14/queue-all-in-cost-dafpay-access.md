@@ -348,3 +348,10 @@ Source: [validation-wave10-report.md](validation-wave10-report.md). Where these 
 - **Line 65, MS GIFT row, adviser cell.** Replace "max 1.00% ([F](…))" with "max 1.00% from 2021-07-21, excl. Legacy Pools and SMA fees ([F](…))".
 - **Line 133–135, Edward Jones.** Replace "Breakpoints are **assumed** equal to RCF donor-directed." with "Breakpoints are **assumed** equal to RCF donor-directed (0.60/0.30/0.20/0.15). A search-index capture of Ren's EJ client resource guide (article 10810347, now 404) shows administrator tiers of 0.60% / 0.35% / 0.25% (first $500k / next $500k / next $1m) and totals of 1.30% / 1.05% / 0.95%. If those apply, EJ admin at $2.5m is about 34 bps, not 30. Rows at $25k and $250k are unchanged."
 - **Line 62, Edward Jones row.** Change the $2.5m admin cell from "0.30" to "0.30 (0.34 if captured tiers apply)".
+
+## Adviser-fee update (2026-11-15) — governing over the adviser-layer rows
+Source: [queue-adviser-fees-pools-npact.md](queue-adviser-fees-pools-npact.md); `data/mission-2026-11-14/adviser-fees-observed-2026.csv`.
+- **Fidelity CIAP rows (all-in-cost-comparison-2026.csv rows 2–4):** CIAP requires $100k, so the adviser-managed scenario is not available at $25k.
+- **NPT rows (11–13):** adviser-managed accounts start at $500k, so the scenario is not available at $25k or $250k.
+- **AEF rows (23–25):** use the observed 0.46% implied adviser fee (TY2024 990) instead of the illustrative 1.00%. AEF all-in with adviser at $250k ≈ 1.16%, not 1.70%.
+- **Caps:** no adviser-fee cap exists at Fidelity CIAP, NPT, AEF or RCF. Observed RIA brochures show 0–2.00%. Vanguard Charitable offers no adviser-managed option.
