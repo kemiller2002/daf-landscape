@@ -80,14 +80,14 @@ SEEDS: dict[str, tuple[str, str]] = {
 
 # Link-selection rules: ordered (label, regex on link text/aria-label, regex on href). First rule with a hit wins.
 OPEN_RULES = (
-    ("open account/fund (text)", r"\bopen\s+(an?\s+|your\s+)?(new\s+)?(donor[- ]advised\s+fund|daf|account|fund|giving\s+account|charitable\s+account)", None),
-    ("start/establish fund (text)", r"\b(start|establish|create)\s+(an?\s+|your\s+)?(donor[- ]advised\s+fund|daf|fund|account|giving\s+account)", None),
+    ("open account/fund (text)", r"\bopen\s+(an?\s+|your\s+)?(\w+\s+)?(new\s+)?(donor[- ]advised\s+fund|daf|account|fund|giving\s+account|charitable\s+account)", None),
+    ("start/establish fund (text)", r"\b(start|establish|create)\s+(an?\s+|your\s+|the\s+)?(donor[- ]advised\s+fund|daf|fund|account|giving\s+account)", None),
     ("get started (text)", r"\bget\s+started\b", None),
     ("open/start (href)", None, r"(open|start|establish)[-_]?(an?[-_])?(account|fund|daf)|get[-_]?started"),
 )
 HELP_RULES = (
     ("faq (text)", r"\bfaqs?\b|frequently\s+asked", None),
-    ("help centre (text)", r"\bhelp\s*(cent(er|re))?\b|\bsupport\s+cent(er|re)\b|knowledge\s+base", None),
+    ("help centre (text)", r"\bhelp\s*cent(er|re)\b|\bsupport\s+cent(er|re)\b|knowledge\s+base|^\s*(help|support|donor\s+support|customer\s+(service|support))\s*$", None),
     ("faq/help (href)", None, r"/(faqs?|help|support|knowledge)(/|\.|-|$|\?)"),
 )
 CONTACT_RULES = (
@@ -107,9 +107,14 @@ def host_of(url: str) -> str:
     return urlparse(url).netloc.lower()
 
 
+HELP_PLATFORMS = ("freshdesk.com", "zendesk.com", "helpscoutdocs.com", "intercom.help", "helpdocs.io")
+
+
 def on_site(url: str, base: str) -> bool:
+    """Sponsor's own domain, or a hosted help-centre tenant named after it (e.g. impactassets.freshdesk.com). Pure."""
     h = host_of(url)
-    return h == base or h.endswith("." + base)
+    tenant = base.split(".")[0]
+    return h == base or h.endswith("." + base) or (h.split(".")[0] == tenant and h.endswith(HELP_PLATFORMS))
 
 
 def norm_url(url: str) -> str:
@@ -117,9 +122,14 @@ def norm_url(url: str) -> str:
     return f"{p.scheme}://{p.netloc.lower()}{p.path.rstrip('/') or '/'}"
 
 
+NOT_DONOR_HELP = re.compile(r"how\s+(we|you\s+can)\s+help|get\s+help|for\s+nonprofits|mental\s+health|support\s+us|ways\s+to", re.I)
+
+
 def pick_link(links: Sequence[Mapping], rules: Sequence[tuple], base: str, exclude: frozenset = frozenset()) -> dict:
-    """Return the first link matching the highest-priority rule (document order within a rule). Pure."""
+    """Return the first link matching the highest-priority rule (document order within a rule). Pure.
+    Links whose text reads as community-services or fundraising help ("get help", "how we help") are never picked."""
     usable = tuple(l for l in links if l.get("href", "").startswith("http") and not SKIP_HREF.search(l["href"])
+                   and not NOT_DONOR_HELP.search(f"{l.get('text', '')} {l.get('aria', '')}")
                    and on_site(l["href"], base) and not LOGIN_HREF.search(l["href"])
                    and norm_url(l["href"]) not in exclude)
     for label, text_rx, href_rx in rules:
@@ -136,12 +146,14 @@ DAY = r"(?:mon(?:day)?|tue(?:s(?:day)?)?|wed(?:nesday)?|thu(?:rs(?:day)?)?|fri(?
 TIME = r"\d{1,2}(?::\d\d)?\s*(?:a\.?m\.?|p\.?m\.?|am|pm)"
 TZ = r"(?:\s*\(?\s*(?:ET|EST|EDT|Eastern(?:\s+Time)?|CT|CST|CDT|Central(?:\s+Time)?|MT|Mountain(?:\s+Time)?|PT|PST|PDT|Pacific(?:\s+Time)?)\b\.?\)?)?"
 HOURS_RX = (
-    re.compile(rf"{DAY}(?:\s*(?:-|–|—|to|through|thru)\s*{DAY})?[,:]?\s*(?:from\s+)?{TIME}\s*(?:-|–|—|to|until)\s*{TIME}{TZ}", re.I),
+    re.compile(rf"{DAY}(?:\s*(?:-|–|—|to|through|thru)\s*{DAY})?\s*[,:|]?\s*(?:from\s+)?{TIME}\s*(?:-|–|—|to|until)\s*{TIME}{TZ}", re.I),
     re.compile(rf"{TIME}\s*(?:-|–|—|to|until)\s*{TIME}{TZ}[,]?\s*(?:on\s+)?{DAY}(?:\s*(?:-|–|—|to|through|thru)\s*{DAY})?", re.I),
-    re.compile(r"\b24\s*/\s*7\b|\b24\s+hours\s+a\s+day\b", re.I),
+    re.compile(r"(?:phone|call|support|service|representative|agent)[^.]{0,60}(?:\b24\s*/\s*7\b|\b24\s+hours\s+a\s+day\b)"
+               r"|(?:\b24\s*/\s*7\b|\b24\s+hours\s+a\s+day\b)[^.]{0,40}(?:phone|call|support|service)", re.I),
 )
 WITHIN_RX = re.compile(r"within\s+(?:\d+|one|two|three|four|five|a\s+few|24|48|72)(?:\s*(?:-|–|to)\s*\d+)?\s+(?:business\s+|working\s+)?(?:minutes?|hours?|days?|weeks?)", re.I)
 SUPPORT_CTX = re.compile(r"respon|reply|repl(y|ies)|get\s+back|return\s+(your\s+)?(call|email)|inquir|enquir|question|contact|message|reach", re.I)
+SOFT_RX = re.compile(r"\b(?:we'?ll|we\s+will|will|someone\s+will)\s+(?:be\s+in\s+touch|respond|reply|get\s+back\s+to\s+you|contact\s+you|reach\s+out)[^.\n]{0,40}", re.I)
 CHAT_TEXT_RX = re.compile(r"\blive\s+chat\b|\bchat\s+(with|now|online|is\s+available)\b|\bstart\s+(a\s+)?chat\b|\bvirtual\s+assistant\b|\bchat\s+bot\b|\bchatbot\b", re.I)
 WCAG_RX = re.compile(r"(?:WCAG|Web\s+Content\s+Accessibility\s+Guidelines)\s*\)?\s*(?:\(WCAG\)\s*)?(?:version\s*)?(2\.[0-2]|2\b)?\s*,?\s*(?:Level\s*|conformance\s+level\s*)?\(?\b(AAA|AA|A)\b", re.I)
 WCAG_VER_RX = re.compile(r"(?:WCAG|Web\s+Content\s+Accessibility\s+Guidelines)[^.]{0,40}?(2\.[0-2])", re.I)
@@ -269,7 +281,7 @@ AXE_JS = """async (tags) => {
 }"""
 
 
-def load_page(ctx, url: str, axe_src: str | None, can_fetch, shot: str | None = None) -> dict:
+def _load_page(ctx, url: str, axe_src: str | None, can_fetch, shot: str | None = None) -> dict:
     allowed, rnote = can_fetch(url)
     rec = {"url_requested": url, "robots": rnote, "robots_allowed": allowed}
     if not allowed:
@@ -301,8 +313,20 @@ def load_page(ctx, url: str, axe_src: str | None, can_fetch, shot: str | None = 
         time.sleep(PACE_S)
 
 
-def scan_sponsor(ctx, sponsor: Mapping, axe_src: str, can_fetch, screens: str) -> dict:
+def scan_sponsor(ctx, sponsor: Mapping, axe_src: str, can_fetch, screens: str, prior: Mapping | None = None) -> dict:
+    """Select and load pages. `prior` (an earlier raw record) lets pages already loaded be reused instead of
+    re-fetched, as long as the reuse does not need an axe result the earlier load lacks."""
     seed, base = SEEDS[sponsor["ein"]]
+    cached = {norm_url(p["url_requested"]): p for p in (prior or {}).get("pages", {}).values()}
+    navs = [0]
+
+    def load_page(ctx_, url, axe, can, shot=None):  # noqa: ANN001 - shadows the IO loader with a cache in front
+        old = cached.get(norm_url(url))
+        if old and (axe is None or old.get("axe") or old.get("status") != "ok"):
+            return {k: v for k, v in old.items() if k not in ("selection", "link_text")} | {"reused_from_earlier_load": True}
+        navs[0] += 1 if can(url)[0] else 0
+        return _load_page(ctx_, url, axe, can, shot)
+
     home = load_page(ctx, seed, axe_src, can_fetch, os.path.join(screens, f"{sponsor['ein']}-home.png"))
     links = home.get("links", [])
     seen = frozenset({norm_url(seed), norm_url(home.get("url_final", seed))})
@@ -323,6 +347,7 @@ def scan_sponsor(ctx, sponsor: Mapping, axe_src: str, can_fetch, screens: str) -
         pages["a11y_statement"] = {**load_page(ctx, a11y_l["href"], None, can_fetch), "selection": a11y_l["rule"], "link_text": a11y_l.get("text") or a11y_l.get("aria")}
     trimmed = pages
     return {"ein": sponsor["ein"], "seed": seed, "base": base,
+            "navigations": (prior or {}).get("navigations", 0) + navs[0],
             "candidates": {"open": open_l, "help": help_l, "contact": contact_l, "a11y": a11y_l},
             "a11y_link_on_scanned_pages": bool(a11y_l), "pages": trimmed}
 
@@ -340,16 +365,17 @@ def rescan_home(sponsors: Sequence[Mapping], cache_dir: str, eins: Sequence[str]
             path = os.path.join(cache_dir, "raw", f"{s['ein']}.json")
             raw = json.load(open(path))
             ctx = browser.new_context(viewport={"width": 1366, "height": 900}, bypass_csp=True, locale="en-US")
-            home = load_page(ctx, raw["seed"], axe_src, can_fetch)
+            home = _load_page(ctx, raw["seed"], axe_src, can_fetch)
             ctx.close()
             raw["pages"]["home"] = {**home, "selection": "seed homepage", "rescanned": True}
+            raw["navigations"] = raw.get("navigations", 0) + 1
             json.dump(raw, open(path, "w"))
             print(s["rank"], s["name"], "home rescanned:", home.get("status"), flush=True)
         browser.close()
     json.dump(robots_cache, open(robots_cache_path, "w"))
 
 
-def run_fetch(sponsors: Sequence[Mapping], cache_dir: str) -> None:
+def run_fetch(sponsors: Sequence[Mapping], cache_dir: str, reselect: bool = False) -> None:
     from playwright.sync_api import sync_playwright
     os.makedirs(os.path.join(cache_dir, "raw"), exist_ok=True)
     screens = os.path.join(cache_dir, "screens")
@@ -365,10 +391,11 @@ def run_fetch(sponsors: Sequence[Mapping], cache_dir: str) -> None:
         browser = p.chromium.launch()
         for s in sponsors:
             out = os.path.join(cache_dir, "raw", f"{s['ein']}.json")
-            if os.path.exists(out):
+            prior = json.load(open(out)) if os.path.exists(out) else None
+            if prior and not (reselect and prior["pages"]["home"].get("status") == "ok"):
                 continue
             ctx = browser.new_context(viewport={"width": 1366, "height": 900}, bypass_csp=True, locale="en-US")
-            res = scan_sponsor(ctx, s, axe_src, can_fetch, screens)
+            res = scan_sponsor(ctx, s, axe_src, can_fetch, screens, prior)
             ctx.close()
             json.dump(res, open(out, "w"))
             json.dump(robots_cache, open(robots_cache_path, "w"))
@@ -399,17 +426,35 @@ def axe_rows(s: Mapping, raw: Mapping) -> tuple[dict, ...]:
     return tuple(row(r) for r in ("home", "open_account", "help"))
 
 
-SVC_FIELDS = ("fy2024_rank", "sponsor", "ein", "fy2024_daf_assets_corrected", "seed_url", "pages_loaded", "page_urls",
+SVC_FIELDS = ("fy2024_rank", "sponsor", "ein", "fy2024_daf_assets_corrected", "seed_url", "pages_loaded", "page_loads_total", "page_urls",
               "phone_numbers_found", "phone_hours_stated", "phone_hours_text", "phone_hours_source_role",
-              "support_response_promise", "support_response_text", "other_within_statements",
+              "support_response_promise", "support_response_text", "support_response_unquantified", "other_within_statements",
               "live_chat_signal", "live_chat_evidence", "help_page_url", "help_article_links", "help_faq_question_items",
-              "help_question_lines", "help_count_method", "a11y_statement_present", "a11y_statement_url", "a11y_statement_status",
+              "help_question_lines", "help_count_method", "a11y_overlay_detected", "a11y_statement_present", "a11y_statement_url", "a11y_statement_status",
               "wcag_version_claimed", "wcag_level_claimed", "a11y_wcag_text", "notes", "retrieved")
 
 CHAT_SRC_RX = re.compile(r"intercom|zdassets|zendesk|zopim|drift\.com|livechatinc|liveperson|lpsnmedia|salesforceliveagent|"
                          r"embeddedservice|my\.salesforce-scrt|messaging\.salesforce|usemessages|hs-scripts|genesys|"
                          r"purecloud|mypurecloud|ada\.support|five9|olark|crisp\.chat|freshchat|tawk\.to|tidio|kustomer|"
                          r"gladly|sprinklr|qualified\.com|glia|nuance|inq\.com|touchcommerce|servicenow", re.I)
+
+
+OVERLAY_RX = re.compile(r"accessibe|acsbapp|userway|audioeye|equalweb|maxaccess|reciteme|accessibilityadvocate|essentialaccessibility|"
+                        r"levelaccess|ally\.js|purpose-?built\s*access", re.I)
+
+# Reviewer notes, added after reading the cached page text (not inferred by the regexes).
+REVIEW_NOTES: dict[str, str] = {
+    "341747398": "accessibility statement page body is placeholder text ('See our Accessibility Tips for what to do for this page on your website.'); no WCAG claim",
+    "205205488": "homepage footer 'ACCESSIBILITY' is a javascript: control (widget), not a statement page",
+    "566047886": "homepage links to accessiBe's screen-reader guide (overlay widget), no statement page found",
+    "232888152": "homepage contains a login form; homepage axe run in a second load after the login-page rule was narrowed",
+}
+
+
+def overlay_signal(pages: Mapping) -> str:
+    hits = sorted({host_of(u) for p in pages.values() for u in p.get("srcs", []) if OVERLAY_RX.search(u)}
+                  | {host_of(l["href"]) for p in pages.values() for l in p.get("links", []) if OVERLAY_RX.search(l.get("href", ""))})
+    return "; ".join(hits)
 
 
 def chat_signal(pages: Mapping) -> tuple[str, str]:
@@ -426,12 +471,14 @@ def chat_signal(pages: Mapping) -> tuple[str, str]:
 
 
 def svc_row(s: Mapping, raw: Mapping) -> dict:
-    pages = {k: v for k, v in raw["pages"].items() if v.get("status") == "ok" or v.get("text")}
+    pages = {k: v for k, v in raw["pages"].items() if v.get("status") == "ok"}
     order = ("contact", "help", "home", "open_account", "a11y_statement")
-    hours = next(((r, h) for r in order if r in pages for h in
-                  [x for rx in HOURS_RX for x in snippets(pages[r].get("text", ""), rx, 30, 2)]), None)
+    found = tuple((r, x) for r in order if r in pages for rx in HOURS_RX for x in snippets(pages[r].get("text", ""), rx, 30, 2))
+    hours = found[0] if found else None
+    allhours = tuple(dict.fromkeys(x for _, x in found))
     sup = tuple(x for r in order if r in pages for x in response_promises(pages[r].get("text", ""))[0])
     oth = tuple(x for r in order if r in pages for x in response_promises(pages[r].get("text", ""))[1])
+    soft = tuple(dict.fromkeys(f"{r}: {x}" for r in order if r in pages for x in snippets(pages[r].get("text", ""), SOFT_RX, 0, 2)))
     ph = tuple(dict.fromkeys(x for r in order if r in pages for x in phones(pages[r].get("text", ""))))
     chat, chat_ev = chat_signal(pages)
     hp = raw["pages"].get("help", {})
@@ -440,25 +487,32 @@ def svc_row(s: Mapping, raw: Mapping) -> dict:
     wcag_snips = snippets(a_text, WCAG_RX, 60, 2)
     ver = sorted(set(WCAG_VER_RX.findall(a_text)))
     lvl = sorted(set(m.upper() for m in WCAG_LVL_RX.findall(a_text)))
-    notes = []
+    if not pages:
+        na = "not assessed (no page loaded)"
+        return {"fy2024_rank": s["rank"], "sponsor": s["name"], "ein": s["ein"], "fy2024_daf_assets_corrected": fmt(s["assets_corr"]),
+                "seed_url": raw["seed"], "pages_loaded": 0, "page_loads_total": raw.get("navigations", 0), "page_urls": "",
+                **{k: na for k in ("phone_hours_stated", "support_response_promise", "live_chat_signal", "a11y_statement_present")},
+                "notes": "; ".join(f"{k}:{v.get('status')} ({v.get('robots')})" for k, v in raw["pages"].items()), "retrieved": RETRIEVED}
+    notes = [REVIEW_NOTES[s["ein"]]] if s["ein"] in REVIEW_NOTES else []
     blocked = [f"{k}:{v.get('status')}" for k, v in raw["pages"].items() if v.get("status") != "ok"]
     if blocked:
         notes.append("not ok: " + ", ".join(blocked))
     if hp.get("selection", "").startswith("fallback"):
         notes.append("no FAQ/help link on homepage; contact page used as help page")
     return {"fy2024_rank": s["rank"], "sponsor": s["name"], "ein": s["ein"], "fy2024_daf_assets_corrected": fmt(s["assets_corr"]),
-            "seed_url": raw["seed"], "pages_loaded": sum(1 for v in raw["pages"].values() if v.get("status") == "ok"),
+            "seed_url": raw["seed"], "page_loads_total": raw.get("navigations", 0), "pages_loaded": sum(1 for v in raw["pages"].values() if v.get("status") == "ok"),
             "page_urls": " ; ".join(f"{k}={v.get('url_final') or v['url_requested']}" for k, v in raw["pages"].items()),
             "phone_numbers_found": " ; ".join(ph[:4]),
             "phone_hours_stated": "Y" if hours else "N (none found on scanned pages)",
-            "phone_hours_text": hours[1] if hours else "", "phone_hours_source_role": hours[0] if hours else "",
-            "support_response_promise": "Y" if sup else "N (none found on scanned pages)",
-            "support_response_text": " | ".join(sup[:2]), "other_within_statements": " | ".join(oth[:2]),
+            "phone_hours_text": " | ".join(allhours[:2]), "phone_hours_source_role": hours[0] if hours else "",
+            "support_response_promise": "Y (time stated)" if sup else ("unquantified only" if soft else "N (none found on scanned pages)"),
+            "support_response_text": " | ".join(sup[:2]), "support_response_unquantified": " | ".join(soft[:3]), "other_within_statements": " | ".join(oth[:2]),
             "live_chat_signal": chat, "live_chat_evidence": chat_ev,
             "help_page_url": hp.get("url_final", ""), "help_article_links": hp.get("article_links", ""),
             "help_faq_question_items": hp.get("question_items", ""),
             "help_question_lines": question_lines(hp.get("text", "")) if hp.get("status") == "ok" else "",
             "help_count_method": "article_links = distinct links to /articles|/article|/kb; faq_question_items = distinct headings/buttons/summary/dt ending '?'; question_lines = distinct visible text lines ending '?' (all on the help page as first rendered, accordions closed)" if hp.get("status") == "ok" else "",
+            "a11y_overlay_detected": overlay_signal(pages),
             "a11y_statement_present": ("Y" if a and a.get("status") == "ok" else "linked but not loaded") if a else "N (no accessibility link on scanned pages)",
             "a11y_statement_url": (a or {}).get("url_final") or (a or {}).get("url_requested", ""),
             "a11y_statement_status": (a or {}).get("status", ""),
@@ -471,6 +525,8 @@ def main() -> None:
     ap.add_argument("--cache-dir", required=True)
     ap.add_argument("--fetch", action="store_true")
     ap.add_argument("--n", type=int, default=20)
+    ap.add_argument("--reselect", action="store_true",
+                    help="with --fetch: re-run link selection for cached sponsors, reusing pages already loaded")
     ap.add_argument("--rescan-home", default="", help="comma-separated EINs whose homepage only is reloaded")
     a = ap.parse_args()
     sponsors = top_n(corrected_fy2024(read_csv(DAFRC_CSV), read_csv(CORR_CSV)), a.n)
@@ -478,7 +534,7 @@ def main() -> None:
     if missing:
         raise SystemExit(f"no seed URL for EINs {missing}")
     if a.fetch:
-        run_fetch(sponsors, a.cache_dir)
+        run_fetch(sponsors, a.cache_dir, a.reselect)
     if a.rescan_home:
         rescan_home(sponsors, a.cache_dir, tuple(a.rescan_home.split(",")))
     raws = {s["ein"]: json.load(open(os.path.join(a.cache_dir, "raw", f"{s['ein']}.json"))) for s in sponsors

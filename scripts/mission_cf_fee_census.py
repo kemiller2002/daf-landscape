@@ -542,31 +542,44 @@ def task_schedn(cache_dir: str, xml_dirs: Sequence[str], fetch: bool, workers: i
     return {k: (len(v) if isinstance(v, list) else v) for k, v in out.items()}
 
 
+NOT_GEOGRAPHIC_CF = {"911307530": "National Christian Community Foundation is a faith-based national DAF sponsor, not a geographic CF"}
+SCHEDN_CF_RE = re.compile(r"community\s+(foundation|trust|fdn|fund)|area foundation|^communitygiving$", re.I)
+
+
 def schedn_cf_rows(cache_dir: str) -> list[dict]:
+    """One row per (filer return, recipient): Schedule N lines summed. Kept when the filer or the recipient is a CF
+    (EIN in cf-vendor-map-by-ein-v2.csv or CF-like name) and the distribution date is 2021 or later."""
     p = os.path.join(cache_dir, "schedn.json")
     if not os.path.exists(p):
         return []
     with open(p, encoding="utf-8") as fh:
         d = json.load(fh)
-    cf_eins = {r["ein"]: r["name"] for r in read_csv(CF_MAP)}
-    rows, seen = [], set()
-    for s in d["schedn_found"]:
-        filer_cf = s["filer_ein"] in cf_eins or bool(CF_NAME_RE.search(s["filer_name"]))
+    cf_eins = {r["ein"] for r in read_csv(CF_MAP)}
+    is_cf = lambda ein, name: (ein in cf_eins or bool(SCHEDN_CF_RE.search(name or ""))) and ein not in NOT_GEOGRAPHIC_CF
+    groups: dict[tuple, dict] = {}
+    for s in {x["object_id"]: x for x in d["schedn_found"]}.values():
         for x in s["details"]:
-            rec_cf = x["recipient_ein"] in cf_eins or bool(CF_NAME_RE.search(x["recipient"]))
-            if not (filer_cf or rec_cf) or num(s["tax_year"]) < 2021:
+            date = x["date"] or s["tax_period_end"]
+            if date[:4] < "2021" or not (is_cf(s["filer_ein"], s["filer_name"]) or is_cf(x["recipient_ein"], x["recipient"])):
                 continue
-            key = (s["filer_ein"], s["tax_year"], x["recipient"], x["fmv"])
-            if key in seen:
-                continue
-            seen.add(key)
-            rows.append({"event_type": f"schedule_n_{x['part']}", "party_a": f"{s['filer_name']} (EIN {s['filer_ein']})",
-                         "party_b": f"{x['recipient']}" + (f" (EIN {x['recipient_ein']})" if x["recipient_ein"] else ""),
-                         "date": x["date"] or s["tax_period_end"], "year": (x["date"] or s["tax_period_end"])[:4],
-                         "daf_or_asset_usd_moved": x["fmv"], "asset_basis": "Schedule N FMV of assets distributed (all assets, not DAF-only)",
-                         "description": x["desc"], "geography": "", "cf_role": "filer_is_cf" if filer_cf else "recipient_is_cf",
-                         "source_url": f"https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/{s['object_id']}_public.xml",
-                         "source_type": "irs_990_schedule_n", "confidence": "high_filed", "notes": f"tax year {s['tax_year']}"})
+            k = (s["object_id"], x["recipient"].upper().replace("COMMNITY", "COMMUNITY"), x["part"])
+            g = groups.setdefault(k, {"s": s, "x": x, "fmv": 0.0, "n": 0, "dates": set()})
+            g["fmv"] += num(x["fmv"])
+            g["n"] += 1
+            g["dates"].add(date)
+    rows = []
+    for (oid, rec, part), g in sorted(groups.items(), key=lambda kv: min(kv[1]["dates"])):
+        s, x = g["s"], g["x"]
+        filer_cf = is_cf(s["filer_ein"], s["filer_name"])
+        rows.append({"event_type": "schedule_n_" + ("liquidation" if part.startswith("I_") else "disposition_over_25pct"),
+                     "party_a": f"{s['filer_name']} (EIN {s['filer_ein']})",
+                     "party_b": x["recipient"] + (f" (EIN {x['recipient_ein']})" if x["recipient_ein"] else ""),
+                     "date": min(g["dates"]), "year": min(g["dates"])[:4], "daf_or_asset_usd_moved": str(int(g["fmv"])),
+                     "asset_basis": f"Schedule N fair market value of assets distributed, {g['n']} line(s) summed (all assets, not DAF-only)",
+                     "description": x["desc"], "geography": "", "cf_role": "filer_is_cf" if filer_cf else "recipient_is_cf",
+                     "source_url": f"https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/{oid}_public.xml",
+                     "source_type": "irs_990_schedule_n", "confidence": "high (filed)",
+                     "notes": f"tax year {s['tax_year']}; found via {s['source']}"})
     return rows
 
 
