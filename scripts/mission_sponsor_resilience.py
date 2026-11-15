@@ -76,7 +76,7 @@ CAMPAIGN_ADVERTISING = mkt.CAMPAIGN_ADVERTISING
 NATIONAL_GROUPS = frozenset({"affiliated_commercial_national", "independent_national", "processor", "digital_first"})
 GROUP_ORDER = ("affiliated_commercial_national", "independent_national", "community_foundation", "single_issue",
                "processor", "digital_first", "university_health")
-FEE_RX = re.compile(r"\bfee|administrat|admin\b|service charge|management|sponsorship|agency", re.I)
+FEE_RX = re.compile(r"\bfees?\b|administrat|\badmin\b|service charge|management fee|mgmt fee", re.I)
 
 PART_X = {  # tag -> column stem (BOY/EOY kept)
     "CashNonInterestBearingGrp": "x01_cash", "SavingsAndTempCashInvstGrp": "x02_savings",
@@ -293,7 +293,7 @@ def return_row(u: Mapping, idx: Mapping, x: Mapping, pn: Mapping) -> dict:
     other = sub(rev, contrib, psr, inv_core, gains) if rev is not None else None
     fee_misc = ssum(*(r["amt"] for r in x.get("misc_rows", []) if FEE_RX.search(r["desc"] or "")))
     fee_psr = ssum(*(r["amt"] for r in x.get("psr_rows", []) if FEE_RX.search(r["desc"] or "")))
-    fee_on_990 = ssum(psr, fee_misc)
+    fee_on_990 = ssum(fee_psr, fee_misc) or 0.0             # description-matched fee lines only (Part VIII 2 and 11)
     s1 = pi.get("CYRevenuesLessExpensesAmt") if pi.get("CYRevenuesLessExpensesAmt") is not None else sub(rev, l25)
     daf_net_flow = sub(x.get("daf_contrib"), x.get("daf_grants")) if x.get("daf_contrib") is not None else None
     s2 = sub(s1, daf_net_flow) if s1 is not None and daf_net_flow is not None else None
@@ -316,10 +316,7 @@ def return_row(u: Mapping, idx: Mapping, x: Mapping, pn: Mapping) -> dict:
         ("affiliate_costs_off_990", u["sponsor_group"] == "affiliated_commercial_national"),
         ("campaign_advertising_in_opcost", u["ein"] in CAMPAIGN_ADVERTISING),
         ("university_health_whole_org", u["sponsor_group"] == "university_health"),
-        ("escrow_agency_liability", (px.get("x21_escrow_liab_eoy") or 0) > 0),
-        # national / processor whose Sched D DAF value and Part X net assets disagree by > 5% of net assets [C]
-        ("daf_value_inconsistent_with_part_x", u["sponsor_group"] in NATIONAL_GROUPS and r1 is not None
-         and na_total and abs(r1) > 0.05 * na_total)) if c)
+        ("escrow_agency_liability", (px.get("x21_escrow_liab_eoy") or 0) > 0)) if c)
     return {
         "row_type": "sponsor_year", "ein": u["ein"], "sponsor_name": u["sponsor_name"],
         "fy2024_asset_rank": u["fy2024_asset_rank"], "sponsor_group": u["sponsor_group"], "group_basis": u["group_basis"],
@@ -363,6 +360,7 @@ def return_row(u: Mapping, idx: Mapping, x: Mapping, pn: Mapping) -> dict:
         "share_contributions": pos_div(contrib, rev), "share_program_service": pos_div(psr, rev),
         "share_investment_income": pos_div(inv_core, rev), "share_net_gains": pos_div(gains, rev),
         "fee_income_cover_opcost": pos_div(fee_on_990, opcost), "inv_income_cover_opcost": pos_div(inv_core, opcost),
+        "endowment_admin_cover_opcost": pos_div(x.get("endow_admin_exp"), opcost),
         "s1_rev_less_exp_line19": s1, "daf_net_inflow": daf_net_flow, "s2_ex_daf_flows": s2,
         "s3_ex_daf_flows_ex_gains": s3, "s4_ex_daf_flows_ex_all_investment": s4,
         "s2_per_opcost": pos_div(s2, opcost), "s3_per_opcost": pos_div(s3, opcost), "s4_per_opcost": pos_div(s4, opcost),
@@ -371,10 +369,21 @@ def return_row(u: Mapping, idx: Mapping, x: Mapping, pn: Mapping) -> dict:
 
 
 def with_changes(rows: Sequence[Mapping]) -> tuple[dict, ...]:
-    """Year-on-year change in non-DAF net assets (R1) against the sponsor's previous TY row."""
+    """Year-on-year change in non-DAF net assets (R1) against the sponsor's previous TY row; DAF roll-forward
+    residual; and `daf_share_break`: a national / processor row whose Sched D DAF value is < 85% of Part X net
+    assets while every neighbouring TY row of the same sponsor is > 95% (an isolated break, read as a Schedule D
+    value that does not match the balance sheet; excluded from group statistics)."""
     by = {(r["ein"], r["tax_year"]): r for r in rows}
+    def brk(r):
+        nb = tuple(by[(r["ein"], r["tax_year"] + d)]["daf_share_of_total_na"] for d in (-1, 1) if (r["ein"], r["tax_year"] + d) in by)
+        nb = tuple(v for v in nb if v is not None)
+        return (r["sponsor_group"] in NATIONAL_GROUPS and r["daf_share_of_total_na"] is not None
+                and r["daf_share_of_total_na"] < 0.85 and bool(nb) and all(v > 0.95 for v in nb))
+    broken = frozenset((r["ein"], r["tax_year"]) for r in rows if brk(r))
     def one(r):
+        r = {**r, "quality_flags": "|".join(f for f in (r["quality_flags"], "daf_share_break" if (r["ein"], r["tax_year"]) in broken else "") if f)}
         p = by.get((r["ein"], r["tax_year"] - 1))
+        p = None if p is None or (r["ein"], r["tax_year"] - 1) in broken or (r["ein"], r["tax_year"]) in broken else p
         d = sub(r["r1_nondaf_na"], p["r1_nondaf_na"]) if p and r["r1_nondaf_na"] is not None and p["r1_nondaf_na"] is not None else None
         implied = ssum(p["daf_value_eoy"], r["daf_contributions"], -(r["daf_grants"] or 0)) if p and p["daf_value_eoy"] else None
         resid = div(sub(r["daf_value_eoy"], implied), p["daf_value_eoy"]) if implied is not None and r["daf_value_eoy"] is not None else None
@@ -386,19 +395,19 @@ def with_changes(rows: Sequence[Mapping]) -> tuple[dict, ...]:
 # ----------------------------------------------------------------------------- aggregates (pure)
 def analysable(r: Mapping) -> bool:
     return (r["sponsor_group"] != "university_health" and r["operating_cost"] is not None and r["operating_cost"] > 0
-            and r["daf_value_eoy"] is not None and "daf_value_inconsistent_with_part_x" not in r["quality_flags"])
+            and r["daf_value_eoy"] is not None and "daf_share_break" not in r["quality_flags"])
 
 
 MED_KEYS = ("months_opcost_r1", "months_opcost_r2", "months_opcost_r3", "months_opcost_r4", "months_opcost_r5",
             "months_opcost_r6", "months_l25_r1", "daf_share_of_total_na", "mgmt_share_of_opcost", "mgmt_share_of_l25",
             "opcost_bps_daf", "mgmt_bps_daf", "share_contributions", "share_program_service", "share_investment_income",
-            "fee_income_cover_opcost", "inv_income_cover_opcost", "s2_per_opcost", "s3_per_opcost", "s4_per_opcost",
+            "fee_income_cover_opcost", "inv_income_cover_opcost", "endowment_admin_cover_opcost", "s2_per_opcost", "s3_per_opcost", "s4_per_opcost",
             "r1_change_per_opcost")
 SUM_KEYS = ("na_total_eoy", "na_without_restr_eoy", "daf_value_eoy", "r1_nondaf_na", "r2_unrestricted_less_daf",
             "r4_unrestricted_less_daf_ppe", "r5_unrestricted_less_daf_ppe_board_endow", "r6_nondaf_na_less_other_funds",
             "operating_cost_annualised", "l25_total_expenses", "l25_mgmt_general", "admin_mgmt_ex_11f", "r1_change_yoy", "rev_total", "rev_contributions_1h",
             "rev_program_service_2g", "rev_investment_income_3_4_5", "rev_net_gains_7d", "rev_other_residual",
-            "fee_income_on_990", "s1_rev_less_exp_line19", "s2_ex_daf_flows", "s3_ex_daf_flows_ex_gains",
+            "fee_income_on_990", "endowment_admin_expenses_cy", "s1_rev_less_exp_line19", "s2_ex_daf_flows", "s3_ex_daf_flows_ex_gains",
             "s4_ex_daf_flows_ex_all_investment")
 
 
@@ -419,6 +428,7 @@ def group_stats(rows: Sequence[Mapping], group: str, ty) -> dict:
               "pooled_share_investment_income": pos_div(sums["sum_rev_investment_income_3_4_5"], sums["sum_rev_total"]),
               "pooled_share_net_gains": pos_div(sums["sum_rev_net_gains_7d"], sums["sum_rev_total"]),
               "pooled_fee_income_cover_opcost": pos_div(sums["sum_fee_income_on_990"], oc),
+              "pooled_endowment_admin_cover_opcost": pos_div(sums["sum_endowment_admin_expenses_cy"], oc),
               "pooled_daf_share_of_total_na": pos_div(sums["sum_daf_value_eoy"], sums["sum_na_total_eoy"])}
     counts = {"n_returns": len(rs), "n_sponsors": len({r["ein"] for r in rs}),
               "n_r1_le_0": sum(1 for r in rs if r["r1_nondaf_na"] is not None and r["r1_nondaf_na"] <= 0),
@@ -431,6 +441,7 @@ def group_stats(rows: Sequence[Mapping], group: str, ty) -> dict:
               "n_s4_deficit": sum(1 for r in rs if r["s4_ex_daf_flows_ex_all_investment"] is not None and r["s4_ex_daf_flows_ex_all_investment"] < 0),
               "n_s4_known": sum(1 for r in rs if r["s4_ex_daf_flows_ex_all_investment"] is not None),
               "n_psr_positive": sum(1 for r in rs if (r["rev_program_service_2g"] or 0) > 0),
+              "n_fee_lines_positive": sum(1 for r in rs if (r["fee_income_on_990"] or 0) > 0),
               "n_mgmt_column_zero": sum(1 for r in rs if "mgmt_column_zero" in r["quality_flags"]),
               "n_daf_gt_na_without_restr": sum(1 for r in rs if "daf_gt_na_without_restr" in r["quality_flags"])}
     return {"row_type": "group_year", "sponsor_group": group, "tax_year": ty, **counts, **sums, **meds, **p25, **p75, **pooled}
@@ -470,10 +481,7 @@ def round_row(r: Mapping) -> dict:
     def rd(k, v):
         if not isinstance(v, float):
             return v
-        if k.startswith(("share_", "med_share", "pooled_share", "daf_share", "daf_rollforward", "pooled_r1_change", "med_daf_share", "pooled_daf", "mgmt_share",
-                         "med_mgmt_share", "pooled_mgmt", "fee_income_cover", "inv_income_cover", "med_fee", "med_inv",
-                         "pooled_fee", "s2_per", "s3_per", "s4_per", "med_s", "r1_change_per", "med_r1", "pooled_opcost_growth",
-                         "pooled_r1_growth", "endowment_")) or "_pct" in k:
+        if any(t in k for t in ("share", "cover", "per_opcost", "_pct", "growth", "rollforward")):
             return round(v, 4)
         if "months" in k or "bps" in k:
             return round(v, 2)
