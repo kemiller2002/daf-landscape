@@ -258,3 +258,25 @@ Columns and scales follow [queue-proposals-README.md](../../data/mission-2026-11
 - `state` is `open`.
 - `proposed_by` is `batch36 B agent`.
 - `evidence_pointer` cites AT rows and URLs.
+
+## Validation corrections (wave 21, 2026-11-15) — governing
+Source: [validation-wave21-report.md](validation-wave21-report.md); register `data/mission-2026-11-14/validation-register-wave21.csv`.
+
+1. **§0, P-B35C-01 row (credential hand-off).**
+   - **Find:** "**No published term at Daffy, Endaoment or Chariot expressly permits or forbids giving a credential to a third-party tool router. All three put the loss from unauthorised use on the user.**"
+   - **Replace with:** "**No published term at Daffy or Chariot expressly permits or forbids giving a credential to a third-party tool router. Endaoment's T&C does forbid it: \"API Access credentials, tokens, and keys are personal to you (or your authorized organization) and may not be shared, sold, or transferred except as we expressly permit.\" All three put the loss from unauthorised use on the user [V wave 21].**"
+2. **§0, same row (Endaoment route).**
+   - **Find:** "Its sanctioned third-party path is a **registered OAuth client**: Endaoment issues the client ID and secret after a joint validation."
+   - **Replace with:** "It documents two sanctioned third-party tracks: a **registered OAuth client**, where the donor signs in with OAuth + PKCE and Endaoment issues the production client ID and secret after a joint validation; and a **Partner API**, a server-to-server API key with which the partner provisions users and funds and submits grants (\"No donor OAuth login required on your side\") [F; V wave 21]."
+3. **§0, same row (Daffy entity delegate).**
+   - **Find:** "**New finding:** a Daffy Financial Advisor \"may be any individual, corporation, or trust\" with its own login. That is a sanctioned entity delegate."
+   - **Replace with:** "**New finding:** a Daffy Financial Advisor \"may be any individual, corporation, or trust\" with its own login. That is a sanctioned entity delegate. The Agreement uses the same words for Organizers, who have \"equal access to the fund\" [V wave 21]."
+4. **§1.2, reading 2.**
+   - **Find:** "2. **Endaoment's design is the cleanest delegation model.** Third-party software gets its own OAuth client registration."
+   - **Replace with:** "2. **Endaoment's design is the cleanest delegation model.** Third-party software gets its own OAuth client registration, or a partner integrates through the separate Partner API (its own API key, partner-provisioned users). Either way the T&C bars handing a donor's own credentials or tokens to an unregistered tool (\"personal to you … may not be shared, sold, or transferred except as we expressly permit\") [V wave 21]."
+5. **§1.2, reading 3.**
+   - **Find:** "3. **Daffy's corporate Financial Advisor is the one entity-delegate route found in any donor contract read.**"
+   - **Replace with:** "3. **Daffy's corporate Financial Advisor, and on identical wording a corporate or trust Organizer, are the only entity-delegate routes found in any donor contract read** [V wave 21]."
+6. **§5, reading 4 (Benevity overlay).**
+   - **Find:** "4. **Suggested overlay change (not applied):** move A5 Benevity from **RED (provisional) to AMBER**. The basis is that the AI does not approve and humans approve by default. Keep a note that rule-based auto-approval can remove human review."
+   - **Replace with:** "4. **Overlay change (validated wave 21; apply at the next re-score):** move A5 Benevity from **RED (provisional) to AMBER (provisional)**. First-party pages keep a human approval by default, so the §7 RED test (no documented human approval) is not met. It is not GREEN: the \"does not approve\" and auto-approval statements are [R] only, and an admin-enabled auto-approval rule can approve AI-built submissions with no human. Revert to RED if Benevity documents auto-approval keyed to the AI verification [V wave 21]."

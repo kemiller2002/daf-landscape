@@ -289,3 +289,10 @@ Source: [validation-wave17-report.md](validation-wave17-report.md); register `da
 5. **§3.1, Reading.**
    - **Find:** "Someone was building a "v3" platform with "migrate" environments as late as September 2026."
    - **Replace with:** "The v3 infrastructure was being maintained, with certificates renewing about every three months since at least 2026-02 (consistent with automated renewal), and "migrate" environments were created in August 2026 [V wave 17]."
+
+## Validation corrections (wave 21, 2026-11-15) — governing
+Source: [validation-wave21-report.md](validation-wave21-report.md); register `data/mission-2026-11-14/validation-register-wave21.csv`.
+
+1. **§1, custodial route** (batch 36C proposal 5, validated).
+   - **Find:** "- **Wealth-captives.** These are unchanged from batch 31:"
+   - **Replace with:** "- **Schwab registration codes (batch 36C; V wave 21).** BridgeFT's public registration-type reference (updated 2025-10-06) shows that Schwab passes DAF-specific registration codes: DASCG 'Charity Account (Donor Advised Account)' and DASPL 'Charity Account (Schwab Private Label)'. The NFS and Pershing tables show none. Which programs use the codes is not stated.\n- **Wealth-captives.** These are unchanged from batch 31:"

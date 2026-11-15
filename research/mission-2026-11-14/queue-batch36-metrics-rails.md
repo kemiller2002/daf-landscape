@@ -276,3 +276,16 @@ python3 scripts/mission_account_metric.py rails
 ```
 - WORK receives `xml/` (eight cached returns). The `accounts` task prints a JSON summary: the rebuild check, every variant total, the A3 hits, B1 counts and largest adjustments, the processor evidence (Schedule D columns and matched narrative) and the TY2025 index hits. Every figure in §0–2 comes from it or from the CSV.
 - The Fidelity PDF quotes were extracted with `pdftotext`, and their dates with `pdfinfo`.
+
+## Validation corrections (wave 21, 2026-11-15) — governing
+Source: [validation-wave21-report.md](validation-wave21-report.md); register `data/mission-2026-11-14/validation-register-wave21.csv`.
+
+1. **§2.3 (accounts bound).**
+   - **Find:** "It does not matter for market size: at most 0.07% of assets and 0.05% of accounts in any year."
+   - **Replace with:** "It does not matter for market size: at most 0.07% of assets in any year under B1 or B2, and 0.05% of accounts under B1. B2 adds up to 4,360 accounts (0.14%, FY2023) [V wave 21]."
+2. **§3.3, Fidelity counts.**
+   - **Find:** "  - The counts may cover a partial period or a subset; the reports do not say [C/I] (P-B36A-02)."
+   - **Replace with:** "  - The counts may cover a partial period or a subset; the reports do not say [C/I] (P-B36A-02). The 2026 report's \"more than 2 million\" does reconcile with 67% × 3m = 2.01m [C; V wave 21]."
+3. **§5, rail-share limits.**
+   - **Find:** "15 of 20 rows are vendor-published or secondary."
+   - **Replace with:** "12 of 20 rows are vendor-published or secondary; 8 are first-party [V wave 21]."

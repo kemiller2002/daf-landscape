@@ -246,3 +246,10 @@ Source: [validation-wave9-report.md](validation-wave9-report.md). Where these co
 3. **§3 "Reading", item 2.** Mark "**Allowed:** read-only aggregation by the account holder." as [I]. Add: "Vanguard may block 'systematic, commercial or otherwise inappropriate' automated access in its discretion."
 4. **§3 "Reading", item 3.** After "Its License Agreement provides for third-party export", insert "(s.8, permissive 'may provide', undated; no live feature found)".
 5. **§4 (AEF).** Add: "The instruction sits on AEF's 'Technology Upgrade' (Ren) support site and covers only a grants-paid list in legacy DonorCentral."
+
+## Validation corrections (wave 21, 2026-11-15) — governing
+Source: [validation-wave21-report.md](validation-wave21-report.md); register `data/mission-2026-11-14/validation-register-wave21.csv`.
+
+1. **Credential table, DAFgiving360 row** (batch 36C proposal 1, validated).
+   - **Find:** "Bound by Schwab's Online Services Agreement (not public)."
+   - **Replace with:** "Bound by Schwab's Online Services Agreement, which is public at schwab.com/legal/terms (the page titled 'Schwab Online Services Agreement'). It deems credential sharing to authorise the recipient's acts and caps Schwab's liability at $100 (batch 36C; V wave 21)."

@@ -212,3 +212,13 @@ Each driver is tagged: **[R]** a v1.1 rule change, **[E]** new evidence, **[S]**
 - **One exposure.** An early full-repo grep for Every.org scale evidence returned a few lines from `queue-proposals-quadrant-*.csv` and a calibration excerpt. Those lines showed v1.0 Every.org X1 values of 1 or 2 and X5 = 2. The scores here (A2 X1 = 2, A4 X1 = 1 under the v1.1 table, X5 = 2) rest on the 990-PF figures directly. A reviewer may still want to discount Every.org's reproduction.
 - **Sources.** All scores cite one primary or validated URL per row. Repository CSV and analysis files are named in `notes` where they carry the reasoning.
 - **Scale.** Scores are whole numbers. v1.0 consensus used half-points, so some small moves are rounding.
+
+## Validation corrections (wave 21, 2026-11-15) — governing
+Source: [validation-wave21-report.md](validation-wave21-report.md); register `data/mission-2026-11-14/validation-register-wave21.csv`.
+
+1. **§1 summary bullet.**
+   - **Find:** "One provider is RED (provisional, A5 adjacent): Benevity Match Assurance."
+   - **Replace with:** "No provider is RED. Benevity Match Assurance (A5 adjacent) moves from RED (provisional) to AMBER (provisional): first-party pages keep human approval by default, while a rule-based auto-approval setting [R] can remove it (V wave 21)."
+2. **§3 table, A5 Benevity row.**
+   - **Find:** "| A5 | Benevity | **RED (provisional)** | Match Assurance uses AI to verify receipt eligibility and auto-submits match requests. No human or company approval step is documented. This is adjacent to, not inside, the validation product. |"
+   - **Replace with:** "| A5 | Benevity | **AMBER (provisional)** | Match Assurance uses AI to verify receipt eligibility and auto-submits match requests. Program administrators approve by default: the AI builds the submission \"before it even reaches program administrators\", and Benevity's AI \"never takes an irreversible action without human confirmation\". Help-centre snippets [R] say the AI \"does not approve or decline\", but admins can enable auto-approval for all requests or under a threshold. Revert to RED if auto-approval is documented as keyed to the AI check. This is adjacent to, not inside, the validation product (V wave 21). |"

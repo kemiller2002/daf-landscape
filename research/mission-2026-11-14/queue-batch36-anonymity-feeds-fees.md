@@ -319,3 +319,10 @@ Standard proposal columns per `queue-proposals-README.md`; prefix P-B36C-; `stat
 - **P-B36C-01:** when a DAFpay grant has `anonymous=true`, what donor data does the nonprofit's Chariot record show? Use public sponsor and partner help pages.
 - **P-B36C-02:** which DAF programs sit behind Schwab codes DASCG, DASPL and CHGFT, and do Orion, Black Diamond or Addepar map them to a DAF class?
 - **P-B36C-03:** reconcile Chariot's "80% of DAFpay usage" subscription claim with the "$199/mo + 2.9%" Components price. Bound the fee-bearing share with the DAFpay Network's (EIN 93-1372175) Form 990.
+
+## Validation corrections (wave 21, 2026-11-15) — governing
+Source: [validation-wave21-report.md](validation-wave21-report.md); register `data/mission-2026-11-14/validation-register-wave21.csv`.
+
+1. **§4, finding 1 (platform count).**
+   - **Find:** "DAFpay costs more than card on 4 of 5 platforms at their default or most common settings:"
+   - **Replace with:** "DAFpay costs more than card on all five platforms with a quantified comparison, at their default or most common settings (Donorbox only at Stripe's nonprofit rate; GiveCampus, the sixth platform in the CSV, publishes no figure) [V wave 21]:"
