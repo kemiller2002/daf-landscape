@@ -288,3 +288,9 @@
 ### `queue-proposals-batch32b.csv`
 - Columns and scales follow [queue-proposals-README.md](../../data/mission-2026-11-14/queue-proposals-README.md).
 - IDs are P-B32B-01..03.
+
+## Validation corrections (wave 17, 2026-11-15) — governing
+Source: [validation-wave17-report.md](validation-wave17-report.md); register `data/mission-2026-11-14/validation-register-wave17.csv`.
+
+1. **§1.2, Reading (after the "FY2022 990 understates in the same direction" sentence).**
+   - **Append:** "The FY2022 990 also opens at $1,147,782, $108,596 above the FY2021 audited close of $1,039,186. No 990 year from FY2022 to FY2024 starts or ends on an audited figure except the FY2024 opening [V wave 17]."

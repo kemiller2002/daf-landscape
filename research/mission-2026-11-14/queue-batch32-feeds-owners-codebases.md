@@ -270,3 +270,22 @@ These are the same columns as `relationship-graph-edges.csv`.
 ### `queue-proposals-batch32c.csv`
 
 Format per `queue-proposals-README.md`. IDs are P-B32C-01 and P-B32C-02; `state` = open.
+
+## Validation corrections (wave 17, 2026-11-15) — governing
+Source: [validation-wave17-report.md](validation-wave17-report.md); register `data/mission-2026-11-14/validation-register-wave17.csv`.
+
+1. **§3.3, Form D lead-in.**
+   - **Find:** "One equity offering, first sale 2023-09-26, amended over time [F]:"
+   - **Replace with:** "Givinga, Inc. has filed Form Ds for at least six equity offerings since 2019:<br>- 2019-11: $185,000;<br>- 2020-11: $2,422,149;<br>- 2021-07: $267,500;<br>- 2021-10: $3,777,625;<br>- 2022-11, with a 2023-01 D/A: $4,999,999 from 11 investors, first sale 2022-10-27;<br>- the current offering, first sale 2023-09-26, amended over time [F; V wave 17]:"
+2. **§3.3, Aggregators bullet.**
+   - **Find:** "**Aggregators.** VCBacked's "$6.3M" and CB Insights' "$19.47M" are both superseded by the filing for this offering [I]."
+   - **Replace with:** "**Aggregators.**<br>- CB Insights' "$19.47M" equals the cumulative amount sold across all six Form D offerings through the 2025-08-18 amendment ($19,467,959), so it is not superseded. The cumulative through 2026-09-09 is **$22.42m**.<br>- VCBacked's "$6.3M" is the 2025-02-25 amendment of the current offering [C; V wave 17]."
+3. **§3.3, Reading.**
+   - **Find:** "Givinga survived 2022–2026 on a slow, insider-heavy raise and a B2B2C API model."
+   - **Replace with:** "Givinga survived 2022–2026 on two post-2022 offerings ($5.0m in 2022; $10.77m since 2023-09) and a B2B2C API model [V wave 17]."
+4. **§0, P-FAIL-06 row.**
+   - **Find:** "yet certificates for "prd-v3" and "migrate" hosts were issued up to 2026-09 [F]."
+   - **Replace with:** "yet prd-v3 and stg-v3 certificates kept renewing about every three months to 2026-09, and new "migrate" hosts appeared in 2026-08 [F; V wave 17]."
+5. **§3.1, Reading.**
+   - **Find:** "Someone was building a "v3" platform with "migrate" environments as late as September 2026."
+   - **Replace with:** "The v3 infrastructure was being maintained, with certificates renewing about every three months since at least 2026-02 (consistent with automated renewal), and "migrate" environments were created in August 2026 [V wave 17]."

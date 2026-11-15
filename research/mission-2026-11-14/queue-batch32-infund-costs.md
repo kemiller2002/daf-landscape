@@ -250,3 +250,37 @@
 - Keyword matching is coarse. "Spark Prize Breakfast" matches the raffle theme, which is why tier D is not treated as evidence.
 - `sg_gaming_gross_income` is sparse because Part III tag names vary by schema year. Part IV line 19 is the reliable gaming flag.
 - Returns filed without Part IV indicators but with a Schedule G would be missed. None were seen: Schedule G presence equals Part IV "Yes" exactly.
+
+## Validation corrections (wave 17, 2026-11-15) — governing
+Source: [validation-wave17-report.md](validation-wave17-report.md); register `data/mission-2026-11-14/validation-register-wave17.csv`.
+
+1. **§0, P-B31A-02 row.**
+   - **Find:** "gives at least **51.5 bps per invested dollar**"
+   - **Replace with:** "gives **about 50–52 bps per invested dollar** (37.6 bps is over average total assets and 13.9 bps over year-end investments; on one base the floor is 52.0 bps over average assets or 50.2 bps over year-end investments) [V wave 17]"
+2. **§1.3 table, Fidelity row.**
+   - **Find:** "| **≥ 51.5 bps** |"
+   - **Replace with:** "| **≈ 50–52 bps** (floor; mixed bases summed = 51.5) |"
+3. **§0, P-B31A-03 row (reconciliation).**
+   - **Find:** "every Schedule D Part XI/XII line is zero, so the audit nets them the same way the 990 does."
+   - **Replace with:** "Schedule D Parts XI/XII are zero-filled: every amount present is 0, including line 5 'Total expenses per Form 990'. The audit totals on line 1 are absent, so the filing does not show how the audit treats the fees [V wave 17]."
+4. **§0, P-B31A-03 row (line-3 signal).**
+   - **Find:** "Eleven peer nationals report **128–424 bps**. That fits fees being taken out of account income before it is reported [I]."
+   - **Replace with:** "Ten peer returns report **128–424 bps**. The gap (93–124 bps to the lowest peer, about 235–265 bps to the median) is larger than the whole ~107 bps fee ceiling. Fee netting may contribute, but it cannot explain the anomaly alone; income reported in gains or Part XI line 5 fits at least as well [I; V wave 17]."
+5. **§3 table, Schedule D row.**
+   - **Find:** "Every line is **0**, including Part XII 4a, 4b and 2e. The audit's expense total equals the 990's, so whatever the audit nets inside investment return, the 990 nets too"
+   - **Replace with:** "Every amount present is **0**, including Part XII 4b, 2e and line 5 ('Total expenses per Form 990' = $0, although Part IX line 25 is positive). Line 1 (audit totals) and line 4a are not reported. The parts were zero-filled, so they say nothing about how the audit treats the fees [V wave 17]"
+6. **§3 Conclusion, first bullet.**
+   - **Find:** "They appear in neither Part IX nor the audit's expense lines; they reduce reported investment income."
+   - **Replace with:** "They do not appear in Part IX. No MS GIFT audit is public, so their audit treatment is unobserved. They are probably netted against account values or income [I; V wave 17]."
+7. **§3 Conclusion, second bullet.**
+   - **Find:** "the line-3 anomaly is the first filing-level evidence for that. It fits wrap fees debited against dividend and interest income, though the 990 does not say so."
+   - **Replace with:** "the line-3 anomaly is consistent with wrap fees debited against dividend and interest income, but it is too large for fees alone (see §0). The likelier main cause is classification of income into gains; the 990 does not say [I; V wave 17]."
+8. **§0, P-COST-05 row.**
+   - **Find:** "line 11e is 56–99% of operating cost"
+   - **Replace with:** "line 11e is 56–100% of operating cost"
+9. **§0, P-COST-05 row (CAF America).**
+   - **Find:** "$105.3m gross in 2022, of which Omaze kept $84.1m, with the agent controlling funds; $30.7m in 2023, then near zero"
+   - **Replace with:** "Omaze $105.3m gross in the fiscal year ended April 2022 ($105.6m with Ascend), of which Omaze kept $84.1m, with the agent controlling funds; Omaze $30.7m in FYE April 2023 ($30.9m with Ascend); then $0.55m and $0"
+10. **§5 item 4.**
+    - **Find:** "Add the line-3 investment-income anomaly (4–35 bps against 128–424 bps) as the filing evidence that fees are netted."
+    - **Replace with:** "Add the line-3 investment-income anomaly (4–35 bps against 128–424 bps) as an unexplained anomaly consistent with, but larger than, fee netting [V wave 17]."
