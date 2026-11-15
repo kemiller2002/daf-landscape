@@ -285,7 +285,7 @@ def ft_row(ein: str, f: Mapping, ex: Mapping, soi: Mapping, bmf: Mapping) -> dic
     show = tuple(sorted(hits, key=lambda h: order.get(h["kind"], 9)))
     b = bmf.get(ein, {})
     v = REVIEW.get(ein, ("unreviewed", ""))
-    return {"ein": ein, "name": ex.get("filer_name") or f["taxpayer_name"], "bmf_ntee": b.get("ntee", ""),
+    return {"ein": ein, "name": f["taxpayer_name"],   # index name (ReturnHeader's first BusinessNameLine1Txt can be the preparer) "bmf_ntee": b.get("ntee", ""),
             "state": ex.get("filer_state") or b.get("state", ""),
             "fiscal_year": fy_of(f["tax_period"]), "tax_period": f["tax_period"], "amended": ex.get("amended", ""),
             "line6_status": line6_status(ex), "soi_line6": soi["soi_line6"], "soi_tax_pd": soi["tax_pd"],
@@ -615,7 +615,8 @@ def task_msgift(a) -> dict:
 FTE_EVIDENCE: dict[str, tuple[str, str, str]] = {   # ein -> (fte_value, label, source)
     "237825575": ("235", "S", "job-board copy of NPT recruiting text: 'more than 235 fulltime employees across 18 states in the U.S. and "
                   "more than 10 employees in the United Kingdom' (undated; not on nptrust.org/contact-us/work-at-npt/ as fetched 2026-11-15)"),
-    "133615533": ("45", "S", "fiscalsponsordirectory.org listing: '45 full-time staff' (undated, pre-2024; RPA reported staff cuts in Feb 2025)"),
+    "133615533": ("", "S", "only an undated fiscalsponsordirectory.org listing ('45 full-time staff in our New York, Los Angeles, Chicago and "
+                  "San Francisco offices'), which predates the 672 W-2 count and excludes sponsored-project staff; not used as an FTE"),
 }
 PAID_OFFICER = re.compile(r"Officer|KeyEmployee|HighestCompensated|IndividualTrustee", re.I)
 
@@ -661,16 +662,19 @@ def task_fte(a) -> dict:
                     **p7, "non_officer_heads": non_off,
                     "non_officer_wage_per_head": ratio(l7, non_off) if non_off and non_off > 0 else None,
                     "officer_avg_comp_part_vii": ratio(p7.get("part_vii_paid_staff_comp"), p7.get("part_vii_paid_staff")) if p7 else None,
-                    "fte_public": fte[0] if fte else "", "fte_label": fte[1] if fte else "U", "fte_source": fte[2] if fte else
+                    "fte_public": fte[0] if fte else "", "fte_label": (fte[1] if fte[0] else "U") if fte else "U",
+                    "fte_source": fte[2] if fte else
                     "no public FTE figure found (audits read state none; search-index results were third-party estimates only)",
-                    "wage_all_per_fte": ratio(wages, num(fte[0])) if fte else None,
-                    "loaded_all_per_fte": ratio(num(r["loaded_l5_10"]), num(fte[0])) if fte else None,
-                    "fte_to_head_ratio": ratio(num(fte[0]), emp) if fte else None,
+                    "wage_all_per_fte": ratio(wages, num(fte[0])) if fte and fte[0] else None,
+                    "loaded_all_per_fte": ratio(num(r["loaded_l5_10"]), num(fte[0])) if fte and fte[0] else None,
+                    "fte_to_head_ratio": ratio(num(fte[0]), emp) if fte and fte[0] else None,
                     "flags": r["flags"], "return_object_id": r["return_object_id"],
                     "xml_url": XML_URL.format(oid=r["return_object_id"])})
     fields = tuple(out[0])
     write_csv(os.path.join(DATA, OUT["fte"]), out, fields)
     return {"rows": len(out), "with_public_fte": sum(1 for o in out if o["fte_public"]),
+            "median_non_officer_wage_per_head": median([o["non_officer_wage_per_head"] for o in out if o["non_officer_wage_per_head"]]),
+            "median_wage_all_per_head": median([o["wage_all_per_head"] for o in out if o["wage_all_per_head"]]),
             "summary": [{k: (round(v) if isinstance(v, float) else v) for k, v in o.items()
                          if k in ("sponsor_name", "fiscal_year", "employees_part_i_l5", "part_vii_paid_staff", "wage_all_per_head",
                                   "non_officer_wage_per_head", "officer_avg_comp_part_vii", "fte_public", "wage_all_per_fte", "flags")}
