@@ -8,7 +8,24 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (final refresh 2026-11-15 ~14:15 UTC, through PR #40) — governing
+## Counts (final refresh 2026-11-15 ~14:55 UTC, through PR #42) — governing
+
+Every number below was recomputed from the repository at merge commit `3627b5c` (PR #42). It supersedes the PR #40 table that follows.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#42 (23 PRs) | GitHub |
+| Research documents (markdown under `research/`) | 229 documents, 748,250 words | file walk over `research/**/*.md` |
+| Datasets (CSV under `data/`) | 430 files, 145,199 data rows | file walk over `data/**/*.csv` (header rows excluded) |
+| Unique URLs cited in research markdown | 3,234 | regex over `research/**/*.md` |
+| Independent validation | **710 register rows** in 29 register files (waves 1, 2A, 2B, 3–23, 24A, 24B, 25A, 25B, 26): 539 confirmed, 134 partially confirmed, 19 contradicted, 11 unverifiable, 7 audit/defect rows | `data/mission-2026-11-14/validation-register*.csv`, column `validation_result` |
+| Research queue | 477 items: 284 done, 75 blocked (each with a recorded reason), 49 monitoring, 63 open, 5 deprioritized historical, 1 declined (no outreach) | `data/mission-2026-11-14/research-priority-queue.csv` |
+| Industry report | §11.1–§11.23 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+| Owner-directed new research directions | 18 (N1–N18), all validated (waves 24A–26) | `research/mission-2026-11-14/direction-*.md` |
+
+**Third-round additions (validated, report §11.23):** church platforms rarely carry a DAF rail (Overflow via Chariot is the exception); university gift offices split on whether DAF grants can pay pledges, and none read lets DAF grants buy event benefits; a recipient compliance screen of 604,915 top-50 grant lines finds revoked-at-grant-year hits of $74.8m (0.082%), mostly later reinstated — all framed as screening hits, not improper grants; 49 corporate DAF programs found in SEC filings.
+
+## Counts (final refresh 2026-11-15 ~14:15 UTC, through PR #40) (superseded by the table above)
 
 Every number below was recomputed from the repository at merge commit `a17d759` (PR #40).
 
