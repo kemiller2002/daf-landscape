@@ -19,6 +19,7 @@ means "robots unreadable, host not fetched" (the rule used in earlier batches). 
 Usage:
   python3 scripts/mission_sponsor_a11y_service.py --cache-dir <scratch> --fetch     # load pages, cache raw JSON
   python3 scripts/mission_sponsor_a11y_service.py --cache-dir <scratch>             # rebuild CSVs from cache
+  python3 scripts/mission_sponsor_a11y_service.py --cache-dir <scratch> --rescan-home 232888152   # reload one homepage
 Screenshots (homepage only) are written to <cache-dir>/screens/, never into the repo.
 
 Outputs:
@@ -220,7 +221,7 @@ def robots_checker(cache: dict) -> Callable[[str], tuple[bool, str]]:
         if host not in cache:
             status, body = fetch_text(f"https://{host}/robots.txt")
             time.sleep(PACE_S)
-            cache[host] = {"status": status, "body": body if status == 200 else ""}
+            cache[host] = {"status": status, "body": body if status == 200 else "", "error": body if status == -1 else ""}
         return cache[host]
 
     def can(url: str) -> tuple[bool, str]:
@@ -288,7 +289,7 @@ def load_page(ctx, url: str, axe_src: str | None, can_fetch, shot: str | None = 
         if shot:
             page.screenshot(path=shot, full_page=False)
         if axe_src is not None:
-            if info["has_password"]:
+            if info["has_password"] and (LOGIN_HREF.search(page.url) or re.search(r"log\s*in|sign\s*in|log\s*on", info["title"] or "", re.I)):
                 return {**rec, "status": "login/credential page: axe not run"}
             page.evaluate(axe_src)
             rec = {**rec, "axe": page.evaluate(AXE_JS, list(AXE_TAGS))}
@@ -324,6 +325,28 @@ def scan_sponsor(ctx, sponsor: Mapping, axe_src: str, can_fetch, screens: str) -
     return {"ein": sponsor["ein"], "seed": seed, "base": base,
             "candidates": {"open": open_l, "help": help_l, "contact": contact_l, "a11y": a11y_l},
             "a11y_link_on_scanned_pages": bool(a11y_l), "pages": trimmed}
+
+
+def rescan_home(sponsors: Sequence[Mapping], cache_dir: str, eins: Sequence[str]) -> None:
+    """Reload only the homepage of the given sponsors (e.g. after a scan-rule fix) and merge it into the raw cache."""
+    from playwright.sync_api import sync_playwright
+    robots_cache_path = os.path.join(cache_dir, "robots.json")
+    robots_cache = json.load(open(robots_cache_path)) if os.path.exists(robots_cache_path) else {}
+    can_fetch = robots_checker(robots_cache)
+    st, axe_src = fetch_text(AXE_URL)
+    with sync_playwright() as p:
+        browser = p.chromium.launch()
+        for s in (x for x in sponsors if x["ein"] in eins):
+            path = os.path.join(cache_dir, "raw", f"{s['ein']}.json")
+            raw = json.load(open(path))
+            ctx = browser.new_context(viewport={"width": 1366, "height": 900}, bypass_csp=True, locale="en-US")
+            home = load_page(ctx, raw["seed"], axe_src, can_fetch)
+            ctx.close()
+            raw["pages"]["home"] = {**home, "selection": "seed homepage", "rescanned": True}
+            json.dump(raw, open(path, "w"))
+            print(s["rank"], s["name"], "home rescanned:", home.get("status"), flush=True)
+        browser.close()
+    json.dump(robots_cache, open(robots_cache_path, "w"))
 
 
 def run_fetch(sponsors: Sequence[Mapping], cache_dir: str) -> None:
@@ -448,6 +471,7 @@ def main() -> None:
     ap.add_argument("--cache-dir", required=True)
     ap.add_argument("--fetch", action="store_true")
     ap.add_argument("--n", type=int, default=20)
+    ap.add_argument("--rescan-home", default="", help="comma-separated EINs whose homepage only is reloaded")
     a = ap.parse_args()
     sponsors = top_n(corrected_fy2024(read_csv(DAFRC_CSV), read_csv(CORR_CSV)), a.n)
     missing = [s["ein"] for s in sponsors if s["ein"] not in SEEDS]
@@ -455,6 +479,8 @@ def main() -> None:
         raise SystemExit(f"no seed URL for EINs {missing}")
     if a.fetch:
         run_fetch(sponsors, a.cache_dir)
+    if a.rescan_home:
+        rescan_home(sponsors, a.cache_dir, tuple(a.rescan_home.split(",")))
     raws = {s["ein"]: json.load(open(os.path.join(a.cache_dir, "raw", f"{s['ein']}.json"))) for s in sponsors
             if os.path.exists(os.path.join(a.cache_dir, "raw", f"{s['ein']}.json"))}
     have = tuple(s for s in sponsors if s["ein"] in raws)
