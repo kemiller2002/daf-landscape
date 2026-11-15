@@ -244,4 +244,4 @@ Donor rows are the complaints-corpus records whose complainant is a donor (incl.
 
 1. **`daf-user-complaints-corpus.csv` CMP-241.** Change date "c.2024" to "2026-01-20 [I] (post 'Jan 20'; analysis of 2025 DAFpay gifts; CMS timestamps 2026-01)". Add to the paraphrase: "18 check-paying providers averaged 7–162 days; ACH providers 1–2 days (one nonprofit, 2,000+ gifts, 34 providers)".
 2. **`uncashed-grant-rules-2026.csv`.** Add a YourCause/Blackbaud NPOconnect row: reissue only for outstanding checks more than 45 days old; reissue not guaranteed after 120 days; up to 90 days to reissue; "Once a payment is Voided, the funds are at risk of being forfeited" (S24).
-3. **Any repo text citing "79% of DAF gifts are partially anonymous"** (e.g. from NPT) should carry "[S]; possibly conflates the DAFRC donor-survey 79% (identifiable via fund name); unverified" until P-B44N28-02 is done.
+3. **NPT's "79% of DAF gifts are partially anonymous".** No other repo note cites it (grep, 2026-11-15). Any future citation should carry "[S]; possibly conflates the DAFRC donor-survey 79% (identifiable via fund name); unverified" until P-B44N28-02 is done.
