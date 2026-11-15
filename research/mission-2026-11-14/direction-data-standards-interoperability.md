@@ -271,3 +271,19 @@ Columns and scales follow [queue-proposals-README.md](../../data/mission-2026-11
 - **P-B40N13-01:** Schedule I purpose-text panel for the top 50 sponsors. Can public 990 data support purpose analytics?
 - **P-B40N13-02:** Remittance census of the top 10 sponsors: ACH SEC code, addenda content and out-of-band channel.
 - **P-B40N13-03:** Field-by-field map and draft of a minimal open DAF grant record (Chariot, Endaoment, 360Giving 1.4, federal GDS v3.0).
+
+## Validation corrections (wave 25B, 2026-11-15) — governing
+Source: [validation-wave25b-report.md](validation-wave25b-report.md); register `data/mission-2026-11-14/validation-register-wave25b.csv`.
+
+1. **Status line, robots.**
+   - **Find:** "Hosts whose robots.txt could not be read (candid.org returned 403) were not fetched;"
+   - **Replace with:** "Hosts whose robots.txt could not be read (candid.org returned 403; on 2026-11-15 it returns 200 with ClaudeBot and anthropic-ai disallowed) were not fetched [V wave 25B];"
+2. **§2.2, service targets.**
+   - **Find:** "- Service targets: 99.9% availability, P95 latency under about 3.5 seconds, at least 10 requests per second."
+   - **Replace with:** "- Service targets: 99.9% availability (99.5% minimum), response times under about 3.5 seconds (ideally P95 under 2 seconds), and at least 10 requests per second [V wave 25B]."
+3. **§2.4, Nacha source.**
+   - **Find:** "([Nacha ACH Guide for Developers](https://achdevguide.nacha.org/ach-file-details)) [F]."
+   - **Replace with:** "([Nacha ACH Guide for Developers](https://achdevguide.nacha.org/ach-file-details)) [F]. In wave 25B, `achdevguide.nacha.org/robots.txt` returned 403, so the page could not be re-read under the repo's robots convention. The values match the standard Nacha record layout but are unverified in that wave [V wave 25B]."
+4. **§4, §1033 publication.**
+   - **Find:** "Publication was not found."
+   - **Replace with:** "Publication was not found. A Federal Register API query on 2026-11-15 (CFPB documents since 2025-08-01) shows the 2025-08-22 ANPR (2025-16139) as the latest Personal Financial Data Rights item, so no NPRM had been published [V wave 25B]."

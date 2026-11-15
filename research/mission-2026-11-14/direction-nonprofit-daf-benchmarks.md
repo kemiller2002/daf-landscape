@@ -231,3 +231,16 @@ Inputs:
 - **Chariot pages:** the `.md` variants (`<page>.md`) were read.
 - **M+R PDFs:** downloaded from the yearly subdomains and converted with `pdftotext -layout`. The DAF figures are on report pp. 40–41 (DAF chart spread) and 112–113 (payment types) of the 2025 edition.
 - **CSV:** built by a short stdlib script from the values above. Derived rows show their arithmetic in the `definition` column, and the reconciliation inputs are cited by row.
+
+## Validation corrections (wave 25B, 2026-11-15) — governing
+Source: [validation-wave25b-report.md](validation-wave25b-report.md); register `data/mission-2026-11-14/validation-register-wave25b.csv`.
+
+1. **Rules applied, robots.**
+   - **Find:** "**candid.org** robots returned 403, so it is unreadable and was not fetched."
+   - **Replace with:** "**candid.org** robots returned 403 in this run. On 2026-11-15 it returns 200 and names ClaudeBot and anthropic-ai under `Disallow: /`, so it is still not fetched [V wave 25B]."
+2. **§5 Limitations, snippet values.**
+   - **Find:** "One snippet's non-DAF averages ($21→$25) conflict with the published 23× ratio, so those rows are flagged."
+   - **Replace with:** "One snippet's non-DAF averages ($21→$25) conflict with the published 23× ratio, so those rows are flagged. A 23× ratio at $3,934 implies a non-DAF mean of about $171. The 2025 edition's median ratio of \"12 times\" fits $300 / $25 exactly, so the $21 and $25 values are probably non-DAF medians. They should not be used as averages [V wave 25B]."
+3. **§0, plausibility row.**
+   - **Find:** "This fits the vendor samples' ~10–13% (§4). | [D] |"
+   - **Replace with:** "This fits the vendor samples' ~10–13% (§4). | [D]; recomputed from Giving USA 2025 totals ($592.50bn, $392.45bn, $45.84bn) [V wave 25B] |"

@@ -256,3 +256,16 @@ Uses the same columns as `relationship-graph-edges.csv`. The prefix is EW. EW002
 ### `queue-proposals-batch40-n14.csv`
 
 Columns follow `queue-proposals-README.md`.
+
+## Validation corrections (wave 25B, 2026-11-15) — governing
+Source: [validation-wave25b-report.md](validation-wave25b-report.md); register `data/mission-2026-11-14/validation-register-wave25b.csv`.
+
+1. **§2.7, Fidelity grant.**
+   - **Find:** "    - Fidelity: $56.73m non-cash (FY6/22);"
+   - **Replace with:** "    - Fidelity: $56.73m non-cash (FY6/22). This comes from an amended FY6/22 return (object 202430459349302913, filed 2024), which also shows $197,000 in cash to Dechomai Foundation [V wave 25B];"
+2. **§2.7, one-pager date.**
+   - **Find:** "  - The document is undated; its file metadata shows a 2014 build. Treat the fee as the *last published* figure, not a current one."
+   - **Replace with:** "  - The document is undated. Its file metadata shows it was created on 2014-11-18 and last modified on 2023-01-02. Treat the fee as the *last published* figure, not a current one [V wave 25B]."
+3. **§2.2, Engiven fees.**
+   - **Find:** "engiven.com/pricing returns 404."
+   - **Replace with:** "engiven.com/pricing returns 404. The ACS help page (`help.acst.com/en/giving/realm-giving/guides/stock-and-cryptocurrency`) is allowed by robots but renders client-side, and its static HTML has no fee text, so the 4% stays unverified [V wave 25B]."
