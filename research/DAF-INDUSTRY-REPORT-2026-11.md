@@ -783,6 +783,19 @@ Related customer-facing frictions are covered by theme: data export and credenti
    >   - NPT screens with minimums of $25k–$2m.
    >   - Nonprofit-side vendors charge 1.5–3.9% a gift (GivingIQ, published). Sources: [direction-nonprofit-daf-benchmarks.md](mission-2026-11-14/direction-nonprofit-daf-benchmarks.md), [direction-data-standards-interoperability.md](mission-2026-11-14/direction-data-standards-interoperability.md), [direction-noncash-gift-infrastructure.md](mission-2026-11-14/direction-noncash-gift-infrastructure.md), [validation-wave25b-report.md](mission-2026-11-14/validation-wave25b-report.md).
 
+### 11.22 New directions N9–N11 (validated, wave 25A)
+
+**New directions N9–N11 (validated, wave 25A).** No state has a DAF reporting, payout or donor-intent mandate found for 2021–2026. California's DAF bills all failed: AB 1712 and AB 2936 in 2020, and AB 1353, which died at the desk on 2022-02-01. The California AG has no DAF-specific registration form; its 2022 DAF report (57 sponsors, $105.3bn) created no filing duty. State rules that do name DAFs are narrower:
+   > - **Platform laws.** California's AB 488 (Gov. Code §12599.9, in force from 2023; regulations 2024–25) and Hawaii's Act 205 as amended by Act 108 (effective 2026-07-01) treat a DAF sponsor as a regulated platform only if it names charities to people without advisory privileges.
+   > - **Political disclosure.** California FPPC Reg. 18424.3 (operative 2021-12-22) makes officials name the sponsor, fund and donor behind DAF-sourced behested payments; 33 of 2,029 state reports used it, totalling $1,242,728.
+   > - **Tax credits.** Illinois Gives and Kansas's pregnancy-resource credit (K.A.R. 92-12-152, effective 2026-04-17) exclude DAF gifts.
+   > - **Wealth taxes.** New York's pending A3632 would count DAF gifts. California's Proposition 40, whose transfer rule would have done the same, was rejected (about 52.8% no, unofficial).
+   > - **AG letters.** Sixteen attorneys general wrote to Fidelity Charitable, Vanguard Charitable and DACG on 2026-05-21 urging them to reconsider SPLC payment holds, with no legal demand. A 21-state letter to GoFundMe (19 AGs and 4 secretaries of state, 2026-03-03) demanded disclosure of "the role and nature of any DAF sponsor".
+   >
+   > Among the top-20 sponsors, 13 sites ($173.8bn of $250.6bn) could be scanned. Automated axe-core checks found critical WCAG failures on 7 of 37 pages, at NPT, Vanguard, SVCF and NCF, and serious failures (mostly colour contrast) on 22. A same-day re-scan of 21 pages reproduced every count. These are partial automated checks, not a ranking. No readable sponsor publishes a response-time promise, a public chat channel or a WCAG conformance claim. Three publish phone hours, AEF's accessibility statement is placeholder text, and FFTC relies on the accessiBe overlay.
+   >
+   > Community-foundation consolidation in 2021–2026 was small. No two top-100 CFs combined, and only 5 of 803 DAFRC CF filers reported a >25% disposition or final return. The largest events were Orange & Sullivan with Rockland (NY AG-approved; about $71m), Coastal CF into San Diego Foundation ($10.07m), Keweenaw into the CF of the Upper Peninsula ($10.55m) and a $21.6m Watertown transfer that may be a reorganisation. 34 top-100 CFs (43% of top-100 CF DAF assets) publish a full fee schedule. Their median admin fee is 100 / 100 / 67 bps at $100k / $1m / $10m, about 1.7x, 2.2x and 3.6–4.7x the national sponsors' 60 / 45 / 14–19 bps, before investment costs. [V wave 25A] Sources: [direction-state-daf-law-tracker.md](mission-2026-11-14/direction-state-daf-law-tracker.md), [direction-sponsor-accessibility-service.md](mission-2026-11-14/direction-sponsor-accessibility-service.md), [direction-cf-consolidation-fees.md](mission-2026-11-14/direction-cf-consolidation-fees.md), [validation-wave25a-report.md](mission-2026-11-14/validation-wave25a-report.md).
+
 ---
 
 ## Source register
@@ -1000,3 +1013,12 @@ Source: [validation-wave24a-report.md](mission-2026-11-14/validation-wave24a-rep
 Source: [validation-wave25b-report.md](mission-2026-11-14/validation-wave25b-report.md).
 
 1. **New subsection after the last §11 subsection.** Add "### 11.21 New directions N12–N14 (validated, wave 25B)", containing the paragraph below. If §11.21 is already taken (for example by wave 25A), use the next free number.
+
+## Validation corrections (wave 25A, 2026-11-15) — governing
+Source: [validation-wave25a-report.md](mission-2026-11-14/validation-wave25a-report.md).
+
+1. **New subsection after §11.21:** "### 11.22 New directions N9–N11 (validated, wave 25A)". Renumber if another subsection lands first. It contains:
+
+   
+
+`research/mission-2026-11-14/direction-sponsor-accessibility-service.md` needs no change.

@@ -266,3 +266,28 @@ python3 scripts/mission_cf_fee_census.py --task census --cache-dir $C
 python3 scripts/mission_cf_fee_census.py --task schedn --cache-dir $C --xml-dir <dir with 990 XML> --fetch
 python3 scripts/mission_cf_fee_census.py --task consol --cache-dir $C
 ```
+
+## Validation corrections (wave 25A, 2026-11-15) — governing
+Source: [validation-wave25a-report.md](validation-wave25a-report.md); register `data/mission-2026-11-14/validation-register-wave25a.csv`.
+
+1. **§0, national comparison row (governing replacement).**
+   - **Find:** "and about 3.5–4.5x at $10m.**"
+   - **Replace with:** "and about 3.6–4.7x at $10m (67.2 bps against 18.8 and 14.3 bps).** [V wave 25A]"
+2. **§0, minimums row.**
+   - **Find:** "Median opening minimum **$10,000** (n=26; range $0–$100k). Median minimum grant **$250** (n=10)."
+   - **Replace with:** "Median opening minimum **$10,000** (n=26; range $0–$100k) and median minimum grant **$250** (n=10). Both pool all statuses, not just published schedules. On the 34 published schedules alone the opening median is $15,000 (n=19) and the grant median $250 (n=4) [V wave 25A]."
+3. **§1.1, CF filers' returns.**
+   - **Find:** "filed by the 809 CF filers in"
+   - **Replace with:** "filed by the 803 CF filers (803 distinct EINs) in"
+4. **§2, Findings, item 2 (governing replacement).**
+   - **Find:** "Only 5 of the 809 DAFRC CF filers (2,795 returns for 2021+) set Part I line 2 or filed a final return in the window. That is about 0.6% of CF filers over roughly four years."
+   - **Replace with:** "Only 5 of the 803 DAFRC CF filers (2,795 returns for 2021+) set Part I line 2 or filed a final return in the window. That is about 0.6% of CF filers over roughly four years. A wave-25A re-run with an empty cache reproduced the 2,795 returns and the same 5 flags (Rusk County, Keweenaw, Watertown Area, Coastal, Greater White Bear Lake) [V wave 25A]."
+5. **§2, Findings, item 1.**
+   - **Find:** "The largest filed transfer is $21.6m (Watertown), about 0.04% of top-100 CF DAF assets."
+   - **Replace with:** "The largest filed transfer is $21.6m (Watertown), about 0.04% of top-100 CF DAF assets. Its transferee, 'Watertown Community Foundation Inc', is in the same town and has no EIN on Schedule N, and the filer did not file a final return. It may be a same-community successor or affiliate rather than a combination of two CFs [V wave 25A]."
+6. **§4, Limitations, item 5.**
+   - **Find:** "The Schedule N side covers only the 809 DAFRC CF filers"
+   - **Replace with:** "The Schedule N side covers only the 803 DAFRC CF filers"
+7. **§0, consolidation row.**
+   - **Find:** "with about $71m of combined assets [F press]."
+   - **Replace with:** "with about $71m of combined assets [F press]. The NY AG's approval is confirmed by Mid-Hudson News (2026-01-30); the $71m and the effective date were not re-read in wave 25A [V wave 25A]."
