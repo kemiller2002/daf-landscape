@@ -219,17 +219,20 @@ def rule_b(vals: Mapping, overridden: frozenset, blank: Sequence[Mapping], mode:
         p_fy, n_fy = fy_of(r["prior_reported_period"]), fy_of(r["next_reported_period"])
         p_val = num(r["prior_reported_daf_eoy"])
         p_val = p_val if p_val is not None else num(r["dafrc_last_filed_daf_assets_before"])
-        p_cnt = num(r["prior_reported_daf_count"])
-        p_cnt = p_cnt if p_cnt is not None else count_before(lfc or {}, e, fy)[1]
-        for m, p, n in (("daf_accounts_eoy", p_cnt, num(r["next_reported_daf_count"])),
-                        ("daf_assets_eoy", p_val, num(r["next_reported_daf_eoy"]))):
+        p_cnt, c_fy = num(r["prior_reported_daf_count"]), p_fy
+        if p_cnt is None:
+            c_fy, p_cnt = count_before(lfc or {}, e, fy)
+        v_fy = p_fy if num(r["prior_reported_daf_eoy"]) is not None else fy_of(r["dafrc_last_filed_fy_before"])
+        for m, p, n, pf in (("daf_accounts_eoy", p_cnt, num(r["next_reported_daf_count"]), c_fy),
+                            ("daf_assets_eoy", p_val, num(r["next_reported_daf_eoy"]), v_fy)):
             if (e, fy, m) in overridden:
                 continue
-            new = p if mode == "carry" else interp(fy, p_fy, p, n_fy, n)
+            new = p if mode == "carry" else interp(fy, pf, p, n_fy, n)
             if new is None:
                 continue
             new = float(round(new)) if m == "daf_accounts_eoy" else new
-            note = (f"{treat}; blank_kind={r['blank_kind']}; last filed {r['prior_reported_period'] or 'n/a'}"
+            note = (f"{treat}; blank_kind={r['blank_kind']}; last filed "
+                    f"{r['prior_reported_period'] or (f'FY{pf} (DAFRC filed row)' if pf else 'n/a')}"
                     + (f"; next filed {r['next_reported_period']}" if r["next_reported_period"] else ""))
             out.append(adj(e, fy, m, new, vals, "B1" if mode == "carry" else "B2", note))
     return tuple(out)
