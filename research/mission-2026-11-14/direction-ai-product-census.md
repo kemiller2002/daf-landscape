@@ -251,3 +251,25 @@
 ### `data/mission-2026-11-14/queue-proposals-batch43-n25.csv`
 
 Columns are those in [queue-proposals-README.md](../../data/mission-2026-11-14/queue-proposals-README.md). There are three proposals, P-B43N25-01 to -03: validate the provisional GREENs, resolve the unreadable rows, and track sponsor-side AI actions.
+
+## Validation corrections (wave 28, 2026-11-15) — governing
+Source: [validation-wave28-report.md](validation-wave28-report.md); register `data/mission-2026-11-14/validation-register-wave28.csv`.
+
+1. **§1 item 4, Fluxx pricing.**
+   - **Find:** "Pricing is \"1 credit per dollar\" in credit bundles"
+   - **Replace with:** "Pricing is \"1:1 credit to dollar\", with credits \"purchased as bundles\" [V wave 28]"
+2. **§1 item 5, Bloomerang quote.**
+   - **Find:** "\"launch campaigns, assign follow-ups, and create donor segments\""
+   - **Replace with:** "\"launch campaigns, assign follow-ups, or create donor segments\""
+3. **§1 item 5, Givebutter boundary.**
+   - **Find:** "Most features are free, and AI custom reports need Givebutter Plus \"starts at $29/month\""
+   - **Replace with:** "Two AI outputs change without per-action approval: stretch goals \"automatically increase as you raise more\", and suggested amounts are \"automatically matched to your campaign type, cause, and donor's device\". The GREEN call is therefore a GREEN/AMBER boundary case under §7's \"flag-only\" test [V wave 28]. Most features are free, and AI custom reports need Givebutter Plus \"starts at $29/month\""
+4. **§1 item 8, Blackbaud Copilot.**
+   - **Find:** "**\"Blackbaud Copilot\":** no product by that name. The nearest are Chat for Blackbaud AI and the Blackbaud agent for Microsoft 365 Copilot (2026-08-10 [R])."
+   - **Replace with:** "**\"Blackbaud Copilot\":** Blackbaud used this name for its generative-AI assistant: in Impact Edge (release 2024-07-29), as a technical preview in Raiser's Edge NXT and Financial Edge NXT (2024-10-07), and as \"an early look at Blackbaud Copilot\" for RE NXT (2025-05-06) [V wave 28]. The current RE NXT features found are Chat for Blackbaud AI and the Blackbaud agent for Microsoft 365 Copilot (2026-08-10 [R]). Whether Chat is a rename of Blackbaud Copilot was not established."
+5. **§1 item 8, Classy.**
+   - **Find:** "Its AI features are personalised ask amounts and nudges, and the release cites"
+   - **Replace with:** "The release says GoFundMe Pro \"fuses AI innovation with millions of fundraising data points\". The personalised ask amounts and nudges are not in this release (secondary source only) [V wave 28]. It cites"
+6. **§2, overlay notes.**
+   - **Find:** "- **\"AMBER (low)\"** marks read, search, scoring or drafting features with undocumented controls."
+   - **Replace with:** "- The sub-labels below and in the table are local to this census. evidence-quadrant-methodology.md §7 defines only GREEN, AMBER and RED [V wave 28].\n- **\"AMBER (low)\"** marks read, search, scoring or drafting features with undocumented controls."

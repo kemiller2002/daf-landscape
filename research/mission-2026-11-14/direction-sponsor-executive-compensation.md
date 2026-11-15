@@ -401,3 +401,19 @@ python3 scripts/mission_sponsor_compensation.py --irs-dir <dir with index_2021..
 - IRS Form 990 e-file XML via the [GivingTuesday mirror](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601389349301700_public.xml) (URL per return in `xml_url`) and [IRS TEOS](https://apps.irs.gov/pub/epostcard/990/xml/2026/index_2026.csv) indexes and zips, read 2026-11-15.
 - [DAFRC Annual DAF Report 2025 updated dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx) with repo corrections (`dafrc-corrections-itemized.csv`).
 - Repo: `sponsor-cost-structure.csv` (context), `direction-donor-feature-census.md` (digital-first list).
+
+## Validation corrections (wave 28, 2026-11-15) — governing
+Source: [validation-wave28-report.md](validation-wave28-report.md); register `data/mission-2026-11-14/validation-register-wave28.csv`.
+
+1. **§0 item 6, trends table.**
+   - **Find:** "| Independent nationals (4 paid) | +3.4% | +16.1% | **+25.5%** | fell from $140,879 to $124,880 |"
+   - **Replace with:** "| Independent nationals (4 paid; DAF assets over all 6 matched) | +3.4% | +16.1% | **+25.5%** | fell from $140,879 to $124,880 |"
+2. **§0 item 4, multiple.**
+   - **Find:** "per $bn, community-foundation pay is 10–51× that of the four self-staffed nationals."
+   - **Replace with:** "per $bn, community-foundation pay is about 10–51× that of the four self-staffed nationals (9.6× AEF, 51× NPT) [V wave 28]."
+3. **§3 notes, NPT former officer.**
+   - **Find:** "a former President & CEO is also listed, with $1,035,821 [F]."
+   - **Replace with:** "a former President & CEO is also listed, with $1,035,821 in column D ($1,063,757 D+E+F) [F; V wave 28]."
+4. **§9, CF vs self-staffed staff cost.**
+   - **Find:** "That is still 6–9× the self-staffed nationals."
+   - **Replace with:** "That is still about 3.5–9× the self-staffed nationals: 6–9× against NPT, DAFgiving360 and Vanguard, and 3.5× against AEF's 15.0 bps [V wave 28]."

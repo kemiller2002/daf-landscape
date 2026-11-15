@@ -843,6 +843,29 @@ Related customer-facing frictions are covered by theme: data export and credenti
    >   - Fidelity's app had 24 iOS ratings and Daffy's 560 on 2026-11-15.
    >   - 267 of 476 cells remain unassessed, so absences are "not found", not proven. Sources: [direction-investment-menus-performance.md](mission-2026-11-14/direction-investment-menus-performance.md), [direction-donor-tax-scenarios-2026.md](mission-2026-11-14/direction-donor-tax-scenarios-2026.md), [direction-grant-geography.md](mission-2026-11-14/direction-grant-geography.md), [direction-donor-feature-census.md](mission-2026-11-14/direction-donor-feature-census.md), [validation-wave27-report.md](mission-2026-11-14/validation-wave27-report.md).
 
+### 11.25 New directions N23–N26 (validated, wave 28)
+
+**New directions N23–N26 (validated, wave 28).**
+   > - **Sponsor marketing spend (Form 990 line 12, TY2021–24; both scripts reproduce exactly).**
+   >   - Reported advertising is tiny at nationals: affiliated-commercial sponsors $21.7m (1.39 bps of DAF contributions), of which Schwab is $20.3m (about $390 per net new account). Without Schwab it is $1.36m.
+   >   - Independent nationals: $3.1m (0.41 bps). Digital-first: $0.17m (1.7 bps; 6.6 bps with Endaoment's line-24 marketing).
+   >   - Fidelity reports $0 on line 12 and $121–180m a year of administrator fees on line 11a. Parent- and platform-paid marketing is off the 990, so line 12 is a lower bound.
+   >   - Community foundations: $67.2m, about 18 bps of DAF contributions (12.7 bps allocated) and $7,981 per net new account. Across CFs, advertising intensity is not positively ranked with account growth (ρ −0.25, n=55).
+   > - **Executive compensation (top 50, TY2024).**
+   >   - 10 of 12 affiliated-commercial sponsors carry no paid executive on their own 990. Staff are the parent's (Schedule O: FMR services agreement; 474 MS Services/Eaton Vance; Schwab employees), or a bank trustee is paid (BofA $24.1m).
+   >   - Pooled staff cost: 2.9 bps of DAF assets for affiliated sponsors against 78.7 bps at community foundations.
+   >   - Top-officer pay per $bn of DAF assets: NPT $14k, DAFgiving360 $20k and Vanguard $23k, against a CF median of $734k. Median CF top pay is $725k and barely scales with size (elasticity 0.23).
+   >   - Related-organisation pay is concentrated at Greater Horizons (90%), The Signatry (93%) and the UCLA Foundation (85%).
+   > - **AI products (30 rows).**
+   >   - No product meets the RED test. Only TIFIN Louise and Daffy's MCP server can move DAF money, and both end in sponsor review. Fidelity's assistant is search only. Foundation Source's CEO (2026-10-28) describes a roadmap AI screening tool framed as a flag for review.
+   >   - Grantmaking tools (SmartSimple, Fluxx Finn, YourCause) document opt-in, no-training and human-decision controls (provisional GREEN). Givebutter Magic is a GREEN/AMBER boundary case.
+   >   - "Blackbaud Copilot" did exist as a Blackbaud assistant name in 2024–25. Classy is now GoFundMe Pro.
+   > - **Charity ratings in DAF platforms.**
+   >   - No top-20 sponsor shows CN ratings in its grant flow. Where a search vendor is named, it is Candid/GuideStar (BofA's 2025 guide; Groundswell). CN's own Giving Basket takes DAF grants via Chariot DAFpay at 2.9%.
+   >   - CN's API licence is non-sublicensable, requires a linkback and bars using ratings "in any other calculation", which constrains AI rankers.
+   >   - CN rates 245,000+ charities, about 17% of Pub 78 records.
+   >   - Church grants in the BMF but not Pub 78 ($2.17bn in the top-50 sample) are mostly group-ruling subordinates: a ratings gap, not an eligibility gap. Sources: [direction-sponsor-marketing-spend.md](mission-2026-11-14/direction-sponsor-marketing-spend.md), [direction-sponsor-executive-compensation.md](mission-2026-11-14/direction-sponsor-executive-compensation.md), [direction-ai-product-census.md](mission-2026-11-14/direction-ai-product-census.md), [direction-charity-ratings-integrations.md](mission-2026-11-14/direction-charity-ratings-integrations.md), [validation-wave28-report.md](mission-2026-11-14/validation-wave28-report.md).
+
 ---
 
 ## Source register
@@ -1079,3 +1102,8 @@ Source: [validation-wave26-report.md](mission-2026-11-14/validation-wave26-repor
 Source: [validation-wave27-report.md](mission-2026-11-14/validation-wave27-report.md).
 
 1. **New subsection after §11.23.** Add "### 11.24 New directions N19–N22 (validated, wave 27)", containing the paragraph below. If §11.24 is already taken, use the next free number.
+
+## Validation corrections (wave 28, 2026-11-15) — governing
+Source: [validation-wave28-report.md](mission-2026-11-14/validation-wave28-report.md).
+
+1. **New subsection after §11.24.** Add "### 11.25 New directions N23–N26 (validated, wave 28)", containing the paragraph below. If §11.25 is already taken, use the next free number.

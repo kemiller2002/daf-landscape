@@ -357,3 +357,31 @@ Columns and scales follow [queue-proposals-README.md](../../data/mission-2026-11
 - **Coverage counts are vendor-stated.** Goodstack's "9 million" causes and "7.5 million" verifications are different measures.
 - **Benevity's CN partnership** appears only in a search snippet of its due-diligence page. The page fetched today does not name partners.
 - **Fetch-tool summaries.** WebFetch summarises pages. Quotes above are short extracts returned by it, or by direct text extraction for the CN developer pages and the Candid docs (downloaded as Markdown).
+
+## Validation corrections (wave 28, 2026-11-15) — governing
+Source: [validation-wave28-report.md](validation-wave28-report.md); register `data/mission-2026-11-14/validation-register-wave28.csv`.
+
+1. **§0, CN embedding row, Fidelity.**
+   - **Find:** "\"for reference purposes only\" and points to"
+   - **Replace with:** "under \"Tools and resources\" (the page's \"for reference purposes only\" disclaimer qualifies its CHIP high-impact list, not these links [V wave 28]) and points to"
+2. **§0, CN embedding row, widget.**
+   - **Find:** "(\"The Giving Compass Widget is provided by an independent third party\") [F]."
+   - **Replace with:** "(\"The Giving Compass Widget is provided by an independent third party\") [F; not in the static HTML on the wave-28 re-fetch, so possibly script-rendered]."
+3. **§0, search row, Groundswell.**
+   - **Find:** "- **Groundswell:** \"Candid GuideStar integration\" [C: E155]."
+   - **Replace with:** "- **Groundswell:** \"Built-In Integration with Candid's Guidestar\" [F wave 28; C: E155]."
+4. **§0, Gaps row, churches.**
+   - **Find:** "and another **$1.19bn** of church-labelled lines are absent from both [C]."
+   - **Replace with:** "and another **$1.19bn** of church-labelled lines are absent from both [C]. Almost all of the $2.17bn is group-ruling subordinates (screen §5: church + group subordinate $2.15bn), so their exemption is verifiable through the central organisation; the gap is in ratings, not eligibility [V wave 28]."
+5. **§0, Coverage row, 17%.**
+   - **Find:** "That is **about 17% of the 1,437,291 Pub 78 records** [I; C: recipient screen]."
+   - **Replace with:** "That is **about 17% of the 1,437,291 Pub 78 records** [I; C: recipient screen; V wave 28]. Pub 78 also lists private foundations and others CN does not rate, so this is a share of all records, not of rateable charities."
+6. **§1, access log.**
+   - **Find:** "docs.endaoment.org, www.irs.gov, www.prnewswire.com, www.nptechforgood.com."
+   - **Replace with:** "docs.endaoment.org, www.prnewswire.com, www.nptechforgood.com. **Correction (wave 28):** www.irs.gov's robots.txt disallows `/charities-non-profits/tax-exempt-organization-search` for all agents, a prefix covering the TEOS bulk-downloads page. That page should not have been fetched, and its facts are relabelled [C]."
+7. **§2.10, bulk files.**
+   - **Find:** "([TEOS bulk downloads, reviewed 2026-09-16](https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads)) [F]."
+   - **Replace with:** "([TEOS bulk downloads](https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads); path disallowed by irs.gov robots.txt, so not to be fetched) [C: repo IRS file use; V wave 28]."
+8. **Source register, R27.**
+   - **Find:** "| R27 | [IRS TEOS bulk downloads](https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads) | government | reviewed 2026-09-16 | F |"
+   - **Replace with:** "| R27 | [IRS TEOS bulk downloads](https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads) | government | robots-disallowed path; not to be fetched | C |"

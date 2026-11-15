@@ -287,3 +287,16 @@ python3 scripts/mission_sponsor_marketing.py --irs-dir IRS --cache-dir CACHE --c
 - IRS holds `index_2021.csv` to `index_2026.csv`. CACHE receives `extract990mkt/{OID}.json` (about 2 MB for 455 returns).
 - COSTCACHE holds the `extract990cost/` cache of `mission_sponsor_cost_structure.py`.
 - A re-run without `--fetch` works offline from CACHE. The first run streamed the mirrored returns in about 20 seconds because parsing stops after Schedule D.
+
+## Validation corrections (wave 28, 2026-11-15) — governing
+Source: [validation-wave28-report.md](validation-wave28-report.md); register `data/mission-2026-11-14/validation-register-wave28.csv`.
+
+1. **§1 item 2, Schwab functional split.**
+   - **Find:** "and it is 97% in the fundraising column **[F/C]**."
+   - **Replace with:** "and it is 100% in the fundraising column (97% for the affiliated group as a whole) **[F/C; V wave 28]**."
+2. **§1 item 1, CF bps basis.**
+   - **Find:** "   - For digital-first sponsors, about 6.6 bps once Endaoment's \"Sales & marketing\" on line 24 is added."
+   - **Replace with:** "   - For digital-first sponsors, about 6.6 bps once Endaoment's \"Sales & marketing\" on line 24 is added.\n   - The bps column is Σ/Σ over rows with Schedule D DAF contributions > 0. For community foundations that numerator is $66.2m. $67.2m ÷ $36.0bn would give 18.7 bps [V wave 28]."
+3. **§2.5, prior-count provenance.**
+   - **Find:** "That row is flagged `prior_count_from_dafrc` and is filed in all but Endaoment's FY2021 row, whose source is \"NPT historical data\"."
+   - **Replace with:** "That row is flagged `prior_count_from_dafrc`. Of 108 such priors, 102 are DAFRC \"IRS 990\" values. Two are \"NPT historical data\": Schwab TY2021 (76,310, the base of its $390) and Endaoment TY2021. Four are DAFRC \"Imputed\": one community foundation TY2021–23 and Endaoment TY2023, whose Schedule D count of 6,000 is out of line with 331 and 1,213 [V wave 28]."
