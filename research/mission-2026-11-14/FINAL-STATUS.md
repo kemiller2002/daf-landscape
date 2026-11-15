@@ -8,7 +8,24 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (final refresh 2026-11-15 ~14:55 UTC, through PR #42) — governing
+## Counts (final refresh 2026-11-15 ~15:30 UTC, through PR #44) — governing
+
+Recomputed from the repository at merge commit `9450c05` (PR #44). Supersedes the tables below.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#44 (25 PRs) | GitHub |
+| Research documents | 234 documents, 767,051 words | `research/**/*.md` |
+| Datasets | 443 CSV files, 150,460 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,309 | regex over `research/**/*.md` |
+| Independent validation | **746 register rows** in 30 register files (waves 1–27 incl. 2A/2B, 24A/24B, 25A/25B): 570 confirmed, 139 partially confirmed, 19 contradicted, 11 unverifiable, 7 audit rows | `validation-register*.csv`, `validation_result` |
+| Research queue | 493 items: 288 done, 75 blocked (reasons recorded), 49 monitoring, 75 open, 5 deprioritized historical, 1 declined | `research-priority-queue.csv` |
+| Industry report | §11.1–§11.24 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+| Owner-directed new research directions | 22 (N1–N22), all validated | `research/mission-2026-11-14/direction-*.md` |
+
+**Fourth-round additions (validated, report §11.24):** only 6 of the top 20 sponsors (a verified floor) publish pool returns against benchmarks; index menus track within ~0.1 pp. Illustrative 2026 tax scenarios (not tax advice) show a DAF is equivalent to a direct gift for itemizers and worse for non-itemizers. Five states receive half of DAF grant dollars; community foundations keep 60% in-state versus 7.6% for nationals. A 28-sponsor feature census separates table stakes from differentiators.
+
+## Counts (final refresh 2026-11-15 ~14:55 UTC, through PR #42) (superseded by the table above)
 
 Every number below was recomputed from the repository at merge commit `3627b5c` (PR #42). It supersedes the PR #40 table that follows.
 
