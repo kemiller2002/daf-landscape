@@ -135,6 +135,8 @@ def cache_path(cache_dir: str, url: str) -> str:
 
 
 def fetch(url: str, cache_dir: str, do_fetch: bool) -> tuple[int, bytes]:
+    if "crt.sh" in url:
+        return (0, b"")  # disabled 2026-11-15: crt.sh robots.txt disallows all crawlers (see research/mission-2026-11-14/compliance-note-crtsh-robots.md)
     """(HTTP status, body); cached as <hash>.json (status) + <hash>.bin (body). Status 0 = transport failure."""
     p = cache_path(cache_dir, url)
     if os.path.exists(p + ".json"):

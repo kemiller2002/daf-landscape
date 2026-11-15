@@ -249,3 +249,28 @@ The top-30 rail map is unchanged: 3 not found among the 15, plus Marin unverifie
 
 ## Compliance note (2026-11-15) — governing
 crt.sh disallows all crawlers in its robots.txt. Any claim in this document that rests **only** on crt.sh certificate data is downgraded to an unverified lead until re-sourced. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).
+
+## Validation corrections (wave 23, 2026-11-15) — governing
+Source: [validation-wave23-report.md](validation-wave23-report.md); register `data/mission-2026-11-14/validation-register-wave23.csv`.
+
+1. **§0, P-REN-04 row.**
+   - **Find:** "`web.archive.org` itself was unreachable from this session (connection reset), so the captured pages were not read → P-B38A-01"
+   - **Replace with:** "The availability API is served from `archive.org`, which is reachable. The snapshot host `web.archive.org` resets connections from this session, so the captured pages were not read → P-B38A-01 [V wave 23: both hosts re-tested; timestamps 20180831230800 and 20251220065252 reproduced]"
+2. **§0, P-B30C-03 row.**
+   - **Find:** "Known clients then sum to **$41.80bn**, or **$40.11bn** without the three staging-only clients."
+   - **Replace with:** "Known clients then sum to **$41.80bn**, or **$40.11bn** without the three staging-only clients. The Give relationships of CCT, JCF, Minneapolis, Thrivent and Stifel ($9.81bn at FY2024) rest on hostnames first found in CT logs. They resolve in public DNS (no wildcard), but their stage is CT-only. Without all five the total is $32.59bn [V wave 23]."
+3. **§0, P-B29A-03 row.**
+   - **Find:** "Both sign-in pages read \"Powered by GiftingNetwork\" and \"If this is your first time logging into the new portal, you'll need to re-register\" [F/H]."
+   - **Replace with:** "Both sign-in pages read \"Powered by GiftingNetwork\" and \"If this is your first time logging into the new portal, you'll need to re-register\" [F/H]. Compliance note: `daf.fftc.org/robots.txt` is the single line `User-agent: * Allow: /index.html Disallow: /`, whose intent disallows `/m/login`. The FFTC portal finding rests on the fftc.org link, the FCJC tenant page and the GiftingNetwork release, not on a read of `daf.fftc.org/m/login` [V wave 23]."
+4. **§1 table, harvest row.**
+   - **Find:** "24 Blackbaud lines"
+   - **Replace with:** "23 Blackbaud lines [V wave 23]"
+5. **§2, go-live window.**
+   - **Find:** "- **Lower bound:** Give Interactive hosts lapsed in 2024-02 (repo)."
+   - **Replace with:** "- **Lower bound:** Give Interactive hosts lapsed in 2024-02 (repo). This date is a CT last-issued date (crt.sh), so it is an unverified lead under the [crt.sh compliance note](compliance-note-crtsh-robots.md) [V wave 23]."
+6. **§2, ledger confidence.**
+   - **Find:** "Confidence moves from medium to **medium-high**, on 2026 FFTC postings [F/S] plus the vendor story."
+   - **Replace with:** "Confidence stays **medium**: the 2026 FFTC postings could not be re-observed in wave 23 (the Y-Axis copy returns 404; no search copy found). The vendor story [V] remains the main support [V wave 23]."
+7. **§10, Limitations.**
+   - **Find:** "- `web.archive.org` was unreachable, so only availability-API metadata (capture timestamp and status) is used."
+   - **Replace with:** "- `web.archive.org` was unreachable, so only availability-API metadata from `archive.org` (capture timestamp and status) is used. NPact's Standard Terms (§3) could not be re-read in wave 23 (npact.com protocol errors) and stand on batch 38A's read [V wave 23]."

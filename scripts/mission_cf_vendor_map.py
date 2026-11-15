@@ -456,6 +456,7 @@ def crawl(net: Net, cfrow: Mapping) -> dict:
 # ---------------------------------------------------------------- certificate transparency
 def ct_tenants(net: Net) -> dict[str, list[dict]]:
     """family -> [{label, host, first, last}] for 2021+ certificates."""
+    return {}  # disabled 2026-11-15: crt.sh robots.txt disallows all crawlers (see research/mission-2026-11-14/compliance-note-crtsh-robots.md)
     out = {}
     for dom, fam in CT_DOMAINS:
         def pull(q):

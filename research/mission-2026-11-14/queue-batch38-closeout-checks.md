@@ -413,3 +413,16 @@ Format per [queue-proposals-README.md](../../data/mission-2026-11-14/queue-propo
      - "PSID Section M 2023 and 2025 (psidtest mirror): no DAF or giving-vehicle item [batch 38C]."
 3. **daf-user-complaints-deep-research.md §3, BBB row.**
    - **Append:** "bbb.org robots.txt disallows URLs with '?', including search, so sponsor-profile discovery is not robots-compliant. give.org and glassdoor.com disallow Anthropic agents [batch 38C]."
+
+## Validation corrections (wave 23, 2026-11-15) — governing
+Source: [validation-wave23-report.md](validation-wave23-report.md); register `data/mission-2026-11-14/validation-register-wave23.csv`.
+
+1. **§0, P-AIV2-04 row.**
+   - **Find:** "Observed per-sponsor **core-platform** payments run $118k–$416k a year (median $204k, 17 sponsors, TY2024 990s). TIFIN Give takes 74% of GiveClear's non-investment operating cost."
+   - **Replace with:** "Observed per-sponsor **core-platform** payments run $118k–$498k a year (median $218k, 18 sponsors, TY2024 990s, including Stifel Charitable → Ren $498,305 'OPS SYSTEM & SERVICE'). TIFIN Give's $185,921 equals 74% of GiveClear's non-investment operating cost, but the 990 does not show which Part IX lines carry it [V wave 23]."
+2. **§5.1 table, summary row.**
+   - **Find:** "| **17 core-platform relationships** | **median $203,595; IQR $179k–$291k; range $118k–$416k** | |"
+   - **Replace with:** "| **17 core-platform relationships** | **median $203,595; IQR $179k–$291k; range $118k–$416k** (adding Stifel Charitable → Ren $498,305, omitted here: 18 relationships, median $217,955, range $118k–$498k [V wave 23]) | |"
+3. **§5.1, vendor capture.**
+   - **Find:** "Its payment to TIFIN Give LLC was $185,921, which is **74% of that cost**."
+   - **Replace with:** "Its payment to TIFIN Give LLC was $185,921, which is **74% of that cost**. No Part IX line outside investment management (11f, $1.56m) is that large, so the payment is spread across lines or partly inside 11f; the ratio is an upper bound on the vendor's share of that budget [V wave 23]."

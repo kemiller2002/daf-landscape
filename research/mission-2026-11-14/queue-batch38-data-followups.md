@@ -391,3 +391,25 @@ python3 scripts/mission_bdc_loans.py --cache-dir CACHE
   - WORK receives `ft/` (JSON extracts), `xmlfull/` and `zipcd/`.
   - CACHE is the `mission_bdc_loans.py` EDGAR cache.
 - Every figure above comes from the JSON summaries these tasks print, from the CSVs, or from the quoted documents.
+
+## Validation corrections (wave 23, 2026-11-15) — governing
+Source: [validation-wave23-report.md](validation-wave23-report.md); register `data/mission-2026-11-14/validation-register-wave23.csv`.
+
+1. **§0, P-BLB-04 row (b).**
+   - **Find:** "**All 80 KKR FS Income Trust / Select debt rows now carry a maturity**, where none did before."
+   - **Replace with:** "**All 80 KKR FS Income Trust / Select debt rows now carry a maturity**, against 16 before (64 gained one) [V wave 23]."
+2. **§0, P-BLB-04 row, Envestnet sentence.**
+   - **Find:** "Barings' Envestnet rows gain their 11/31 maturity."
+   - **Replace with:** "Barings' Envestnet rows gain their 11/31 maturity, but they also gain mis-parsed values: the raw cells read par 993, cost 996, fair value 979 (98.6%), yet the rows show fair value 0, 0% of par and `yes_lt_97`. The 2026-09-30 row enters latest marks. Treat it as a parse error until fixed [V wave 23]."
+3. **§6, results.**
+   - **Find:** "66 rows changed: 64 KKR FS Income Trust / Select rows gain maturities, and 2 Barings Envestnet rows gain \"11/31\"."
+   - **Replace with:** "66 rows changed: 64 KKR FS Income Trust / Select rows gain maturities, and 2 Barings Envestnet rows gain \"11/31\" plus mis-parsed values (fair value 0 against a raw 979) [V wave 23]."
+4. **§6, results.**
+   - **Find:** "**KKR FS Income Trust / Select debt rows with a maturity: 80 of 80** (0 before)."
+   - **Replace with:** "**KKR FS Income Trust / Select debt rows with a maturity: 80 of 80** (16 before) [V wave 23]."
+5. **§0, P-B34A-03 row.**
+   - **Find:** "CJP by 0.04–0.13"
+   - **Replace with:** "CJP by 0.02–0.13 (NCF 0.017) [V wave 23]"
+6. **§0, P-LND-04 row.**
+   - **Find:** "That implies **$136,066 wages per FTE against $103,147 per head** (FTE/head 0.76)."
+   - **Replace with:** "That implies **at most $136,066 wages per FTE against $103,147 per head** (FTE/head ≥ 0.76; \"more than 235\" is an undated secondary figure) [V wave 23]."
