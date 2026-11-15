@@ -8,7 +8,26 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (final refresh 2026-11-15 ~16:10 UTC, through PR #46) — governing
+## Counts (final refresh 2026-11-15 ~16:50 UTC, through PR #48) — governing
+
+Recomputed from the repository at merge commit `ed840bd` (PR #48). Supersedes the tables below.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#48 (29 PRs) | GitHub |
+| Research documents | 244 documents, 817,983 words | `research/**/*.md` |
+| Datasets | 463 CSV files, 153,340 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,422 | regex over `research/**/*.md` |
+| Independent validation | **821 register rows** in 32 register files (waves 1–29): 625 confirmed, 154 partially confirmed, 23 contradicted, 12 unverifiable, 7 audit rows | `validation-register*.csv`, `validation_result` |
+| Research queue | 524 items: 296 done, 75 blocked (reasons recorded), 49 monitoring, 98 open, 5 deprioritized historical, 1 declined | `research-priority-queue.csv` |
+| Industry report | §11.1–§11.26 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+| Owner-directed new research directions | 30 (N1–N30), all validated | `research/mission-2026-11-14/direction-*.md` |
+
+**Sixth-round additions (validated, report §11.26):** national sponsors hold almost no own money visible on the 990 (some show negative non-DAF net assets); nonprofits' top DAF pain is not knowing the donor, driven by sponsor defaults; DAF-specific polls exist mainly from reform advocates and show majority support for payout rules alongside low awareness; Fidelity leads every year and asset concentration rose while grant concentration fell (FY2021–24). NPT's FY2023 Schedule D DAF value is a real filed figure out of line with its balance sheet — likely a filer error carried into DAFRC.
+
+**Open items note:** the 98 open items are mostly agent-generated follow-ups from the 30 new directions; none is required for the report's conclusions.
+
+## Counts (final refresh 2026-11-15 ~16:10 UTC, through PR #46) (superseded by the table above)
 
 Recomputed from the repository at merge commit `0ead3d8` (PR #46). Supersedes the tables below.
 
