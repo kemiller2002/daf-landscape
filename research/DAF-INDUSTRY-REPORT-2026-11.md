@@ -2,6 +2,8 @@
 
 **Consolidated report.** Version 2026-11-15. Repository `kemiller2002/daf-landscape`.
 
+**Consolidation (2026-11-15):** §11 was reorganised from a chronological list of batch summaries into themes, and figures in §1–§10 that later validation superseded were updated. Every change, with its governing source, is in the [consolidation changelog](mission-2026-11-14/consolidation-changelog.md). The pre-consolidation text is archived in [`archive/`](mission-2026-11-14/archive/DAF-INDUSTRY-REPORT-2026-11.pre-consolidation.md).
+
 This report sits on top of the repository's 96 research documents and 89 datasets (repo [`repo-inventory-final.json`](../data/mission-2026-11-14/repo-inventory-final.json)). It does not repeat them. Each section states the current best understanding, its evidence state, and where the evidence lives.
 
 **Labels used throughout:**
@@ -22,7 +24,7 @@ This report sits on top of the repository's 96 research documents and 89 dataset
 | Charitable assets in DAFs | $327.87bn | FY2020→FY2024 CAGR 18.1% ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`derived-metrics.csv`](../data/mission-2026-11-14/derived-metrics.csv)) |
 | Contributions | $90.57bn | +38.6% YoY after declines in FY2022–23 ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Annual DAF Report page](https://www.dafresearchcollaborative.org/research/annual-daf-report)) |
 | Grants | $64.60bn | CAGR 16.1% ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`derived-metrics.csv`](../data/mission-2026-11-14/derived-metrics.csv)) |
-| Reported accounts | 3.59m | **79.5% are in 22 donation-processor sponsors holding 0.9% of assets** ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`dafrc-sponsor-schedule-d-fy2019-2024.csv`](../data/mission-2026-11-14/dafrc-sponsor-schedule-d-fy2019-2024.csv)) |
+| Reported accounts | 3.59m | **79.5% are in 22 donation-processor sponsors holding 0.9% of assets**; about 59–67% if Givinga, whose account unit is undefined, is excluded (§11.1) ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`dafrc-sponsor-schedule-d-fy2019-2024.csv`](../data/mission-2026-11-14/dafrc-sponsor-schedule-d-fy2019-2024.csv)) |
 | Traditional invested accounts | ≤ 737k | upper bound; no lower bound from public data ([DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`dafrc-sponsor-schedule-d-fy2019-2024.csv`](../data/mission-2026-11-14/dafrc-sponsor-schedule-d-fy2019-2024.csv); repo [`regulation-market-structure-portability.md`](../research/mission-2026-11-14/regulation-market-structure-portability.md)) |
 | Sponsors | ~1,500 (1,512 reported) | about 803 community foundations ([DAFRC Annual DAF Report page](https://www.dafresearchcollaborative.org/research/annual-daf-report); [DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf)) |
 
@@ -31,13 +33,13 @@ Sources: [quantitative datasets](mission-2026-11-14/quantitative-datasets-and-da
 
 **Corrected totals (repository recomputation).** Filed Form 990 Schedule D values replace DAFRC's imputed rows, and double-counted terminated sponsors are removed. On that basis FY2024 assets are **$323.27bn** (−1.40% vs $327.87bn) and accounts are 7.8% lower, while contributions are +$2.20bn and grants +$1.84bn. There are 2,564 itemized adjustments ([corrected totals](mission-2026-11-14/full-universe-990-harvest-and-corrected-totals.md); `data/mission-2026-11-14/dafrc-corrected-market-totals.csv`, `dafrc-corrections-itemized.csv`; source: IRS e-file XML via the GivingTuesday mirror). Sponsors outside DAFRC's list hold only $0.15–0.89bn a year, except SDG Impact Fund's self-reported $10.1bn (FY2021–22).
 
-**Vendor footprint from Form 990 (all 1,512 FY2024 sponsors).** In Part VII-B, Ren/Stellar is named as a paid contractor by 30 sponsors holding $48.55bn (14.8% of DAFRC assets) in any FY2022–25 return, or 18 sponsors holding $30.18bn (9.2%) in their latest return [V wave 5]. Other DAF vendors appear at one to six sponsors each. 985 sponsors list no contractor above $100k. These counts are floors: Part VII-B lists only the top five contractors above $100k.
+**Vendor footprint from Form 990 (all 1,512 FY2024 sponsors).** In Part VII-B, Ren/Stellar is named as a paid contractor by 30 sponsors holding $48.55bn (14.8% of DAFRC assets) in any FY2022–25 return, or 18 sponsors holding $30.18bn (9.2%) in their latest return [V wave 5]. GS DAPF ($11.84bn) appears in FY2022 only, and on corrected FY2024 assets the cumulative share is 15.0% ([vendor footprint](mission-2026-11-14/full-universe-990-harvest-and-corrected-totals.md), wave-5 governing note). Other DAF vendors appear at one to six sponsors each. 985 sponsors list no contractor above $100k. These counts are floors: Part VII-B lists only the top five contractors above $100k.
 
 **Payout.**
 - **Aggregate:** grants over beginning assets were 23.7–28.4% in FY2020–24 ([DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`derived-metrics.csv`](../data/mission-2026-11-14/derived-metrics.csv)).
 - **Typical sponsor:** the median sponsor with ≥$1m in assets pays out about 11–12.5%, and 19–24% of those sponsors pay out under 5% ([DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`derived-metrics.csv`](../data/mission-2026-11-14/derived-metrics.csv); repo [`scripts/mission_daf_metrics.py`](../scripts/mission_daf_metrics.py)).
 - **By segment:** national sponsors' median is about 20%, community foundations about 11%, and university or hospital sponsors about 5.4% **[RT]** ([DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`validation-register-wave2b.csv`](../data/mission-2026-11-14/validation-register-wave2b.csv)).
-- **Transfers between DAF sponsors** are 10–18% of the nationals' listed grant dollars. They inflate apparent payout and double-count in market sums ([Fidelity Charitable Form 990 FY2025](https://projects.propublica.org/nonprofits/organizations/110303001/202601389349301700/IRS990); [DAFgiving360 Form 990 FY2025](https://projects.propublica.org/nonprofits/organizations/311640316/202611199349300601/IRS990ScheduleF); [NPT Form 990 FY2025](https://projects.propublica.org/nonprofits/organizations/237825575/202601289349302480/IRS990ScheduleF); [Vanguard Charitable Form 990 FY2025](https://projects.propublica.org/nonprofits/organizations/232888152/202621329349306657/IRS990); repo [`breadth-community-faith-infrastructure-emerging.md`](../research/mission-2026-11-14/breadth-community-faith-infrastructure-emerging.md)).
+- **Transfers between DAF sponsors** are 10–18% of the nationals' listed grant dollars. They inflate apparent payout and double-count in market sums. Pooled FY2021–24 payout net of these transfers is 19.0–21.5% against 23.9% gross (§11.1) ([Fidelity Charitable Form 990 FY2025](https://projects.propublica.org/nonprofits/organizations/110303001/202601389349301700/IRS990); [DAFgiving360 Form 990 FY2025](https://projects.propublica.org/nonprofits/organizations/311640316/202611199349300601/IRS990ScheduleF); [NPT Form 990 FY2025](https://projects.propublica.org/nonprofits/organizations/237825575/202601289349302480/IRS990ScheduleF); [Vanguard Charitable Form 990 FY2025](https://projects.propublica.org/nonprofits/organizations/232888152/202621329349306657/IRS990); repo [`breadth-community-faith-infrastructure-emerging.md`](../research/mission-2026-11-14/breadth-community-faith-infrastructure-emerging.md)).
 
 Fund-level payout is not public ((source: repo inference — no primary URL)).
 
@@ -47,7 +49,7 @@ Fund-level payout is not public ((source: repo inference — no primary URL)).
 |---|---|---|---|
 | Sponsor assets | DAFRC FY2024 | CR3 45.5%, CR5 55.8%, HHI ≈ 830 (unconcentrated). National sponsors only: CR3 63.2%, HHI ≈ 1,566 ([DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`dafrc-sponsor-schedule-d-fy2019-2024.csv`](../data/mission-2026-11-14/dafrc-sponsor-schedule-d-fy2019-2024.csv); repo [`validation-register-wave2b.csv`](../data/mission-2026-11-14/validation-register-wave2b.csv)) | [V][RT] High |
 | Administration | Period-aligned | About 39% of assets at three affiliate-linked nationals (Fidelity/FMR; Schwab; Vanguard as a hybrid) ([Fidelity Charitable FY2025 audited statements](https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/audited-financial-statements-2025-2024.pdf); [DAFgiving360 FY2025 results](https://www.dafgiving360.org/press-release/fiscal-year-2025-results); [Vanguard Charitable FY2025 financial statements](https://www.vanguardcharitable.org/sites/default/files/2026-02/vanguard-charitable-2025-financial-statements.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx)). Fully outsourced platform administration: ≥6 sponsors holding 9.1% ([DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`regulation-market-structure-portability.md`](../research/mission-2026-11-14/regulation-market-structure-portability.md)) | Medium |
-| Software | Vendor self-reports | Licensed DAF software at 31–94% of sponsors ([Foundant CommunitySuite page](https://www.foundant.com/products/communitysuite/); [Tech Impact CF software landscape](https://techimpact.org/sites/default/files/2024-03/TECH%20IMPACT%20Integrated%20Software%20for%20Community%20Foundations.pdf); [DAFRC Annual DAF Report page](https://www.dafresearchcollaborative.org/research/annual-daf-report)). Community foundations mostly on Foundant CommunitySuite (claims 700+) ([Foundant CommunitySuite page](https://www.foundant.com/products/communitysuite/)). National and white-label market: Ren (incl. iPhi), Foundation Source, TIFIN Give, Give Interactive ([Great Hill investment in Ren (Pulse 2.0)](https://pulse2.com/great-hill-partners-announces-strategic-growth-investment-in-donor-advised-fund-platform-ren/); [Foundation Source DAF OS brief](https://foundationsource.com/resources/product-briefs/the-modern-operating-system-for-donor-advised-funds/); [SEI Charitable Fund release](https://www.seic.com/about-sei/newsroom/sei-launches-sei-charitable-fund-bringing-charitable-giving-advisor-and-client-wealth-experience); [Give Interactive homepage](https://www.giveinteractive.com/)) | Low-Medium; HHI not computable |
+| Software | Vendor self-reports | Licensed DAF software at 31–94% of sponsors ([Foundant CommunitySuite page](https://www.foundant.com/products/communitysuite/); [Tech Impact CF software landscape](https://techimpact.org/sites/default/files/2024-03/TECH%20IMPACT%20Integrated%20Software%20for%20Community%20Foundations.pdf); [DAFRC Annual DAF Report page](https://www.dafresearchcollaborative.org/research/annual-daf-report)). Community foundations: Foundant CommunitySuite claims 700+ ([Foundant CommunitySuite page](https://www.foundant.com/products/communitysuite/)); the repository's EIN-level map finds it at 361 of 803 foundations (45%) and 32.7% of mapped community-foundation DAF assets [V wave 9] ([CF vendor map](mission-2026-11-14/queue-cf-vendor-map.md)). National and white-label market: Ren (incl. iPhi), Foundation Source, TIFIN Give, Give Interactive ([Great Hill investment in Ren (Pulse 2.0)](https://pulse2.com/great-hill-partners-announces-strategic-growth-investment-in-donor-advised-fund-platform-ren/); [Foundation Source DAF OS brief](https://foundationsource.com/resources/product-briefs/the-modern-operating-system-for-donor-advised-funds/); [SEI Charitable Fund release](https://www.seic.com/about-sei/newsroom/sei-launches-sei-charitable-fund-bringing-charitable-giving-advisor-and-client-wealth-experience); [Give Interactive homepage](https://www.giveinteractive.com/)) | Low-Medium; HHI not computable |
 | Custody | Audited notes | about 20.2% of period-aligned FY2024 assets with one custodian family (Fidelity Brokerage Services, Fidelity Charitable's custodian); lower bound ([Fidelity Charitable FY2025 audited statements](https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/audited-financial-statements-2025-2024.pdf); [DAFRC Updated Analysis memo](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis.pdf)) <!-- CITE-CHECK RESOLVED 2026-11-14 (text corrected): 26.2% appears to be Fidelity's June-2025 net assets ($85.86bn, FID audit) over the DAFRC FY2024 total ($327.87bn) - the same period mismatch the red team corrected in V2B-01/V2B-03. Period-aligned Fidelity share is about 20.2%. Not changed. --> | lower bound only |
 | Distribution | Channel graph | About 11 wealth-firm programs on RCF + Ren ([Edward Jones Charitable Gift Fund portal](https://edwardjones.donorfirstx.com/); [Ameriprise RCF portal](https://ampf.donorfirstx.com/); [RBC RCF portal](https://rbcrcf.donorfirstx.com/); [Ren LPL RCF page](https://www.reninc.com/lpl-rcf-daf/); [Ren UBS RCF page](https://www.reninc.com/why-ubs-advisors-choose-rcf/); [SEI Giving Fund portal](https://sei.donorfirstx.com/); [MDRT Global Gift Fund portal](https://mdrt.donorfirstx.com/); repo [`relationship-graph-edges.csv`](../data/mission-2026-11-14/relationship-graph-edges.csv)); SEI multi-sources (RCF/Ren and GiveClear/TIFIN) ([SEI Giving Fund portal](https://sei.donorfirstx.com/); [SEI Charitable Fund release](https://www.seic.com/about-sei/newsroom/sei-launches-sei-charitable-fund-bringing-charitable-giving-advisor-and-client-wealth-experience)) | Medium-High on edges |
 
@@ -70,7 +72,7 @@ Renaissance Charitable Foundation sponsors branded programs for Edward Jones, Am
 
 - **The payment flow:** RCF paid Ren $19.23m in FY2024. That equals 98% of RCF's admin-fee revenue from individual-fundholder accounts, the rate in force since FY2023 **[V]** ([RCF FY2024 audited statements](https://renaissancecharitable.org/wp-content/uploads/2026/01/2024RCFAuditedFinancialStatements.pdf); [RCF FY2023 audited statements](https://renaissancecharitable.org/wp-content/uploads/2026/01/2023RCFAuditedFinancialStatements.pdf); repo [`rcf-ren-audited-admin-payments-2020-2024.csv`](../data/rcf-ren-audited-admin-payments-2020-2024.csv)).
 - **Ren's role:** RCF describes it as platform, administrative infrastructure and operational support. Ren is not a technology-only vendor **[V]** ([RCF FAQ](https://renaissancecharitable.org/faqs/)).
-- **Ren beyond RCF:** Ren portals also front Morgan Stanley GIFT (new finding), Bank of America's Charitable Gift Fund and AEF ([MS GIFT donor portal](https://msgift.donorfirstx.com/); [BofA Charitable Gift Fund portal](https://bofa.donorfirst.org/); [AEF/Ren release, Apr 2026](https://www.aefonline.org/thought-leadership/ren-brings-american-endowment-foundation-fully-onto-its-technology-platform-powering-philanthropy-at-scale/)). For Bank of America the only evidence is the portal; the earlier 10-K claim is **contradicted** **[V]** ([SEC full-text search, BofA filings](https://efts.sec.gov/LATEST/search-index?q=%22Charitable%20Gift%20Fund%22&ciks=0000070858); [BofA CGF Form 990 TY2024](https://projects.propublica.org/nonprofits/organizations/46010342/202503219349318170/full)). Ren-owned iPhi still serves the Cleveland Foundation and ImpactAssets ([Cleveland Foundation iPhi portal](https://www.iphiview.com/tcf/LogIn/tabid/444/Default.aspx); [ImpactAssets homepage (iPhi log-in)](https://impactassets.org/)).
+- **Ren beyond RCF:** Ren portals also front Morgan Stanley GIFT (new finding), Bank of America's Charitable Gift Fund and AEF ([MS GIFT donor portal](https://msgift.donorfirstx.com/); [BofA Charitable Gift Fund portal](https://bofa.donorfirst.org/); [AEF/Ren release, Apr 2026](https://www.aefonline.org/thought-leadership/ren-brings-american-endowment-foundation-fully-onto-its-technology-platform-powering-philanthropy-at-scale/)). For Bank of America the only evidence is the portal; the earlier 10-K claim is **contradicted** **[V]** ([SEC full-text search, BofA filings](https://efts.sec.gov/LATEST/search-index?q=%22Charitable%20Gift%20Fund%22&ciks=0000070858); [BofA CGF Form 990 TY2024](https://projects.propublica.org/nonprofits/organizations/46010342/202503219349318170/full)). Ren-owned iPhi still serves the Cleveland Foundation and ImpactAssets ([Cleveland Foundation iPhi portal](https://www.iphiview.com/tcf/LogIn/tabid/444/Default.aspx); [ImpactAssets homepage (iPhi log-in)](https://impactassets.org/)). ImpactAssets is a late-stage Give Interactive migration, and iPhi lost 6 of 57 sponsors in 2023–Nov 2026 (§11.2).
 
 **Edward Jones Charitable Gift Fund.** Each role has separate evidence:
 
@@ -85,7 +87,7 @@ Two Edward Jones figures remain open:
 - The 2021 "$2.9bn" figure is unverifiable (source PDF now 404) **[V]** ([Ren/RCF Edward Jones adviser guide (HTTP 404)](https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf); repo [`validation-register.csv`](../data/mission-2026-11-14/validation-register.csv)).
 - Edward Jones's private DAF has no public sponsor, administrator or vendor ([Edward Jones elevated wealth management release](https://www.edwardjones.com/us-en/why-edward-jones/news-media/press-releases/elevated-wealth-management)).
 
-**Wave-3 additions [V].** Goldman's PWM DAF and GS Gives use Ren/Stellar software, with administration by Goldman entities. MS GIFT paid RenPSG $14.93m (CY2024). NPT's GivingPoint is built and hosted on Ren iPhi infrastructure, though only hosting evidence shows this and no contract is disclosed. Vanguard Charitable selected **Give Interactive** for recordkeeping. Give Interactive is controlled by **The Signatry Charitable Trust** (Signatry 2024 990 Schedule R), so a DAF sponsor controls the vendor that keeps another sponsor's records. See [vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md) and [validation wave 3](mission-2026-11-14/validation-wave3-report.md).
+**Wave-3 additions [V].** Goldman's PWM DAF and GS Gives use Ren/Stellar software, with administration by Goldman entities. MS GIFT paid RenPSG $14.93m (CY2024). NPT's GivingPoint is built and hosted on Ren iPhi infrastructure, though only hosting evidence shows this and no contract is disclosed. Wave 12 extended this to 13 live NPT-sponsored program sites on the same Ren build (§11.2). Vanguard Charitable selected **Give Interactive** for recordkeeping. Give Interactive is controlled by **The Signatry Charitable Trust** (Signatry 2024 990 Schedule R), so a DAF sponsor controls the vendor that keeps another sponsor's records. See [vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md) and [validation wave 3](mission-2026-11-14/validation-wave3-report.md).
 
 ### 2.3 Foundation Source / Charityvest
 Foundation Source (owned by GTCR since 2023) acquired Vennfi (2024) and Giving Place (2025) ([GTCR acquires Foundation Source](https://foundationsource.com/newsroom/press-releases/gtcr-announces-acquisition-of-foundation-source/); [Foundation Source acquires Vennfi](https://foundationsource.com/newsroom/press-releases/foundation-source-acquires-vennfi-the-fintech-powering-donor-advised-fund-charityvest/); [Foundation Source acquires Giving Place](https://foundationsource.com/newsroom/press-releases/foundation-source-acquires-giving-place-platform-for-private-foundations-and-family-offices/)). Charityvest is an independent sponsor powered by Foundation Source, with TIAA, Temple and OneGive programs ([Charityvest + Vennfi guide](https://guide.charityvest.org/about-our-venture/charityvest-%2B-vennfi); [TIAA Wealth Management DAF release](https://www.prnewswire.com/news-releases/tiaa-wealth-management-makes-charitable-giving-part-of-the-financial-plan-with-new-donor-advised-fund-program-302891438.html); [Temple University DAF release](https://foundationsource.com/newsroom/press-releases/temple-university-launches-custom-donor-advised-fund-program-in-partnership-with-foundation-source-and-charityvest/); [OneAscent Form ADV Part 2A](https://files.adviserinfo.sec.gov/IAPD/Content/Common/crd_iapd_Brochure.aspx?BRCHR_VRSN_ID=1054956)).
@@ -95,9 +97,9 @@ Foundation Source (owned by GTCR since 2023) acquired Vennfi (2024) and Giving P
 GiveClear is the sponsor and TIFIN Give the platform ([Chariot partner profile: TIFIN Give](https://www.givechariot.com/resources/insights/getting-to-know-tifin-give-a-chariot-disbursements-partner-)). Since 2026-10-28 they also power the SEI Charitable Fund ([SEI Charitable Fund release](https://www.seic.com/about-sei/newsroom/sei-launches-sei-charitable-fund-bringing-charitable-giving-advisor-and-client-wealth-experience)). Chariot handles disbursement ([TIFIN and Chariot partnership](https://tifin.com/news/tifin-and-chariot-partner-to-transform-grant-payments/19418/)).
 
 ### 2.5 Payment rails
-Four camps exist: Fidelity's own EFT/Stripe, PayPal Grant Payments (NPT, Vanguard), Ren's Rapid Disbursement Engine, and Chariot Disbursements (TIFIN/GiveClear, Daffy, Founders Pledge, Groundswell, Charityvest from Aug 2026) ([Fidelity Charitable nonprofit FAQ](https://www.fidelitycharitable.org/nonprofits/faqs.html); [PayPal Grant Payments launch](https://newsroom.paypal-corp.com/2022-08-25-PayPal-Launches-Grant-Payments,-Enabling-Charities-to-Quickly-Receive-Funds-from-Grantmakers); [Vanguard Charitable PayPal electronic granting release](https://prnewswire.com/news-releases/vanguard-charitable-launches-electronic-granting-solution-surpassing-100-million-in-electronic-grants-to-more-than-400-charities-in-first-4-months-301932762.html); [Ren Rapid Disbursement Engine release](https://prnewswire.com/news-releases/ren-debuts-rapid-disbursement-engine-expanding-philanthropic-services-to-meet-rapid-daf-growth-301999647.html); [TIFIN and Chariot partnership](https://tifin.com/news/tifin-and-chariot-partner-to-transform-grant-payments/19418/); [Chariot partner profile: Daffy](https://www.givechariot.com/resources/insights/getting-to-know-daffy-a-chariot-disbursements-partner); [Founders Pledge selects Chariot](https://www.givechariot.com/post/founders-pledge-selects-chariot-to-power-grant-payments); [Chariot llms.txt](https://www.givechariot.com/llms.txt); [Chariot partner profile: Charityvest](https://www.givechariot.com/resources/insights/getting-to-know-charityvest-a-new-chariot-disbursements-partner)).
-- The only observed switch is Charityvest moving from PayPal to Chariot ([Chariot partner profile: Charityvest](https://www.givechariot.com/resources/insights/getting-to-know-charityvest-a-new-chariot-disbursements-partner); repo [`company-timeline-events.csv`](../data/mission-2026-11-14/company-timeline-events.csv)).
-- About 67% of Fidelity grants already go by EFT ([Chariot on Fidelity's 2026 Giving Report](https://www.givechariot.com/resources/insights/top-8-takeaways-from-fidelity-charitables-2026-giving-report)). No electronic-only mandate is confirmed ([Fidelity Charitable nonprofit FAQ](https://www.fidelitycharitable.org/nonprofits/faqs.html)).
+Four camps exist: Fidelity's own EFT/Stripe, PayPal Grant Payments (NPT, Vanguard), Ren's Rapid Disbursement Engine, and Chariot Disbursements (TIFIN/GiveClear, Daffy, Founders Pledge, Groundswell, Charityvest transitioning from Aug 2026) ([Fidelity Charitable nonprofit FAQ](https://www.fidelitycharitable.org/nonprofits/faqs.html); [PayPal Grant Payments launch](https://newsroom.paypal-corp.com/2022-08-25-PayPal-Launches-Grant-Payments,-Enabling-Charities-to-Quickly-Receive-Funds-from-Grantmakers); [Vanguard Charitable PayPal electronic granting release](https://prnewswire.com/news-releases/vanguard-charitable-launches-electronic-granting-solution-surpassing-100-million-in-electronic-grants-to-more-than-400-charities-in-first-4-months-301932762.html); [Ren Rapid Disbursement Engine release](https://prnewswire.com/news-releases/ren-debuts-rapid-disbursement-engine-expanding-philanthropic-services-to-meet-rapid-daf-growth-301999647.html); [TIFIN and Chariot partnership](https://tifin.com/news/tifin-and-chariot-partner-to-transform-grant-payments/19418/); [Chariot partner profile: Daffy](https://www.givechariot.com/resources/insights/getting-to-know-daffy-a-chariot-disbursements-partner); [Founders Pledge selects Chariot](https://www.givechariot.com/post/founders-pledge-selects-chariot-to-power-grant-payments); [Chariot llms.txt](https://www.givechariot.com/llms.txt); [Chariot partner profile: Charityvest](https://www.givechariot.com/resources/insights/getting-to-know-charityvest-a-new-chariot-disbursements-partner)).
+- The only observed switch is Charityvest moving from PayPal to Chariot, still in transition: Chariot dates it from Aug 2026, while Charityvest's own charity guide still describes PayPal Grant Payments [V wave 6] ([Chariot partner profile: Charityvest](https://www.givechariot.com/resources/insights/getting-to-know-charityvest-a-new-chariot-disbursements-partner); repo [`company-timeline-events.csv`](../data/mission-2026-11-14/company-timeline-events.csv)).
+- Fidelity's 2026 Giving Report: "Today, 67% of our grants are distributed via EFT" ([Fidelity Charitable 2026 Giving Report PDF](https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2026-giving-report.pdf); also summarised in [Chariot on Fidelity's 2026 Giving Report](https://www.givechariot.com/resources/insights/top-8-takeaways-from-fidelity-charitables-2026-giving-report)) [V wave 4]. No electronic-only mandate is confirmed ([Fidelity Charitable nonprofit FAQ](https://www.fidelitycharitable.org/nonprofits/faqs.html)).
 
 ### 2.6 Eligibility data
 IRS BMF, Pub 78, revocation and OFAC data sit upstream of every disclosed eligibility check ([IRS EO BMF extract](https://www.irs.gov/charities-non-profits/exempt-organizations-business-master-file-extract-eo-bmf); [IRS TEOS bulk data downloads](https://www.irs.gov/charities-non-profits/tax-exempt-organization-search-bulk-data-downloads); [IRS Auto-Revocation List](https://www.irs.gov/autorevocationlist); [Chariot compliance help page](https://help.givechariot.com/onboarding/trust-and-safety/compliance); [Candid Charity Check FAQ](https://developer.candid.org/docs/faqs-charity-check); [RCF grantmaking due-diligence policy](https://renaissancecharitable.org/wp-content/uploads/2026/02/Grantmaking-Due-Diligence-Policy.pdf)).
@@ -119,7 +121,7 @@ Sources: [vendor graph](mission-2026-11-14/vendor-dependency-concentration.md); 
 **Revenue model.**
 - Sponsors charge tiered basis points on balances. Fidelity, DAFgiving360 and Charityvest start at 0.60% on the first $500k ([Fidelity Charitable fees](https://www.fidelitycharitable.org/giving-account/what-it-costs.html); [DAFgiving360 fees and minimums](https://www.dafgiving360.org/features/fees-and-minimums); [Charityvest fee guide](https://guide.charityvest.org/for-donors/fees-and-expenses)). RCF/Ren charges 0.65% with a $250 minimum ([RCF advisor-managed DAF fees](https://renaissancecharitable.org/advisor-managed-dafs/)). Bank of America charges 0.90% flat ([BofA CGF fee schedule](https://www.bankofamerica.com/content/documents/philanthropic/cgf_fee_schedule.pdf)). Daffy charges flat memberships of $0–40/month ([Daffy membership fees](https://help.daffy.org/en/articles/6323771-what-are-daffy-s-membership-fees); repo [`sponsor-fee-schedules.csv`](../data/mission-2026-11-14/sponsor-fee-schedules.csv)).
 - Investment expense ratios flow to affiliated managers at the nationals ([Fidelity Charitable FY2025 audited statements](https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/audited-financial-statements-2025-2024.pdf); [Vanguard Charitable FY2025 financial statements](https://www.vanguardcharitable.org/sites/default/files/2026-02/vanguard-charitable-2025-financial-statements.pdf)).
-- Adviser fees on DAF assets (for example OneGive's waivable 55 bps **[V]** ([OneAscent Form ADV Part 2A](https://files.adviserinfo.sec.gov/IAPD/Content/Common/crd_iapd_Brochure.aspx?BRCHR_VRSN_ID=1054956))) bind distribution.
+- Adviser fees on DAF assets (for example OneGive's waivable 55 bps **[V]** ([OneAscent Form ADV Part 2A](https://files.adviserinfo.sec.gov/IAPD/Content/Common/crd_iapd_Brochure.aspx?BRCHR_VRSN_ID=1054956))) bind distribution. Adviser fees are capped at 1.00% only at MS GIFT, DAFgiving360 and TIFIN Give; Fidelity CIAP, NPT, AEF and RCF publish no numeric cap, and observed RIA brochures charge 0–2.00% [V wave 11] (§11.4).
 
 **Incentive structure.** Analysis: [industry incentives](mission-2026-11-14/industry-incentives-structural-analysis.md), with [RT] corrections.
 
@@ -142,7 +144,7 @@ Sources: [vendor graph](mission-2026-11-14/vendor-dependency-concentration.md); 
 - Both raised effective prices as they moved upmarket ([Vennfi seed release ('zero fees')](https://www.newswire.com/news/this-startup-raised-3-7m-to-let-anyone-donate-stocks-and-etfs-with-a-21260863); [Physician on FIRE on Charityvest fees](https://www.physicianonfire.com/better-donor-advised-fund/); [Charityvest fee guide](https://guide.charityvest.org/for-donors/fees-and-expenses); [Daffy membership tier changes](https://help.daffy.org/en/articles/11730892-how-do-i-change-my-membership)). Incumbents removed minimums (2020) ([ThinkAdvisor on Fidelity minimums](https://www.thinkadvisor.com/2020/09/30/fidelity-charitable-ends-daf-account-minimums/); [Schwab Charitable minimums release](https://www.dafgiving360.org/press-releases/schwab-charitable-expands-access-and-options)).
 
 **Vendor economics.** Ren's corporate revenue, margins and customer concentration are not public ((source: repo inference — no primary URL)). The audited RCF payment is a named service fee, not Ren's ARR ([RCF FY2024 audited statements](https://renaissancecharitable.org/wp-content/uploads/2026/01/2024RCFAuditedFinancialStatements.pdf)). Ren's claims of ">60%", "about half" or "$200bn" of DAF assets are **unsupported** on public evidence: ([Ren homepage](https://www.reninc.com/); [Great Hill investment in Ren (Pulse 2.0)](https://pulse2.com/great-hill-partners-announces-strategic-growth-investment-in-donor-advised-fund-platform-ren/); [AEF/Ren release, Apr 2026](https://www.aefonline.org/thought-leadership/ren-brings-american-endowment-foundation-fully-onto-its-technology-platform-powering-philanthropy-at-scale/))
-- On public evidence, sponsors holding about **28%** of FY2024 DAF assets ($91.6bn of $327.9bn) use Ren technology in some form **[V wave 3]**. The full Form 990 harvest (all 1,512 sponsors) finds Ren/Stellar named by 30 sponsors holding $48.55bn (14.8%) in any FY2022–25 return, but only 18 sponsors holding $30.18bn (9.2%) in their latest return [V wave 5], and about 5% (RCF, MS GIFT) on Ren-paid administration. Nearly half of the 28% is NPT, evidenced by hosting (iPhi login redirect, shared Ren load balancer, Ren-hosted "NPT iPhi Statuspage") rather than a disclosed contract ([MS GIFT 990 via GivingTuesday mirror; Goldman PWM portal gspf.goldman.com; NPT GivingPoint](mission-2026-11-14/validation-wave3-report.md)). Ren's "60%+"/"about half" claims remain unreachable without Fidelity Charitable, DAFgiving360 or Vanguard Charitable, none of which shows a Ren vendor; Vanguard chose Give Interactive. (Earlier estimates: 8.7% → 9.0% → 28% after NPT and Goldman evidence.) of assets ([DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`validation-register-wave2b.csv`](../data/mission-2026-11-14/validation-register-wave2b.csv)) <!-- CITE-CHECK RESOLVED 2026-11-14 (text corrected): Validator V2B-05 recomputed $29.65bn = 9.04% for RCF, AEF, MS GIFT and BofA from DAFRC FY2024 (all imputed); the 8.7% ($28.5bn) figure was only partially confirmed. Not changed. -->.
+- On public evidence, sponsors holding about **28%** of FY2024 DAF assets ($91.6bn of $327.9bn) use Ren technology in some form **[V wave 3]**. The full Form 990 harvest (all 1,512 sponsors) finds Ren/Stellar named by 30 sponsors holding $48.55bn (14.8%) in any FY2022–25 return, but only 18 sponsors holding $30.18bn (9.2%) in their latest return [V wave 5], and about 5% (RCF, MS GIFT) on Ren-paid administration. Nearly half of the 28% is NPT, evidenced by hosting (iPhi login redirect, shared Ren load balancer, Ren-hosted "NPT iPhi Statuspage") rather than a disclosed contract ([MS GIFT 990 via GivingTuesday mirror; Goldman PWM portal gspf.goldman.com; NPT GivingPoint](mission-2026-11-14/validation-wave3-report.md)). Ren's "60%+"/"about half" claims remain unreachable without Fidelity Charitable, DAFgiving360 or Vanguard Charitable, none of which shows a Ren vendor; Vanguard chose Give Interactive. (Earlier estimates: 8.7% → 9.0% → 28% of assets after NPT and Goldman evidence.) ([DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`validation-register-wave2b.csv`](../data/mission-2026-11-14/validation-register-wave2b.csv)) <!-- CITE-CHECK RESOLVED 2026-11-14 (text corrected): Validator V2B-05 recomputed $29.65bn = 9.04% for RCF, AEF, MS GIFT and BofA from DAFRC FY2024 (all imputed); the 8.7% ($28.5bn) figure was only partially confirmed. Not changed. -->.
 - The "$200bn" figure includes non-DAF assets ([AEF/Ren release, Apr 2026](https://www.aefonline.org/thought-leadership/ren-brings-american-endowment-foundation-fully-onto-its-technology-platform-powering-philanthropy-at-scale/)).
 - The arithmetic ceiling outside the four largest sponsors is about 48% **[RT]** ([Fidelity Charitable FY2025 audited statements](https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/audited-financial-statements-2025-2024.pdf); [Vanguard Charitable FY2025 financial statements](https://www.vanguardcharitable.org/sites/default/files/2026-02/vanguard-charitable-2025-financial-statements.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`validation-register-wave2b.csv`](../data/mission-2026-11-14/validation-register-wave2b.csv)).
 
@@ -237,7 +239,7 @@ From [entrant simulation](mission-2026-11-14/ai-native-entrant-simulation.md), r
 - **The cheapest probe:** Strategy 3, an AI-native operating layer over existing sponsors with exception-only routing under **deterministic sponsor rules** plus continuous eligibility monitoring.
   - **[RT]** It is a **conditional probe, not a recommendation.** At $120k/yr it needs about 76k–369k grants/yr per customer to break even, which most independent and community-foundation sponsors lack ([Charityvest 2025 results release](https://foundationsource.com/newsroom/press-releases/charityvest-reports-record-2025-charitable-giving-more-than-doubling-contributions-and-grants/); [Fidelity Charitable 2026 Giving Report](https://www.fidelitycharitable.org/insights/2026-giving-report.html); [Anthropic API pricing](https://platform.claude.com/docs/en/about-claude/pricing); [BLS compliance officers (May 2025)](https://www.bls.gov/ooh/business-and-financial/compliance-officers.htm); repo [`entry-strategy-comparison.csv`](../data/mission-2026-11-14/entry-strategy-comparison.csv); repo [`ai-process-economics.csv`](../data/mission-2026-11-14/ai-process-economics.csv); repo [`validation-register-wave2a.csv`](../data/mission-2026-11-14/validation-register-wave2a.csv)).
   - Its capital advantage is a headcount assumption: it needs about 42 customers for $5m ARR against 5 for a full platform ([Endaoment institutions page](https://endaoment.org/institutions); repo [`entry-strategy-comparison.csv`](../data/mission-2026-11-14/entry-strategy-comparison.csv); repo [`validation-register-wave2a.csv`](../data/mission-2026-11-14/validation-register-wave2a.csv)).
-- **Gating question:** do sponsor–vendor contracts grant API and data-export rights? ((source: repo inference — no primary URL))
+- **Gating question:** do sponsor–vendor contracts grant API and data-export rights? ((source: repo inference — no primary URL)) **Round-2 answer (partial):** public vendor templates allow batch export but not live integration, no top-10 sponsor publishes a donor-side export, and several sponsor terms bar credential sharing or automation (§11.4). Executed contracts remain unseen.
 
 ---
 
@@ -268,7 +270,7 @@ Model arithmetic, the DAFRC recomputation and 6 hand-checked derived metrics rep
 5. Fund-level payout by fee model.
 6. Final §4966/6033 guidance.
 
-See [synthesis §F](mission-2026-11-14/strategic-synthesis.md) and the [research queue](../data/mission-2026-11-14/research-priority-queue.csv).
+Round 2 partly answered items 2–4: Ren's footprint is measured several ways (§3), Give Interactive appears to be Vanguard Charitable's ledger only (§11.2), and public API and export terms are mapped (§11.4). Validation waves 3–12 are reported per wave and listed in §11. See [synthesis §F](mission-2026-11-14/strategic-synthesis.md) and the [research queue](../data/mission-2026-11-14/research-priority-queue.csv).
 
 ---
 
@@ -352,11 +354,11 @@ Caveat: both scoring passes were run by one agent, so independence is weaker tha
 
 **What the quadrants show.**
 - **Most providers sit near the midlines.** Forward-capability evidence (data export, SOC scope, portability terms) is the scarcest input, so the uncertainty bands are wide.
-- **The bank-affiliated programs are opaque.** Goldman, Morgan Stanley GIFT and BofA CGF cannot be placed on public evidence.
+- **The bank-affiliated programs are opaque.** Under v1.0–v1.1, Goldman, Morgan Stanley GIFT and BofA CGF could not be placed on public evidence. The v1.2 update places MS GIFT and BofA CGF as Scale Operators; Goldman Sachs PF remains insufficient evidence.
 - **Large incumbents** (Fidelity, NPT, Vanguard, AEF) score high on execution and low on openness and portability.
 - **Challengers and infrastructure** (Daffy, Endaoment, Chariot) score higher on forward capability.
 
-**AI-governance overlay.**
+**AI-governance overlay (v1.0; superseded by the v1.1 overlay above, retained for history).**
 - **AMBER (high):** TIFIN Give's Louise. It acts on donor requests with no published controls, but GiveClear still approves every grant.
 - **AMBER:** Daffy. Its MCP server exposes a donation tool with no documented limits.
 - **Watch:** Benevity. Its AI auto-submits, and oversight is undocumented.
@@ -372,86 +374,236 @@ The open questions behind each are in the research queue (`P-QCAL-*`).
 
 ---
 
-## 11. Round-2 findings: failures, complaints, buyers, payments, contracts, mortality
+## 11. Round-2 findings: thematic consolidation (validated through wave 12)
 
-Each item links to its workstream. Every workstream carries inline primary-source citations, and corrections from validation wave 4 are appended to each as governing notes.
+This section consolidates the round-2 workstreams (failures, complaints, buyers, payments, contracts, mortality, vendors, ledgers, fees, credit, agentic controls). It was reorganised by theme on 2026-11-15. It replaces the earlier chronological, batch-by-batch list, which is preserved verbatim in [the pre-consolidation archive](mission-2026-11-14/archive/DAF-INDUSTRY-REPORT-2026-11.pre-consolidation.md).
 
-**Failed and retreated ventures** ([failed-daf-startups-deep-research.md](mission-2026-11-14/failed-daf-startups-deep-research.md); 50 cases)
-- Outcomes: 12 acquisitions, 11 voluntary shutdowns, 6 regulator or insolvency events, 5 pivots.
-- **Donor money was lost only where one operator held unsegregated funds:** Ammado, Flipcause and SDG Impact Fund.
-- Most DAF-tech exits are acquisitions by consolidators (Ren, Foundation Source, TIFIN).
-- Crypto-giving revenue is cyclical. Shift4 cut The Giving Block earnout liability by $47.1m [V].
-- Entrant rule: never hold donor funds, disclaim title to donations in transit, and check processor reserve terms.
+- **Traceability.** Each item links its workstream, and every workstream carries inline primary-source citations.
+- **Corrections.** Validation waves 4–12 appended governing corrections to each workstream. Where a later wave corrected a figure, only the corrected figure appears here. Superseded figures and their replacements are listed in the [consolidation changelog](mission-2026-11-14/consolidation-changelog.md).
+- **Validation reports:** [wave 8](mission-2026-11-14/validation-wave8-report.md) (batch 23), [wave 9](mission-2026-11-14/validation-wave9-report.md) (batch 24), [wave 10](mission-2026-11-14/validation-wave10-report.md) (batch 25), [wave 11](mission-2026-11-14/validation-wave11-report.md) (batch 26), [wave 12](mission-2026-11-14/validation-wave12-report.md) (batch 27). Earlier waves (3–7) are linked from the workstreams they corrected.
 
-**User complaints** ([daf-user-complaints-deep-research.md](mission-2026-11-14/daf-user-complaints-deep-research.md); 244 records)
-- Top themes: app login and crash failures (mostly the Fidelity Charitable app, 2012–2026), grant delays (nonprofits), sponsor discretion (the 2026 SPLC holds; letter from 16 AGs [V]) and gift-receipt friction.
-- Of complaint and mixed records, 117 are fixable and 47 structural. All critical records are structural.
-- Every donor lawsuit found failed or is pending (Fairbairn lost after a bench trial [V]).
-- Counts lack customer-base denominators, and Reddit was inaccessible.
+### 11.1 Market structure and data quality
 
-**Who is interested in DAF organizations** ([firms-interested-in-daf-organizations.md](mission-2026-11-14/firms-interested-in-daf-organizations.md); 89 firms)
-- Revealed interest comes from private-equity incumbents (GTCR; Bain, majority in 2023 and a significant shareholder after 2025 [V]; Great Hill) and wealth platforms (SEI, LPL, AssetMark, Envestnet).
-- Vanguard signed to acquire Altruist (not closed). Altruist launched DAFs sponsored by Endaoment 41 days later [V].
-- Platforms sign white-label deals rather than buy DAF vendors, and common PE ownership has not forced vendor alignment.
-- Sponsors themselves cannot be acquired. They merge or affiliate under charity law.
+**Sponsor cost structure from Form 990** ([sponsor-cost-structure-and-sensitivities.md](mission-2026-11-14/sponsor-cost-structure-and-sensitivities.md); 5,272 returns, full Part IX)
+- **DAF-allocated operating cost (latest 990s, fiscal years ending Jun 2024/25)** is about $2.1–2.8bn, or 67–89 bps of DAF assets depending on allocation. Excluded: investment fees and university/hospital foundations.
+- **By sponsor type:** standard nationals run at about 25–32 bps and community foundations at about 127–177 bps.
+- **Cost per grant:** Fidelity about $68, DAFgiving360 $55, Vanguard $134, NPT $419 [V wave 5]. Fidelity's figure includes its charitable-investment-advisor program and taxes; without them it is about $59, and against a period-matched grant count it is about $71 (wave-5 governing note).
+- **Scale economies are strong:** cost elasticity to scale is 0.41 for nationals and 0.84 for community foundations.
 
-**Payments** ([queue-payment-rails-cluster.md](mission-2026-11-14/queue-payment-rails-cluster.md); [nonprofit costs](mission-2026-11-14/queue-infrastructure-nonprofit-costs-emerging.md))
-- Fidelity's EFT-only policy is **not in effect**. Its 2026 Giving Report states 67% of grants go by EFT [V], and unenrolled charities still receive checks.
-- No sponsor publishes a grant-timing SLA. Checks are voided or returned at 90 days.
-- Nonprofit cost per $1,000 grant: about $1–2 on free EFT rails, about $5–8 by check, about $32 on DAFpay at its 2.9% default.
-- DAF Direct is a Fidelity-run recommendation router for three sponsors; no funds flow through it. Givinga is a single-sponsor platform whose account counts are unstable.
+**Sensitivity of the market statistics** (same workstream)
+- Excluding Givinga drops the processor share of accounts from about 80% to about 59–67%.
+- FY2022 account growth flips from +72% to −7%.
+- Givinga's account unit is undefined [V wave 5]. In CY2022 its largest fundraiser was a charity sweepstakes operator, so game or app-user records are one candidate explanation and employer-provisioned employee accounts are another. Neither is confirmed, and the count fell in 2023 and rose by 465k in 2024 with no named fundraiser.
+- Recommendation: exclude SDG Impact Fund from market totals and footnote it.
+- Corrected FY2024 totals ($323.27bn) are in §1.
 
-**Contracts, data rights and agent controls** ([queue-contract-data-rights-agent-controls.md](mission-2026-11-14/queue-contract-data-rights-agent-controls.md))
-- Sponsors own their data, but no incumbent public template grants API access.
-- NPact §2.4 (Aug 2025) bars third-party transaction access [V]. iPhi allows a 15-day export window [V].
-- So an entrant can reach batch exports without vendor consent, but **not live integration**.
-- Daffy's MCP documents no spend limits [V], and TIFIN publishes no Louise controls. Endaoment and Chariot show better patterns.
+**Payout net of DAF-to-DAF transfers** ([queue-net-payout-fidelity-outliers.md](mission-2026-11-14/queue-net-payout-fidelity-outliers.md); `scripts/mission_net_payout.py`) [V wave 11]
+- Scope: FY2021–24 pooled, sponsors with itemised Schedule I, excluding processors (n = 3,373 sponsor-years).
+- Gross payout is 23.9%. Net payout is 21.5%, 20.8% or 19.0%, depending on how widely sponsor-to-sponsor transfers are defined.
+- Nationals fall from 23.8% gross to 20.9% net.
+- 12.1% of national sponsors' DAF grants go to other national sponsors.
 
-**Assurance** ([queue-assurance-everyorg-givinga-monitoring.md](mission-2026-11-14/queue-assurance-everyorg-givinga-monitoring.md))
-- None of 13 vendors publishes a SOC report with period and system scope.
-- Ren's statements alternate between Type 2 and Type 1.
-- A dated terms monitor (`scripts/mission_terms_monitor.py`) now snapshots 18 vendor and sponsor terms for change tracking.
-
-**Sponsor mortality** ([sponsor-mortality-analysis.md](mission-2026-11-14/sponsor-mortality-analysis.md))
-- Verified exit rate is 0.19–1.48% a year by count and about 0.2% by assets, recomputed exactly [V].
-- In every confirmed closure, assets moved to another sponsor.
-- DAFRC marks some still-active sponsors as closed (Donors Fund, amended FY2024 990: 6,290 DAFs, $315.8m [V]).
+**Large sponsor-to-sponsor flows** ([queue-vendor-channel-moves.md](mission-2026-11-14/queue-vendor-channel-moves.md))
+- DAFgiving360's $976.6m FY2025 grant line to Fidelity Charitable cannot be attributed from public data, because Fidelity's Schedule B is redacted. A few very large account moves is the best reading (inference).
+- Fidelity's CY2025 outlier grants and post-SPLC flows are in §11.8.
 
 **Analyst and education coverage** ([analyst-and-education-landscape.md](mission-2026-11-14/analyst-and-education-landscape.md))
 - No analyst firm covers DAF platforms: no Gartner MQ or Hype Cycle, no Forrester Wave, and no coverage from IDC, Celent or Datos.
 - Curricula, including the new DAFCP credential, repeat the aggregate 25.2% payout framing.
 - New adviser data: 35% of advisers recommend DAFs most or all of the time (DAFRC 2026, n=669) [V].
 
-**Sponsor cost structure from Form 990** ([sponsor-cost-structure-and-sensitivities.md](mission-2026-11-14/sponsor-cost-structure-and-sensitivities.md); 5,272 returns, full Part IX)
-- **DAF-allocated operating cost (latest 990s, fiscal years ending Jun 2024/25)** is about $2.1–2.8bn, or 67–89 bps of DAF assets depending on allocation. Excluded: investment fees and university/hospital foundations.
-- **By sponsor type:** standard nationals run at about 25–32 bps and community foundations at about 127–177 bps.
-- **Cost per grant:** Fidelity about $68, DAFgiving360 $55, Vanguard $134, NPT $419.
-- **Scale economies are strong:** cost elasticity to scale is 0.41 for nationals and 0.84 for community foundations.
-- **What this does to the AI-economics model:**
-  - It refutes the "technology expense undisclosed" premise and the assumption that cost grows linearly with grant volume.
-  - It confirms the base labour pool, which is about 6–8% of observed cost per grant.
-  - It confirms that a $150k–$750k standalone AI build is prohibitive for most community foundations (median IT spend is $17k–$116k).
-- **Sensitivity of the market statistics:**
-  - Excluding Givinga drops the processor share of accounts from about 80% to about 59–67%.
-  - FY2022 account growth flips from +72% to −7%.
-  - Givinga's account unit is undefined [V wave 5]. In CY2022 its largest fundraiser was a charity sweepstakes operator, so game or app-user records are one candidate explanation and employer-provisioned employee accounts are another. Neither is confirmed, and the count fell in 2023 and rose by 465k in 2024 with no named fundraiser.
-  - Recommendation: exclude SDG Impact Fund from market totals and footnote it.
+### 11.2 Vendors and platform shifts
 
-**Agentic donation controls and sponsor audits** ([queue-agentic-controls-and-sponsor-audits.md](mission-2026-11-14/queue-agentic-controls-and-sponsor-audits.md))
+**Ren footprint and scope** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); share figures in §1 and §3)
+- Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
+- Headline shares: about 28% of FY2024 DAF assets on Ren technology in some form; 9.2% at sponsors naming Ren/Stellar in their latest 990 (14.8% in any FY2022–25 return); about 5% on Ren-paid administration.
+
+**NPT GivingPoint is a Ren white-label book** ([queue-npt-givingpoint-fidelity-stack.md](mission-2026-11-14/queue-npt-givingpoint-fidelity-stack.md)) [V wave 12]
+- 13 live program sites run on the same Ren build and carry NPT or NPT UK sponsor text: J.P. Morgan Charitable Gift Fund, UBS, BMO, Glenmede, Tolleson, Pitcairn, NPT UK, NPT Transatlantic, Rathbones, Cazenove Capital and others.
+- Eight sit on Ren's load balancer. The rest are on an AWS Global Accelerator pair, attributed to Ren by inference.
+- NPT's payment to Ren is undisclosed. No Ren, Stellar or iPhi payee appears, and the fee most likely sits in the $5.87m IT line (+$2.22m).
+- Ren is NPT's technology and hosting vendor, not its administrator.
+- NPT, J.P. Morgan and ICGF iPhi hosts now redirect to Ren-hosted GivingPoint sites naming NPT as sponsor ([queue-ren-iphi-attrition.md](mission-2026-11-14/queue-ren-iphi-attrition.md)) [V wave 11].
+
+**Ren iPhi attrition, 2023–Nov 2026** ([queue-ren-iphi-attrition.md](mission-2026-11-14/queue-ren-iphi-attrition.md); `scripts/mission_ren_iphi_attrition.py`) [V wave 11]
+- 6 of 57 sponsors left, or 10.5% (Wilson interval 4.9–21.1%). The strict rate is 8.8%, because Gulf Coast's move is still "launching soon".
+- Exits are concentrated May 2025–Jun 2026.
+- Community foundations are hit hardest: 5 of 28 left.
+- Destinations: Foundant 4, akoyaGO 1, Give Interactive 1.
+- Separately, the migration census found that Ren iPhi lost 4 of 8 flagged foundations in 2025–26 [V wave 10].
+
+**Community-foundation vendor switches all end on Foundant** ([queue-bdc-coverage-migrations-goodstack.md](mission-2026-11-14/queue-bdc-coverage-migrations-goodstack.md)) [V wave 10]
+- From Ren iPhi: Arkansas (instructions emailed 2026-06-01), Flint (about 2026, weakly dated), Acadiana (2025).
+- From Blackbaud: Winston-Salem (2024).
+- From donor-portal.org: Indian River (2023).
+
+**Give Interactive: a third white-label stack, owned by a sponsor's trust** ([Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
+- The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.
+- Two Ren clients have completed migrations to it (WaterStone, The Signatry). About $5.9bn of Ren-paying assets are at risk.
+- Give Interactive has no live community-foundation portals ([queue-cf-vendor-map.md](mission-2026-11-14/queue-cf-vendor-map.md)).
+- At Chicago Community Trust, GiftingNetwork was the documented front end by Feb 2024, before Give's CCT production host (Jun 2025). The Dec 2025 portal refresh fits continued GiftingNetwork incumbency; Give's role at CCT remains unclear ([queue-vendor-channel-moves.md](mission-2026-11-14/queue-vendor-channel-moves.md), wave-6 governing note).
+
+**Fidelity Charitable stack** ([queue-npt-givingpoint-fidelity-stack.md](mission-2026-11-14/queue-npt-givingpoint-fidelity-stack.md)) [V wave 12]
+- FMR provides record-keeping, systems and administration. The 990 shows $0 IT and no employees, and there is no Ren marker.
+
+**Community-foundation portal vendors (803 foundations)** ([queue-cf-vendor-map.md](mission-2026-11-14/queue-cf-vendor-map.md); `scripts/mission_cf_vendor_map.py`) [V wave 9]
+- Coverage: 481 of 803 foundations mapped, holding 90.5% of community-foundation DAF assets. A 15-row spot-check found 0/15 vendor errors.
+- By count: Foundant CommunitySuite runs 361 foundations (45%).
+- By assets: Foundant holds 32.7%, Salesforce 23.7% (19 foundations), GiftingNetwork 11.5% (2) and Ren/Stellar iPhi 5.9% (22).
+- Three foundations migrated from Stellar to Foundant (likely 2025–26).
+- Portal does not equal ledger: about 43% of mapped assets sit behind portal-only front ends.
+
+Donor-portal vendors at the top 40 by FY2024 DAF assets ([queue-community-foundation-rails-portals.md](mission-2026-11-14/queue-community-foundation-rails-portals.md)) [V wave 7]:
+
+| Portal vendor | Foundations |
+|---|---|
+| Foundant CommunitySuite | 13 |
+| Salesforce | 6 |
+| Ren/Stellar iPhi | 5 |
+| NPact (Foundation Cloud on spectrumportal.net; NPact attribution from third-party sources) | 3 |
+| GiftingNetwork | 2 (CCT, FFTC) |
+| One each: DonorSphere, Blackbaud NetCommunity, SmartSimple, Akoya, Power Pages | 5 |
+
+**Channel moves** ([queue-vendor-channel-moves.md](mission-2026-11-14/queue-vendor-channel-moves.md))
+- The Commonwealth Charitable Fund is unchanged on LPL's conversion day. Its circular confirms RCF as sponsor and RenPSG as administrator [V].
+- Foundation for the Carolinas and Chicago Community Trust run "Powered by GiftingNetwork" portals [V].
+
+**Ledgers behind the portals**
+- **Named ledgers at portal-only foundations** ([queue-ledgers-behind-portals.md](mission-2026-11-14/queue-ledgers-behind-portals.md)) [V wave 10]: named for only 3 of the 29 portal-only community foundations. These are Sage Intacct at CF Northeast Florida, Fund 360 on Salesforce at Maine CF (Accounting Seed underneath not confirmed for Maine), and GKCCF's own platform. Arizona CF moved from Blackbaud FIMS to Sage Intacct + Salesforce.
+- **Salesforce-centred ledger segment** ([queue-ledger-segment-npact-owner.md](mission-2026-11-14/queue-ledger-segment-npact-owner.md)) [V wave 12]:
+  - Named at 11 sponsors holding $3.5bn (Fund 360/Accounting Seed; Sage Intacct + Salesforce). A further $15.6bn possibly on NetSuite + Salesforce is low confidence.
+  - Moves off FIMS are confirmed at Arizona, Vermont and JCF San Diego.
+  - The NYCT and California CF ledger readings rest only on job-posting skills (weak).
+- **Other back-office facts** ([queue-ledgers-behind-portals.md](mission-2026-11-14/queue-ledgers-behind-portals.md)) [V wave 10]: donor-portal.org is run by GKCCF/Greater Horizons. Northeast Retirement Services is owned by Community Financial System.
+- **DonorSphere** ([queue-donor-export-cf-payments-donorsphere.md](mission-2026-11-14/queue-donor-export-cf-payments-donorsphere.md)) [V wave 8]: built by FidTech Partners (Stamford, CT) and used by Greater Houston CF, Hawaii CF, FJC and the Jewish Federation of Greater Pittsburgh.
+- **NPact ownership** ([queue-adviser-fees-pools-npact.md](mission-2026-11-14/queue-adviser-fees-pools-npact.md) [V wave 11]; [queue-ledger-segment-npact-owner.md](mission-2026-11-14/queue-ledger-segment-npact-owner.md) [V wave 12]):
+  - NPact's SaaS terms name Fusion Laboratories as manufacturer [V wave 10].
+  - BroadWest bought Fusion Labs in Dec 2020, and the company was later renamed NPact.
+  - Fusion paid about $6.4m for FIMS/DonorCentral (2022).
+  - The current owner is unconfirmed; Cambria Group lists NPact as a portfolio company. BroadWest's Texas status is not active (right to transact not established), contrary to the agent's reading.
+
+**Assurance** ([queue-assurance-everyorg-givinga-monitoring.md](mission-2026-11-14/queue-assurance-everyorg-givinga-monitoring.md))
+- None of 13 vendors publishes a SOC report with period and system scope [V wave 5].
+- Ren's statements alternate between Type 2 and Type 1.
+
+### 11.3 Payments and nonprofit-side economics
+
+**Grant payment policy** ([queue-payment-rails-cluster.md](mission-2026-11-14/queue-payment-rails-cluster.md); [queue-nonprofit-side-panel.md](mission-2026-11-14/queue-nonprofit-side-panel.md))
+- Fidelity's EFT-only policy is **not in effect**. Its 2026 Giving Report states 67% of grants go by EFT [V], and unenrolled charities still receive checks.
+- No sponsor checked requires EFT today; Fidelity is "transitioning" to it [V wave 12].
+- No sponsor publishes a grant-timing SLA. Checks are voided or returned at 90 days.
+- NPT and Vanguard still use PayPal Grant Payments, and NPT does not pay by ACH [V wave 12].
+
+2026 EFT providers by sponsor ([queue-bank-programs-and-eft-providers.md](mission-2026-11-14/queue-bank-programs-and-eft-providers.md), with wave-6 corrections):
+
+| Rail | Sponsors |
+|---|---|
+| PayPal Grant Payments | NPT (up to $250k); Vanguard (up to $10m) |
+| Chariot | Daffy; TIFIN Give; Charityvest (transitioning from Aug 2026); seven community foundations |
+| Stripe plus own ACH | Fidelity |
+| Own or administrator ACH | AEF (via Ren), NCF, three community foundations |
+| Check only | BofA; DAFgiving360 (per its 2024 policies) |
+
+Grant-payment rails at the top 30 community foundations ([queue-community-foundation-rails-portals.md](mission-2026-11-14/queue-community-foundation-rails-portals.md)) [V wave 7]:
+
+| Rail | Foundations |
+|---|---|
+| Own ACH, no provider named | 10 (Seattle makes ACH mandatory from 2026-06-30) |
+| Named third party | 2: Chariot at Saint Paul & Minnesota; Bill.com at Greater Atlanta |
+| Checks only documented (DAF grants) | 2: Chicago Community Trust; New Hampshire, via Citizens Bank's Checkmint |
+| Nothing published | 15 |
+
+- None of the 30 uses PayPal Grant Payments or Ren ACH.
+- Outside the top 30, Greater Washington (#38) has used Blackbaud and REPAY (two separate firms) since Sept 2026 [V wave 7].
+- The community-foundation channel is fragmented and largely runs its own ACH, which leaves an open payments field without a dominant rail.
+
+**What nonprofits pay to receive DAF grants** ([queue-nonprofit-side-panel.md](mission-2026-11-14/queue-nonprofit-side-panel.md), 33 entities [V wave 12]; [queue-agentic-products-dafpay-fees.md](mission-2026-11-14/queue-agentic-products-dafpay-fees.md) [V wave 8])
+- Sponsors charge nonprofits $0 to receive grants. The exceptions are Benevity (2.99%, cap $500), DAFpay at default terms (2.9%) and ForGood (1.5%).
+- These are list prices only:
+  - DAFpay's 2.9% default is rounded to whole dollars. The rounding applies only where no platform agreement sets the fee, so about 4% on a $25 gift is the nonprofit's worst case.
+  - Platform add-ons run up to 4.85% (Bloomerang).
+  - DAF Direct and PayPal Giving Fund charge nonprofits $0 [V].
+- Grant minimums: $50 at Fidelity and DAFgiving360 (DAFgiving360 from a 2024 policy document), $250 at NPT and MS GIFT, $500 at Vanguard.
+- Nonprofit cost per $1,000 grant ([nonprofit costs](mission-2026-11-14/queue-infrastructure-nonprofit-costs-emerging.md)): about $1–2 on free EFT rails, about $5–8 by check, about $32 on DAFpay at its 2.9% default.
+
+**Payment intermediaries**
+- DAF Direct is a Fidelity-run recommendation router for three sponsors; no funds flow through it ([queue-payment-rails-cluster.md](mission-2026-11-14/queue-payment-rails-cluster.md)).
+- Givinga is a single-sponsor platform whose account counts are unstable.
+- **DAFpay access** ([queue-all-in-cost-dafpay-access.md](mission-2026-11-14/queue-all-in-cost-dafpay-access.md)) [V wave 10]: Chariot's default flow passes donor credentials through to the sponsor. Its credential-free method is named only for DAFgiving360 and Foundant-hosted community foundations. How it reaches Vanguard and NCF donors, whose terms bar this (§11.4), is not public.
+
+**Bank-program terms** ([queue-bank-programs-and-eft-providers.md](mission-2026-11-14/queue-bank-programs-and-eft-providers.md), with wave-6 corrections)
+
+| Sponsor | What the public terms show |
+|---|---|
+| MS GIFT | Donor Circular (Aug 2024) is public via its Ren DFX portal. Grants paid by mail or bank details; statements view-only; no outbound-transfer terms. |
+| BofA CGF | Check-only grants. Contributions (not grants) can be exported to Excel. Balances can go to another DAF only if BofA terminates the donor's advisory rights. |
+| Goldman Sachs PF | Circulars from 2008, 2012 and 2017 all state check payment. The live donor web runs on Ren iPhi. |
+| NCF | Says most grants go by its own "eGrants" electronic payment, on a Salesforce portal. Its site data still carries iPhi donor-web IDs, so a Ren back-office link cannot be ruled out. |
+
+### 11.4 Donor cost and portability
+
+**All-in annual cost at $250k with each sponsor's typical pool** ([queue-all-in-cost-dafpay-access.md](mission-2026-11-14/queue-all-in-cost-dafpay-access.md); `scripts/mission_all_in_cost.py`) [V wave 10]
+
+| Sponsor | All-in cost |
+|---|---|
+| Daffy | 0.26% |
+| Vanguard | 0.62% |
+| Fidelity | 1.15% |
+| DAFgiving360 | 1.25% |
+| NCF | 1.45% |
+| San Francisco Foundation | 2.13% |
+
+- Pool choice is as large a lever as sponsor choice. Fidelity's 60%-equity pool costs 0.55%; its index pool costs 0.015%.
+- Edward Jones's 0.70% program fee rests on help pages that now return 404, so it is low confidence.
+
+**Adviser fees: the largest, and often uncapped, cost layer** ([queue-all-in-cost-dafpay-access.md](mission-2026-11-14/queue-all-in-cost-dafpay-access.md); [queue-adviser-fees-pools-npact.md](mission-2026-11-14/queue-adviser-fees-pools-npact.md); `data/mission-2026-11-14/adviser-fees-observed-2026.csv`) [V waves 10–11]
+- Adviser fees are the largest cost layer in adviser-led programs.
+- MS GIFT, DAFgiving360 and TIFIN Give cap them at 1.00%. MS GIFT's cap excludes legacy pools and UMA manager fees.
+- Fidelity CIAP, NPT, AEF and RCF publish no numeric cap. Fidelity caps the fee only relative to the adviser firm's own standard schedule (wave-11 governing note). Observed RIA brochures charge 0–2.00%.
+- AEF's implied average adviser fee is 0.46%.
+- Vanguard Charitable has no adviser-managed option.
+- NPT's adviser-managed minimum is $500k for discretionary accounts and $2m for non-discretionary.
+
+**Donor data export: none at the top 10** ([queue-donor-export-cf-payments-donorsphere.md](mission-2026-11-14/queue-donor-export-cf-payments-donorsphere.md)) [V wave 8]
+- None of the 10 largest sponsors publishes a donor-side machine-readable export or a portability statement. This rests on public material only; logged-in features could not be checked.
+  - Fidelity: PDF only.
+  - Vanguard: view only.
+  - AEF: two years of grant history. Its live FAQ shows an "Export" button, but the instruction covers only a grants-paid list in legacy DonorCentral ([queue-sponsor-terms-data-clauses.md](mission-2026-11-14/queue-sponsor-terms-data-clauses.md)) [V wave 9].
+  - SVCF: its 2025 fund agreement bars automated collection for non-grantmaking purposes, and puts third-party portal access without SVCF approval at the advisor's risk, with an indemnity.
+- Greater Washington CF's CSV export shows that portability is technically trivial.
+
+**Sponsor terms restricting automation and credential sharing** ([queue-sponsor-terms-data-clauses.md](mission-2026-11-14/queue-sponsor-terms-data-clauses.md)) [V wave 9]
+- NCF's 2025 Program Agreement bans credential sharing with third-party services and scraping, and authorizes no third-party access.
+- Vanguard's User Agreement treats an outside service that uses the donor's login as an "Unauthorized Third Party". It permits the account holder's own aggregators; that this amounts to read-only, self-run aggregation is an inference.
+- NPT's 2026 terms ban robot harvesting and using site or user data to develop or operate any software, model or AI system.
+- Fidelity's licence only says Fidelity "may provide" an export (undated clause; no live feature found).
+- These terms conflict with credential-based rails (DAFpay) and with donor-side AI agents.
+
+**Vendor contract templates and data rights** ([queue-contract-data-rights-agent-controls.md](mission-2026-11-14/queue-contract-data-rights-agent-controls.md))
+- Sponsors own their data, but no incumbent public template grants API access.
+- NPact §2.4 (Aug 2025) bars third-party transaction access [V]. iPhi allows a 15-day export window [V]; this is Ren's published template, and executed customer terms may differ (wave-4 governing note).
+- So an entrant can reach batch exports without vendor consent, but **not live integration**.
+
+**Candid API licence (2026-09-14)** ([queue-sponsor-terms-data-clauses.md](mission-2026-11-14/queue-sponsor-terms-data-clauses.md)) [V wave 9]
+- On termination, licensees must stop all use of the data.
+- Data mining is barred for building a database, reselling or competing with Candid.
+- Charity Check draws on Pub78, the BMF, the IRB, revocations and the OFAC SDN list.
+
+### 11.5 AI and agentic controls
+
+**Agentic giving products** ([queue-agentic-products-dafpay-fees.md](mission-2026-11-14/queue-agentic-products-dafpay-fees.md)) [V wave 8]
+- None of 21 agentic giving products (2024–26) has independent outcome evidence, and no product touches sponsor approval.
+
+**Agentic donation controls** ([queue-agentic-controls-and-sponsor-audits.md](mission-2026-11-14/queue-agentic-controls-and-sponsor-audits.md); [queue-contract-data-rights-agent-controls.md](mission-2026-11-14/queue-contract-data-rights-agent-controls.md))
 
 No public contract at Daffy, TIFIN Give/GiveClear, Endaoment or Chariot treats an AI agent as a distinct actor. All four allocate the loss from erroneous actions to the donor or customer.
 
 | Provider | Agent-initiated donation controls |
 |---|---|
-| Daffy | Sponsor approval before payment is the binding control. Its member agreement predates its MCP server and does not identify which agent acted. |
-| TIFIN Give / GiveClear | Louise has 8 of 10 controls undocumented. |
+| Daffy | Sponsor approval before payment is the binding control. Its member agreement predates its MCP server and does not identify which agent acted. Its MCP documents no spend limits [V]. |
+| TIFIN Give / GiveClear | Louise has 8 of 10 controls undocumented; TIFIN publishes no Louise controls. |
 | Endaoment | The partner grant call needs only the partner's API key, and no review step is documented for that path. |
 | Chariot | Best pattern: a Chariot-hosted confirmation step with sponsor review preserved. It has no human-vs-agent field. |
-
-**Sponsor audits.**
-- Read: Fidelity, Vanguard (FY2026), RCF, NCF and Charityvest. All have unmodified opinions, none has a going-concern paragraph, and none references a SOC report.
-- Available on request only: Daffy and AEF.
-- Not public or not reachable: GS PF, MS GIFT and BofA CGF post nothing, and NPT posts summaries only.
 
 **AI economics v2 on observed costs** ([ai-economics-v2-observed-costs.md](mission-2026-11-14/ai-economics-v2-observed-costs.md); `scripts/mission_ai_economics_v2.py`, seeded Monte Carlo with 10,000 draws)
 
@@ -468,33 +620,27 @@ What changes:
 - A shared AI platform breaks even in 43% of draws with the five largest nationals in the network, and in 0.4% with community foundations under $250m alone.
 - A $120k/yr AI product cannot be funded from process savings below about $1bn of DAF assets. The economic buyer is an administrator or platform vendor, not an individual sponsor.
 
-**Bank-program terms and EFT providers** ([queue-bank-programs-and-eft-providers.md](mission-2026-11-14/queue-bank-programs-and-eft-providers.md), with wave-6 corrections)
+What the cost-structure data does to the v1 model ([sponsor-cost-structure-and-sensitivities.md](mission-2026-11-14/sponsor-cost-structure-and-sensitivities.md)):
+- It refutes the "technology expense undisclosed" premise and the assumption that cost grows linearly with grant volume.
+- It confirms the base labour pool, which is about 6–8% of observed cost per grant.
+- It confirms that a $150k–$750k standalone AI build is prohibitive for most community foundations (median IT spend is $17k–$116k).
 
-| Sponsor | What the public terms show |
-|---|---|
-| MS GIFT | Donor Circular (Aug 2024) is public via its Ren DFX portal. Grants paid by mail or bank details; statements view-only; no outbound-transfer terms. |
-| BofA CGF | Check-only grants. Contributions (not grants) can be exported to Excel. Balances can go to another DAF only if BofA terminates the donor's advisory rights. |
-| Goldman Sachs PF | Circulars from 2008, 2012 and 2017 all state check payment. The live donor web runs on Ren iPhi. |
-| NCF | Says most grants go by its own "eGrants" electronic payment, on a Salesforce portal. Its site data still carries iPhi donor-web IDs, so a Ren back-office link cannot be ruled out. |
+**Labour rates** ([queue-pe-lenders-labour-rates.md](mission-2026-11-14/queue-pe-lenders-labour-rates.md)) [V wave 8]: the Form 990 median loaded rate is $38.87/h across 898 sponsors. It is $57–73/h at $250m+ sponsors and $86/h at DAFgiving360.
 
-2026 EFT providers by sponsor:
+### 11.6 Capital markets: owners, lenders, buyers, failures and sponsor mortality
 
-| Rail | Sponsors |
-|---|---|
-| PayPal Grant Payments | NPT (up to $250k); Vanguard (up to $10m) |
-| Chariot | Daffy; TIFIN Give; Charityvest (transitioning from Aug 2026); seven community foundations |
-| Stripe plus own ACH | Fidelity |
-| Own or administrator ACH | AEF (via Ren), NCF, three community foundations |
-| Check only | BofA; DAFgiving360 (per its 2024 policies) |
+**Who is interested in DAF organizations** ([firms-interested-in-daf-organizations.md](mission-2026-11-14/firms-interested-in-daf-organizations.md); 89 firms)
+- Revealed interest comes from private-equity incumbents (GTCR; Bain, majority in 2023 and a significant shareholder after 2025 [V]; Great Hill) and wealth platforms (SEI, LPL, AssetMark, Envestnet).
+- Vanguard signed to acquire Altruist (not closed). Altruist launched DAFs sponsored by Endaoment 41 days later [V].
+- Platforms sign white-label deals rather than buy DAF vendors, and common PE ownership has not forced vendor alignment.
+- Sponsors themselves cannot be acquired. They merge or affiliate under charity law.
 
-**Private equity across the DAF ecosystem** ([private-equity-daf-ecosystem-map.md](mission-2026-11-14/private-equity-daf-ecosystem-map.md); 120 ownership rows across ~60 companies)
+**Private equity across the DAF ecosystem** ([private-equity-daf-ecosystem-map.md](mission-2026-11-14/private-equity-daf-ecosystem-map.md); 120 ownership rows across ~60 companies; wave-7 and wave-8 corrections applied)
 
 The map adds about 40 investors beyond the earlier list, across three groups:
 - **Nonprofit-software investors:** JMI, Summit, Susquehanna, Fulcrum, FTV, Metamorph/ABS, LLR, Rubicon, Warburg (Bloomerang 2024).
 - **Benevity co-owners:** General Atlantic, TPG Rise, Generation.
 - **Wealth-platform owners:** Carlyle, Madison Dearborn, CD&R, Reverence, GIC, ICONIQ.
-
-Lenders found: Audax to Foundation Source (2020); Golub to Momentive and Orion; Ares, Blue Owl and Benefit Street to Envestnet. No lenders were found for Ren, Bonterra or Benevity.
 
 Portfolio adjacencies, where one owner holds a DAF asset alongside a distribution or software asset:
 - **Bain:** Ren, Envestnet and FreeWill.
@@ -510,150 +656,58 @@ Likely next deals (inference, medium confidence):
 - GTCR sells Foundation Source (2027–29).
 - TA/Genstar exit Orion.
 
-**Channel moves** ([queue-vendor-channel-moves.md](mission-2026-11-14/queue-vendor-channel-moves.md))
-- The Commonwealth Charitable Fund is unchanged on LPL's conversion day. Its circular confirms RCF as sponsor and RenPSG as administrator [V].
-- Foundation for the Carolinas and Chicago Community Trust run "Powered by GiftingNetwork" portals [V]. Give Interactive's role at CCT is unclear.
-- DAFgiving360's $976.6m FY2025 grant line to Fidelity Charitable cannot be attributed from public data, because Fidelity's Schedule B is redacted. A few very large account moves is the best reading (inference).
+**Lenders and BDC marks** ([queue-pe-lenders-labour-rates.md](mission-2026-11-14/queue-pe-lenders-labour-rates.md) [V wave 8]; [queue-bdc-fix-labour-benevity.md](mission-2026-11-14/queue-bdc-fix-labour-benevity.md) [V wave 9]; [queue-bdc-coverage-migrations-goodstack.md](mission-2026-11-14/queue-bdc-coverage-migrations-goodstack.md) [V wave 10])
+- **Foundation Source:** Audax remains its first-lien lender (S+5.00%, 2030, at par); Audax was already recorded as its lender in 2020 [V wave 8].
+- **Bonterra:** the Golub-led CyberGrants/Bonterra loan due 2027 was refinanced in 2025 into an S+4.75–5.00% loan due 2032. Golub marked the old 2027 loan at par at 2024-12-31 [V].
+- **Bonterra 2032 holders:** the fixed BDC parser finds 13 holders, marked 97.7–99.5% (KKR Enhanced Fund-L lowest at 97.71%, 2026-06-30). The BDC parser now dates each row by its own period [V wave 10].
+- **Momentive (Community Brands):** FS KKR marks it at 96.1% [V].
+- **Other lenders found:** Golub to Momentive and Orion; Ares, Blue Owl and Benefit Street to Envestnet.
+- **Not found:** no BDC lender for Ren or Benevity.
 
-**Community-foundation rails and portals (top 40 by FY2024 DAF assets)** ([queue-community-foundation-rails-portals.md](mission-2026-11-14/queue-community-foundation-rails-portals.md))
+**Failed and retreated ventures** ([failed-daf-startups-deep-research.md](mission-2026-11-14/failed-daf-startups-deep-research.md); 50 cases)
+- Outcomes: 12 acquisitions, 11 voluntary shutdowns, 6 regulator or insolvency events, 5 pivots.
+- **Donor money was lost only where one operator held unsegregated funds:** Ammado, Flipcause and SDG Impact Fund.
+- Most DAF-tech exits are acquisitions by consolidators (Ren, Foundation Source, TIFIN).
+- Crypto-giving revenue is cyclical. Shift4 cut The Giving Block earnout liability by $47.1m in FY2022 [V].
+- Entrant rule: never hold donor funds, disclaim title to donations in transit, and check processor reserve terms.
 
-Grant-payment rails at the top 30:
+**Sponsor mortality** ([sponsor-mortality-analysis.md](mission-2026-11-14/sponsor-mortality-analysis.md))
+- Verified exit rate is 0.19–1.48% a year by count and about 0.2% by assets, recomputed exactly [V].
+- In every confirmed closure, assets moved to another sponsor.
+- DAFRC marks some still-active sponsors as closed (Donors Fund, amended FY2024 990: 6,290 DAFs, $315.8m [V]).
 
-| Rail | Foundations |
-|---|---|
-| Own ACH, no provider named | 10 (Seattle makes ACH mandatory from 2026-06-30) |
-| Named third party | 2: Chariot at Saint Paul & Minnesota; Bill.com at Greater Atlanta |
-| Check only | 2: Chicago Community Trust; New Hampshire, via Citizens Bank's Checkmint |
-| Nothing published | 15 |
+**Sponsor audits** ([queue-agentic-controls-and-sponsor-audits.md](mission-2026-11-14/queue-agentic-controls-and-sponsor-audits.md))
+- Read: Fidelity, Vanguard (FY2026), RCF, NCF and Charityvest. All have unmodified opinions, none has a going-concern paragraph, and none references a SOC report.
+- Available on request only: Daffy and AEF.
+- Not public or not reachable: GS PF, MS GIFT and BofA CGF post nothing, and NPT posts summaries only.
 
-None of the 30 uses PayPal Grant Payments or Ren ACH. Outside the top 30, Greater Washington (#38) has used Blackbaud and REPAY (two separate firms) since Sept 2026 [V wave 7].
+### 11.7 Customer experience
 
-Donor-portal vendors at the top 40:
+**User complaints** ([daf-user-complaints-deep-research.md](mission-2026-11-14/daf-user-complaints-deep-research.md); 244 records)
+- Top themes: app login and crash failures (mostly the Fidelity Charitable app, 2012–2026), grant delays (nonprofits), sponsor discretion (the 2026 SPLC holds; letter from 16 AGs [V]) and gift-receipt friction.
+- Of complaint and mixed records, 117 are fixable and 47 structural. All critical records are structural.
+- Every donor lawsuit found failed or is pending (Fairbairn lost after a bench trial [V]).
+- Counts lack customer-base denominators, and Reddit was inaccessible.
 
-| Portal vendor | Foundations |
-|---|---|
-| Foundant CommunitySuite | 13 |
-| Salesforce | 6 |
-| Ren/Stellar iPhi | 5 |
-| NPact | 3 |
-| GiftingNetwork | 2 (CCT, FFTC) |
-| One each: DonorSphere, Blackbaud NetCommunity, SmartSimple, Akoya, Power Pages | 5 |
+Related customer-facing frictions are covered by theme: data export and credential terms (§11.4), grant minimums and payment rails (§11.3), and history loss in migrations (§4).
 
-The community-foundation channel is fragmented and largely runs its own ACH. That leaves an open payments field without a dominant rail.
+### 11.8 Monitoring and open questions
 
-**Donor data portability, agentic products, fees and credit (batch 23; validated in [wave 8](mission-2026-11-14/validation-wave8-report.md))**
-- **No donor export at the top 10.** None of the 10 largest sponsors publishes a donor-side machine-readable export or a portability statement ([queue-donor-export-cf-payments-donorsphere.md](mission-2026-11-14/queue-donor-export-cf-payments-donorsphere.md)) [V]:
-  - Fidelity: PDF only.
-  - Vanguard: view only.
-  - AEF: two years of grant history.
-  - SVCF: its 2025 fund agreement bars automated collection for non-grantmaking purposes.
+**Monitors in place**
+- A dated terms monitor (`scripts/mission_terms_monitor.py`) snapshots 18 vendor and sponsor terms for change tracking ([queue-assurance-everyorg-givinga-monitoring.md](mission-2026-11-14/queue-assurance-everyorg-givinga-monitoring.md)).
 
-  Greater Washington CF's CSV export shows that portability is technically trivial.
-- **No independent outcome evidence for agentic giving products.** None of 21 such products (2024–26) has any, and no product touches sponsor approval ([queue-agentic-products-dafpay-fees.md](mission-2026-11-14/queue-agentic-products-dafpay-fees.md)) [V].
-- **Nonprofit-side DAF fees are list prices only.**
-  - DAFpay is 2.9%, rounded to whole dollars.
-  - Platform add-ons run up to 4.85% (Bloomerang).
-  - DAF Direct and PayPal Giving Fund charge nonprofits $0 [V].
-- **Credit.** Detail: [queue-pe-lenders-labour-rates.md](mission-2026-11-14/queue-pe-lenders-labour-rates.md).
-  - Audax remains Foundation Source's first-lien lender (S+5.00%, 2030, at par) [V wave 8].
-  - The CyberGrants/Bonterra loan was refinanced in 2025 into an S+5.00% loan due 2032.
-  - FS KKR marks Momentive (Community Brands) at 96.1% [V].
-  - No BDC lender was found for Ren or Benevity.
-- **Labour rates.** The Form 990 median loaded rate is $38.87/h across 898 sponsors. It is $57–73/h at $250m+ sponsors and $86/h at DAFgiving360 [V].
-- **DonorSphere.** It is built by FidTech Partners (Stamford, CT) and used by Greater Houston CF, Hawaii CF, FJC and the Jewish Federation of Greater Pittsburgh [V].
+**Not yet measurable** ([queue-net-payout-fidelity-outliers.md](mission-2026-11-14/queue-net-payout-fidelity-outliers.md))
+- Fidelity's $727m of CY2025 outlier grants and the post-SPLC DAF-to-DAF flows will not be visible until the 2027–28 filings.
 
-**Sponsor terms, community-foundation vendor map, credit fix (batch 24; validated in [wave 9](mission-2026-11-14/validation-wave9-report.md))**
-- **Sponsor terms restricting automation and credential sharing** ([queue-sponsor-terms-data-clauses.md](mission-2026-11-14/queue-sponsor-terms-data-clauses.md)):
-  - NCF's 2025 Program Agreement bans credential sharing with third-party services and scraping, and authorizes no third-party access [V].
-  - Vanguard's User Agreement treats an outside service that uses the donor's login as an "Unauthorized Third Party" [V].
-  - NPT's 2026 terms ban robot harvesting and using its data to build AI tools [V].
-  - Fidelity's licence only says Fidelity "may provide" an export [V].
-
-  These terms conflict with credential-based rails (DAFpay) and with donor-side AI agents.
-- **Candid API licence (2026-09-14)** [V]:
-  - On termination, licensees must stop all use of the data.
-  - Data mining is barred for building a database, reselling or competing with Candid.
-  - Charity Check draws on Pub78, the BMF, the IRB, revocations and the OFAC SDN list.
-- **Community-foundation portal vendors** ([queue-cf-vendor-map.md](mission-2026-11-14/queue-cf-vendor-map.md); `scripts/mission_cf_vendor_map.py`):
-  - Coverage: 481 of 803 foundations mapped, holding 90.5% of community-foundation DAF assets. Spot-check vendor error was 0/15 [V].
-  - By count: Foundant CommunitySuite runs 361 foundations (45%).
-  - By assets: Foundant holds 32.7%, Salesforce 23.7% (19 foundations), GiftingNetwork 11.5% (2) and Ren/Stellar iPhi 5.9% (22).
-  - Give Interactive has no live community-foundation portals.
-  - Three foundations migrated from Stellar to Foundant (likely 2025–26).
-  - Portal does not equal ledger: about 43% of mapped assets sit behind portal-only front ends.
-- **Credit data fix (superseded by batch 25 below)** ([queue-bdc-fix-labour-benevity.md](mission-2026-11-14/queue-bdc-fix-labour-benevity.md)):
-  - The BDC parser now dates each row by its own period.
-  - The Bonterra 2032 loan is held at 98.2–99.5%. Five New Mountain funds are missed by the parser (queued).
-  - Audax holds Foundation Source's loans at par (Sept 2026).
-
-**All-in donor cost, ledgers, migrations, credit (batch 25; validated in [wave 10](mission-2026-11-14/validation-wave10-report.md))**
-- **All-in annual cost at $250k with each sponsor's typical pool** ([queue-all-in-cost-dafpay-access.md](mission-2026-11-14/queue-all-in-cost-dafpay-access.md); `scripts/mission_all_in_cost.py`) [V]:
-
-  | Sponsor | All-in cost |
-  |---|---|
-  | Daffy | 0.26% |
-  | Vanguard | 0.62% |
-  | Fidelity | 1.15% |
-  | DAFgiving360 | 1.25% |
-  | NCF | 1.45% |
-  | San Francisco Foundation | 2.13% |
-
-  - Pool choice is as large a lever as sponsor choice. Fidelity's 60%-equity pool costs 0.55%; its index pool costs 0.015%.
-  - Adviser fees are the largest cost layer in adviser-led programs. MS GIFT, DAFgiving360 and TIFIN Give cap them at 1.00%; MS GIFT's cap excludes legacy pools and UMA manager fees.
-  - Edward Jones's 0.70% program fee rests on help pages that now return 404, so it is low confidence.
-- **Ledgers behind portals** ([queue-ledgers-behind-portals.md](mission-2026-11-14/queue-ledgers-behind-portals.md)):
-  - Named for only 3 of the 29 portal-only community foundations: Sage Intacct at CF Northeast Florida, Fund 360 at Maine CF, and GKCCF's own platform. Arizona CF moved from Blackbaud FIMS to Sage Intacct + Salesforce [V].
-  - NPact's SaaS terms name Fusion Laboratories as manufacturer [V].
-  - donor-portal.org is run by GKCCF/Greater Horizons [V].
-  - Northeast Retirement Services is owned by Community Financial System [V].
-- **Community-foundation vendor switches all end on Foundant** ([queue-bdc-coverage-migrations-goodstack.md](mission-2026-11-14/queue-bdc-coverage-migrations-goodstack.md)):
-  - From Ren iPhi: Arkansas (instructions emailed 2026-06-01), Flint (about 2026, weakly dated), Acadiana (2025).
-  - From Blackbaud: Winston-Salem (2024).
-  - From donor-portal.org: Indian River (2023).
-  - Ren iPhi lost 4 of 8 flagged foundations in 2025–26 [V].
-- **DAFpay access.** Chariot's default flow passes donor credentials through to the sponsor. Its credential-free method is named only for DAFgiving360 and Foundant-hosted community foundations. How it reaches Vanguard and NCF donors, whose terms bar this, is not public [V].
-- **Credit.** The fixed BDC parser finds 13 holders of the Bonterra 2032 loan, marked 97.7–99.5% (KKR Enhanced Fund-L lowest at 97.71%, 2026-06-30). Golub marked the old 2027 loan at par at 2024-12-31 [V].
-
-**Ren attrition, net payout, adviser fees (batch 26; validated in [wave 11](mission-2026-11-14/validation-wave11-report.md))**
-- **Ren iPhi attrition, 2023–Nov 2026** ([queue-ren-iphi-attrition.md](mission-2026-11-14/queue-ren-iphi-attrition.md); `scripts/mission_ren_iphi_attrition.py`) [V]:
-  - 6 of 57 sponsors left, or 10.5% (Wilson interval 4.9–21.1%). The strict rate is 8.8%, because Gulf Coast's move is still "launching soon".
-  - Exits are concentrated May 2025–Jun 2026.
-  - Community foundations are hit hardest: 5 of 28 left.
-  - Destinations: Foundant 4, akoyaGO 1, Give Interactive 1.
-  - NPT, J.P. Morgan and ICGF iPhi hosts now redirect to Ren-hosted GivingPoint sites naming NPT as sponsor.
-- **Payout net of DAF-to-DAF transfers, FY2021–24 pooled, excluding processors** ([queue-net-payout-fidelity-outliers.md](mission-2026-11-14/queue-net-payout-fidelity-outliers.md); `scripts/mission_net_payout.py`; n = 3,373 sponsor-years) [V]:
-  - Gross payout is 23.9%. Net payout is 21.5%, 20.8% or 19.0%, depending on how widely sponsor-to-sponsor transfers are defined.
-  - Nationals fall from 23.8% gross to 20.9% net.
-  - 12.1% of national sponsors' DAF grants go to other national sponsors.
-- **Adviser fees** ([queue-adviser-fees-pools-npact.md](mission-2026-11-14/queue-adviser-fees-pools-npact.md)) [V]:
-  - Fidelity CIAP, NPT, AEF and RCF have no adviser-fee cap. Observed RIA brochures charge 0–2.00%.
-  - AEF's implied average adviser fee is 0.46%.
-  - Vanguard Charitable has no adviser-managed option.
-  - NPT's adviser-managed minimum is $500k for discretionary accounts and $2m for non-discretionary.
-- **NPact ownership.** BroadWest bought Fusion Labs in Dec 2020, and the company was later renamed NPact. Fusion paid about $6.4m for FIMS/DonorCentral (2022). The current owner is unconfirmed; there is a Cambria lead [V].
-- **Not yet measurable.** Fidelity's $727m of CY2025 outlier grants and the post-SPLC DAF-to-DAF flows will not be visible until the 2027–28 filings (monitoring).
-
-**GivingPoint, Fidelity stack, nonprofit-side panel, ledger segment (batch 27; validated in [wave 12](mission-2026-11-14/validation-wave12-report.md))**
-- **NPT GivingPoint white-label book** ([queue-npt-givingpoint-fidelity-stack.md](mission-2026-11-14/queue-npt-givingpoint-fidelity-stack.md)):
-  - 13 live program sites run on the same Ren build and carry NPT or NPT UK sponsor text: J.P. Morgan Charitable Gift Fund, UBS, BMO, Glenmede, Tolleson, Pitcairn, NPT UK, NPT Transatlantic, Rathbones, Cazenove Capital and others. Eight sit on Ren's load balancer; the rest are on an AWS Global Accelerator pair (inferred Ren) [V].
-  - NPT's payment to Ren is undisclosed. No Ren, Stellar or iPhi payee appears, and the fee most likely sits in the $5.87m IT line (+$2.22m) [V].
-  - Ren is NPT's technology and hosting vendor, not its administrator.
-- **Fidelity Charitable stack.** FMR provides record-keeping, systems and administration. The 990 shows $0 IT and no employees, and there is no Ren marker [V].
-- **Nonprofit-side panel** ([queue-nonprofit-side-panel.md](mission-2026-11-14/queue-nonprofit-side-panel.md); 33 entities) [V]:
-  - Sponsors charge nonprofits $0 to receive grants. The exceptions are Benevity (2.99%, cap $500), DAFpay at default terms (2.9%) and ForGood (1.5%).
-  - Grant minimums: $50 at Fidelity and DAFgiving360, $250 at NPT and MS GIFT, $500 at Vanguard.
-  - No sponsor requires EFT; Fidelity is "transitioning" to it.
-  - NPT and Vanguard still use PayPal Grant Payments, and NPT does not pay by ACH.
-- **Salesforce-centred ledgers** ([queue-ledger-segment-npact-owner.md](mission-2026-11-14/queue-ledger-segment-npact-owner.md)):
-  - Named at 11 sponsors holding $3.5bn (Fund 360/Accounting Seed; Sage Intacct + Salesforce). A further $15.6bn possibly on NetSuite + Salesforce is low confidence.
-  - Moves off FIMS are confirmed at Arizona, Vermont and JCF San Diego [V].
-  - The NYCT and California CF ledger readings rest only on job-posting skills (weak).
-  - NPact's current owner is unconfirmed. BroadWest's Texas status is not active, contrary to the agent's reading [V].
-
-**Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
-- Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
-- The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.
-- Two Ren clients have completed migrations (WaterStone, The Signatry). About $5.9bn of Ren-paying assets are at risk.
+**Open questions carried by the workstreams**
+- Gulf Coast's move off iPhi is still "launching soon" ([queue-ren-iphi-attrition.md](mission-2026-11-14/queue-ren-iphi-attrition.md)).
+- NPT's payment to Ren is undisclosed ([queue-npt-givingpoint-fidelity-stack.md](mission-2026-11-14/queue-npt-givingpoint-fidelity-stack.md)).
+- How DAFpay reaches donors whose sponsor terms bar credential sharing ([queue-all-in-cost-dafpay-access.md](mission-2026-11-14/queue-all-in-cost-dafpay-access.md)).
+- NPact's current owner ([queue-ledger-segment-npact-owner.md](mission-2026-11-14/queue-ledger-segment-npact-owner.md)).
+- The NYCT and California CF ledgers, which rest on job-posting skills only ([queue-ledger-segment-npact-owner.md](mission-2026-11-14/queue-ledger-segment-npact-owner.md)).
+- Givinga's account unit ([sponsor-cost-structure-and-sensitivities.md](mission-2026-11-14/sponsor-cost-structure-and-sensitivities.md)).
+- Edward Jones's program fee, whose help pages now return 404 ([queue-all-in-cost-dafpay-access.md](mission-2026-11-14/queue-all-in-cost-dafpay-access.md)).
+- Give Interactive's role at CCT ([queue-vendor-channel-moves.md](mission-2026-11-14/queue-vendor-channel-moves.md)).
 
 ---
 
@@ -790,8 +844,9 @@ Every external URL cited inline in this document, deduplicated, in order of firs
 - Daffy for Developers (May 2023): https://www.daffy.org/resources/daffy-for-developers
 - Charityvest 2025 results release (2026-02-11): https://foundationsource.com/newsroom/press-releases/charityvest-reports-record-2025-charitable-giving-more-than-doubling-contributions-and-grants/
 - Fidelity Charitable 2026 Giving Report (2026 (CY2025 data)): https://www.fidelitycharitable.org/insights/2026-giving-report.html
+- Fidelity Charitable 2026 Giving Report PDF (2026 (CY2025 data); first-party source per validation W4-14): https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2026-giving-report.pdf
 
 ## Validation corrections (wave 4, 2026-11-14) — governing
-Source: [validation-wave4-report.md](mission-2026-11-14/validation-wave4-report.md). Where these conflict with the text above, these govern.
+Source: [validation-wave4-report.md](mission-2026-11-14/validation-wave4-report.md). Where these conflict with the text above, these govern. **Applied in §2.5 during the 2026-11-15 consolidation** (see [consolidation changelog](mission-2026-11-14/consolidation-changelog.md)).
 
 - **W4-14** (research/DAF-INDUSTRY-REPORT-2026-11.md line 96): replace "About 67% of Fidelity grants already go by EFT ([Chariot …])" → cite first-party: "Fidelity's 2026 Giving Report: 'Today, 67% of our grants are distributed via EFT' ([PDF](https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2026-giving-report.pdf))"
