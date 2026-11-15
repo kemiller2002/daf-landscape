@@ -319,6 +319,12 @@ def activity_of(txt: str) -> str:
     return "grantmaking" if "GRANT" in up else "investments" if "INVEST" in up else "program_or_other" if up else "not_stated"
 
 
+def bool01(v) -> int | str:
+    """e-file booleans come as true/false or 1/0; blank when the item is absent."""
+    t = (v or "").strip().lower()
+    return 1 if t in ("1", "true", "x") else 0 if t in ("0", "false") else ""
+
+
 def amt(d: Mapping) -> float:
     return (num(d.get("CashGrantAmt")) or 0.0) + (num(d.get("NonCashAssistanceAmt")) or 0.0)
 
@@ -345,7 +351,7 @@ def sponsor_year(key: tuple, x: Mapping, ex: Mapping, panel: Mapping, rank: Mapp
             "sched_f_part2_501c3_cnt": num(sf.get("Total501c3OrgCnt")), "sched_f_part2_other_org_cnt": num(sf.get("TotalOtherOrgCnt")),
             "sched_f_part3_lines": len(ex.get("part3", ())), "sched_f_part3_usd": round(p3),
             "sched_f_part3_recipients": sum(num(g.get("RecipientCnt")) or 0 for g in ex.get("part3", ())),
-            **{f"p4_{k}": ix.get(k, "") for k in PART4_IND}, **{f"sf_{k}": sf.get(k, "") for k in SCHEDF_IND},
+            **{f"p4_{k}": bool01(ix.get(k)) for k in PART4_IND}, **{f"sf_{k}": bool01(sf.get(k)) for k in SCHEDF_IND},
             **flags_of(ex.get("part5", ())),
             "sched_i_gross_usd": round(si.get("gross", 0)), "sched_i_named_intermediary_usd": round(si.get("named", 0)),
             "sched_i_friends_of_usd": round(si.get("friends", 0)), "sched_i_ntee_q_usd": round(si.get("q", 0)),
@@ -619,7 +625,9 @@ def main(argv: Sequence[str] | None = None) -> int:
             "ngosource": sum(1 for r in sy_rows if r["ngosource_text"]),
             "intermediary_text": sum(1 for r in sy_rows if r["intermediary_text"]),
             "grant_records_maintained_false": [r["scope"][:30] + " " + r["fiscal_year"] for r in sy_rows
-                                               if r["sf_GrantRecordsMaintainedInd"] in ("false", "0")]},
+                                               if r["sf_GrantRecordsMaintainedInd"] == 0]},
+        "indicator_counts": {k: {"yes": sum(1 for r in sy_rows if r[k] == 1), "no": sum(1 for r in sy_rows if r[k] == 0)}
+                             for k in [f"p4_{x}" for x in PART4_IND] + [f"sf_{x}" for x in SCHEDF_IND]},
         "intermediary_totals": {fy: {"inbound": sum(r["amount_usd"] for r in rs),
                                      "est_pass_through": sum(r["est_foreign_pass_through_usd"] or 0 for r in rs)}
                                 for fy, rs in i_summ.items()},
