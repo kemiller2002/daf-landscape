@@ -263,3 +263,16 @@ Columns follow [`queue-proposals-README.md`](../../data/mission-2026-11-14/queue
 - **MS GIFT.** Values are OCR transcriptions. The extra fees for Other Grantee Organizations and recoverable grants are not published.
 - **BofA.** The fund-fee chart's first column header reads "Sustainable" in the text layer, while the guidelines describe active (SMA) and passive versions. This was not reconciled.
 - **Fidelity.** No logged-in check was made, so a CSV export behind login cannot be excluded. The aggregator evidence dates from 2023, and the 2026 status rests on a snippet.
+
+## Validation corrections (wave 15, 2026-11-15) — governing
+Source: [validation-wave15-report.md](validation-wave15-report.md); register `data/mission-2026-11-14/validation-register-wave15.csv`.
+
+1. **Line 94 (§2.4).** Replace "**Type E disclosure (316(d)(3)).**" with "**Type E disclosure (317(d)(3)(A)).**"
+2. **Line 95 (§2.4).** Replace "**Type E remittance (318(c)(1)).**" with "**Type E remittance (320(c)(1)).**" (§316 is "Good Standing of Charitable Organizations" and §318 is "Consent from Recipient Charitable Organizations" [V wave 15].)
+3. **Line 72 (§2.2, (C)).**
+   - Replace: "It applies only where the sponsor \"does not list or reference by name …\""
+   - With: "It applies only where the sponsor \"solicits donors to open donor-advised fund accounts or similar accounts, receives recommendations from donors …, and … does not list or reference by name one or more recipient charitable organizations for solicitation purposes on its platform for persons who do not have advisory privileges\" (the conditions are conjunctive)."
+4. **Line 78 (§2.2).**
+   - Replace: "**[I]** \"Consulting\" appears to correspond to Type E."
+   - With: "\"Consulting\" corresponds to Type E. The PL-1 instructions describe \"consulting charitable fundraising platforms that provide their fundraising platform software to charitable organizations, who can then solicit or receive donations through the platform\" [F]."
+5. **Line 79 (§2.2).** Append: "The AG page's replacement banner is now commented out in the page source. The page points filers to the Registry's Online Filing Service [V wave 15]."

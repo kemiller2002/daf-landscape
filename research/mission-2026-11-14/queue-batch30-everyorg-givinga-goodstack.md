@@ -287,3 +287,15 @@ One row per digital or vendor-linked DAF sponsor entity.
 
 - Columns and scales follow [queue-proposals-README.md](../../data/mission-2026-11-14/queue-proposals-README.md).
 - IDs are P-B30B-01..03.
+
+## Validation corrections (wave 15, 2026-11-15) — governing
+Source: [validation-wave15-report.md](validation-wave15-report.md); register `data/mission-2026-11-14/validation-register-wave15.csv`.
+
+1. **Line 33 (§0, P-QA3-07 cell), the bullet "The CY2024 990-PF shows deferred revenue of $544,382 [F]".**
+   - Replace with: "The CY2024 990-PF shows deferred revenue of $544,382 (BOY $514,058) [F]. This is a broader measure than audited customer deposits: at 2023-12-31 the 990-PF shows $514,058, while the audit shows $112,808."
+2. **Line 66 (§1.2 [I]).**
+   - Replace: "The stock of donor balances is small: $0.11m–$0.54m against $17m–$45m of annual grants [C]."
+   - With: "The stock of donor balances is small: audited customer deposits were $0.11m–$0.33m (2021–2023), against $17m–$45m of annual grants [C]. The 990-PF deferred revenue ($0.51m BOY, $0.54m EOY 2024) is not like-for-like with those deposits [V wave 15]."
+3. **Line 58 (§1.2 table, 2024 column).** Replace "n/a. Part II deferred revenue: **$544,382**" with "n/a. Part II deferred revenue: **$544,382** (BOY $514,058; not comparable with audited customer deposits)".
+4. **Line 103 (§2.1 Conclusion).** Append: "The original CY2024 return (202522379349301497, ReturnTs 2025-08-25) included Schedule D but no DAF Part I values. The amended return added them, which is consistent with DAFRC sourcing the figures outside its XML pipeline [V wave 15]."
+5. **Line 118 (§2.2, Janus Henderson row, "Who is the sponsor" cell).** Replace "**Givinga Foundation** [F]:" with "**Givinga Foundation** ([F] operating text; the sponsor role is read from it, since no JH page uses the word 'sponsor'):".

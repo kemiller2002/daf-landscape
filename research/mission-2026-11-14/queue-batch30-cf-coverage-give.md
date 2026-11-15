@@ -352,3 +352,16 @@ The file ends with a total row and a gap-to-$40bn row.
 ### `queue-proposals-batch30c.csv`
 
 Follows the format in `queue-proposals-README.md`: P-B30C-01 (verify the DNS candidates and blocked homepages), P-B30C-02 (GL behind Foundation Cloud tenants), P-B30C-03 (`nhf`/`jttw` and the $40B gap).
+
+## Validation corrections (wave 15, 2026-11-15) — governing
+Source: [validation-wave15-report.md](validation-wave15-report.md); register `data/mission-2026-11-14/validation-register-wave15.csv`.
+
+1. **Line 56 (§0, P-B29A-02).** Replace "CFES (high: FIMS → RE/FE NXT plus NPact tools, 2022–23)" with "CFES (high: FIMS → Blackbaud Raiser's Edge and Financial Edge, NXT generation inferred, plus NPact tools, 2022–23)".
+2. **Line 173 (§2 table).** Replace "| Portal over Blackbaud FE NXT | 3 | 1,140 | 48.4% | CFES (high), GWCF (medium), San Diego (low) |" with "| Portal over Blackbaud FE (NXT stated or inferred) | 3 | 1,140 | 48.4% | CFES (high; 'Financial Edge', NXT not stated), GWCF (medium), San Diego (low) |".
+3. **Line 58 (§0, P-GIV-07).**
+   - Replace: "**Give lost five CF tenants holding $4.79bn of DAF assets. Only EBCF is shown live on Give, and none returned to Ren/iPhi.**"
+   - With: "**Five CFs that held Give hosts ($4.79bn of DAF assets) did not stay on Give. Only one live loss is demonstrated: EBCF, $0.53bn. Omaha and FFTC had production-labelled hosts with no shown live use, Kalamazoo and San Diego were trials, and none returned to Ren/iPhi.**"
+4. **Line 229 (§4 Durability).** Replace "The five lapsed tenants ($4.79bn of DAF assets)" with "The five CFs with lapsed Give hosts ($4.79bn of sponsor DAF assets, not Give AUM)".
+5. **Line 208 (§3, gap bullet).** Append: "The gap compares FY2024 DAF assets with a 2025 claim, and it includes staging-only clients (Minneapolis, Thrivent, Stifel). Asset growth alone could close it [V wave 15]."
+6. **Line 160 (§1.6).** Replace "**Hand checks covered the top 20 plus Ventura.**" with "**Hand checks covered the top 20 plus Ventura, Savannah and the Pi Fund.**"
+7. **Line 114 (§1.3, Arizona row).** Append to Evidence: "Wave 15 could not re-read the sponsor page (403, and WebFetch returned nothing). The tenant `azfoundation.my.site.com` is confirmed to exist (it 301-redirects to `/s/`)."
