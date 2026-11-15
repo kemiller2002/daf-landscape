@@ -285,3 +285,14 @@ python3 scripts/mission_net_payout.py --irs-dir DIR --cache-dir CACHE --fetch --
 | S5 | [Fidelity Charitable 2025 Giving Report](https://fidelitycharitable.org/content/dam/fc-public/docs/insights/2025-giving-report.pdf) | $430m outlier; transfer-account exclusion |
 | S6 | Repo: [queue-state-filings-transfer-terms.md](queue-state-filings-transfer-terms.md), [queue-vendor-channel-moves.md](queue-vendor-channel-moves.md), [daf-to-daf-flows-990.csv](../../data/mission-2026-11-14/daf-to-daf-flows-990.csv), [full-universe-990-harvest-and-corrected-totals.md](full-universe-990-harvest-and-corrected-totals.md) | Prior flow matrix, EF005, filing dates |
 | S7 | Web searches (2026-11-15) for "$727 million" Fidelity outlier, 2025 recipient announcements and a Fidelity H1-2025 release | No identifying result |
+
+## Validation corrections (wave 11, 2026-11-15) — governing
+Source: [validation-wave11-report.md](validation-wave11-report.md). Where these conflict with the text above, these govern.
+
+**§1, Q-N06 row (line 34).** The sample size quoted next to the ex-processor percentages belongs to the all-sponsor sample, which includes processors.
+- Replace "Pooled FY2021–24, sponsors with itemised Schedule I (n = 3,421 sponsor-years, 1,018 sponsors, $831bn beginning DAF assets):"
+- With "Pooled FY2021–24, sponsors with itemised Schedule I (all sponsors n = 3,421 sponsor-years, 1,018 sponsors, $831bn beginning DAF assets; excluding processors n = 3,373, 1,002 sponsors, $825.8bn):"
+
+**§1, Q-N06 row, tier C.** Optionally make the rounding explicit: "19.0% (tier C)" → "19.0% (tier C; 18.96%)".
+
+**§1, P-VCM-03 row.** Replace "GS PF $159.9m" with "GS DAF Philanthropy Fund for Wealth Management (EIN 31-1774905) $159.9m". This avoids confusion with Goldman Sachs Charitable Gift Fund (EIN 11-3813663), which received only $0.29m.

@@ -301,3 +301,14 @@ Every tenant serves the same Angular sign-in shell, titled "Foundation Cloud Com
   - P-REN-03: NPT GivingPoint book.
   - P-REN-04: PNC `/scbf` and `ocf`.
   - P-REN-05: a named RDE program and Ren's metrics.
+
+## Validation corrections (wave 11, 2026-11-15) — governing
+Source: [validation-wave11-report.md](validation-wave11-report.md). Where these conflict with the text above, these govern.
+
+**Line 283, reproducibility.** Append: "No cache directory is committed with the repo, so an independent rerun must use `--fetch`. Wave 11's live rerun on 2026-11-15 reproduced the census exactly (76 rows, 0 status differences)."
+
+**§1 item 1, bounds.** Add: "Four of the six exits are classified from `cf-vendor-migrations-2022-2026.csv`. All four destinations were re-verified live in wave 11. Gulf Coast's new portal is still 'launching soon', so the strict dated-exit figure (5/57 = 8.8%) is the conservative headline."
+
+**§6, $48K-per-second bullet (line 235).** Add: "Ren's own about page states '$35B Granted to charities annually' (about $1.1K per second, or about $66.6K per minute). The '$48K per second' is therefore most likely a per-minute figure mislabelled [I]."
+
+**Line 65, Yakima row.** No change is needed. Add a caution to the method notes: "`yvcf.org` is the Yampa Valley CF, not Yakima. Yakima is at `yakimavalleycf.org`."

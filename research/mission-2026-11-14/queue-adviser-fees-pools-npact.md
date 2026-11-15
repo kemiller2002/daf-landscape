@@ -221,3 +221,18 @@ Line numbers count the header as line 1.
 | evidence_label | F / R / 3P / I, as defined above. "F (filing) / I (interpretation)" = the number is first-party but its reading as an adviser fee is my inference |
 | retrieved | Date the source was read |
 | notes | Caveats, scope and cross-references |
+
+## Validation corrections (wave 11, 2026-11-15) — governing
+Source: [validation-wave11-report.md](validation-wave11-report.md). Where these conflict with the text above, these govern.
+
+**§1.1, NPT row (line 48).** The minimum applies only to discretionary accounts.
+- Replace "**$500,000** (segregated account)"
+- With "**$500,000** (discretionary segregated account); **$2 million** for non-discretionary adviser accounts (Guide p.27)"
+
+**§0 NPT bullet.** Replace "adviser-managed (segregated) accounts are available only above $500,000" with "adviser-managed (segregated) accounts need $500,000 if discretionary, or $2 million if non-discretionary".
+
+**§1.1, Fidelity CIAP row (line 44).** Add to the minimum cell: "The $100,000 figure is from the overview 'For firms that clear or custody with Fidelity Investments'. The advisor guide says the minimum balance requirement varies by firm."
+
+**§0 headline, P-ACC-03.** Reword "No sponsor in scope caps the fee" to "No sponsor in scope publishes a numeric cap. Fidelity caps the fee relative to the firm's own standard schedule."
+
+**§0, P-ACC-02 row.** Keep the row's [R] label. Add: "The live page returns 403. Wave 11 confirmed the 2026-09-24 date and FFICX only through a search capture. PAXIX→CBAIX and PSHIX→BSBIX were not independently seen."
