@@ -236,3 +236,10 @@ python3 scripts/mission_donate_page_scan.py report --work W      # writes the CS
 - `LINES` is the `mission_recipient_sectors.py` lines cache.
 - `IRS_INDEX` holds the IRS TEOS `index_YYYY.csv` files.
 - Every number in §0–3 comes from `W/summary.json` or the CSV.
+
+## Validation corrections (wave 24B, 2026-11-15) — governing
+Source: [validation-wave24b-report.md](validation-wave24b-report.md); register `data/mission-2026-11-14/validation-register-wave24b.csv`.
+
+1. **§5 Limitations, new bullet after the snapshot bullet.**
+   - **Find:** "- **One-day snapshot** (2026-11-15). Year-end campaigns can change forms."
+   - **Replace with:** "- **One-day snapshot** (2026-11-15). Year-end campaigns can change forms.\n- **Link choice.** At least four scanned \"donate pages\" are not donate pages: rank 77 (a UA Foundation news item), 84 (a Rockefeller Foundation news item), 165 (a USCCB news article) and 244 (Boston Children's \"donate-blood\" page). None shows a DAF option. Without them, any DAF option is 75/182 (41.2%) and DAFpay 25/182 (13.7%). Two `donate_url` values still carry tracking parameters (e.g. `_ga`) [V wave 24B].\n- **Wave 24B re-read.** A stratified sample of 30 charities was re-read (10 of 25 DAFpay positives, 20 others; 29 fetched).\n  - The \"donor-advised\" and own-EIN flags matched on 29 of 29 pages, and \"any DAF option\" on 28 of 29.\n  - 7 of 10 DAFpay positives reproduced from the page and rendered DOM. The other 3 (IPPF, Per Scholas, Edesia) carry the form in an iframe, which only a frame-level read sees.\n  - No negative showed DAFpay [V wave 24B]."

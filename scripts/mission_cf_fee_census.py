@@ -361,25 +361,8 @@ def bps(fee: float | None, balance: float) -> float | None:
 
 
 def national_schedules() -> dict[str, dict]:
-    rows = [r for r in read_csv(NATIONAL_FEES)]
-    progs: dict[tuple, list] = collections.defaultdict(list)
-    for r in rows:
-        progs[(r["sponsor"], r["program"])].append(r)
-
-    def build(sponsor):
-        rs = [r for r in rows if r["sponsor"] == sponsor]
-        tiers_rows = [r for r in rs if r["fee_component"] == "admin_fee_tier" and r["rate_pct"]]
-        # choose the program with most tier rows (main retail program)
-        by_prog = collections.Counter(r["program"] for r in tiers_rows)
-        if not by_prog:
-            return None
-        prog = by_prog.most_common(1)[0][0]
-        trs = sorted(((num(r["tier_lower_usd"]), num(r["tier_upper_usd"]) or None, num(r["rate_pct"])) for r in tiers_rows if r["program"] == prog), key=lambda t: t[0])
-        basis = "flat_on_total" if any("flat" in (r["fee_basis"] or "") or "whole" in (r["fee_basis"] or "") for r in tiers_rows if r["program"] == prog) else "marginal"
-        mins = [num(r["flat_amount_usd"]) for r in rs if r["fee_component"] == "min_annual_admin_fee" and r["flat_amount_usd"]]
-        return {"sponsor": sponsor, "program": prog, "tiers": tuple(trs), "basis": basis, "min_fee": max(mins) if mins else 0,
-                "basis_raw": ";".join(sorted({r["fee_basis"] for r in tiers_rows if r["program"] == prog}))}
-    return {s: b for s in dict.fromkeys(r["sponsor"] for r in rows) if (b := build(s))}
+    """National comparators transcribed from sponsor-fee-schedules.csv (see NATIONAL_COMPARATORS in mission_cf_fee_data)."""
+    return {n["sponsor"]: {**n, "basis_raw": n.get("note", "")} for n in NATIONAL_COMPARATORS}
 
 
 def task_census(cache_dir: str) -> dict:
@@ -390,7 +373,7 @@ def task_census(cache_dir: str) -> dict:
     def verify(s: Mapping) -> str:
         if not s.get("quotes"):
             return "no_quote"
-        texts = [norm_ws(res_text(r)) for u in (s.get("url"), *s.get("alt_urls", ())) if u and (r := net.cached(u))]
+        texts = [norm_ws(res_text(r)) for u in (s.get("url"), *s.get("alt_urls", ())) if u and (r := net.cached(u)) and r.get("status") == 200]
         if s.get("local"):
             p = os.path.join(cache_dir, s["local"])
             if os.path.exists(p):
@@ -422,10 +405,10 @@ def task_census(cache_dir: str) -> dict:
     nat = national_schedules()
     nat_rows = [{"rank": "", "ein": "", "name": f"NATIONAL: {n['sponsor']} ({n['program']})", "status": "national_comparator", "fee_basis": n["basis"],
                  "admin_tiers": "; ".join(f"{int(lo):,}-{'' if up is None else f'{int(up):,}'}: {r}%" for lo, up, r in n["tiers"]),
-                 "min_annual_fee_usd": n["min_fee"],
+                 "min_annual_fee_usd": n.get("min_fee", ""),
                  **{f"admin_fee_usd_{b // 1000}k": effective_admin_fee(n, b) for b in BALANCES},
                  **{f"admin_bps_{b // 1000}k": bps(effective_admin_fee(n, b), b) for b in BALANCES},
-                 "source_url": NATIONAL_FEES, "source_method": "repo", "notes": f"fee_basis in repo: {n['basis_raw']}", "retrieved": RETRIEVED} for n in nat.values()]
+                 "source_url": NATIONAL_FEES, "source_method": "repo", "notes": n["basis_raw"], "retrieved": RETRIEVED} for n in nat.values()]
     fields = list(rows[0].keys())
     write_csv(OUT_FEES, rows + nat_rows, fields)
 
@@ -568,7 +551,7 @@ def task_consol(cache_dir: str) -> dict:
             "by_year": dict(sorted(collections.Counter(r["year"] for r in rows).items()))}
 
 
-from mission_cf_fee_data import FEE_DATA, CONSOLIDATION_EVENTS  # noqa: E402  (transcribed constants, same directory)
+from mission_cf_fee_data import FEE_DATA, CONSOLIDATION_EVENTS, NATIONAL_COMPARATORS  # noqa: E402  (transcribed constants, same directory)
 
 
 def main() -> None:

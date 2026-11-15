@@ -257,3 +257,19 @@ The table uses role-level flags; shares are of roles with text. Per-employer cou
 | ai_mention_type | build_ai, use_ai_tools or other_mention (heuristic; blank if no AI mention) |
 
 Reproduce with `python3 scripts/mission_signals.py news --work-dir WORK` and `python3 scripts/mission_signals.py hiring --work-dir WORK`. Job postings change daily, so a re-run gives a new snapshot.
+
+## Validation corrections (wave 24B, 2026-11-15) — governing
+Source: [validation-wave24b-report.md](validation-wave24b-report.md); register `data/mission-2026-11-14/validation-register-wave24b.csv`.
+
+1. **§1 Summary, news reading.**
+   - **Find:** "AI is an emerging but minor news frame, and the 2026 rebound is policy-led."
+   - **Replace with:** "AI is an emerging but minor news frame. The 2026 rebound in normalised volume is real: Jan–Aug 2026 runs at 21.9 per million against 12.7 in Jan–Aug 2025. The theme data do not show it is policy-led. The legislation share fell from 38.2% (2025) to 36.3% (2026), and the largest 2026 months, 2026-03 and 2026-06, carry 33% and 26% legislation matches [V wave 24B]."
+2. **§1 Summary, AI titles.**
+   - **Find:** "Blackbaud (4, including \"AI Governance Principal\") and TIFIN (2)."
+   - **Replace with:** "Blackbaud (4, including \"AI Governance Principal\") and TIFIN (2: \"AI Engineering, TIFIN.ai\" and \"Senior AI Engineer, TIFIN @Work\", group roles rather than TIFIN Give) [V wave 24B]."
+3. **§3.1 Method, robots.**
+   - **Find:** "The decision log is in the work directory (`robots-log-hiring.json`)."
+   - **Replace with:** "The decision log is in the work directory (`robots-log-hiring.json`). Two sources had no readable robots.txt:\n  - `api.ashbyhq.com/robots.txt` returns 401, read here as no rules. This covers Chariot and Benevity.\n  - `workforcenow.adp.com/robots.txt` redirects to an ADP login page, parsed as an empty rule set. This covers Vanguard Charitable.\n\n  Both readings follow RFC 9309, but they differ from the repo convention (N6, wave 23), under which 401/403 or a login wall means unreadable and the host is not fetched. The Chariot and Benevity role lists reproduce from the robots-allowed `jobs.ashbyhq.com/<board>` pages (robots disallows only `/api/`, `/b/` and `/meeting/` there). Vanguard Charitable's 4 roles have no robots-clean route. Fidelity job pages now return a Cloudflare challenge to scripted clients, so the 0-of-11 result could not be re-observed in wave 24B [V wave 24B]."
+4. **§2.4 Limitations, rate limits.**
+   - **Find:** "- **[L] Rate limits.** GDELT throttled this session heavily. Every number comes from a completed API response cached in the work directory; no value was imputed."
+   - **Replace with:** "- **[L] Rate limits.** GDELT throttled this session heavily. Every number comes from a completed API response cached in the work directory; no value was imputed. Wave 24B could not re-pull the base series: all 10 attempts over about 20 minutes returned HTTP 429. The counts are confirmed as CSV arithmetic only [V wave 24B]."

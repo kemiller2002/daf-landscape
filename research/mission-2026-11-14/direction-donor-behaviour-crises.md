@@ -256,3 +256,16 @@ Row counts by category: grant_behaviour 95, demographics 50, crisis 21, timing 9
   - P-B39N7-01: first-party DAFgiving360 values;
   - P-B39N7-02: a cross-sponsor seasonality series;
   - P-B39N7-03: DAF-holder demographics.
+
+## Validation corrections (wave 24B, 2026-11-15) — governing
+Source: [validation-wave24b-report.md](validation-wave24b-report.md); register `data/mission-2026-11-14/validation-register-wave24b.csv`.
+
+1. **Rules applied, robots.**
+   - **Find:** "and dafresearchcollaborative.org (its robots.txt names Claude-family user-agents)."
+   - **Replace with:** "and dafresearchcollaborative.org (not fetched in this run). Its robots.txt lists ClaudeBot and anthropic-ai in the same group as `User-agent: *`, so `/s/` documents are allowed. The DAFRC values here still come from the repo series [V wave 24B]."
+2. **§2.2, Daffy payout correction.**
+   - **Find:** "an editor's note dated 2026-07-28 corrected the payout claim from 55% to \"more than 37%\"."
+   - **Replace with:** "an editor's note dated 2026-07-28 says an earlier version \"misstated the donation payout rate\". The text now says \"more than 37 cents of every dollar held in Daffy funds at the end of 2024 was distributed to charity in 2025\". The earlier figure appears as 55% in Chariot's summary; the note itself does not state it [V wave 24B]."
+3. **§7, S11.**
+   - **Find:** "dafresearchcollaborative.org (robots.txt names Claude-family agents)"
+   - **Replace with:** "dafresearchcollaborative.org (not fetched; its robots.txt gives Claude agents the same rules as `*`, which allow `/s/` [V wave 24B])"

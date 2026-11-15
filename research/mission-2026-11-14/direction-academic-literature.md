@@ -300,3 +300,22 @@ No logins, form submissions or outreach.
 - **P-B39N8-01:** a bridge table across payout definitions.
 - **P-B39N8-02:** test the CA AG finding on CF transfers to other DAFs against R5.
 - **P-B39N8-03:** review the SSRN-only and blocked works.
+
+## Validation corrections (wave 24B, 2026-11-15) — governing
+Source: [validation-wave24b-report.md](validation-wave24b-report.md); register `data/mission-2026-11-14/validation-register-wave24b.csv`.
+
+1. **§2, F1 handling.**
+   - **Find:** "Keep the sentence for *public filings*, and add that voluntary account samples put the median account at about 9%."
+   - **Replace with:** "Keep the sentence for *public filings*, and add that voluntary account samples put the median account at about 9%. [V wave 24B: confirmed verbatim. The DAFRC 2024 executive summary gives a 9% median, 15% excluding inactive accounts and an 18% mean; 22% of accounts were inactive in 2020–22; 111 programs, including nationals.]"
+2. **§2, F2 handling.**
+   - **Find:** "Candidate to move from *unsupported* to *suggestive*, with the caveat that the measure is marketing language, not fee structure, and the result is correlational. Needs a validator decision."
+   - **Replace with:** "Validator decision (wave 24B): keep the row **Mixed** (Low on effect). Cite this study as correlational evidence that a donor-benefit orientation goes with lower payout among nationals. Do not treat it as evidence on asset-based fees, because the measure is website language, not fee structure."
+3. **§2, F3 handling.**
+   - **Find:** "The overall share agrees with the repo's 10–18%. The CF result could mean R5 under-nets CF payout. Queue proposal P-B39N8-02."
+   - **Replace with:** "The overall share agrees with the repo's 10–18%. The CF figure does not carry over nationally:\n- It is self-reported for 2016-07 to 2020-12 by 57 California-registered sponsors.\n- It does not say whether fund-to-fund transfers inside the same sponsor count as \"grants to other DAFs\".\n- The repo's top-50 Schedule I data put CFs excluding SVCF at 5.1% of FY2023–24 dollars to other DAF sponsors, against 13.7% for nationals; including SVCF, 14.2% [V wave 24B].\n\nQueue proposal P-B39N8-02 tests it."
+4. **§2, F4.**
+   - **Find:** "Leff (2025) calls the spread unresolved."
+   - **Replace with:** "Leff (2025, fn. 95) says the 9.7%–23.9% range \"illustrates disputes over the proper methodology\" and does not resolve it [V wave 24B]."
+5. **§6, §3 challengers row.**
+   - **Find:** "Manager survey: 39% of sponsors lack sufficient IT."
+   - **Replace with:** "Manager survey: 61% of sponsors report sufficient IT (74% policies, 60% budget, 52% staffing) [V wave 24B]."
