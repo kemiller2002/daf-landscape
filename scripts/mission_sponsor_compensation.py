@@ -33,6 +33,7 @@ import argparse
 import csv
 import io
 import json
+import math
 import os
 import re
 import statistics
@@ -427,6 +428,10 @@ def sponsor_year(f: Mapping, x: Mapping, meta: Mapping, pn: Mapping, cost: Mappi
            "top_pay_per_bn_total_assets": ratio(t.get("comp_total_def"), (x.get("total_assets_eoy") or 0) / 1e9),
            **{f"ctx_{k}": num((cost.get(f["object_id"]) or {}).get(k)) for k in COST_COLS},
            "ctx_staff_share_of_opex_ex_l11f": ratio(staff, num((cost.get(f["object_id"]) or {}).get("operating_cost_ex_invest_mgmt"))),
+           "ctx_fee_and_trustee_bps_daf_assets": ratio(((num((cost.get(f["object_id"]) or {}).get("fees_mgmt_l11a")) or 0)
+                                                        + (num((cost.get(f["object_id"]) or {}).get("fees_other_l11g")) or 0)
+                                                        + sum(p["comp_total_def"] for p in inst)) * 1e4, daf_assets)
+           if f["object_id"] in cost else None,
            "staff_cost_bps_daf_assets": ratio((staff or 0) * 1e4, daf_assets) if staff is not None else None,
            "staff_cost_bps_total_assets": ratio((staff or 0) * 1e4, x.get("total_assets_eoy")) if staff is not None else None,
            "staff_cost_per_account": ratio(staff, accounts),
@@ -445,6 +450,17 @@ def sponsor_year(f: Mapping, x: Mapping, meta: Mapping, pn: Mapping, cost: Mappi
 
 
 # ----------------------------------------------------------------------------- aggregates (pure)
+def mark_shared_officers(rows: Sequence[Mapping]) -> tuple[dict, ...]:
+    """Same top officer (normalised name) at two universe sponsors in one tax year: the pay is one person's, filed twice."""
+    key = lambda r: (r["tax_year"], norm_name(r["top_officer_name"]))  # noqa: E731
+    seen: dict = {}
+    for r in rows:
+        if r["top_officer_name"] and (r["top_officer_comp_total_def"] or 0) > 0:
+            seen.setdefault(key(r), set()).add(r["ein"])
+    return tuple({**r, "top_officer_shared_with": "|".join(sorted(seen.get(key(r), set()) - {r["ein"]}))} for r in rows)
+
+
+
 SEG_ORDER = ("affiliated_commercial", "independent_national", "community_foundation", "faith_single_issue",
              "university_health", "digital_first")
 
@@ -483,7 +499,19 @@ def segment_year_rows(rows: Sequence[Mapping]) -> tuple[dict, ...]:
                                                                   sum(r["daf_assets_eoy"] or 0 for r in rs)),
                         "sum_part_vii_related_e": sum(r["part_vii_sum_related_e"] or 0 for r in rs),
                         "sum_part_vii_org_d": sum(r["part_vii_sum_org_d"] or 0 for r in rs),
-                        "n_flag_affiliate_pay": sum(1 for r in rs if r["flag_affiliate_pay"])})
+                        "n_flag_affiliate_pay": sum(1 for r in rs if r["flag_affiliate_pay"]),
+                        "n_top_paid_by_org": sum(1 for r in rs if (r["top_officer_comp_org_d"] or 0) > 0),
+                        "n_top_paid_related_only": sum(1 for r in rs if (r["top_officer_comp_org_d"] or 0) == 0
+                                                       and (r["top_officer_comp_related_e"] or 0) > 0),
+                        "n_top_zero_or_none": sum(1 for r in rs if not (r["top_officer_comp_total_def"] or 0)),
+                        "median_top6_comp": median(r["top6_comp_total"] for r in rs if r["top6_comp_total"]),
+                        "median_top6_share_of_staff_cost": median(ratio(r["top6_comp_total"], r["staff_cost_l5_10"]) for r in rs
+                                                                  if r["top6_comp_total"] and r["staff_cost_l5_10"]),
+                        "median_n_over_100k": median(r["part_vii_n_over_100k"] for r in rs if r["part_vii_n_over_100k"] is not None),
+                        "pooled_staff_plus_l11a_bps_daf_ctx": ratio(sum((r["staff_cost_l5_10"] or 0) + (r["ctx_fees_mgmt_l11a"] or 0) for r in rs
+                                                                        if r["ctx_operating_cost_ex_invest_mgmt"] is not None) * 1e4,
+                                                                    sum(r["daf_assets_eoy"] or 0 for r in rs if r["ctx_operating_cost_ex_invest_mgmt"] is not None)),
+                        "n_ctx": sum(1 for r in rs if r["ctx_operating_cost_ex_invest_mgmt"] is not None)})
     return tuple(out)
 
 
@@ -514,6 +542,28 @@ def trend_rows(rows: Sequence[Mapping], base: int = 2021, end: int = 2024) -> tu
     return tuple(out)
 
 
+def ols_loglog(pairs: Sequence[tuple[float, float]]) -> dict:
+    pts = [(math.log(x), math.log(y)) for x, y in pairs if x and y and x > 0 and y > 0]
+    if len(pts) < 3:
+        return {"n": len(pts)}
+    mx, my = statistics.fmean(p[0] for p in pts), statistics.fmean(p[1] for p in pts)
+    sxx = sum((p[0] - mx) ** 2 for p in pts)
+    sxy = sum((p[0] - mx) * (p[1] - my) for p in pts)
+    syy = sum((p[1] - my) ** 2 for p in pts)
+    return {"n": len(pts), "slope": round(sxy / sxx, 3), "r2": round(sxy * sxy / (sxx * syy), 3) if syy else None}
+
+
+def elasticities(rows: Sequence[Mapping], ty: int = 2024) -> dict:
+    """Top-officer pay vs scale, sponsors with a paid top officer (org column > 0), one row per sponsor."""
+    paid = [r for r in rows if r["tax_year"] == ty and (r["top_officer_comp_org_d"] or 0) > 0]
+    grp = {"community_foundation": [r for r in paid if r["segment"] == "community_foundation"],
+           "all_ex_university_digital": [r for r in paid if r["segment"] not in ("university_health", "digital_first")]}
+    return {g: {"vs_total_assets": ols_loglog([(r["total_assets_eoy"], r["top_officer_comp_total_def"]) for r in rs]),
+                "vs_daf_assets": ols_loglog([(r["daf_assets_eoy"], r["top_officer_comp_total_def"]) for r in rs]),
+                "vs_employees_v2a": ols_loglog([(r["employees_part_v_2a"], r["top_officer_comp_total_def"]) for r in rs])}
+            for g, rs in grp.items()}
+
+
 # ----------------------------------------------------------------------------- CLI (I/O edge)
 FIELDS_SY = ("record_type", "ein", "sponsor_name", "rank_fy2024", "segment", "segment_note", "fy", "tax_year", "tax_period", "object_id",
              "returns_for_period", "return_ts", "amended_ind", "xml_source", "employees_part_v_2a", "employees_part_i_5", "part_vii_listed",
@@ -523,17 +573,18 @@ FIELDS_SY = ("record_type", "ein", "sponsor_name", "rank_fy2024", "segment", "se
              "daf_assets_eoy", "daf_assets_source", "daf_accounts", "daf_accounts_source", "top_officer_title", "top_officer_name",
              "top_officer_basis", "top_officer_hours_org", "top_officer_hours_related", "top_officer_comp_org_d",
              "top_officer_comp_related_e", "top_officer_comp_other_f", "top_officer_comp_total_def", "top_officer_schj_total",
-             "top_officer_schj_matched", "sched_j_present", "top_pay_per_bn_daf", "top_pay_per_1000_accounts",
+             "top_officer_schj_matched", "top_officer_shared_with", "sched_j_present", "top_pay_per_bn_daf", "top_pay_per_1000_accounts",
              "top_pay_per_bn_total_assets", "staff_cost_bps_daf_assets", "staff_cost_bps_total_assets", "staff_cost_per_account",
              "staff_cost_per_employee", "ctx_operating_cost_ex_invest_mgmt", "ctx_outside_services_l11", "ctx_fees_mgmt_l11a",
-             "ctx_fees_other_l11g", "ctx_staff_share_of_opex_ex_l11f",
+             "ctx_fees_other_l11g", "ctx_staff_share_of_opex_ex_l11f", "ctx_fee_and_trustee_bps_daf_assets",
              "flag_affiliate_pay", "sched_r_related_names", "sched_o_comp_text", "xml_url")
 FIELDS_P = ("person_role", "person_name", "title", "roles", "hours_org", "hours_related", "comp_org_d", "comp_related_e", "comp_other_f",
             "comp_total_def", "schj_matched", "schj_base_org", "schj_base_related", "schj_bonus_org", "schj_bonus_related", "schj_other_org",
             "schj_other_related", "schj_deferred_org", "schj_deferred_related", "schj_nontaxable_org", "schj_nontaxable_related",
             "schj_total_org", "schj_total_related", "schj_prior_990_org", "schj_prior_990_related")
 FIELDS_AGG = ("n_returns", "n_top_officer_paid", "median_top_officer_comp", "median_top_pay_per_bn_daf", "median_top_pay_per_1000_accounts",
-              "median_top_pay_per_bn_total_assets",
+              "median_top_pay_per_bn_total_assets", "n_top_paid_by_org", "n_top_paid_related_only", "n_top_zero_or_none",
+              "median_top6_comp", "median_top6_share_of_staff_cost", "median_n_over_100k", "pooled_staff_plus_l11a_bps_daf_ctx", "n_ctx",
               "median_staff_cost_bps_daf_assets", "median_staff_cost_bps_total_assets", "median_staff_cost_per_account",
               "median_employees_part_v_2a", "sum_staff_cost_l5_10", "sum_daf_assets", "pooled_staff_cost_bps_daf_assets",
               "sum_part_vii_related_e", "sum_part_vii_org_d", "n_flag_affiliate_pay", "median_top_officer_comp_cagr",
@@ -560,7 +611,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     ok = [f for f in filings if exs[f["object_id"]].get("xml_status") == "ok"]
     cost = {r["return_object_id"]: r for r in read_csv(COST_CSV)}
     built = [sponsor_year(f, exs[f["object_id"]], meta[f["ein"]], pn, cost) for f in ok]
-    sy = tuple(r for r, _ in built)
+    sy = mark_shared_officers(tuple(r for r, _ in built))
     people = tuple(p for _, ps in built for p in ps)
     sy_one = latest_per_sponsor_ty(sy)
     agg = segment_year_rows(sy_one) + trend_rows(sy_one)
@@ -569,6 +620,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     missing = [f for f in filings if exs[f["object_id"]].get("xml_status") != "ok"]
     print(json.dumps({"universe": len(uni), "returns_indexed": len(filings), "returns_ok": len(ok),
                       "not_ok": [(f["ein"], f["tax_period"], f["object_id"], exs[f["object_id"]].get("xml_status")) for f in missing],
+                      "elasticities_ty2024": elasticities(sy_one),
                       "sponsor_years": len(sy), "sponsor_ty_unique": len(sy_one), "person_rows": len(people),
                       "no_return": sorted(set(uni) - {f["ein"] for f in ok})}, indent=1, default=str))
     return 0
