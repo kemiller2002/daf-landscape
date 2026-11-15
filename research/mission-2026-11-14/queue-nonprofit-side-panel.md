@@ -221,3 +221,12 @@ Who owns the product should be confirmed from a primary announcement (P-NPP-04) 
 - Benevity rates can be overridden by client master agreements. YourCause terms vary by corporate client.
 - Fee cells give list terms, not realised fees (see `queue-agentic-products-dafpay-fees.md` §3.5).
 - Community-foundation rows are deliberately thin.
+
+## Validation corrections (wave 12, 2026-11-15) — governing
+Source: [validation-wave12-report.md](validation-wave12-report.md). Where these conflict with the text above, these govern.
+
+- Line 32 (P-BNK-05): replace the quote "is now issuing grants through PayPal" with the live text "is now issuing Grant Payments with PayPal" ([Vanguard](https://www.vanguardcharitable.org/nonprofit-organizations), fetched 2026-11-15).
+- Line 91: replace "**No sponsor requires EFT.**" with "**No sponsor checked requires EFT today.** Fidelity says it does 'not currently require EFT' but is 'transitioning grant payments to EFT' under a digital-first policy."
+- Line 110: add "(2024 policy document; no 2025/26 version checked)" after the DAFgiving360 $50 cite.
+- Line 111: replace "MS GIFT: $250 (repo)" with "MS GIFT: $250 ([MS GIFT FAQ](https://www.morganstanley.com/gift), search capture 2026)".
+- Lines 97 and 157 (NPT guide cite): add "URL path is /2024/09/ but PDF metadata is 2026-10-15".

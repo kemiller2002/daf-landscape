@@ -261,3 +261,12 @@ From [`cf-ledger-families-2026.csv`](../../data/mission-2026-11-14/cf-ledger-fam
    - The DonorCentral-implied ledger is FIMS, which NPact has owned since 2022-09.
    - Group these rows with NPact for ownership-concentration purposes [I].
 7. **EJ032 (BroadWest → Fusion Laboratories).** Status `unknown` is superseded by EM033 (`confirmed`, 2020 close).
+
+## Validation corrections (wave 12, 2026-11-15) — governing
+Source: [validation-wave12-report.md](validation-wave12-report.md). Where these conflict with the text above, these govern.
+
+- Line 33 (P-ADV-04 signal 1) and line 158: replace "BroadWest Partners LLC is still an active Texas franchise taxpayer" with "BroadWest Partners LLC still has a Texas franchise-tax account (taxpayer 32086573816, FEI 842739126, 5580 Peterson Ln Ste 200, Dallas). Its Comptroller status is **Right to Transact: NOT ESTABLISHED; SOS: NOT REGISTERED** ([Comptroller](https://comptroller.texas.gov/data-search/franchise-tax/32086573816)), and its dataset code is `U`, not `A`. The 'Active Franchise Taxpayers' dataset includes forfeited (`N`) and `U` rows, so being listed in it does not show active status." Downgrade signal (1) from evidence of continuing ownership to "an entity record exists".
+- Line 162: replace "Privacy Policy (updated 2026-01-27)" with "Privacy Policy (update of January 28, 2026; current version 'Last updated August 19, 2026')".
+- Line 31, line 84, line 130 and line 141 (NYCT): mark "migration in progress" as resting on an [R] capture (philanthropynewyork.org, 403). The only primary text read, the JobTarget posting of 2026-08-01, lists Sage Intacct/Salesforce as a "preferred" skill. Lower NYCT to **low-medium** and do not count it in the SF_INTACCT $2.32bn family total without a caveat.
+- Line 144 (California CF): replace "(posted 2026-06-25)" with "(posted 2026-06-08 per job id and search captures)", and add "Financial Edge appears only as a 'preferred' skill".
+- Line 160: add "Cambria gives the location as Dallas, TX. NPact's privacy policy gives Wakefield, MA."

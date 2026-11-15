@@ -222,3 +222,12 @@ A search summary also mentions Fidelity "Charitable Technology" engineering post
 | `notes`, `retrieved` | Free text; retrieval date |
 
 The edges file uses the standard `relationship-graph-edges.csv` columns. EL001–EL016 are Ren→program (technology_provider) and sponsor→program (sponsor_of) pairs for the 8 newly evidenced sites. EL017–EL018 are Ren→NPT UK and Ren→NPT Transatlantic technology edges. NPT-family control and technology-provision edges follow (EL019–EL023). EL024–EL028 cover the Fidelity Charitable stack, including an `unknown` Ren→Fidelity edge that records absence of evidence.
+
+## Validation corrections (wave 12, 2026-11-15) — governing
+Source: [validation-wave12-report.md](validation-wave12-report.md). Where these conflict with the text above, these govern.
+
+- §P-REN-03 census (line 30) and §P-QA1-02 (line 37): replace "Every live site is either on the `ren-workload-02` ELB or on the iPhi Global Accelerator pair" with "8 live sites resolve to the `ren-workload-02` ELB (44.223.132.165 / 54.88.200.68). 5 (Tolleson, Pitcairn, NPT Transatlantic, Rathbones, ICGF) resolve to an AWS Global Accelerator pair (13.248.164.2 / 35.71.183.32) whose reverse DNS is generic AWS. Its attribution to Ren/iPhi is [I], from the identical build, the shared WAF id and the Ren Jira links." Make the same change to "Ren operates the AWS layer (WAF, ELB, Global Accelerator)": mark Global Accelerator as [I].
+- Line 62 (method) and the `hosting_observed` dictionary entry (line 215): rename "iPhi Global Accelerator pair" to "Global Accelerator pair (Ren/iPhi attribution inferred)".
+- Line 166 (b): replace "both buy technology *from* NPT US" with "NPT UK's 2025 accounts say administration, MIS and technology are provided by NPT Transatlantic **and** NPT US. Transatlantic's accounts say they are provided by Buzzacott LLP and NPT US."
+- Line 168: replace "its UK accounts say technology is provided *by NPT US*" with "its UK accounts say technology is provided by NPT Transatlantic and NPT US (NPT US is Transatlantic's sole shareholder)".
+- Sponsor-text criterion (line 60): add "(rendered client-side from the bundle; Transatlantic's copyright names NPT Transatlantic Limited, charity 1153376)".
