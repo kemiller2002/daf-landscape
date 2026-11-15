@@ -297,3 +297,26 @@ Columns and scales follow [queue-proposals-README.md](../../data/mission-2026-11
 - **P-B37C-01:** for each fundraising platform that sends the `anonymous` flag, establish from its public help pages whether its own donor record and the Chariot export keep the donor's identity.
 - **P-B37C-02:** find a robots-compliant route to the PSID PPS and HRS questionnaires (ICPSR or openICPSR), and to the 2025 SCF codebook when it is released, to settle whether any probability sample has a DAF item.
 - **P-B37C-03:** take DAFCP instructor and DAF Forum speaker employers from the College's own bios, and score the sponsor share of the credential's faculty.
+
+## Validation corrections (wave 22, 2026-11-15) — governing
+Source: [validation-wave22-report.md](validation-wave22-report.md); register `data/mission-2026-11-14/validation-register-wave22.csv`.
+
+1. **§0, P-PRC-06 row (lead sentence).**
+   - **Find:** "**No sponsor publishes the main control in the federal benchmark: a callback to a known contact before a bank-detail change. Redirection risk is handled by keeping bank details out of the sponsor's hands.**"
+   - **Replace with:** "**No sponsor publishes the full federal benchmark control: a mandatory callback to a known contact, by a previously established channel, before every bank-detail change. Fidelity Charitable publishes a discretionary version ("we may call your organization's publicly available phone number to verify banking and/or contact information") for enrolments and updates. Elsewhere, redirection risk is handled by keeping bank details out of the sponsor's hands** [V wave 22]."
+2. **§0, Fidelity verifier bullet.**
+   - **Find:** "&nbsp;&nbsp;– two prior grant IDs or check numbers from the last 3 years;"
+   - **Replace with:** "&nbsp;&nbsp;– supporting information from the last 3 years: two prior grant IDs, two check numbers or a Fidelity Charitable reference number (first-time grantees face unspecified \"additional verification\") [V wave 22];"
+3. **§0, Fidelity callback sentence.**
+   - **Find:** "&nbsp;&nbsp;No callback is stated, and Stripe enrollees change bank details under Stripe's controls."
+   - **Replace with:** "&nbsp;&nbsp;The nonprofit FAQ adds that Fidelity \"may call your organization's publicly available phone number\" to verify bank details submitted to enrol or update EFT. This is discretionary, and the number is public, not a previously established contact. Stripe enrollees change bank details under Stripe's controls [V wave 22]."
+4. **§1.2 table, Fidelity Charitable (own ACH) row, B1 and B2 cells.**
+   - **Find:** "| **Not stated** | Not stated. Two named contacts receive the Grant Details Report |"
+   - **Replace with:** "| **Partial:** \"we may call your organization's publicly available phone number to verify banking and/or contact information\", for enrolments and updates ([FAQ](https://www.fidelitycharitable.org/nonprofits/faqs.html)); discretionary, and to a public number [V wave 22] | Not stated. Two named contacts receive the Grant Details Report |"
+5. **§1.2 table, same row, Other controls cell.**
+   - **Find:** "• Two grant IDs or check numbers from the last 3 years"
+   - **Replace with:** "• Two grant IDs, two check numbers or a reference number from the last 3 years (first-time grantees: unspecified additional verification) [V wave 22]"
+6. **§1.3, reading 1.**
+   - **Find:** "These defeat a pure email request but not an attacker who holds stolen grant letters. No callback is published."
+   - **Replace with:** "These defeat a pure email request but not an attacker who holds stolen grant letters. Fidelity's FAQ adds a discretionary callback to the charity's publicly available number; whether it is applied to every bank change is not stated [V wave 22]."
+7. **§7, status line (append after item 5).** "Validation wave 22: proposals 1, 3, 4 and 5 are verified and applied (V22-27 to V22-30). Proposal 2 is applied as batch 37C's reading; the 11 outlines were not re-read item by item."

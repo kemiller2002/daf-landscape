@@ -302,3 +302,23 @@ The columns are the same as `relationship-graph-edges.csv`. IDs are EU001–EU01
 ### `queue-proposals-batch37a.csv`
 
 The format is in `queue-proposals-README.md`. IDs are P-B37A-01 to P-B37A-03; `state` = open.
+
+## Validation corrections (wave 22, 2026-11-15) — governing
+Source: [validation-wave22-report.md](validation-wave22-report.md); register `data/mission-2026-11-14/validation-register-wave22.csv`.
+
+1. **§0, P-VEN-09 row.**
+   - **Find:** "but no Stellar line has appeared since CY2022, so it was paid under $824,200 or through another payee."
+   - **Replace with:** "but no Stellar line has appeared at GS DAPF or Ayco since CY2022, so there it was paid under $824,200 or through another payee. The separate Goldman Sachs Charitable Gift Fund (EIN 11-3813663) still paid Stellar directly ($172,604, FYE 2025-06) [V wave 22]."
+2. **§3 table, Fund vintage row.**
+   - **Find:** "GTCR Fund XIV final close $11.5bn on 2023-05-23 ([Kirkland]"
+   - **Replace with:** "GTCR Fund XIV closed at its $11.5bn hard cap (Kirkland release dated 2023-05-31, no closing day stated; [V wave 22]) ([Kirkland]"
+3. **§5, first Reading bullet.**
+   - **Find:** "- **Direct Ren payments dropped below disclosure thresholds from CY2023.** At GS DAPF they were under the $824k fifth-place line; at Ayco under $100k."
+   - **Replace with:** "- **Direct Ren payments dropped below disclosure thresholds from CY2023 at GS DAPF and Ayco.** At GS DAPF they were under the $824k fifth-place line; at Ayco under $100k. This does not hold for every Goldman-branded sponsor. The Goldman Sachs Charitable Gift Fund (EIN 11-3813663; grant administration by CAF America) paid Stellar Technology Solutions directly $157,430, $150,924, $139,000 and $172,604 for FYE June 2022–2025. It is one of the \"12 others\" in §1.2 [V wave 22]."
+4. **§6.1 table, Cliffwater row.**
+   - **Find:** "13 lines: TL, DDTL (two due 2032-10-08), revolver; 2032-03-05"
+   - **Replace with:** "13 lines: TL, DDTL (three due 2032-10-08, one of them a 1.0% likely-unfunded line), revolver; 2032-03-05 [V wave 22]"
+5. **§6.1 Findings, first bullet.**
+   - **Find:** "Cliffwater alone is the single largest identified Bonterra lender, larger than any BDC position in the repo files."
+   - **Replace with:** "Cliffwater is the largest registered-fund holder. On funded lines ($140.7m) it is second to a BDC, FS KKR Capital Corp ($150.4m par, $149.6m fair value at 2026-09-30 in `bdc-loans-latest-marks.csv`). It is larger only if its roughly $47.8m of likely-unfunded or fee lines are counted ($187.7m) [V wave 22]."
+6. **§7, status line (append after item 3).** "Validation wave 22: proposals 1–3 are supported (V22-01, V22-04, V22-05, V22-13). Proposal 1 is applied in `private-equity-daf-ecosystem-map.md` with FS KKR added as the largest funded Bonterra holder; proposal 3 is applied in the industry report."

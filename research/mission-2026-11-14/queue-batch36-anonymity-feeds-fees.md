@@ -326,3 +326,10 @@ Source: [validation-wave21-report.md](validation-wave21-report.md); register `da
 1. **§4, finding 1 (platform count).**
    - **Find:** "DAFpay costs more than card on 4 of 5 platforms at their default or most common settings:"
    - **Replace with:** "DAFpay costs more than card on all five platforms with a quantified comparison, at their default or most common settings (Donorbox only at Stripe's nonprofit rate; GiveCampus, the sixth platform in the CSV, publishes no figure) [V wave 21]:"
+
+## Validation corrections (wave 22, 2026-11-15) — governing
+Source: [validation-wave22-report.md](validation-wave22-report.md); register `data/mission-2026-11-14/validation-register-wave22.csv`.
+
+1. **§1.1, Reading** (batch 37C proposal 4, validated).
+   - **Find:** "- **The anonymous case is undocumented.** It remains the open question (P-B36C-01)."
+   - **Replace with:** "- **The anonymous case is undocumented.** It remains the open question (P-B36C-01). The `anonymous` flag is set by the nonprofit's own form in the same callback as the donor's name and email. Chariot's DAFpay Security page says the nonprofit \"can view the information provided by the donor (Name, Email, Address and Gift Size)\" and that \"Some nonprofits elect to disallow anonymous gifts through DAFpay\" [batch 37C; V wave 22]."

@@ -270,3 +270,13 @@ python3 scripts/mission_batch37_filings.py docs  --doc-dir DOCS
 - IRS holds eo1–eo4.csv and index_2021–2026.csv. WORK receives `l6/` (JSON extracts), `xmlfull/` (full XML for the text reads), and `teos/` and `zipcd/` (zip range reads).
 - DOCS holds `pdftotext -layout` output of the S3–S5 PDFs and the text of the two NPT pages.
 - Each task prints a JSON summary; every figure in §0–6 comes from those summaries, the two CSVs or the quoted documents. Ratios in §0 and §4–5 were computed from those figures.
+
+## Validation corrections (wave 22, 2026-11-15) — governing
+Source: [validation-wave22-report.md](validation-wave22-report.md); register `data/mission-2026-11-14/validation-register-wave22.csv`.
+
+1. **§0, P-GPT-03 row.**
+   - **Find:** "It discloses five excess-benefit transactions, $2,144.17 repaid with interest"
+   - **Replace with:** "It discloses four excess-benefit transactions beyond one reported in FY2023 (five in all). The four were repaid with interest ($2,144.17) [V wave 22]"
+2. **§3 table, NPT FY2024 Schedule L row.**
+   - **Find:** "five de-minimis excess-benefit payments by Wells Fargo to donor-advisers who were Wells Fargo advisers (2021–24), all repaid ($2,144.17 with interest)"
+   - **Replace with:** "four further de-minimis excess-benefit transactions after one found in FY2023: Wells Fargo compensation to three donors who were Wells Fargo advisers and to one Wells Fargo adviser who is a donor's son (2021–24), all repaid ($2,144.17 with interest) [V wave 22]"

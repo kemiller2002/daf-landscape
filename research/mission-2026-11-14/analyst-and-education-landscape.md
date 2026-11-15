@@ -304,3 +304,16 @@ Source: [validation-wave19-report.md](validation-wave19-report.md); register `da
 5. **§6, item 1 funnel bullet.**
    - **Find:** "   - client-initiated conversations: 61% versus 6%;"
    - **Replace with:** "   - client-initiated conversations: 61% versus 6% (2018 U.S. Trust/TPI data, cited in DAFRC 2026; historical context only) [V wave 19];"
+
+## Validation corrections (wave 22, 2026-11-15) — governing
+Source: [validation-wave22-report.md](validation-wave22-report.md); register `data/mission-2026-11-14/validation-register-wave22.csv`.
+
+1. **§5.2, closing paragraph** (batch 37C proposal 1, validated).
+   - **Find:** "The DAFCP has no named sponsor partner on its page ([DAFCP](https://www.theamericancollege.edu/learn/professional-designations-certifications/dafcp)), but its director's public article reuses the aggregate payout claim."
+   - **Replace with:** "The DAFCP has no named sponsor partner on its page ([DAFCP](https://www.theamericancollege.edu/learn/professional-designations-certifications/dafcp)), but its director's public article reuses the aggregate payout claim. The same college's DAF Forum 2027 lists DAFgiving360, Fidelity Charitable, NPT and Vanguard Charitable as Premier Partners, and one DAFCP instructor is an NPT executive [batch 37C; V wave 22]."
+2. **§5.2, T4 row, verdict** (batch 37C proposal 2).
+   - **Find:** "| Kitces is **consistent** with the repo. Mainstream curricula have a **gap**: portability is not a visible teaching item. |"
+   - **Replace with:** "| Kitces is **consistent** with the repo. Mainstream curricula have a **gap**: portability is not a visible teaching item. Batch 37C found no portability, fee, payout-distribution or inactivity item in 11 public outlines (CFP Board topics and objectives, DAFCP, CAP, two American College CE modules, Fidelity, NPT, NAPFA, CFP CE registry) [batch 37C; not re-read item by item in wave 22]. |"
+3. **§4.2, after the "Reconciling these" paragraph** (batch 37C proposal 3, validated).
+   - **Find:** "following synthesis §A's denominator-substitution warning."
+   - **Replace with:** "following synthesis §A's denominator-substitution warning. No probability sample measures DAF holding. The 2022 SCF codebook excludes DAFs from its trust question (X6830 code 10, merged into X6828 in the public file) [batch 37C; V wave 22]."
