@@ -314,3 +314,10 @@ python3 scripts/mission_batch35_screens.py --irs-dir IRS --work-dir WORK \
 - IRS holds index_2021.csv–index_2026.csv. WORK receives `ext/` (JSON extracts), `teos/` (zip members) and `zipcd/` (zip central directories).
 - The script prints a JSON summary; every figure in §0–5 comes from it or from the four CSVs.
 - The §3.2 BMF check is a `grep` of the four EINs in the local EO BMF files (FOUNDATION column). Full names of DAFRC-truncated sponsors (Jewish Federation of Greater Atlanta, Community Foundation for Northeast Georgia, Community Foundation of the Quincy Area, Your Community Foundation of North Central WV) are from the same BMF files.
+
+## Validation corrections (wave 20, 2026-11-15) — governing
+Source: [validation-wave20-report.md](validation-wave20-report.md); register `data/mission-2026-11-14/validation-register-wave20.csv`.
+
+1. **§0, P-B34B-02 row (support count).**
+   - **Find:** "17 of the 123 screened sponsors fall below 33⅓% in at least one year."
+   - **Replace with:** "17 of the 123 screened sponsors fall below 33⅓% on the 170 test in at least one year. Crewe Endowment Foundation, a 509(a)(2) filer in its first five years (0% in FY2021), is not counted [V wave 20]."

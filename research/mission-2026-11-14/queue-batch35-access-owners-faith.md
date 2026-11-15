@@ -371,3 +371,13 @@ Columns per `queue-proposals-README.md`; IDs P-B35B-01 to P-B35B-03; state `open
 - **P-B35B-01:** JCF NY platform. Check the FY2026 990 and watch the CT logs.
 - **P-B35B-02:** DAFgiving360 and NPT pool weights through a permitted SEC/SAI route.
 - **P-B35B-03:** read the public delegation forms behind Vanguard Interested Party, GS DAF agent authorization and SVCF prior approval.
+
+## Validation corrections (wave 20, 2026-11-15) — governing
+Source: [validation-wave20-report.md](validation-wave20-report.md); register `data/mission-2026-11-14/validation-register-wave20.csv`.
+
+1. **§0, P-B34B-03 row (DCSO name).**
+   - **Find:** "DCSO (EIN 99-0468956, Delaware, formed 2024) files as **\"The Resiliency Company\"**, a climate-resilience \"parent organization\" with 10 employees."
+   - **Replace with:** "DCSO (EIN 99-0468956, Delaware, formed 2024) files under its legal name, Durable Capital for Sustainable Outcomes Inc, **doing business as \"The Resiliency Company\"**. It is a climate-resilience \"parent organization\" with 10 employees [V wave 20]."
+2. **§2 table, Identity row.**
+   - **Find:** "| Identity | EIN 99-0468956, Washington DC; formed 2024, Delaware; dba **The Resiliency Company**; website resiliency.com |"
+   - **Replace with:** "| Identity | Legal name Durable Capital for Sustainable Outcomes Inc; EIN 99-0468956, Washington DC; formed 2024, Delaware; dba **The Resiliency Company** (DoingBusinessAsName on the return); website resiliency.com [V wave 20] |"

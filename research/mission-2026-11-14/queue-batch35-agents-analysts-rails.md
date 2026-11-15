@@ -298,3 +298,16 @@ Columns and scales follow [queue-proposals-README.md](../../data/mission-2026-11
 - `state` is `open`.
 - `proposed_by` is `batch35 C agent`.
 - `evidence_pointer` cites this note's sections or URLs.
+
+## Validation corrections (wave 20, 2026-11-15) — governing
+Source: [validation-wave20-report.md](validation-wave20-report.md); register `data/mission-2026-11-14/validation-register-wave20.csv`.
+
+1. **§0, P-CON-06 row (money-moving wrappers).**
+   - **Find:** "• At least five of them document a **write action that commits fund money** (Operator.io also re-exposes Composio's Create Gift):<br>"
+   - **Replace with:** "• At least five of them document a **money-related write action** (Operator.io also re-exposes Composio's Create Gift). Three document **donation** creation (Pipedream, Zapier, Metorial). Composio and Corsair expose only **gift** creation, and Daffy's Gifts reference does not say whether a gift debits the fund balance [I; V wave 20]:<br>"
+2. **§1.2, reading 4 (gift path).**
+   - **Find:** "4. **The gift path is under-examined.**"
+   - **Replace with:** "4. **The gift path is under-examined** (so W01 and W06 are not counted as documented fund debits; V wave 20)."
+3. **§0, P-ASR-06 row (years).**
+   - **Find:** "Its share of grants fell from 73.9% (2020) to 1.1% (2024), while the dollar amount fell from $2.45m to $0.47m as grants rose 2.7x [C]."
+   - **Replace with:** "Its share of grants fell from 73.9% (2020) to 1.1% (2024). From 2023 to 2024 its dollar amount fell from $2.45m to $0.47m while total grants rose 2.7x ($16.78m → $44.93m) [C; V wave 20]."
