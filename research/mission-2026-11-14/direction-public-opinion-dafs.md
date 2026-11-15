@@ -291,3 +291,22 @@ None of those corrections conflicts with anything below.
 - **P-B44N29-01:** look for a DAF item in a poll not sponsored by an advocate, and for neutral-wording toplines (IS 2026, Roundtable 2025, the full Lilly report).
 - **P-B44N29-02:** a GDELT-based count of opinion-section DAF pieces by outlet, which avoids opening blocked hosts.
 - **P-B44N29-03:** methodology of the 2025–26 sponsor donor surveys, and whether any asks donors about reform.
+
+## Validation corrections (wave 29, 2026-11-15) — governing
+Source: [validation-wave29-report.md](validation-wave29-report.md); register `data/mission-2026-11-14/validation-register-wave29.csv`.
+
+1. **§0, awareness.**
+   - **Find:** "– Ipsos/IPS: only **17–19% aware** that DAFs have no payout rule."
+   - **Replace with:** "– Ipsos/IPS: only **17–19%** say they know what DAFs are and how they work, and 17–18% knew that DAFs have no payout rule (2024 / 2022) [V wave 29]."
+2. **§0, HNW trust.**
+   - **Find:** "went **34% (2022) → 33% → 31% → 29% (2025)** [F/C;"
+   - **Replace with:** "went **34% (2022) → 33% → 31% → 29% (2025)** [29% and the −2 change F; the 2022–23 values C, inferred from chart layout (§6); V wave 29;"
+3. **§0, BofA donor reasons.**
+   - **Find:** "DAF users cite tax-free growth (98%), maximising tax benefits (96%) and simplicity (94%) [F]."
+   - **Replace with:** "DAF users cite tax-free growth (98%), maximising tax benefits (96%) and simplicity (94%) [F; the page returned 403 on the wave-29 re-fetch, so the reason percentages are not re-verified]."
+4. **§2, TargetPoint dates.**
+   - **Find:** "| PO16–19 | Dec 2021; Sep 2022; Aug 2023; Feb 2025 |"
+   - **Replace with:** "| PO16–19 | Dec 2021; Aug 2022 (released Sep 2022); Aug 2023; Jan–Feb 2025 |"
+5. **§4, 2022 letter.**
+   - **Find:** "| 2022-03-07 | 11 Ways and Means members (6 D, 5 R) | letter |"
+   - **Replace with:** "| 2022-03-07 | 11 Ways and Means members (6 D, 5 R per Chronicle coverage; a bipartisan \"Dear Colleague\" letter per CFAI [V wave 29]) | letter |"

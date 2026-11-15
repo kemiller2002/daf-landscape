@@ -272,3 +272,13 @@ python3 scripts/mission_league_table.py                      # without the cache
   - FY2025 coverage;
   - the top 10 by year.
 - Every figure in §0–4 comes from that summary or from the two CSVs. It runs in about 2 seconds.
+
+## Validation corrections (wave 29, 2026-11-15) — governing
+Source: [validation-wave29-report.md](validation-wave29-report.md); register `data/mission-2026-11-14/validation-register-wave29.csv`.
+
+1. **§2, top-10 table, FY2023 NPT.**
+   - **Find:** "| 3 | Vanguard 16.00 (6.8%) | **NPT 21.52 (9.4%)** | NPT 22.84 (8.9%) |"
+   - **Replace with:** "| 3 | Vanguard 16.00 (6.8%) | **NPT 21.52 (9.4%)** | NPT 22.84 (8.9%; anomalous filed value, see §5) |"
+2. **§5, limitation added.**
+   - **Find:** "- **Fiscal years mix period ends.**"
+   - **Replace with:** "- **NPT FY2023 (FYE 2023-06) is an anomalous filed value.** The $22.84bn is NPT's filed Schedule D line 4, and DAFRC carries it. The same return's Part X net assets are $27.92bn, and N27 excludes the value as a `daf_share_break`. Using $27.92bn would move FY2023 assets CR3 from 42.9% to 44.0%, CR5 from 52.9% to 53.8% and HHI from 801 to 808, and NPT's share from 8.9% to about 10.7%. FY2021, FY2024 and the trend direction are unaffected [C; V wave 29].\n- **Fiscal years mix period ends.**"

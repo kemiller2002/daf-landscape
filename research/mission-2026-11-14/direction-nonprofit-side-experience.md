@@ -245,3 +245,19 @@ Donor rows are the complaints-corpus records whose complainant is a donor (incl.
 1. **`daf-user-complaints-corpus.csv` CMP-241.** Change date "c.2024" to "2026-01-20 [I] (post 'Jan 20'; analysis of 2025 DAFpay gifts; CMS timestamps 2026-01)". Add to the paraphrase: "18 check-paying providers averaged 7–162 days; ACH providers 1–2 days (one nonprofit, 2,000+ gifts, 34 providers)".
 2. **`uncashed-grant-rules-2026.csv`.** Add a YourCause/Blackbaud NPOconnect row: reissue only for outstanding checks more than 45 days old; reissue not guaranteed after 120 days; up to 90 days to reissue; "Once a payment is Voided, the funds are at risk of being forfeited" (S24).
 3. **NPT's "79% of DAF gifts are partially anonymous".** No other repo note cites it (grep, 2026-11-15). Any future citation should carry "[S]; possibly conflates the DAFRC donor-survey 79% (identifiable via fund name); unverified" until P-B44N28-02 is done.
+
+## Validation corrections (wave 29, 2026-11-15) — governing
+Source: [validation-wave29-report.md](validation-wave29-report.md); register `data/mission-2026-11-14/validation-register-wave29.csv`.
+
+1. **§0, Checks row, Chariot.**
+   - **Find:** "Check-paying providers averaged **7–162 days**; ACH providers paid in 1–2 days"
+   - **Replace with:** "The 18 check-paying providers averaged **7–162 days**; the fastest three (Pledger, The Donors Fund, Fidelity, all ACH) averaged 1–2 days [V wave 29]"
+2. **§0, Checks row, YourCause.**
+   - **Find:** "YourCause/Blackbaud may forfeit voided funds [F]."
+   - **Replace with:** "YourCause/Blackbaud may forfeit voided funds, under corporate giving-programme client rules rather than a DAF sponsor's [F; V wave 29]."
+3. **§2.2, YourCause.**
+   - **Find:** "checks cannot be reissued.\" ([Blackbaud]"
+   - **Replace with:** "checks cannot be reissued.\" The 120-day limit exists because \"clients have guidelines in place that state funds are returned to the company\" or redirected to another charity. It is a workplace-giving rule (YourCause CSRconnect and similar), not a DAF sponsor's [V wave 29] ([Blackbaud]"
+4. **§3 reading 4, Benevity and Chariot.**
+   - **Find:** "Removing Benevity halves the delay count."
+   - **Replace with:** "Removing Benevity cuts the delay count from 16 to 7. Three of the 16 delay rows come from one Chariot page (NPS-023, NPS-024 and the carried NPS-059/CMP-241) [C; V wave 29]."

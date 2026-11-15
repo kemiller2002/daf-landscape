@@ -475,3 +475,16 @@ python3 scripts/mission_sponsor_resilience.py --irs-dir IRS --cache-dir CACHE \
   - Renaissance TY2024, [202543189349301959](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543189349301959_public.xml).
 - IRS TEOS e-file index files `index_2021`–`index_2026` (local copies from earlier batches).
 - DAFRC panel `dafrc-sponsor-schedule-d-fy2019-2024.csv` with `dafrc-corrections-itemized.csv` (fallback DAF values, 4 rows).
+
+## Validation corrections (wave 29, 2026-11-15) — governing
+Source: [validation-wave29-report.md](validation-wave29-report.md); register `data/mission-2026-11-14/validation-register-wave29.csv`.
+
+1. **§0 item 1, affiliated R1 ≤ 0.**
+   - **Find:** "Morgan Stanley GIFT (−$133m in every year, TY2021–2024), Renaissance (−$17m to −$81m) and Johnson Charitable Gift Fund (exactly $0)."
+   - **Replace with:** "Morgan Stanley GIFT (−$86m to −$133m every year, TY2021–2024, each equal to its total liabilities), Renaissance (−$12m to −$81m) and Johnson Charitable Gift Fund (−$1, i.e. $0) [C; V wave 29]."
+2. **§1.6, NPT break.**
+   - **Find:** "  - **NPT TY2022 (FY Jun-2023):** Schedule D $22.84bn against Part X $27.92bn. A roll-forward from FY2022 gives about $26.3bn before market gains; see P-B44N27-01."
+   - **Replace with:** "  - **NPT TY2022 (FY Jun-2023):** Schedule D $22.84bn against Part X $27.92bn. A roll-forward from FY2022 gives about $26.3bn before market gains; see P-B44N27-01.\n    - Wave 29 checked the XML: `DonorAdvisedFundsVlEOYAmt` is 22843599245 in return 202431429349301368, the only Form 990 for that period (no amendment). It is a real filed value, not a parse error. It is most likely a filer error [I]: reaching FY2024's $42.12bn from it would need a 32% return. DAFRC carries the same value, so N30's FY2023 uses it [V wave 29]."
+3. **§4 Readings, MS GIFT.**
+   - **Find:** "Schedule D appears to report DAF value before liabilities (grants payable), so its true own equity is about $0."
+   - **Replace with:** "Schedule D appears to report DAF value before liabilities (grants payable), so its true own equity is about $0. The same identity holds for American Gift Fund in all four years and for Renaissance in TY2021 and TY2024 [C; V wave 29]."
