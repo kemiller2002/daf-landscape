@@ -514,7 +514,7 @@ Grant-payment rails at the top 30 community foundations ([queue-community-founda
 | Nothing published | 15 |
 
 - None of the 30 uses PayPal Grant Payments or Ren ACH.
-- Outside the top 30, Greater Washington (#38) has used Blackbaud and REPAY (two separate firms) since Sept 2026 [V wave 7].
+- Outside the top 30, Greater Washington (#38) has paid grants through Blackbaud and REPAY since Sept 2026 [V wave 7]. REPAY is the embedded payments rail of Blackbaud Financial Edge NXT, and Blackbaud named BILL as its successor on 2026-09-29 (early adopters only) [V wave 14].
 - The community-foundation channel is fragmented and largely runs its own ACH, which leaves an open payments field without a dominant rail.
 
 **What nonprofits pay to receive DAF grants** ([queue-nonprofit-side-panel.md](mission-2026-11-14/queue-nonprofit-side-panel.md), 33 entities [V wave 12]; [queue-agentic-products-dafpay-fees.md](mission-2026-11-14/queue-agentic-products-dafpay-fees.md) [V wave 8])
@@ -585,7 +585,7 @@ Grant-payment rails at the top 30 community foundations ([queue-community-founda
 - So an entrant can reach batch exports without vendor consent, but **not live integration**.
 
 **Candid API licence (2026-09-14)** ([queue-sponsor-terms-data-clauses.md](mission-2026-11-14/queue-sponsor-terms-data-clauses.md)) [V wave 9]
-- On termination, licensees must stop all use of the data.
+- On termination, licensees must stop all use of the data. The licence has no retention carve-out, while the IRS third-party reliance rule (Rev. Proc. 2018-32 §8.01(2)) requires grantors to retain the report [V wave 14].
 - Data mining is barred for building a database, reselling or competing with Candid.
 - Charity Check draws on Pub78, the BMF, the IRB, revocations and the OFAC SDN list.
 
@@ -708,6 +708,10 @@ Related customer-facing frictions are covered by theme: data export and credenti
 - Givinga's account unit ([sponsor-cost-structure-and-sensitivities.md](mission-2026-11-14/sponsor-cost-structure-and-sensitivities.md)).
 - Edward Jones's program fee, whose help pages now return 404 ([queue-all-in-cost-dafpay-access.md](mission-2026-11-14/queue-all-in-cost-dafpay-access.md)).
 - Give Interactive's role at CCT ([queue-vendor-channel-moves.md](mission-2026-11-14/queue-vendor-channel-moves.md)).
+
+### 11.9 Batch 29 (validated, wave 14)
+
+**Batch 29 (validated, wave 14).** Peterson v. WaterStone is pending in discovery, with the MTD fully briefed and final productions due 2027-02-14. It is the first 2021+ successor-adviser suit to get this far; Pinkert and Fairbairn failed. California's AB 488 excludes a DAF sponsor only if it does not name charities to non-advisers, and excludes a vendor only if it "solely" provides technical services. Public complaint rates per 10,000 accounts (Daffy 11.2, Vanguard 5.4, Fidelity 2.3, DAFgiving360 1.3) measure venue coverage, not service quality. At least 17% of the top 200 sponsors itemise grant voids, refunds or recoveries on their 990s (median about 0.3% of grants). That reflects accounting presentation, not void incidence. ImpactAssets' $160.8m CY2024 line to NPT is most likely a donor-recommended DAF-to-DAF transfer; NPT sent $63.5m the other way over FY2024–25. The Giving Block earnout (maximum $246m; $57.8m fair value at acquisition) settled at $10.4m, and Fidelity Charitable's crypto inflow fell 88% in 2022 and 54% in 2025, so crypto-dependent entrants (crypto was 99.7% of Endaoment's FY6/24 contributions) carry drawdown risk. Not holding funds removes the fundraiser bond in only some states (CT, NJ, OH, GA, IL in the 18-state sample; MN, NH, RI, LA per the 2023 survey) [V wave 14]. Sources: [queue-batch29-regulation-litigation-crypto.md](mission-2026-11-14/queue-batch29-regulation-litigation-crypto.md), [queue-batch29-complaints-voids.md](mission-2026-11-14/queue-batch29-complaints-voids.md), [queue-batch29-fit-ledgers.md](mission-2026-11-14/queue-batch29-fit-ledgers.md), [validation-wave14-report.md](mission-2026-11-14/validation-wave14-report.md).
 
 ---
 
