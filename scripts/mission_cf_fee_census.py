@@ -472,6 +472,9 @@ def parse_schedn(oid: str, t: str) -> dict | None:
             "terminate_ind": tag(t, "TerminateOperationsInd"), "partial_liq_ind": tag(t, "PartialLiquidationInd"), "details": det}
 
 
+YES = ("1", "true", "X")
+
+
 def task_schedn(cache_dir: str, xml_dirs: Sequence[str], fetch: bool, workers: int) -> dict:
     files = xml_files(xml_dirs)
     found = []
@@ -481,29 +484,57 @@ def task_schedn(cache_dir: str, xml_dirs: Sequence[str], fetch: bool, workers: i
         r = parse_schedn(oid, t)
         if r:
             found.append({**r, "source": "local_xml"})
-    # CF filers' own returns (2021+ tax years) from the e-file mirror: Part IV lines 31/32 and Schedule N.
-    cf_eins = {r["ein"] for r in sorted(read_csv(CF_MAP), key=lambda r: -num(r["fy2024_daf_assets_usd"]))}
-    rets = [r for r in read_csv(RETURNS_CSV) if r.get("ein", "").zfill(9) in cf_eins and num(r.get("tax_year")) >= 2021]
-    net = Net(cache_dir, fetch)
-    urls = sorted({r["xml_url"] for r in rets if r.get("xml_url")} - {u for u in () })
-    urls = [u for u in urls if re.search(r"(\d{18})_public\.xml", u) and re.search(r"(\d{18})_public\.xml", u).group(1) not in files]
+    # CF filers' own returns (2021+ tax years) from the e-file mirror (no robots.txt on the S3 host: 404).
+    # Stream each return only to </IRS990> to read Part IV lines 31/32; fetch the full XML only when either is yes.
+    cf_eins = {r["ein"] for r in read_csv(CF_MAP)}
+    rets = [r for r in read_csv(RETURNS_CSV) if r.get("ein", "").zfill(9) in cf_eins and num(r.get("tax_year")) >= 2021 and r.get("xml_url")]
+    mdir = os.path.join(cache_dir, "partiv")
+    os.makedirs(mdir, exist_ok=True)
+    throttle = threading.Semaphore(workers)
 
-    def one(u):
-        res = net.get(u, max_bytes=40_000_000, timeout=60)
-        if res["status"] != 200:
-            return {"url": u, "status": res["status"]}
-        t = body_bytes(res).decode("utf-8", "replace")
+    def head_flags(u: str) -> dict:
         oid = re.search(r"(\d{18})_public", u).group(1)
-        r = parse_schedn(oid, t)
-        flags = {"terminate_ind": tag(t, "TerminateOperationsInd"), "partial_liq_ind": tag(t, "PartialLiquidationInd")}
-        # do not keep raw XML; keep compact parse only
-        return {"url": u, "status": 200, "oid": oid, "schedn": r, **flags}
+        p = os.path.join(mdir, oid + ".json")
+        if os.path.exists(p):
+            with open(p, encoding="utf-8") as fh:
+                return json.load(fh)
+        if not fetch:
+            return {"oid": oid, "status": "not_cached"}
+        if oid in files:
+            with open(files[oid], encoding="utf-8", errors="ignore") as fh:
+                t = fh.read()
+            out = {"oid": oid, "status": 200, "terminate_ind": tag(t, "TerminateOperationsInd"), "partial_liq_ind": tag(t, "PartialLiquidationInd"),
+                   "schedn": parse_schedn(oid, t)}
+        else:
+            with throttle:
+                try:
+                    req = urllib.request.Request(u, headers={"User-Agent": UA})
+                    buf = b""
+                    with urllib.request.urlopen(req, timeout=60) as r:
+                        while b"</IRS990>" not in buf and len(buf) < 60_000_000:
+                            chunk = r.read(262_144)
+                            if not chunk:
+                                break
+                            buf += chunk
+                    t = buf.decode("utf-8", "replace")
+                    out = {"oid": oid, "status": 200, "terminate_ind": tag(t, "TerminateOperationsInd"), "partial_liq_ind": tag(t, "PartialLiquidationInd")}
+                    if out["terminate_ind"] in YES or out["partial_liq_ind"] in YES:
+                        with urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA}), timeout=120) as r:
+                            out["schedn"] = parse_schedn(oid, r.read().decode("utf-8", "replace"))
+                except Exception as e:  # noqa: BLE001
+                    return {"oid": oid, "status": f"error:{type(e).__name__}"}
+        out.update({"ein": next((x["ein"] for x in rets if oid in x["xml_url"]), ""), "url": u})
+        with open(p, "w", encoding="utf-8") as fh:
+            json.dump(out, fh)
+        return out
+    urls = sorted({r["xml_url"] for r in rets})
     with cf.ThreadPoolExecutor(max_workers=workers) as ex:
-        mirror = list(ex.map(one, urls)) if fetch or any(net.cached(u) for u in urls[:5]) else []
+        mirror = list(ex.map(head_flags, urls))
     found += [{**m["schedn"], "source": "mirror_cf_filer"} for m in mirror if m.get("schedn")]
-    flags = [m for m in mirror if m.get("status") == 200 and (m.get("terminate_ind") in ("1", "true", "X") or m.get("partial_liq_ind") in ("1", "true", "X"))]
+    flags = [m for m in mirror if m.get("status") == 200 and (m.get("terminate_ind") in YES or m.get("partial_liq_ind") in YES)]
     out = {"local_xml_scanned": len(files), "cf_filer_returns_2021plus": len(rets), "mirror_urls": len(urls),
-           "mirror_ok": sum(m.get("status") == 200 for m in mirror), "schedn_found": found, "part_iv_31_32_yes": flags}
+           "mirror_ok": sum(m.get("status") == 200 for m in mirror), "mirror_errors": [m for m in mirror if m.get("status") != 200],
+           "schedn_found": found, "part_iv_31_32_yes": flags}
     with open(os.path.join(cache_dir, "schedn.json"), "w", encoding="utf-8") as fh:
         json.dump(out, fh, indent=1)
     return {k: (len(v) if isinstance(v, list) else v) for k, v in out.items()}
