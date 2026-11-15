@@ -327,7 +327,7 @@ All facts here are [S], because give.org's robots.txt disallows Claude agents.
 | row_type | `coverage`, `eligibility_rule`, `pricing`, `licence`, `product`, `integration`, `gap`, `business_model` |
 | integrator | For `integration` rows: the sponsor, vendor or platform using the provider. Blank otherwise |
 | integrator_type | `daf_sponsor`, `daf_technology_vendor`, `payment_rail`, `giving_platform`, `ai_platform`, `workplace_giving`, `grant_platform` or blank |
-| integration_mode | `embedded` (data in donor flow), `linked` (outbound reference), `eligibility_source`, `rail`, `api_customer` or blank |
+| integration_mode | `embedded` (data in donor flow), `linked` (outbound reference), `eligibility_source`, `data_source` (non-eligibility data such as cause tags), `rail`, `api_customer` or blank |
 | shown_to_donors | What the donor sees (rating, seal, profile, eligibility only, none) |
 | value | The fact, figure or tier as stated |
 | quote_or_basis | Verbatim quote (≤40 words) or basis |
