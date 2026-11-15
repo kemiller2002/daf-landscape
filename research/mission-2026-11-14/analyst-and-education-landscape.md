@@ -285,3 +285,22 @@ Columns and scales follow [`queue-proposals-README.md`](../../data/mission-2026-
 Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
 
 - **W4-12** (research/mission-2026-11-14/analyst-and-education-landscape.md line 107 and lines 111, 187): replace "Advised HNW clients using a DAF … Advised and sponsor-linked sample" / "advised-client penetration (51% of TPI's HNW clients)" → "Philanthropically active HNW individuals ($5m+) using a DAF: 51% (TPI 2026, n=103; not screened for having an adviser)"
+
+## Validation corrections (wave 19, 2026-11-15) — governing
+Source: [validation-wave19-report.md](validation-wave19-report.md); register `data/mission-2026-11-14/validation-register-wave19.csv`.
+
+1. **§4.1 table, "Who starts the philanthropy conversation" row.**
+   - **Find:** "| **61%** of clients say they do; **6%** say the adviser does | DAFRC 2026 via [InvestmentNews, Oct 28 2026](https://www.investmentnews.com/practice-management/charitable-giving-season/268629) | Conflicts with sponsor framing of advisers \"driving\" growth (T8). |"
+   - **Replace with:** "| **61%** of clients say they do; **6%** say the adviser does | 2018 U.S. Trust/TPI Study of the Philanthropic Conversation, as cited in DAFRC 2026 ([report](https://www.dafresearchcollaborative.org/s/DAF_FinancialAdvisorReport_Final_Web.pdf), endnotes 10–16); repeated by [InvestmentNews, Oct 28 2026](https://www.investmentnews.com/practice-management/charitable-giving-season/268629) | **Pre-2021 data, not a 2026 survey result**: historical context only. DAFRC's own 2026 \"61%\" figures are different (advisers serving $10m+ clients; advisers who personally use a DAF, against 26%) [batch 34C; V wave 19]. |"
+2. **§4.1 table, DAFRC adoption row (access label).**
+   - **Find:** "| Secondary: the executive summary page returned 403. A sponsor (DAFgiving360) hosts it. |"
+   - **Replace with:** "| Primary: full report PDF read (created 2026-04-23; Figure 3.4). Convenience sample of 669 advisers, unweighted; funded by DAFgiving360 [batch 34C; V wave 19]. |"
+3. **§4.1 table, reasons row.**
+   - **Find:** "| tax benefits 83%; flexible timing 69%; convenience 69%; estate planning 63% | DAFRC 2026 via search summary of the [DAFgiving360 release](https://www.dafgiving360.org/press-release/dafrc-advisor-study) | Secondary. |"
+   - **Replace with:** "| tax benefits 83%; flexible timing 69%; convenience 69%; estate planning 63% | DAFRC 2026, Figure 5.1 ([report](https://www.dafresearchcollaborative.org/s/DAF_FinancialAdvisorReport_Final_Web.pdf)) | Primary (very or extremely important) [V wave 19]. |"
+4. **§5.2, T8 row.**
+   - **Find:** "DAFRC 2026: 61% of clients initiate philanthropy talks and 6% say the adviser does ([InvestmentNews](https://www.investmentnews.com/practice-management/charitable-giving-season/268629))."
+   - **Replace with:** "A 2018 U.S. Trust/TPI figure, cited in DAFRC 2026: 61% of clients say they initiate philanthropy talks and 6% say the adviser does. This is pre-2021 context, not 2026 evidence [V wave 19]."
+5. **§6, item 1 funnel bullet.**
+   - **Find:** "   - client-initiated conversations: 61% versus 6%;"
+   - **Replace with:** "   - client-initiated conversations: 61% versus 6% (2018 U.S. Trust/TPI data, cited in DAFRC 2026; historical context only) [V wave 19];"

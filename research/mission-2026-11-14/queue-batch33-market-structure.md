@@ -309,3 +309,14 @@ Source: [validation-wave18-report.md](validation-wave18-report.md); register `da
 11. **§3.2 table, NCF row.**
     - **Find:** "| Salesforce captive portal (Stellar component behind it; GL inferred NetSuite) | NCF $5.46bn |"
     - **Replace with:** "| Salesforce captive portal (Stellar component behind it; GL inferred NetSuite) | NCF $5.46bn (DAFRC-imputed FY2024 value; The Signatry's $0.40bn is also imputed) [V wave 18] |"
+
+## Validation corrections (wave 19, 2026-11-15) — governing
+Source: [validation-wave19-report.md](validation-wave19-report.md); register `data/mission-2026-11-14/validation-register-wave19.csv`.
+
+Batch 34 supersedes wave-18 correction 10 for this sentence. Apply this item instead of that one. Item 1's find text also appears in the file's own quoted correction list; apply it to the §2.2 body occurrence only.
+1. **§2.2, pass-through total.**
+   - **Find:** "  Those five sponsors made about $4.4bn of FY2024 DAF grants (DAFRC)."
+   - **Replace with:** "  Those five sponsors made about $4.4bn of FY2024 DAF grants as DAFRC publishes them, or **$4.32bn on filed returns** (PPGF $795.7m filed vs $626.6m imputed; NFG $199.8m filed vs $427.9m imputed; both already applied as R1 in the corrected totals). In the latest filed years they made $3.87bn in the DAF column, or $4.85bn with the AOGF and CAF America other-funds columns (batch 34B §1.1) [V wave 19]."
+2. **§2.2, pass-through list, Bonterra line.**
+   - **Find:** "  - Bonterra → NFG and CAF America (customer)"
+   - **Replace with:** "  - Bonterra → NFG and CAF America (both vendor/customer links: Bonterra Tech $2.49m from NFG CY2024; CyberGrants $8.29m from CAF America FYE 2025-04). NFG has been controlled since 2024-06-07 by its sole member, Durable Capital for Sustainable Outcomes Inc. [batch 34B; V wave 19]"
