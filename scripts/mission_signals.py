@@ -210,9 +210,13 @@ def gdelt(params: Mapping[str, str]) -> dict | None:
     raise RuntimeError(f"GDELT request failed after retries: {url}")  # never write silent zeros
 
 
+RESOLUTIONS: dict[str, str] = {}
+
+
 def timeline(query: str, start: str, end: str) -> list[dict]:
     d = gdelt({"query": query + " sourcelang:english", "mode": "timelinevolraw", "startdatetime": start,
                "enddatetime": end, "timelinesmooth": "0"})
+    RESOLUTIONS[f"{query[:40]}|{start}"] = (d or {}).get("query_details", {}).get("date_resolution", "")
     if not d or not d.get("timeline"):
         return []
     return d["timeline"][0]["data"]
@@ -239,15 +243,13 @@ def title_themes(title: str) -> list[str]:
 
 
 def task_news(work: str) -> None:
-    series: dict[str, dict[str, tuple[int, int]]] = {"base": {}}
-    for y, a, b in YEARS:
-        print("timeline base", y)
-        series["base"].update(monthly(timeline(BASE_Q, a, b)))
-    for theme, q in THEMES.items():
-        series[theme] = {}
-        for y, a, b in YEARS:
-            print("timeline", theme, y)
-            series[theme].update(monthly(timeline(f"{BASE_Q} {q}", a, b)))
+    # One full-window call per series keeps the request count low (GDELT rate-limits this shared egress hard);
+    # the API chooses the bucket size for the window, recorded in RESOLUTIONS and summed to calendar months.
+    start, end = YEARS[0][1], YEARS[-1][2]
+    series: dict[str, dict[str, tuple[int, int]]] = {}
+    for name, q in [("base", BASE_Q), *[(t, f"{BASE_Q} {q}") for t, q in THEMES.items()]]:
+        print("timeline", name)
+        series[name] = monthly(timeline(q, start, end))
     months = sorted(series["base"])
     rows = [{
         "month": mth,
@@ -275,7 +277,8 @@ def task_news(work: str) -> None:
         theme_samples[theme] = [{"date": x.get("seendate", "")[:8], "domain": x.get("domain"),
                                  "title": x.get("title"), "url": x.get("url")} for x in arts]
     dump(os.path.join(work, "news-headlines.json"), {"by_year": sample, "by_theme": theme_samples,
-                                                      "queries": {"base": BASE_Q, **THEMES}})
+                                                      "queries": {"base": BASE_Q, **THEMES},
+                                                      "resolutions": RESOLUTIONS})
     dump(os.path.join(work, "robots-log-news.json"), ROBOTS_LOG)
     print(summarize_news(rows, sample))
 
@@ -332,6 +335,49 @@ def snippet(text: str, rx: re.Pattern) -> str:
     return "" if not m else text[max(0, m.start() - 70): m.end() + 70].replace("\n", " ")
 
 
+def sentences(text: str) -> list[str]:
+    return [x.strip() for x in re.split(r"(?<=[.!?])\s+|\s+-\s+|\s{2,}", text) if len(x.strip()) > 25]
+
+
+def boilerplate_of(rows: Sequence[Mapping], min_share: float = 0.4) -> dict[str, set[str]]:
+    """Sentences repeated in >= min_share of an org's postings (org with >= 4 postings) = employer boilerplate."""
+    by_org: dict[str, list[set[str]]] = defaultdict(list)
+    for r in rows:
+        by_org[r["org"]].append(set(sentences(r["_desc"])))
+    out = {}
+    for org, sets in by_org.items():
+        c = Counter(x for st in sets for x in st)
+        out[org] = {x for x, n in c.items() if len(sets) >= 4 and n / len(sets) >= min_share}
+    return out
+
+
+USE_RX = re.compile(r"AI[- ](?:powered |assisted |enabled )?tools?|(?:use|using|leverag\w*|comfort\w*|fluen\w*|curio\w*)"
+                    r"[^.]{0,40}\bAI\b|AI-(?:assisted|forward|enabled content)|ChatGPT|Claude", re.I)
+BUILD_RX = re.compile(r"build\w*[^.]{0,60}(?:AI|LLM|agent|model)|(?:AI|LLM|ML)[-/ ](?:powered |driven )?"
+                      r"(?:product|feature|application|system|agent|pipeline|engineer)|agentic|\bRAG\b|model serving|"
+                      r"machine learning|LLM judges", re.I)
+
+
+def role_level(rows: list[dict]) -> list[dict]:
+    """Add flags computed on the description minus employer boilerplate, and a heuristic AI-mention type."""
+    bp = boilerplate_of(rows)
+
+    def one(r: dict) -> dict:
+        if r["description_available"] != "yes":
+            extra = {f"role_{k}": "" for k in KW} | {"role_any_ai_ml_llm": "", "ai_mention_type": ""}
+        else:
+            kept = " ".join(x for x in sentences(r["_desc"]) if x not in bp[r["org"]])
+            txt = f"{r['title']} {r['team']} {kept}"
+            extra = {f"role_{k}": int(bool(rx.search(txt))) for k, rx in KW.items()}
+            extra["role_any_ai_ml_llm"] = max(extra["role_ai"], extra["role_ml"], extra["role_llm"])
+            build = bool(BUILD_RX.search(txt)) and r["function"] in ("engineering", "data", "product_design")
+            extra["ai_mention_type"] = ("" if not extra["role_any_ai_ml_llm"] else "build_ai" if build
+                                        else "use_ai_tools" if USE_RX.search(txt) else "other_mention")
+        return {**{k: v for k, v in r.items() if k != "_desc"}, **extra}
+
+    return [one(r) for r in rows]
+
+
 def posting(org: str, seg: str, source: str, title: str, team: str = "", location: str = "", posted: str = "",
             description: str = "", desc_available: bool = True) -> dict:
     title, team, desc = strip_html(title), strip_html(team), strip_html(description)
@@ -349,7 +395,7 @@ def posting(org: str, seg: str, source: str, title: str, team: str = "", locatio
             "location": strip_html(location), "posted_or_updated": posted[:10], "function": func_of(title, team),
             "description_available": "yes" if desc_available else "no", "desc_chars": len(desc), **tflags,
             "title_any_ai_ml_llm": any_ai_t, **flags, "desc_any_ai_ml_llm": any_ai, "desc_any_of_five": any5,
-            "ai_context": ctx[:200]}
+            "ai_context": ctx[:200], "_desc": desc}
 
 
 def from_greenhouse(org: str, seg: str, slug: str, filt=None) -> list[dict]:
@@ -486,9 +532,13 @@ def from_fidelity_charitable() -> list[dict]:
             return None
         t = b.decode("utf-8", "replace")
         m = re.search(r"<h1[^>]*>(.*?)</h1>", t, re.S)
-        text = strip_html(t)
+        full = strip_html(t)
+        a = full.find("Job Description")
+        z = min([i for i in (full.find("Certifications:", a), full.find("Category:", a)) if i > a] or [len(full)])
+        text = full[a:z] if a >= 0 else ""  # job-description body only; site chrome has an "AI Guidelines" link
+        cat = re.search(r"Category:\s*(.*?)\s+Please be advised", full)
         return {"url": u, "title": strip_html(m.group(1)) if m else "", "text": text,
-                "fc_mentions": text.count("Fidelity Charitable")}
+                "category": cat.group(1)[:60] if cat else "", "fc_mentions": text.count("Fidelity Charitable")}
 
     from concurrent.futures import ThreadPoolExecutor
     with ThreadPoolExecutor(4) as ex:
@@ -496,11 +546,11 @@ def from_fidelity_charitable() -> list[dict]:
     fc = [p for p in pages if p["fc_mentions"] > 0]
     print(f"  fidelity sitemap jobs={len(locs)} fetched={len(pages)} mentioning Fidelity Charitable={len(fc)}")
     FID_META.update({"sitemap_jobs": len(locs), "fetched": len(pages), "fc": len(fc),
-                     "fidelity_all_ai_share": round(sum(bool(KW["ai"].search(p["text"]) or KW["ml"].search(p["text"])
-                                                             or KW["llm"].search(p["text"])) for p in pages)
-                                                    / max(1, len(pages)), 3)})
-    return [posting("Fidelity Charitable", "sponsor", sm + " (job pages naming 'Fidelity Charitable')", p["title"],
-                    "", "", "", p["text"]) for p in fc]
+                     "fidelity_all_jobs_desc_ai_ml_llm_share": round(
+                         sum(bool(KW["ai"].search(p["text"]) or KW["ml"].search(p["text"]) or KW["llm"].search(p["text"]))
+                             for p in pages) / max(1, len(pages)), 3)})
+    return [posting("Fidelity Charitable", "sponsor", sm + " (job pages whose description names 'Fidelity Charitable')",
+                    p["title"], p["category"], "", "", p["text"]) for p in fc]
 
 
 FID_META: dict = {}
@@ -548,9 +598,10 @@ def task_hiring(work: str) -> None:
     rows: list[dict] = []
     for name, fn in collectors:
         got = fn()
-        uniq = {(r["title"].lower(), r["location"].lower()): r for r in got}
-        print(f"{name}: {len(got)} postings ({len(uniq)} unique title+location)")
+        uniq = {(r["title"].lower(), r["_desc"][:2000]): r for r in got}  # same role multi-posted by location
+        print(f"{name}: {len(got)} postings ({len(uniq)} unique title+description)")
         rows.extend(uniq.values())
+    rows = role_level(rows)
     cols = list(rows[0].keys()) if rows else []
     write_csv(os.path.join(DATA, "daf-hiring-signals-2026.csv"), rows, cols)
     summary = summarize_hiring(rows)
@@ -572,10 +623,12 @@ def summarize_hiring(rows: Sequence[Mapping]) -> dict:
         groups[r["org"]].append(r)
         groups["SEGMENT:" + ("sponsor" if r["segment"].startswith("sponsor") else "vendor")].append(r)
         groups["ALL"].append(r)
-    cols = ["desc_any_ai_ml_llm", "desc_ai", "desc_ml", "desc_llm", "desc_automation", "desc_data",
-            "desc_any_of_five", "title_any_ai_ml_llm", "title_data"]
+    cols = ["desc_any_ai_ml_llm", "role_any_ai_ml_llm", "role_ai", "role_ml", "role_llm", "role_automation",
+            "role_data", "desc_automation", "desc_data", "desc_any_of_five", "title_any_ai_ml_llm", "title_data"]
     out = {"by_group": {g: {"n": len(rs), **{c: share(rs, c) for c in cols},
-                            "functions": dict(Counter(r["function"] for r in rs))} for g, rs in sorted(groups.items())}}
+                            "functions": dict(Counter(r["function"] for r in rs)),
+                            "ai_mention_type": dict(Counter(r["ai_mention_type"] for r in rs if r["ai_mention_type"]))}
+                        for g, rs in sorted(groups.items())}}
     eng = [r for r in rows if r["function"] in ("engineering", "data", "product_design")]
     out["tech_roles"] = {"n": len(eng), **{c: share(eng, c) for c in cols}}
     out["non_tech_roles"] = {"n": len(rows) - len(eng),
