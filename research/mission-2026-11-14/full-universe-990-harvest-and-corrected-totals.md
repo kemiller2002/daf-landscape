@@ -338,3 +338,10 @@ Source: [validation-wave5-report.md](validation-wave5-report.md). Where these co
    - Replace: "Ren's 990-evidenced reach is **14.8% of DAFRC assets**. It is a floor:"
    - With: "Ren's 990-evidenced reach is **14.8% of DAFRC assets** cumulatively: 30 sponsors named in any FY2022–25 return. Only 18 sponsors holding $30.18bn (9.2%) name Ren or Stellar in their latest parsed return; GS DAPF ($11.84bn) appears in FY2022 only. On corrected FY2024 assets the cumulative share is 15.0%. It is a floor for current use only in the sense that Part VII-B lists just the top five contractors over $100k:"
    - Apply the same qualifier to `strategic-synthesis.md` and `FINAL-STATUS.md` ("14.8% 990-paid").
+
+## Validation corrections (wave 19, 2026-11-15) — governing
+Source: [validation-wave19-report.md](validation-wave19-report.md); register `data/mission-2026-11-14/validation-register-wave19.csv`.
+
+1. **Jasper Ridge bullet.**
+   - **Find:** "mostly to Schwab ($750.6m) and Fidelity ($548.9m)"
+   - **Replace with:** "mostly to Schwab ($750.6m per Schedule I; $746.5m in Schedule N line items) and Fidelity ($548.9m)"

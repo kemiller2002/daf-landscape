@@ -267,3 +267,19 @@ Same columns as `relationship-graph-edges.csv`. ES001–ES023:
 ## Data dictionary: `queue-proposals-batch34b.csv`
 
 Format per `queue-proposals-README.md`. P-B34B-01 (workplace reclassification), P-B34B-02 (public-support cliff screen), P-B34B-03 (NFG/DCSO).
+
+## Validation corrections (wave 19, 2026-11-15) — governing
+Source: [validation-wave19-report.md](validation-wave19-report.md); register `data/mission-2026-11-14/validation-register-wave19.csv`.
+
+1. **§6, item 3 (Jasper Ridge / V4-08).**
+   - **Find:** "3. **`sponsor-mortality-analysis.md` and `validation-wave4-report.md` (V4-08 \"Schwab received $750.6m\").** The line-item sum of Schedule N in the CY2022 XML is **$746,466,086** to Schwab. Total transfers are $1,319,068,001. Adding the 2023 990-PF final grant ($2,956,978) gives $749.4m, which is still not $750.6m."
+   - **Replace with:** "3. **`sponsor-mortality-analysis.md` and `validation-wave4-report.md` (V4-08 \"Schwab received $750.6m\"): no change.** V4-08's $750.6m is the CY2022 **Schedule I** amount to Schwab Charitable ($51,933,609 cash + $698,657,671 non-cash = $750,591,280). The **Schedule N** line items to Schwab sum to $746,466,086, within total Schedule N transfers of $1,319,068,001. Both are filed figures in the same return; cite which schedule is meant [V wave 19, V19-23]."
+2. **§1.1, totals bullet (PPGF/NFG gap).**
+   - **Find:** "  - PPGF is +$169.1m on the filed return; NFG is −$228.1m."
+   - **Replace with:** "  - PPGF is +$169.1m on the filed return; NFG is −$228.1m. Both filed values already replace DAFRC's imputations under rule R1 (`dafrc-corrections-itemized.csv`), so the repo's corrected market totals, and R5, already include them. This is not a further adjustment [V wave 19]."
+3. **§1.3 table, PPGF row.**
+   - **Find:** "**No fee to PayPal disclosed.** PayPal donates personnel (\"PPGF HAS NO EMPLOYEES\"): Schedule R code M $9,041,772 (CY2024)"
+   - **Replace with:** "**No fee to PayPal disclosed** (no Part VII-B or fee line). PayPal donates personnel (\"PPGF HAS NO EMPLOYEES\"): Schedule R code M $9,041,772 (CY2024). Schedule R also lists PayPal Inc transactions under codes C ($2,209,075), L ($1,742,154), O ($689,031) and P ($307,024) [V wave 19]"
+4. **§2 table, BNY row.**
+   - **Find:** "| Is the BNY listing current? | **No.** BNY Mellon Charitable Gift Fund's CY2024 990, Schedule O: "
+   - **Replace with:** "| Is the BNY listing current? | **No.** BNY Mellon Charitable Gift Fund's CY2024 990, Schedule N Part II and Schedule O: "

@@ -323,3 +323,13 @@ Standard proposal columns per [`queue-proposals-README.md`](../../data/mission-2
 - **P-B34C-01:** count DAF sponsors appearing as holders in state unclaimed-property bulk files. Use only files that robots.txt allows; California's SCO file needs a human or another permitted route.
 - **P-B34C-02:** obtain TPI 2026's full report and methodology without submitting TPI's form, for example from co-sponsor-hosted copies.
 - **P-B34C-03:** map sanctioned delegation routes (GS DAF agent, JCF Authorized Party, Fidelity AIP, Vanguard Authorized Person, GKCCF "Authorized Use") and whether a software service can be appointed.
+
+## Validation corrections (wave 19, 2026-11-15) — governing
+Source: [validation-wave19-report.md](validation-wave19-report.md); register `data/mission-2026-11-14/validation-register-wave19.csv`.
+
+1. **§0, P-TRM-05 lead.**
+   - **Find:** "**The census now covers 18 of the top 20; Dechomai and Raymond James are unreadable.**"
+   - **Replace with:** "**The census now has at least one document read for 18 of the top 20; Dechomai and Raymond James are unreadable.** DAFgiving360 rests on its 2024 text (the 2026 Program Policies are unreadable), and AEF has no terms of use found [V wave 19]."
+2. **§5.1, sources (page count).**
+   - **Find:** "(PDF created 2026-04-23, modified 2026-05-07; 45 pp.)"
+   - **Replace with:** "(PDF created 2026-04-23, modified 2026-05-07; 46 pp.)"
