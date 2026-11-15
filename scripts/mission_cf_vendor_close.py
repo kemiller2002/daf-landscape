@@ -19,8 +19,8 @@ Passes for each v1-unmapped CF (public, passive; no logins, no forms, no tenant 
   5. DNS (dns.google): CNAME chain for six own-domain portal labels; A lookup of <domain stem> under the
      vendor zones that have NO wildcard (fcsuite.com, iphiview.com, spectrumportal.net, giveinteractive.com:
      a random label returns NXDOMAIN, checked at run time). A label counts only if it is >=3 chars and is
-     the stem of exactly one CF in the 803-CF universe; for fcsuite/iphiview/spectrumportal one GET of the public
-     sign-in page checks for a link back to the CF's own domain (vendor_tenant_backlink, medium); a bare DNS hit is low.
+     the stem of exactly one CF in the 803-CF universe; DNS only:
+     tenant pages are not fetched (fcsuite.com robots.txt disallows AI agents), so a DNS hit is a low-confidence candidate.
   6. Full text of the latest harvested e-filed 990 XML (Schedule O, Part IX other-expense lines, Part VII-B)
      for vendor names.
   7. Repo cross-references: cf-ledger-families-2026(-v2).csv, ren-iphi-tenant-census.csv (live tenants), and
@@ -71,7 +71,7 @@ GUESS_PATHS = ("/login/", "/donor-login/", "/fund-login/", "/fundholder-login/",
 SITEMAP_LOGIN = re.compile(r"login|log-in|sign-in|fundholder|fund-holder|donor-portal|donorportal|my-fund|myfund|access-your-fund|fund-access|online-access|donor-access|fund-portal", re.I)
 # 990 full-text vendor names (Schedule O, Part IX other expenses, VII-B). Strong = DAF fund-accounting vendors.
 TXT990 = (
-    ("Foundant", "Foundant (990 text)", r"FOUNDANT|COMMUNITY ?SUITE|FCSUITE", True),
+    ("Foundant", "Foundant (990 text)", r"\bFOUNDANT\b|COMMUNITY ?SUITE|FCSUITE|\bCSUITE\b", True),
     ("Ren / Stellar iPhi", "Stellar/Ren (990 text)", r"STELLAR TECHNOLOGY|\bIPHI\b|RENAISSANCE PHILANTHROPIC|RENPSG", True),
     ("Foundation Cloud (spectrumportal.net; NPact [R])", "NPact / Fusion Labs (990 text)", r"\bNPACT\b|FUSION LAB", True),
     ("akoyaGO", "Akoya (990 text)", r"\bAKOYA", True),
@@ -82,8 +82,8 @@ TXT990 = (
 )
 TXT990_RE = tuple((f, p, re.compile(rx, re.I), s) for f, p, rx, s in TXT990)
 PRIORITY = {**m.PRIORITY, "hand_check_first_party": 9, "repo_ren_census_live": 8, "raw_html_vendor_host": 6,
-            "login_path_vendor_host": 8, "vendor_tenant_backlink": 5, "vendor_zone_dns_label": 3, "990_text_vendor_name": 3,
-            "repo_ledger_families": 2, "hand_check_secondary": 2}
+            "login_path_vendor_host": 8, "vendor_zone_dns_label": 3, "990_text_vendor_name": 4,
+            "repo_ledger_families": 2, "hand_check_secondary": 5}
 FAM_LEDGER = {v[0]: v[2] for v in m.VENDORS}
 
 
@@ -180,13 +180,10 @@ def dns_pass(net: Net, own: str, stem_ok: bool, zones: Sequence) -> list[dict]:
             host = f"{stem}.{zone}"
             if not resolves(net, host):
                 continue
-            back, note = False, "tenant page not fetched (Give: tenant pages not probed)"
-            if path:  # one GET of the public sign-in page; look for a link back to the CF's own domain
-                res = m.polite_get(net, f"https://{host}{path}")
-                body = res.get("body", "") or ""
-                back = bool(re.search(r"https?://(www\.)?" + re.escape(own) + r"\b", body, re.I))
-                note = f"GET https://{host}{path} -> {res.get('status')}; " + ("page links back to " + own if back else "no link back to " + own)
-            out.append(sig(fam, prod, led, "vendor_tenant_backlink" if back else "vendor_zone_dns_label",
+            # DNS only: tenant pages are NOT fetched (fcsuite.com robots.txt disallows AI agents site-wide;
+            # akoyaGO disallows all; spectrumportal/iphiview sign-in pages carry no sponsor identity).
+            note = f"candidate only (label collision possible); tenant page not fetched; sign-in path {path or 'n/a'}"
+            out.append(sig(fam, prod, led, "vendor_zone_dns_label",
                            f"https://dns.google/resolve?name={host}&type=A",
                            f"{host} resolves; {zone} has no wildcard (random label NXDOMAIN); label = this CF's unique domain stem; {note}", 1))
     return out
@@ -221,6 +218,11 @@ def repo_signals() -> dict[str, list[dict]]:
                               f"ren-iphi-tenant-census.csv: {r['host']}{r['path']} status={r['status']} ({r.get('status_basis','')[:120]})"))
     if os.path.exists(HAND):
         for r in m.read_csv(HAND):
+            if r["evidence_type"] == "split_only":
+                continue
+            if r["evidence_type"] in ("hand_check_exclude", "hand_check_no_portal"):
+                out[m.ein9(r["ein"])].append({**sig("", "", "", r["evidence_type"], r["source_url"], r["detail"], 0), "exclude_family": r["family"]})
+                continue
             out[m.ein9(r["ein"])].append(sig(r["family"], r["product"], r["ledger_implied"], r["evidence_type"], r["source_url"], r["detail"],
                                              3 if r["evidence_type"] == "hand_check_first_party" else 1))
     return dict(out)
@@ -228,7 +230,9 @@ def repo_signals() -> dict[str, list[dict]]:
 
 # ---------------------------------------------------------------- decision
 def decide(sigs: Sequence[Mapping]) -> dict:
-    named = [s for s in sigs if s.get("family") and not s["family"].startswith("Foundant GLM")]
+    excluded = {s["exclude_family"] for s in sigs if s["evidence_type"] == "hand_check_exclude"}
+    named = [s for s in sigs if s.get("family") and not s["family"].startswith("Foundant GLM")
+             and not (s["family"] in excluded and s["evidence_type"] in ("vendor_zone_dns_label", "990_text_vendor_name"))]
     if not named:
         return {}
     fams = collections.Counter(s["family"] for s in named)
@@ -239,7 +243,7 @@ def decide(sigs: Sequence[Mapping]) -> dict:
         conf = "high"
     elif et == "raw_html_vendor_host":
         conf = "high" if same else "medium"
-    elif et == "vendor_tenant_backlink":
+    elif et == "hand_check_secondary":
         conf = "medium"
     elif et in ("990_part_vii_b_contractor",):
         conf = "medium" if best["family"] in m.STRONG_990 else "low"
@@ -250,7 +254,7 @@ def decide(sigs: Sequence[Mapping]) -> dict:
     else:
         conf = "low"
     url = re.search(r"https?://[^\s'\"]+", best["detail"])
-    portal = url.group(0) if url and et not in ("990_text_vendor_name",) else ("https://" + best["detail"].split(" ")[0] if et in ("vendor_zone_dns_label", "vendor_tenant_backlink") else "")
+    portal = url.group(0) if url and et not in ("990_text_vendor_name",) else ("https://" + best["detail"].split(" ")[0] if et == "vendor_zone_dns_label" else "")
     if et == "dns_cname":
         portal = "https://" + best["detail"].split(" ")[0]
     conflicts = sorted({f"{s['family']} ({s['evidence_type']})" for s in named if s["family"] != best["family"]})
@@ -337,7 +341,7 @@ def main() -> None:
         if home:
             own = m.reg_domain(m.host_of(home))
             cr = m.crawl(net, {**r, "homepage": home})
-            status = cr["crawl_status"]
+            status = cr["crawl_status"].replace("homepage_not_cached", "homepage_error_transport_not_cached")
             sigs += cr["signals"]
             hres = m.polite_get(net, home)
             if hres.get("body"):
@@ -376,9 +380,11 @@ def main() -> None:
                 row["change_note"] = f"unmapped -> {d['vendor_family']} ({d['confidence']}) via {d['evidence_type']}" + (f"; ledger file: {ledger_notes[0][:160]}" if ledger_notes else "")
             else:
                 row.update(base)
-                row["change_note"] = "still unmapped after v2 passes" + (f"; ledger file: {ledger_notes[0][:160]} (GL, not portal)" if ledger_notes else "")
+                hand = [s for s in rr["sigs"] if s["evidence_type"] in ("hand_check_no_portal", "hand_check_exclude")]
+                row["change_note"] = "still unmapped after v2 passes" + (f"; {hand[0]['evidence_type']}: {hand[0]['detail'][:160]}" if hand else "") + (
+                    f"; ledger file: {ledger_notes[0][:160]} (GL, not portal)" if ledger_notes else "")
             sig_rows += [{"ein": r["ein"], "name": r["name"], **{k: s.get(k, "") for k in ("family", "product", "ledger_implied", "evidence_type", "evidence_url", "detail", "strength")}}
-                         for s in rr["sigs"] if s.get("family") or s["evidence_type"] in ("repo_ledger_families",)]
+                         for s in rr["sigs"] if s.get("family") or s["evidence_type"] in ("repo_ledger_families", "hand_check_no_portal", "hand_check_exclude")]
             sig_rows += [{"ein": r["ein"], "name": r["name"], "family": "", "product": "", "ledger_implied": "", "evidence_type": "note", "evidence_url": "", "detail": n, "strength": 0} for n in rr["notes"]]
         if r["ein"] in split_by:
             s = split_by[r["ein"]]
