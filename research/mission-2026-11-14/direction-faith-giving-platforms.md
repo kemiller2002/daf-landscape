@@ -145,7 +145,7 @@ The evidence below explains why they diverge.
 - Synagogue dues may be paid from some DAFs (JCF LA) but not where a membership carries a nondeductible benefit (JCF NY). Such payments follow the congregation's invoice or membership process, not its public donate page [I].
 
 **Counter-evidence and limits**
-- Religion's figure rests on 14 pages; any cell with n < 15 is indicative only (repo). The 95% interval for 3/14 is wide, roughly 5–51% (Wilson, [C]).
+- Religion's figure rests on 14 pages; any cell with n < 15 is indicative only (repo). The 95% interval for 3/14 is wide, roughly 8–48% (Wilson, [C]).
 - Fidelity's religion share by count may partly reflect donor demographics, not payment mechanics.
 - Platform pages show marketed features. A feature could exist without being on the pages read, which is why rows are "not_found", not "no".
 
