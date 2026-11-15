@@ -1,3 +1,4 @@
+"""Parse Vanguard Charitable investments-performance page text (HTML stripped to text) into JSON lines."""
 import re,sys,json
 t=open(sys.argv[1]).read()
 v=r'(-?[\d.]+%|-)'
