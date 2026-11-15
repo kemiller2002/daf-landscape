@@ -247,3 +247,10 @@ See [`queue-proposals-batch40-n9.csv`](../../data/mission-2026-11-14/queue-propo
 - **P-B40N9-01:** verify the negative bill searches in CA, IL and CT by a permitted route.
 - **P-B40N9-02:** apply the CA/HI DAF-sponsor platform exclusion test to entrants and sponsors that list charities publicly, and check the CA and HI registries.
 - **P-B40N9-03:** inventory state tax credits and deductions that exclude or condition DAF gifts.
+
+## Validation corrections (wave 25A, 2026-11-15) — governing
+Source: [validation-wave25a-report.md](validation-wave25a-report.md); register `data/mission-2026-11-14/validation-register-wave25a.csv`.
+
+1. **§2.6, GoFundMe letter (governing replacement).**
+   - **Find:** "  - **Signatories:** reported as 21 AGs [S]."
+   - **Replace with:** "  - **Signatories:** 23 officials from 21 states: 19 attorneys general (CA, DE, IL, KY, MD, MA, MI, MN, NH, NJ, NM, NY, NC, OK, OR, PA, VT, WA, WI) and 4 secretaries of state (MD, PA, SC, TN), per the letter's signature pages. Responses were requested within 14 days [F; V wave 25A]."

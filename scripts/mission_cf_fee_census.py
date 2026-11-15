@@ -13,8 +13,9 @@ Tasks
            $100k, $1m and $10m balances, and write cf-daf-fee-census-2026.csv plus a summary JSON on stdout.
            Compares with national sponsors in sponsor-fee-schedules.csv (computed with the same engine).
   schedn   Scan local IRS e-file XML directories (--xml-dir, repeatable) for Schedule N (Part I liquidation /
-           Part II >25% disposition) where filer or transferee is a community foundation, plus fetch (--fetch)
-           Part IV lines 31/32 for the top-250 CF filers' 2021+ returns from the GivingTuesday e-file mirror.
+           Part II >25% disposition) where filer or transferee is a community foundation, plus stream (--fetch)
+           the 2021+ returns of all CF filers in cf-vendor-map-by-ein-v2.csv from the GivingTuesday e-file mirror to
+           </IRS990>, reading Part I line 2 and the final-return box, and pull Schedule N when either is set.
   consol   Write cf-consolidation-2021-2026.csv from CONSOLIDATION_EVENTS (transcribed from cited public sources)
            plus Schedule N rows found by `schedn`.
 
@@ -462,14 +463,14 @@ def parse_schedn(oid: str, t: str) -> dict | None:
         return None
     filer = t[t.find("<Filer>"):t.find("</Filer>")]
     sn = t[t.find("<IRS990ScheduleN"):t.find("</IRS990ScheduleN>")]
-    groups = re.findall(r"<(LiquidationOfAssetsDetail|DispositionOfAssetsDetail)Grp>(.*?)</\1Grp>", sn, re.S)
+    groups = re.findall(r"<(LiquidationOfAssetsDetail|DispositionOfAssetsDetail)>(.*?)</\1>", sn, re.S)
     det = [{"part": "I_liquidation" if g == "LiquidationOfAssetsDetail" else "II_disposition",
             "desc": tag(b, "AssetsDistriOrExpnssPaidDesc")[:120] or tag(b, "AssetsDistributedOrExpensesPaidDesc")[:120],
             "fmv": tag(b, "FairMarketValueOfAssetAmt"), "date": tag(b, "DistributionDt"),
             "recipient": tag(b, "BusinessNameLine1Txt") or tag(b, "PersonNm"), "recipient_ein": tag(b, "EIN")} for g, b in groups]
     return {"object_id": oid, "filer_ein": tag(filer, "EIN"), "filer_name": tag(filer, "BusinessNameLine1Txt"),
             "tax_year": tag(t, "TaxYr"), "tax_period_end": tag(t, "TaxPeriodEndDt"),
-            "terminate_ind": tag(t, "TerminateOperationsInd"), "partial_liq_ind": tag(t, "PartialLiquidationInd"), "details": det}
+            "part1_line2_discontinued_ind": tag(t, "ContractTerminationInd"), "final_return_ind": tag(t, "FinalReturnInd"), "details": det}
 
 
 YES = ("1", "true", "X")
@@ -485,7 +486,8 @@ def task_schedn(cache_dir: str, xml_dirs: Sequence[str], fetch: bool, workers: i
         if r:
             found.append({**r, "source": "local_xml"})
     # CF filers' own returns (2021+ tax years) from the e-file mirror (no robots.txt on the S3 host: 404).
-    # Stream each return only to </IRS990> to read Part IV lines 31/32; fetch the full XML only when either is yes.
+    # Stream each return only to </IRS990> to read Part I line 2 (ContractTerminationInd: discontinued operations or disposed of
+    # >25% of net assets) and the final-return box (FinalReturnInd); fetch the full XML for Schedule N only when either is set.
     cf_eins = {r["ein"] for r in read_csv(CF_MAP)}
     rets = [r for r in read_csv(RETURNS_CSV) if r.get("ein", "").zfill(9) in cf_eins and num(r.get("tax_year")) >= 2021 and r.get("xml_url")]
     mdir = os.path.join(cache_dir, "partiv")
@@ -503,7 +505,7 @@ def task_schedn(cache_dir: str, xml_dirs: Sequence[str], fetch: bool, workers: i
         if oid in files:
             with open(files[oid], encoding="utf-8", errors="ignore") as fh:
                 t = fh.read()
-            out = {"oid": oid, "status": 200, "terminate_ind": tag(t, "TerminateOperationsInd"), "partial_liq_ind": tag(t, "PartialLiquidationInd"),
+            out = {"oid": oid, "status": 200, "part1_line2_discontinued_ind": tag(t, "ContractTerminationInd"), "final_return_ind": tag(t, "FinalReturnInd"),
                    "schedn": parse_schedn(oid, t)}
         else:
             with throttle:
@@ -517,8 +519,8 @@ def task_schedn(cache_dir: str, xml_dirs: Sequence[str], fetch: bool, workers: i
                                 break
                             buf += chunk
                     t = buf.decode("utf-8", "replace")
-                    out = {"oid": oid, "status": 200, "terminate_ind": tag(t, "TerminateOperationsInd"), "partial_liq_ind": tag(t, "PartialLiquidationInd")}
-                    if out["terminate_ind"] in YES or out["partial_liq_ind"] in YES:
+                    out = {"oid": oid, "status": 200, "part1_line2_discontinued_ind": tag(t, "ContractTerminationInd"), "final_return_ind": tag(t, "FinalReturnInd")}
+                    if out["part1_line2_discontinued_ind"] in YES or out["final_return_ind"] in YES:
                         with urllib.request.urlopen(urllib.request.Request(u, headers={"User-Agent": UA}), timeout=120) as r:
                             out["schedn"] = parse_schedn(oid, r.read().decode("utf-8", "replace"))
                 except Exception as e:  # noqa: BLE001
@@ -531,40 +533,53 @@ def task_schedn(cache_dir: str, xml_dirs: Sequence[str], fetch: bool, workers: i
     with cf.ThreadPoolExecutor(max_workers=workers) as ex:
         mirror = list(ex.map(head_flags, urls))
     found += [{**m["schedn"], "source": "mirror_cf_filer"} for m in mirror if m.get("schedn")]
-    flags = [m for m in mirror if m.get("status") == 200 and (m.get("terminate_ind") in YES or m.get("partial_liq_ind") in YES)]
+    flags = [m for m in mirror if m.get("status") == 200 and (m.get("part1_line2_discontinued_ind") in YES or m.get("final_return_ind") in YES)]
     out = {"local_xml_scanned": len(files), "cf_filer_returns_2021plus": len(rets), "mirror_urls": len(urls),
            "mirror_ok": sum(m.get("status") == 200 for m in mirror), "mirror_errors": [m for m in mirror if m.get("status") != 200],
-           "schedn_found": found, "part_iv_31_32_yes": flags}
+           "schedn_found": found, "part1_line2_or_final_yes": flags}
     with open(os.path.join(cache_dir, "schedn.json"), "w", encoding="utf-8") as fh:
         json.dump(out, fh, indent=1)
     return {k: (len(v) if isinstance(v, list) else v) for k, v in out.items()}
 
 
+NOT_GEOGRAPHIC_CF = {"911307530": "National Christian Community Foundation is a faith-based national DAF sponsor, not a geographic CF"}
+SCHEDN_CF_RE = re.compile(r"community\s+(foundation|trust|fdn|fund)|area foundation|^communitygiving$", re.I)
+
+
 def schedn_cf_rows(cache_dir: str) -> list[dict]:
+    """One row per (filer return, recipient): Schedule N lines summed. Kept when the filer or the recipient is a CF
+    (EIN in cf-vendor-map-by-ein-v2.csv or CF-like name) and the distribution date is 2021 or later."""
     p = os.path.join(cache_dir, "schedn.json")
     if not os.path.exists(p):
         return []
     with open(p, encoding="utf-8") as fh:
         d = json.load(fh)
-    cf_eins = {r["ein"]: r["name"] for r in read_csv(CF_MAP)}
-    rows, seen = [], set()
-    for s in d["schedn_found"]:
-        filer_cf = s["filer_ein"] in cf_eins or bool(CF_NAME_RE.search(s["filer_name"]))
+    cf_eins = {r["ein"] for r in read_csv(CF_MAP)}
+    is_cf = lambda ein, name: (ein in cf_eins or bool(SCHEDN_CF_RE.search(name or ""))) and ein not in NOT_GEOGRAPHIC_CF
+    groups: dict[tuple, dict] = {}
+    for s in {x["object_id"]: x for x in d["schedn_found"]}.values():
         for x in s["details"]:
-            rec_cf = x["recipient_ein"] in cf_eins or bool(CF_NAME_RE.search(x["recipient"]))
-            if not (filer_cf or rec_cf) or num(s["tax_year"]) < 2021:
+            date = x["date"] or s["tax_period_end"]
+            if date[:4] < "2021" or not (is_cf(s["filer_ein"], s["filer_name"]) or is_cf(x["recipient_ein"], x["recipient"])):
                 continue
-            key = (s["filer_ein"], s["tax_year"], x["recipient"], x["fmv"])
-            if key in seen:
-                continue
-            seen.add(key)
-            rows.append({"event_type": f"schedule_n_{x['part']}", "party_a": f"{s['filer_name']} (EIN {s['filer_ein']})",
-                         "party_b": f"{x['recipient']}" + (f" (EIN {x['recipient_ein']})" if x["recipient_ein"] else ""),
-                         "date": x["date"] or s["tax_period_end"], "year": (x["date"] or s["tax_period_end"])[:4],
-                         "daf_or_asset_usd_moved": x["fmv"], "asset_basis": "Schedule N FMV of assets distributed (all assets, not DAF-only)",
-                         "description": x["desc"], "geography": "", "cf_role": "filer_is_cf" if filer_cf else "recipient_is_cf",
-                         "source_url": f"https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/{s['object_id']}_public.xml",
-                         "source_type": "irs_990_schedule_n", "confidence": "high_filed", "notes": f"tax year {s['tax_year']}"})
+            k = (s["object_id"], x["recipient"].upper().replace("COMMNITY", "COMMUNITY"), x["part"])
+            g = groups.setdefault(k, {"s": s, "x": x, "fmv": 0.0, "n": 0, "dates": set()})
+            g["fmv"] += num(x["fmv"])
+            g["n"] += 1
+            g["dates"].add(date)
+    rows = []
+    for (oid, rec, part), g in sorted(groups.items(), key=lambda kv: min(kv[1]["dates"])):
+        s, x = g["s"], g["x"]
+        filer_cf = is_cf(s["filer_ein"], s["filer_name"])
+        rows.append({"event_type": "schedule_n_" + ("liquidation" if part.startswith("I_") else "disposition_over_25pct"),
+                     "party_a": f"{s['filer_name']} (EIN {s['filer_ein']})",
+                     "party_b": x["recipient"] + (f" (EIN {x['recipient_ein']})" if x["recipient_ein"] else ""),
+                     "date": min(g["dates"]), "year": min(g["dates"])[:4], "daf_or_asset_usd_moved": str(int(g["fmv"])),
+                     "asset_basis": f"Schedule N fair market value of assets distributed, {g['n']} line(s) summed (all assets, not DAF-only)",
+                     "description": x["desc"], "geography": "", "cf_role": "filer_is_cf" if filer_cf else "recipient_is_cf",
+                     "source_url": f"https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/{oid}_public.xml",
+                     "source_type": "irs_990_schedule_n", "confidence": "high (filed)",
+                     "notes": f"tax year {s['tax_year']}; found via {s['source']}"})
     return rows
 
 

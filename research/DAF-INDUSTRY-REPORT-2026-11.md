@@ -762,6 +762,40 @@ Related customer-facing frictions are covered by theme: data export and credenti
 
 **New directions N1–N4 (validated, wave 24A).** The 2023 proposed DAF regulations are still proposed: docket IRS-2023-0053 holds 249 public submissions (173 in the comment period, 63 hearing requests and outlines, and 13 new ones in May–June 2026 from AEF, RCF, Ren, SIFMA, the ABA and NYSBA tax sections and others), no final rule, and a 2026–27 Priority Guidance Plan item for "guidance under §§4966 and 6033 regarding certain donor advised fund arrangements". Federal lobbying filings that name DAFs come from 33 clients (359 filings, 2021–2026 Q3; whole-filing amounts): Vanguard Charitable $1.74m, NPT $1.09m and Fidelity Charitable $180k; AEF and Ren Acquisition first registered on 2024-02-01. From 2026 the new $1,000/$2,000 non-itemizer deduction excludes gifts to DAFs, and the 0.5% floor and 35% value cap reward bunching; Fidelity Charitable attributes part of its 13.4% account growth in 2025 to bunching, and Giving USA puts accelerated individual giving at about $1.71bn. No DAF incumbent holds a 2021+ giving patent found by a citation crawl (TIFIN's US12705394B2 is a generic LLM-privacy patent), and no Item 1.05 cyber 8-K came from a DAF-linked issuer except Coinbase; the reference enforcement case remains Blackbaud's 2020 breach (SEC $3m, 49 states and DC $49.5m, an FTC order, California $6.75m). Abroad, Canada (3.5%/5% disbursement quota; C$16.6bn in DAFs at 834 charities) and Australia (4%/5% today; 6% decided on 2026-02-26) set sponsor-level payout floors, while the UK (£3.1bn; 28.3% payout) has none; US vendors appear abroad only at adviser and community-foundation sponsors (Ren at NPT UK, Foundant at ACF, NPact at Calgary). Among the top 50 sponsors, $77.34bn of FY2023–24 Schedule I grants (after $12.70bn of DAF-to-DAF transfers) went 25.8% to education, 14.3% to human services, 14.1% to public-society benefit and 13.6% to religion, with the top 100 recipients taking 24.3%. National sponsors skew to education and religion, community foundations to human services and health, and Silicon Valley CF supplies most community-foundation DAF-to-DAF flows. Impact-labelled DAF capital is published only by Fidelity ($4.6B, self-reported) and ImpactAssets ($2.90bn filed) [V wave 24A]. Sources: [direction-policy-lobbying-obbba.md](mission-2026-11-14/direction-policy-lobbying-obbba.md), [direction-patents-security.md](mission-2026-11-14/direction-patents-security.md), [direction-international-comparison.md](mission-2026-11-14/direction-international-comparison.md), [direction-recipients-impact-matching.md](mission-2026-11-14/direction-recipients-impact-matching.md), [validation-wave24a-report.md](mission-2026-11-14/validation-wave24a-report.md).
 
+### 11.21 New directions N12–N14 (validated, wave 25B)
+
+**New directions N12–N14 (validated, wave 25B).**
+   > - **Nonprofit-side benchmarks.** The only nonprofit-file series is vendor-run.
+   >   - Chariot/K2D 2026 finds DAFs at "nearly 13%" of $26.1bn in total giving across 54 large nonprofits ($3.3bn from 907,000 gifts, under 1% of gift count). DAFs supply more than 22% of major-gift revenue although only 2% of DAF gifts are major gifts. The median DAF gift is $300.
+   >   - Earlier editions: a 12% median share in 2023 (20 organisations), and 15% for participants under $10m in 2024.
+   >   - M+R 2025 reports $0.13 of DAF revenue per online dollar, ranging from $0.01 in Health to $0.49 in Environmental. M+R's DAF revenue rose 6% in 2024 and 44% in 2025, and its average DAF gift was $1,430.
+   >   - Repo cross-check: FY2024 netted DAF grants of $58.41bn equal 9.9% of Giving USA's CY2024 total and 14.9% of individual giving. This is consistent with, and slightly below, the DAF-forward vendor panels.
+   > - **Data standards.** No open, multi-sponsor DAF grant standard exists.
+   >   - DAF Direct is closed and has 3 sponsors.
+   >   - Chariot's DAFpay guide is the de facto spec. It is vendor-certified and carries Chariot's own correlation ID, which sponsors must print on the remittance.
+   >   - Remittance travels outside the payment. At Fidelity, ACH grant details are emailed daily.
+   >   - Public IRS schemas lag what is filed: TEOS lists 2024v5.0, while filed returns use 2024v5.5.
+   >   - The closest US template is the federal Grants Data Standards v3.0 (2026-06-17).
+   >   - The section 1033 rule is enjoined and its reconsideration NPRM unpublished. DAF accounts are probably out of its scope.
+   > - **Non-cash gifts.**
+   >   - Dechomai carries the largest visible complex-asset flows. It took in $525m–$986m a year in 2021–23, received $12–26m a year from DAFgiving360 and $56.7m from Fidelity (FY6/22, amended return), and is AEF's stated partner for illiquid gifts.
+   >   - Fidelity took $2.6bn of non-publicly traded assets in 2025, with no extra fee and 65 days on average to liquidity.
+   >   - NPT screens with minimums of $25k–$2m.
+   >   - Nonprofit-side vendors charge 1.5–3.9% a gift (GivingIQ, published). Sources: [direction-nonprofit-daf-benchmarks.md](mission-2026-11-14/direction-nonprofit-daf-benchmarks.md), [direction-data-standards-interoperability.md](mission-2026-11-14/direction-data-standards-interoperability.md), [direction-noncash-gift-infrastructure.md](mission-2026-11-14/direction-noncash-gift-infrastructure.md), [validation-wave25b-report.md](mission-2026-11-14/validation-wave25b-report.md).
+
+### 11.22 New directions N9–N11 (validated, wave 25A)
+
+**New directions N9–N11 (validated, wave 25A).** No state has a DAF reporting, payout or donor-intent mandate found for 2021–2026. California's DAF bills all failed: AB 1712 and AB 2936 in 2020, and AB 1353, which died at the desk on 2022-02-01. The California AG has no DAF-specific registration form; its 2022 DAF report (57 sponsors, $105.3bn) created no filing duty. State rules that do name DAFs are narrower:
+   > - **Platform laws.** California's AB 488 (Gov. Code §12599.9, in force from 2023; regulations 2024–25) and Hawaii's Act 205 as amended by Act 108 (effective 2026-07-01) treat a DAF sponsor as a regulated platform only if it names charities to people without advisory privileges.
+   > - **Political disclosure.** California FPPC Reg. 18424.3 (operative 2021-12-22) makes officials name the sponsor, fund and donor behind DAF-sourced behested payments; 33 of 2,029 state reports used it, totalling $1,242,728.
+   > - **Tax credits.** Illinois Gives and Kansas's pregnancy-resource credit (K.A.R. 92-12-152, effective 2026-04-17) exclude DAF gifts.
+   > - **Wealth taxes.** New York's pending A3632 would count DAF gifts. California's Proposition 40, whose transfer rule would have done the same, was rejected (about 52.8% no, unofficial).
+   > - **AG letters.** Sixteen attorneys general wrote to Fidelity Charitable, Vanguard Charitable and DACG on 2026-05-21 urging them to reconsider SPLC payment holds, with no legal demand. A 21-state letter to GoFundMe (19 AGs and 4 secretaries of state, 2026-03-03) demanded disclosure of "the role and nature of any DAF sponsor".
+   >
+   > Among the top-20 sponsors, 13 sites ($173.8bn of $250.6bn) could be scanned. Automated axe-core checks found critical WCAG failures on 7 of 37 pages, at NPT, Vanguard, SVCF and NCF, and serious failures (mostly colour contrast) on 22. A same-day re-scan of 21 pages reproduced every count. These are partial automated checks, not a ranking. No readable sponsor publishes a response-time promise, a public chat channel or a WCAG conformance claim. Three publish phone hours, AEF's accessibility statement is placeholder text, and FFTC relies on the accessiBe overlay.
+   >
+   > Community-foundation consolidation in 2021–2026 was small. No two top-100 CFs combined, and only 5 of 803 DAFRC CF filers reported a >25% disposition or final return. The largest events were Orange & Sullivan with Rockland (NY AG-approved; about $71m), Coastal CF into San Diego Foundation ($10.07m), Keweenaw into the CF of the Upper Peninsula ($10.55m) and a $21.6m Watertown transfer that may be a reorganisation. 34 top-100 CFs (43% of top-100 CF DAF assets) publish a full fee schedule. Their median admin fee is 100 / 100 / 67 bps at $100k / $1m / $10m, about 1.7x, 2.2x and 3.6–4.7x the national sponsors' 60 / 45 / 14–19 bps, before investment costs. [V wave 25A] Sources: [direction-state-daf-law-tracker.md](mission-2026-11-14/direction-state-daf-law-tracker.md), [direction-sponsor-accessibility-service.md](mission-2026-11-14/direction-sponsor-accessibility-service.md), [direction-cf-consolidation-fees.md](mission-2026-11-14/direction-cf-consolidation-fees.md), [validation-wave25a-report.md](mission-2026-11-14/validation-wave25a-report.md).
+
 ---
 
 ## Source register
@@ -974,3 +1008,17 @@ Source: [validation-wave24b-report.md](mission-2026-11-14/validation-wave24b-rep
 Source: [validation-wave24a-report.md](mission-2026-11-14/validation-wave24a-report.md).
 
 1. **New subsection after §11.18:** "### 11.19 New directions N1–N4 (validated, wave 24A)". Renumber if another wave-24 subsection lands first. It contains:
+
+## Validation corrections (wave 25B, 2026-11-15) — governing
+Source: [validation-wave25b-report.md](mission-2026-11-14/validation-wave25b-report.md).
+
+1. **New subsection after the last §11 subsection.** Add "### 11.21 New directions N12–N14 (validated, wave 25B)", containing the paragraph below. If §11.21 is already taken (for example by wave 25A), use the next free number.
+
+## Validation corrections (wave 25A, 2026-11-15) — governing
+Source: [validation-wave25a-report.md](mission-2026-11-14/validation-wave25a-report.md).
+
+1. **New subsection after §11.21:** "### 11.22 New directions N9–N11 (validated, wave 25A)". Renumber if another subsection lands first. It contains:
+
+   
+
+`research/mission-2026-11-14/direction-sponsor-accessibility-service.md` needs no change.
