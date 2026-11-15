@@ -191,3 +191,16 @@ python3 scripts/mission_pool_returns_vc_parse.py DL/vc/perf.txt > DL/vc/parsed.j
 python3 scripts/mission_pool_returns.py DL data/mission-2026-11-14/sponsor-pool-returns-2021-2025.csv
 ```
 The menus CSV was entered by hand from the cited pages and repo rows.
+
+## Validation corrections (wave 27, 2026-11-15) — governing
+Source: [validation-wave27-report.md](validation-wave27-report.md); register `data/mission-2026-11-14/validation-register-wave27.csv`.
+
+1. **§0, "Who publishes pool returns against benchmarks?" row.**
+   - **Find:** "**The other 11 publish no public pool returns**: SVCF and BofA only on request or in the portal"
+   - **Replace with:** "**No public pool returns were found for the other 11**, so 6 is a verified floor [V wave 27]. CCT Growth Pool factsheets against a \"Policy Index\" and a DAFgiving360 quarterly report exist per search captures [R], but neither host's robots.txt could be read. Of the rest: SVCF and BofA only on request or in the portal"
+2. **§0, adviser-managed minimums row.**
+   - **Find:** "Fidelity CIAP $100,000 (varies by firm);"
+   - **Replace with:** "Fidelity CIAP $100,000 (varies by firm; repo wave-11 row. The live CIAP page says only \"a qualified minimum balance\" [V wave 27]);"
+3. **§2.3, fee-basis reading.**
+   - **Find:** "That is about the size of its 0.60% first-tier admin fee."
+   - **Replace with:** "That is about the size of its 0.60% first-tier admin fee. Two further signs support this: each asset-allocation pool trails its own underlying Fidelity Advisor Asset Manager fund by 0.59–0.64 pp over 5 years, and the Money Market pool trails its benchmark by exactly 0.65 pp at 1, 3 and 5 years [V wave 27]."

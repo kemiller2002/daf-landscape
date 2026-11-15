@@ -292,3 +292,10 @@ Columns and scales follow [queue-proposals-README.md](../../data/mission-2026-11
 - `p_change` is 0–1.
 - `state` is `open`.
 - `proposed_by` is `batch42 N22`.
+
+## Validation corrections (wave 27, 2026-11-15) — governing
+Source: [validation-wave27-report.md](validation-wave27-report.md); register `data/mission-2026-11-14/validation-register-wave27.csv`.
+
+1. **§4, white space (f).**
+   - **Find:** "   - **(f) Android.** It is confirmed only where a parent app exists (Fidelity, GoFundMe, The Donors' Fund)."
+   - **Replace with:** "   - **(f) Android.** It is confirmed for only three: two sponsor apps (Fidelity Charitable, The Donors' Fund) and one general app (GoFundMe). DAFgiving360's Android route rests on a search snippet [S] [V wave 27]."

@@ -251,3 +251,13 @@ python3 scripts/mission_grant_geography.py --np-cache NPCACHE --bmf-dir BMF --li
 - `--xml-list` is an optional list of local XML copies; `--fetch` streams any other return from the mirror.
 - The script writes both CSVs and prints a JSON summary (coverage, address checks, scope concentration, per-capita rankings, outlier detail, local-share statistics). Every figure above comes from that summary or the CSVs.
 - Run time is about 65 s.
+
+## Validation corrections (wave 27, 2026-11-15) — governing
+Source: [validation-wave27-report.md](validation-wave27-report.md); register `data/mission-2026-11-14/validation-register-wave27.csv`.
+
+1. **§0, State shares row.**
+   - **Find:** "Top 5 states take 50.7% of dollars against 21.4% of population; top 10 take 66.9%."
+   - **Replace with:** "Top 5 states take 50.7% of dollars against 21.4% of population (both measured over the 50 states, DC and PR; 21.6% of the 50 states and DC); top 10 take 66.9% [V wave 27]."
+2. **§6, reproduction note.**
+   - **Find:** "- Run time is about 65 s."
+   - **Replace with:** "- Run time is about 65 s.\n- **Reproduction (wave 27).** A re-run on the same caches reproduced every state row exactly. One CBSA row (Bangor, ME) differed by $0.95m and 70 BMF 501(c)(3)s because of the ZIP-to-CBSA cache state, which moves other CBSA shares only in the 4th decimal. No headline figure changes [V wave 27]."

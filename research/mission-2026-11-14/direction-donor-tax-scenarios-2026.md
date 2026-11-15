@@ -189,3 +189,16 @@ The full detail is in the CSVs. Totals are over the horizon, in dollars [C]. "vs
 - **DAF and PF fees, investment returns, charity-side timing and grant behaviour are not modelled.** The PF measures are mechanical illustrations.
 - **The "direct" vehicle assumes a §509(a)(1)/(2) public charity that accepts listed stock.** Many small charities route stock gifts through a DAF or a broker. This is an access issue, not a tax issue.
 - **Excluded parameters:** see §3.
+
+## Validation corrections (wave 27, 2026-11-15) — governing
+Source: [validation-wave27-report.md](validation-wave27-report.md); register `data/mission-2026-11-14/validation-register-wave27.csv`.
+
+1. **§1, AGI limits row, PF.**
+   - **Find:** "It is used up by 2031 at a $1m gift, but **$447k is never used at a $1.5m gift** [C]."
+   - **Replace with:** "It is used up by 2031 at a $1m gift, but **$447k is never used at a $1.5m gift** [C]. This figure rests on the two floor/carryover readings in §5 [I]. If the 0.5% floor is not applied to carryovers absorbed in later years, it is about $437k [V wave 27]."
+2. **§1, AGI limits row, DAF.**
+   - **Find:** "nothing is left unused until the gift reaches $2m ($407k unused) [C]."
+   - **Replace with:** "nothing is left unused until the gift reaches $2m ($407k unused; about $397k under the alternative floor reading in §5) [C/I; V wave 27]."
+3. **§5, interpretations paragraph.**
+   - **Find:** "These readings affect only H4 PF and the S3 rows."
+   - **Replace with:** "These readings affect only H4 PF and the S3 rows. Under the alternative reading, the S3 unused amounts fall by about $10k each (PF $447k → about $437k; DAF $407k → about $397k). The $663k/$337k 2026 split does not change [V wave 27]."

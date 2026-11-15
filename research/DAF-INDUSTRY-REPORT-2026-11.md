@@ -818,6 +818,31 @@ Related customer-facing frictions are covered by theme: data export and credenti
    >   - Published corporate splits: Fidelity, 556 corporate DAFs granting $539.8m in 2025; SVCF corporate-advised funds, about $153m (2025) and $189m (2024); AOGF/Benevity, 695 DAF-column accounts granting $1.39bn (FYE 2026-03).
    >   - Notable programs: Apollo's $200m share-funded DAF, Urban Outfitters' $46m prefunding, Cognizant's 2022 conversion of its foundation to a DAF, and Circle's Pledge 1% DAF at Fidelity. Sources: [direction-faith-giving-platforms.md](mission-2026-11-14/direction-faith-giving-platforms.md), [direction-gift-office-daf-handling.md](mission-2026-11-14/direction-gift-office-daf-handling.md), [direction-recipient-compliance-screen.md](mission-2026-11-14/direction-recipient-compliance-screen.md), [direction-corporate-dafs.md](mission-2026-11-14/direction-corporate-dafs.md), [validation-wave26-report.md](mission-2026-11-14/validation-wave26-report.md).
 
+### 11.24 New directions N19–N22 (validated, wave 27)
+
+**New directions N19–N22 (validated, wave 27).**
+   > - **Investment menus and performance.** At least 6 of the top-20 sponsors publish pool returns against benchmarks: Fidelity, Vanguard Charitable, FFTC, GKCCF, Greater Horizons (identical figures to GKCCF) and CJP. NPT publishes returns without benchmarks. NCF relaunched its pools on 2026-09-01 and so far shows benchmark-only pro forma figures.
+   >   - Index menus track within about 0.1 pp. Vanguard's 5-year median is −0.04 pp; GKCCF's is −0.09 pp to 2025-12-31.
+   >   - Fidelity's 7 asset-allocation pools trail by 0.58–0.76 pp over 5 years. Fidelity's returns include its admin fee, and the gap matches it: each pool trails its own underlying fund by about 0.6 pp.
+   >   - ESG and impact options trailed over trailing windows dominated by 2022–23: GKCCF −2.4 pp and Fidelity −1.2 pp.
+   >   - Adviser-managed minimums run from $25k (AEF) and $100k (GKCCF; Fidelity CIAP per repo) to $5m (SVCF, GS IMAP).
+   > - **Donor tax 2026 (illustrative, not tax advice).** Every parameter matches P.L. 119-21, Rev. Proc. 2025-32 and IRS guidance, and the script reproduces exactly.
+   >   - A DAF never beats a direct gift of the same asset in the same year. It loses for non-itemizers, because DAF gifts are excluded from the $2,000 joint non-itemizer deduction (H1: $720 vs $0).
+   >   - Bunching pays near the standard deduction (+$3,672 for H2).
+   >   - The 35% cap holds the value of each deductible dollar to $0.35.
+   >   - Giving stock in kind is the largest lever for any vehicle: $4.5k, $28.8k and $191k in the three profiles.
+   >   - Private-foundation figures: $11,120 excise if the donated stock is sold. The "$447k never used" at a $1.5m gift depends on an interpretation of the 0.5% floor for carryovers (about $437k otherwise).
+   > - **Grant geography (FY2023–24, top-50 sponsors, ex university/hospital).**
+   >   - CA 20.0%, NY 13.6%, DC 6.4%, MA 6.0% and MD 4.7% of dollars. The top 5 hold 50.7% of dollars against 21.4% of population.
+   >   - $113 per resident nationally and $3,550 in DC; $23,240 per registered 501(c)(3).
+   >   - Community foundations keep 60% in state (median 71%; Chicago Community Trust 20%, San Diego 92%), against 7.6% for national sponsors.
+   >   - Schedule I addresses match BMF states for 94.4% of dollars. Lockbox addresses inflate Iowa ($644m vs $231m).
+   >   - The script reproduces on every state row.
+   > - **Donor feature census.** Table stakes are stock, complex-asset and crypto acceptance, recurring grants, search and vetting, family roles and adviser access.
+   >   - Differentiators sit with digital-first sponsors: Daffy's member MCP server, app, campaigns and CSV export; TIFIN Give's AI assistant; Endaoment's API.
+   >   - Fidelity's app had 24 iOS ratings and Daffy's 560 on 2026-11-15.
+   >   - 267 of 476 cells remain unassessed, so absences are "not found", not proven. Sources: [direction-investment-menus-performance.md](mission-2026-11-14/direction-investment-menus-performance.md), [direction-donor-tax-scenarios-2026.md](mission-2026-11-14/direction-donor-tax-scenarios-2026.md), [direction-grant-geography.md](mission-2026-11-14/direction-grant-geography.md), [direction-donor-feature-census.md](mission-2026-11-14/direction-donor-feature-census.md), [validation-wave27-report.md](mission-2026-11-14/validation-wave27-report.md).
+
 ---
 
 ## Source register
@@ -1049,3 +1074,8 @@ Source: [validation-wave25a-report.md](mission-2026-11-14/validation-wave25a-rep
 Source: [validation-wave26-report.md](mission-2026-11-14/validation-wave26-report.md).
 
 1. **New subsection after the last §11 subsection.** Add "### 11.23 New directions N15–N18 (validated, wave 26)", containing the paragraph below. If §11.23 is already taken, use the next free number.
+
+## Validation corrections (wave 27, 2026-11-15) — governing
+Source: [validation-wave27-report.md](mission-2026-11-14/validation-wave27-report.md).
+
+1. **New subsection after §11.23.** Add "### 11.24 New directions N19–N22 (validated, wave 27)", containing the paragraph below. If §11.24 is already taken, use the next free number.
