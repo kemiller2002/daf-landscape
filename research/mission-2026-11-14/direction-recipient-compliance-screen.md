@@ -255,3 +255,13 @@ python3 scripts/mission_recipient_compliance.py --np-cache NPCACHE --bmf-dir BMF
 - The arguments are those of `mission_recipient_sectors.py`, plus the two unzipped IRS text files.
 - The script prints a JSON summary covering pooled, by-year and by-segment aggregates, the label mixes and the top cases. Every figure above comes from that summary or the CSV.
 - Run time is about 70 s.
+
+## Validation corrections (wave 26, 2026-11-15) — governing
+Source: [validation-wave26-report.md](validation-wave26-report.md); register `data/mission-2026-11-14/validation-register-wave26.csv`.
+
+1. **§0, absent-both labels.**
+   - **Find:** "- CZ Biohub/Institute LLCs (possible disregarded entities) **$1.68bn**;"
+   - **Replace with:** "- LLC-named recipients (possible disregarded entities) **$1.68bn** (75 lines), of which the four CZ Biohub/Institute LLCs are $1.66bn [V wave 26];"
+2. **§2.4, Fidelity EIN row.**
+   - **Find:** "| That EIN was revoked 2019-11-15 |"
+   - **Replace with:** "| That EIN was revoked 2019-11-15. The revocation record's name is \"Fidelity Investments Charitable Gift Fund Foundation Inc\" [V wave 26] |"

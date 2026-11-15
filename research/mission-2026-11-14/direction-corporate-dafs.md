@@ -227,3 +227,16 @@
 | label | F / X / S / R as above |
 | recency_flag | `in_window`, `in_window_edge`, `dated_context_2020`, `dated_context_pre2021_est` |
 | notes | Extra sources and quotes |
+
+## Validation corrections (wave 26, 2026-11-15) — governing
+Source: [validation-wave26-report.md](validation-wave26-report.md); register `data/mission-2026-11-14/validation-register-wave26.csv`.
+
+1. **§1 Method, EDGAR search.**
+   - **Find:** "1. **EDGAR full-text search** (`efts.sec.gov/LATEST/search-index`), forms 10-K and DEF 14A, 2021-01-01 to 2026-11-15:"
+   - **Replace with:** "1. **EDGAR full-text search** (`efts.sec.gov/LATEST/search-index`), forms 10-K and DEF 14A, 2021-01-01 to 2026-11-15. In wave 26, `efts.sec.gov/robots.txt` returned 403, so these counts could not be re-run under the robots convention. The program rows were checked in EDGAR Archives instead [V wave 26]:"
+2. **§0, AOGF.**
+   - **Find:** "Schedule D DAF column of **695 accounts, $1,390.0m of grants**, which Schedule O describes as corporate, with ongoing advice [X]."
+   - **Replace with:** "Schedule D DAF column of **695 accounts, $1,390.0m of grants**, which Schedule O describes as corporate, with ongoing advice [X]. Schedule O also places \"various other fund structures that are consistent with conventional DAF models\" in this group, so the column may not be wholly corporate [V wave 26]."
+3. **§2.1, Circle row source.**
+   - **Find:** "| **Fidelity Charitable** | Circle (Circle Foundation) |"
+   - **Replace with:** "| **Fidelity Charitable** (named in the 2026 proxy only; the 10-K says \"a donor-advised fund\") [V wave 26] | Circle (Circle Foundation) |"

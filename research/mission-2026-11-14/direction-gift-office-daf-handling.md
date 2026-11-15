@@ -230,3 +230,28 @@ For the other five, the scan's 0 conflicts with the giving pages. So the scan's 
 | notes | Caveats and inferences |
 
 **Reproduction:** robots-first fetch (user-agent `*`; 404 means no rules; anything else means not fetched). PDFs were converted with `pdftotext -layout`; HTML went through BeautifulSoup text. Two sponsor sources were read with WebFetch after a manual robots.txt check. Every value was entered by hand from the cited text.
+
+## Validation corrections (wave 26, 2026-11-15) — governing
+Source: [validation-wave26-report.md](validation-wave26-report.md); register `data/mission-2026-11-14/validation-register-wave26.csv`.
+
+1. **§0, events row, Ohio State.**
+   - **Find:** "Ohio State Athletics: DAF gifts do not count toward Priority Points or \"overall giving to the University/Athletics\" [F]. It attributes the rule to DAFgiving360."
+   - **Replace with:** "Ohio State Athletics: gifts from DAFgiving360 do not count toward Priority Points or \"overall giving to the University/Athletics\" [F]. The page states the rule only for that sponsor (\"Per Charles Schwab DAF giving 360, gifts from this Donor Advised Fund cannot count\"). It is silent on DAF grants from other sponsors [V wave 26]."
+2. **§0, events row, sponsors.**
+   - **Find:** "All five sponsors read bar ticket benefits, and Fidelity, Vanguard and Daffy expressly bar bifurcation [F]."
+   - **Replace with:** "The three sponsors read first-hand (Fidelity, Vanguard and Daffy) bar ticket benefits and expressly bar bifurcation [F]. NPT ([S]) and DAFgiving360 ([R]) were not read [V wave 26]."
+3. **§0, recognition row.**
+   - **Find:** "Ohio State Athletics excludes DAF gifts from priority credit [F]."
+   - **Replace with:** "Ohio State Athletics excludes DAFgiving360 gifts from priority credit [F; scope per V wave 26]."
+4. **§0, acceptance row.**
+   - **Find:** "**12 of the 33 also run their own DAF**, with stated minimums from $100k (Cornell [S], Mayo [S]) to $5m (Yale [F])."
+   - **Replace with:** "**At least 12 of the 33 also run their own DAF**, with stated minimums from $100k (Cornell [S], Mayo [S]) to $5m (Yale [F]). Ten of the 12 rest on search text only, and 7 of the 33 were not read [V wave 26]."
+5. **§2, Ohio State row.**
+   - **Find:** "| Priority Points and levels exclude DAF and IRA gifts |"
+   - **Replace with:** "| Priority Points and levels exclude IRA gifts (\"Per IRS guidelines\") and DAFgiving360 gifts (\"Per Charles Schwab DAF giving 360\") [V wave 26] |"
+6. **§4, Chicago bullet.**
+   - **Find:** "- Chicago: DAFpay on Booth's form."
+   - **Replace with:** "- Chicago: DAFpay on Booth's form. The scan's donate host (`givetoday.uchicago.edu`) was robots-blocked (`home_only_donate_robots_blocked`), so, as with Cornell, this 0 is not a scan miss [V wave 26]."
+7. **§4, conclusion.**
+   - **Find:** "For the other five, the scan's 0 conflicts with the giving pages. So the scan's DAF-option shares are probably a lower bound for large universities (P-B41N16-02)."
+   - **Replace with:** "For the other four (Stanford, Columbia, Notre Dame and WashU), the scan's 0 conflicts with the giving pages. On 2026-11-15, the static HTML of the scanned Notre Dame and WashU URLs carried no DAFpay, Chariot, donor-advised or DAF Direct string, so the tools sit one step deeper or on a separate DAF page. The scan's DAF-option shares are therefore a lower bound for large universities (P-B41N16-02). The donate-page figure of 75/182 (41.2%) stays as a donate-URL measure. Counting these four would give 79/182 (43.4%) [V wave 26]."

@@ -796,6 +796,28 @@ Related customer-facing frictions are covered by theme: data export and credenti
    >
    > Community-foundation consolidation in 2021–2026 was small. No two top-100 CFs combined, and only 5 of 803 DAFRC CF filers reported a >25% disposition or final return. The largest events were Orange & Sullivan with Rockland (NY AG-approved; about $71m), Coastal CF into San Diego Foundation ($10.07m), Keweenaw into the CF of the Upper Peninsula ($10.55m) and a $21.6m Watertown transfer that may be a reorganisation. 34 top-100 CFs (43% of top-100 CF DAF assets) publish a full fee schedule. Their median admin fee is 100 / 100 / 67 bps at $100k / $1m / $10m, about 1.7x, 2.2x and 3.6–4.7x the national sponsors' 60 / 45 / 14–19 bps, before investment costs. [V wave 25A] Sources: [direction-state-daf-law-tracker.md](mission-2026-11-14/direction-state-daf-law-tracker.md), [direction-sponsor-accessibility-service.md](mission-2026-11-14/direction-sponsor-accessibility-service.md), [direction-cf-consolidation-fees.md](mission-2026-11-14/direction-cf-consolidation-fees.md), [validation-wave25a-report.md](mission-2026-11-14/validation-wave25a-report.md).
 
+### 11.23 New directions N15–N18 (validated, wave 26)
+
+**New directions N15–N18 (validated, wave 26).**
+   > - **Faith giving.** Church giving platforms do not offer DAF grants at checkout.
+   >   - Only Overflow does, through Chariot since June 2023. Pushpay lists DAF attribution as "coming soon".
+   >   - Subsplash and Planning Center record DAF gifts after the fact. Tithely, Givelify, Kindrid and ACST/Vanco show nothing.
+   >   - Faith sponsors pay congregations directly. NCF pays by ACH or electronic transfer, and JCF NY by check or ACH/wire at staff discretion. JCF NY's median grant is $750.
+   >   - Religion is 27% of Fidelity's grant count but 13.1% of its dollars (implied average about $2,815). In the repo's Schedule I it is 13.6% of dollars across 55,993 recipients. The 22 top-300 religion recipients hold only 15% of religion's $10.55bn, and none of the scanned ones is a congregation.
+   > - **Gift offices.** Recipients split on whether a DAF grant can pay a pledge.
+   >   - Caltech and Stanford Live allow it if the sponsor does not mention the pledge. WashU and Chicago Booth bar it. Duke books only a "non-binding intention".
+   >   - Fidelity accepts non-binding pledges. Vanguard and Daffy bar binding ones, and all three bar bifurcated event payments.
+   >   - Ohio State Athletics excludes DAFgiving360 gifts from priority points.
+   >   - At least 12 of the 33 largest university and AMC recipients run their own DAF.
+   >   - Four large universities offer DAFpay or DAF Direct one step past the scanned donate URL. The donate-page share of 41.2% is therefore a lower bound (43.4% counting them).
+   > - **Recipient compliance.** Screening 604,915 top-50 Schedule I lines ($91.02bn) against IRS lists finds:
+   >   - 0.082% ($74.8m) went to EINs under a revocation in effect at the time. $53.1m of those recipients are listed again today, and only $10.5m is posted, unlisted and unexplained.
+   >   - The $8.01bn absent from Pub 78 is mostly subordinates, churches, governmental units and CZ Biohub LLCs. $0.82bn (0.90%) is unexplained and most likely EIN error.
+   >   - These are screening hits, not findings of improper grants. The script reproduces exactly.
+   > - **Corporate DAFs.** 49 company programs appear in 2021–2026 filings. Tides is the most-named sponsor (8), then SVCF (4) and Fidelity (3), and 26 programs do not name a sponsor.
+   >   - Published corporate splits: Fidelity, 556 corporate DAFs granting $539.8m in 2025; SVCF corporate-advised funds, about $153m (2025) and $189m (2024); AOGF/Benevity, 695 DAF-column accounts granting $1.39bn (FYE 2026-03).
+   >   - Notable programs: Apollo's $200m share-funded DAF, Urban Outfitters' $46m prefunding, Cognizant's 2022 conversion of its foundation to a DAF, and Circle's Pledge 1% DAF at Fidelity. Sources: [direction-faith-giving-platforms.md](mission-2026-11-14/direction-faith-giving-platforms.md), [direction-gift-office-daf-handling.md](mission-2026-11-14/direction-gift-office-daf-handling.md), [direction-recipient-compliance-screen.md](mission-2026-11-14/direction-recipient-compliance-screen.md), [direction-corporate-dafs.md](mission-2026-11-14/direction-corporate-dafs.md), [validation-wave26-report.md](mission-2026-11-14/validation-wave26-report.md).
+
 ---
 
 ## Source register
@@ -1022,3 +1044,8 @@ Source: [validation-wave25a-report.md](mission-2026-11-14/validation-wave25a-rep
    
 
 `research/mission-2026-11-14/direction-sponsor-accessibility-service.md` needs no change.
+
+## Validation corrections (wave 26, 2026-11-15) — governing
+Source: [validation-wave26-report.md](mission-2026-11-14/validation-wave26-report.md).
+
+1. **New subsection after the last §11 subsection.** Add "### 11.23 New directions N15–N18 (validated, wave 26)", containing the paragraph below. If §11.23 is already taken, use the next free number.
