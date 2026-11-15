@@ -633,6 +633,23 @@ The community-foundation channel is fragmented and largely runs its own ACH. Tha
 - **NPact ownership.** BroadWest bought Fusion Labs in Dec 2020, and the company was later renamed NPact. Fusion paid about $6.4m for FIMS/DonorCentral (2022). The current owner is unconfirmed; there is a Cambria lead [V].
 - **Not yet measurable.** Fidelity's $727m of CY2025 outlier grants and the post-SPLC DAF-to-DAF flows will not be visible until the 2027–28 filings (monitoring).
 
+**GivingPoint, Fidelity stack, nonprofit-side panel, ledger segment (batch 27; validated in [wave 12](mission-2026-11-14/validation-wave12-report.md))**
+- **NPT GivingPoint white-label book** ([queue-npt-givingpoint-fidelity-stack.md](mission-2026-11-14/queue-npt-givingpoint-fidelity-stack.md)):
+  - 13 live program sites run on the same Ren build and carry NPT or NPT UK sponsor text: J.P. Morgan Charitable Gift Fund, UBS, BMO, Glenmede, Tolleson, Pitcairn, NPT UK, NPT Transatlantic, Rathbones, Cazenove Capital and others. Eight sit on Ren's load balancer; the rest are on an AWS Global Accelerator pair (inferred Ren) [V].
+  - NPT's payment to Ren is undisclosed. No Ren, Stellar or iPhi payee appears, and the fee most likely sits in the $5.87m IT line (+$2.22m) [V].
+  - Ren is NPT's technology and hosting vendor, not its administrator.
+- **Fidelity Charitable stack.** FMR provides record-keeping, systems and administration. The 990 shows $0 IT and no employees, and there is no Ren marker [V].
+- **Nonprofit-side panel** ([queue-nonprofit-side-panel.md](mission-2026-11-14/queue-nonprofit-side-panel.md); 33 entities) [V]:
+  - Sponsors charge nonprofits $0 to receive grants. The exceptions are Benevity (2.99%, cap $500), DAFpay at default terms (2.9%) and ForGood (1.5%).
+  - Grant minimums: $50 at Fidelity and DAFgiving360, $250 at NPT and MS GIFT, $500 at Vanguard.
+  - No sponsor requires EFT; Fidelity is "transitioning" to it.
+  - NPT and Vanguard still use PayPal Grant Payments, and NPT does not pay by ACH.
+- **Salesforce-centred ledgers** ([queue-ledger-segment-npact-owner.md](mission-2026-11-14/queue-ledger-segment-npact-owner.md)):
+  - Named at 11 sponsors holding $3.5bn (Fund 360/Accounting Seed; Sage Intacct + Salesforce). A further $15.6bn possibly on NetSuite + Salesforce is low confidence.
+  - Moves off FIMS are confirmed at Arizona, Vermont and JCF San Diego [V].
+  - The NYCT and California CF ledger readings rest only on job-posting skills (weak).
+  - NPact's current owner is unconfirmed. BroadWest's Texas status is not active, contrary to the agent's reading [V].
+
 **Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
 - Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
 - The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.
