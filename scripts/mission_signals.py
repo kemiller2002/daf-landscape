@@ -191,8 +191,16 @@ YEARS = [(y, f"{y}0101000000", f"{y}1231235959" if y < 2026 else "20261114235959
 _last_call = [0.0]
 
 
+GDELT_CACHE = [""]  # set to <work-dir>/gdelt-cache by task_news; lets an interrupted run resume
+
+
 def gdelt(params: Mapping[str, str]) -> dict | None:
     url = GDELT + "?" + urllib.parse.urlencode({**params, "format": "json"})
+    import hashlib
+    cpath = os.path.join(GDELT_CACHE[0], hashlib.sha1(url.encode()).hexdigest() + ".json") if GDELT_CACHE[0] else ""
+    if cpath and os.path.exists(cpath):
+        with open(cpath, encoding="utf-8") as f:
+            return json.load(f)
     for attempt in range(8):
         wait = GDELT_GAP_S - (time.time() - _last_call[0])
         if wait > 0:
@@ -202,9 +210,15 @@ def gdelt(params: Mapping[str, str]) -> dict | None:
         text = body.decode("utf-8", "replace")
         if status == 200 and text.lstrip().startswith("{"):
             try:
-                return json.loads(text)
+                d = json.loads(text)
             except json.JSONDecodeError:
-                pass
+                d = None
+            if d is not None:
+                if cpath:
+                    with open(cpath, "w", encoding="utf-8") as f:
+                        json.dump({**d, "_fetched_utc": dt.datetime.utcnow().isoformat(timespec="seconds"),
+                                   "_url": url}, f)
+                return d
         print(f"  gdelt retry {attempt + 1} status={status} {text[:120]!r}", file=sys.stderr)
         time.sleep(60 * (attempt + 1))
     raise RuntimeError(f"GDELT request failed after retries: {url}")  # never write silent zeros
@@ -243,6 +257,8 @@ def title_themes(title: str) -> list[str]:
 
 
 def task_news(work: str) -> None:
+    GDELT_CACHE[0] = os.path.join(work, "gdelt-cache")
+    os.makedirs(GDELT_CACHE[0], exist_ok=True)
     # One full-window call per series keeps the request count low (GDELT rate-limits this shared egress hard);
     # the API chooses the bucket size for the window, recorded in RESOLUTIONS and summed to calendar months.
     start, end = YEARS[0][1], YEARS[-1][2]
