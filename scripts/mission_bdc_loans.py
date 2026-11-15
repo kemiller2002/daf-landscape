@@ -6,7 +6,8 @@ Consolidated Schedule of Investments: borrower, instrument, reference rate + spr
 value. This script:
   1. queries SEC EDGAR full-text search (efts.sec.gov/LATEST/search-index) for each borrower term in 10-K/10-Q
      filed 2021-01-01 onward, keeping hits from BDC filers (file_num starting "814-");
-  2. per (term, BDC) keeps the latest and the earliest filing (so marks and spread changes are visible);
+  2. per (term, BDC) keeps the latest filing, walks back to each facility's last own-period mark, and keeps the
+     earliest filing (so marks and spread changes are visible; see Q-N16 below);
   3. downloads each filing document once (cache), finds <tr> rows whose first cell names the borrower plus
      continuation rows (instrument-only first cell), and parses cells into instrument / spread / maturity /
      par / cost / fair value with simple heuristics. Raw cells are kept for audit.
@@ -20,6 +21,22 @@ else (3) the filing period (flagged). The filing's own period moves to `filing_p
 same schedule line (same lender, borrower, instrument terms, par, fair value and row period) across filings are
 deduplicated, preferring the filing whose own period equals the row period. A latest-mark-per-loan table is written
 alongside (bdc-loans-latest-marks.csv).
+
+Q-N16 fix (2026-11-14, after validation wave 9 V9-07):
+  (a) Filing selection walks back. Keeping only the earliest and latest filing per (term, BDC) missed a lender's
+      last own-period mark when the facility left the schedule between them (Golub: the 12/31/2024 10-Qs carry
+      the last current-period rows; later filings show only the 9/30/2024 comparative). Per (term, BDC) the script
+      now reads filings from the latest backwards until every debt facility seen in the walked filings or in the
+      earliest filing has at least one own-period row (period_ending == filing_period_ending), then adds the
+      earliest filing. `which_filing` = latest / walkback / earliest.
+  (b) BDC identity by CIK. Some BDC hits carry the filer's Exchange Act number (000-5xxxx) instead of its 814-
+      number; every hit of a CIK that has any 814- hit is now kept.
+  (c) Row continuation. New Mountain prints the borrower alone on one row and the first instrument row starts
+      with the industry ("Software | First lien (2)(11)(12) | SOFR(Q) | 5.00 % | ..."). A name-only borrower row
+      now also takes a following row whose SECOND cell is an instrument.
+  (d) Extra phrases (Foundant Technologies, RenPhil, Benevity Inc, Momentive Software, Bonterra LLC) and an
+      incremental hit cache: phrases already searched are read from edgar_hits.json / edgar_phrases.json, new
+      ones are searched with --fetch.
 
 Output: data/mission-2026-11-14/bdc-loans-daf-ecosystem.csv (one row per schedule line per period, deduplicated)
         data/mission-2026-11-14/bdc-loans-latest-marks.csv (one row per loan tranche at the lender's latest period)
@@ -74,6 +91,12 @@ TARGETS = (
     ("GiveSmart", "GiveSmart", r"GiveSmart"),
     ("SofterWare (DonorPerfect)", "SofterWare", r"SofterWare"),
     ("Submittable", "Submittable", r"Submittable"),
+    # Q-N16 additions (queue: Ren, Foundant, Benevity, Momentive, Bonterra lender coverage)
+    ("Foundant", "Foundant Technologies", r"Foundant"),
+    ("Ren", "RenPhil", r"RenPhil"),
+    ("Benevity (Hg)", "Benevity Inc", r"Benevity"),
+    ("Community Brands / Momentive", "Momentive Software", r"Momentive Software"),
+    ("Bonterra (Apax)", "Bonterra LLC", r"^Bonterra"),
 )
 INSTR = re.compile(r"(lien|revolv|term loan|delayed|unitranche|one stop|senior secured|second|subordinat|preferred|"
                    r"common|LP interest|units|warrant|equity|note|incremental|DDTL|first out|last out)", re.I)
@@ -81,6 +104,12 @@ DATE = re.compile(r"^(\d{1,2}/\d{1,2}/\d{2,4}|\d{1,2}/\d{4}|[A-Z][a-z]{2,8}\.? \
 SPREAD = re.compile(r"(SOFR|S|SF|L|LIBOR|E|Prime|P|Base|CDOR|SONIA|BSBY)\s*\+\s*([\d.]+)\s*%?", re.I)
 PCT = re.compile(r"^\(?([\d.]+)\s*%\)?$")
 NUMC = re.compile(r"^\(?[\d,]+(\.\d+)?\)?$")
+LIEN = re.compile(r"^(first|second|1st|2nd)\s*lien|^senior\s+secured|^subordinated", re.I)  # Q-N16: INSTR.match misses "First lien"
+
+
+def instr_cell(c: str) -> bool:
+    """Cell that starts with an instrument label (continuation-row test)."""
+    return INSTR.match(c) is not None or LIEN.match(c) is not None
 
 
 # ----------------------------------------------------------------------------- I/O edges
@@ -126,15 +155,20 @@ def hit_row(phrase: str, h: Mapping) -> dict:
 
 
 def cached_hits(cache_dir: str, fetch: bool) -> tuple[dict, ...]:
-    path = os.path.join(cache_dir, "edgar_hits.json")
-    if os.path.exists(path):
-        with open(path, encoding="utf-8") as fh:
-            return tuple(json.load(fh))
-    if not fetch:
-        return ()
-    hits = tuple(h for _, phrase, _ in dict.fromkeys(TARGETS) for h in search(phrase))
+    """Hits for every TARGETS phrase. Phrases already searched (present in edgar_hits.json, or listed in
+    edgar_phrases.json when they returned nothing) are not searched again; new phrases are searched with --fetch."""
+    path, ppath = os.path.join(cache_dir, "edgar_hits.json"), os.path.join(cache_dir, "edgar_phrases.json")
+    old = tuple(json.load(open(path, encoding="utf-8"))) if os.path.exists(path) else ()
+    done = set(json.load(open(ppath, encoding="utf-8"))) if os.path.exists(ppath) else set()
+    done |= {h["phrase"] for h in old}
+    todo = tuple(p for p in dict.fromkeys(p for _, p, _ in TARGETS) if p not in done)
+    if not todo or not fetch:
+        return old
+    hits = old + tuple(h for phrase in todo for h in search(phrase))
     with open(path, "w", encoding="utf-8") as fh:
         json.dump(hits, fh)
+    with open(ppath, "w", encoding="utf-8") as fh:
+        json.dump(sorted(done | set(todo)), fh)
     return hits
 
 
@@ -155,15 +189,50 @@ def doc_text(cache_dir: str, url: str, fetch: bool) -> str:
 
 
 # ----------------------------------------------------------------------------- pure transforms
+def bdc_ciks(hits: Sequence[Mapping]) -> frozenset:
+    """CIKs with at least one 814- (BDC) hit; their 000- (Exchange Act) hits are the same filer (Q-N16 b)."""
+    return frozenset(h["cik"] for h in hits if h["file_num"].startswith("814-"))
+
+
+def filing_groups(hits: Sequence[Mapping]) -> dict:
+    """(phrase, cik) -> BDC filing documents (.htm), one per (adsh, fname), oldest first."""
+    ciks = bdc_ciks(hits)
+    bdc = {(h["phrase"], h["cik"], h["adsh"], h["fname"]): h for h in hits
+           if h["cik"] in ciks and h["fname"].lower().endswith((".htm", ".html"))}
+    groups = {}
+    for (p, c, _, _), h in sorted(bdc.items(), key=lambda kv: (kv[1]["file_date"], kv[1]["fname"])):
+        groups.setdefault((p, c), []).append(h)
+    return {k: tuple(v) for k, v in sorted(groups.items())}
+
+
 def select_filings(hits: Sequence[Mapping]) -> tuple[dict, ...]:
-    """BDC hits only; per (phrase, cik) keep earliest and latest filing (main document only)."""
-    bdc = tuple(h for h in hits if h["file_num"].startswith("814-") and h["fname"].lower().endswith((".htm", ".html")))
-    keys = sorted({(h["phrase"], h["cik"]) for h in bdc})
-    def pick(k):
-        hs = sorted((h for h in bdc if (h["phrase"], h["cik"]) == k), key=lambda h: (h["file_date"], h["fname"]))
+    """Pre-Q-N16 rule, kept for comparison: per (phrase, cik) the earliest and latest filing only."""
+    def pick(hs):
         return (hs[0], hs[-1]) if hs[0]["adsh"] != hs[-1]["adsh"] else (hs[-1],)
-    return tuple({**h, "which": "latest" if i == len(p) - 1 else "earliest"} for k in keys for p in (pick(k),)
-                 for i, h in enumerate(p))
+    return tuple({**h, "which": "latest" if i == len(p) - 1 else "earliest"}
+                 for hs in filing_groups(hits).values() for p in (pick(hs),) for i, h in enumerate(p))
+
+
+def debt_facilities(rows: Sequence[Mapping], own_only: bool) -> frozenset:
+    """Facility keys of dated debt rows (own-period rows only if own_only)."""
+    return frozenset(facility_key(r) for r in rows if r.get("row_type") == "debt" and r.get("maturity")
+                     and (not own_only or r.get("period_ending") == r.get("filing_period_ending")))
+
+
+def walk_back(hs: Sequence[Mapping], rows_of) -> tuple[tuple[dict, tuple], ...]:
+    """Q-N16 (a): hs oldest first; rows_of(filing) -> parsed rows. Read the latest filing, then earlier ones, until
+    every debt facility seen (in walked filings or the earliest filing) has an own-period row; add the earliest."""
+    first = {**hs[0], "which": "earliest" if len(hs) > 1 else "latest"}
+    first_rows = rows_of(first)
+    out, own, seen = (), frozenset(), debt_facilities(first_rows, False)
+    for i, h in enumerate(reversed(hs[1:])):
+        f = {**h, "which": "latest" if i == 0 else "walkback"}
+        rs = rows_of(f)
+        out += ((f, rs),)
+        own, seen = own | debt_facilities(rs, True), seen | debt_facilities(rs, False)
+        if seen <= own:
+            break
+    return out + ((first, first_rows),)
 
 
 def cells_of(tr: str) -> tuple[str, ...]:
@@ -231,10 +300,13 @@ def matched_rows(rows: Sequence[tuple], rx: str) -> tuple[tuple[int, tuple], ...
     """Rows whose first cell names the borrower, plus following continuation rows (first cell is an instrument)."""
     pat = re.compile(rx, re.I)
     starts = tuple(i for i, r in enumerate(rows) if r and pat.search(r[0]))
+    def is_cont(i, j):  # Q-N16 (c): name-only borrower row, then "Industry | First lien ..." (New Mountain layout)
+        return bool(rows[j]) and (instr_cell(rows[j][0]) or
+                                  (j == i + 1 and len(rows[i]) == 1 and len(rows[j]) >= 2 and instr_cell(rows[j][1])))
     def cont(i):
         j = i + 1
         out = ()
-        while j < len(rows) and rows[j] and INSTR.match(rows[j][0]) and len(out) < 8:
+        while j < len(rows) and is_cont(i, j) and len(out) < 8:
             out += ((j, rows[j]),)
             j += 1
         return out
@@ -311,6 +383,7 @@ def parse_row(cells: Sequence[str], name_cell: str) -> dict:
     par, cost, fv = ((amts[0], amts[1], amts[-1]) if len(amts) >= 3 else
                      (amts[0], None, amts[1]) if len(amts) == 2 else (None, None, amts[0] if amts else None))
     rtype = ("equity" if is_equity else
+             "undrawn_commitment" if re.search(r"\bundrawn\b|\bunfunded\b", instr + " " + name_cell, re.I) else  # Q-N16
              "name_or_subtotal_row" if not spread and not date_idx else
              "possible_unfunded_commitment" if len(amts) <= 2 and date_idx else
              "unfunded_or_zero_position" if not par and fv is not None and abs(fv) < 50 else
@@ -399,7 +472,8 @@ def identity_note(r: Mapping) -> str:
 
 def no_hit_rows(hits: Sequence[Mapping]) -> tuple[dict, ...]:
     """Targets with no BDC 10-K/10-Q hit at all: one auditable row each."""
-    bdc_phrases = {h["phrase"] for h in hits if h["file_num"].startswith("814-")}
+    ciks = bdc_ciks(hits)
+    bdc_phrases = {h["phrase"] for h in hits if h["cik"] in ciks}
     return tuple({"target_company": t, "edgar_phrase": p, "row_type": "no_bdc_hit",
                   "row_cells_raw": f"EDGAR FTS total hits (all filers) = {sum(1 for h in hits if h['phrase'] == p)}; none from an 814- filer",
                   "efts_query_url": efts_url(p, 0)} for t, p, _ in TARGETS if p not in bdc_phrases)
@@ -414,7 +488,7 @@ FIELDS = ("target_company", "identity_note", "edgar_phrase", "borrower_name_as_l
 
 
 # ----------------------------------------------------------------------------- dedupe + latest marks (Q-N15)
-LOAN_TYPES = ("debt", "revolver_or_ddtl_commitment_basis", "unfunded_or_zero_position", "possible_unfunded_commitment", "equity")
+LOAN_TYPES = ("debt", "undrawn_commitment", "revolver_or_ddtl_commitment_basis", "unfunded_or_zero_position", "possible_unfunded_commitment", "equity")
 
 
 def norm_name(x: str) -> str:
@@ -487,14 +561,14 @@ def facility_key(r: Mapping) -> tuple:
             "instr:" + (r.get("instrument") or "").lower())
 
 
-def latest_marks(rows: Sequence[Mapping]) -> tuple[dict, ...]:
+def latest_marks(rows: Sequence[Mapping], searched: Sequence[Mapping] | None = None) -> tuple[dict, ...]:
     """Per (lender, target, borrower, maturity) facility: all tranche rows at the facility's latest row period, plus
     the lender's latest schedule date for that target (latest filing period searched) and a status flag. Rows whose
     cells reference two XBRL periods (unfunded-commitment notes printing current | prior columns) are excluded."""
     loans = tuple(r for r in rows if r.get("row_type") in LOAN_TYPES  # two-period commitment-note rows are not marks
                   and "multi_xbrl_dates" not in (r.get("row_period_conflict") or ""))
     lender_latest = {}
-    for r in rows:
+    for r in (rows if searched is None else searched):  # Q-N16: all filings read, before dedupe drops repeat comparatives
         k = (r.get("lender_cik", ""), target_group(r))
         lender_latest[k] = max(lender_latest.get(k, ""), r.get("filing_period_ending") or "")
     fac_latest = {}
@@ -532,14 +606,19 @@ def main(argv: Sequence[str] | None = None) -> int:
     ap.add_argument("--fetch", action="store_true")
     a = ap.parse_args(argv)
     hits = cached_hits(a.cache_dir, a.fetch)
-    filings = select_filings(hits)
-    raw = tuple({**r, "below_par_signal": below_par(r), "identity_note": identity_note(r), "parse_check": parse_check(r)} for f in filings
-                for r in rows_for_filing(f, doc_text(a.cache_dir, f["url"], a.fetch))) + no_hit_rows(hits)
+    def rows_of(f):
+        return tuple({**r, "below_par_signal": below_par(r), "identity_note": identity_note(r), "parse_check": parse_check(r)}
+                     for r in rows_for_filing(f, doc_text(a.cache_dir, f["url"], a.fetch)))
+    walked = tuple(fr for hs in filing_groups(hits).values() for fr in walk_back(hs, rows_of))
+    filings = tuple(f for f, _ in walked)
+    raw = tuple(r for _, rs in walked for r in rs) + no_hit_rows(hits)
     rows = dedupe(raw)
-    latest = latest_marks(rows)
+    latest = latest_marks(rows, raw)
     m990.write_csv(OUT, rows, FIELDS)
     m990.write_csv(OUT_LATEST, latest, LATEST_FIELDS)
     cnt = lambda rs, f: sum(1 for r in rs if f(r))
+    print("filings by role:", {w: sum(1 for f in filings if f["which"] == w) for w in ("latest", "walkback", "earliest")},
+          "| pre-Q-N16 earliest+latest selection would read:", len(select_filings(hits)))
     print(f"hits={len(hits)} bdc_filings={len(filings)} rows_before_dedupe={len(raw)} rows_after_dedupe={len(rows)} "
           f"latest_mark_rows={len(latest)}")
     print("comparative rows (row period != filing period):", cnt(raw, lambda r: r.get("filing_period_ending") and r["period_ending"] != r["filing_period_ending"]),

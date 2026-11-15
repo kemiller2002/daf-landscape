@@ -581,10 +581,38 @@ The community-foundation channel is fragmented and largely runs its own ACH. Tha
   - Give Interactive has no live community-foundation portals.
   - Three foundations migrated from Stellar to Foundant (likely 2025–26).
   - Portal does not equal ledger: about 43% of mapped assets sit behind portal-only front ends.
-- **Credit data fix** ([queue-bdc-fix-labour-benevity.md](mission-2026-11-14/queue-bdc-fix-labour-benevity.md)):
+- **Credit data fix (superseded by batch 25 below)** ([queue-bdc-fix-labour-benevity.md](mission-2026-11-14/queue-bdc-fix-labour-benevity.md)):
   - The BDC parser now dates each row by its own period.
   - The Bonterra 2032 loan is held at 98.2–99.5%. Five New Mountain funds are missed by the parser (queued).
   - Audax holds Foundation Source's loans at par (Sept 2026).
+
+**All-in donor cost, ledgers, migrations, credit (batch 25; validated in [wave 10](mission-2026-11-14/validation-wave10-report.md))**
+- **All-in annual cost at $250k with each sponsor's typical pool** ([queue-all-in-cost-dafpay-access.md](mission-2026-11-14/queue-all-in-cost-dafpay-access.md); `scripts/mission_all_in_cost.py`) [V]:
+
+  | Sponsor | All-in cost |
+  |---|---|
+  | Daffy | 0.26% |
+  | Vanguard | 0.62% |
+  | Fidelity | 1.15% |
+  | DAFgiving360 | 1.25% |
+  | NCF | 1.45% |
+  | San Francisco Foundation | 2.13% |
+
+  - Pool choice is as large a lever as sponsor choice. Fidelity's 60%-equity pool costs 0.55%; its index pool costs 0.015%.
+  - Adviser fees are the largest cost layer in adviser-led programs. MS GIFT, DAFgiving360 and TIFIN Give cap them at 1.00%; MS GIFT's cap excludes legacy pools and UMA manager fees.
+  - Edward Jones's 0.70% program fee rests on help pages that now return 404, so it is low confidence.
+- **Ledgers behind portals** ([queue-ledgers-behind-portals.md](mission-2026-11-14/queue-ledgers-behind-portals.md)):
+  - Named for only 3 of the 29 portal-only community foundations: Sage Intacct at CF Northeast Florida, Fund 360 at Maine CF, and GKCCF's own platform. Arizona CF moved from Blackbaud FIMS to Sage Intacct + Salesforce [V].
+  - NPact's SaaS terms name Fusion Laboratories as manufacturer [V].
+  - donor-portal.org is run by GKCCF/Greater Horizons [V].
+  - Northeast Retirement Services is owned by Community Financial System [V].
+- **Community-foundation vendor switches all end on Foundant** ([queue-bdc-coverage-migrations-goodstack.md](mission-2026-11-14/queue-bdc-coverage-migrations-goodstack.md)):
+  - From Ren iPhi: Arkansas (instructions emailed 2026-06-01), Flint (about 2026, weakly dated), Acadiana (2025).
+  - From Blackbaud: Winston-Salem (2024).
+  - From donor-portal.org: Indian River (2023).
+  - Ren iPhi lost 4 of 8 flagged foundations in 2025–26 [V].
+- **DAFpay access.** Chariot's default flow passes donor credentials through to the sponsor. Its credential-free method is named only for DAFgiving360 and Foundant-hosted community foundations. How it reaches Vanguard and NCF donors, whose terms bar this, is not public [V].
+- **Credit.** The fixed BDC parser finds 13 holders of the Bonterra 2032 loan, marked 97.7–99.5% (KKR Enhanced Fund-L lowest at 97.71%, 2026-06-30). Golub marked the old 2027 loan at par at 2024-12-31 [V].
 
 **Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
 - Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].

@@ -8,23 +8,22 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refreshed 2026-11-14, after round 2 and the queue batches)
+## Counts (refreshed 2026-11-15, after queue batches through #25)
 
 | Item | Count | How computed |
 |---|---|---|
-| Commits on the branch | 79 before this refresh | `git rev-list --count main..HEAD` |
-| Research documents (markdown) | 81 → 131, ~312k words | `scripts/mission_inventory.py` |
-| Datasets | 60 → 254; 78,769 data rows | Most rows are machine-harvested Form 990 / DAFRC panels |
-| **Sources: curated unique URLs** | **1,854**: 1,411 in narrative documents plus additional URLs in curated CSVs. Baseline: 431. | Inventory script, excluding bulk machine-harvested filing URLs. Those (~18k IRS e-file links) are counted separately and not as "sources reviewed". |
-| **Organizations investigated** | **~300** with sourced evidence; **1,512 sponsors** with machine-parsed Form 990 data (5,272 returns); **33 entities** with deep checklist coverage | Union of graph, breadth, interested-firm and failure datasets; `form990-harvest-sponsor-universe-full.csv` |
-| **Independently validated findings** | **115 claims** checked by non-authoring agents: 70 confirmed (incl. 3 with caveats and 1 with a correction), 34 partially confirmed, 8 contradicted, 3 unable to verify | `validation-register*.csv`, waves 1, 2A, 2B, 3, 4 and 5 |
-| **Evidence Quadrant reproducibility** | v1.1 (reference): 42 providers, 5 areas, two blind scorers. 74% exact and 99.7% within-1 cell agreement; 22 reproduced, 11 adjudicated, 9 insufficient evidence. v1.0 kept for history. | `quadrant-v11-blind-and-calibration.md` |
-| **AI use cases investigated** | 30 inventoried (10 DAF-direct) + 2 red-team additions. Also: agentic controls for 8 services, a 40-row contract control-gap matrix, 16 processes in two model versions (v2 = seeded Monte Carlo on observed costs), 16 failure modes | AI CSVs |
-| **Major hypotheses tested** | **45**: 33 in round 1. Round 2 added: Fidelity EFT-only (not in effect); Give systematic displacement (not yet); Ren 60% claim (unreachable); sponsor mortality (0.2–1.5%/yr); entrant live access without vendor consent (no); anti-passthrough spread (NPact only); AI-last-everywhere (fails in v2); shared AI platform without the largest nationals (rarely breaks even); Givinga "accounts" = player records (unproven); linear cost scaling (refuted); any DAF contract defines an AI-agent role (none); DAFgiving360 EFT (not evidenced). | cited documents |
-| Complaints / failures / buyers | 244 complaint records; 50 venture cases; 89 interested firms | respective CSVs |
-| Monitoring | Terms monitor (18 baselines) and watchlist (37 checks) with dated snapshots | `scripts/mission_terms_monitor.py`, `scripts/mission_watchlist.py` |
-| Research queue | 78 done, 8 monitoring, 2 blocked (vendor outreach; gated state registries), 132 open, ranked by expected information value | `research-priority-queue.csv` |
-| Coverage matrix | 33 entities × 12 items: 62.1% investigated, 13.1% partially validated or better, 28 cells independently corroborated | `scripts/mission_coverage.py` |
+| Pull requests merged | #20–#24 merged; #25 merges with this refresh | GitHub |
+| Research documents (markdown) | 81 → 151, ~388k words | `scripts/mission_inventory.py` |
+| Datasets | 60 → 321; 104,735 data rows | Most rows are machine-harvested Form 990, DAFRC and BDC panels |
+| **Sources: curated unique URLs in narrative documents** | **1,851** (baseline 431) | Inventory script, narrative markdown only. Machine-harvested filing URLs in bulk datasets are counted separately and not as "sources reviewed". |
+| **Organizations investigated** | ~300 sponsors, vendors, investors and channels with sourced profiles; 89 interested firms; 50 venture cases; ~60 companies in the PE ownership map; **1,512 sponsors** with parsed Form 990 data; **803 community foundations** scanned for portal vendors (481 mapped) | Graph, breadth, interested-firm, failure, PE and CF-map datasets |
+| **Independent validation** | **190 validation-register rows across 10 waves**: 127 confirmed (incl. with caveats or corrections), 50 partially confirmed, 8 contradicted, 1 refuted, 3 unable to verify, 1 plausible | `validation-register*.csv`. Corrections are appended to source documents as governing notes. |
+| **Evidence Quadrants** | v1.1 calibrated (42 providers, 5 areas; 74% exact / 99.7% within-1 agreement); v1.2 targeted update places BofA CGF, MS GIFT and NCF | `quadrant-v11-blind-and-calibration.md`, `quadrant-v12-targeted-rescore.md` |
+| **AI** | 30 + 21 inventoried use cases and products; no agentic giving product has independent outcome evidence; AI-economics v1, v2 and v2b (seeded Monte Carlo on observed costs and labour rates) | AI CSVs and docs |
+| **Major hypotheses tested** | ~55 (45 at the previous refresh, plus portability, credential terms, all-in cost, CF vendor concentration, ledger opacity, credit stress, labour rates, agentic outcomes, DAFpay access, Foundant migration trend) | cited documents |
+| Recency rule | Pre-2021 evidence is historical context only (methodology §8) | owner direction 2026-11-14 |
+| Research queue | 116 done, 19 monitoring, 10 blocked (human operator, gated registries, unreachable archives), 5 deprioritized historical, 1 declined (no outreach), 139 open | `research-priority-queue.csv` |
+| Coverage matrix | 62.6% of entity cells investigated; 14.4% partially validated or better | `scripts/mission_coverage.py` |
 
 ## Most important new discoveries
 
