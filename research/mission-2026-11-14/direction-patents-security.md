@@ -286,3 +286,13 @@ See the CSV for every row. Highlights:
 - The crawler and parser were scratch scripts (citation BFS over `/patent/` pages; regex parser of `itemprop` fields). They were not committed because the method is described in §1 and the outputs carry their source URLs.
 - **Re-running yields different counts**, because Google Patents citation lists change.
 - **Status fields are Google's labels.** Abandoned or expired status should be confirmed in USPTO Patent Center before relying on it.
+
+## Validation corrections (wave 24A, 2026-11-15) — governing
+Source: [validation-wave24a-report.md](validation-wave24a-report.md); register `data/mission-2026-11-14/validation-register-wave24a.csv`.
+
+1. **§0, DAF administrators row.**
+   - **Find:** "**No breach notice found** for any DAF recordkeeper (Ren, NPact, Foundant, Foundation Source)"
+   - **Replace with:** "**No 2021+ breach notice found** for any DAF recordkeeper (Ren, NPact, Foundant, Foundation Source). The California register does hold a pre-2021 notice from Renaissance Philanthropic Solutions Group (RenPSG), breach 2018-06-05/13, reported 2018-10-18, outside the recency window [V wave 24A]"
+2. **§3.3, first bullet.**
+   - **Find:** "Every 2021+ hit is at a **parent or affiliate**."
+   - **Replace with:** "Every 2021+ hit is at a **parent or affiliate** (affected counts other than the primary notices are secondary and were not re-verified in wave 24A) [V wave 24A]."

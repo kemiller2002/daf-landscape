@@ -356,3 +356,16 @@
 ### `queue-proposals-batch39-n3.csv`
 
 Columns and scales follow [`queue-proposals-README.md`](../../data/mission-2026-11-14/queue-proposals-README.md). There are three rows, P-B39N3-01 to -03, all with state `open`.
+
+## Validation corrections (wave 24A, 2026-11-15) — governing
+Source: [validation-wave24a-report.md](validation-wave24a-report.md); register `data/mission-2026-11-14/validation-register-wave24a.csv`.
+
+1. **§3, Gift Aid flows.**
+   - **Find:** "Income Tax and CGT relief ran to 2024/25, and higher-rate relief on gifts to non-UK charities ended."
+   - **Replace with:** "The measure applied from 15 March 2023 to charities not already recognised. For existing EU/EEA charities HMRC's transition ran \"until 1 April 2024\" for Corporation Tax, IHT, SDLT and other taxes and \"until tax year 2024/25\" for Income Tax and CGT; Gift Aid and higher-rate relief on gifts to non-UK charities then ended [V wave 24A]."
+2. **§5, Market size.**
+   - **Find:** "- **Fund counts:** 3,707 giving funds at 2025-03-03 (2,292 private, 1,415 public) [F: S23]."
+   - **Replace with:** "- **Fund counts:** 3,707 giving funds at 2025-03-03 (2,292 private, 1,415 public) [F: S23]. JBWere's 2,388 PAFs (June 2025, S24) is a different date and source [V wave 24A]."
+3. **§1 market table, Australia row.**
+   - **Find:** "| Australia | A$10.7bn (2023) in private ancillary funds alone | n/a | n/a | 3,707 giving funds at 2025-03-03 [F: S23; S: S24] |"
+   - **Replace with:** "| Australia | A$10.7bn (2023) in private ancillary funds alone [S: S24] | n/a | n/a | 3,707 giving funds at 2025-03-03 [F: S23] |"

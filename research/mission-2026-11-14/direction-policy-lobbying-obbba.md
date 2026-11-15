@@ -302,3 +302,19 @@ What the proposal said is quoted from the NPRM [P01]. Positions come from second
 ### `queue-proposals-batch39-n1.csv`
 
 Columns and scales follow [`queue-proposals-README.md`](../../data/mission-2026-11-14/queue-proposals-README.md). There are three rows, P-B39N1-01 to -03, all with state `open`.
+
+## Validation corrections (wave 24A, 2026-11-15) — governing
+Source: [validation-wave24a-report.md](validation-wave24a-report.md); register `data/mission-2026-11-14/validation-register-wave24a.csv`.
+
+1. **§0, Q2 row (governing addition).**
+   - **Find:** "AEF and Ren (both **first registered in 2024**, after the NPRM)"
+   - **Replace with:** "AEF and Ren (both **first registered in 2024**, after the NPRM: AEF and Ren Acquisition Co. registrations are both dated 2024-02-01 (Tiger Hill Partners), inside the extended comment period [V wave 24A])"
+2. **§2.1, Result bullet.**
+   - **Find:** "- **Result:** **359 filings, 33 clients**."
+   - **Replace with:** "- **Result:** **359 filings, 33 clients**. A keyword-only re-pull in wave 24A contained 350 of the 359; the other 9 (all AEF) surface only through the per-client query, so the count depends on that step and on the amendment rule [V wave 24A]."
+3. **§3.2 reading.**
+   - **Find:** "- Giving USA's estimate of the acceleration (~$1.71bn) is small against $617bn of total giving."
+   - **Replace with:** "- Giving USA's estimate of the acceleration (~$1.71bn of individual giving, plus $310m of corporate giving, 'just over $2 billion' retimed in all) is small against $617bn of total giving [V wave 24A]."
+4. **§5, item 2.**
+   - **Find:** "(AEF, RCF, Ren, SIFMA, ABA, NYSBA, Adler & Colvin, Kallina, 'CF', 'MCF') [batch 39 n1]."
+   - **Replace with:** "(AEF, RCF, Ren, SIFMA, ABA, NYSBA, Adler & Colvin (docket title 'Alder and Colvin'), Kallina, 'CF', 'MCF') [batch 39 n1; V wave 24A]."

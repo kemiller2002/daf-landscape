@@ -319,3 +319,13 @@ python3 scripts/mission_recipient_sectors.py --np-cache NPCACHE --bmf-dir BMF --
 - `LINES` caches the full Schedule I line lists, one JSON per object id.
 - The script prints a JSON summary covering coverage, the classification mix, pooled shares, the DAF-to-DAF split, NTEE detail, top recipients and per-sponsor shares. Every §1 figure comes from that summary or from the CSV.
 - §2–3 figures come from the cited pages; they were entered by hand into the two CSVs with verbatim text.
+
+## Validation corrections (wave 24A, 2026-11-15) — governing
+Source: [validation-wave24a-report.md](validation-wave24a-report.md); register `data/mission-2026-11-14/validation-register-wave24a.csv`.
+
+1. **§2, ImpactAssets (governing replacement).**
+   - **Find:** "- **DAFRC mismatch:** DAFRC's FY2024 row for this EIN is *imputed* at $3.628bn (period 2023-12-31), $0.73bn above the filing. This is P-B39N4-02."
+   - **Replace with:** "- **DAFRC mismatch:** DAFRC's published FY2024 row for this EIN is *imputed* at $3.628bn (period 2023-12-31), $0.73bn above the filing. The repo has already replaced it: `dafrc-corrections-itemized.csv` applies R1_filed_replaces_imputed to this EIN (−$731,283,079, object 202543169349307999), so the corrected $323.27bn already uses $2.897bn. P-B39N4-02 is narrowed to any remaining top-50 imputed rows [V wave 24A]."
+2. **§1.3 Notes, after the year-split bullet.**
+   - **Find:** "- **Year split (all ex university/hospital):** DAF-to-DAF rose from 11.3% (FY2023) to 16.4% (FY2024) of Schedule I. Sector shares moved by 1 pt or less [C]."
+   - **Replace with:** "- **Year split (all ex university/hospital):** DAF-to-DAF rose from 11.3% (FY2023) to 16.4% (FY2024) of Schedule I. Sector shares moved by 1 pt or less [C].\n- **SVCF drives the community-foundation DAF-to-DAF share.** SVCF sent $2.07bn (25.8% of its Schedule I) to whitelisted sponsors, out of the segment's $2.59bn; without SVCF the share is 5.1%. This bears on literature flag F3 (CA AG: CFs 18%) [V wave 24A]."
