@@ -239,3 +239,14 @@ TY2024 is used unless noted. Basis points are of Part I average total assets. Fe
 | notes | Caveats and cross-references |
 
 Ratios use Part I average total assets. Accounts and DAF assets are Schedule D year-end figures from `sponsor-cost-structure.csv`. The GS admin-fee bound applies the marginal schedule to the mean account. Because the schedule is concave, this bounds the aggregate from above (Jensen's inequality), ignoring minimum fees.
+
+## Validation corrections (wave 16, 2026-11-15) — governing
+Source: [validation-wave16-report.md](validation-wave16-report.md); register `data/mission-2026-11-14/validation-register-wave16.csv`.
+
+1. **Line 29 (§0, P-ADV-02).** Replace "Schedule D Part XII line 4b equals line 11f in every year" with "Schedule D Part XII line 4a ('investment expenses not included on Form 990, Part VIII, line 7b') equals line 11f in every year".
+2. **Line 40 (§1.1 table header).** Replace "Sch D Part XII line 4b (netted in the audit)" with "Sch D Part XII line 4a (netted in the audit)".
+3. **Line 93 (§1.4).** Replace "Schedule D Part XII line 4b nets the same amount" with "Schedule D Part XII line 4a nets the same amount".
+4. **Line 175 (§5 item 1).** Replace "(Schedule D Part XII line 4b)" with "(Schedule D Part XII line 4a)". Part XII line 4b is "Other": BofA CGF's TY2024 Schedule O uses it for "RECOVERIES … GRANT ADJ" [V wave 16].
+5. **Line 106 (§2, Davenport row).**
+   - Replace: "Minimums: $50k (models), $1m (SMAs)."
+   - With: "Minimums: $50k (allocation models and the FundAdvisor/ETFAdvisor SMA models), $1m (Core Leaders, Value & Income, Equity Opportunities and Fixed Income SMAs)."

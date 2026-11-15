@@ -265,3 +265,14 @@
 
 - Columns and scales follow [queue-proposals-README.md](../../data/mission-2026-11-14/queue-proposals-README.md).
 - IDs are P-B31B-01..03.
+
+## Validation corrections (wave 16, 2026-11-15) — governing
+Source: [validation-wave16-report.md](validation-wave16-report.md); register `data/mission-2026-11-14/validation-register-wave16.csv`.
+
+1. **Line 40 (§0, P-INF-07).** Replace "QCDs cannot go to a DAF (IRC 408(d)(8)(B)(ii))" with "QCDs cannot go to a DAF (IRC 408(d)(8)(B)(i), which excludes 'any fund or account described in section 4966(d)(2)')".
+2. **Line 152 (§2.3 table, QCD row).** Replace "QCDs cannot go to non-operating PFs (408(d)(8)(B)(ii))" with "QCDs must go to a 170(b)(1)(A) organisation other than a 509(a)(3) supporting organisation or a DAF (408(d)(8)(B)(i)). Non-operating PFs not described in 170(b)(1)(F) do not qualify".
+3. **Line 40 (§0, P-INF-07, item 3).**
+   - Replace: "**Donor names stop being public.** Every 990-PF Schedule B named its ≥$5k contributors (530 in CY2024); Form 990 Schedule B names are not public [F]."
+   - With: "**Donor names stop being public from CY2025 on.** Every 990-PF Schedule B named its ≥$5k contributors (530 in CY2024), and those five filed returns stay public. Form 990 Schedule B names are not public [F]."
+4. **Line 41 (§0, P-B30A-01).** Replace "The post is undated, c.2023 [F; date I]." with "The post is dated 2023-04-17 (page metadata) [F]."
+5. **Line 174 (§3 table, eMoney row).** Replace "| Undated; c.2023 (cites Q1 2023 and a TD Ameritrade conversion \"in September of 2023\") [I] |" with "| 2023-04-17 (page metadata `datePublished`) [F] |". In the S14 register row (line 235), replace "c.2023" with "2023-04-17". In `sponsor-data-feeds-2026.csv`, SDF-05 `evidence_date` should be "2023-04-17".

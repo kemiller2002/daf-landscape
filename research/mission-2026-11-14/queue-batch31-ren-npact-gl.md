@@ -255,3 +255,10 @@ The columns are the same as v2, plus `change_note`.
 - **P-B31C-01:** which rail the NPT GivingPoint programs pay on.
 - **P-B31C-02:** the remaining 8 Foundation Cloud GLs, from audits.
 - **P-B31C-03:** NPact as a hosting and services provider.
+
+## Validation corrections (wave 16, 2026-11-15) — governing
+Source: [validation-wave16-report.md](validation-wave16-report.md); register `data/mission-2026-11-14/validation-register-wave16.csv`.
+
+1. **Line 103 (§3, later W-9 row).** Replace "uploaded 2025-07-23 (scanned; read by OCR)" with "PDF created 2025-07-08, uploaded 2025-07-23 (scanned; read by OCR)".
+2. **Line 103 (Reading cell).** Replace "| The move happened between 2024-02 and 2025-07, before the January 2026 privacy policy |" with "| The move happened between 2024-02-29 and 2025-07-08 (PDF creation date), before the January 2026 privacy policy |".
+3. **Line 131 (§4, San Diego row).** Append: "Wave 16 could not re-read the posting (Workable 429). The medium grade rests on the [R] capture alone [V wave 16]."
