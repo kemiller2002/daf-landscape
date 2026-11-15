@@ -340,3 +340,11 @@ No public evidence distinguishes these. The DAFgiving360 switch shows that Chari
 ### `queue-proposals-cost-access.csv`
 
 Format per `queue-proposals-README.md`; prefix P-ACC-.
+
+## Validation corrections (wave 10, 2026-11-15) — governing
+Source: [validation-wave10-report.md](validation-wave10-report.md). Where these conflict with the text above, these govern.
+
+- **Line 24, adviser-layer bullet.** After "Published caps are 1.00% at MS GIFT, DAFgiving360 and TIFIN Give/GiveClear.", add: "MS GIFT's cap excludes Legacy Pools (0.60–1.24%) and, under Select UMA, third-party SMA manager fees, which are charged on top."
+- **Line 65, MS GIFT row, adviser cell.** Replace "max 1.00% ([F](…))" with "max 1.00% from 2021-07-21, excl. Legacy Pools and SMA fees ([F](…))".
+- **Line 133–135, Edward Jones.** Replace "Breakpoints are **assumed** equal to RCF donor-directed." with "Breakpoints are **assumed** equal to RCF donor-directed (0.60/0.30/0.20/0.15). A search-index capture of Ren's EJ client resource guide (article 10810347, now 404) shows administrator tiers of 0.60% / 0.35% / 0.25% (first $500k / next $500k / next $1m) and totals of 1.30% / 1.05% / 0.95%. If those apply, EJ admin at $2.5m is about 34 bps, not 30. Rows at $25k and $250k are unchanged."
+- **Line 62, Edward Jones row.** Change the $2.5m admin cell from "0.30" to "0.30 (0.34 if captured tiers apply)".

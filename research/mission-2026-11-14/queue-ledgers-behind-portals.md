@@ -249,3 +249,14 @@ Source: [`form990-contractors-harvest-full.csv`](../../data/mission-2026-11-14/f
    - The NPact legal-entity link (EJ001) is first-party.
    - The Santa Barbara 990 line (EJ005) corroborates EI031.
    - The other `spectrumportal.net` = NPact attributions remain inferred.
+
+## Validation corrections (wave 10, 2026-11-15) — governing
+Source: [validation-wave10-report.md](validation-wave10-report.md). Where these conflict with the text above, these govern.
+
+- **Line 16.** Replace "Foundation Partners' Fund 360, a fund-accounting layer on Salesforce and Accounting Seed [V + F 990]" with "Foundation Partners' Fund 360, a fund-accounting package 'built entirely within Salesforce' [V + F 990]; Accounting Seed underneath is not stated for Maine [I]".
+- **Line 85, ledger cell.** Replace "**Fund 360 (Foundation Partners) on Salesforce / Accounting Seed**" with "**Fund 360 (Foundation Partners) on Salesforce** (Accounting Seed not confirmed for Maine)". Replace the evidence link `fdnpartners.com/products` with, or add, [MaineCF success story](https://fdnpartners.com/maine-community-foundation-success-story).
+- **Line 81, CFNEF citation.** Replace `https://redpathcg.com/about/case-studies` with `https://redpathcg.com/story/the-community-foundation-for-northeast-florida/`. Replace "(Mar 2024)" with "(datePublished 2024-03-25)".
+- **Line 94, Arizona CF.** Replace "undated, live 2026" with "dated 2024-03-06 on the [top10erp.org copy](https://www.top10erp.org/case-study-library/sage-intactt-arizona-community-foundation)". In source row L8 (line 196), replace "undated, live" with "2024-03-06 (top10erp copy)".
+- **Line 20, NPact.** After the Standard Terms quote, add: "The Terms of Use (modified 2025-08-05) instead call the company 'Fusion Laboratories dba NPact, a Delaware corporation', so NPact's documents disagree on entity form."
+- **Line 30, GKCCF audit.** Replace "books 'back-office accounting services' revenue." with "books income from services, which covers back-office accounting services for other nonprofits and administrative fees on pool investments by other entities."
+- **Line 180 limitations.** Replace "Arizona CF's go-live date is not stated." with "Arizona CF's go-live date is not stated (the case study itself is dated 2024-03-06)."

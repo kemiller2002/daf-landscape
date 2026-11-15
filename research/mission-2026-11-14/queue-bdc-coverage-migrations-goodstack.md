@@ -297,3 +297,14 @@ The columns are as documented in [queue-bdc-fix-labour-benevity.md](queue-bdc-fi
 ### 6.3 `queue-proposals-bdc-migrations.csv`
 
 The format is in [queue-proposals-README.md](../../data/mission-2026-11-14/queue-proposals-README.md).
+
+## Validation corrections (wave 10, 2026-11-15) — governing
+Source: [validation-wave10-report.md](validation-wave10-report.md). Where these conflict with the text above, these govern.
+
+- **§1 finding 2 (line 34).** Replace "**With these funds, 13 BDCs hold the 2032 facility at 98.25–99.5% of par.** New Mountain marks lowest, FS KKR highest (99.47%)." with: "**With these funds, 13 BDCs hold the 2032 facility at 97.7–99.5% of par.** At 2026-09-30, New Mountain marks lowest of the parsed lenders and FS KKR highest (99.47%). KKR Enhanced US Direct Lending Fund-L's latest schedule (2026-06-30, columns 'Par/Shares | Fair Value') marks the term loan at 29,776/30,474 = 97.71%."
+- **Latest-marks table (line 122), KKR Enhanced row.** Replace "not computed (layout parsed as `possible_unfunded_commitment`; TL $30,474k par / $29,776k FV in `row_cells_raw`)" with "97.71 (TL 30,474 par / 29,776 FV; DDTL 03/25 3,319 / 3,243; revolver and DDTL 10/25 partly unfunded, footnote (c)); parser still types the rows `possible_unfunded_commitment`".
+- **§3.1 inference list (line 153).** Replace "- **Winston-Salem:** the first Foundant 990 line." with "- **Winston-Salem:** none needed; the /portal page states 'As of July 15, 2024' (the 990 line corroborates)."
+- **§3.2 Winston-Salem row (line 170).** Replace "**2024-09-30** [I]" with "**2024-09-30** [F]". Replace "No year is stated; it is set by the first Foundant 990 line" with "The same page states 'As of July 15, 2024, everyone will need to complete the registration process' for the Grants Portal, which fixes the year; corroborated by the first Foundant 990 line". Change the confidence from medium to high.
+- **§3.2 Arkansas row.** After "were emailed on June 1", add: "(the instruction-email date, used as the event date; no go-live date is stated)".
+- **§3.4 (line 191).** Replace "Three dates rest on stated inference rules: Acadiana (weekday), Winston-Salem (990 year) and Tampa Bay (pending-transition notice)." with "Two dates rest on stated inference rules: Acadiana (weekday) and Tampa Bay (pending-transition notice). Flint's date is a CMS page date only."
+- **§4 heading and any summary that uses "affiliated".** Keep "Goodstack Impact Foundation US (Percent Impact Foundation, EIN 87-3165286)". Wherever a summary calls it "Goodstack-affiliated", replace that with "Goodstack-linked (service-provider relationship; not a subsidiary or affiliate)".
