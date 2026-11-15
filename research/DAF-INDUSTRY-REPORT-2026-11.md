@@ -614,6 +614,25 @@ The community-foundation channel is fragmented and largely runs its own ACH. Tha
 - **DAFpay access.** Chariot's default flow passes donor credentials through to the sponsor. Its credential-free method is named only for DAFgiving360 and Foundant-hosted community foundations. How it reaches Vanguard and NCF donors, whose terms bar this, is not public [V].
 - **Credit.** The fixed BDC parser finds 13 holders of the Bonterra 2032 loan, marked 97.7–99.5% (KKR Enhanced Fund-L lowest at 97.71%, 2026-06-30). Golub marked the old 2027 loan at par at 2024-12-31 [V].
 
+**Ren attrition, net payout, adviser fees (batch 26; validated in [wave 11](mission-2026-11-14/validation-wave11-report.md))**
+- **Ren iPhi attrition, 2023–Nov 2026** ([queue-ren-iphi-attrition.md](mission-2026-11-14/queue-ren-iphi-attrition.md); `scripts/mission_ren_iphi_attrition.py`) [V]:
+  - 6 of 57 sponsors left, or 10.5% (Wilson interval 4.9–21.1%). The strict rate is 8.8%, because Gulf Coast's move is still "launching soon".
+  - Exits are concentrated May 2025–Jun 2026.
+  - Community foundations are hit hardest: 5 of 28 left.
+  - Destinations: Foundant 4, akoyaGO 1, Give Interactive 1.
+  - NPT, J.P. Morgan and ICGF iPhi hosts now redirect to Ren-hosted GivingPoint sites naming NPT as sponsor.
+- **Payout net of DAF-to-DAF transfers, FY2021–24 pooled, excluding processors** ([queue-net-payout-fidelity-outliers.md](mission-2026-11-14/queue-net-payout-fidelity-outliers.md); `scripts/mission_net_payout.py`; n = 3,373 sponsor-years) [V]:
+  - Gross payout is 23.9%. Net payout is 21.5%, 20.8% or 19.0%, depending on how widely sponsor-to-sponsor transfers are defined.
+  - Nationals fall from 23.8% gross to 20.9% net.
+  - 12.1% of national sponsors' DAF grants go to other national sponsors.
+- **Adviser fees** ([queue-adviser-fees-pools-npact.md](mission-2026-11-14/queue-adviser-fees-pools-npact.md)) [V]:
+  - Fidelity CIAP, NPT, AEF and RCF have no adviser-fee cap. Observed RIA brochures charge 0–2.00%.
+  - AEF's implied average adviser fee is 0.46%.
+  - Vanguard Charitable has no adviser-managed option.
+  - NPT's adviser-managed minimum is $500k for discretionary accounts and $2m for non-discretionary.
+- **NPact ownership.** BroadWest bought Fusion Labs in Dec 2020, and the company was later renamed NPact. Fusion paid about $6.4m for FIMS/DonorCentral (2022). The current owner is unconfirmed; there is a Cambria lead [V].
+- **Not yet measurable.** Fidelity's $727m of CY2025 outlier grants and the post-SPLC DAF-to-DAF flows will not be visible until the 2027–28 filings (monitoring).
+
 **Vendor scope and the Give Interactive shift** ([vendor scope](mission-2026-11-14/queue-vendor-scope-ren-denominator.md); [Give displacement](mission-2026-11-14/queue-give-interactive-displacement.md))
 - Goldman's DAFs and NPT's GivingPoint run on Ren technology [V].
 - The Signatry's trust controls Give Interactive (99%) [V]. Give Interactive is Vanguard Charitable's ledger vendor.
