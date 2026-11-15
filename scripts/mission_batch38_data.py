@@ -608,6 +608,75 @@ def task_msgift(a) -> dict:
     return out
 
 
+# ----------------------------------------------------------------------------- P-LND-04 per-head vs per-FTE pay
+# Public FTE evidence found for the 20 sponsors (2026-11-15). Audited statements read (NCF FY2025, Vanguard Charitable
+# FY2025-26, FFTC 2025, NPT FY2025 summary, RCF 2024, Fidelity Charitable FY2024-25) state no headcount or FTE.
+# Values below are what the cited text says; [S] = search-index / third-party text, not verified on a first-party page.
+FTE_EVIDENCE: dict[str, tuple[str, str, str]] = {   # ein -> (fte_value, label, source)
+    "237825575": ("235", "S", "job-board copy of NPT recruiting text: 'more than 235 fulltime employees across 18 states in the U.S. and "
+                  "more than 10 employees in the United Kingdom' (undated; not on nptrust.org/contact-us/work-at-npt/ as fetched 2026-11-15)"),
+    "133615533": ("45", "S", "fiscalsponsordirectory.org listing: '45 full-time staff' (undated, pre-2024; RPA reported staff cuts in Feb 2025)"),
+}
+PAID_OFFICER = re.compile(r"Officer|KeyEmployee|HighestCompensated|IndividualTrustee", re.I)
+
+
+def part_vii(xml: bytes) -> dict:
+    """Part VII Section A: persons with reportable compensation from the organisation (> 0), split into officers /
+    key employees / highest-compensated employees vs trustees only."""
+    root = ET.fromstring(xml)
+    people = []
+    for g in root.iter(NS + "Form990PartVIISectionAGrp"):
+        comp = num((g.find(NS + "ReportableCompFromOrgAmt").text if g.find(NS + "ReportableCompFromOrgAmt") is not None else "") or "")
+        roles = {local(c.tag) for c in g if local(c.tag).endswith("Ind") and (c.text or "").strip().upper() in ("X", "TRUE", "1")}
+        avg_h = num((g.find(NS + "AverageHoursPerWeekRt").text if g.find(NS + "AverageHoursPerWeekRt") is not None else "") or "")
+        people.append({"comp": comp or 0.0, "roles": roles, "hours": avg_h})
+    paid = tuple(p for p in people if p["comp"] > 0)
+    staff_paid = tuple(p for p in paid if p["roles"] & {"OfficerInd", "KeyEmployeeInd", "HighestCompensatedEmployeeInd"})
+    return {"part_vii_listed": len(people), "part_vii_paid": len(paid), "part_vii_paid_staff": len(staff_paid),
+            "part_vii_paid_staff_comp": sum(p["comp"] for p in staff_paid),
+            "part_vii_paid_lt_35h": sum(1 for p in staff_paid if p["hours"] is not None and p["hours"] < 35)}
+
+
+def task_fte(a) -> dict:
+    rows = tuple(r for r in read_csv(os.path.join(DATA, "sponsor-salary-per-employee.csv")) if r["record_type"] == "return")
+    best: dict[str, dict] = {}
+    for r in rows:
+        if r["ein"] not in best or (r["fiscal_year"], r["return_object_id"]) > (best[r["ein"]]["fiscal_year"], best[r["ein"]]["return_object_id"]):
+            best[r["ein"]] = r
+    pool = sorted((r for r in best.values() if not r["category"].startswith("SingleIssue")), key=lambda r: -(num(r["employees"]) or 0))[:20]
+    out = []
+    for r in pool:
+        f = {"object_id": r["return_object_id"], "index_year": 0, "batch": ""}
+        xml = full_xml(f, a.work_dir, a.fetch)
+        p7 = part_vii(xml) if xml else {}
+        emp = num(r["employees"]) or 0
+        l5, l7 = num(r["l05_comp_officers_directors"]) or 0.0, num(r["l07_other_salaries_wages"]) or 0.0
+        non_off = emp - p7.get("part_vii_paid_staff", 0) if p7 else None
+        fte = FTE_EVIDENCE.get(r["ein"])
+        wages = l5 + l7
+        out.append({"ein": r["ein"], "sponsor_name": r["sponsor_name"], "category": r["category"], "fiscal_year": r["fiscal_year"],
+                    "employees_part_i_l5": emp, "l05_comp_officers_directors": l5, "l07_other_salaries_wages": l7,
+                    "loaded_l5_10": num(r["loaded_l5_10"]), "wage_all_per_head": ratio(wages, emp),
+                    "loaded_all_per_head": ratio(num(r["loaded_l5_10"]), emp),
+                    **p7, "non_officer_heads": non_off,
+                    "non_officer_wage_per_head": ratio(l7, non_off) if non_off and non_off > 0 else None,
+                    "officer_avg_comp_part_vii": ratio(p7.get("part_vii_paid_staff_comp"), p7.get("part_vii_paid_staff")) if p7 else None,
+                    "fte_public": fte[0] if fte else "", "fte_label": fte[1] if fte else "U", "fte_source": fte[2] if fte else
+                    "no public FTE figure found (audits read state none; search-index results were third-party estimates only)",
+                    "wage_all_per_fte": ratio(wages, num(fte[0])) if fte else None,
+                    "loaded_all_per_fte": ratio(num(r["loaded_l5_10"]), num(fte[0])) if fte else None,
+                    "fte_to_head_ratio": ratio(num(fte[0]), emp) if fte else None,
+                    "flags": r["flags"], "return_object_id": r["return_object_id"],
+                    "xml_url": XML_URL.format(oid=r["return_object_id"])})
+    fields = tuple(out[0])
+    write_csv(os.path.join(DATA, OUT["fte"]), out, fields)
+    return {"rows": len(out), "with_public_fte": sum(1 for o in out if o["fte_public"]),
+            "summary": [{k: (round(v) if isinstance(v, float) else v) for k, v in o.items()
+                         if k in ("sponsor_name", "fiscal_year", "employees_part_i_l5", "part_vii_paid_staff", "wage_all_per_head",
+                                  "non_officer_wage_per_head", "officer_avg_comp_part_vii", "fte_public", "wage_all_per_fte", "flags")}
+                        for o in out]}
+
+
 # ----------------------------------------------------------------------------- CLI
 def main(argv: Sequence[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
