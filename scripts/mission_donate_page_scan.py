@@ -516,7 +516,9 @@ def same_page(a: str, b: str) -> bool:
 
 # ============================================================================ detection (pure)
 SIG = {
-    "dafpay_chariot": re.compile(r"givechariot\.com|chariot-connect|<chariot-|dafpay\.com|\bdafpay\b", re.I),
+    # widget/script, a DAFpay link, or an active DAFpay payment method in the page's config. Platform-generic strings
+    # (Classy "paymentMethods.dafpay.label", Fundraise Up ".ui-payment-button-dafpay" CSS) do NOT count: see DAFPAY_GENERIC.
+    "dafpay_chariot": re.compile(r"givechariot\.com|chariot-connect|<chariot-|dafpay\.com|\"DAFPay\"\}|\"status\":\"ACTIVE\",\"type\":\"DAFPay\"", re.I),
     "daf_direct": re.compile(r"dafdirect\.org|\bdaf ?direct\b", re.I),
     "fidelity_charitable": re.compile(r"fidelitycharitable\.org|fidelity charitable", re.I),
     "dafgiving360_schwab": re.compile(r"dafgiving360|schwabcharitable\.org|schwab charitable", re.I),
@@ -531,6 +533,8 @@ SIG = {
 LINK_SIG = {k: re.compile(p, re.I) for k, p in {
     "fidelity_charitable": r"fidelitycharitable\.org", "dafgiving360_schwab": r"dafgiving360\.org|schwabcharitable\.org",
     "vanguard_charitable": r"vanguardcharitable\.org", "npt": r"nptrust\.org"}.items()}
+DAFPAY_GENERIC = re.compile(r"paymentMethods\.dafpay|ui-payment-button-dafpay|#dafpay-button|\bdafpay\b", re.I)
+DAFPAY_TEXT = re.compile(r"\bDAF ?pay\b", re.I)
 DAFPAY_WIDGET = re.compile(r"givechariot\.com|chariot-connect|<chariot-", re.I)
 DAFDIRECT_WIDGET = re.compile(r"dafdirect\.org/\S*(?:widget|ddirect)|dafwidget", re.I)
 PLATFORMS = {
@@ -577,6 +581,9 @@ def detect(p: Mapping, ein: str) -> dict:
     allm = b["markup"] + "\n" + b["urls"]
     ein_fmt = f"{ein[:2]}-{ein[2:]}"
     d = {k: int(bool(rx.search(allm))) for k, rx in SIG.items()}
+    d["dafpay_text"] = int(bool(DAFPAY_TEXT.search(b["text"])))
+    d["dafpay_chariot"] = int(d["dafpay_chariot"] or d["dafpay_text"])
+    d["dafpay_generic_string_only"] = int(not d["dafpay_chariot"] and bool(DAFPAY_GENERIC.search(allm)))
     d["dafpay_widget"] = int(bool(DAFPAY_WIDGET.search(allm)))
     d["daf_direct_widget"] = int(bool(DAFDIRECT_WIDGET.search(allm)))
     for k, rx in LINK_SIG.items():
@@ -694,14 +701,14 @@ def same_host(a: str, b: str) -> bool:
 
 
 # ============================================================================ stage: report
-FLAG_COLS = ("dafpay_chariot", "dafpay_widget", "daf_direct", "daf_direct_widget", "fidelity_charitable",
+FLAG_COLS = ("dafpay_chariot", "dafpay_widget", "dafpay_text", "dafpay_generic_string_only", "daf_direct", "daf_direct_widget", "fidelity_charitable",
              "fidelity_charitable_link", "dafgiving360_schwab", "dafgiving360_schwab_link", "vanguard_charitable",
              "vanguard_charitable_link", "npt", "npt_link", "sponsor_specific_any", "sponsor_link_any",
              "text_donor_advised", "text_daf_acronym", "daf_text_any", "ein_own_displayed", "ein_label_present",
              "every_org", "paypal_giving_fund", "daffy", "endaoment", "benevity", "daf_adjacent_processor_any",
              "any_daf_option")
 FIELDS = (["daf_rank", "ein", "name", "schedule_i_name", "state", "ntee_cd", "ntee_major_group", "sector_method",
-           "size_band", "revenue_usd_bmf", "dafrc_university_hospital", "daf_grant_usd_fy2023_2024", "grantor_sponsors",
+           "size_band", "size_source", "revenue_usd", "dafrc_university_hospital", "daf_grant_usd_fy2023_2024", "grantor_sponsors",
            "website", "website_source", "home_robots", "home_robots_code", "home_state", "donate_url", "donate_anchor",
            "donate_state", "donate_robots", "donate_page_state", "page_scanned", "scan_status"]
           + [f"donate_{c}" for c in FLAG_COLS] + ["donate_platforms"]
@@ -741,8 +748,26 @@ def scan_status(p: Mapping) -> str:
     return "donate_scanned"
 
 
-def build_row(x: Mapping, p: Mapping, work: str) -> dict:
+def clean_out_url(u: str) -> str:
+    """Drop session and tracking parameters from a URL before it is written out."""
+    sp = urllib.parse.urlsplit(u or "")
+    q = [(k, v) for k, v in urllib.parse.parse_qsl(sp.query, keep_blank_values=True)
+         if not re.match(r"(session_?id|utm_|s_src|s_subsrc|ms$|source$|ea\.tracking|supporter\.appeal|en_og_source|sid$|gclid|fbclid)", k, re.I)]
+    return sp._replace(query=urllib.parse.urlencode(q)).geturl() if u else ""
+
+
+def size_of(x: Mapping, web: Mapping) -> tuple[str, str, object]:
+    if x["size_band"] != "unknown":
+        return x["size_band"], "bmf_revenue_amt", x["revenue_usd_bmf"]
+    rv = (web.get(x["ein"]) or {}).get("revenue_990")
+    if rv:
+        return size_band(rv, True), "990_total_revenue", round(rv)
+    return "unknown", "", ""
+
+
+def build_row(x: Mapping, p: Mapping, work: str, web: Mapping) -> dict:
     st = scan_status(p)
+    band, band_src, rev = size_of(x, web)
     jl = lambda d, e: load_json(os.path.join(work, d, f"{e}.json")) if os.path.exists(os.path.join(work, d, f"{e}.json")) else None  # noqa: E731
     home = jl("home", x["ein"]) if st != "no_website_found" and not st.startswith(("robots_", "home_unreachable")) else None
     don = jl("donate", x["ein"]) if st == "donate_scanned" else (home if st == "donate_on_homepage" else None)
@@ -751,11 +776,11 @@ def build_row(x: Mapping, p: Mapping, work: str) -> dict:
     either = ({c: int(bool(dd.get(c)) or bool(hd.get(c))) for c in FLAG_COLS} if (dd or hd) else {})
     ep = ";".join(sorted(set(filter(None, (dd.get("platforms", "") + ";" + hd.get("platforms", "")).split(";")))))
     return {**{k: x[k] for k in ("daf_rank", "ein", "name", "schedule_i_name", "state", "ntee_cd", "ntee_major_group",
-                                 "sector_method", "size_band", "revenue_usd_bmf", "dafrc_university_hospital",
-                                 "daf_grant_usd_fy2023_2024", "grantor_sponsors")},
+                                 "sector_method", "dafrc_university_hospital", "daf_grant_usd_fy2023_2024", "grantor_sponsors")},
+            "size_band": band, "size_source": band_src, "revenue_usd": rev,
             "website": p.get("site", ""), "website_source": p.get("site_source", ""),
             "home_robots": p.get("home_robots", ""), "home_robots_code": p.get("home_robots_code", ""),
-            "home_state": p.get("home_state", ""), "donate_url": p.get("donate_url", ""),
+            "home_state": p.get("home_state", ""), "donate_url": clean_out_url(p.get("donate_url", "")),
             "donate_anchor": p.get("donate_anchor", ""), "donate_state": p.get("donate_state", ""),
             "donate_robots": p.get("donate_robots", ""), "donate_page_state": p.get("donate_page_state", ""),
             "page_scanned": "donate" if don else ("homepage" if home else "none"), "scan_status": st,
@@ -771,7 +796,7 @@ def rates(rows: Sequence[Mapping], prefix: str, cols: Iterable[str]) -> dict:
             **{c + "_count": sum(int(r[f"{prefix}{c}"]) for r in base) for c in cols}}
 
 
-KEY = ("dafpay_chariot", "dafpay_widget", "daf_direct", "sponsor_specific_any", "sponsor_link_any", "fidelity_charitable",
+KEY = ("dafpay_chariot", "dafpay_widget", "dafpay_generic_string_only", "daf_direct", "sponsor_specific_any", "sponsor_link_any", "fidelity_charitable",
        "dafgiving360_schwab", "vanguard_charitable", "npt", "daf_text_any", "text_donor_advised", "ein_own_displayed",
        "every_org", "paypal_giving_fund", "daf_adjacent_processor_any", "any_daf_option")
 
@@ -779,7 +804,8 @@ KEY = ("dafpay_chariot", "dafpay_widget", "daf_direct", "sponsor_specific_any", 
 def stage_report(a) -> int:
     tj = load_json(os.path.join(a.work, "targets.json"))
     plan = load_json(os.path.join(a.work, "plan.json"))
-    rows = [build_row(x, plan[x["ein"]], a.work) for x in tj["targets"]]
+    web = load_json(os.path.join(a.work, "websites.json"))
+    rows = [build_row(x, plan[x["ein"]], a.work, web) for x in tj["targets"]]
     write_csv(OUT_CSV, rows, FIELDS)
     don = [r for r in rows if r["page_scanned"] == "donate"]
     by = lambda key, rs, pre: {k: rates(v, pre, KEY) for k, v in sorted(_group_by_fast(rs, lambda r: r[key]).items())}  # noqa: E731

@@ -8,7 +8,7 @@ Tasks
   news      GDELT DOC 2.0 API (http://api.gdeltproject.org/api/v2/doc/doc), 2021-01-01 .. 2026-11-14:
             daily raw article counts (mode=timelinevolraw) for the base DAF phrase query and for the base query AND
             each theme keyword group, summed to calendar months; plus up to 250 article titles per year
-            (mode=artlist, sort=hybridrel) for a headline sample. One request every >= 10 s (GDELT asks for <= 1 per 5 s).
+            (mode=artlist, sort=hybridrel) for a headline sample; responses cached in --work-dir/gdelt-cache. One request every >= 10 s (GDELT asks for <= 1 per 5 s).
             Output: data/mission-2026-11-14/daf-news-volume-2021-2026.csv and --work-dir/news-headlines.json
   hiring    Public ATS JSON endpoints (Greenhouse boards-api, Lever postings API, Ashby posting API) and
             robots-permitted career pages listed in HIRING_SOURCES. One row per open posting with keyword flags.
@@ -216,7 +216,7 @@ def gdelt(params: Mapping[str, str]) -> dict | None:
             if d is not None:
                 if cpath:
                     with open(cpath, "w", encoding="utf-8") as f:
-                        json.dump({**d, "_fetched_utc": dt.datetime.utcnow().isoformat(timespec="seconds"),
+                        json.dump({**d, "_fetched_utc": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
                                    "_url": url}, f)
                 return d
         print(f"  gdelt retry {attempt + 1} status={status} {text[:120]!r}", file=sys.stderr)
@@ -286,12 +286,9 @@ def task_news(work: str) -> None:
         arts = artlist(BASE_Q, a, b, 250)
         sample[str(y)] = [{"date": x.get("seendate", "")[:8], "domain": x.get("domain"), "title": x.get("title"),
                            "url": x.get("url"), "themes": title_themes(x.get("title") or "")} for x in arts]
-    theme_samples = {}
-    for theme, q in THEMES.items():
-        print("artlist", theme)
-        arts = artlist(f"{BASE_Q} {q}", YEARS[0][1], YEARS[-1][2], 15)
-        theme_samples[theme] = [{"date": x.get("seendate", "")[:8], "domain": x.get("domain"),
-                                 "title": x.get("title"), "url": x.get("url")} for x in arts]
+    # Theme headline examples come from the yearly base sample (title-level classification), not from extra
+    # per-theme calls: GDELT throttled this session's shared egress too hard for more requests.
+    theme_samples = {t: [a for y in sorted(sample) for a in sample[y] if t in a["themes"]] for t in THEMES}
     dump(os.path.join(work, "news-headlines.json"), {"by_year": sample, "by_theme": theme_samples,
                                                       "queries": {"base": BASE_Q, **THEMES},
                                                       "resolutions": RESOLUTIONS})
