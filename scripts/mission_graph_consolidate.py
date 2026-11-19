@@ -489,7 +489,8 @@ def apply_correction(edge: dict, op: str, val, ref: str) -> tuple:
         new = edge if done else {**edge, "notes": edge["notes"].replace(old, rep),
                                  "evidence_summary": edge["evidence_summary"].replace(old, rep)}
     log = {"edge_id": edge["edge_id"], "op": op, "value": val if isinstance(val, str) else " -> ".join(val),
-           "source": ref, "result": "already applied in source file" if done else "applied in consolidated file",
+           "source": ref, "result": ("old text not present in source file (nothing to replace)" if done and op == "replace_note"
+                                     else "already applied in source file" if done else "applied in consolidated file"),
            "before_type": before["relationship_type"], "before_status": before["status"]}
     return new, log
 
@@ -505,7 +506,11 @@ def apply_corrections(edges: tuple) -> tuple:
         new, log = apply_correction(acc[0][eid], op, val, ref)
         return {**acc[0], eid: new}, acc[1] + (log,)
 
-    final, logs = reduce(step, VALIDATION_CORRECTIONS, (by_id, ()))
+    notes = tuple((old, "add_note", f"[gap19-06] superseded by {'/'.join(new)}", "edge-file supersession note")
+                  for old, new in SUPERSESSIONS) + \
+        tuple((old, "add_note", f"[gap19-06] read with {new} (note-level reference)", "edge-file cross-reference")
+              for old, new in ANNOTATE_ONLY)
+    final, logs = reduce(step, VALIDATION_CORRECTIONS + notes, (by_id, ()))
     return tuple(final[e["edge_id"]] for e in edges), logs
 
 
@@ -632,7 +637,7 @@ CHECKS = {
     "E155": dict(url="https://www.candid.org/", find=r"Groundswell", on_find="confirmed", on_absent="unverified-lead",
                  what="Candid side of the claimed integration"),
     "E157": dict(url="https://tifin.com/news/tifin-give-launches-louise-the-ai-platform-for-philanthropy/19124/",
-                 find=r"OpenAI|GPT-?\d|Anthropic|\bClaude\b|Gemini|Llama|Mistral|Azure OpenAI|Bedrock",
+                 find=r"OpenAI|\bGPT-?\d|\bAnthropic\b|\bClaude\b|\bGemini\b|\bLlama\b|\bMistral\b|Azure OpenAI|\bBedrock\b",
                  on_find="contradicted", on_absent="confirmed",
                  what="Louise launch page re-read (tifingive.com unreachable): model vendor named?"),
     "EA001": dict(url="https://www.vanguardcharitable.org/", find=r"Give Interactive|giveinteractive",
@@ -640,7 +645,7 @@ CHECKS = {
                   what="Vanguard Charitable home page / login links: any Give Interactive reference?"),
     "EA005": dict(url="https://www.cct.org/", find=r"giveinteractive", on_find="confirmed", on_absent="unverified-lead",
                   what="Chicago Community Trust home page: login link to a Give Interactive tenant?"),
-    "EA006": dict(url="https://jcfny.org/", find=r"giveinteractive", on_find="confirmed", on_absent="weakened",
+    "EA006": dict(url="https://jcfny.org/", find=r"giveinteractive", on_find="confirmed", on_absent="unverified-lead",
                   what="JCF home page: client login link (login.jcfny.org) - Give Interactive?"),
     "EA007": dict(url="https://impactassets.org/", find=r"giveinteractive", on_find="confirmed", on_absent="weakened",
                   what="ImpactAssets home page: client login still on Ren iPhi (iphi.stellartechsol.com/calvert)?"),
@@ -686,7 +691,7 @@ CHECKS = {
                   what="Direct read of the Armanino case study (edge used search capture)"),
     "EJ026": dict(url="https://www.slalom.com/us/en/customer-stories", find=r"Silicon Valley Community Foundation|SVCF",
                   on_find="confirmed", on_absent="unverified-lead", what="Slalom customer stories: SVCF named?"),
-    "EJ028": dict(url="https://www.fundminer.com/community", find=r"Warren County", on_find="confirmed",
+    "EJ028": dict(url="https://www.fundminer.com/community", find=r"Warren County", on_find="unverified-lead",
                   on_absent="weakened", what="FundMiner community page re-read: Warren County still listed? (no CF page identified)"),
     "EK018": dict(url="https://keybank.iphiview.com/keybank/", find=r"KeyBank|KeyCorp", on_find="confirmed",
                   on_absent="weakened", on_dead="weakened", what="Live re-observation of the iPhi tenant (no KeyBank page links it)"),
@@ -727,7 +732,7 @@ CHECKS = {
     "EN008": dict(url="https://www.thecommunityfoundation.org/news/our-new-donor-portal-has-arrived", find=r"Financial Edge",
                   on_find="confirmed", on_absent="unverified-lead", what="GWCF portal announcement (first-party): Financial Edge NXT named as ledger?"),
     "EN011": dict(url="https://ircf.donor-portal.org/login", find=r"Indian River|IRCF", on_find="unverified-lead",
-                  on_absent="weakened", on_dead="weakened",
+                  on_absent="unverified-lead", on_dead="weakened",
                   what="donor-portal.org tenant still live? (tenant use does not show back-office service; IRCF also sends fund access to Foundant)"),
     "EP003": dict(url="https://www.sdfoundation.org/", find=r"Financial Edge|blackbaud", on_find="confirmed", on_absent="unverified-lead",
                   what="SDF home page: Blackbaud markers?"),
@@ -765,7 +770,7 @@ CHECKS = {
                   what="Pledge 1% page (sponsor source for Twilio.org): only a Tides referral, not Twilio-specific"),
     "EX017": dict(url="https://www.crowdstrike.com/en-us/about-us/crowdstrike-foundation/", find=r"CAF America|Charities Aid Foundation",
                   on_find="confirmed", on_absent="unverified-lead", what="CrowdStrike Foundation page: CAF America named?"),
-    "EX025": dict(url="https://www.pledge1percent.org/pledging-1-percent-to-charity-made-easy-for-companies/", find=r"Tides",
+    "EX025": dict(url="https://www.pledge1percent.org/pledging-1-percent-to-charity-made-easy-for-companies/", find=r"Tides[^.]{0,120}(preferred|partner|recommend)|(preferred|recommend)[^.]{0,120}Tides",
                   on_find="confirmed", on_absent="unverified-lead", what="Pledge 1% public page (edge used a 403 community guide)"),
     "EY006": dict(url="https://dafgiving360.org/explore-charities", find=r"Candid|GuideStar", on_find="confirmed",
                   on_absent="unverified-lead", what="Direct read (edge used a search snippet)"),
@@ -775,7 +780,7 @@ CHECKS = {
                   on_find="confirmed", on_absent="unverified-lead", what="Vanguard Charitable nonprofit page (sponsor side): Candid named?"),
     "EY015": dict(url="https://benevity.com/solutions/nonprofit-due-diligence", find=r"Charity ?Navigator", on_find="confirmed",
                   on_absent="weakened", what="Direct re-read of the Benevity page (the snippet text was not on the 2026-11-15 fetch)"),
-    "EY018": dict(url="https://help.daffy.org/en/", find=r"IRS", on_find="confirmed", on_absent="unverified-lead",
+    "EY018": dict(url="https://help.daffy.org/en/", find=r"\bIRS\b|Internal Revenue", on_find="confirmed", on_absent="unverified-lead",
                   what="Daffy help centre front page: IRS status check described?"),
     "EZ001": dict(url="https://www.edwardjones.com/us-en/investment-services/investment-products/donor-advised-funds",
                   find=r"private (donor[- ]advised fund|DAF)[^.]{0,200}(sponsor|Renaissance|National Philanthropic|Fidelity Charitable)",
@@ -848,3 +853,568 @@ def run_check(e: dict) -> dict:
     m = snippet(hay, c["find"], 70)
     return {**base, "fetch_result": fr[:200], "http_status": st, "matched": m[:240],
             "outcome": c["on_find"] if m else c["on_absent"]}
+
+
+# ============================================================== status after red team
+
+CRT_ONLY = ("EB009", "ED008", "EH014")  # source_url is a crt.sh query and no other admissible source
+
+
+def proposed_status(head: dict, rt: dict) -> str:
+    st, oc = head["status"], (rt or {}).get("outcome", "")
+    if head["edge_id"] in CRT_ONLY and oc != "confirmed":
+        return "unverified_lead"
+    if not oc:
+        return st
+    if oc == "contradicted":
+        return "contradicted"
+    if oc == "confirmed" and st in ("inferred", "reported", "probable"):
+        return "confirmed"
+    return st
+
+
+# ============================================================== statistics
+
+
+def is_placeholder(label: str) -> bool:
+    return bool(re.search(PLACEHOLDER_RX, label.strip().lower()))
+
+
+def degree(cons: tuple, node_ids: set, statuses=None) -> int:
+    return sum(1 for e in cons if not e["self_loop"] and (statuses is None or e["status_final"] in statuses)
+               and (e["src_id"] in node_ids or e["tgt_id"] in node_ids))
+
+
+HUBS = (
+    ("Ren (incl. Stellar/iPhi)", ("A:Ren (incl. Stellar/iPhi)",)),
+    ("Foundant Technologies", ("A:Foundant Technologies",)),
+    ("Chariot", ("A:Chariot",)),
+    ("Fidelity Charitable", ("A:Fidelity Charitable",)),
+    ("Fidelity group (Fidelity Charitable + FMR)", ("A:Fidelity Charitable", "A:Fidelity Investments (FMR)")),
+    ("Renaissance Charitable Foundation (RCF)", ("A:Renaissance Charitable Foundation (RCF)",)),
+    ("Edward Jones (firm)", ("A:Edward Jones",)),
+    ("Edward Jones cluster (firm + CGF + private DAF + Generations)",
+     ("A:Edward Jones", "A:Edward Jones Charitable Gift Fund", "A:Edward Jones private DAF (Generations)",
+      "K:edward jones generations")),
+    ("Blackbaud", ("A:Blackbaud",)),
+    ("NPact (Fusion Laboratories LLC)", ("A:NPact (Fusion Laboratories LLC)",)),
+    ("Give Interactive", ("K:give interactive",)),
+)
+
+TECH_TYPES = ("technology_provider", "administers", "ledger_provider", "payment_processor", "donor_export_feature",
+              "data_feed")
+
+
+def dafrc_2024() -> dict:
+    rows = read_csv(str(DATA / "dafrc-sponsor-schedule-d-fy2019-2024.csv"))
+    return {r["ein"]: {"name": r["name"], "assets": float(r["eoy_daf_assets"] or 0)}
+            for r in rows if r["fiscal_year_end"] == "2024"}
+
+
+def concentration(values: list) -> dict:
+    tot = sum(values)
+    sh = sorted((v / tot for v in values), reverse=True)
+    return {"CR3": sum(sh[:3]), "CR4": sum(sh[:4]), "CR5": sum(sh[:5]), "HHI": sum((s * 100) ** 2 for s in sh),
+            "total": tot}
+
+
+def vendor_sponsor_links(cons: tuple, dafrc: dict, statuses: tuple) -> dict:
+    """vendor label -> set of DAFRC sponsor EINs it serves (tech/admin/ledger/payment edges)."""
+    out = defaultdict(set)
+    for e in cons:
+        if e["self_loop"] or e["type_norm"] not in TECH_TYPES or e["status_final"] not in statuses:
+            continue
+        if e["tgt_ein"] in dafrc:
+            vendor, sponsor = e["src"], e["tgt_ein"]
+        elif e["src_ein"] in dafrc:
+            vendor, sponsor = e["tgt"], e["src_ein"]
+        else:
+            continue
+        if not is_placeholder(vendor):
+            out[vendor].add(sponsor)
+    return out
+
+
+def latest_year(e: dict) -> int:
+    ys = [int(y) for y in re.findall(r"(?<!\d)(20\d{2})(?!\d)", e["source_date"] + " " + e["accessed_date"]
+                                                                   if "live" in e["source_date"].lower() else e["source_date"])]
+    return max(ys) if ys else 0
+
+
+def ren_share(cons: tuple, dafrc: dict, statuses: tuple, min_year: int = 0) -> tuple:
+    cons = tuple(e for e in cons if latest_year(e) >= min_year) if min_year else cons
+    eins = sorted(vendor_sponsor_links(cons, dafrc, statuses).get("Ren (incl. Stellar/iPhi)", set()))
+    assets = sum(dafrc[x]["assets"] for x in eins)
+    return eins, assets
+
+
+# ============================================================== pipeline
+
+
+def pct(x: float) -> str:
+    return f"{100 * x:.1f}%"
+
+
+def bn(x: float) -> str:
+    return f"${x / 1e9:.2f}bn"
+
+
+def write_csv(path: Path, rows: list, cols: list) -> None:
+    with open(path, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=cols, extrasaction="ignore")
+        w.writeheader()
+        w.writerows(rows)
+
+
+def run(offline: bool = False) -> dict:
+    _STATE["offline"] = offline
+    raw = load_edges()
+    corrected, corr_log = apply_corrections(raw)
+    dafrc = dafrc_2024()
+    res = build_resolver(corrected, {k: v["name"] for k, v in dafrc.items()})
+    superseded = {old: new for old, new in SUPERSESSIONS}
+    norm = tuple(normalise(e, res) for e in corrected)
+    cons0 = dedup(norm, superseded)
+
+    # red team (on the corrected, un-merged edges; superseded edges are not tested)
+    rt_edges = redteam_set(corrected, superseded)
+    rt_rows = tuple(run_check(e) for e in rt_edges)
+    rt_by_id = {r["edge_id"]: r for r in rt_rows}
+    by_id = {e["edge_id"]: e for e in norm}
+
+    cons = tuple({**e, "consolidated_id": f"CE{i + 1:04d}",
+                  "redteam_outcome": rt_by_id.get(e["edge_id"], {}).get("outcome", ""),
+                  "status_final": proposed_status(e, rt_by_id.get(e["edge_id"])),
+                  "redteam_members": ";".join(f"{m}:{rt_by_id[m]['outcome']}" for m in e["merged_edge_ids"].split(";")
+                                              if m in rt_by_id)}
+                 for i, e in enumerate(cons0))
+    for e in cons:  # vendor re-attribution flag for DonorCentral edges
+        e["reattribution"] = ("NPact (DonorCentral acquired from Blackbaud 2022-09)"
+                              if e["src"] == "Blackbaud" and re.search(r"donorcentral", e["evidence_summary"] + e["notes"],
+                                                                       re.I) else "")
+    live = tuple(e for e in cons if not e["self_loop"])
+
+    # ---- nodes
+    nodes = {}
+    for e in live:
+        for i, lab, ein, typ in ((e["src_id"], e["src"], e["src_ein"], e["src_type"]),
+                                 (e["tgt_id"], e["tgt"], e["tgt_ein"], e["tgt_type"])):
+            nodes.setdefault(i, {"label": lab, "ein": ein, "type": typ})
+    real_nodes = {i: v for i, v in nodes.items() if not is_placeholder(v["label"])}
+    raw_names = {e[k] for e in raw for k in ("source_entity", "target_entity")}
+    node_rows = read_csv(str(DATA / "relationship-graph-nodes.csv"))
+    node_res = build_resolver(tuple({"source_entity": r["entity"], "target_entity": r["entity"]} for r in node_rows),
+                              {k: v["name"] for k, v in dafrc.items()})
+    node_ids = {v["id"] for v in node_res.values()} | {"EIN:" + re.sub(r"\D", "", r["EIN_if_charity"])
+                                                       for r in node_rows if re.search(r"\d{2}-\d{7}", r["EIN_if_charity"])}
+    missing_nodes = sorted(v["label"] for i, v in real_nodes.items() if i not in node_ids)
+
+    # ---- degrees
+    cur = ("confirmed",)
+    hub_rows = [{"hub": h, "raw_edge_mentions": sum(1 for e in raw if res[e["source_entity"]]["id"] in ids
+                                                     or res[e["target_entity"]]["id"] in ids),
+                 "degree_all": degree(live, set(ids)),
+                 "degree_confirmed": degree(live, set(ids), cur),
+                 "degree_confirmed_or_hist": degree(live, set(ids), ("confirmed", "historically_confirmed")),
+                 "degree_base_file": degree(tuple(e for e in live if any(m.startswith("E") and re.fullmatch(r"E\d{3}", m)
+                                                                         for m in e["merged_edge_ids"].split(";"))),
+                                            set(ids))}
+                for h, ids in HUBS]
+    ren_exact_base = sum(1 for e in raw if e["file"] == "relationship-graph-edges.csv"
+                         and "Ren" in (e["source_entity"], e["target_entity"]))
+    rcf_base = sum(1 for e in raw if e["file"] == "relationship-graph-edges.csv"
+                   and "Renaissance Charitable Foundation" in (e["source_entity"], e["target_entity"]))
+
+    # ---- concentration
+    sponsor_conc = concentration([v["assets"] for v in dafrc.values() if v["assets"] > 0])
+    ren_tiers = {}
+    for tier, sts, my in (("A_confirmed", ("confirmed",), 0),
+                          ("A2_confirmed_source_dated_2024_or_later", ("confirmed",), 2024),
+                          ("B_plus_inferred_reported", ("confirmed", "inferred", "reported", "probable"), 0),
+                          ("C_plus_historical", ("confirmed", "inferred", "reported", "probable",
+                                                 "historically_confirmed"), 0)):
+        eins, assets = ren_share(live, dafrc, sts, my)
+        ren_tiers[tier] = {"eins": eins, "assets": assets, "share": assets / sponsor_conc["total"]}
+    vs = vendor_sponsor_links(live, dafrc, ("confirmed",))
+    vendor_rows = sorted(({"vendor": v, "sponsors": len(s), "assets": sum(dafrc[x]["assets"] for x in s)}
+                          for v, s in vs.items()), key=lambda r: (-r["sponsors"], -r["assets"]))
+    links = sum(r["sponsors"] for r in vendor_rows)
+    vendor_cr3_count = sum(r["sponsors"] for r in vendor_rows[:3]) / links if links else 0
+    sponsors_with_vendor = set().union(*vs.values()) if vs else set()
+    covered_assets = sum(dafrc[x]["assets"] for x in sponsors_with_vendor)
+
+    def out_count(src_label, types, sts=("confirmed",)):
+        return len({e["tgt"] if e["src"] == src_label else e["src"] for e in live
+                    if src_label in (e["src"], e["tgt"]) and e["type_norm"] in types and e["status_final"] in sts})
+
+    spof = [
+        ("S1 RCF sponsor/administrator: programs", out_count("Renaissance Charitable Foundation (RCF)",
+                                                             ("sponsor_of", "administers"))),
+        ("S2 Ren technology/admin clients (all tenants, programs, sponsors)",
+         out_count("Ren (incl. Stellar/iPhi)", TECH_TYPES)),
+        ("S3 Foundation Source technology clients", out_count("Foundation Source", TECH_TYPES)),
+        ("S4 Chariot payment clients", out_count("Chariot", ("payment_processor", "disbursement_partner"))),
+        ("S5 GiveClear sponsored programs", out_count("GiveClear Foundation", ("sponsor_of",))),
+        ("NPact technology clients", out_count("NPact (Fusion Laboratories LLC)", TECH_TYPES)),
+        ("Foundant technology clients", out_count("Foundant Technologies", TECH_TYPES)),
+        ("Give Interactive technology clients (confirmed)", out_count("Give Interactive", TECH_TYPES)),
+    ]
+
+    stats = {
+        "raw_edges": len(raw), "files": len(edge_files()), "raw_entity_names": len(raw_names),
+        "consolidated_edges": len(cons), "self_loops": len(cons) - len(live), "live_edges": len(live),
+        "merged_groups": sum(1 for e in cons if e["n_merged"] > 1),
+        "edges_absorbed": sum(e["n_merged"] - 1 for e in cons),
+        "reversed_duplicates": sum(1 for e in cons if e["reversed_duplicate"]),
+        "nodes": len(real_nodes), "placeholder_nodes": len(nodes) - len(real_nodes),
+        "nodes_missing_from_nodes_csv": len(missing_nodes), "nodes_csv_rows": len(node_rows),
+        "status_raw": Counter(e["status"] for e in raw), "status_final": Counter(e["status_final"] for e in live),
+        "type_final": Counter(e["type_norm"] for e in live),
+        "hubs": hub_rows, "ren_base_exact": ren_exact_base, "rcf_base_exact": rcf_base,
+        "sponsor_conc": sponsor_conc, "ren_tiers": ren_tiers, "vendor_rows": vendor_rows,
+        "vendor_links": links, "vendor_cr3_count": vendor_cr3_count, "sponsors_with_vendor": len(sponsors_with_vendor),
+        "covered_assets": covered_assets, "spof": spof, "corrections": corr_log,
+        "redteam": rt_rows, "redteam_counts": Counter(r["outcome"] for r in rt_rows),
+        "redteam_by_class": Counter((r["evidence_class"], r["outcome"]) for r in rt_rows),
+        "requests": _STATE["requests"], "reattributed": sum(1 for e in live if e["reattribution"]),
+        "dafrc": dafrc,
+    }
+
+    # ---- write data files
+    cols = ["consolidated_id", "head_edge_id", "merged_edge_ids", "n_merged", "superseded_ids", "source_entity",
+            "source_ein", "source_type", "target_entity", "target_ein", "target_type", "relationship_type",
+            "relationship_type_original", "status", "status_head_original", "merged_statuses", "redteam_outcome",
+            "redteam_members", "reattribution", "self_loop", "reversed_duplicate", "source_entity_original",
+            "target_entity_original", "evidence_summary", "source_url", "source_date", "accessed_date", "notes",
+            "member_files"]
+    out_rows = [{**e, "head_edge_id": e["edge_id"], "source_entity": e["src"], "source_ein": e["src_ein"],
+                 "source_type": e["src_type"], "target_entity": e["tgt"], "target_ein": e["tgt_ein"],
+                 "target_type": e["tgt_type"], "relationship_type": e["type_norm"],
+                 "relationship_type_original": by_id[e["edge_id"]]["relationship_type"],
+                 "status": e["status_final"], "status_head_original": by_id[e["edge_id"]]["status"],
+                 "source_entity_original": e["source_entity"], "target_entity_original": e["target_entity"]}
+                for e in cons]
+    write_csv(DATA / "relationship-graph-edges-consolidated-2026-11-19.csv", out_rows, cols)
+    head_of = {m: e["consolidated_id"] for e in cons for m in e["merged_edge_ids"].split(";")}
+    rt_out = [{**r, "consolidated_id": head_of.get(r["edge_id"], ""),
+               "source_entity": by_id[r["edge_id"]]["source_entity"], "target_entity": by_id[r["edge_id"]]["target_entity"],
+               "relationship_type": by_id[r["edge_id"]]["relationship_type"], "status_before": by_id[r["edge_id"]]["status"],
+               "status_proposed": proposed_status(by_id[r["edge_id"]], r), "checked_date": TODAY,
+               "note": ("vendor re-attribution: NPact" if "DonorCentral" in r["check_description"] else "")}
+              for r in rt_rows]
+    write_csv(DATA / "relationship-graph-redteam-2026-11-19.csv", rt_out,
+              ["edge_id", "consolidated_id", "source_entity", "target_entity", "relationship_type", "evidence_class",
+               "status_before", "check_description", "check_url", "check_regex", "fetch_result", "http_status",
+               "matched", "outcome", "status_proposed", "note", "checked_date"])
+    stats["rt_out"] = rt_out
+    stats["missing_nodes"] = missing_nodes
+    return stats
+
+
+REPORT = ROOT / "research" / "DAF-INDUSTRY-REPORT-2026-11.md"
+VDC = ROOT / "research" / "mission-2026-11-14" / "vendor-dependency-concentration.md"
+OUT_MD = ROOT / "research" / "mission-2026-11-14" / "gap19-graph-consolidation.md"
+
+
+def md_table(header: list, rows: list) -> str:
+    esc = lambda x: str(x).replace("|", "\\|").replace("\n", " ")
+    return "\n".join(["| " + " | ".join(header) + " |", "|" + "---|" * len(header)] +
+                     ["| " + " | ".join(esc(c) for c in r) + " |" for r in rows])
+
+
+def find_replace(stats: dict) -> list:
+    st, rt = stats["status_final"], stats["redteam_counts"]
+    hub = {h["hub"]: h for h in stats["hubs"]}
+    ren, rcf, fou = hub["Ren (incl. Stellar/iPhi)"], hub["Renaissance Charitable Foundation (RCF)"], hub["Foundant Technologies"]
+    t = stats["ren_tiers"]
+    status_txt = ", ".join(f"{st[k]} {k.replace('_', ' ')}" for k in
+                           ("confirmed", "historically_confirmed", "inferred", "unknown", "reported", "probable",
+                            "unverified_lead", "pending", "rejected") if st.get(k))
+    rt_txt = (f"a 2026-11-19 red team of all {len(stats['redteam'])} inferred, unknown, reported, probable, pending, "
+              f"vendor-claim and crt.sh-sourced edges (one independent public check each) marked {rt.get('confirmed', 0)} "
+              f"confirmed, {rt.get('weakened', 0)} weakened, {rt.get('unverified-lead', 0)} unverified leads and "
+              f"{rt.get('contradicted', 0)} contradicted (repo [`gap19-graph-consolidation.md`](mission-2026-11-14/gap19-graph-consolidation.md))")
+    items = [
+        ("FR1", REPORT, "The relationship graph has 131 nodes and 167 edges, every edge sourced and status-labelled",
+         f"The consolidated relationship graph (2026-11-19) has {stats['nodes']} nodes and {stats['live_edges']} edges, "
+         f"merged from the base file and {stats['files'] - 1} additions files ({stats['raw_edges']} rows; "
+         f"{stats['edges_absorbed']} duplicates merged, {stats['self_loops']} alias self-loops set aside), every edge "
+         f"sourced and status-labelled (repo [`relationship-graph-edges-consolidated-2026-11-19.csv`]"
+         f"(../data/mission-2026-11-14/relationship-graph-edges-consolidated-2026-11-19.csv))"),
+        ("FR2", REPORT, "134 confirmed (one more after red-team), 17 historically confirmed, 11 inferred, 5 unknown. "
+                        "A red-team sample of 15 \"confirmed\" edges found 0 status errors and 2 scope imprecisions",
+         f"{status_txt}. A wave-2B red-team sample of 15 \"confirmed\" base edges found 0 status errors and 2 scope "
+         f"imprecisions; {rt_txt}"),
+        ("FR3", REPORT, "- On public evidence, sponsors holding about **28%** of FY2024 DAF assets ($91.6bn of $327.9bn) "
+                        "use Ren technology in some form **[V wave 3]**.",
+         f"- On public evidence, sponsors holding about **28%** of FY2024 DAF assets ($91.6bn of $327.9bn) use Ren "
+         f"technology in some form **[V wave 3]**. The consolidated graph (2026-11-19) raises this to "
+         f"{pct(t['A_confirmed']['share'])} ({bn(t['A_confirmed']['assets'])}, {len(t['A_confirmed']['eins'])} sponsors) "
+         f"on any confirmed Ren/Stellar technology, administration or payment edge, and "
+         f"{pct(t['A2_confirmed_source_dated_2024_or_later']['share'])} "
+         f"({len(t['A2_confirmed_source_dated_2024_or_later']['eins'])} sponsors) when the edge's source is dated 2024 or "
+         f"later; NPT ({pct(42.12e9 / stats['sponsor_conc']['total'])}) still rests on hosting evidence "
+         f"[I] (repo [`gap19-graph-consolidation.md`](mission-2026-11-14/gap19-graph-consolidation.md) §4)."),
+        ("FR4", VDC, "relationship-graph-edges.csv) has 167 edges.",
+         f"relationship-graph-edges.csv) has 167 edges (base file only; the consolidated graph of 2026-11-19, "
+         f"[`relationship-graph-edges-consolidated-2026-11-19.csv`](../../data/mission-2026-11-14/relationship-graph-edges-consolidated-2026-11-19.csv), "
+         f"has {stats['live_edges']} edges and {stats['nodes']} nodes; see [gap19-graph-consolidation.md](gap19-graph-consolidation.md))."),
+        ("FR5", VDC, "Ren appears in 34 edges and Renaissance Charitable Foundation (RCF) in 22",
+         f"In the base file Ren appears in 34 edges and Renaissance Charitable Foundation (RCF) in 22; in the "
+         f"consolidated graph (2026-11-19) Ren (incl. Stellar/iPhi) has degree {ren['degree_all']} "
+         f"({ren['degree_confirmed']} confirmed) and RCF {rcf['degree_all']} ({rcf['degree_confirmed']} confirmed). "
+         f"Foundant Technologies has the highest degree ({fou['degree_all']}), almost all from its own client list"),
+        ("FR6", VDC, "Ren: **inferred** (support email @reninc.com)",
+         "Ren: **inferred, weakened** (support email @reninc.com; BofA Program Guidelines v3.2024 say the fund \"is "
+         "currently administered by Bank of America Private Bank\" and do not name Ren; E083, gap19 red team)"),
+        ("FR7", VDC, "| **Inferred** (CapShift page refers to \"your Renaissance Charitable Foundation DAF account\")",
+         "| **Confirmed** (CCF Program Circular, EF001, supersedes inferred E034)"),
+    ]
+    return [(i, path, f, r, path.read_text(encoding="utf-8").count(f)) for i, path, f, r in items]
+
+
+def write_report(stats: dict) -> None:
+    st0, st, rt = stats["status_raw"], stats["status_final"], stats["redteam_counts"]
+    t, sc = stats["ren_tiers"], stats["sponsor_conc"]
+    L = []
+    a = L.append
+    a("# Gap 19-06: relationship graph consolidation and red team")
+    a("")
+    a(f"**Date:** {TODAY}. **Queue item:** P-GAP19-06. **Script:** `scripts/mission_graph_consolidate.py run` "
+      "(stdlib only). **Status:** public-source evidence only; no logins, forms or outreach; robots.txt read "
+      "before every host and every redirect hop; crt.sh never contacted.")
+    a("")
+    a("**Outputs:** [`relationship-graph-edges-consolidated-2026-11-19.csv`](../../data/mission-2026-11-14/relationship-graph-edges-consolidated-2026-11-19.csv) "
+      "(one row per consolidated edge; originals kept unchanged); "
+      "[`relationship-graph-redteam-2026-11-19.csv`](../../data/mission-2026-11-14/relationship-graph-redteam-2026-11-19.csv) "
+      "(one row per tested edge); [`queue-proposals-g06.csv`](../../data/mission-2026-11-14/queue-proposals-g06.csv).")
+    a("")
+    a("## 1. Summary")
+    a("")
+    a(f"- **Merge.** {stats['raw_edges']} rows from {stats['files']} files (the base file and "
+      f"{stats['files'] - 1} additions files, including `-26`, EZ001–EZ022, added 2026-11-19) become "
+      f"{stats['consolidated_edges']} consolidated edges: {stats['merged_groups']} groups absorbed "
+      f"{stats['edges_absorbed']} duplicate rows ({stats['reversed_duplicates']} of them reversed-direction duplicates), and "
+      f"{stats['self_loops']} edges became alias self-loops (for example Fusion Laboratories LLC controls NPact) and are kept "
+      f"in the file but left out of the statistics. That leaves **{stats['live_edges']} edges** between **{stats['nodes']} nodes** "
+      f"(plus {stats['placeholder_nodes']} placeholder nodes such as \"Unknown sponsor\").")
+    a(f"- **Names.** {stats['raw_entity_names']} raw entity spellings collapse to {stats['nodes'] + stats['placeholder_nodes']} "
+      f"nodes (EIN first, then an alias table, then a normalised name key). {stats['nodes_missing_from_nodes_csv']} of the "
+      f"{stats['nodes']} nodes have no record in `relationship-graph-nodes.csv` ({stats['nodes_csv_rows']} rows).")
+    a(f"- **Red team.** All {len(stats['redteam'])} edges whose evidence class is inferred, unknown, reported, probable, "
+      f"pending, vendor claim or crt.sh-sourced got one independent public check: **{rt.get('confirmed', 0)} confirmed, "
+      f"{rt.get('weakened', 0)} weakened, {rt.get('unverified-lead', 0)} unverified leads, {rt.get('contradicted', 0)} "
+      f"contradicted**. The main findings:")
+    a("  - Blackbaud is the wrong vendor on the DonorCentral edges: NPact bought DonorCentral NXT and FIMS from Blackbaud "
+      f"in September 2022. {stats['reattributed']} consolidated Blackbaud edges cite DonorCentral and should be re-attributed to NPact.")
+    a("  - Three Give Interactive implementation tenants (ImpactAssets, The Minneapolis Foundation, Thrivent Charitable) "
+      "still send donors to Ren iPhi log-ins. Give Interactive is therefore not yet their live platform.")
+    a("  - Ren's administration of BofA's fund (E083) is weakened: BofA's 2024 Program Guidelines name Bank of America "
+      "Private Bank as administrator and do not mention Ren. BNY Mellon's iPhi tenant (EK022) is historical, because "
+      "BNY CGF stopped operating its DAF program on 2024-12-24. DAF Direct still lists BNY (ES016).")
+    a("  - The NPact Foundation Cloud tenants are confirmed. Every tenant fetched serves \"Foundation Cloud Community Portal\", "
+      "and NPact's own customer stories identify the product as NPact's, so the [R] owner caveat no longer applies.")
+    a("  - The explicit negatives hold on independent pages (Edward Jones private DAF sponsor, Wells Fargo sponsor, U.S. Bank, "
+      "Pave, Fidelity–Ren, TIFIN's LLM vendor). The Edward Jones private DAF must still not be assigned to RCF or Ren.")
+    a(f"- **Status after consolidation and red team:** " + ", ".join(f"{k} {v}" for k, v in st.most_common()) +
+      f" (raw rows: " + ", ".join(f"{k} {v}" for k, v in st0.most_common()) + ").")
+    a(f"- **Concentration figures.** Sponsor-asset concentration is unchanged because it does not depend on the graph. "
+      f"Recomputed from the DAFRC FY2024 file: CR3 {pct(sc['CR3'])}, CR5 {pct(sc['CR5'])}, HHI {sc['HHI']:.0f}. "
+      f"**The Ren-linked asset share changes:** {pct(t['A_confirmed']['share'])} ({bn(t['A_confirmed']['assets'])}, "
+      f"{len(t['A_confirmed']['eins'])} sponsors) on confirmed edges, against the report's 28% ($91.6bn). "
+      f"Restricted to sources dated 2024 or later it is {pct(t['A2_confirmed_source_dated_2024_or_later']['share'])}.")
+    a("")
+    a("## 2. Method")
+    a("")
+    a("1. **Inputs.** `relationship-graph-edges.csv` and every `relationship-graph-edges-additions*.csv` (all share one "
+      "12-column schema). `-26` was added on coordinator instruction (2026-11-19).")
+    a("2. **Entity normalisation.** In order: (a) an EIN written in the name; (b) an alias table (`ALIASES` in the "
+      "script) that folds product and legal-entity variants into one corporate or sponsor node. Examples: Ren / Ren (Stellar) "
+      "iPhi / Stellar Technology Solutions (iPhi) / Ren for Charities → *Ren (incl. Stellar/iPhi)*; NPact / Fusion "
+      "Laboratories LLC / NPact (Foundation Cloud) → *NPact*; NATL CHRISTIAN CHARITABLE FDN INC / National Christian "
+      "Foundation → *NCF*; DAFgiving360 / Schwab Charitable Fund → *DAFgiving360*; (c) a normalised name key "
+      "(parentheticals, legal suffixes and punctuation removed), which inherits an EIN when another spelling or a DAFRC "
+      "FY2024 row carries one. Raw names are kept in `source_entity_original` / `target_entity_original`. Firms and "
+      "their charities stay separate nodes (Fidelity Charitable vs FMR; Edward Jones vs its programs).")
+    a("3. **Relationship types.** `general_ledger`→`ledger_provider`; `portal_provider`→`technology_provider`; "
+      "`lead_investor`/`shareholder`→`investor`; `acquired`→`acquirer`; `owns`→`controls`; `acquired_by` is reversed "
+      "to `acquirer`. The original type is kept.")
+    a("4. **Governing corrections** (§5): edge-ID corrections from validation and red-team reports, applied in the "
+      "consolidated file only. Supersession notes inside the edge files are also applied. A superseded edge is listed "
+      "under its successor and never chosen as head, even when the successor is weaker (EH005 downgrades EG008).")
+    a("5. **Deduplication.** Edges are grouped on (unordered endpoints, normalised type). The head is the strongest "
+      "non-superseded member, ranked by status (confirmed > historically_confirmed > reported > probable = pending > "
+      "inferred > unknown), then primary-filing URL, then latest access date. `merged_edge_ids` lists every member.")
+    a("6. **Red team.** The set is every non-superseded edge with status inferred, unknown, reported, probable or pending, "
+      "a crt.sh source URL, or a vendor-claim label. Each gets one check (`CHECKS` in the script) that is independent of "
+      "the edge's own source where one could be found: the sponsor's own page instead of a vendor list, the filing instead "
+      "of an aggregator, the tenant itself instead of a search-index capture, or public DNS for crt.sh-only leads, as the "
+      "compliance note allows.")
+    a("   - Outcome rules: a regex hit gives the check's `on_find` outcome; a fetched page without the hit gives `on_absent`.")
+    a("   - If a page could not be read (robots.txt unreadable or disallowing, Cloudflare 403, network error), the edge is an "
+      "unverified lead. A wrong URL never weakens an edge; only named liveness checks treat 404 or NXDOMAIN as weakening.")
+    a("   - For `unknown` edges (explicit negatives), **confirmed** means the slot is still unfilled on the independent "
+      "source.")
+    a("   - Where no independent route exists, the check is a dated re-observation, and the table says so.")
+    a("   - Edges whose only source is crt.sh (EB009, ED008, EH014) get `status = unverified_lead` unless the check confirms "
+      "them (compliance note 2026-11-15).")
+    n_cache = sum(1 for p in CACHE.glob("*.json") if p.name != "stats.json")
+    a(f"7. **Network use.** {n_cache} responses (robots.txt files, pages, DNS lookups) were collected for this pass and "
+      f"cached in the session scratchpad; the final run sent {stats['requests']} new requests. Requests were at least "
+      "1 s apart per host, with a generic User-Agent.")
+    a("")
+    a("## 3. Graph statistics")
+    a("")
+    a(md_table(["Measure", "Value"], [
+        ["Edge rows read (27 files)", stats["raw_edges"]], ["Consolidated edges (incl. self-loops)", stats["consolidated_edges"]],
+        ["Edges used for statistics", stats["live_edges"]], ["Duplicate rows merged", stats["edges_absorbed"]],
+        ["Nodes (excl. placeholders)", stats["nodes"]], ["Nodes missing from relationship-graph-nodes.csv",
+                                                         stats["nodes_missing_from_nodes_csv"]]]))
+    a("")
+    a("**Edges by status (after consolidation and red team)**")
+    a("")
+    a(md_table(["Status", "Edges"], [[k, v] for k, v in st.most_common()]))
+    a("")
+    a("**Edges by relationship type (normalised; top 20)**")
+    a("")
+    a(md_table(["Type", "Edges"], [[k, v] for k, v in stats["type_final"].most_common(20)]))
+    a(f"\n{len(stats['type_final'])} types in all.\n")
+    a("**Hub degree** (number of consolidated edges touching the node; self-loops excluded). The original doc counted "
+      f"Ren in {stats['ren_base_exact']} and RCF in {stats['rcf_base_exact']} base edges.")
+    a("")
+    a(md_table(["Node", "Raw rows mentioning", "Degree (all)", "Degree (confirmed)", "Degree (confirmed + historical)",
+                "Degree within base-file edges"],
+               [[h["hub"], h["raw_edge_mentions"], h["degree_all"], h["degree_confirmed"], h["degree_confirmed_or_hist"],
+                 h["degree_base_file"]] for h in stats["hubs"]]))
+    a("")
+    hub = {h["hub"]: h for h in stats["hubs"]}
+    a("Foundant's degree is almost entirely its own client list (vendor-stated). Edward Jones has "
+      f"{hub['Edward Jones (firm)']['degree_all']} edges as a firm and "
+      f"{hub['Edward Jones cluster (firm + CGF + private DAF + Generations)']['degree_all']} across its cluster; every "
+      "edge on the private DAF's sponsor is an explicit negative (unknown).")
+    a("")
+    a("## 4. Dependency and concentration figures")
+    a("")
+    a("**Sponsor assets (not graph-derived; unchanged).** Recomputed from `dafrc-sponsor-schedule-d-fy2019-2024.csv` "
+      f"(FY2024, {len(stats['dafrc'])} sponsors, {bn(sc['total'])}): CR3 {pct(sc['CR3'])}, CR4 {pct(sc['CR4'])}, CR5 "
+      f"{pct(sc['CR5'])}, HHI {sc['HHI']:.0f}. These match the report's CR3 45.5%, CR5 55.8% and HHI ≈ 830, so no change.")
+    a("")
+    a("**Ren-linked share of FY2024 DAF assets (graph-derived; changes).** This counts DAFRC sponsors (matched by EIN) that "
+      "have at least one Ren/Stellar/iPhi technology, administration, ledger, payment, data-feed or export edge.")
+    a("")
+    a(md_table(["Tier", "Sponsors", "Assets", "Share of $327.87bn"],
+               [[k.replace("_", " "), len(v["eins"]), bn(v["assets"]), pct(v["share"])] for k, v in t.items()]))
+    a("")
+    top = sorted(t["A_confirmed"]["eins"], key=lambda x: -stats["dafrc"][x]["assets"])[:12]
+    a("The largest contributors to the confirmed tier: " + "; ".join(
+        f"{stats['dafrc'][x]['name']} {bn(stats['dafrc'][x]['assets'])}" for x in top) + ".")
+    a("")
+    core = {"237825575", "311774905", "113813663", "341747398", "527082731", "352129262", "046010342"}
+    extra = sorted(set(t["A_confirmed"]["eins"]) - core, key=lambda x: -stats["dafrc"][x]["assets"])
+    core_assets = sum(stats["dafrc"][x]["assets"] for x in core & set(t["A_confirmed"]["eins"]))
+    a(f"- The report's **28% ($91.6bn)** was built from wave-3 evidence. The seven Ren sponsors that wave-3 text names "
+      f"(NPT, GS PWM DAF, GS Gives, AEF, MS GIFT, RCF, BofA CGF) hold {bn(core_assets)} here. The consolidated "
+      f"confirmed tier adds {len(extra)} more sponsors ({bn(sum(stats['dafrc'][x]['assets'] for x in extra))}), mostly "
+      "from 990 payee harvests and iPhi/DFX tenant sweeps. The largest are " +
+      "; ".join(f"{stats['dafrc'][x]['name']} {bn(stats['dafrc'][x]['assets'])}" for x in extra[:6]) + ".")
+    dropped = sorted(set(t["A_confirmed"]["eins"]) - set(t["A2_confirmed_source_dated_2024_or_later"]["eins"]),
+                     key=lambda x: -stats["dafrc"][x]["assets"])
+    a(f"- Restricting to edges whose source is dated 2024 or later drops {len(dropped)} sponsors "
+      f"({bn(sum(stats['dafrc'][x]['assets'] for x in dropped))}): " +
+      "; ".join(f"{stats['dafrc'][x]['name']} {bn(stats['dafrc'][x]['assets'])}" for x in dropped[:8]) + ".")
+    npt = stats["dafrc"].get("237825575", {}).get("assets", 0)
+    a(f"- NPT ({bn(npt)}) is {pct(npt / t['A_confirmed']['assets'])} of the confirmed tier and still rests on hosting "
+      "evidence only. The gap19 second-source pass found no NPT document naming Ren.")
+    a("- Ren's \">60%\" claim remains unsupported.")
+    a("")
+    a("**Vendor client concentration (graph-derived, new).** These are distinct DAFRC sponsors per vendor on confirmed "
+      "technology/admin/ledger/payment edges. Sponsors multi-home and vendor lists are self-reported, so treat the counts "
+      "as evidence counts, not market shares.")
+    a("")
+    a(md_table(["Vendor", "Sponsors", "Their FY2024 DAF assets"],
+               [[r["vendor"], r["sponsors"], bn(r["assets"])] for r in stats["vendor_rows"][:12]]))
+    a("")
+    a(f"- CR3 by sponsor links (top three vendors' share of {stats['vendor_links']} vendor–sponsor links): "
+      f"{pct(stats['vendor_cr3_count'])}. This is driven by Foundant's client list.")
+    a(f"- {stats['sponsors_with_vendor']} of {len(stats['dafrc'])} DAFRC sponsors have at least one confirmed vendor edge, "
+      f"holding {bn(stats['covered_assets'])}.")
+    a("- Asset sums double-count multi-homed sponsors. Salesforce and PayPal reach Fidelity, Vanguard and NPT only through "
+      "marketing or payment edges.")
+    a("")
+    a("**Single-point-of-failure exposure (count of distinct counterparties on confirmed edges).**")
+    a("")
+    a(md_table(["SPOF / vendor", "Counterparties"], [[k, v] for k, v in stats["spof"]]))
+    a("")
+    a("Compare these counts with the program lists in `vendor-dependency-concentration.md` §6 (S1–S6). Ren's DFX/iPhi "
+      "family (S2) now has far more evidenced counterparties than the four sponsors named there. GiveClear's count covers "
+      "only programs with a confirmed sponsor_of edge in the graph. Give Interactive's confirmed live footprint is still "
+      "small, because most of its tenants are implementation-stage.")
+    a("")
+    a("## 5. Governing corrections applied")
+    a("")
+    a(md_table(["Edge", "Operation", "Value", "Source", "Result"],
+               [[c["edge_id"], c["op"], c["value"][:110], c["source"], c["result"]] for c in stats["corrections"]]))
+    a("")
+    a("Supersessions applied (superseded ← superseding): " + "; ".join(f"{o} ← {'/'.join(n)}" for o, n in SUPERSESSIONS) +
+      ". Note-level references were annotated only: " + "; ".join(f"{o} (see {n})" for o, n in ANNOTATE_ONLY) + ".")
+    a("")
+    a("## 6. Red-team results")
+    a("")
+    by = defaultdict(Counter)
+    for (cls, oc), n in stats["redteam_by_class"].items():
+        by[cls][oc] += n
+    outs = ("confirmed", "weakened", "unverified-lead", "contradicted")
+    a(md_table(["Evidence class", "n"] + list(outs), [[c, sum(v.values())] + [v.get(o, 0) for o in outs]
+                                                     for c, v in sorted(by.items())]))
+    a("")
+    a(md_table(["Edge", "Class", "Edge as filed", "Check", "Result", "Outcome", "Status proposed"],
+               [[r["edge_id"], r["evidence_class"],
+                 f"{r['source_entity'][:40]} → {r['target_entity'][:45]} ({r['relationship_type']})",
+                 f"{r['check_description'][:150]} <{r['check_url'][:90]}>",
+                 (r["fetch_result"][:60] + (f" {r['http_status']}" if r["http_status"] else "") +
+                  (f"; matched: “{r['matched'][:90]}”" if r["matched"] else "; no match")),
+                 r["outcome"], r["status_proposed"]] for r in stats["rt_out"]]))
+    a("")
+    a("## 7. Changes to report figures (Find/Replace proposals)")
+    a("")
+    a("These are proposals only; neither document was edited. \"Occurrences\" is the number of times the Find text "
+      "appears in the target file as of this run (1 = safe to apply).")
+    a("")
+    for i, path, f, r, n in find_replace(stats):
+        a(f"- **{i}** — `{path.relative_to(ROOT)}` (occurrences: {n})")
+        a(f"  - **Find:** \"{f}\"")
+        a(f"  - **Replace with:** \"{r}\"")
+    a("- **No change proposed:** sponsor-asset CR3/CR5/HHI (§4). The report's wording that Edward Jones's private DAF "
+      "has no public sponsor stands (E018, ER016, EZ001–EZ003 confirmed as negatives).")
+    a("")
+    a("## 8. Limits")
+    a("")
+    a("- One check per edge. Unverified leads are not refutations: many sponsor pages sit behind Cloudflare or refuse "
+      "robots.txt (cct.org, pittsburghfoundation.org, armanino.com, nhf.org, npact.com, stifelcharitable.org, "
+      "iphiview.com disallows the tenant paths).")
+    a("- The alias table is hand-built. Edges between a vendor's product node and the vendor itself become self-loops "
+      "and are excluded from the statistics.")
+    a("- Asset shares use DAFRC FY2024 Schedule D values matched by EIN. Programs inside a sponsor (for example the J.P. "
+      "Morgan funds at NPT) add no assets of their own.")
+    a("- Re-observations of a tenant (marked in the Check column) are dated evidence, not independent corroboration.")
+    a("")
+    OUT_MD.write_text("\n".join(L) + "\n", encoding="utf-8")
+
+
+def main(argv: list) -> None:
+    if argv and argv[0] == "run":
+        stats = run(offline="--offline" in argv)
+        Path(CACHE).mkdir(parents=True, exist_ok=True)
+        (CACHE / "stats.json").write_text(json.dumps({k: v for k, v in stats.items() if k not in ("dafrc", "redteam_by_class")},
+                                                     default=lambda o: dict(o) if isinstance(o, Counter) else str(o),
+                                                     indent=1))
+        write_report(stats)
+        print(json.dumps({k: stats[k] for k in ("raw_edges", "consolidated_edges", "live_edges", "nodes",
+                                                 "merged_groups", "edges_absorbed", "requests")}))
+        print(dict(stats["redteam_counts"]))
+    else:
+        print(__doc__)
+
+
+if __name__ == "__main__":
+    main(sys.argv[1:])
