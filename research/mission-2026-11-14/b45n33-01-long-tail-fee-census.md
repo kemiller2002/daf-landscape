@@ -15,11 +15,11 @@
 
 | Question | Answer | Confidence |
 |---|---|---|
-| **How often do tail sponsors publish a fee?** | **7 of 60 (11.7%; Wilson 95% 5.8–22.2%)** publish a 2021-or-live balance-based admin rate (one of them a stated 0%). Counting one pre-2021 schedule: 8/60 (13.3%). **Counting any published fee term** (a rate, an opening minimum, a linked schedule, or an unquantified fee): **15/60 (25.0%; 15.8–37.2%)**. The design-weighted rate is 11.7%, the same, because allocation is close to proportional [C]. | High on the counts [C]. Medium on the "no published fee" calls (see §4) |
+| **How often do tail sponsors publish a fee?** | **7 of 60 (11.7%; Wilson 95% 5.8–22.2%)** publish a 2021-or-live balance-based admin rate (one of them a stated 0%). Counting one pre-2021 schedule: 8/60 (13.3%). **Counting any published fee term** (a rate, an opening minimum, a linked schedule, or an unquantified fee): **16/60 (26.7%; 17.1–39.0%)**, with Columbus Medical Association Foundation reclassified from `no_published_fee` to `partial`: a $10,000 minimum and a quarterly administration fee \. The design-weighted rate is 11.7%, the same, because allocation is close to proportional [C]. | High on the counts [C]. Medium on the "no published fee" calls (see §4) |
 | **By type** | **CFs: 6/31 (19.4%; 9.2–36.3%)** publish a 2021+ rate, and 12/31 (38.7%) publish some fee term. Single-issue 0/13 (0–22.8%), faith 0/8 (0–32.4%), other 1/8 (Cal Poly Pomona's 2%). Among the 53 sites that could be read within robots rules, the rate is 7/53 (13.2%) overall and 6/26 (23.1%) for CFs [C]. | High [C] |
-| **By size** | Publication falls with size: 2021+ rate published by 3/14 sponsors in the $10–50m band, 3/24 in $1–10m, 1/18 under $1m and 0/4 at zero assets. Any fee term: 7/14, 5/24, 3/18, 0/4 [C]. The intervals overlap. | Medium [C] |
+| **By size** | Publication falls with size: 2021+ rate published by 3/14 sponsors in the $10–50m band, 3/24 in $1–10m, 1/18 under $1m and 0/4 at zero assets. Any fee term: 7/14, 5/24, 4/18, 0/4 [C; V wave 34B]. The intervals overlap. | Medium [C] |
 | **What the publishers charge** | Effective annual admin fee, the 7 sponsors with a rate: median **150 bps at $25k, $100k and $500k** (IQR 138–175 at the first two). CFs only (n = 6, including the 0% Adirondack Trust Company Community Fund): **150 / 150 / 138 bps**. Range: 0 bps (ATC; a 0.5% bank investment fee instead) to 200 bps (Whatcom non-endowed; Cal Poly Pomona) [C]. Minimum annual fees, where stated: $150–$250. Opening minimums, where stated (13 of 60): median $5,000 ($0 to $100,000) [F/C]. | High on each schedule [F]; low on the distribution (n = 6–7) |
-| **vs the top-100 CF census** | **Tail CFs publish less and charge more.** Top-100 CFs: 34/100 publish a 2021+ schedule (Wilson 25.5–43.7%), against 6/31 tail CFs (9.2–36.3%); the intervals overlap. Recomputed on the same balances with the same engine, top-100 medians are **118 / 100 / 100 bps** at $25k / $100k / $500k, against **150 / 150 / 138** for the tail CFs. Tail opening minimums are lower (median $5,000 vs $15,000) [C]. | Medium (tail n = 6) |
+| **vs the top-100 CF census** | **Tail CFs publish less and charge more.** Top-100 CFs: 34/100 publish a 2021+ schedule (Wilson 25.5–43.7%), against 6/31 tail CFs (9.2–36.3%); the intervals overlap. Recomputed on the same balances with the same engine, top-100 medians are **118 / 100 / 100 bps** at $25k / $100k / $500k, against **150 / 150 / 138** for the tail CFs. Tail opening minimums are lower: median $5,000 against $10,000 for top-100 CFs on the same basis (every CF stating a minimum, n=26). The $15,000 figure is the top-100 schedule publishers only (n=19) [C; V wave 34B]. | Medium (tail n = 6) |
 | **Do published fees cover the allocated cost?** | At each publisher's own FY2024 average account: **rule A, 1 of 7** (Hutchinson, fee 125 bps vs cost 101 bps); **rule G, 0 of 5**; **AM floor, 4 of 7**. Median fee ÷ cost: **0.52 (A), 0.22 (G), 1.18 (AM)** [C on the arithmetic; I on the costs]. So the published fee covers about half the rule-A cost. It covers the admin-only floor at a small majority of publishers. | Low–medium (n = 5–7) [I] |
 | **Population view** | At the tail-CF published median (150 bps), **33.7%** of the 603 usable tail CFs have rule-A cost at or below the fee (27.3% under rule G, 75.6% under AM). At the 100 bps top-100 median the figures are 15.3% / 18.0% / 55.9%, the numbers in the cost study [C]. **[I] The tail does charge more than the top 100, but at its own median fee two thirds of tail CFs still do not recover rule-A cost from the DAF fee.** | Medium [I] |
 
@@ -64,7 +64,7 @@
 | `partial` | Some fee term is published (opening minimum, a fee described but not quantified, a ceiling, a card fee), no rate | any term |
 | `no_published_fee` | Site read; no DAF fee or fee term found | – |
 | `no_website_found` | No website on the 990 or by search | – (counted as no published fee) |
-| `robots_blocked` | robots.txt 403: nothing could be read | – (unknown; excluded in the "readable sites" column) |
+| `robots_blocked` | robots.txt request refused with HTTP 403 to `research-script/1.0`, so nothing could be read. For 5 of the 7 hosts, robots.txt itself allows all agents [V wave 34B] | – (unknown; excluded in the "readable sites" column) |
 
 ### 1.5 Fee computation [C]
 - **Formula.** Effective annual admin fee at a constant balance B (in `effective_admin_fee`):
@@ -94,14 +94,14 @@ See T2 and T3 in the Appendix. Headline:
 
 | Group | n | 2021+ admin rate published | Any fee term or linked schedule |
 |---|---|---|---|
-| All sampled | 60 | **7 (11.7%; 5.8–22.2%)** | **15 (25.0%; 15.8–37.2%)** |
+| All sampled | 60 | **7 (11.7%; 5.8–22.2%)** | **16 (26.7%; 17.1–39.0%)** [V wave 34B] |
 | Community foundations | 31 | 6 (19.4%; 9.2–36.3%) | 12 (38.7%; 23.7–56.2%) |
 | Single-issue | 13 | 0 (0–22.8%) | 1 (7.7%) |
 | Faith | 8 | 0 (0–32.4%) | 1 (12.5%) |
-| Other (university/hospital, nationals, processors) | 8 | 1 (12.5%) | 1 (12.5%) |
+| Other (university/hospital, nationals, processors) | 8 | 1 (12.5%) | 2 (25.0%) [V wave 34B] |
 
-- **[C] 34 of 60 sites were read and contain no DAF fee at all.** A further 7 hosts block robots (Wichita Falls, Clinton County OH, West Kentucky, Greene County PA, Clarinda, Williams College, Wheaton College), and 4 sponsors have no website.
-- **[I] Outside CFs, a DAF is an accommodation, not a product.** Single-issue, faith and university sponsors in the sample do not market DAFs with terms. Examples:
+- **[C] 33 of 60 sites were read and contain no DAF fee at all [V wave 34B]** A further 7 hosts refused the study's user agent with HTTP 403 (Wichita Falls, Clinton County OH, West Kentucky, Greene County PA, Clarinda, Williams College, Wheaton College), and 4 sponsors have no website. Read with another generic agent, robots.txt on the five CF hosts allows all agents (\
+- **[I] Outside CFs, a DAF is mostly an accommodation, not a product.** Single-issue, faith and university sponsors in the sample rarely market DAFs with terms. The exceptions are Cal Poly Pomona and Columbus Medical Association Foundation, whose fund page lists donor-advised funds with a $10,000 minimum and a quarterly fee \ Examples:
   - IIE's "DAF" page is about giving *to* IIE from a DAF.
   - Christian Aid Ministries Foundation describes its DAF with no fee. A now-404 page indexed by search said it "generally" charges nothing; this is not used.
   - The one non-CF schedule is Cal Poly Pomona's: 2% of balance, a $100,000 opening minimum, and at least 50% of each year's distributions to the Foundation.
@@ -140,11 +140,11 @@ See T2 and T3 in the Appendix. Headline:
 | Measure | Tail CFs (sample) | Top-100 CFs |
 |---|---|---|
 | 2021+ schedule published | 6/31 = 19.4% (9.2–36.3%) | 34/100 = 34.0% (25.5–43.7%) |
-| Any fee term or schedule | 12/31 = 38.7% (23.7–56.2%) | 52/100 = 52.0% (42.3–61.5%) |
+| Any fee term or schedule | 12/31 = 38.7% (23.7–56.2%) | 52/100 = 52.0% (42.3–61.5%); 59/100 = 59.0% (49.2–68.1%) counting the 7 `no_rates_published` rows (e.g. Boston \ |
 | Admin bps, $25k | 150 (131–150; n=6) | 118 (100–188; n=34) |
 | Admin bps, $100k | 150 (131–150; n=6) | 100 (100–125; n=34) |
 | Admin bps, $500k | 138 (106–150; n=6) | 100 (100–125; n=34) |
-| Opening minimum | $5,000 (n=11) | $15,000 (n=19) |
+| Opening minimum | $5,000 (n=11) | $15,000 (n=19, schedule publishers only); $10,000 (n=26, every row stating one) [V wave 34B] |
 
 - **[C] Publication rates.** The tail-CF rate is lower, but the 95% intervals overlap. With n = 31 the difference is not statistically established.
 - **[C] Fee levels.** The tail-CF medians are higher than the top-100 medians at $100k (150 vs 100 bps) and $500k (138 vs 100). Five of the six tail-CF rates (Whatcom, Hutchinson, Pikes Peak, Homer, Athens) are at or above the top-100 median at $100k.
@@ -200,7 +200,7 @@ See T2 and T3 in the Appendix. Headline:
 
 | # | Sponsor (EIN) | URL | Used for |
 |---|---|---|---|
-| S1 | Whatcom CF (911726410) | https://whatcomcf.org/financial-oversight/investment-approach-fees/ | Schedule, gift fee, investment notes |
+| S1 | Whatcom CF (911726410) | https://whatcomcf.org/financial-oversight/investment-approach-fees/ | Schedule, gift fee, investment notes. A wave 34B re-fetch on 2026-11-19 returned a bot-verification page, so the values are confirmed from the cached copy only [V wave 34B] |
 | S2 | Whatcom CF | https://whatcomcf.org/wp-content/uploads/2025/12/Non-Endowed-Funds-Terms-and-Conditions-12.2025.pdf | $5,000 DAF minimum; "Last Updated: 12/31/2025" |
 | S3 | Hutchinson CF (481076910) | https://hutchcf.org/wp-content/uploads/2025/02/2023-fee-schedules_DAF.pdf | Schedule |
 | S4 | Hutchinson CF | https://hutchcf.org/attorneysandadvisors/advisor-faq/ | No opening minimum; $10,000 before grants |
@@ -261,6 +261,8 @@ The homepages of all 56 sponsors with a website are in the CSV (`website`), each
 ---
 
 ## Appendix: script output (`--task census`)
+
+> These tables predate the wave 34B reclassification of Columbus Medical Association Foundation (EIN 200385860) to `partial`. T2, T3 and T6 still count it as `no_published_fee` until `FEES` in the script is updated [V wave 34B]
 
 ## T1 Sample design
 

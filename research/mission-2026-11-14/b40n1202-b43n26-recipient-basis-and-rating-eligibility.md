@@ -28,7 +28,7 @@ Tags: [F] computed from filings by the script · [P] quoted primary source · [I
   - The $25–100m band on 1h − 1d − 1e is 11.0% (10.0–12.3%) unscaled [F] and 16.4% scaled to all sponsors [I]. ≥$100m is 5.8% unscaled and 8.7% scaled [I].
   - All recipients: 10.3% unscaled [F], 15.4% scaled [I].
   - The repo's macro ratio of netted DAF grants to Giving USA individual giving is 14.88% (NPB097).
-  - So unscaled, the filings sit just below Chariot. Scaled, they sit above it. The two numerators differ (top-50 Schedule I against CRM-coded gifts from all sponsors), so neither reading is like-for-like.
+  - So unscaled, the filings sit just below Chariot. Scaled, they sit above it. The two numerators differ (top-50 Schedule I against CRM-coded gifts from all sponsors), so neither reading is like-for-like. Size matching is loose too: about $97m of giving per participant-year implies revenue at or above $97m, so the ≥$100m band (5.8% unscaled, 8.7% scaled), where Chariot's 12.6% is above the range, is the closer match. The periods also differ (2021–25 against FY2023–24) [V wave 34B]
 - **Against Chariot's 4–24% sector range of "individual revenue"** (line 1f basis, NTEE groups with ≥140 respondents):
   - Unscaled pooled shares run from 6.3% (international) to 19.3% (public and societal benefit) [F]. Scaled, 9.4–28.7% [I].
   - International still does not top the list. Chariot's 23.7% for International Relief is on total revenue [P].
@@ -39,8 +39,8 @@ Tags: [F] computed from filings by the script · [P] quoted primary source · [I
 - **Result, central rule set** [F]: **76.9%** of top-50 FY2023–24 DAF-weighted Schedule I dollars ($56.93bn of $74.07bn) go to recipients that pass every rule CN publishes and filings can test. Those recipients are **51.2%** of recipient units (89,124 of 174,220). On the as-filed Schedule I basis the dollar share is 76.3%.
 - **The remaining 23.1% of dollars:**
   - churches with no e-filed 990: 8.3%;
-  - EINs not in the IRS BMF: 5.6%;
-  - fewer than three e-filed returns in six years: 3.4%, of which Navigation Charitable Fund's $1.26bn is most;
+  - EINs not in the IRS BMF: 5.6%, mostly CZ Biohub LLCs and governmental units rather than revoked charities [V wave 34B];
+  - fewer than three e-filed returns in six years: 3.4%, of which Navigation Charitable Fund's $1.26bn is about half (49.5%) [V wave 34B];
   - private foundations: 1.7%;
   - other non-filers: 1.4%;
   - group-return subordinates: 0.9%;
@@ -116,7 +116,7 @@ The [release notes](https://www.charitynavigator.org/about-us/our-methodology/ra
 - Spring 2024: "Donor Advised Funds (DAF) Rating Eligibility - DAFs were determined to be ineligible for a rating due to their unusual financial structure."
 - Fall 2023: "All eligible organizations are given a size classification based on their e-filed 990 data. Size classifications are based on annual revenue."
 
-No revenue floor appears in any of the three CN pages read. The [Spring 2026 methodology update](https://intercom.help/charity-navigator/en/articles/14471517-spring-2026-rating-methodology-update) changes scoring, not eligibility. The linked "Rating Methodology Guide (Updated March 2026)" PDF returned HTTP 404.
+No revenue floor appears in any of the three CN pages read. None appears either in CN's methodology page (charitynavigator.org/about-us/our-methodology/ratings/) or in its nonprofit-FAQ articles  The [Spring 2026 methodology update](https://intercom.help/charity-navigator/en/articles/14471517-spring-2026-rating-methodology-update) changes scoring, not eligibility. The linked "Rating Methodology Guide (Updated March 2026)" PDF returned HTTP 404.
 
 **Applied as tests:**
 
@@ -124,7 +124,7 @@ No revenue floor appears in any of the three CN pages read. The [Spring 2026 met
 |---|---|---|
 | U.S. 501(c)(3) | In the IRS EO BMF (eo1–eo4, eo_pr, eo_xx) and SUBSECTION = 03 | BMF |
 | Not a private foundation | BMF FOUNDATION not 02, 03 or 04 | BMF |
-| Revoked or inactive | Not in the BMF. The revocation list is not applied as a rule: 784 BMF EINs also have a revocation row with no reinstatement date, mostly organisations re-recognised under a new ruling. | BMF; revocation list (diagnostic) |
+| Revoked or inactive | Not in the BMF; in practice mostly subsidiary LLCs and governmental units, not revoked charities (§4.1) [V wave 34B]. The revocation list is not applied as a rule: 784 BMF EINs also have a revocation row with no reinstatement date, mostly organisations re-recognised under a new ruling. | BMF; revocation list (diagnostic) |
 | DAFs ineligible | **Central:** DAFRC-panel EINs in the `national` and `processor` segments. **Strict:** also `community_foundation`. **Lenient:** none, filing rules only. Universities, hospitals and single-issue charities on the panel are never excluded on this ground. | DAFRC 2025 panel |
 | ≥3 e-filed 990s in 6 years | ≥3 distinct tax periods of 990, 990-EZ or 990-PF with a tax period ending 2020–2025. The sensitivity uses IRS index (processing) year 2021–2026. Amended returns are collapsed to the latest object id per tax period. | TEOS index 2019–2026 |
 | ≥2 of the 4 most recent are full 990s; latest is not a 990-PF | The four most recent tax periods, at any date | TEOS index |
@@ -242,13 +242,14 @@ All figures are [F]. Dollars are top-50 FY2023–24 non-DAF-to-DAF Schedule I.
 - lenient (all DAF-sponsor EINs by filing rules): 77.3%;
 - strict (community foundations also ineligible): 76.9%;
 - six-year window by IRS processing year: 76.9% (89,160 recipients).
+- only full Form 990s counted towards the three-return rule, as CN's methodology page reads (
 
 **Diagnostics** [F]:
 - **Expense rule.** On the 2,056 sampled recipients that pass the filing rules, 2,051 have a full FY2023/24 990 in the read set and 2 fail the expense rule (0.1%): one has program expenses above total, the other has zero expenses. Its effect on the full-universe share is negligible [I].
-- **Not in the BMF.** 2,254 of the 22,269 not-in-BMF EINs have at least one e-filed return. 1,213 of them pass the filing rules, holding $0.29bn (0.4% of dollars). These are likely new or recently re-listed organisations [I], so the upper bound on eligibility is about 77.3% [I].
+- **Not in the BMF.** 2,254 of the 22,269 not-in-BMF EINs have at least one e-filed return. 1,213 of them pass the filing rules, holding $0.29bn (0.4% of dollars). These may be new or recently re-listed organisations [I], so the upper bound on eligibility is about 77.3% [I]. Most not-in-BMF dollars are not of this kind. They are subsidiary LLCs and governmental units: CZ Biohub SF, New York and Chicago LLCs and the CZ Institute for Advanced Biological Imaging ($1.59bn together, 38% of not-in-BMF dollars), the University of Texas at Austin, Penn State and the Washoe County School District. Only 3 of the 22,269 EINs are in Pub 78 [V wave 34B]
 - **Largest ineligible recipients (DAF-weighted).**
   - Navigation Charitable Fund, $1.26bn: fewer than three e-filed returns.
-  - Two EINs not in the BMF, $0.56bn each.
+  - Two EINs not in the BMF, $0.56bn each: CZ Institute for Advanced Biological Imaging and CZ Biohub SF LLC, both named on Silicon Valley Community Foundation lines [V wave 34B].
   - The Church of Jesus Christ of Latter-day Saints, $0.46bn: church, no e-filed 990.
   - Lucas Museum of Narrative Art, $0.20bn: private operating foundation (BMF FOUNDATION 03).
   - Come and See Foundation, $0.14bn, and Campus Crusade for Christ, $0.09bn: church code.
@@ -283,20 +284,20 @@ By recipient type, the eligible share of dollars is:
 - panel single-issue charities: 98.5% [F].
 
 **Reading [I].**
-- **Eligibility is mostly a church and new-organisation question, not a size question.** Above $1m of BMF revenue, at least 98% of recipients and at least 89.6% of dollars are eligible.
-- **The unrated majority by count is real but small by dollars.** Recipients failing CN's filing rules are 48.8% of recipient units but 23.1% of dollars, and about half of those dollars go to churches.
+- **Eligibility is mostly a question of church status, subsidiary or government-unit status and organisation age, not of size [V wave 34B]** Above $1m of BMF revenue, at least 98% of recipients and at least 89.6% of dollars are eligible.
+- **The unrated majority by count is real but small by dollars.** Recipients failing CN's filing rules are 48.8% of recipient units but 23.1% of dollars, and about a third of those dollars (8.3 of 23.1 points) go to church-status organisations with no e-filed 990 [V wave 34B].
 - This is the shape the repo's ratings-integration note assumed: "Build the differentiator around the roughly 83% of Pub 78 entities with no rating". The DAF-dollar version is roughly one dollar in four.
 
 ## 5. Limits
 
 1. **(A) Individual giving is still not isolated.** Line 1f holds foundation, corporate, trust and estate gifts, DAF grants and gaming contributions alike. Schedule B donor detail is not public, and the Schedule A Part II and III support lines were not parsed (P-B40N1202-B43N26-01).
-2. **(A) 990-EZ filers.** Their line 1 includes government grants and is used unchanged on every basis.
+2. **(A) 990-EZ filers.** Their line 1 includes government grants and is used unchanged on every basis. Separately, 53 of 2,170 respondents (3.4% weighted) have a b3 share above 100%. One is the Association of Public Health Laboratories at 132%, with $334,788 on line 1f against $238m on 1e. This points to timing or DAF-weighting mismatches at heavily government-funded recipients [V wave 34B]
 3. **(A) Numerator and scaling.** The numerator, scaling and sample limits of the committed study all carry over: top-50 sponsors only, grants over $5,000, sponsor-level DAF weighting, BMF revenue bands and selection on DAF recipients. Scaled figures lean high (V33A-09).
 4. **(A) Leaked sponsors.** The leaked-sponsor regex misses UJA-Federation of New York, so the sensitivity scope is incomplete.
 5. **(B) Rules CN applies but filings cannot test.** "Giving Not Recommended" alerts, "nonprofit subsidiaries" (undefined in the help text) and whether "Charity Navigator must directly receive" each filing cannot be observed. The results are eligibility upper bounds on those rules. They are **not** a count of rated organisations; no ratings were read.
 6. **(B) DAF-sponsor rule.** CN's DAF exclusion is one sentence. The central reading (national and processor sponsors only) is an interpretation [I]. The three variants span only 76.9–77.3%.
 7. **(B) Timing.** Eligibility is assessed against filings available in November 2026, not at grant time (FY2023–24). The TEOS index for 2026 is partial: it was downloaded 2026-11-15.
-8. **(B) The BMF stands in for "revoked or inactive".** EINs not in the BMF are treated as ineligible. 1,213 of them, holding $0.29bn, pass the filing rules.
+8. **(B) The BMF stands in for \
 9. **(B) Recipient units.** Blank-EIN lines are grouped by normalised name, so the recipient count for those 3,651 units is approximate.
 
 ## 6. Reproduction

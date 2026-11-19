@@ -1007,6 +1007,13 @@ Related customer-facing frictions are covered by theme: data export and credenti
 
 **Data quality and donor data** (validated, wave 34A). A round-2 check of DAFRC's FY2024 panel found nothing left to replace. All 24 top-50 sponsors with imputed rows already carry R1 values equal to their filed FY2024 Form 990s in 95 of 96 cells; UCLA Foundation's grants, filed as −$120,260,861, keep the imputed $169.9m. The FY2024 market ($323.27bn) and corrected top 50 ($276.27bn) are unchanged. NPT's FY2023 Schedule D value ($22.84bn) is 81.8% of its Part X net assets ($27.92bn), against 101.3% and 100.6% in the adjacent years, and NPT's own consolidated statements report $28.51bn of net assets at 2023-06-30, so it is very likely a filer error. Using Part X would put FY2023 at $261.44bn and FY2023–24 growth at 23.6%, not 26.1%; the headline keeps the filed value. At the FY2024 top 20 ($250.63bn), full contact is the documented default for 33.2% of assets, led by Fidelity, and name or fund name only for 17.2%. For 44.6% the default is undocumented, and no sponsor defaults to anonymous. The survey finding that sponsors withhold donor contact data by default does not hold as a rule at the nationals, and neither does its opposite (repo [`validation-wave34a-report.md`](mission-2026-11-14/validation-wave34a-report.md)) [V wave 34A]
 
+
+### 11.35 Recipient basis, ratings and tail fees (validated, wave 34B)
+
+### 11.35 Recipient basis, ratings and tail fees (validated, wave 34B)
+
+**Recipient basis, ratings and tail fees** (validated, wave 34B). The IRS assigns DAF grants to Form 990 line 1f. On a denominator of lines 1a + 1b + 1c + 1f (contributions less government grants and related-organisation transfers), top-50 DAF grants are a median 7.7% and a pooled 10.3% of sampled recipients' contributions, against 5.9% and 6.9% on line 1h; eight recipients' lines match their XML exactly. Chariot's 12.6% lies above the ≥$100m band (5.8–8.7% unscaled to scaled), the closer size match. Of $74.07bn of top-50 FY2023–24 DAF-weighted grants, 76.9% reach recipients that pass every Charity Navigator rule filings can test, or 76.5% if only full 990s count towards the three-return rule. CN publishes no revenue threshold. Church-status organisations without e-filed returns take 8.3% of dollars. EINs absent from the BMF take 5.6%; they are mostly governmental units and CZ Biohub LLCs, not revoked charities. Among 60 sampled sponsors under $50m, 7 (11.7%; Wilson 5.8–22.2%) publish a 2021-or-later admin rate and 16 (26.7%) some fee term. On six schedules, tail CFs charge a median 150 bps at $100k, against 100 bps at top-100 CFs (repo [`validation-wave34b-report.md`](mission-2026-11-14/validation-wave34b-report.md)) [V wave 34B]
+
 ---
 
 ## Source register

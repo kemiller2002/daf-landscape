@@ -285,7 +285,10 @@ FEES: dict[str, dict] = {
                 "a donor must contribute not less than one hundred thousand dollars ($100,000.00)",
                 "Not less than fifty percent (50%) of the total amount distributed each year from each DAF account shall be distributed to the Foundation"),
         notes="Cal Poly Pomona Philanthropic Foundation."),
-    "200385860": dict(status=_NPF, website="https://www.cmafohio.org/", notes="No DAF page."),
+    "200385860": dict(status="partial", website="https://www.cmafohio.org/", opening_min=10_000,
+        source_url="https://www.cmafohio.org/create-a-personalized-charitable-fund", source_date="live 2026-11-19 (read by validation wave 34B)",
+        quotes=(),
+        notes="Fund page lists donor-advised funds with a $10,000 minimum and 'a quarterly administration fee, based on the size of the fund'; no rate published [V wave 34B]."),
     "590974739": dict(status=_NPF, website="https://www.uff.ufl.edu/", notes="No DAF page (endowment minimums only)."),
 }
 
