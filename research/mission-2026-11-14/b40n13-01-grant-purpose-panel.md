@@ -177,12 +177,12 @@ Shares are line share / dollar share. Rank is the FY2024 DAF-asset rank; ranks 9
 
 The script flags Part I line 2 and Part IV narratives that mention restriction (`sched_i_note_mentions_restriction`). The result is yes for 11 sponsors, no for 34, and no narrative for 3. The relevant passages:
 
-- **NPT (rank 2):** "IF THE DONOR ADVISOR DOES NOT RECOMMEND A SPECIFIC CHARITABLE PURPOSE, NPT AWARDS THE GRANT AS "UNRESTRICTED" … NPT ALSO SPECIFIES GRANT FUND RESTRICTIONS IN WRITING". Yet NPT's purpose column holds only 8 sector labels.
-- **T. Rowe Price Program (rank 46):** "THE USE OF "MULTIPLE" FOR GRANT PURPOSE MEANS THAT MULTIPLE GRANTS WERE GIVEN TO THAT ORGANIZATION AND THEIR PURPOSE WAS A COMBINATION OF ENDOWMENT, GENERAL OPERATING AND/OR SPECIAL PROJECT". The filer states outright that restricted and unrestricted grants are merged under one word.
+- **NPT (rank 2):** \
+- **T. Rowe Price Program (rank 46):** "THE USE OF "MULTIPLE" FOR GRANT PURPOSE MEANS THAT MULTIPLE GRANTS WERE GIVEN TO THAT ORGANIZATION AND THEIR PURPOSE WAS A COMBINATION OF ENDOWMENT, GENERAL OPERATING AND/OR SPECIAL PROJECT". The filer states that grants of different purposes (endowment, general operating, special project) to the same organisation are combined under one word, and it uses that word on all 2,479 lines; that restricted and unrestricted grants are merged is the reading here [I] [V wave 35A]
 - **Fidelity Charitable (rank 1):** "ALTHOUGH FOR SCHEDULE I PURPOSES A RECIPIENT ORGANIZATION IS ONLY LISTED ONCE, THE TOTAL AMOUNT GIVEN MAY REFLECT ADVISED DONATIONS FROM MANY GIVING ACCOUNTS". One line is the sum of many grants.
 - **Greater Kansas City CF and Greater Horizons:** "GRANT DISBURSEMENTS SPECIFY GRANT PURPOSE … SIGNIFICANT RESTRICTED PURPOSE GRANTS ARE MONITORED". Both purpose columns are sector labels only.
 - **CJP (rank 19):** "GRANTEES ARE EXPECTED TO ADHERE TO THE TERMS AND RESTRICTIONS AS OUTLINED IN THE GRANT LETTER".
-- **SFF (rank 48):** "ORGANIZATIONS THAT ARE AWARDED GRANTS ARE REQUIRED TO ACCEPT THE SPECIFIC GRANT RESTRICTIONS".
+- **SFF (rank 48):** \
 - **California CF:** distinguishes "BOARD DISCRETIONARY GRANT, DONOR ADVISED FUND GRANT, SCHOLARSHIP GRANT OR RESTRICTED GRANT".
 
 [I] Restrictions exist and are recorded in grant letters, but the filers do not carry them into column (h).
@@ -209,7 +209,7 @@ The script flags Part I line 2 and Part IV narratives that mention restriction (
 4. **Whether a filer complies with the instructions.**
    - Column (h) instructions say: "Don't use general terms, such as charitable, educational, religious, or scientific. Use more specific descriptions, such as general support…" ([IRS](https://www.irs.gov/instructions/i990si)) [F].
    - 20 sponsors use exactly those general sector terms ("EDUCATION", "RELIGION"). Foundation For The Carolinas uses "CHARITABLE GIFT".
-   - Under the IRS's own wording, "general support" is a specific description, so the boilerplate strings do not count as non-compliance.
+   - Under the IRS's own wording, \
 5. **Foreign grants.** Schedule F is outside this panel.
 
 ## 5. Does it support the repo's claims?
@@ -220,7 +220,7 @@ Claims were found with `grep -rin "general support"` and `grep -rin "unrestricte
 |---|---|---|---|
 | C1 | DAFgiving360 FY2025: "38% recurring, 70%+ unrestricted" (`ai-economics-replacement-analysis.md` P05; `daf-grant-exception-unit-economics-evidence-and-sensitivity-2026-11-12.md` l.10) | **Not testable from Schedule I** | DAFgiving360 (Donor Advised Charitable Giving Inc, rank 3) files 38 sector labels on 55,292 lines. 0 lines are boilerplate, 0 specific. The FY2024 Schedule I neither supports nor contradicts 70%+. The press release could not be re-read (robots.txt 403, §9). |
 | C2 | "a restricted grant purpose triggers manual inquiry … an unrestricted purpose expedites the grant" (`industry-incentives-structural-analysis.md` §6.2) | **Consistent but not evidenced by Schedule I** | The Fidelity FAQ still says "Where It Is Needed Most" "can also help expedite the processing" (re-read 2026-11-19). Fidelity's Schedule I shows one string on all lines, so the restricted share and its effect on processing cannot be seen in filings. |
-| C3 | ImpactAssets "uses that purpose text ['GENERAL SUPPORT'] for nearly every grant, so it says nothing" (`queue-batch29-complaints-voids.md` P-WAT-02) | **Supported, and sharper** | It is every grant: 2,733 of 2,733 FY2024 lines, 1 distinct string [C]. "Nearly" can become "all". The GiveClear "GENERAL SUPPORT" line ($86.0m, `queue-npt-dafgiving360-misc.md`) is therefore uninformative about restriction too. |
+| C3 | ImpactAssets "uses that purpose text ['GENERAL SUPPORT'] for nearly every grant, so it says nothing" (`queue-batch29-complaints-voids.md` P-WAT-02) | **Supported, and sharper** | It is every grant: 2,733 of 2,733 FY2024 lines, 1 distinct string [C]. \ The GiveClear "GENERAL SUPPORT" line ($86.0m, `queue-npt-dafgiving360-misc.md`) is therefore uninformative about restriction too. |
 | C4 | Schedule F "purpose buckets": general support 22.1%; NPT's "INTERNATIONAL" 18.6%; single-issue "general support 96.0%" (`direction-foreign-grants-schedule-f.md` §3.4) | **Partly supported; the buckets need relabelling** | That doc already warns that the text is generic (§3.4 item 6). This panel shows the non-general buckets are mostly sponsor sector codes (NPT, GS DAPF), not uses, so "environment and animals 13.7%" describes recipients, not restrictions. The single-issue 96% "general support" bucket comes from boilerplate such as JCF's "IN FURTHERANCE OF GRANTEE'S TAX-EXEMPT PURPOSE" [I]. Proposed fix: P-B4013-04. |
 | C5 | "Grant-purpose sensitivity … purpose fields that indicate benefit risk" as a triage input (`industry-incentives-structural-analysis.md`) | **Not supported by public filings** | Strings naming an event, gala, ticket, auction, golf outing, dinner, luncheon or sponsorship appear on 107 lines (0.03% of lines, $12.7m) [C]; e.g. San Diego "ANNUAL GALA" (4 lines). Public purpose text cannot supply a benefit-risk signal. Sponsors' internal recommendation fields might. |
 | C6 | Every.org's statement that it issues "an unrestricted grant to the nonprofit" (`queue-batch32-filing-reconciliations.md`) | **Out of scope** | Every.org files Form 990-PF and is not in the top-50 panel. |
@@ -228,12 +228,12 @@ Claims were found with `grep -rin "general support"` and `grep -rin "unrestricte
 **Overall [I].** Schedule I purpose text does not support any quantitative claim about restricted versus "general support" shares for national DAF sponsors.
 
 - What it does show is that most large sponsors choose not to disclose that split in column (h), even when their narratives confirm restrictions exist (§3.4).
-- Repo statements of the form "X% of DAF grants are general support", where X comes from Schedule I or Schedule F purpose text, should be restated as "X% of lines are *reported* with generic text".
+- Repo statements of the form "X% of DAF grants are general support", where X comes from Schedule I or Schedule F purpose text, should be restated as \
 
 ## 6. Limits
 
 - **One year.** FY2024 only, one return per sponsor. Regime stability over 2021–2025 is untested (P-B4013-02).
-- **Hand-built rules.** The keyword rules were built by inspecting this panel's 3,880 sponsor-string pairs. They are transparent but not validated against an external coding, and a second coder could move borderline strings (e.g. "PROGRAM SUPPORT", "CHARITABLE PROJECT"). Class shares for nationals are insensitive to such moves, because nationals hardly use free text. Community-foundation shares are sensitive.
+- **Hand-built rules.** The keyword rules were built by inspecting this panel's 3,880 sponsor-string pairs. They are transparent but not validated against an external coding, and a second coder could move borderline strings (e.g. "PROGRAM SUPPORT", "CHARITABLE PROJECT"). Class shares for nationals are insensitive to such moves, because nationals hardly use free text. Community-foundation shares are sensitive. A wave 35A audit of 60 random sponsor-string pairs (seed 2026111935) agreed with the assigned class on 40, was ambiguous on 3 and disagreed on 17 (97.6% agreement by lines). 16 of the 17 under-count specific use: free text with no keyword hit (e.g. \
 - **Line shares are recipient-aggregate shares, not grant-count shares.** Schedule I omits recipients at or below $5,000 and all grants to individuals and foreign recipients (Parts III, Schedule F).
 - **Grantmaking type.** Community-foundation Schedule I mixes DAF and discretionary grants; nationals' lines are almost all DAF grants [I].
 - **University and hospital sponsors** (Stanford, UCLA) list grants to other organisations only. Their DAF programmes are a small part of their Schedule I, so they are shown but excluded from the "ex university_hospital" pool.
@@ -290,7 +290,7 @@ The script is stdlib only. It imports the universe and return choice from `missi
 | Source | URL | Use | Accessed |
 |---|---|---|---|
 | IRS e-file XML, FY2024 Schedule I, 48 returns (GivingTuesday mirror of IRS TEOS) | `https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/{object_id}_public.xml`; one URL per sponsor in CSV `source_url`, e.g. [Fidelity Charitable](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202521349349310887_public.xml), [NPT](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml), [DAFgiving360](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202541069349300729_public.xml), [Vanguard Charitable](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511349349313096_public.xml), [ImpactAssets](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543169349307999_public.xml), [T. Rowe Price Program](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202401949349301515_public.xml), [Greater Horizons](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513189349309621_public.xml) | All purpose strings, amounts and narratives | 27 downloaded 2026-11-19; 21 local copies from earlier batches |
-| IRS, Instructions for Schedule I (Form 990) (Rev. 12/2024) | https://www.irs.gov/instructions/i990si | Column (h) wording; the over-$5,000 aggregate rule | 2026-11-19 |
+| IRS, Instructions for Schedule I (Form 990) (Rev. 12/2024) | https://www.irs.gov/instructions/i990si | Column (h) wording; the over-$5,000 aggregate rule | 2026-11-19; re-read 2026-11-19 by wave 35A (HTML and PDF). The revision is continuous-use from tax year 2024; 19 of the 48 returns end on or before 2024-06-30 (tax year 2023) and fell under the prior revision, which was not re-read [V wave 35A] |
 | Fidelity Charitable, "How long will it take for the grant I recommended to be processed?" | https://www.fidelitycharitable.org/faqs/all/grant-processing-timeline.html | "Where It Is Needed Most" expedites (claim C2) | 2026-11-19 |
 | DAFgiving360, FY2025 results press release (as cited in the repo) | https://www.dafgiving360.org/press-release/fiscal-year-2025-results | Claim C1, not re-read | robots.txt 403 |
 | DAFRC panel and return choice (repo) | `data/` DAFRC CSV via `mission_990_contractors.DAFRC_CSV`; `scripts/mission_daf_to_daf.py` | Universe, ranks, segments | n/a |
@@ -302,4 +302,4 @@ Robots log (`$SCRATCH/q1301/robots/log.tsv`):
 | 2026-11-19T19:24:05Z | gt990datalake-rawdata.s3.amazonaws.com | 404 (no rules) | allowed; 27 XMLs fetched |
 | 2026-11-19T19:29:17Z | www.irs.gov | 200; `/instructions/` not disallowed | allowed |
 | 2026-11-19T19:29:40Z | www.fidelitycharitable.org | 200; `User-agent: *` disallows only /retired/, /sample-email/, /nuance/, a DAM path | allowed |
-| 2026-11-19T19:29:39Z | www.dafgiving360.org | **403** | Treated as disallowed. The page request was sent in the same command and also returned 403; nothing from it is used |
+| 2026-11-19T19:29:39Z | www.dafgiving360.org | **403** | Treated as disallowed, but the page request was sent in the same command, before that decision could apply; it also returned 403 and nothing from it is used. RFC 9309 treats a 4xx robots.txt as no restriction, so this is a process lapse, not a breach [V wave 35A] |

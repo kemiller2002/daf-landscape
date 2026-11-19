@@ -38,7 +38,7 @@ One new section, **"Wave 22–30 and new-directions additions (2026-11-15)"**, w
 | 7 | Ren's footprint below its claims | 4 | Ren receipts floor $44.98m, 85.8% from three customers (wave 22). Moved down to make room for #4 and #6 |
 | 8 | Platform market segmented; Foundant holds the long tail | 5 and 7 | Merged. N33: Foundant 282 of 351 mapped tail CFs; tail is 2.84% of assets |
 | 9 | Agentic products donor-side and unproven | 8 | N25: RED = 0 across 30 products; only two move DAF money |
-| 10 | Operations-AI value pool thin | 10 | N17: revocation hits 0.082% of dollars; N33: tail fee pool about $92m a year [C on assumption] |
+| 10 | Operations-AI value pool thin | 10 | N17: revocation hits 0.082% of dollars; N33: tail fee pool about $92m a year [C on assumption] (superseded 2026-11-19: about $138m central, $76m–$184m range on published tail schedules, n = 6–7; b4501-04-tail-fee-pool-revision.md) [b4501-04] [V wave 35A] |
 
 ## 4. How each direction was used
 

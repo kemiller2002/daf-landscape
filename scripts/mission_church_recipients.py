@@ -420,6 +420,78 @@ def profile(block: Sequence[Mapping], lines: Sequence[Mapping], all_lines_dw: fl
     return summary + conc + lor + top + rtyp + rt_sg + fam + fam_m + gen_cov + gen + ntee + size + states + spon + spg + mega + fam_by_sg
 
 
+# ----------------------------------------------------------------------------- P-B41N15-01: giving pages of a sample
+# Churches file no 990, so there is no WebsiteAddressTxt. Sites were found by web search (2026-11-19), one query per
+# congregation ("<name> <city> <state>"); a URL is used only when a result names it as that congregation's site.
+# 40 of the 50 sampled congregations were searched; the 10 listed in SITE_NOT_SEARCHED were not (time).
+SAMPLE_SITES = {
+    "911543620": ("https://www.ccedmonds.com/", "podcast page names ccedmonds.com as church website (BMF name adds -Lynnwood)"),
+    "952103898": ("https://www.sinaitemple.org/", "search: official site sinaitemple.org"),
+    "431265671": ("https://chespres.org/", "directory listings: chespres.org"),
+    "510139200": ("https://www.newcovenantbible.org/", "directory listings: newcovenantbible.org"),
+    "840853779": ("https://www.cherrycreekpres.org/", "directory profile: cherrycreekpres.org"),
+    "943211596": ("https://svac-cma.org/", "directory listing: svac-cma.org"),
+    "581337214": ("https://st-ann.org/", "parish site st-ann.org in results"),
+    "202775756": ("https://www.compasschurch.org/", "church site compasschurch.org in results"),
+    "042442873": ("https://bethelsudbury.org/", "congregation site bethelsudbury.org in results"),
+    "910905865": ("https://hillspringchurch.cloversites.com/", "church site hillspringchurch.cloversites.com in results"),
+    "371705300": ("https://christcentralchurch.snappages.site/", "church pages christcentralchurch.snappages.site in results"),
+    "590823939": ("https://fbcjax.com/", "Wikipedia and church pages: fbcjax.com"),
+    "731486708": ("https://life.church/", "life.church (BMF LIFE COVENANT CHURCH INC; nonprofit listing for EIN 731486708)"),
+    "900791740": ("https://rockharbor.tv/", "directory listings: rockharbor.tv"),
+    "381710040": ("https://www.grtemple.org/", "Temple Emanuel Grand Rapids site grtemple.org (BMF CONGREGATION EMANUEL)"),
+    "943127602": ("https://sfefc.org/", "directory listing: sfefc.org"),
+    "390816823": ("https://fumc.org/", "church site fumc.org in results"),
+    "237002044": ("https://tbdcheshire.org/", "search: tbdcheshire.org"),
+    "020326908": ("https://wellspringworshipcenter.snappages.site/", "church site in results"),
+    "426081602": ("https://dmgospelassembly.org/", "directory listing: dmgospelassembly.org"),
+    "470783200": ("https://www.harvestpca.org/", "regional directory: harvestpca.org, 3903 Cuming St"),
+}
+SITE_NOT_SEARCHED = frozenset({"113470223", "204605420", "390806353", "561391643", "066001084", "232794152", "237301460",
+                               "770618385", "362202885", "621002423"})
+CHURCH_PLATFORMS = {"pushpay": r"pushpay\.com", "tithely": r"tithe\.ly", "subsplash": r"subsplash\.com",
+                    "planning_center": r"churchcenter\.com|planningcenteronline\.com", "givelify": r"givelify\.com",
+                    "overflow": r"overflow\.co\b", "realm_acst": r"onrealm\.org|acstechnologies", "vanco": r"vancopayments|eservicepayments",
+                    "kindrid_ministrybrands": r"kindrid|ministrybrands", "shelby_easytithe": r"easytithe|shelbynextchms",
+                    "ncf_link": r"ncfgiving\.com", "givebutter_or_other": r"givebutter\.com|donorbox\.org|stripe\.com"}
+CHURCH_PLATFORM_RX = {k: re.compile(v, re.I) for k, v in CHURCH_PLATFORMS.items()}
+
+
+def donate_scan(sample: Sequence[Mapping], work: str) -> tuple[list, dict]:
+    """Run the repo's donate-page census scan (scripts/mission_donate_page_scan.py stage_scan: robots.txt first,
+    homepage + one giving page, headless Chrome) on the sample, in `work` only, and apply its detector."""
+    import mission_donate_page_scan as dps
+    targets = [{"daf_rank": i + 1, "ein": r["ein"], "name": r["name"], "schedule_i_name": r["name"], "state": r["state"],
+                "ntee_cd": "", "ntee_major_group": "religion", "sector_method": "bmf_foundation_10",
+                "dafrc_university_hospital": 0, "daf_grant_usd_fy2023_2024": round(r["dw"]), "grantor_sponsors": "",
+                "size_band": "unknown", "revenue_usd_bmf": "", "stratum": r["stratum"]} for i, r in enumerate(sample)]
+    web = {e: {"website_raw": u, "status": "manual", "return_type": "manual web search", "tax_period": "", "oid": note}
+           for e, (u, note) in SAMPLE_SITES.items()}
+    dps.save_json(os.path.join(work, "targets.json"), {"summary": {}, "targets": targets})
+    dps.save_json(os.path.join(work, "websites.json"), web)
+    dps.stage_scan(argparse.Namespace(work=work))
+    plan = dps.load_json(os.path.join(work, "plan.json"))
+
+    def one(x):
+        row = dps.build_row(x, plan[x["ein"]], work, web)
+        st = ("site_not_searched" if x["ein"] in SITE_NOT_SEARCHED and not row["website"] else row["scan_status"])
+        pages = [dps.load_json(f) for d in ("donate", "home") for f in [os.path.join(work, d, f"{x['ein']}.json")] if os.path.exists(f)]
+        blob = "\n".join(b["markup"] + "\n" + b["urls"] for b in map(dps.page_blob, pages))
+        site_src = ("manual web search: " + SAMPLE_SITES[x["ein"]][1]) if x["ein"] in SAMPLE_SITES else (
+            "not searched" if x["ein"] in SITE_NOT_SEARCHED else "searched, no site named in results")
+        return {**row, "scan_status": st, "stratum": x["stratum"], "website_source": site_src,
+                "church_platforms": ";".join(k for k, rx in CHURCH_PLATFORM_RX.items() if rx.search(blob))}
+    rows = [one(x) for x in targets]
+    scanned = [r for r in rows if r["page_scanned"] != "none"]
+    flag = lambda r, c: int(r.get(f"either_{c}") or 0)  # noqa: E731
+    summ = {"sampled": len(rows), "status": {k: len(v) for k, v in _group_by_fast(rows, lambda r: r["scan_status"]).items()},
+            "pages_scanned": len(scanned), "donate_page_scanned": sum(r["page_scanned"] == "donate" for r in rows),
+            **{f"either_{c}": sum(flag(r, c) for r in scanned) for c in ("any_daf_option", "dafpay_chariot", "daf_direct",
+                                                                         "sponsor_specific_any", "daf_text_any", "ein_own_displayed")},
+            "church_platforms": {k: sum(k in r["church_platforms"].split(";") for r in scanned) for k in CHURCH_PLATFORMS}}
+    return rows, summ
+
+
 def seeded_sample(block: Sequence[Mapping], n: int, seed: int) -> tuple[dict, ...]:
     """Dollar-stratified seeded sample of congregations: n/2 from the top decile by DAF $, n/2 from the rest."""
     ranked = sorted(block, key=lambda r: (-r["dw"], r["ein"]))
@@ -444,6 +516,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     ap.add_argument("--sample-out", default="", help="write the seeded 50-congregation sample (JSON) here")
     ap.add_argument("--sample-n", type=int, default=50)
     ap.add_argument("--dump-block", default="", help="write every block recipient (CSV, for audit) here")
+    ap.add_argument("--donate-work", default="", help="scratch work dir: run the giving-page scan on the seeded sample")
     a = ap.parse_args(argv)
 
     fetchlog = fetch_outreach(a.outreach_dir, OUTREACH_YEARS) if a.fetch_outreach else ()
@@ -514,13 +587,22 @@ def main(argv: Sequence[str] | None = None) -> int:
                          1 if x["match"] else 0, dw=x["match"]["dw"] if x["match"] else 0.0, value=x["match"]["ein"] if x["match"] else "",
                          note=(f"{x['tier']}: matched BMF {x['match']['name']} ({x['match']['city']}); reason {x['match']['reason']}" if x["match"] else "no match"))
                       for x in allc_m.values()]
-    write_csv(a.out, rows + match_rows + match_rows_all, FIELDS)
+    smp = seeded_sample(tuple(r for r in blk if r["rtype"] == "congregation"), a.sample_n, SEED)
+    drows, dsum = donate_scan(smp, a.donate_work) if a.donate_work else ([], {})
+    don_rows = [mk("donate_scan:congregation", r["ein"], r["name"], f"{r['stratum']}; site {r['website'] or '-'}; giving page {r['donate_url'] or '-'}",
+                   1, dw=float(r["daf_grant_usd_fy2023_2024"]), value=r["scan_status"],
+                   note=(f"page {r['page_scanned']}; any_daf {r['either_any_daf_option']}; dafpay {r['either_dafpay_chariot']}; "
+                         f"daf_direct {r['either_daf_direct']}; sponsor {r['either_sponsor_specific_any']}; daf_text {r['either_daf_text_any']}; "
+                         f"own_ein {r['either_ein_own_displayed']}; platforms {r['church_platforms'] or '-'}; robots {r['home_robots'] or '-'} {r['home_robots_code'] or ''}; "
+                         f"site source {r['website_source'][:90]}"))
+                for r in drows]
+    don_sum = [mk("donate_scan:summary", k, value=(v if not isinstance(v, dict) else json.dumps(v, sort_keys=True))) for k, v in dsum.items()]
+    write_csv(a.out, rows + match_rows + match_rows_all + don_sum + don_rows, FIELDS)
 
     if a.dump_block:
         write_csv(a.dump_block, sorted(blk, key=lambda r: -r["dw"]), ("ein", "name", "city", "state", "rtype", "family",
                   "family_method", "gen", "gen_central", "ntee", "dw", "si", "n_lines", "n_sponsors", "top_sponsor", "outreach"))
     if a.sample_out:
-        smp = seeded_sample(tuple(r for r in blk if r["rtype"] == "congregation"), a.sample_n, SEED)
         with open(a.sample_out, "w", encoding="utf-8") as fh:
             json.dump([{k: r[k] for k in ("ein", "name", "city", "state", "dw", "family", "gen", "gen_central", "rtype", "stratum", "outreach")} for r in smp], fh, indent=1)
 
@@ -532,7 +614,7 @@ def main(argv: Sequence[str] | None = None) -> int:
              "outreach_matched_block": {t: sum(1 for x in blk_match if x["tier"] == t) for t in ("strict", "loose")},
              "outreach_distinct_eins_block": {t: len({x["match"]["ein"] for x in blk_match if x["tier"] == t}) for t in ("strict", "loose")},
              "outreach_matched_church_coded": {t: sum(1 for x in allc_match if x["tier"] == t) for t in ("strict", "loose")},
-             "centrals": len(centrals), "fetchlog": fetchlog}
+             "centrals": len(centrals), "fetchlog": fetchlog, "donate_scan": dsum}
     print(json.dumps(check, indent=1, default=str))
     return 0
 

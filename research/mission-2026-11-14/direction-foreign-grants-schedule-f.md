@@ -37,7 +37,7 @@ Main scope: top-50 sponsors excluding the two university/hospital sponsors (Stan
 | **Concentration** | **One sponsor accounts for 39%.**<br>- National Philanthropic Trust: $742.8m (7.4% of its grants).<br>- SVCF: $352.4m (4.2%).<br>- GS DAF Philanthropy Fund: $179.8m (3.4%).<br>- These top 3 hold **67.4%**; the top 10 hold 96.1%.<br>- Fidelity Charitable: $114.2m, 0.50% of its $23.0bn of grants. DAFgiving360: 0.93%. Vanguard Charitable: 0.21% [C]. |
 | **By sponsor type** | - National: 1.75% ($1,213.7m).<br>- Community foundation: **2.60%** ($510.2m; SVCF is 69% of it).<br>- Single-issue: 1.98% ($166.9m; Jewish Communal Fund and Jewish Community Foundation of LA: 18.6% of its grants).<br>- Processor (Dechomai): 0.<br>- University/hospital: 1.08% [C]. |
 | **By region** (Schedule F Part II, $1.891bn) | - **Europe 49.6%**;<br>- Middle East and North Africa 12.4%;<br>- South America 8.8%;<br>- South Asia 7.9%;<br>- North America (Canada/Mexico) 6.5%;<br>- Sub-Saharan Africa 6.1%;<br>- East Asia and the Pacific 5.9%;<br>- "Latin America" (unspecified) 1.7%;<br>- Central America and the Caribbean 0.9%;<br>- Russia and the Newly Independent States 0.3% [C].<br><br>NPT supplies 35% of the Europe dollars, SVCF 26%. Single-issue sponsors are 79% Middle East and North Africa. |
-| **Purposes** | Free text, usually generic.<br>- General support 22.1%.<br>- NPT's NTEE-style labels "INTERNATIONAL" 18.6%.<br>- Environment and animals 13.7%; education 11.4%; arts and culture 10.1%; human services and civic 8.7%; health 6.7%.<br>- Development and poverty 2.9%; research 1.8%; religion 0.5%.<br>- Relief/humanitarian **0.05%**, by keyword [C]. |
+| **Purposes** | Free text, usually generic; shares are dollars by the keyword bucket of the *reported* text, not donor restrictions or uses (P-B40N13-01).<br>- Generic text (\<br>- Environment and animals 13.7%; education 11.4%; arts and culture 10.1%; human services and civic 8.7%; health 6.7%.<br>- Development and poverty 2.9%; research 1.8%; religion 0.5%.<br>- Relief/humanitarian **0.05%**, by keyword [C]. |
 | **Manner of disbursement** | Wire 77.1%, ACH/EFT 18.9%, check 3.7% of Part II dollars [C]. |
 | **Equivalency determination (ED) vs expenditure responsibility (ER)** | **Part V narratives:** of the 70 sponsor-years with foreign grants, 41 describe ED and/or ER (31 ED, 27 ER). Together they hold 94.7% of the foreign dollars [C].<br><br>**Part II line 2 recipient counts:** 2,543 recipients are in the "501(c)(3)" column (an IRS determination, or an ED / equivalency letter) and **672 are "other organisations"**, which typically need ER [F/I].<br>- SVCF has 539 of the 672.<br>- National sponsors report 1,600 vs 5. |
 | **US-intermediary route** (Schedule I) | **Nine named cross-border intermediaries received $215.6m gross** from top-50 sponsors over FY2023–24.<br>- CAF America $58.6m from 30 sponsors; this is a whitelisted DAF-to-DAF flow.<br>- Myriad USA (formerly KBFUS) $46.5m; GlobalGiving $33.0m; Global Greengrants $27.9m; Global Fund for Women $17.2m; Give2Asia $12.0m; Global Fund for Children $11.2m; and others.<br><br>Applying each intermediary's own foreign-grant share gives **≈$165m passed abroad**, about **8.7% on top of** the $1.891bn direct route [C/I].<br><br>Two wider routes go through US recipients:<br>- "American/US friends of" names: $432.9m (Friends of the IDF $54.5m, AF Tel Aviv University $40.7m, AF Winchester College $40.0m);<br>- all NTEE Q (international) recipients: $4.32bn [C]. |
@@ -182,7 +182,7 @@ The three right-hand columns use only itemising sponsor-years, on the base of ne
 
 ### 3.4 Purposes and manner (Part II) [C]
 
-- **Purpose buckets (main scope):**
+- **Purpose buckets (main scope).** These are dollars by the keyword bucket of the *reported* purpose text. The general-support bucket is the last rule and also catches \
   - general support $417.6m (22.1%);
   - "international" (unspecified; NPT's NTEE-style label) $351.0m (18.6%);
   - environment and animals $259.0m (13.7%);
@@ -207,7 +207,7 @@ The three right-hand columns use only itemising sponsor-years, on the base of ne
 - **Purpose by segment:**
   - Nationals: "international" 28.9%, environment 18.5%, arts 15.3%.
   - Community foundations: general support 33.1%, education 18.7%, health 17.2%.
-  - Single-issue: general support 96.0%.
+  - Single-issue: general-support bucket 96.0%. This is generic reported text, led in FY2023 by \
 - **Manner:**
   - wire $1,458.3m (77.1%), ACH/EFT $357.4m (18.9%), check $70.1m (3.7%).
   - Nationals use wire for 98.4%; community foundations ACH/EFT for 69.7%; single-issue sponsors check for 29.7%.
@@ -239,7 +239,7 @@ The three right-hand columns use only itemising sponsor-years, on the base of ne
   - These organisations re-grant to the named foreign institution, but their foreign share was not parsed (P-B45N31-01).
 - **NTEE Q recipients:**
   - $4.32bn net (main scope); see P-NEW-RCP-01 for its sub-codes (Q30 $1.27bn, Q33 relief $1.26bn).
-  - Relief/humanitarian giving runs almost entirely through US Q-coded charities (e.g. MSF USA, World Central Kitchen), while direct foreign grants carry 0.05% relief purpose text [C/I].
+  - Relief/humanitarian giving runs almost entirely through US Q-coded charities (e.g. MSF USA, World Central Kitchen), while direct foreign grants carry 0.05% relief purpose text [C/I]. The 0.05% is a floor: 22.1% of these dollars carry generic text and 18.6% the bare label \
 - **Fidelity and Vanguard compared:**
   - Fidelity: direct foreign $114.2m, named intermediaries $63.6m, friends-of $103.8m. Friends-of plus named intermediaries are 1.5× its direct foreign dollars.
   - Vanguard: direct foreign $11.0m, named intermediaries $20.5m, friends-of $49.3m.
