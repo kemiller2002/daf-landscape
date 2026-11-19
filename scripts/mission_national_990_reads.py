@@ -144,8 +144,6 @@ AFFILIATE_FACTS = (
     ("NPT Transatlantic", 2024, "grant_to_npt_us_gbp", 30000, "gbp", "NPT Transatlantic granted £30,000 (2023/24 - £30,000) to National Philanthropic Trust", UK_TA25),
     ("NPT Transatlantic", 2024, "grant_to_npt_uk_gbp_listed", 0, "gbp",
      "NPT UK is not among the FY2023/24 grantees listed as material (smallest listed £1,257k; 'Other grants less than £1M' £27,149k)", UK_TA25),
-    ("NPT Transatlantic", 2024, "grants_to_us_named_orgs_gbp", 6698000, "gbp",
-     "FY2023/24 material grants to US-registered names: Economics Education and Research Consortium, Inc. 3,339; Brown University 2,102; Simon Fraser University is Canadian (excluded); Arc Research Institute 5,543 not classed (location not stated)", UK_TA25),
     ("NPT UK", 2025, "grants_total_gbp", 43000000, "gbp", "Donor-recommended grants totalled £43.0M this financial year", UK_UK25),
     ("NPT UK", 2025, "contributions_from_affiliates_gbp", 30900000, "gbp",
      "Contributions of £30.9M were received from NPT Transatlantic and £30.9M from National Philanthropic Trust", UK_UK25),
@@ -593,6 +591,24 @@ def fy_rate(h10: Sequence, fy: int):
     return sum(xs) / len(xs) if xs else None
 
 
+# NPT Transatlantic material grants (accounts note, £'000). us_name = the grantee's name or a well-known
+# identity marks it as a US-registered body (Inc., USA, a US university or a US 'friends' charity) [I];
+# such grants would sit in NPT's Schedule I, not Schedule F.
+TA_MATERIAL = (
+    (2025, "National Philanthropic Trust UK Limited", 30939, False), (2025, "Economics Education and Research Consortium, Inc.", 6000, True),
+    (2025, "Longview Philanthropy USA Inc", 3048, True), (2025, "British Schools and Universities Foundation", 3000, True),
+    (2025, "Imperial College London", 2548, False), (2025, "World Economic Forum", 2424, False),
+    (2025, "Impetus - The Private Equity Foundation", 2245, False), (2025, "Data for Society e.V.", 1158, False),
+    (2025, "The Board of Trustees of the Leland Stanford Junior University", 1055, True),
+    (2025, "Other grants less than £1M", 31847, False),
+    (2024, "Arc Research Institute", 5543, False), (2024, "Economics Education and Research Consortium, Inc.", 3339, True),
+    (2024, "World Economic Forum", 2755, False), (2024, "Impetus - The Private Equity Foundation", 2187, False),
+    (2024, "Brown University", 2102, True), (2024, "London School of Economics and Political Science", 1722, False),
+    (2024, "Institut Europeen de Cooperation et de Developpement", 1436, False), (2024, "Simon Fraser University", 1257, False),
+    (2024, "Other grants less than £1M", 27149, False),
+)
+
+
 def affiliate_rows(exts: Mapping, h10: Sequence = ()) -> list:
     def usd(fy, unit, v):
         r = fy_rate(h10, fy) if fy and unit == "gbp" else None
@@ -602,6 +618,9 @@ def affiliate_rows(exts: Mapping, h10: Sequence = ()) -> list:
               "note": q + (f" [USD at FY mean H.10 rate {fy_rate(h10, fy):.4f}]" if usd(fy, unit, v) != "" else ""),
               "source_url": url, "evidence": "P/C" if usd(fy, unit, v) != "" else "P"}
              for ent, fy, item, v, unit, q, url in AFFILIATE_FACTS]
+    mat = [{"fy": fy, "row_type": "affiliate_material_grant", "dimension": "NPT Transatlantic grantee", "category": n,
+            "gbp": k * 1000, "usd": usd(fy, "gbp", k * 1000), "lines": "US-registered name [I]" if us else "",
+            "note": "accounts note 'material' grants, £'000", "source_url": UK_TA25, "evidence": "P/C"} for fy, n, k, us in TA_MATERIAL]
     fx = [{"fy": fy, "row_type": "fx_rate", "dimension": "usd_per_gbp_fy_mean", "category": "Fed H.10 noon buying rate",
            "usd": round(fy_rate(h10, fy), 4), "source_url": H10_URL, "evidence": "P/C"} for fy in range(2021, 2026) if fy_rate(h10, fy)]
 
@@ -618,7 +637,17 @@ def affiliate_rows(exts: Mapping, h10: Sequence = ()) -> list:
                  "usd": reported_to_uk, "evidence": "F"},
                 {**base, "dimension": "to_other_foreign_organisations_as_filed", "category": "line 3 less filed related-org grants",
                  "usd": l3 - reported_to_uk, "share": (l3 - reported_to_uk) / l3 if l3 else "", "evidence": "F/C"}]
-    return facts + fx + [r for fy in range(2021, 2026) for r in split(fy)]
+    def via_ta(fy: int) -> list:
+        tot = next((v for e, f, i, v, *_ in AFFILIATE_FACTS if e == "NPT Transatlantic" and f == fy and i == "grants_total_gbp"), None)
+        l3 = exts.get((NPT, fy), {}).get("grants_foreign", 0)
+        if not tot or not l3 or not fy_rate(h10, fy):
+            return []
+        us_named = sum(k * 1000 for f, _, k, us in TA_MATERIAL if f == fy and us)
+        ub = (tot - us_named) * fy_rate(h10, fy)
+        return [{"fy": fy, "row_type": "affiliate_split", "dimension": "made_via_npt_transatlantic_upper_bound",
+                 "category": "Transatlantic grants less US-named material grantees, USD at FY mean rate; inside line 3, not a grant to an affiliate",
+                 "gbp": tot - us_named, "usd": round(ub), "share": ub / l3, "source_url": UK_TA25 if fy >= 2024 else UK_GR23, "evidence": "P/C/I"}]
+    return facts + mat + fx + [r for fy in range(2021, 2026) for r in split(fy) + via_ta(fy)]
 
 
 # ----------------------------------------------------------------------------- I/O

@@ -185,11 +185,11 @@ ROWS = (
    default_category="not determinable", default_detail="iPhi host disallows all generic agents; www.raymondjamescharitable.org robots.txt not retrievable (connection failure today; 403 in b44n28-01)", email_included="unknown",
    default_url="https://rj.iphiview.com/rj/ ; https://www.raymondjamescharitable.org/",
    access_robots="rj.iphiview.com robots 'User-agent: * Disallow: /'; raymondjamescharitable.org robots fetch failed", evidence_label="blocked", repo_prior="donor-info-defaults-top20 RJ row", change_vs_repo="gap persists; Ren link is iPhi (technology), not administration"),
- P(program_id="IPHI-00", program="Other iPhi / Stellar tenants (CF and faith-based sponsors; 13 tenant URLs tried)", sponsor_of_record="various (see ren-iphi-tenant-census.csv)", sponsor_ein="",
+ P(program_id="IPHI-00", program="Other iPhi / Stellar tenants (CF, faith-based and bank sponsors; 12 further tenant URLs tried, 14 iPhi URLs in all with RJ-01 and RCF-18)", sponsor_of_record="various (see ren-iphi-tenant-census.csv)", sponsor_ein="",
    ren_role="technology provider (iPhi)", portal_host="*.iphiview.com; iphi.stellartechsol.com", platform_version="iPhi",
    default_category="not determinable", default_detail="Every iPhi host tried serves robots.txt ending 'User-agent: * Disallow: /'", email_included="unknown",
    default_url="https://rj.iphiview.com/robots.txt ; https://iphi.stellartechsol.com/robots.txt",
-   access_robots="blocked (13 tenant URLs, 0 fetched)", evidence_label="blocked", repo_prior="ren-iphi-tenant-census.csv", change_vs_repo="gap"),
+   access_robots="blocked (14 iPhi URLs incl. RJ-01 and RCF-18, 0 fetched)", evidence_label="blocked", repo_prior="ren-iphi-tenant-census.csv", change_vs_repo="gap"),
 )
 
 CATS = ("full contact", "name only", "fund name only", "anonymous", "no default stated", "not determinable")

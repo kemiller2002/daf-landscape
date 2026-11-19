@@ -226,6 +226,31 @@ def sponsor_group(e: str, panel: Mapping) -> str:
     return {"national": "national", "community_foundation": "community_foundation"}.get(seg, "other")
 
 
+# Recipient type from the BMF name, tested in order (first match wins). FOUNDATION 10 covers more than congregations:
+# the IRS code is "Church 170(b)(1)(A)(i)", which also takes in conventions or associations of churches, church
+# schools and integrated auxiliaries. A strict or loose Outreach 100 match overrides to `congregation`.
+RTYPES = (
+    ("school_or_seminary", r"SCHOOL|ACADEMY|YESHIV|COLLEGE|SEMINARY|KOLLEL|MESIVTA|TALMUD|UNIVERSITY|\bPREP\b|"
+                           r"INSTITUTE|BAIS YAAKOV|BETH JACOB|BAIS MEDRASH|BETH MEDRASH|CHEDER|DAY CARE|PRESCHOOL"),
+    ("denominational_body", r"DIOCESE|ARCHDIOCESE|ARCHBISHOP|\bBISHOP|CONFERENCE|CONVENTION|SYNOD|PRESBYTERY|"
+                            r"ASSOCIATION|\bUNION\b|UNION OF|COUNCIL|GENERAL ASSEMBLY|HEADQUARTERS|TERRITOR|"
+                            r"DISTRICT|PROVINCE|ECCLESIASTICAL|CORPORATION SOLE|\bLATTER[ -]DAY"),
+    ("congregation", r"CHURCH|PARISH|CONGREGATION|SYNAGOGUE|\bTEMPLE|MASJID|MOSQUE|CHAPEL|TABERNACLE|\bSHUL\b|"
+                     r"CATHEDRAL|BASILICA|\bCONG\b|ANSHE|BETH |\bBNAI|B NAI|AHAVAS|AHAVATH|EMANU|SHAAR|ISLAMIC CENTER|"
+                     r"GURDWARA|MANDIR|\bKEHIL|MINYAN|FELLOWSHIP\b|ASSEMBLY\b|MEETING HOUSE|FRIENDS MEETING"),
+    ("ministry_or_order", r"MINISTR|CRUSADE|MISSION|FOUNDATION|INTERNATIONAL|TRANSLATORS|SOCIETY|NAVIGATORS|"
+                          r"SALVATION ARMY|\bORDER\b|FATHERS|SISTERS|BROTHERS|MONASTERY|ABBEY|PRIORY|CONVENT|"
+                          r"LEGION|CAMPUS|OUTREACH|RADIO|MEDIA|FUND\b|CHARIT|CHESED|CHASODIM|CHASDEI|GEMILU|TZEDAK|"
+                          r"\bRELIEF|PUBLISH|BIBLE|GOSPEL|FAMILY|CENTER|CENTRE|HOUSE"),
+)
+RTYPE_RX = tuple((t, re.compile(p)) for t, p in RTYPES)
+
+
+def rtype_of(name: str, megachurch: bool) -> str:
+    u = name.upper()
+    return "congregation" if megachurch else next((t for t, rx in RTYPE_RX if rx.search(u)), "unclassified")
+
+
 def size_band(v: float) -> str:
     return next(b for lo, hi, b in SIZE_BANDS if lo <= v < hi)
 
@@ -334,10 +359,16 @@ def profile(block: Sequence[Mapping], lines: Sequence[Mapping], all_lines_dw: fl
     lor = [mk(pre + "lorenz", f"{p:.2f}", detail="cumulative share of churches, smallest first", value=sum(asc[:round(len(asc) * p)]) / tot,
               cum=sum(asc[:round(len(asc) * p)]) / tot) for p in pts]
     cum_top = [sum(r["dw"] for r in ranked[:i + 1]) / tot for i in range(min(50, len(ranked)))]
-    top = [mk(pre + "top_recipient", r["ein"], r["name"], f"{r['city']}, {r['state']}; GEN {r['gen'] or '-'}; {r['family']}; "
+    top = [mk(pre + "top_recipient", r["ein"], r["name"], f"{r['city']}, {r['state']}; {r['rtype']}; GEN {r['gen'] or '-'}; {r['family']}; "
               f"sponsors {r['n_sponsors']}; top sponsor {r['top_sponsor']}", 1, r["n_lines"], r["dw"], r["si"], r["dw"] / tot, cum_top[i],
               value=r["dw"], note=("Outreach 100 " + r["outreach"]) if r["outreach"] else "")
            for i, r in enumerate(ranked[:50])]
+    rtyp = grouped(pre + "recipient_type", block, lambda r: r["rtype"], tot)
+    rt_sg = [mk(pre + "rtype_x_sponsor_group", f"{t}|{g}", dw=v, share=v / tot, value=v / sum(r["dw"] for r in block if r["rtype"] == t),
+                note="value = share of this recipient type's DAF-weighted $ sent by this sponsor group")
+             for t in sorted({r["rtype"] for r in block})
+             for g in ("faith_christian", "faith_jewish", "national", "community_foundation", "other")
+             for v in [sum(l["dw"] for l in lines if l["rtype"] == t and l["group"] == g)] if v]
     fam = grouped(pre + "denomination_family", block, lambda r: r["family"], tot)
     fam_m = grouped(pre + "denomination_method", block, lambda r: r["family_method"], tot)
     gen = grouped(pre + "gen", block, lambda r: r["gen"] or "(none)", tot,
@@ -376,11 +407,12 @@ def profile(block: Sequence[Mapping], lines: Sequence[Mapping], all_lines_dw: fl
     mega = [mk(pre + "megachurch", k, recipients=len(s), dw=sum(r["dw"] for r in s), si=sum(r["si"] for r in s),
                share=sum(r["dw"] for r in s) / tot, value=sum(r["dw"] for r in s) / tot)
             for k, f in tiers for s in [tuple(r for r in block if f(r))]]
-    fam_by_sg = [mk(pre + "family_x_sponsor_group", f"{fm}|{g}", dw=v, share=v / tot, value=v / sum(r["dw"] for r in block if r["family"] == fm))
+    fam_by_sg = [mk(pre + "family_x_sponsor_group", f"{fm}|{g}", dw=v, share=v / tot, value=v / sum(r["dw"] for r in block if r["family"] == fm),
+                     note="value = share of this family's DAF-weighted $ sent by this sponsor group")
                  for fm in sorted({r["family"] for r in block})
                  for g in ("faith_christian", "faith_jewish", "national", "community_foundation", "other")
                  for v in [sum(l["dw"] for l in lines if l["family"] == fm and l["group"] == g)] if v]
-    return summary + conc + lor + top + fam + fam_m + gen_cov + gen + ntee + size + states + spon + spg + mega + fam_by_sg
+    return summary + conc + lor + top + rtyp + rt_sg + fam + fam_m + gen_cov + gen + ntee + size + states + spon + spg + mega + fam_by_sg
 
 
 def seeded_sample(block: Sequence[Mapping], n: int, seed: int) -> tuple[dict, ...]:
@@ -455,15 +487,20 @@ def main(argv: Sequence[str] | None = None) -> int:
         rank_x = {r["ein"]: i + 1 for i, r in enumerate(r for r in order if r["ein"] != lds)}
         rs2 = tuple({**r, "outreach": "; ".join(tag.get(r["ein"], [])),
                      "outreach_strict": any("strict" in t for t in tag.get(r["ein"], [])), "rank": rank[r["ein"]],
-                     "rank_ex_lds": rank_x.get(r["ein"], 10 ** 9)} for r in rs)
-        fam = {r["ein"]: r["family"] for r in rs2}
-        ls2 = tuple({**l, "family": fam[l["rec"]], "group": sponsor_group(l["sponsor"], panel)} for l in ls)
+                     "rank_ex_lds": rank_x.get(r["ein"], 10 ** 9),
+                     "rtype": rtype_of(r["name"], r["ein"] in tag)} for r in rs)
+        fam = {r["ein"]: (r["family"], r["rtype"]) for r in rs2}
+        ls2 = tuple({**l, "family": fam[l["rec"]][0], "rtype": fam[l["rec"]][1], "group": sponsor_group(l["sponsor"], panel)}
+                    for l in ls)
         return rs2, ls2, m
 
     block_eins = frozenset(e for e in church_eins if reason.get(e) == BLOCK)
     blk, blk_lines, blk_match = recs(block_eins)
     allc, allc_lines, allc_match = recs(church_eins)
     rows = (profile(blk, blk_lines, all_dw, panel, state_all, sponsor_all, "block")
+            + profile(tuple(r for r in blk if r["rtype"] == "congregation"),
+                      tuple(l for l in blk_lines if l["rtype"] == "congregation"), all_dw, panel, state_all, sponsor_all,
+                      "block_congregations")
             + profile(allc, allc_lines, all_dw, panel, state_all, sponsor_all, "church_coded_all"))
     match_rows = [mk("block:outreach100_match", f"{x['year']}#{x['rank']}", x["name"], f"{x['city']}, {x['state']}; attendance {x['attendance']}",
                      1 if x["match"] else 0, dw=x["match"]["dw"] if x["match"] else 0.0,
@@ -479,9 +516,9 @@ def main(argv: Sequence[str] | None = None) -> int:
     write_csv(a.out, rows + match_rows + match_rows_all, FIELDS)
 
     if a.sample_out:
-        smp = seeded_sample(blk, a.sample_n, SEED)
+        smp = seeded_sample(tuple(r for r in blk if r["rtype"] == "congregation"), a.sample_n, SEED)
         with open(a.sample_out, "w", encoding="utf-8") as fh:
-            json.dump([{k: r[k] for k in ("ein", "name", "city", "state", "dw", "family", "gen", "gen_central", "stratum")} for r in smp], fh, indent=1)
+            json.dump([{k: r[k] for k in ("ein", "name", "city", "state", "dw", "family", "gen", "gen_central", "rtype", "stratum", "outreach")} for r in smp], fh, indent=1)
 
     check = {"block_recipients": len(blk), "block_dw": round(sum(r["dw"] for r in blk)),
              "block_share_all": sum(r["dw"] for r in blk) / all_dw, "all_dw": round(all_dw),
