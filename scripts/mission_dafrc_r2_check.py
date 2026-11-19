@@ -296,6 +296,30 @@ def totals_view(rows: Sequence[Mapping], before, after, market_before: float) ->
                                  "out": sorted(set(r["ein"] for r in rb[:TOP_N]) - set(r["ein"] for r in ra[:TOP_N]))}}
 
 
+def concentration(values: Sequence[float], market: float) -> dict:
+    s = sorted(values, reverse=True)
+    return {"cr1": s[0] / market, "cr3": sum(s[:3]) / market, "cr5": sum(s[:5]) / market,
+            "hhi": sum((v / market * 100) ** 2 for v in s)}
+
+
+def fy2023_sensitivity(panel: Sequence[Mapping], items: Sequence[Mapping], totals: Sequence[Mapping], alt_values: Mapping[str, float]) -> dict:
+    """FY2023 market total, growth, NPT share and concentration with the repo-corrected values, and with NPT FY2023
+    replaced by each alternative value (Part X net assets; roll-forward). Sponsor-level corrected values = DAFRC +
+    applied itemized corrections (rows with no DAFRC row, R4, are added to the market but not to the sponsor list)."""
+    tot = {(int(t["fiscal_year"]), t["metric"]): num(t["corrected_value"]) for t in totals}
+    rows = tuple({**r, "ein": ein9(r["ein"])} for r in panel if r["fiscal_year_end"] == "2023")
+    corr = corrections_by_key(items, 2023)
+    vals = {r["ein"]: current_value(r, "daf_assets_eoy", corr) for r in rows}
+    m22, m23, m24 = (tot[(y, "daf_assets_eoy")] for y in (2022, 2023, 2024))
+
+    def view(npt_value: float) -> dict:
+        market = m23 + (npt_value - vals[NPT_EIN])
+        v = {**vals, NPT_EIN: npt_value}
+        return {"npt_fy2023": npt_value, "market_fy2023": market, "growth_fy22_23": market / m22 - 1, "growth_fy23_24": m24 / market - 1,
+                "npt_share": npt_value / market, "npt_rank": 1 + sum(1 for x in v.values() if x > npt_value), **concentration(tuple(v.values()), market)}
+    return {"repo": view(vals[NPT_EIN]), **{k: view(x) for k, x in alt_values.items()}}
+
+
 # ----------------------------------------------------------------------------- main
 FIELDS = ("fiscal_year", "ein", "name", "type", "metric", "dafrc_row", "dafrc_operating_status", "dafrc_source", "dafrc_value",
           "filed_value", "corrected_value", "delta", "applied", "rule", "evidence_class", "part_iv_line6", "return_object_id",
@@ -378,6 +402,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         "assets": totals_view(rows, cur, new_val, market_before),
         "published_top50": sum(map(pub, top_pub)), "published_market": sum(map(pub, rows)),
         "paper_checks": paper, "npt": {str(k): v for k, v in npt.items()}, "npt_calc": npt_calc,
+        "fy2023_sensitivity": fy2023_sensitivity(read_csv(at(PANEL)), items, read_csv(at(TOTALS)),
+                                                 {"part_x_net_assets": npt[2023]["net_assets_eoy"],
+                                                  "rollforward_from_fy2022": npt_calc["fy2023_forward_from_fy2022"]}),
         "index_files": index_paths(a.irs_dir),
     }
     if a.out_json:
