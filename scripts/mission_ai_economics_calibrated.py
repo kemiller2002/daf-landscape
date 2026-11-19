@@ -16,9 +16,10 @@ Scenarios
   CAL_FIELD_INLOOP     s from production field studies (net of the worker's own checking), q left at v2 (no direct
                        measurement of second-line QA sampling), a_p capped at the task-exposure evidence
   CAL_TASK_REVIEW      s from task-level experiments (time to first output, before downstream checking), q from measured
-                       AI error / non-acceptance rates (errors must be caught downstream), a_p as above
+                       AI error / non-acceptance rates r applied to AI-handled cases only (q_p = r * a_p), a_p as above
   CAL_CENTRAL          50/50 mixture of the two framings per draw (separate stream, does not disturb CRN)
-  CAL_COMPLIANCE_FULL  CAL_TASK_REVIEW, but q = 1 (every AI-touched case re-reviewed) for P01, P07, P08, P14
+  CAL_COMPLIANCE_FULL  CAL_TASK_REVIEW, but every AI-handled case re-reviewed (q_p = a_p) for P01, P07, P08, P14
+  ALT_Q_ON_ALL_TOUCHED mapping sensitivity: error-rate q applied to all touched cases (the literal v2 definition)
   ATTR_SQ_ONLY         CAL_CENTRAL s and q, v2 a_p          (attribution)
   ATTR_A_ONLY          v2 s and q, calibrated a_p           (attribution)
 Models: v2 (all scenarios); v2b V2B_UNIFORM and V2B_BOTTOMUP (V2_BASELINE and CAL_CENTRAL only).
@@ -52,6 +53,9 @@ S_V2, Q_V2 = (0.15, 0.40, 0.70), (0.03, 0.10, 0.30)
 S_FIELD = (0.00, 0.12, 0.30)   # E01/E02 0.09-0.15 per case; E08/E09 whole-day 3-6% floor-adjacent; E11 negative; E03 0.25
 S_TASK = (0.10, 0.30, 0.56)    # E03 0.25, E04 0.40, E12 0.558; lower 0.10 = field-level
 Q_ERR = (0.10, 0.20, 0.40)     # E15 ~0.10 TP miss; E06 0.15 notes not rated good; E13 0.17-0.33 hallucination; E01 0.62 non-adherence
+# q basis: "touched" = share of ALL touched cases re-reviewed (v2 definition); "per_ai_case" = share r of AI-handled cases,
+# entering the model as q_p = r * a_p (only AI-handled cases need re-review of AI output) -- mapping is an inference.
+QT_V2, QA_ERR = (Q_V2, "touched"), (Q_ERR, "per_ai_case")
 A_CAP, A_UP = 0.60, 0.20       # E10 0.15 (LLM alone) / 0.47-0.56 (with tooling) share of tasks
 
 
@@ -64,19 +68,21 @@ def a_cal(u: float, a1: float) -> float:
 
 
 CAL_SPECS = (
-    {"id": "V2_BASELINE", "s": (S_V2,), "q": (Q_V2,), "a": a_v2, "q_override": None,
+    {"id": "V2_BASELINE", "s": (S_V2,), "q": (QT_V2,), "a": a_v2, "q_override": None,
      "evidence": "v2 assumptions (ai-economics-v2-observed-costs.md §3.2)"},
-    {"id": "CAL_FIELD_INLOOP", "s": (S_FIELD,), "q": (Q_V2,), "a": a_cal, "q_override": None,
+    {"id": "CAL_FIELD_INLOOP", "s": (S_FIELD,), "q": (QT_V2,), "a": a_cal, "q_override": None,
      "evidence": "s: E01,E02,E03,E08,E09,E11; q: unchanged (no measurement of second-line QA); a: E10,E16"},
-    {"id": "CAL_TASK_REVIEW", "s": (S_TASK,), "q": (Q_ERR,), "a": a_cal, "q_override": None,
+    {"id": "CAL_TASK_REVIEW", "s": (S_TASK,), "q": (QA_ERR,), "a": a_cal, "q_override": None,
      "evidence": "s: E03,E04,E12,E14; q: E01,E06,E13,E15; a: E10,E16"},
-    {"id": "CAL_CENTRAL", "s": (S_FIELD, S_TASK), "q": (Q_V2, Q_ERR), "a": a_cal, "q_override": None,
+    {"id": "CAL_CENTRAL", "s": (S_FIELD, S_TASK), "q": (QT_V2, QA_ERR), "a": a_cal, "q_override": None,
      "evidence": "50/50 mixture of CAL_FIELD_INLOOP and CAL_TASK_REVIEW (framing drawn per iteration)"},
-    {"id": "CAL_COMPLIANCE_FULL", "s": (S_TASK,), "q": (Q_ERR,), "a": a_cal, "q_override": (COMPLIANCE_PROCS, 1.0),
-     "evidence": "CAL_TASK_REVIEW + q=1 for P01,P07,P08,P14: E16 (2% fully autonomous), E13"},
-    {"id": "ATTR_SQ_ONLY", "s": (S_FIELD, S_TASK), "q": (Q_V2, Q_ERR), "a": a_v2, "q_override": None,
+    {"id": "CAL_COMPLIANCE_FULL", "s": (S_TASK,), "q": (QA_ERR,), "a": a_cal, "q_override": (COMPLIANCE_PROCS, 1.0),
+     "evidence": "CAL_TASK_REVIEW + every AI-handled case re-reviewed (r=1, q_p=a_p) for P01,P07,P08,P14: E16, E13"},
+    {"id": "ALT_Q_ON_ALL_TOUCHED", "s": (S_TASK,), "q": ((Q_ERR, "touched"),), "a": a_cal, "q_override": None,
+     "evidence": "mapping sensitivity: CAL_TASK_REVIEW with the error-rate range applied to ALL touched cases"},
+    {"id": "ATTR_SQ_ONLY", "s": (S_FIELD, S_TASK), "q": (QT_V2, QA_ERR), "a": a_v2, "q_override": None,
      "evidence": "attribution: CAL_CENTRAL s,q with v2 a_p"},
-    {"id": "ATTR_A_ONLY", "s": (S_V2,), "q": (Q_V2,), "a": a_cal, "q_override": None,
+    {"id": "ATTR_A_ONLY", "s": (S_V2,), "q": (QT_V2,), "a": a_cal, "q_override": None,
      "evidence": "attribution: v2 s,q with calibrated a_p"},
 )
 V2B_SCENARIOS = ("V2_BASELINE", "CAL_CENTRAL")
@@ -87,11 +93,13 @@ def calibrate(g0: Mapping, procs: Sequence[Mapping], spec: Mapping, branch: int)
     """Re-map the v2 uniforms u_s, u_q, u_a to the scenario's s, q, a_p. Everything else in g0 is kept."""
     k = min(branch, len(spec["s"]) - 1)
     s = v2.tri(g0["u"]["s"], *spec["s"][k])
-    q = v2.tri(g0["u"]["q"], *spec["q"][min(branch, len(spec["q"]) - 1)])
+    qdist, qbasis = spec["q"][min(branch, len(spec["q"]) - 1)]
+    q = v2.tri(g0["u"]["q"], *qdist)
     per = {p["id"]: {**g0["per"][p["id"]], "a": spec["a"](g0["per"][p["id"]]["u_a"], p["ai_amenability"])}
            for p in procs}
     ov = spec["q_override"]
-    q_p = {p["id"]: (ov[1] if ov and p["id"] in ov[0] else q) for p in procs}
+    r_p = {p["id"]: (ov[1] if ov and p["id"] in ov[0] else q) for p in procs}
+    q_p = {pid: (r * per[pid]["a"] if qbasis == "per_ai_case" else r) for pid, r in r_p.items()}
     return {**g0, "s": s, "q": q, "per": per, "q_p": q_p, "branch": k}
 
 
@@ -297,11 +305,12 @@ def replication_check(procs, sponsors, anchors, draws) -> float:
 
 def spec_rows() -> list[dict]:
     fmt = lambda t: "/".join(f"triangular{x}" for x in t)  # noqa: E731
+    fmtq = lambda t: "/".join(f"triangular{d}[{b}]" for d, b in t)  # noqa: E731
     out = []
     for sp in CAL_SPECS:
         a_txt = ("tri(0.5a1, a1, min(0.9, a1+0.35))" if sp["a"] is a_v2
                  else f"tri(0.5a1, a1, min({A_CAP}, a1+{A_UP}))")
-        q_txt = fmt(sp["q"]) + (f"; q=1 for {','.join(sorted(sp['q_override'][0]))}" if sp["q_override"] else "")
+        q_txt = fmtq(sp["q"]) + (f"; r=1 (q_p=a_p) for {','.join(sorted(sp['q_override'][0]))}" if sp["q_override"] else "")
         out += [row(sp["id"], "spec", "spec", "ALL", "s_distribution", fmt(sp["s"]), parameter="s", note=sp["evidence"]),
                 row(sp["id"], "spec", "spec", "ALL", "q_distribution", q_txt, parameter="q"),
                 row(sp["id"], "spec", "spec", "ALL", "a_distribution", a_txt, parameter="a_p")]
