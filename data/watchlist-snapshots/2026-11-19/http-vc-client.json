@@ -1,0 +1,64 @@
+{
+  "check_id": "http-vc-client",
+  "check_type": "http",
+  "date": "2026-11-19",
+  "detail": {
+    "chain": [
+      {
+        "location": "https://client.vanguardcharitable.org/donor/",
+        "status": "301",
+        "url": "https://client.vanguardcharitable.org/"
+      },
+      {
+        "location": "https://client.vanguardcharitable.org/login?ec=302&startURL=%2Fdonor%2F",
+        "status": "302",
+        "url": "https://client.vanguardcharitable.org/donor/"
+      },
+      {
+        "location": "https://client.vanguardcharitable.org/saml/authn-request.jsp?saml_request_id=_2CAAAAaKEt6iKMDAwMDAwMDAwMDAwMDAwAAABCP-kwGa9Fj9zxKwlMqeiBZjNP805RVYmqD5guNn_3MRHewZeL0yM1MtfZKt8WGEwfJhit5FB2tQmN2yXwQSzsmNrXbNrtCWcQTR7OnOaNflPa7eYijd4PhhHNbdd4cX3bRoabhEZd0NW-GQko2RxJR4Ld_U8wP04O5CCt3nrgDGv4JW12QNaf6q8zqVGiDnMdkSY6qtG1xKJ8C2PDJl2XpAZbFwUyXyfzKuo9MiJHtY5Xhpz9xB1vaB3QMj04RxuTg&saml_acs=https%3A%2F%2Fclient.vanguardcharitable.org%2Flogin&saml_binding_type=HttpPost&Issuer=https%3A%2F%2Fmygiving.vanguardcharitable.org%2Fmygiving%2F&samlSsoConfig=0LE5G0000000z7m&RelayState=%2Fdonor%2F",
+        "status": "302",
+        "url": "https://client.vanguardcharitable.org/login?ec=302&startURL=%2Fdonor%2F"
+      },
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://client.vanguardcharitable.org/saml/authn-request.jsp?saml_request_id=_2CAAAAaKEt6iKMDAwMDAwMDAwMDAwMDAwAAABCP-kwGa9Fj9zxKwlMqeiBZjNP805RVYmqD5guNn_3MRHewZeL0yM1MtfZKt8WGEwfJhit5FB2tQmN2yXwQSzsmNrXbNrtCWcQTR7OnOaNflPa7eYijd4PhhHNbdd4cX3bRoabhEZd0NW-GQko2RxJR4Ld_U8wP04O5CCt3nrgDGv4JW12QNaf6q8zqVGiDnMdkSY6qtG1xKJ8C2PDJl2XpAZbFwUyXyfzKuo9MiJHtY5Xhpz9xB1vaB3QMj04RxuTg&saml_acs=https%3A%2F%2Fclient.vanguardcharitable.org%2Flogin&saml_binding_type=HttpPost&Issuer=https%3A%2F%2Fmygiving.vanguardcharitable.org%2Fmygiving%2F&samlSsoConfig=0LE5G0000000z7m&RelayState=%2Fdonor%2F"
+      }
+    ],
+    "final_url": "https://client.vanguardcharitable.org/saml/authn-request.jsp?saml_request_id=_2CAAAAaKEt6iKMDAwMDAwMDAwMDAwMDAwAAABCP-kwGa9Fj9zxKwlMqeiBZjNP805RVYmqD5guNn_3MRHewZeL0yM1MtfZKt8WGEwfJhit5FB2tQmN2yXwQSzsmNrXbNrtCWcQTR7OnOaNflPa7eYijd4PhhHNbdd4cX3bRoabhEZd0NW-GQko2RxJR4Ld_U8wP04O5CCt3nrgDGv4JW12QNaf6q8zqVGiDnMdkSY6qtG1xKJ8C2PDJl2XpAZbFwUyXyfzKuo9MiJHtY5Xhpz9xB1vaB3QMj04RxuTg&saml_acs=https%3A%2F%2Fclient.vanguardcharitable.org%2Flogin&saml_binding_type=HttpPost&Issuer=https%3A%2F%2Fmygiving.vanguardcharitable.org%2Fmygiving%2F&samlSsoConfig=0LE5G0000000z7m&RelayState=%2Fdonor%2F",
+    "form_actions": [
+      "https://account.vanguardcharitable.org/samlp/pTXDa0BVDYkUIvPCFnErGMWsLr3PIbq5"
+    ],
+    "meta": {},
+    "raw_sha256": "b09f87fde01c9979b343842c6202bcd1a147389f3e532fa1ff57dfe5ea30da89",
+    "text_chars": 1,
+    "text_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  "entity": "Vanguard Charitable donor portal",
+  "error": "",
+  "observed_at_utc": "2026-11-19T15:55:59Z",
+  "ok": true,
+  "queue_items": "P-VEN-02",
+  "source_url": "https://client.vanguardcharitable.org/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "client.vanguardcharitable.org",
+      "client.vanguardcharitable.org",
+      "client.vanguardcharitable.org",
+      "client.vanguardcharitable.org"
+    ],
+    "final_host": "client.vanguardcharitable.org",
+    "final_status": "200",
+    "footers": [],
+    "links": [],
+    "title": "",
+    "watch_hits_urls": [
+      "authn-request",
+      "mygiving"
+    ],
+    "watch_sentences": []
+  },
+  "target": "https://client.vanguardcharitable.org/",
+  "watch_regex": "(?i)salesforce|giveinteractive|mygiving|authn-request"
+}
