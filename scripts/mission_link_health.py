@@ -520,11 +520,13 @@ def write_report(rows, occ_rows, meta):
     dead_occ = [o for o in occ_rows if status_of.get(o["key"]) == "dead"]
     dead_occ.sort(key=lambda o: (o["file"], int(o["line"])))
     dead_lines = []
-    flagged = []
+    flagged, flagged_repo = [], []
     for o in dead_occ:
         v = verdict_for(o, status_of)
         if "NO repo pointer" in v and ("only" in v or "all" in v):
             flagged.append((o, v))
+        elif "dead; repo pointer present" in v:
+            flagged_repo.append((o, v))
         dead_lines.append(f"| {Path(o['file']).name}:{o['line']} | {md_escape(o['key'])} | {http_of[o['key']]} | "
                           f"{md_escape(o['sentence'][:320])}{'…' if len(o['sentence']) > 320 else ''} | {v} | "
                           f"{md_escape(arch_of.get(o['key'], '') or '—')} |")
@@ -545,6 +547,10 @@ def write_report(rows, occ_rows, meta):
         f"- **{Path(o['file']).name}:{o['line']}** — {md_escape(o['sentence'][:400])} — dead source: {md_escape(o['key'])} ({v}; "
         f"archive: {md_escape(arch_of.get(o['key'], '') or 'not looked up')})" for o, v in flagged) or "- None found among checked URLs."
 
+    n_srclist = sum(1 for o in dead_occ if is_source_list(o))
+    repo_txt = "\n".join(
+        f"- **{Path(o['file']).name}:{o['line']}** — {md_escape(o['sentence'][:300])} — dead: {md_escape(o['key'])}"
+        for o, v in flagged_repo) or "- None."
     md = f"""# Citation link health, {DATE}
 
 **What this is.** A mechanical check of whether the web pages cited in `research/**/*.md` still respond, run on {DATE} by [`scripts/mission_link_health.py`](../../scripts/mission_link_health.py). Per-URL results: [`citation-link-health-{DATE}.csv`](../../data/mission-2026-11-14/citation-link-health-{DATE}.csv). Headline-document citations with their sentences: [`citation-link-health-{DATE}-headline-occurrences.csv`](../../data/mission-2026-11-14/citation-link-health-{DATE}-headline-occurrences.csv). Queue proposals: [`queue-proposals-links19.csv`](../../data/mission-2026-11-14/queue-proposals-links19.csv).
@@ -581,8 +587,15 @@ Shares below are of URLs **attempted** (robots-blocked counts as attempted: robo
 |---|---|---|---|---|---|
 {chr(10).join(dead_lines) or '| — | none | | | | |'}
 
+Of the {len(dead_occ)} citations, {n_srclist} are entries in a document's source list (a line of the form "- Name (date): <url>"), not claims. The claims those entries support cite the same URL inline, and the inline citations are classified in the table.
+
 ### Headline claims whose only external source is now dead and that carry no repository pointer
+A claim is flagged when every external URL in its sentence or table cell is dead and the sentence names no repository file.
+
 {flag_txt}
+
+### Headline claims whose external sources are all dead but that still point to a repository file
+{repo_txt}
 
 ### Headline-document URLs that could not be confirmed (robots, access wall, server error, timeout)
 These are not evidence that a link is dead. They are listed so a person can check them in a browser.
@@ -670,7 +683,31 @@ def main(argv):
                      "co_urls": " ".join(o["co_urls"]), "repo_pointer": o["repo_pointer"]}
                     for o in occ if o["file"] in HEADLINE_DOCS]
     meta = {"n_files": len(files), "n_occ": len(occ), "n_p": Counter(pri.values())}
-    if "--report-only" in argv:
+    if "--confirm-dead" in argv:
+        # Some servers (e.g. IIS portals) answer HEAD with a redirect to a 404 page while GET works.
+        # Re-check each HEAD 404/410 once with GET (robots re-read first), within the same overall cap.
+        rows = read_csv(OUT_CSV)
+        prev = int(json.loads(META.read_text())["requests"])
+        net = make_net()
+        state_cap = MAX_REQUESTS - prev
+        for r in rows:
+            if r["category"] != "dead" or r["method"].startswith("GET") or net["count"]() >= state_cap - 2:
+                continue
+            res = net["check"](r["url"], get_only=True)
+            c = classify(r["url"], res)
+            if c["category"] in ("alive", "moved"):
+                r.update({"category": c["category"], "http_status": res["http_status"],
+                          "detail": f"HEAD {r['detail']}; GET {c['detail']}", "method": "HEAD then GET (confirm)",
+                          "final_url": res["final_url"] if res["final_url"] != r["url"] else ""})
+            elif c["category"] == "dead":
+                r.update({"method": "HEAD then GET (confirm)", "detail": f"HEAD {r['detail']}; GET {c['detail']}"})
+            else:
+                r.update({"method": "HEAD then GET (confirm)", "detail": f"HEAD {r['detail']}; GET {c['detail']} (kept as dead on HEAD)"})
+        write_csv(OUT_CSV, CSV_FIELDS, rows)
+        meta["requests"] = prev + net["count"]()
+        META.write_text(json.dumps({"requests": meta["requests"], "confirm_requests": net["count"]()}))
+        print(f"confirm pass: {net['count']()} requests; total {meta['requests']}")
+    elif "--report-only" in argv:
         rows = read_csv(OUT_CSV)
         meta["requests"] = int(json.loads((META).read_text())["requests"])
     else:
