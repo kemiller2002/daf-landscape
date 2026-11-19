@@ -41,7 +41,7 @@ All figures below are for a large national under CAL_CENTRAL, on the same draws,
 | Observed FY2024 population (CF + all nationals): P(break-even reachable) | 0.165 | 0.47 | 0.34 | 0.10 | 0.65 |
 | Processes whose most likely winner changes | — | 0 | 0 | 0 | 0 |
 
-m is the cost of an escaped error, in units of one case's handling time. It has no public source, so it is a sweep [I].
+m is the cost of an escaped error, in units of one case's handling time. It has no direct public source, so it is a sweep [I]. The escaped-error study ([g0403-04-escaped-error-cost.md](g0403-04-escaped-error-cost.md)) bounds it at 1.0–106 from IRC §4966/§4967 rates and bank SAR penalties. Its central 2.4 is mostly assumption-driven, and at m = 2.42 the large-national routing pool is $1.26m [S]. [V wave 38B]
 
 1. **The value pool depends on the formula.**
    - At the evidence-bounded share of high-confidence cases (h = 0.21–0.49, from E19), routing multiplies the pool by 2.7–3.4× when an escaped error costs one handling-time and by 2.1–2.6× at five (CAL_CENTRAL, across archetypes). Both m and ρ = 0 (no residual human time on AI-closed cases) are unsourced [I]; at ρ = 0.25 the large-national pool falls from $1.36m to $938k [S] [V wave 36B]
@@ -234,7 +234,7 @@ All rows are large national, CAL_CENTRAL. "Break-even h" is the h at which C_rou
 
 1. **The h evidence is one study in another domain** (E19, radiology; with E15's single-bank ML triage as context). No public DAF or financial back-office study reports the share of cases auto-closed under a confidence threshold together with the error rate in that band (P-G0401-01).
 2. **e is bounded, not measured.** E15's 10% is a share of true positives missed. The E15 full text gives the prevalence (“less than 3% of the alerted ones”, p. 3), which converts it to at most 0.39% per closed alert (about 0.77% at the baseline’s ~80% recall) [C] ([g0401-0103-ai-bd-recut.md](g0401-0103-ai-bd-recut.md) CB-01c). The 0.10 upper end therefore no longer rests on E15. [V wave 37C]
-3. **m (the cost of an escaped error) is unsourced** and dominates the result (P-G0401-02). k is still v2's unsourced QA range.
+3. **m (the cost of an escaped error) is only indirectly sourced** and dominates the result (P-G0401-02). Wave 38B bounds it at 1.0–106 (central 2.4), but detection probability, the bank-to-DAF transfer and operational rework remain unsourced (P-G0403-04). [V wave 38B] k is still v2's unsourced QA range.
 4. **Structure.** Routing is applied per process with one global h per draw. In practice h would differ by process, being higher for P11 and P02-type intake and lower for P07 and P08.
 5. **Unchanged assumptions.** The calibrated model's other assumptions (φ, d, β, b, fixed costs, τ) are unchanged and still set net results and network break-even.
 6. **Interval types.** The intervals in §A3 are Monte Carlo error (Wilson) or the across-draw spread. Neither is a confidence interval on the routing parameters, whose uncertainty is shown only by the sweeps.

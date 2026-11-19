@@ -40,7 +40,7 @@
      - AEF CY2022: 3.89%;
      - Vanguard FY6/23: 2.09%.
 2. **The task's example [C]:** Dechomai's CY2022 grants of $119,459,204 to DAFgiving360 equal **1.63%** of DAFgiving360's FY6/23 DAF contributions ($7,319,326,897). The adjacent years give 1.22% (FY6/22) and 1.28% (FY6/24).
-3. **The fiscal-year choice moves single years a lot but pooled ratios little [C].**
+3. **The fiscal-year choice moves single years a lot but pooled ratios little at June-year sponsors [C].** For calendar-year sponsors the three-year t−1 pools differ by up to 0.74 points (AEF 2.97% vs 3.71%; BofA 1.54% vs 2.20%). [V wave 38B]
    - For June-year sponsors, the pooled 2021–24 ratio shifts by at most 0.14 points between the primary match and the t−1 alternative: DAFgiving360 1.18% vs 1.32%; Vanguard 0.72% vs 0.79%; Fidelity 0.33% vs 0.40%.
    - Single years can swing by a factor of two or more. Vanguard CY2022 is 2.09% under the primary match, 1.63% at t−1 and 0.86% at t+1.
 4. **Schedule D read straight from the XML matches the corrected DAFRC panel exactly [C].** All 32 sponsor-year returns that both sources cover agree to the dollar. This includes the four DAFRC FY2024 values that were imputed and later replaced by filed values: GS DAF, MS GIFT, BofA and AEF.
@@ -61,8 +61,8 @@
    | NCF (NCCF entity) | Ministry support fees | $42.0m fee vs $111.5m G&A + fund-raising | $47.4m fee vs $124.2m |
 
    - For Fidelity, the percentages are other expenses as a share of the fee: **−9.3%** and **−15.7%**.
-   - JCF must grant $2.0m a year from its operating fund to UJA. After that grant the surplus is $0.24m (FY2023) and $1.85m (FY2024).
-   - NCCF's fee does not cover G&A plus fund-raising, which is funded otherwise [I].
+   - Under Note C, fees and interest income in excess of operating expenses, up to $2,000,000, are granted to UJA; the operating fund granted $2.0m to UJA in each year (Note E). [V wave 38B] After that grant the surplus is $0.24m (FY2023) and $1.85m (FY2024).
+   - NCCF's fee does not cover G&A plus fund-raising, which is funded otherwise [I]. The NCCF column's G&A likely includes fee payments between group entities: the eliminations column removes $55.2m and $61.1m from G&A, and the column's G&A plus fund-raising exceeds NCCF's own 990 operating cost ($71.8m and $80.8m). Against that 990 cost the gap is −$29.8m (−71.0%) and −$33.4m (−70.4%). On the consolidated statement, all-entity fees of $55.2m and $61.1m compare with G&A plus fund-raising after eliminations of $117.5m and $106.1m [C]. [V wave 38B]
    - CJP's DAF fee is small: $1.58m and $1.64m.
 7. **Effective fee as bps of average DAF assets [C]:**
 
@@ -78,8 +78,8 @@
    - **Fidelity:** ΔR1 is +$36.3m and +$48.8m, while fee less opex is −$11.3m and −$21.9m. ΔR1 here is the growth of Schedule D "other funds".
    - **RCF:** ΔR1 is +$6.6m and +$57.2m, against a fee surplus of $0.28m and $0.15m.
    - **NCF:** ΔR1 is +$59.8m and +$105.8m, against −$69.5m and −$76.8m.
-   - **JCF** is the only close match: ΔR1 of +$1.8m and +$3.0m against a fee surplus of $2.2m and $3.8m (after the UJA grant, $0.2m and $1.8m).
-   - The earlier direction ([direction-sponsor-financial-resilience.md](direction-sponsor-financial-resilience.md) §0 item 6) called ΔR1 "the preferred operating-result proxy". The audits show it mostly measures other-fund and endowment movements [I].
+   - **JCF** is the closest match: ΔR1 of +$1.8m and +$3.0m against a fee surplus of $2.2m and $3.8m (after the UJA grant, $0.2m and $1.8m). Because the UJA grant leaves the operating fund, the like-for-like figure is the post-grant surplus, which ΔR1 exceeds by $1.56m and $1.18m [C]. [V wave 38B]
+   - The earlier direction ([direction-sponsor-financial-resilience.md](direction-sponsor-financial-resilience.md) §0 item 6) called ΔR1 "the preferred operating-result proxy". The audits show it mostly measures other-fund and endowment movements [I]. This qualifies the resilience study rather than contradicting it: that study already showed Fidelity’s R1 equal to its “other funds” and defined ΔR1 to include returns on own funds. What the audits do contradict is its reading that ΔR1 of about +0.4× operating cost at affiliated nationals means “fees retained exceed costs”: Fidelity retains none of its fee, and RCF retains 2%. [V wave 38B]
 
 ---
 
@@ -204,7 +204,7 @@ Wave 37B notes that "Schwab Charitable Trust" is not the name Schwab uses elsewh
   - **Liquidity:** where read.
 - **Computed [C].**
   - `audit_fee_less_opex` = internal fee − operating expenses, and the margin = that figure ÷ fee. It is computed only where the fee is disclosed and the opex lines exist.
-  - `internal_fee_bps_of_avg_daf_value` = fee ÷ the mean of the BOY and EOY Schedule D DAF value.
+  - `internal_fee_bps_of_avg_daf_value` = fee ÷ the mean of the BOY and EOY Schedule D DAF value. The rates are not like-for-like across sponsors. NCF assesses ministry support fees on DAFs and other charitable funds, “typically based on a standard percentage of assets donated”, so its 89 bps is not an asset-based rate. CJP’s figure is an interfund fee from the DAF area to CJP Operations, not the donor fee. Compare bps only for Fidelity, RCF and JCF [I]. [V wave 38B]
   - Every figure was checked against the pdftotext output of its document (`figures_verified_in_text`, e.g. 5/5). All checks passed.
 - **990 side.**
   - From the resilience CSV: ΔR1, where R1 = Part X line 32 − Schedule D DAF value, plus operating cost and ΔR1 ÷ operating cost.
@@ -244,7 +244,7 @@ All 25 FY2024 990s answer `FSAuditedInd` = true or 1, so every sponsor is audite
 
 Notes:
 - **Fidelity.** Opex = administrative fees + professional fees + other expenses. It equals the 990 operating cost to the dollar in both years. The negative figure is the cost *beyond* the pass-through fee: $1.2–1.3m of professional fees plus $10.0–20.7m of "other expenses". The sponsor itself earns no margin on the fee, because the contract sets the payment to FMR equal to the fee.
-- **RCF.** Opex = M&G + fundraising. "Program services" ($568.7m and $770.8m) are grants. M&G + fundraising equals the 990 operating cost exactly in 2023 and to within $4 in 2024.
+- **RCF.** Opex = M&G + fundraising. Note 9 bases Ren’s fee on 98% of administrative fee revenue “from individual fund holder accounts”. The FY2023 payment ($15,543,682) is 96.6% of the $16,097,870 fee line, and the FY2024 payment is 98.0% [C]. [V wave 38B] "Program services" ($568.7m and $770.8m) are grants. M&G + fundraising equals the 990 operating cost exactly in 2023 and to within $4 in 2024.
 - **NCF.**
   - NCCF's "Program activities" ($2.05bn and $2.59bn) mix grants with programme cost, so opex here is G&A + fund-raising only.
   - G&A probably includes the share of ministry-support fees passed to Affiliates [I]. Treat the margin as a lower bound on what NCCF keeps.

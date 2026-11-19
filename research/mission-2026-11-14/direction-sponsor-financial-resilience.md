@@ -71,7 +71,7 @@
    | Faith / single-issue | 85.4% | 6.3% | 7.8% |
 
    - Investment income alone (lines 3–5) is a median **10.6×** operating cost at affiliated nationals and **1.6×** at community foundations. Most of it belongs to DAF accounts.
-6. **Operating surplus: the 990 headline is uninformative, and the change in non-DAF net assets is the better signal [C].**
+6. **Operating surplus: the 990 headline is uninformative. The change in non-DAF net assets is a better balance-sheet signal, but audits show it is not an operating margin [C].** [V wave 38B]
    - Part I line 19 (revenue less expenses) is positive in nearly every sponsor-year, because DAF inflows exceed DAF grants.
    - Stripping net DAF flows (S2), 9 of 96 sponsors ran a deficit in TY2024 (23 in TY2022).
    - Also stripping all investment income (S4), 78 of 96 ran a deficit in TY2024. This is mechanical: the fee that funds operations is not revenue on the 990.
@@ -178,7 +178,7 @@ DAF assets are legally owned by the sponsor and are usually booked **without don
 | **S4** | S3 − lines 3–5: the pre-investment result |
 | **ΔR1** | R1(TY) − R1(TY−1). The sponsor's own balance-sheet surplus, including fees moved from DAF accounts and returns on its own funds |
 
-- **[I]** ΔR1 is the preferred operating-result proxy. A DAF administrative fee moves value from DAF balances into sponsor-owned funds, and that transfer never passes through Part VIII.
+- **[I]** ΔR1 was proposed as the operating-result proxy, on the view that a DAF administrative fee moves value from DAF balances into sponsor-owned funds without passing through Part VIII. Audited statements do not support it as a margin ([b4014-b4427-sponsor-economics.md](b4014-b4427-sponsor-economics.md)). ΔR1 exceeds audited fee less operating expense by $47.6m and $70.7m at Fidelity, which pays its fee to FMR one for one; by $6.3m and $57.0m at RCF, which books its fee as Part VIII revenue; and by $129.3m and $182.6m at NCF. Only at JCF is it within about $1.6m. Treat ΔR1 as a non-DAF balance-sheet movement, not an operating result. [V wave 38B]
 - ΔR1 is blank for TY2021 (no TY2020 row, under the recency rule) and wherever either year is flagged `daf_share_break`.
 
 ### 1.6 Quality screens
@@ -335,7 +335,7 @@ The growth columns come from the `group_trend` rows: sponsors analysable in both
 | Processor | 2024 | 107.0% | 1.1% | 0.5% | −8.7% | 40.1% / 22.3% | 0.2× |
 
 - **[I]** The DAF administrative fee is the main operating revenue of every national sponsor, by their own fee schedules (`sponsor-fee-schedules.csv`). The 990 does not show it, because the fee is a transfer between funds the sponsor already owns.
-- **[I]** "Reliance on fee income" therefore cannot be measured from Part VIII. Its balance-sheet trace is ΔR1. At affiliated nationals ΔR1 runs at about +0.4× operating cost each year, so fees retained exceed costs.
+- **[I]** "Reliance on fee income" therefore cannot be measured from Part VIII. Its balance-sheet trace is ΔR1. At affiliated nationals ΔR1 runs at about +0.4× operating cost each year. That does not show that fees retained exceed costs. Fidelity pays FMR an amount equal to its fee, and its other costs exceed the fee by $11.3m (FY2023) and $21.9m (FY2024). RCF passes 98% of its fee from fund holder accounts to Ren, leaving a $0.15–0.28m surplus (audits read in wave 38B). [V wave 38B]
 - **[I]** Rising rates lifted investment income from 4.5% to 6.4% of revenue at affiliated nationals between TY2021 and TY2024, and from 2.3% to 7.3% at independents. Under asset-based fees, sponsor revenue tracks DAF asset values and market returns, not account activity.
 
 ## 7. Surplus and deficit (TY2024; `group_year`)

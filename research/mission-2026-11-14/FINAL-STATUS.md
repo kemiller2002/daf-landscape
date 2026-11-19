@@ -50,7 +50,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 - **Corporate DAFs.** 13 of 14 sponsors publish no corporate split. Where the split is measured, corporate DAFs are 3.4–3.9% of DAF grants; 9.1% is a ceiling that applies only to the measured pool.
 - **Unlisted recipients.** About 4% of the $0.82bn of top-50 grants to unlisted EINs is identifiable sponsor EIN misreporting. The roughly 51% that is "unmatched" is an upper bound on grantees the IRS lists do not recognise.
 - **Large single grants.** SVCF's $1.309bn FY2023 line went to Further Future Foundation, now Navigation Charitable Fund. That fund owns Voltage Park and had granted out 3.1% of the money by end-2024.
-- **AI routing.** Confidence-gated routing roughly triples intervention C's value pool, but only when an escaped error costs about one case-handling's worth or less. C still almost never ranks first.
+- **AI routing.** Confidence-gated routing roughly triples intervention C's value pool when an escaped error costs one case-handling's worth. It still beats assistance up to about ten, and the pool falls below assist near m = 20. Wave 38B's central m is 2.4, but bank-style compliance errors that escape would erase the gain. [V wave 38B] C still almost never ranks first.
 - **Exceptions per grant.** Measured by number of grants, about 7–8.5% fall in the core exception categories.
 - **NPT and Ren follow-ups.**
   - The $116.3m that had been called "asset management fees" is in fact program services excluding grants. Five passages were corrected.

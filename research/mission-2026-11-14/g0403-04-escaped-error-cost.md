@@ -23,7 +23,7 @@
    - TD Bank (2024): $1.3bn ÷ "over 6,000" late SARs = **$216,667** [C]. Using all agency amounts stated in the FinCEN order, net of FinCEN's credit, it is $536,750 [C].
    - USAA FSB (2022): $140m ÷ "at least 3,873" late SARs = **$36,148** [C]. Per un-reviewed alert in its ~90,000-alert backlog, it is **$1,556**, or 112 units [C].
    - CommunityBank of Texas (2021): $8m ÷ "at least 17" SARs = **$470,588** [C].
-2. **Penalties are not priced per SAR.** They follow the program failure, so allocating the whole penalty to the missed SARs gives an upper bound [I]. The FinCEN penalty was 47% of the statutory per-SAR maximum for BofA, 78% for TD and 14% for USAA. For Canaccord it was 175%, which exceeds what the SAR violations alone could carry [C].
+2. **Penalties are not priced per SAR.** They follow the program failure, so allocating the whole penalty to the missed SARs gives an upper bound [I]. The FinCEN penalty was at least 47% of the statutory per-SAR maximum for BofA, 78% for TD and 14% for USAA. These are lower bounds, because each SAR is priced at the order’s cap although the maximum is the transaction amount where that is lower; TD’s order puts its late-reported activity at “over $500 million” across the 6,000 SARs. For Canaccord it was 175%, and for CBOT 199% (17 SARs at its order’s $236,071 cap); both exceed what the SAR violations alone could carry [C]. [V wave 38B]
 3. **Lookback labour can rival the penalty.** BofA's order states "800 consultants" for its one-time lookback but no duration. At 0.5–2 years, priced at the P14 rate, that adds **374–1,496 handling units per missed SAR** [C on an assumed duration, I].
 4. **The DAF penalty regime is far lighter per error [I].** Under IRC §4966 the sponsor pays 20% of a taxable distribution [F], and under §4967 a fund manager pays 10% of a prohibited benefit, capped at $10,000 [F]. Combined with the repo's grant anchors ($500 median to a $40k mean) and one correction unit, an escaped error in P07 or P08 costs:
    - **1.0–10.6 handling units** if detection and assessment happen 1 time in 10 or less;
@@ -36,7 +36,7 @@
    - At a single m = 106, the routing pool is **$0**.
    - **Applying high m only where it belongs** (P01, P07, P08 and P14 high; operational processes at 5) leaves routing at **$535k**, still above assistance. Hybrid routing, which keeps assistance on the remaining cases, reaches $753k.
    - **Under full compliance re-review** (k = 1 for P01, P07, P08 and P14), compliance errors cannot escape, so the process-specific high case equals m = 5 elsewhere, at **$844k**.
-7. **The ranking conclusion does not change.** Assistance is still modal nowhere. C's mean rank-first probability is at most 0.032 (hybrid, process-specific central) [S].
+7. **The ranking conclusion does not change.** Assistance is still modal nowhere. C's mean rank-first probability is at most 0.032 at a large national under the process-specific central setting (hybrid). It is 0.039 there under process-specific low, and at most 0.043 at any archetype (hybrid, m = 1 or process-specific low, community foundations) [S]. [V wave 38B]
    - Whether routing beats assistance depends on whether high-m errors can escape. Where an escaped error is a real AML miss with bank-style enforcement, E15's at most 0.39% miss rate per auto-closed alert costs about 0.0039 × 12,700 ≈ **49 handling units per AI-closed alert** at the conditional median. That rules out auto-closing [C].
    - DAF sponsors face no SAR regime, so that case applies to them only by analogy [I].
 
@@ -110,7 +110,7 @@
 **DAF compliance m (P07, P08)** = P(detected and taxed) × tax ÷ handling cost + 1.
 - P07: tax = 20% × grant (§4966(a)(1), paid by the sponsor).
 - P08: tax = min(10% × benefit, $10,000) (§4967(a)(2), paid by the fund manager). The benefit is bounded by the grant.
-- The 125% tax on the donor or advisor (§4967(a)(1)) and the 5% manager tax under §4966 are not sponsor costs, so they are excluded.
+- The 125% tax on the donor or advisor (§4967(a)(1)) and the 5% manager tax under §4966 are not sponsor costs, so they are excluded. By the same rule the §4967(a)(2) tax used for P08 is not a sponsor cost either: §4967 taxes only the advisor or related person and a fund manager who agreed “knowing” the benefit, and nothing falls on the sponsoring organization. P08 is kept only as a proxy for exposure through the sponsor’s managers. With P08 at its correction unit alone, the composite m is 2.20 (central) and 88.5 (high), not 2.42 and 106 [C]. [V wave 38B]
 - **Grant anchors already in the repo:**
   - DAFgiving360 median $500; JCF NY median $750 (both [F] in the repo).
   - Fidelity ≈ $5.1k, Vanguard $11.4k and NPT $40k means (v2 anchors).
@@ -155,7 +155,7 @@ Range summaries:
 - **All SAR-type counts:** $34,000–$500,000, median $152,450.
 - **Per alert:** $1,556–$32,051.
 
-- The CBOT figure shows the small-count problem: 17 SARs against an $8m penalty for a five-year program failure.
+- The CBOT figure shows the small-count problem: 17 SARs against an $8m penalty for a five-year program failure. At the $236,071 per-SAR cap stated in the CBOT order, the penalty is 1.99× the SAR-only statutory maximum, so like Canaccord it cannot be carried by the SAR violations alone [C]. [V wave 38B]
 - The TD all-agency total ($3.22bn) is computed as FinCEN $1.3bn + DOJ $1.89bn + FRB $123.5m + OCC $450m − $543m credit. It may still double count where the DOJ amount includes forfeiture or credited items, so it is shown only as an alternative.
 
 ### 3.2 Expected bank m, core median [C on I]
@@ -207,7 +207,7 @@ At P = 0.01 every cell is ≤ 1.97 (full grid in the CSV, `record_type=daf_m`).
 | high | 1,269 | 97.2 | 174 | 5 | **106** |
 
 **Proposed range for the routing model's m:**
-- **1–106, central 2.4** [I], resting on IRC §4966/§4967 rates [F], grant anchors [F in repo] and the model's handling costs [C].
+- **1–106, central 2.4** [I], resting on IRC §4966/§4967 rates [F], grant anchors [F in repo] and the model's handling costs [C]. Of the central 2.42, only about 0.65 comes from the excise rates (0.43 from §4966 on P07, 0.22 from the manager-only §4967 tax on P08). The rest is 1.01 from the unsourced operational m = 2 on the 51% of weight outside compliance, 0.49 from correction units and 0.26 from the unsourced bank transfer. With operational m = 1 the composite is 1.91 [C]. [V wave 38B]
 - Its width comes almost entirely from the detection probability and the bank-to-DAF transfer factor, neither of which has a source (P-G0403-04-01, -04).
 - **Recommendation: report the process-specific variant, not a single m.** A single m spreads the compliance tail over the 51% of AI-amenable labour (P11 service inquiries, P03 complex assets and the rest) where an escaped error is ordinary rework.
 
@@ -246,7 +246,7 @@ Other archetypes (CAL_CENTRAL, route; pool p50 for assist / m = 1 / composite ce
 
 | Earlier claim | Status |
 |---|---|
-| Routing note: "m remains unsourced"; routing pool falls below assist at m = 20 and is $0 at m = 50 | **Bounded.** The sourced central m (2.4) sits in the range where routing holds about 92% of its m = 1 pool at a large national. Any single m above ~20 still erases it. Bank-style enforcement (m in the thousands) erases it in any process where such errors can escape |
+| Routing note: "m remains unsourced"; routing pool falls below assist at m = 20 and is $0 at m = 50 | **Bounded.** The central m (2.4, mostly assumption-driven: §4.2) sits in the range where routing holds about 92% of its m = 1 pool at a large national. [V wave 38B] Any single m above ~20 still erases it. Bank-style enforcement (m in the thousands) erases it in any process where such errors can escape |
 | BD recut: "the BofA order suggests escaped-error costs in compliance can be very large" | **Confirmed and quantified.** Conditional on enforcement: 2,600–34,000 units per missed SAR at the core banks, plus 374–1,496 for lookback labour |
 | Assistance modal nowhere; routing's advantage hinges on m | **Unchanged / refined.** The advantage survives every setting under which high-m errors are confined to compliance processes, or caught by full re-review |
 
