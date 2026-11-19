@@ -116,7 +116,7 @@ The [release notes](https://www.charitynavigator.org/about-us/our-methodology/ra
 - Spring 2024: "Donor Advised Funds (DAF) Rating Eligibility - DAFs were determined to be ineligible for a rating due to their unusual financial structure."
 - Fall 2023: "All eligible organizations are given a size classification based on their e-filed 990 data. Size classifications are based on annual revenue."
 
-No revenue floor appears in any of the three CN pages read. None appears either in CN's methodology page (charitynavigator.org/about-us/our-methodology/ratings/) or in its nonprofit-FAQ articles  The [Spring 2026 methodology update](https://intercom.help/charity-navigator/en/articles/14471517-spring-2026-rating-methodology-update) changes scoring, not eligibility. The linked "Rating Methodology Guide (Updated March 2026)" PDF returned HTTP 404.
+No revenue floor appears in any of the three CN pages read. None appears either in CN's methodology page (charitynavigator.org/about-us/our-methodology/ratings/) or in its nonprofit-FAQ articles "Getting My Nonprofit Listed and Rated" and "Understanding the Encompass Rating" (both dated 2026-04-09). The methodology page is stricter on filings than the help article: "a charity must have three years of IRS Form 990 filings (990EZ, 990N, 990PF does not qualify)". The nonprofit FAQs say "consolidated subsidiaries" where the donor FAQ says "nonprofit subsidiaries", and add that CN "automatically lists all 501(c)(3) nonprofits included in the IRS Business Master File (BMF)" [V wave 34B] The [Spring 2026 methodology update](https://intercom.help/charity-navigator/en/articles/14471517-spring-2026-rating-methodology-update) changes scoring, not eligibility. The linked "Rating Methodology Guide (Updated March 2026)" PDF returned HTTP 404.
 
 **Applied as tests:**
 
@@ -242,7 +242,7 @@ All figures are [F]. Dollars are top-50 FY2023–24 non-DAF-to-DAF Schedule I.
 - lenient (all DAF-sponsor EINs by filing rules): 77.3%;
 - strict (community foundations also ineligible): 76.9%;
 - six-year window by IRS processing year: 76.9% (89,160 recipients).
-- only full Form 990s counted towards the three-return rule, as CN's methodology page reads (
+- only full Form 990s counted towards the three-return rule, as CN's methodology page reads ("990EZ, 990N, 990PF does not qualify"): 76.5% ($56.70bn; 86,482 recipients). 2,642 central-eligible recipients ($0.23bn) have fewer than three full 990s in the window [V wave 34B]
 
 **Diagnostics** [F]:
 - **Expense rule.** On the 2,056 sampled recipients that pass the filing rules, 2,051 have a full FY2023/24 990 in the read set and 2 fail the expense rule (0.1%): one has program expenses above total, the other has zero expenses. Its effect on the full-universe share is negligible [I].
@@ -297,7 +297,7 @@ By recipient type, the eligible share of dollars is:
 5. **(B) Rules CN applies but filings cannot test.** "Giving Not Recommended" alerts, "nonprofit subsidiaries" (undefined in the help text) and whether "Charity Navigator must directly receive" each filing cannot be observed. The results are eligibility upper bounds on those rules. They are **not** a count of rated organisations; no ratings were read.
 6. **(B) DAF-sponsor rule.** CN's DAF exclusion is one sentence. The central reading (national and processor sponsors only) is an interpretation [I]. The three variants span only 76.9–77.3%.
 7. **(B) Timing.** Eligibility is assessed against filings available in November 2026, not at grant time (FY2023–24). The TEOS index for 2026 is partial: it was downloaded 2026-11-15.
-8. **(B) The BMF stands in for \
+8. **(B) The BMF stands in for "revoked or inactive".** EINs not in the BMF are treated as ineligible, which matches CN listing only BMF organisations. Most of their dollars go to subsidiary LLCs and governmental units, not to revoked charities. 1,213 of them, holding $0.29bn, pass the filing rules [V wave 34B]
 9. **(B) Recipient units.** Blank-EIN lines are grouped by normalised name, so the recipient count for those 3,651 units is approximate.
 
 ## 6. Reproduction

@@ -16,7 +16,7 @@ P-B45N31-02 NPT's foreign grants, FY2021-FY2025 (focus FY2023-FY2024, the $742.8
           direction-foreign-grants-schedule-f.md). Schedule F Part I (activities by region), Part II (grants to
           foreign organisations: region, purpose, cash; recipient lines; line 2 counts of 501(c)(3)-equivalent
           and other recipients), Part III, Part V. Schedule R: related organisations (Parts I-IV), Part V line 1
-          indicators (1d = gift/grant/capital contribution TO a related organisation) and line 2 transactions.
+          indicators (1b = gift/grant/capital contribution TO a related organisation) and line 2 transactions.
           The affiliate split uses Schedule R plus the affiliates' own published UK accounts (fixed table, URLs).
           NPT's FY2024 Part II columns are shifted (purpose in the manner field); this is repaired as in
           scripts/mission_foreign_grants.py.
@@ -633,7 +633,7 @@ def affiliate_rows(exts: Mapping, h10: Sequence = ()) -> list:
         uk_in_r = any(re.search(r"PHILANTHROPIC TRUST UK", o["name"], re.I) for o in ex.get("r_orgs", []))
         reported_to_uk = sum(t["amount"] for t in ex.get("r_transactions", []) if re.search(r"UK", t["name"]))
         base = {"fy": fy, "tax_period": ex.get("tax_period_end", ""), "row_type": "affiliate_split", "source_url": ex.get("xml_url", "")}
-        return [{**base, "dimension": "to_npt_uk_and_other_related_orgs_as_filed", "category": f"Schedule R Part V line 1d = {to_rel}; NPT UK listed in Part II: {uk_in_r}",
+        return [{**base, "dimension": "to_npt_uk_and_other_related_orgs_as_filed", "category": f"Schedule R Part V line 1b = {to_rel}; NPT UK listed in Part II: {uk_in_r}",
                  "usd": reported_to_uk, "evidence": "F"},
                 {**base, "dimension": "to_other_foreign_organisations_as_filed", "category": "line 3 less filed related-org grants",
                  "usd": l3 - reported_to_uk, "share": (l3 - reported_to_uk) / l3 if l3 else "", "evidence": "F/C"}]
@@ -655,13 +655,13 @@ def affiliate_rows(exts: Mapping, h10: Sequence = ()) -> list:
     pooled = [{"fy": "2023-2024", "row_type": "affiliate_split", "dimension": "line3_pooled", "category": "FY2023+FY2024 foreign grants",
                "usd": l3p, "evidence": "F/C"},
               {"fy": "2023-2024", "row_type": "affiliate_split", "dimension": "to_npt_uk_and_other_related_orgs_as_filed",
-               "category": "Schedule R line 1d = No both years; NPT UK absent from Transatlantic's FY2024 material grantees", "usd": 0, "share": 0, "evidence": "F/P"},
+               "category": "Schedule R line 1b = No both years; NPT UK absent from Transatlantic's FY2024 material grantees", "usd": 0, "share": 0, "evidence": "F/P"},
               {"fy": "2023-2024", "row_type": "affiliate_split", "dimension": "made_via_npt_transatlantic_upper_bound",
                "category": "sum of the FY2023 and FY2024 bounds", "usd": ta_p, "share": ta_p / l3p if l3p else "", "evidence": "P/C/I"},
               {"fy": "2023-2024", "row_type": "affiliate_split", "dimension": "to_other_foreign_organisations",
                "category": "all of line 3 (no related-organisation recipient reported)", "usd": l3p, "share": 1 if l3p else "", "evidence": "F/C"}]
     fy25 = [{"fy": 2025, "row_type": "affiliate_split", "dimension": "to_npt_uk_per_affiliate_accounts",
-             "category": "NPT Transatlantic grant to NPT UK £30.939m (accounts note); NPT 990 Schedule R line 1d still = No",
+             "category": "NPT Transatlantic grant to NPT UK £30.939m (accounts note); NPT 990 Schedule R line 1b still = No",
              "gbp": 30939000, "usd": uk25, "share": uk25 / l3_25 if uk25 != "" and l3_25 else "", "source_url": UK_TA25, "evidence": "P/C"}]
     return facts + mat + fx + yearly + pooled + fy25
 

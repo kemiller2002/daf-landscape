@@ -58,7 +58,7 @@
 |---|---|---|---|
 | Vanguard Charitable | 70 expense-ratio entries "Last updated 09/30/2026", 0.01–0.59%. Index building blocks 0.01–0.11%, values-driven 0.09–0.59%. The fees page example shows an "Average investment fee" of 0.06% on a $750k account | [investments](https://www.vanguardcharitable.org/investments); [fees](https://www.vanguardcharitable.org/fees-and-expenses) [F] | Not published, and no audit found online |
 | DAFgiving360 | SWTSX 0.03% to about 0.66–0.67% (JBALX, PAXIX/CBAIX) | repo rows in `queue-adviser-fees-pools-npact.md` §2 [R/3P]; dafgiving360.org returned 403 | Not published. The only audit found online is FY2020 |
-| NPT | Weighted average management fee 0.07–0.61% across 7 portfolios, plus a "0.10% investment advisory fee" (0.15% for impact) and trading costs "up to 4 cents per share" | [Investment descriptions PDF, NPT FOR IDAP 0926](https://www.nptrust.org/investment-descriptions-and-performance-npt/) [F] | Not published. Most NPT assets are adviser-managed or segregated |
+| NPT | Weighted average management fee 0.07–0.61% across 7 portfolios, plus a "0.10% investment advisory fee" (0.15% for impact) and trading costs "up to 4 cents per share" | [Investment descriptions PDF, NPT FOR IDAP 0926](https://www.nptrust.org/investment-descriptions-and-performance-npt/) [F] | Not published. NPT's adviser-managed share is not estimable: segregated accounts need $500,000, and line 11f mixes model-portfolio advisory fees with segregated-account fees (g0702-b4531 §2.5) [V wave 35B] |
 
 ### 1.3 All-in per dollar (rows N064–N072)
 

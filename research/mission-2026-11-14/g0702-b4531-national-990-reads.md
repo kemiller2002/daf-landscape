@@ -15,15 +15,15 @@
 | Question | Answer |
 |---|---|
 | **Fidelity Charitable adviser-managed share** | **46.9% of investments** (June 2025): Charitable Investment Advisor Program (CIAP) $37.14bn of $79.23bn [P/C]. The share rose each year: 40.4% (2022), 42.6% (2023), 44.8% (2024).<br>On Schedule D DAF value it is 43.5% (FY2025) [P/F/C].<br>Investment management fees, which equal Form 990 line 11f to the dollar in FY2022–25, are **26.1–26.9 bps of mean CIAP assets** [F/P/C]. That reading holds if the line is CIAP adviser fees only [I]. |
-| **DAFgiving360 adviser-managed share** | **Not published.** Bounds from the 990 [C/I]:<br>- **hard floor 1.5%** of DAF value (FY2025): the identified adviser and broker-dealer contractors ($7.20m) divided by the 1.00% adviser-fee cap;<br>- **13.0%** if all of line 11f ($61.37m) is adviser fees charged at the cap;<br>- **48.9%** under a scenario that charges line 11f at Fidelity's 26.5 bps.<br>The often-cited 77–78% is assets "associated with an advisor", which is a different concept [S]. |
-| **Vanguard Charitable** | **0%.** Trustees invest all assets in Vanguard Charitable's own options [P]. Line 11f is $0 in every year FY2021–25, and no adviser or broker-dealer appears in Part VII-B [F]. |
-| **NPT** | **Not estimable.** Segregated "Financial Advisor Managed" accounts exist from $500k (discretionary) or $2m (non-discretionary), and "a different fee schedule may apply" [P].<br>Line 11f ($93.8m in FY2025; 22.5 bps of mean investments) mixes model-portfolio advisory fees with segregated-account fees [F/P/I].<br>Schedule L (FY2023–24) confirms that "Wells Fargo provides investment management services with respect to certain DAFs at NPT" [F]. |
-| **Payments to broker-dealers and RIAs (Part VII-B top five)** | **Fidelity:**<br>- UBS Financial Services: $5.93m (FY2021), $7.85m (FY2022), $11.76m (FY2025);<br>- Morgan Stanley Wealth Management: $1.98m (FY2022);<br>- Wells Fargo Advisors: $3.41m (FY2025);<br>- Rockefeller Capital Management: $1.24m (FY2024);<br>- RIAs: ICONIQ Capital, Jordan Park, William Blair.<br>**DAFgiving360:** Graystone Consulting (Morgan Stanley) every year, $1.67m–$2.92m, plus RIAs (Natural Investments, Basswood, Cerity Partners, Baker Street, Dalton, Wetherby, Jordan Park).<br>**NPT and Vanguard:** none.<br>**Edward Jones** appears in no sponsor's top five in any year [F]. |
+| **DAFgiving360 adviser-managed share** | **Not published.** Bounds from the 990 [C/I]:<br>- **floor 1.5%** of DAF value (FY2025), conditional on the name-based contractor classes and on the 1.00% cap (December 2024 policy, repo quote) applying in every year [V wave 35B]: the identified adviser and broker-dealer contractors ($7.20m) divided by the 1.00% adviser-fee cap;<br>- **13.0%** if all of line 11f ($61.37m) is adviser fees charged at the cap;<br>- **48.9%** under a scenario that charges line 11f at Fidelity's 26.5 bps.<br>The often-cited 77–78% is assets "associated with an advisor", which is a different concept [S]. |
+| **Vanguard Charitable** | **0%.** Trustees invest all assets in Vanguard Charitable's own options [P]. Line 11f is $0 in FY2021–24 and blank (not reported) in FY2025 [V wave 35B], and no adviser or broker-dealer appears in Part VII-B [F]. |
+| **NPT** | **Not estimable.** Segregated "Financial Advisor Managed" accounts exist from $500k (segregated accounts) or $2m (non-discretionary accounts), in the DAF Guide's wording [V wave 35B], and "a different fee schedule may apply" [P].<br>Line 11f ($93.8m in FY2025; 22.5 bps of mean investments) mixes model-portfolio advisory fees with segregated-account fees [F/P/I].<br>Schedule L (FY2023–24) confirms that "Wells Fargo provides investment management services with respect to certain DAFs at NPT" [F]. |
+| **Payments to broker-dealers and RIAs (Part VII-B top five)** | **Fidelity:**<br>- UBS Financial Services: $5.93m (FY2021), $7.85m (FY2022), $11.76m (FY2025);<br>- Morgan Stanley Wealth Management: $1.98m (FY2022);<br>- Wells Fargo Advisors: $3.41m (FY2025);<br>- Rockefeller Capital Management: $1.24m (FY2024);<br>- RIAs: ICONIQ Capital, Jordan Park, William Blair.<br>**DAFgiving360:** Graystone Consulting (Morgan Stanley) every year, $1.67m–$2.92m, plus RIAs (Natural Investments, Basswood, Cerity Partners, Baker Street, Dalton, Wetherby, Jordan Park).<br>**NPT and Vanguard:** none.<br>**Edward Jones** appears in no sponsor's top five in any year [F]. This says nothing about Edward Jones adviser DAF assets: the Edward Jones Charitable Gift Fund is sponsored by RCF, outside these four sponsors (b4428-02 RCF-14) [V wave 35B]. |
 | **Schedule J** | No Schedule J at Fidelity, where FMR employs the staff. At the other three it covers only officers' pay (FY2025 top earners $0.61–1.06m). **No adviser or broker-dealer compensation runs through Schedule J** [F]. |
-| **NPT FY2023–24 foreign grants: $742.8m** | **To NPT UK and other related organisations: $0 as filed.** Schedule R Part V line 1d ("gift, grant or capital contribution to related organisation") is "No" in both years. NPT UK is also absent from NPT Transatlantic's FY2024 list of material grantees [F/P].<br>**To other foreign organisations: $742.8m (100%).**<br>**Made through NPT Transatlantic:** this London DAF arm is a disregarded entity of NPT, so its grants sit inside NPT's own line 3. They come to **at most $134.9m (18.2%)**: FY2023 ≤ $81.9m (24.7%) and FY2024 ≤ $53.0m (12.9%) [P/C/I]. |
+| **NPT FY2023–24 foreign grants: $742.8m** | **To NPT UK and other related organisations: $0 as filed, within Schedule R Part V's scope (related organisations in Parts II–IV; disregarded entities such as NPT Transatlantic are outside it).** Schedule R Part V line 1b (XML GiftGrntOrCapContriToOthOrgInd; line 1d is loans) [V wave 35B] ("gift, grant or capital contribution to related organisation") is "No" in both years. NPT UK is also absent from NPT Transatlantic's FY2024 list of material grantees [F/P].<br>**To other foreign organisations: $742.8m (100%).**<br>**Made through NPT Transatlantic:** this London DAF arm is a disregarded entity of NPT, so its grants sit inside NPT's own line 3. They come to **at most $134.9m (18.2%)**: FY2023 ≤ $81.9m (24.7%) and FY2024 ≤ $53.0m (12.9%) [P/C/I]. |
 | **By region (FY2023–24 pooled, Part II)** | - Europe 44.3% ($328.5m);<br>- South Asia 17.3% ($128.2m);<br>- Middle East and North Africa 11.8% ($87.3m);<br>- South America 9.4% ($70.1m);<br>- Sub-Saharan Africa 7.5%;<br>- Central America and the Caribbean 4.7%;<br>- North America (Canada, Mexico) 2.8%;<br>- East Asia and the Pacific 2.0%;<br>- Russia and the Newly Independent States 0.2% [C]. |
 | **By recipient type** | **All 901 Part II recipient lines** (413 in FY2023, 488 in FY2024) are counted as 501(c)(3)-equivalent on line 2, and **0** as "other organisations" on line 3, even though NPT says it uses both equivalency determination (ED) and expenditure responsibility (ER) [F].<br>By size, half the dollars (49.5%) are in lines of $1m to under $10m, and 16 lines of $10m or more carry 36.5% [C]. |
-| **New finding (FY2025)** | NPT Transatlantic granted **£30.939m (≈ $40.1m) to NPT UK** in the year to 30 June 2025, and NPT UK reports the receipt [P]. NPT's FY2025 Schedule R line 1d is still "No" [F].<br>The single largest FY2025 Part II line is $39.1m to Europe, which is about the same size [F/I] (P-G0702-03). |
+| **New finding (FY2025)** | NPT Transatlantic granted **£30.939m (≈ $40.1m) to NPT UK** in the year to 30 June 2025, and NPT UK reports the receipt [P]. NPT's FY2025 Schedule R line 1b (not 1d) is still [V wave 35B] "No" [F].<br>The single largest FY2025 Part II line is $39.1m to Europe, which is about the same size [F/I] (P-G0702-03). |
 
 ## 1. Method
 
@@ -95,7 +95,7 @@ Firm registration (whether a firm is an RIA or a broker-dealer) was **not** veri
 
 ### 1.6 NPT split
 
-1. **Filed related-organisation grants.** These are taken from Schedule R Part V line 1d and line 2 transactions naming NPT UK or Transatlantic.
+1. **Filed related-organisation grants.** These are taken from Schedule R Part V line 1b (XML GiftGrntOrCapContriToOthOrgInd, labelled 1d elsewhere in this study) and line 2 transactions naming NPT UK or Transatlantic. Part V covers only related organisations listed in Parts II–IV, so transfers to or by a disregarded entity such as NPT Transatlantic never appear there [V wave 35B].
 2. **"Made via Transatlantic" upper bound.**
    - Start from NPT Transatlantic's own grant total in GBP.
    - Subtract the material grants to bodies whose names mark them as US-registered [I]: Economics Education and Research Consortium Inc., Brown University, Longview Philanthropy USA Inc., British Schools and Universities Foundation, Stanford. These would be Schedule I lines, not Schedule F lines.
@@ -174,7 +174,7 @@ Other filed lines:
 
 **Readings:**
 - The **FY2021** CIAP figure is unavailable: the 2022-2021 audit URL returns 404.
-- The audit's investment management fees **equal line 11f to the dollar** in FY2022–25. At 26–27 bps of CIAP assets the rate is stable, and it is far below the 1% often assumed for adviser fees. This suggests many CIAP mandates are priced low, or that part of the adviser pay is billed outside the account [I].
+- The audit's investment management fees **equal line 11f to the dollar** in FY2022–25. At 26–27 bps of CIAP assets the rate is stable, and it is far below the 1% often assumed for adviser fees. This suggests many CIAP mandates are priced low, or that part of the adviser pay is billed outside the account [I]. A third possibility is that the line is not CIAP-only: the audit does not describe it, and Note 7 names Strategic Advisers LLC, a Fidelity company, as the Gift Fund's investment advisor [V wave 35B].
 
 ### 2.4 DAFgiving360 bounds [C/I]
 
@@ -193,7 +193,7 @@ Other filed lines:
 
 **Readings:**
 - The 77% measures adviser *association*, not adviser *management* (batch 37 §4.2).
-- **Best available statement:** DAFgiving360's adviser-managed share is at least 1.5% (hard floor) and probably at least 13% (if line 11f is adviser fees). It would be about half if its advisers charge what Fidelity's do. No first-party asset split was reachable (P-G0702-01).
+- **Best available statement:** DAFgiving360's adviser-managed share is at least 1.5% if the identified firms' payments are adviser fees capped at 1.00%, and at least 13% only if line 11f is entirely such fees; neither condition is documented [V wave 35B]. It would be about half if its advisers charge what Fidelity's do. No first-party asset split was reachable (P-G0702-01).
 
 ### 2.5 Vanguard Charitable and NPT [P/F]
 
@@ -205,7 +205,7 @@ Other filed lines:
 
 **NPT** ([DAF Guide](https://www.nptrust.org/a-guide-to-your-donor-advised-fund-npt/)):
 - **Product:** "Segregated Accounts – Assets Managed by Your Financial Advisor or other Investment Professional". "DAF accounts over $500,000 may recommend a financial advisor to propose a custom investment portfolio. A different fee schedule may apply."
-- **Minimums:** $500,000 for discretionary accounts and $2 million for non-discretionary accounts. "Financial advisors must be approved by NPT."
+- **Minimums:** $500,000 for segregated accounts and $2 million for non-discretionary accounts; the guide does not call the $500k tier discretionary [V wave 35B]. "Financial advisors must be approved by NPT."
 - **Fees:** model portfolios charge "an investment advisory fee and/or incurs trading costs". The segregated-account fee is not published.
 - **Financial statements:** the [FY2025 consolidated financials](https://www.nptrust.org/wp-content/uploads/2026/09/FY25-AR-Consolidated-Financials-NPT.pdf) give asset management fees of $116,260k (FY2024 $94,289k) and investments of $47,837,978k, with no split.
 - **Assets:** the [annual report](https://www.nptrust.org/annual-reports/npt-annual-report/) gives $56.4bn of assets under management.
@@ -273,7 +273,7 @@ Other filed lines:
 - **Related organisations:**
   - NPT Transatlantic Limited (UK) is listed as a **disregarded entity**. Its income was $74.4m (FY2022) to $145.8m (FY2024), and its end-of-year assets rose from $105.4m to $279.7m.
   - National Philanthropic Trust UK Limited is a **related tax-exempt organisation** (UK).
-- **Part V line 1d** (gift, grant or capital contribution to a related organisation) = **No**. Line 1e, the same *from* a related organisation, = Yes.
+- **Part V line 1b** (gift, grant or capital contribution to a related organisation) = **No**. Line 1c, the same *from* a related organisation, = Yes. Line 1d (loans to related organisations) is also No [V wave 35B].
 - **Part V line 2:** no transaction names NPT UK or Transatlantic.
 
 **What the affiliates publish:**
@@ -283,12 +283,12 @@ Other filed lines:
 | NPT FY (year to 30 June) | NPT Transatlantic grants | Of which to NPT UK | US-named material grantees (excluded) | Upper bound on Schedule F dollars made via Transatlantic | Share of line 3 |
 |---|---|---|---|---|---|
 | 2023 | £68m ([2023 grantmaking report](https://www.nptuk.org/annual-reports/2023-grantmaking-report/)) | not listed (no FY2023 grantee list found) | not available | $81.9m | ≤ 24.7% |
-| 2024 | £47.49m ([2024/25 accounts](https://www.nptuk.org/transatlantic-annual-report-and-accounts-2025/), comparative) | not among the material grantees (all ≥ £1.257m) | £5.44m (EERC Inc. £3.339m; Brown University £2.102m) | $53.0m | ≤ 12.9% |
+| 2024 | £47.49m ([2024/25 accounts](https://www.nptuk.org/transatlantic-annual-report-and-accounts-2025/), comparative) | not among the material grantees (all ≥ £1.257m) | £5.44m (EERC Inc. £3.339m; Brown University £2.102m). Arc Research Institute (£5.543m) is not excluded; if it is the US Arc Institute [I], the bound falls to about $46.0m and the pooled bound to about $127.9m (17.2%) [V wave 35B] | $53.0m | ≤ 12.9% |
 | **2023–24** | — | **$0 as filed** | — | **$134.9m** | **≤ 18.2%** |
 | 2025 | £84.26m | **£30.939m ≈ $40.06m** | £13.10m (EERC Inc., Longview Philanthropy USA, British Schools and Universities Foundation, Stanford) | $92.1m (includes the NPT UK grant) | ≤ 29.7% |
 
 **Answer to P-B45N31-02:**
-- **To NPT UK and other affiliates:** $0 of FY2023–24's $742.8m, as filed and as far as the affiliates' accounts show.
+- **To NPT UK and other affiliates:** $0 of FY2023–24's $742.8m as reported. The filed test is weak: Schedule R Part V line 1b excludes disregarded entities, and NPT left it at No in FY2025 despite the £30.9m grant. FY2024 is also supported by the affiliates' accounts (NPT UK is not among Transatlantic's material grantees, and NPT UK's 2024/25 note 14 gives no 2023/24 comparative for affiliate contributions). FY2023 has no grantee list, so for that year $0 means not reported, not shown to be zero [V wave 35B].
 - **To other foreign organisations:** the whole $742.8m.
 - **Through NPT's own London arm:** at most $134.9m (18.2%) of it was made through NPT Transatlantic, whose donors are mostly UK–US dual taxpayers. This is the closest thing to an "affiliate" share in the window [P/C/I].
 - **Interpretation:** most of NPT's foreign dollars ($607.9m or more, 81.8% or more) are US-side grants made by ED/ER directly to foreign charities [C/I].
@@ -300,10 +300,10 @@ Other filed lines:
 - **NPT UK** ([accounts note 14](https://www.nptuk.org/npt-uk-annual-report-and-accounts-2025/)): "Contributions of £30.9M were received from NPT Transatlantic and £30.9M from National Philanthropic Trust". Whether this is one transfer described twice, or two transfers, is not clear.
 
 **What NPT's 990 says:**
-- NPT's FY2025 Schedule R line 1d is "No".
+- Because NPT Transatlantic is disregarded, its £30.9m grant is NPT's own grant to a Part II related organisation, so line 1b should read Yes; NPT's FY2025 Schedule R line 1b [V wave 35B] is "No".
 - Its largest FY2025 Part II line is $39,100,000 to Europe ("ENVIRONMENT, ANIMALS"). At the FY mean rate, £30.939m is $40.06m, so the sizes match; the date-of-payment rate implied would be 1.2638 [C].
 
-**Reading:** the size match is suggestive, not proof. If it is the transfer, NPT's FY2025 foreign grants include **≈ 12.9% sponsor-to-affiliate re-granting**. That is the cross-border analogue of a DAF-to-DAF flow, and the direction doc's limit 4 flags it (P-G0702-03).
+**Reading:** the size match is suggestive, not proof. No other FY2025 Part II line exceeds $16.8m, so at most one of the two £30.9m receipts in NPT UK's note 14 can sit in Schedule F as a single line [V wave 35B]. If it is the transfer, NPT's FY2025 foreign grants include **≈ 12.9% sponsor-to-affiliate re-granting**. That is the cross-border analogue of a DAF-to-DAF flow, and the direction doc's limit 4 flags it (P-G0702-03).
 
 ### 3.5 Comparison with the repo's direction-foreign-grants work
 
