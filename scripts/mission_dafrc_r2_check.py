@@ -316,6 +316,7 @@ def fy2023_sensitivity(panel: Sequence[Mapping], items: Sequence[Mapping], total
         market = m23 + (npt_value - vals[NPT_EIN])
         v = {**vals, NPT_EIN: npt_value}
         return {"npt_fy2023": npt_value, "market_fy2023": market, "growth_fy22_23": market / m22 - 1, "growth_fy23_24": m24 / market - 1,
+                "payout_fy2024_on_prior_assets": tot[(2024, "daf_grants")] / market,
                 "npt_share": npt_value / market, "npt_rank": 1 + sum(1 for x in v.values() if x > npt_value), **concentration(tuple(v.values()), market)}
     return {"repo": view(vals[NPT_EIN]), **{k: view(x) for k, x in alt_values.items()}}
 
@@ -401,6 +402,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                                             for p in proposals if p["metric"] == m) for m in METRICS},
         "assets": totals_view(rows, cur, new_val, market_before),
         "published_top50": sum(map(pub, top_pub)), "published_market": sum(map(pub, rows)),
+        "paper_rows_panel": {"n": sum(1 for r in rows if provenance(r) == "paper submission"),
+                             "n_period_not_fy2024": sum(1 for r in rows if provenance(r) == "paper submission" and not r["end_of_tax_period"].startswith(str(FY))),
+                             "eoy_assets": sum(pub(r) for r in rows if provenance(r) == "paper submission")},
         "paper_checks": paper, "npt": {str(k): v for k, v in npt.items()}, "npt_calc": npt_calc,
         "fy2023_sensitivity": fy2023_sensitivity(read_csv(at(PANEL)), items, read_csv(at(TOTALS)),
                                                  {"part_x_net_assets": npt[2023]["net_assets_eoy"],

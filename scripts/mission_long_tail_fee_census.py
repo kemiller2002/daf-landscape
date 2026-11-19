@@ -389,19 +389,42 @@ def fee_sentences(text: str) -> tuple[str, ...]:
     return tuple(dict.fromkeys(p.strip()[:400] for p in parts if FEE_SENT.search(p)))
 
 
-def crawl_site(cache: str, ein: str, home: str, max_pages: int = 14) -> dict:
+FEE_TEXT = re.compile(r"(?i)\bfees?\b|minimum|schedule|donor.?advised|\bdaf\b|fund (types|options|agreement)|"
+                      r"types of funds|policies|guidelines|open a fund|start a fund|create a fund|establish")
+
+
+def anchors(page_html: str, base: str) -> tuple[tuple[str, str], ...]:
+    found = re.findall(r"""(?is)<a\b[^>]*href\s*=\s*["']([^"'#]+)["'][^>]*>(.*?)</a>""", page_html or "")
+    return tuple((urllib.parse.urljoin(base, html.unescape(h)), re.sub(r"<[^>]+>|\s+", " ", t).strip()) for h, t in found)
+
+
+def score(url: str, text: str) -> int:
+    u, t = urllib.parse.unquote(url).lower(), text.lower()
+    return (6 * bool(re.search(r"\bfees?\b", t)) + 4 * ("fee" in u and "feed" not in u) + 3 * ("donor" in u or "daf" in u)
+            + 2 * bool(re.search(r"donor.?advised|minimum|schedule", t)) + u.endswith(".pdf")
+            - 8 * bool(re.search(r"feed|privacy|cookie|event|news|post/|blog|story|stories|career|employment", u)))
+
+
+def candidates(page: Mapping, home: str) -> tuple[tuple[int, str], ...]:
+    an = anchors(page.get("html", ""), page["url"])
+    return tuple((score(u, t), u) for u, t in an
+                 if u.startswith("http") and (same_site(u, home) and (FEE_LINK.search(urllib.parse.unquote(u)) or FEE_TEXT.search(t))
+                                              or (FEE_TEXT.search(t) and re.search(r"(?i)\.pdf|drive\.google|/files?/|uploads|ugd", u))))
+
+
+def crawl_site(cache: str, ein: str, home: str, max_pages: int = 16) -> dict:
     first = raw_get(cache, home)
     sm = raw_get(cache, urllib.parse.urljoin(home, "/sitemap.xml")) if first["allowed"] else {"html": ""}
-    sm_locs = tuple(re.findall(r"<loc>\s*([^<\s]+)", sm.get("html") or ""))
-    sub_sm = tuple(u for u in sm_locs if u.endswith(".xml"))[:6]
-    sub_locs = tuple(u for x in sub_sm for u in re.findall(r"<loc>\s*([^<\s]+)", raw_get(cache, x).get("html") or ""))
-    cands = tuple(u for u in dict.fromkeys(links(first.get("html", ""), home) + sm_locs + sub_locs)
-                  if same_site(u, home) and FEE_LINK.search(urllib.parse.unquote(u)) and not u.endswith(".xml"))
-    ranked = sorted(cands, key=lambda u: (-(("fee" in u.lower()) * 3 + ("donor" in u.lower()) * 2 + u.lower().endswith(".pdf")), u))
-    pages = tuple(raw_get(cache, u) for u in ranked[:max_pages])
+    sm_locs = tuple(u for u in re.findall(r"<loc>\s*([^<\s]+)", sm.get("html") or "") if not u.endswith(".xml"))
+    lvl1 = candidates(first, home) + tuple((score(u, ""), u) for u in sm_locs if FEE_LINK.search(urllib.parse.unquote(u)))
+    top1 = tuple(dict.fromkeys(u for sc, u in sorted(lvl1, key=lambda x: (-x[0], x[1])) if sc >= 0))[:10]
+    pages1 = tuple(raw_get(cache, u) for u in top1)
+    lvl2 = tuple(c for p in pages1 for c in candidates(p, home) if c[1] not in top1 and c[1] != home)
+    top2 = tuple(dict.fromkeys(u for sc, u in sorted(lvl2, key=lambda x: (-x[0], x[1])) if sc >= 0))[:max_pages - len(top1)]
+    pages = pages1 + tuple(raw_get(cache, u) for u in top2)
     hits = tuple((p["url"], sn) for p in (first,) + pages for sn in fee_sentences(p.get("text", "")))
     return {"ein": ein, "home": home, "robots": first["robots"], "home_status": first["status"],
-            "n_candidates": len(cands), "fetched": [p["url"] for p in pages], "hits": hits}
+            "n_candidates": len(lvl1) + len(lvl2), "fetched": [p["url"] for p in pages], "hits": hits}
 
 
 # ----------------------------------------------------------------------------- census rows

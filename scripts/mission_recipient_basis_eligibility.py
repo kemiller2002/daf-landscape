@@ -31,8 +31,11 @@ Shared numerator  Exactly as scripts/mission_daf_share_recipient_revenue.py (imp
 (B) Universe: every top-50 FY2023-2024 non-DAF-to-DAF Schedule I line with a positive amount (blank-EIN lines kept,
     split foreign / domestic by the line's address). Charity Navigator 2026 rules applied from filing data:
         - U.S. 501(c)(3) public charity: in the IRS EO BMF, SUBSECTION 03, FOUNDATION not 02/03/04;
-        - DAF sponsors (DAFRC 2025 panel EINs): ineligible on the strict reading of CN's 2024 note that "DAFs were
-          determined to be ineligible"; the lenient variant applies the filing rules to them;
+        - DAF sponsors: CN's 2024-04-08 release note says "DAFs were determined to be ineligible". Central reading:
+          DAFRC 2025 panel EINs in the national and donation-processor segments are ineligible; `strict` also
+          excludes community foundations; `lenient` applies the filing rules to every panel EIN (universities,
+          hospitals and single-issue charities that sponsor DAFs are never excluded on this ground in the central
+          reading);
         - >= 3 e-filed Form 990-series returns (990, 990-EZ, 990-PF; distinct tax periods, amendments collapsed) with
           a tax period ending 2020-2025 ("within the past six years"); sensitivity: IRS index (processing) year
           2021-2026;
@@ -167,18 +170,23 @@ def cn_filing_test(filings: Sequence[Mapping], window: str = "tax_year") -> dict
             "forms_last4": ";".join(p["form"] for p in last4)}
 
 
-def cn_reason(b: Mapping | None, panel_eins: frozenset, t: Mapping, revoked: frozenset, strict: bool) -> str:
-    """First failing Charity Navigator rule, or 'eligible'. Order: identity, status, filings."""
+DAF_RULES = {"lenient": frozenset(),
+             "national": frozenset({"national", "processor"}),
+             "national_cf": frozenset({"national", "processor", "community_foundation"})}
+
+
+def cn_reason(b: Mapping | None, daf_segment: str, t: Mapping, rule: str) -> str:
+    """First failing Charity Navigator rule, or 'eligible'. Order: identity, status, DAF sponsor, filings.
+    daf_segment: the recipient's DAFRC panel segment ('' when not a panel EIN); `rule` names which panel segments are
+    read as the "DAFs" CN calls ineligible (DAF_RULES)."""
     if b is None:
         return "not_in_bmf"
-    if b["ein"] in revoked:
-        return "revoked"
     if b["subsection"] != "03":
         return "not_501c3"
     if b["foundation"] in PF_CODES:
         return "private_foundation"
-    if strict and b["ein"] in panel_eins:
-        return "daf_sponsor"
+    if daf_segment in DAF_RULES[rule]:
+        return "daf_sponsor_" + ("community_foundation" if daf_segment == "community_foundation" else "national_or_processor")
     if t["n_periods"] == 0:
         return ("no_efiled_990_church" if b["foundation"] == "10"
                 else "no_efiled_990_group_subordinate" if b.get("affiliation") in ("6", "9") or b.get("group", "0000") not in ("", "0000")
@@ -368,8 +376,9 @@ def build_a(rows: Sequence[Mapping], scale: float, reps: int, seed: int) -> list
 
 
 # ----------------------------------------------------------------------------- (B) eligibility table
-def units_b(nums: Mapping, blank: Mapping, bmf: Mapping, extra: Mapping, hist: Mapping, panel_eins: frozenset,
-            revoked: frozenset) -> tuple[dict, ...]:
+def units_b(nums: Mapping, blank: Mapping, bmf: Mapping, extra: Mapping, hist: Mapping, panel: Mapping) -> tuple[dict, ...]:
+    panel_eins = frozenset(panel)
+
     def one(e, n):
         b = {**bmf[e], **extra.get(e, {})} if e in bmf else None
         fl = hist.get(e, ())
@@ -377,14 +386,18 @@ def units_b(nums: Mapping, blank: Mapping, bmf: Mapping, extra: Mapping, hist: M
         ti = cn_filing_test(fl, "index_year")
         return {"key": e, "si": sum(v["si"] for v in n["fy"].values()), "dw": sum(v["dw"] for v in n["fy"].values()),
                 "group": group_of(b["ntee"]) if b else "not_in_bmf", "band": band_of(b["revenue"]) if b else "not_in_bmf",
-                "type": (exclusion(b, panel_eins) or "other_charity") if b else "not_in_bmf",
-                "reason": cn_reason(b, panel_eins, t, revoked, True),
-                "reason_lenient": cn_reason(b, panel_eins, t, revoked, False),
-                "reason_index_window": cn_reason(b, panel_eins, ti, revoked, True), **t}
+                "type": (("daf_panel_" + panel[e]["segment"]) if e in panel else (exclusion(b, panel_eins) or "other_charity"))
+                        if b else "not_in_bmf",
+                "daf_segment": panel[e]["segment"] if e in panel else "",
+                "reason": cn_reason(b, panel[e]["segment"] if e in panel else "", t, "national"),
+                "reason_lenient": cn_reason(b, panel[e]["segment"] if e in panel else "", t, "lenient"),
+                "reason_national_cf": cn_reason(b, panel[e]["segment"] if e in panel else "", t, "national_cf"),
+                "reason_index_window": cn_reason(b, panel[e]["segment"] if e in panel else "", ti, "national"), **t}
     named = tuple(one(e, n) for e, n in nums.items())
     nob = tuple({"key": k, "si": v["si"], "dw": v["dw"], "group": "no_ein", "band": "no_ein", "type": "no_ein",
                  "reason": "no_ein_foreign" if v["foreign"] else "no_ein_domestic",
                  "reason_lenient": "no_ein_foreign" if v["foreign"] else "no_ein_domestic",
+                 "reason_national_cf": "no_ein_foreign" if v["foreign"] else "no_ein_domestic", "daf_segment": "",
                  "reason_index_window": "no_ein_foreign" if v["foreign"] else "no_ein_domestic",
                  "n_periods": 0, "n_in_window": 0, "n_full_990_last4": 0, "latest_form": "", "latest_tp": "",
                  "forms_last4": ""} for k, v in blank.items())
@@ -402,10 +415,11 @@ def share_rows(units: Sequence[Mapping], scope_type: str, scope: str, pred) -> l
                 "usd_daf_weighted_fy2023_2024": round(dw), "dollar_share_daf_weighted": dw / tot_dw if tot_dw else None,
                 "usd_sched_i_fy2023_2024": round(si), "dollar_share_sched_i": si / tot_si if tot_si else None, "source": SRC_B}
     cats = sorted({u["reason"] for u in sub})
-    return ([row("strict_tax_year_window", "reason", "*")]
-            + [row("strict_tax_year_window", "reason", c) for c in cats]
-            + [row("lenient_daf_sponsors_by_filings", "reason_lenient", "eligible"),
-               row("strict_index_year_window", "reason_index_window", "eligible")])
+    return ([row("central_tax_year_window", "reason", "*")]
+            + [row("central_tax_year_window", "reason", c) for c in cats]
+            + [row("lenient_all_daf_sponsors_by_filings", "reason_lenient", "eligible"),
+               row("strict_cfs_also_ineligible", "reason_national_cf", "eligible"),
+               row("central_index_year_window", "reason_index_window", "eligible")])
 
 
 def build_b(units: Sequence[Mapping]) -> list:
@@ -497,7 +511,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     blank = no_ein_lines(N["ann"], N["weights"])
     # BMF rows are the IRS's current exempt list; the revocation list is a diagnostic only (an org revoked and later
     # re-recognised keeps its old revocation row without a reinstatement date), so it is not applied as a rule.
-    units = units_b(nums, blank, bmf, extra, hist, panel_eins, frozenset())
+    units = units_b(nums, blank, bmf, extra, hist, N["panel"])
     summ_b = build_b(units)
     write_csv(a.out_b, summ_b, FIELDS_B)
 
