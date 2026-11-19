@@ -380,3 +380,140 @@ REVERSE_TYPES = {"acquired_by": "acquirer"}
 STATUS_RANK = {"confirmed": 6, "historically_confirmed": 5, "reported": 4, "probable": 3, "pending": 3,
                "inferred": 2, "unknown": 1, "rejected": 0}
 PRIMARY_HOSTS = ("sec.gov", "irs.gov", "gt990datalake", "propublica.org", "efts.sec.gov")
+
+# ============================================================== governing corrections
+
+# Edge-ID corrections stated in validation / red-team reports. op: set_type, set_status,
+# add_note, replace_note (old, new). 'check' = text whose presence means already applied.
+VALIDATION_CORRECTIONS = (
+    ("EN001", "set_type", "technology_provider", "validation-wave14-report.md l.138 (V14-01)"),
+    ("EN001", "add_note", "fund-accounting overlay on the NetSuite GL", "validation-wave14-report.md l.138 (V14-01)"),
+    ("EN011", "set_status", "reported", "validation-wave14-report.md l.139"),
+    ("EN011", "add_note", "donor-portal.org portal tenant (first-party link); back-office service not shown",
+     "validation-wave14-report.md l.139"),
+    ("ER017", "add_note", "superseded by the FireAid App. B circular (ratios as of 2024-09-30), which names Goldman "
+     "Sachs Wealth Services, L.P. as ETF selector (up to 50 bps) and payment by check or wire; V18-01",
+     "validation-wave18-report.md l.185"),
+    ("ER015", "add_note", "report wording varies: '$535 million ... since inception' vs 'In 2023: ... assets under "
+     "care'; V18-27", "validation-wave18-report.md l.186"),
+    ("ES016", "add_note", "the source text is in Schedule N Part II as well as Schedule O (V19)",
+     "validation-wave19-report.md l.132"),
+    ("ES006", "add_note", "Sch R also lists codes C $2,209,075, L $1,742,154, O $689,031, P $307,024 (V19)",
+     "validation-wave19-report.md l.133"),
+    ("EU013", "add_note", "GS & Co's payee label is 'TECH & INV ADV FEES', so technology_provider is a partial "
+     "reading; investment advisory also (V22)", "validation-wave22-report.md l.177"),
+    ("EV002", "add_note", "posting not re-observable (wave 23)", "validation-wave23-report.md l.243"),
+    ("EV003", "add_note", "terms not re-read in wave 23 (npact.com unreachable)", "validation-wave23-report.md l.244"),
+    ("EV006", "add_note", "the five CT-discovered clients ($9.81bn) are DNS-confirmed implementation hosts, not live "
+     "portals (V23)", "validation-wave23-report.md l.245"),
+    ("EV001", "add_note", "cite the fcjc.fftc.org page and the fftc.org link rather than daf.fftc.org/m/login "
+     "(robots intent; V23)", "validation-wave23-report.md l.246"),
+    ("EW020", "replace_note", ("file built 2014", "created 2014-11-18, modified 2023-01-02"),
+     "validation-wave25b-report.md l.169-170"),
+    ("EW020", "replace_note", ("file metadata 2014", "created 2014-11-18, modified 2023-01-02"),
+     "validation-wave25b-report.md l.169-170"),
+    ("EW019", "add_note", "amended FY6/22 return (filed 2024); also $197,000 cash to Dechomai Foundation (V25B)",
+     "validation-wave25b-report.md l.171-172"),
+    ("EX001", "add_note", "Fidelity named in the 2026 proxy only; not in the 2025 10-K (V26)",
+     "validation-wave26-report.md l.171"),
+    ("E086", "set_status", "confirmed", "red-team-wave2b-graph-data-incentives.md l.204"),
+    ("E151", "add_note", "scope=donor_checkout", "red-team-wave2b-graph-data-incentives.md l.205"),
+)
+
+# Explicit supersession notes inside the edge files (superseded edge, superseding edges).
+# Only cases where the later edge restates the same relationship; note-level references
+# (EJ005<-EP001, EA002<-EB001, EN004<-EV001, EJ007<-EM001, E045<-EZ008, EA016<-EE001) are
+# annotated, not superseded.
+SUPERSESSIONS = (
+    ("EA027", ("EK021",)), ("EA032", ("EK030", "ED002")), ("EJ032", ("EM033",)), ("EH013", ("ER005",)),
+    ("E034", ("EF001",)), ("EG008", ("EH004", "EH005")), ("E161", ("EA010",)), ("E092", ("EA016",)),
+    ("E120", ("EA017",)), ("E162", ("EA025",)), ("E077", ("EA022",)),
+)
+ANNOTATE_ONLY = (("EJ005", "EP001"), ("EA002", "EB001"), ("EN004", "EV001"), ("EJ007", "EM001"),
+                 ("E045", "EZ008"), ("EA016", "EE001"))
+
+
+def apply_correction(edge: dict, op: str, val, ref: str) -> tuple:
+    """Return (new_edge, log_row). Pure."""
+    before = {"relationship_type": edge["relationship_type"], "status": edge["status"]}
+    if op == "set_type":
+        done = edge["relationship_type"] == val
+        new = edge if done else {**edge, "relationship_type": val}
+    elif op == "set_status":
+        done = edge["status"] == val
+        new = edge if done else {**edge, "status": val}
+    elif op == "add_note":
+        done = val.lower()[:40] in edge["notes"].lower()
+        new = edge if done else {**edge, "notes": (edge["notes"] + " | " if edge["notes"] else "") + val}
+    else:  # replace_note
+        old, rep = val
+        done = old not in edge["notes"] and old not in edge["evidence_summary"]
+        new = edge if done else {**edge, "notes": edge["notes"].replace(old, rep),
+                                 "evidence_summary": edge["evidence_summary"].replace(old, rep)}
+    log = {"edge_id": edge["edge_id"], "op": op, "value": val if isinstance(val, str) else " -> ".join(val),
+           "source": ref, "result": "already applied in source file" if done else "applied in consolidated file",
+           "before_type": before["relationship_type"], "before_status": before["status"]}
+    return new, log
+
+
+def apply_corrections(edges: tuple) -> tuple:
+    by_id = {e["edge_id"]: e for e in edges}
+
+    def step(acc, c):
+        eid, op, val, ref = c
+        if eid not in acc[0]:
+            return acc[0], acc[1] + ({"edge_id": eid, "op": op, "value": str(val), "source": ref,
+                                      "result": "edge not found"},)
+        new, log = apply_correction(acc[0][eid], op, val, ref)
+        return {**acc[0], eid: new}, acc[1] + (log,)
+
+    final, logs = reduce(step, VALIDATION_CORRECTIONS, (by_id, ()))
+    return tuple(final[e["edge_id"]] for e in edges), logs
+
+
+# ============================================================== normalise + dedup
+
+
+def normalise(edge: dict, res: dict) -> dict:
+    s, t, typ = edge["source_entity"], edge["target_entity"], edge["relationship_type"].strip()
+    if typ in REVERSE_TYPES:
+        s, t, typ = t, s, REVERSE_TYPES[typ]
+    typ = TYPE_MAP.get(typ, typ)
+    rs, rt = res[s], res[t]
+    return {**edge, "src_id": rs["id"], "tgt_id": rt["id"], "src": rs["label"], "tgt": rt["label"],
+            "src_ein": rs["ein"], "tgt_ein": rt["ein"], "type_norm": typ,
+            "src_type": edge["source_type"] if s == edge["source_entity"] else edge["target_type"],
+            "tgt_type": edge["target_type"] if t == edge["target_entity"] else edge["source_type"],
+            "self_loop": rs["id"] == rt["id"]}
+
+
+def strength(e: dict) -> tuple:
+    url = e["source_url"].lower()
+    primary = int(any(h in url for h in PRIMARY_HOSTS))
+    acc = re.search(r"\d{4}-\d{2}-\d{2}", e["accessed_date"] or "")
+    return (STATUS_RANK.get(e["status"], 0), primary, acc.group(0) if acc else "", e["edge_id"])
+
+
+def dedup(edges: tuple, superseded: dict) -> tuple:
+    """Group on unordered endpoints + type; the head is the strongest non-superseded edge."""
+    groups = defaultdict(list)
+    for e in edges:
+        key = (tuple(sorted((e["src_id"], e["tgt_id"]))), e["type_norm"])
+        groups[key].append(e)
+
+    def head(members):
+        live = [m for m in members if m["edge_id"] not in superseded] or members
+        # a downgrade/correction edge governs the edge it corrects even if weaker
+        return max(live, key=strength)
+
+    out = []
+    for key, members in groups.items():
+        h = head(members)
+        ids = [m["edge_id"] for m in sorted(members, key=lambda m: m["edge_id"] != h["edge_id"])]
+        statuses = sorted({m["status"] for m in members})
+        reversed_dup = any((m["src_id"], m["tgt_id"]) != (h["src_id"], h["tgt_id"]) for m in members)
+        out.append({**h, "merged_edge_ids": ";".join(ids), "n_merged": len(members),
+                    "merged_statuses": ";".join(statuses), "reversed_duplicate": reversed_dup,
+                    "superseded_ids": ";".join(i for i in ids if i in superseded),
+                    "member_files": ";".join(sorted({m["file"] for m in members}))})
+    return tuple(sorted(out, key=lambda e: e["edge_id"]))
