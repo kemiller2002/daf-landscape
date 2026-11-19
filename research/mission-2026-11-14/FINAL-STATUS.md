@@ -8,7 +8,34 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-19, through PR #53) — governing
+## Counts (refresh 2026-11-19, through PR #56) — governing
+
+These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #56 merged. They supersede the tables below. The PR #56 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#56 (37 PRs) | GitHub |
+| Research documents | 278 documents, 992,042 words | `research/**/*.md` |
+| Datasets | 530 CSV files, 213,229 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,706 | regex over `research/**/*.md` |
+| Independent validation | **1,128 register rows** in 39 register files (waves 1–33B): 847 confirmed, 219 partially confirmed, 39 contradicted, 16 unverifiable, 7 other (audit or defect rows) | `validation-register*.csv`, classified by the leading word of `validation_result`. This differs slightly from the per-wave tallies used in earlier tables |
+| Research queue | 640 items: 322 done, 187 open, 75 blocked (reasons recorded), 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.33 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+| Strategic synthesis | New §0, "Current A–G and top ten (governing)". Older layers are marked superseded | `strategic-synthesis.md` |
+
+**Additions since PR #53 (all validated; report §11.30–§11.33):**
+- **Exception-load proxy.** Across the top 50 sponsors, 7.4% of recipient lines and 11.0% of dollars need non-routine review.
+- **Complaints.** Measured against accounts and grants, grant delay is the top complaint category. Processor complaint rates run far above sponsors' rates per grant dollar.
+- **State law.** A 50-state check found no state DAF mandate. New Jersey's hospital-conversion clause is the one reach into DAF money.
+- **Startup cohort.** Survival for the 2021–26 startup cohort is 64.7–100%.
+- **Recipient revenue.** Top-50 DAF grants are a median 5.9% (pooled 6.9%) of recipients' contributions.
+- **Long-tail costs.** Tail community foundations' allocated DAF cost is about 205 bps, 1.6–2.2× the top-50 community foundations.
+- **Processor rules.** Processors' published disbursement rules include thresholds, cadence and redirection.
+- **Pledges.** Notice 2017-73 §4 still governs DAF pledge payments.
+- **Sponsor tax pages.** Their OBBBA errors are documented: Vanguard's bunching example, DAFgiving360's "inflation adjustment", and a calculator with no floor or cap.
+- **Consistency pass.** 66 edits were applied, including 7 citations added, 12 relabels and 1 softening.
+
+## Counts (refresh 2026-11-19, through PR #53) (superseded by the table above)
 
 Recomputed from the repository at merge commit `7932eb4` (PR #53). Supersedes the tables below.
 
