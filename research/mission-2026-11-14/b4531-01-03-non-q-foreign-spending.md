@@ -31,7 +31,7 @@ Scope: the same as the base run. Top-50 sponsors excluding the two university/ho
 | **Concentration** | - The 10 largest account for 42.8% of the $1.347bn and the 25 largest for 65.8%.<br>- 188 of the 387 parsed recipients report no foreign spending. |
 | **By NTEE major group** | - **C Environment $250.1m** (15.7% of inbound);<br>- **T Philanthropy/grantmaking $248.9m** (12.8%);<br>- **B Education $206.1m** (4.2% of $4.95bn);<br>- P Human Services $147.5m (12.2%);<br>- X Religion $92.0m (6.7%);<br>- U Science $81.1m;<br>- E Health $66.1m (3.7%) [I-alloc]. |
 | **Where it goes** | - **Europe 42.1%**;<br>- Sub-Saharan Africa 17.4%;<br>- East Asia and Pacific 10.5%;<br>- Middle East and North Africa 8.3%;<br>- South America 6.4%;<br>- North America 5.1%. |
-| **Combined share of total grants** (sponsors' lines 1–3, $98.27bn) | - Direct line 3: **1.92%** [F].<br>- + Q/friends top 150: **3.82%** [I-alloc].<br>- + non-Q 500: **5.20%** ($5.105bn) [I-alloc]. This is the measured headline.<br>- With [I-extrap] for recipients not read: 6.15% → 6.53% → **8.41%**.<br>- On the itemising base (net Schedule I + line 3): 2.39% → 4.74% → **6.44%** measured, 10.42% [I-extrap]. |
+| **Combined share of total grants** (sponsors' lines 1–3, $98.27bn) | - Direct line 3: **1.92%** [F].<br>- + Q/friends top 150: **3.82%** [I-alloc].<br>- + non-Q 500: **5.20%** ($5.105bn) [I-alloc]. This is the measured headline (filed foreign shares × proportional allocation; 5.10% without program-related-investment and fundraising rows) [V wave 38A]<br>- With [I-extrap] for recipients not read: 6.15% → 6.53% → **8.41%**.<br>- On the itemising base (net Schedule I + line 3): 2.39% → 4.74% → **6.44%** measured, 10.42% [I-extrap]. |
 | **DAF sponsors among the 500** (reported separately) | - 42 recipients, $6.460bn inbound, **$187.4m abroad** (2.9%).<br>- Largest: Johns Hopkins $58.3m, Rockefeller Philanthropy Advisors $47.0m, Nature Conservancy $18.8m, Global Greengrants Fund $18.5m.<br>- Adding them would give 5.39%. |
 
 **Reading [I].** Large recipients outside the Q / friends-of frame add about 72% as much as the 150 Q / friends recipients of the base run ($1.347bn vs $1.868bn), on seven times the inbound. Their foreign share is low (6–8% vs 59–62%), but they are much larger. Measured DAF money reaching abroad rises from 3.8% to 5.2% of total grants. This is 2.7 times the direct share.
@@ -98,7 +98,7 @@ Scope: the same as the base run. Top-50 sponsors excluding the two university/ho
 **By year (non-Q):**
 - Inbound: FY2023 $11.280bn; FY2024 $11.366bn.
 - Abroad: $478.7m and $868.1m.
-- The FY2024 rise comes from a few recipients. ClimateWorks Foundation went from $7.4m to $72.9m on inbound of $17.4m and $152.2m. The Clear Fund (GiveWell) went from $15.9m to $65.0m. The US Olympic and Paralympic Foundation went from $0.0m to $24.1m (Europe; FY2024 is the Paris 2024 year [I]).
+- The FY2024 rise comes from a few recipients. ClimateWorks Foundation went from $7.4m to $72.9m on inbound of $17.4m and $152.2m. The Clear Fund (GiveWell) went from $15.9m to $65.0m. The US Olympic and Paralympic Foundation went from $0.0m to $24.1m (Europe; FY2024 is the Paris 2024 year [I]). Its TY2024 Schedule F Part I rows (Europe $50.05m) are all labelled “FUNDRAISING” and its line 3 is blank, so this is fundraising spending abroad, not money for foreign programmes [V wave 38A]
 
 **Share bands (non-Q, central, by recipient):**
 - ≥ 90%: 3 recipients, $67.1m inbound;
@@ -222,7 +222,7 @@ Shares are pooled over the two returns; dollars use each year's own share. Rank 
 
 **Reading [I]:**
 - The measured figure (5.20%; 6.44% on the itemising base) is now close to the 7.83% "every Q recipient + direct" bound that the base run called about 2 points too high. Its meaning is different, though: the earlier bound counted all Q inbound as foreign, while this one counts only filed foreign spending.
-- The last extrapolation step is the weakest. It applies a 4.3% share to $42.8bn spread over about 170,000 smaller recipients, most of them local schools, churches, hospitals and US charities. A zero-to-4.3% range on that step (5.20%/6.53% to 8.41%) is the honest statement.
+- The last extrapolation step is the weakest. It applies a 4.3% share to $42.8bn spread over about 170,000 smaller recipients, most of them local schools, churches, hospitals and US charities. A zero-to-4.3% range on that step (5.20%/6.53% to 8.41%) is the honest statement. The 4.30% is outlier-driven: the median share among those 100 recipients is 0%, and five of them (led by Friends of the World Food Program, $13.2m) supply $44.3m of their $77.6m abroad [V wave 38A]
 
 ### 2.6 Which sponsors route money abroad through non-Q recipients [I-alloc]
 
@@ -259,7 +259,7 @@ The 46 sponsor rows sum to $1,346.8m.
 4. **Schedule F Part I is self-labelled.**
    - The investment exclusion is the base script's text rule. Wesleyan's capped row shows that "Program services" can hide investments; the cap sensitivity covers the two years where this binds.
    - Caltech reports $58–98m a year of Europe "Program services" (central share 2.5%, $6.1m abroad). It was not verified.
-   - Non-Q recipients' Part I investment rows total $136.8bn pooled and are excluded; almost all of this is university endowments.
+   - Non-Q recipients' Part I investment rows total $136.8bn pooled and are excluded; almost all of this is university endowments. Program-related investments (counted as programme by the base rule) and fundraising rows stay in. Excluding both lowers non-Q from $1,346.8m to $1,253.4m (5.20% → 5.10%): Grantham Environmental Trust ($57.5m; line 3 blank, every counted Part I row a PRI) and the US Olympic and Paralympic Foundation ($24.1m; Europe row labelled fundraising) fall to zero [V wave 38A]
 5. **Universities' foreign campuses may sit in related entities.** Examples are NYU Abu Dhabi and Weill Cornell–Qatar. Where a campus is a separate legal entity, its spending appears on Schedule R, not Schedule F Part I, so university shares may be understated.
 6. **Double counting.** Each DAF dollar is counted once, at its first recipient, and only to the extent that recipient reports foreign spending.
    - A non-Q grantmaker's grants to a US Q organisation (for example a grant from The Clear Fund to a US-registered charity) are domestic grants (line 1) on its return, so they are not counted in its share.
