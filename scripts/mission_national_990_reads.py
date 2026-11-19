@@ -493,7 +493,7 @@ def estimates(exts: Mapping) -> list:
 # ----------------------------------------------------------------------------- P-B45N31-02 rows
 REGION_RULES = ((r"EUROPE", "Europe"), (r"MIDDLE.?EAST|NORTH AFRICA", "Middle East and North Africa"),
                 (r"SUB.?SAHARAN", "Sub-Saharan Africa"), (r"SOUTH ASIA", "South Asia"),
-                (r"EAST ASIA|PACIFIC", "East Asia and the Pacific"), (r"SOUTH AMERICA", "South America"),
+                (r"EAST ASIA|PACIFIC|OCEANIA", "East Asia and the Pacific"), (r"SOUTH AMERICA", "South America"),
                 (r"CENTRAL AMERICA|CARIBBEAN", "Central America and the Caribbean"),
                 (r"RUSSIA|NEWLY INDEPENDENT", "Russia and the Newly Independent States"),
                 (r"NORTH AMERICA|CANADA|MEXICO", "North America (Canada, Mexico)"), (r"LATIN AMERICA", "Latin America (unspecified)"),
@@ -647,7 +647,32 @@ def affiliate_rows(exts: Mapping, h10: Sequence = ()) -> list:
         return [{"fy": fy, "row_type": "affiliate_split", "dimension": "made_via_npt_transatlantic_upper_bound",
                  "category": "Transatlantic grants less US-named material grantees, USD at FY mean rate; inside line 3, not a grant to an affiliate",
                  "gbp": tot - us_named, "usd": round(ub), "share": ub / l3, "source_url": UK_TA25 if fy >= 2024 else UK_GR23, "evidence": "P/C/I"}]
-    return facts + mat + fx + [r for fy in range(2021, 2026) for r in split(fy) + via_ta(fy)]
+    yearly = [r for fy in range(2021, 2026) for r in split(fy) + via_ta(fy)]
+    l3p = sum(exts.get((NPT, fy), {}).get("grants_foreign", 0) for fy in (2023, 2024))
+    ta_p = sum(r["usd"] for r in yearly if r["dimension"] == "made_via_npt_transatlantic_upper_bound" and r["fy"] in (2023, 2024))
+    l3_25 = exts.get((NPT, 2025), {}).get("grants_foreign", 0)
+    uk25 = usd(2025, "gbp", 30939000)
+    pooled = [{"fy": "2023-2024", "row_type": "affiliate_split", "dimension": "line3_pooled", "category": "FY2023+FY2024 foreign grants",
+               "usd": l3p, "evidence": "F/C"},
+              {"fy": "2023-2024", "row_type": "affiliate_split", "dimension": "to_npt_uk_and_other_related_orgs_as_filed",
+               "category": "Schedule R line 1d = No both years; NPT UK absent from Transatlantic's FY2024 material grantees", "usd": 0, "share": 0, "evidence": "F/P"},
+              {"fy": "2023-2024", "row_type": "affiliate_split", "dimension": "made_via_npt_transatlantic_upper_bound",
+               "category": "sum of the FY2023 and FY2024 bounds", "usd": ta_p, "share": ta_p / l3p if l3p else "", "evidence": "P/C/I"},
+              {"fy": "2023-2024", "row_type": "affiliate_split", "dimension": "to_other_foreign_organisations",
+               "category": "all of line 3 (no related-organisation recipient reported)", "usd": l3p, "share": 1 if l3p else "", "evidence": "F/C"}]
+    fy25 = [{"fy": 2025, "row_type": "affiliate_split", "dimension": "to_npt_uk_per_affiliate_accounts",
+             "category": "NPT Transatlantic grant to NPT UK £30.939m (accounts note); NPT 990 Schedule R line 1d still = No",
+             "gbp": 30939000, "usd": uk25, "share": uk25 / l3_25 if uk25 != "" and l3_25 else "", "source_url": UK_TA25, "evidence": "P/C"}]
+    return facts + mat + fx + yearly + pooled + fy25
+
+
+def pooled(rows: Sequence[Mapping], row_type: str, fys=(2023, 2024)) -> list:
+    """FY2023+FY2024 pooled view of per-year region / size-band rows."""
+    sel = [r for r in rows if r["row_type"] == row_type and r["fy"] in fys]
+    tot = sum(r["usd"] for r in sel)
+    acc = reduce(lambda a, r: {**a, r["category"]: (a.get(r["category"], (0, 0))[0] + r["lines"], a.get(r["category"], (0, 0))[1] + r["usd"])}, sel, {})
+    return [{"fy": "2023-2024", "row_type": row_type + "_pooled", "dimension": "schedF_part2", "category": k, "lines": n, "usd": v,
+             "share": v / tot if tot else "", "evidence": "C"} for k, (n, v) in sorted(acc.items(), key=lambda kv: -kv[1][1])]
 
 
 # ----------------------------------------------------------------------------- I/O
@@ -689,7 +714,8 @@ def main(argv: Sequence[str]) -> int:
     exts = {(r["ein"], r["fy"]): e for r, e in ok if r["tax_period"].endswith("06") or (r["ein"], r["fy"]) not in {(x["ein"], x["fy"]) for x, _ in ok if x["tax_period"].endswith("06")}}
     rows = [x for r, e in ok for x in rows_a(r, e)] + pub_rows() + estimates(exts)
     write_csv(os.path.join(a.root, OUT_A), rows, FIELDS_A)
-    npt = [x for r, e in ok if r["ein"] == NPT for x in rows_b(r, e)] + affiliate_rows(exts, read_h10(a.fx_h10))
+    npt_years = [x for r, e in ok if r["ein"] == NPT for x in rows_b(r, e)]
+    npt = npt_years + pooled(npt_years, "region") + pooled(npt_years, "size_band") + affiliate_rows(exts, read_h10(a.fx_h10))
     write_csv(os.path.join(a.root, OUT_B), npt, FIELDS_B)
     print(json.dumps({"returns": [(r["sponsor"], r["tax_period"], r["object_id"], e.get("via", e.get("status")),
                                    e.get("tax_period_begin"), e.get("tax_period_end")) for r, e in exts_list],

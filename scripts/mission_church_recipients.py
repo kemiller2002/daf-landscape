@@ -50,6 +50,7 @@ OUT = os.path.join(DATA, "church-daf-recipients-profile-2026-11-19.csv")
 UA = "research-script/1.0"
 SEED = 20261119
 BLOCK = "no_efiled_990_church"
+LDS = "870234341"  # The Church of Jesus Christ of Latter-day Saints (BMF), the largest single recipient
 OUTREACH_YEARS = (2023, 2024)
 OUTREACH_URL = "https://outreach100.com/largest-churches-in-america/{y}"
 OUTREACH_PAGES = 6
@@ -166,7 +167,7 @@ def read_outreach(d: str, years: Sequence[int], pages: int = OUTREACH_PAGES) -> 
             return ()
         with open(f, encoding="utf-8", errors="replace") as fh:
             return parse_outreach(fh.read(), y)
-    return {y: tuple({r["rank"]: r for p in range(1, pages + 1) for r in one(y, p)}.values()) for y in years}
+    return {y: tuple({(r["rank"], r["name"]): r for p in range(1, pages + 1) for r in one(y, p)}.values()) for y in years}
 
 
 # ----------------------------------------------------------------------------- pure: parsing and classification
@@ -230,14 +231,16 @@ def sponsor_group(e: str, panel: Mapping) -> str:
 # the IRS code is "Church 170(b)(1)(A)(i)", which also takes in conventions or associations of churches, church
 # schools and integrated auxiliaries. A strict or loose Outreach 100 match overrides to `congregation`.
 RTYPES = (
-    ("school_or_seminary", r"SCHOOL|ACADEMY|YESHIV|COLLEGE|SEMINARY|KOLLEL|MESIVTA|TALMUD|UNIVERSITY|\bPREP\b|"
-                           r"INSTITUTE|BAIS YAAKOV|BETH JACOB|BAIS MEDRASH|BETH MEDRASH|CHEDER|DAY CARE|PRESCHOOL"),
+    ("school_or_seminary", r"SCHOOL|ACADEMY|YESHIV|SEMINARY|KOLLEL|MESIVTA|TALMUD|\bPREP\b|BAIS YAAKOV|BETH JACOB|"
+                           r"BAIS MEDRASH|BETH MEDRASH|CHEDER|DAY CARE|PRESCHOOL"),
     ("denominational_body", r"DIOCESE|ARCHDIOCESE|ARCHBISHOP|\bBISHOP|CONFERENCE|CONVENTION|SYNOD|PRESBYTERY|"
-                            r"ASSOCIATION|\bUNION\b|UNION OF|COUNCIL|GENERAL ASSEMBLY|HEADQUARTERS|TERRITOR|"
+                            r"ASSOCIATION|UNION OF|COUNCIL|GENERAL ASSEMBLY|HEADQUARTERS|TERRITOR|"
                             r"DISTRICT|PROVINCE|ECCLESIASTICAL|CORPORATION SOLE|\bLATTER[ -]DAY"),
     ("congregation", r"CHURCH|PARISH|CONGREGATION|SYNAGOGUE|\bTEMPLE|MASJID|MOSQUE|CHAPEL|TABERNACLE|\bSHUL\b|"
                      r"CATHEDRAL|BASILICA|\bCONG\b|ANSHE|BETH |\bBNAI|B NAI|AHAVAS|AHAVATH|EMANU|SHAAR|ISLAMIC CENTER|"
-                     r"GURDWARA|MANDIR|\bKEHIL|MINYAN|FELLOWSHIP\b|ASSEMBLY\b|MEETING HOUSE|FRIENDS MEETING"),
+                     r"GURDWARA|MANDIR|\bKEHIL|MINYAN|FELLOWSHIP\b|ASSEMBLY\b|MEETING HOUSE|FRIENDS MEETING|IGLESIA|"
+                     r"TEMPLO|IGREJA|EGLISE|WORSHIP CENTER|HOUSE OF PRAYER|GATHERING"),
+    ("school_or_seminary", r"COLLEGE|UNIVERSITY|INSTITUTE"),
     ("ministry_or_order", r"MINISTR|CRUSADE|MISSION|FOUNDATION|INTERNATIONAL|TRANSLATORS|SOCIETY|NAVIGATORS|"
                           r"SALVATION ARMY|\bORDER\b|FATHERS|SISTERS|BROTHERS|MONASTERY|ABBEY|PRIORY|CONVENT|"
                           r"LEGION|CAMPUS|OUTREACH|RADIO|MEDIA|FUND\b|CHARIT|CHESED|CHASODIM|CHASDEI|GEMILU|TZEDAK|"
@@ -402,8 +405,10 @@ def profile(block: Sequence[Mapping], lines: Sequence[Mapping], all_lines_dw: fl
            for g, v in sorted(by_g.items(), key=lambda kv: -sum(d["dw"] for d in kv[1]))]
     tiers = [("outreach100_matched_strict", lambda r: r["outreach_strict"]),
              ("outreach100_matched_strict_or_loose", lambda r: bool(r["outreach"])), ("dw_ge_1m", lambda r: r["dw"] >= 1e6),
-             ("dw_ge_250k", lambda r: r["dw"] >= 2.5e5), ("top_100_by_dw", lambda r: r["rank"] <= 100),
-             ("top_100_ex_lds", lambda r: r["rank_ex_lds"] <= 100)]
+             ("dw_ge_250k", lambda r: r["dw"] >= 2.5e5), ("top_100_by_dw", lambda r: r["ein"] in top100),
+             ("top_100_ex_lds", lambda r: r["ein"] in top100x)]
+    top100 = frozenset(r["ein"] for r in ranked[:100])
+    top100x = frozenset(r["ein"] for r in [x for x in ranked if x["ein"] != LDS][:100])
     mega = [mk(pre + "megachurch", k, recipients=len(s), dw=sum(r["dw"] for r in s), si=sum(r["si"] for r in s),
                share=sum(r["dw"] for r in s) / tot, value=sum(r["dw"] for r in s) / tot)
             for k, f in tiers for s in [tuple(r for r in block if f(r))]]
@@ -438,6 +443,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     ap.add_argument("--out", default=OUT)
     ap.add_argument("--sample-out", default="", help="write the seeded 50-congregation sample (JSON) here")
     ap.add_argument("--sample-n", type=int, default=50)
+    ap.add_argument("--dump-block", default="", help="write every block recipient (CSV, for audit) here")
     a = ap.parse_args(argv)
 
     fetchlog = fetch_outreach(a.outreach_dir, OUTREACH_YEARS) if a.fetch_outreach else ()
@@ -481,13 +487,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         m = match_outreach(out_rows, rs)
         tag = {e: [f"{x['year']} #{x['rank']} ({x['tier']})" for x in v]
                for e, v in _group_by_fast((x for x in m if x["match"]), lambda x: x["match"]["ein"]).items()}
-        lds = "870234341"
-        order = sorted(rs, key=lambda r: -r["dw"])
-        rank = {r["ein"]: i + 1 for i, r in enumerate(order)}
-        rank_x = {r["ein"]: i + 1 for i, r in enumerate(r for r in order if r["ein"] != lds)}
         rs2 = tuple({**r, "outreach": "; ".join(tag.get(r["ein"], [])),
-                     "outreach_strict": any("strict" in t for t in tag.get(r["ein"], [])), "rank": rank[r["ein"]],
-                     "rank_ex_lds": rank_x.get(r["ein"], 10 ** 9),
+                     "outreach_strict": any("strict" in t for t in tag.get(r["ein"], [])),
                      "rtype": rtype_of(r["name"], r["ein"] in tag)} for r in rs)
         fam = {r["ein"]: (r["family"], r["rtype"]) for r in rs2}
         ls2 = tuple({**l, "family": fam[l["rec"]][0], "rtype": fam[l["rec"]][1], "group": sponsor_group(l["sponsor"], panel)}
@@ -515,6 +516,9 @@ def main(argv: Sequence[str] | None = None) -> int:
                       for x in allc_m.values()]
     write_csv(a.out, rows + match_rows + match_rows_all, FIELDS)
 
+    if a.dump_block:
+        write_csv(a.dump_block, sorted(blk, key=lambda r: -r["dw"]), ("ein", "name", "city", "state", "rtype", "family",
+                  "family_method", "gen", "gen_central", "ntee", "dw", "si", "n_lines", "n_sponsors", "top_sponsor", "outreach"))
     if a.sample_out:
         smp = seeded_sample(tuple(r for r in blk if r["rtype"] == "congregation"), a.sample_n, SEED)
         with open(a.sample_out, "w", encoding="utf-8") as fh:

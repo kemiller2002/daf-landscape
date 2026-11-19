@@ -277,9 +277,8 @@ fy,tax_period,object_id,row_type,dimension,category,lines,usd,gbp,share,note,evi
 2024,202406,202511339349301311,region,schedF_part2,Central America and the Caribbean,10,31524806,,0.0768329,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region,schedF_part2,Sub-Saharan Africa,23,10822756,,0.0263775,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region,schedF_part2,"North America (Canada, Mexico)",29,7155364,,0.0174392,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
-2024,202406,202511339349301311,region,schedF_part2,East Asia and the Pacific,18,4008449,,0.00976948,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+2024,202406,202511339349301311,region,schedF_part2,East Asia and the Pacific,25,4755066,,0.0115891,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region,schedF_part2,Russia and the Newly Independent States,2,1006293,,0.00245256,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
-2024,202406,202511339349301311,region,schedF_part2,Other / unmapped: OCEANIA,7,746617,,0.00181967,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,size_band,schedF_part2_line_size,<$100k,264,8053710,,0.0196287,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,size_band,schedF_part2_line_size,$100k-<$1m,163,52643119,,0.128303,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,size_band,schedF_part2_line_size,$1m-<$10m,54,195675378,,0.476904,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
@@ -289,9 +288,9 @@ fy,tax_period,object_id,row_type,dimension,category,lines,usd,gbp,share,note,evi
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,Central America and the Caribbean | $10m-<$30m,1,22026748,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,Central America and the Caribbean | $1m-<$10m,1,6977253,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,Central America and the Caribbean | <$100k,5,247617,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
-2024,202406,202511339349301311,region_x_size_band,schedF_part2,East Asia and the Pacific | $100k-<$1m,3,1889675,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+2024,202406,202511339349301311,region_x_size_band,schedF_part2,East Asia and the Pacific | $100k-<$1m,6,2428483,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,East Asia and the Pacific | $1m-<$10m,1,1650000,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
-2024,202406,202511339349301311,region_x_size_band,schedF_part2,East Asia and the Pacific | <$100k,14,468774,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+2024,202406,202511339349301311,region_x_size_band,schedF_part2,East Asia and the Pacific | <$100k,18,676583,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,Europe | $100k-<$1m,109,31928268,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,Europe | $10m-<$30m,3,57434303,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,Europe | $1m-<$10m,22,66019199,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
@@ -304,8 +303,6 @@ fy,tax_period,object_id,row_type,dimension,category,lines,usd,gbp,share,note,evi
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,"North America (Canada, Mexico) | $100k-<$1m",9,2570353,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,"North America (Canada, Mexico) | $1m-<$10m",2,4079145,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,"North America (Canada, Mexico) | <$100k",18,505866,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
-2024,202406,202511339349301311,region_x_size_band,schedF_part2,Other / unmapped: OCEANIA | $100k-<$1m,3,538808,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
-2024,202406,202511339349301311,region_x_size_band,schedF_part2,Other / unmapped: OCEANIA | <$100k,4,207809,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,Russia and the Newly Independent States | $100k-<$1m,2,1006293,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,South America | $100k-<$1m,10,3546112,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
 2024,202406,202511339349301311,region_x_size_band,schedF_part2,South America | $1m-<$10m,8,32000000,,,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
@@ -454,6 +451,20 @@ fy,tax_period,object_id,row_type,dimension,category,lines,usd,gbp,share,note,evi
 2025,202506,202601289349302480,schedR_part5_line1,GiftGrntCapContriFromOthOrgInd,Yes,,,,,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
 2025,202506,202601289349302480,schedR_part5_line1,TransferToOtherOrgInd,No,,,,,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
 2025,202506,202601289349302480,schedR_part5_line1,TransferFromOtherOrgInd,No,,,,,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+2023-2024,,,region_pooled,schedF_part2,Europe,619,328467254,,0.442561,,C,
+2023-2024,,,region_pooled,schedF_part2,South Asia,45,128212593,,0.172747,,C,
+2023-2024,,,region_pooled,schedF_part2,Middle East and North Africa,21,87301293,,0.117625,,C,
+2023-2024,,,region_pooled,schedF_part2,South America,44,70105190,,0.0944563,,C,
+2023-2024,,,region_pooled,schedF_part2,Sub-Saharan Africa,55,55820905,,0.0752103,,C,
+2023-2024,,,region_pooled,schedF_part2,Central America and the Caribbean,19,34820531,,0.0469155,,C,
+2023-2024,,,region_pooled,schedF_part2,"North America (Canada, Mexico)",46,20510471,,0.0276348,,C,
+2023-2024,,,region_pooled,schedF_part2,East Asia and the Pacific,49,15197641,,0.0204765,,C,
+2023-2024,,,region_pooled,schedF_part2,Russia and the Newly Independent States,3,1761491,,0.00237335,,C,
+2023-2024,,,size_band_pooled,schedF_part2,$1m-<$10m,102,367716216,,0.495443,,C,
+2023-2024,,,size_band_pooled,schedF_part2,$10m-<$30m,15,234608707,,0.3161,,C,
+2023-2024,,,size_band_pooled,schedF_part2,$100k-<$1m,289,89347839,,0.120383,,C,
+2023-2024,,,size_band_pooled,schedF_part2,>=$30m,1,36000000,,0.0485046,,C,
+2023-2024,,,size_band_pooled,schedF_part2,<$100k,494,14524607,,0.0195697,,C,
 ,,,affiliate_account,status,NPT Transatlantic,,,,,recognised by the Internal Revenue Service (IRS) as US public charity because it is considered a disregarded entity of National Philanthropic Trust (EIN 23-7825575),P,https://www.nptuk.org/what-is-npt-transatlantic/
 2023,,,affiliate_account,grants_total_gbp,NPT Transatlantic,,81933798,68000000,,NPT Transatlantic distributed a further £68 million in grants in FY23 [USD at FY mean H.10 rate 1.2049],P/C,https://www.nptuk.org/annual-reports/2023-grantmaking-report/
 2023,,,affiliate_account,grants_total_gbp,NPT UK,,19278541,16000000,,Grantmaking from NPT UK surpassed £16 million in value during FY23 [USD at FY mean H.10 rate 1.2049],P/C,https://www.nptuk.org/annual-reports/2023-grantmaking-report/
@@ -502,3 +513,8 @@ fy,tax_period,object_id,row_type,dimension,category,lines,usd,gbp,share,note,evi
 2025,2025-06-30,,affiliate_split,to_npt_uk_and_other_related_orgs_as_filed,Schedule R Part V line 1d = No; NPT UK listed in Part II: True,,0,,,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
 2025,2025-06-30,,affiliate_split,to_other_foreign_organisations_as_filed,line 3 less filed related-org grants,,310506570,,1,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
 2025,,,affiliate_split,made_via_npt_transatlantic_upper_bound,"Transatlantic grants less US-named material grantees, USD at FY mean rate; inside line 3, not a grant to an affiliate",,92139804,71161000,0.29674,,P/C/I,https://www.nptuk.org/transatlantic-annual-report-and-accounts-2025/
+2023-2024,,,affiliate_split,line3_pooled,FY2023+FY2024 foreign grants,,742782672,,,,F/C,
+2023-2024,,,affiliate_split,to_npt_uk_and_other_related_orgs_as_filed,Schedule R line 1d = No both years; NPT UK absent from Transatlantic's FY2024 material grantees,,0,,0,,F/P,
+2023-2024,,,affiliate_split,made_via_npt_transatlantic_upper_bound,sum of the FY2023 and FY2024 bounds,,134901218,,0.181616,,P/C/I,
+2023-2024,,,affiliate_split,to_other_foreign_organisations,all of line 3 (no related-organisation recipient reported),,742782672,,1,,F/C,
+2025,,,affiliate_split,to_npt_uk_per_affiliate_accounts,NPT Transatlantic grant to NPT UK £30.939m (accounts note); NPT 990 Schedule R line 1d still = No,,40060052,30939000,0.129015,,P/C,https://www.nptuk.org/transatlantic-annual-report-and-accounts-2025/
