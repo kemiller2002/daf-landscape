@@ -19,7 +19,7 @@ This is the repository's own method. It is not a Gartner Magic Quadrant. Positio
 - **New evidence this pass.**
   - GiveClear's audited CY2024 statements were read: Capin Crouse, unmodified opinion dated 2025-11-06, giving A3 X3 = 3 ([PDF](https://irp.cdn-website.com/5c4108df/files/uploaded/GiveClear+24+Consolidated+FS+Final.pdf)).
   - Chariot's compliance documents name its sources: BMF, Pub 78, 990s, OFAC/AML and state checks ([Chariot](https://help.givechariot.com/onboarding/compliance-verification/organization-eligibility)).
-  - Candid's Charity Check source list was confirmed: BMF, Pub 78, IRB, auto-revocation and OFAC SDN ([Candid FAQ](https://developer.candid.org/docs/faqs-charity-check)).
+  - Candid's Charity Check source list was confirmed: BMF, Pub 78, IRB, auto-revocation and OFAC SDN ([Candid FAQ](https://developer.candid.org/docs/faqs-charity-check) ([archived copy](http://web.archive.org/web/20250425115007/https://developer.candid.org/docs/faqs-charity-check))).
   - Benevity's validation scope: six countries, BMF good standing, periodic re-review ([Benevity](https://causeshelp.benevity.org/hc/en-us/articles/18579133440532-Benevity-s-validation-requirements-for-nonprofits)).
   - Goodstack's docs show SOC 2 and ISO badges but no data sources, re-validation or customers ([docs](https://docs.goodstack.io/docs/guides/Cause%20verification/)).
 - **No provider in any area earns AI overlay GREEN.** One provider is RED (provisional, A5 adjacent): Benevity Match Assurance.

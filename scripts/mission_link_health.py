@@ -136,7 +136,7 @@ def line_occurrences(rel: str, n: int, line: str) -> tuple:
         text = re.sub(r"⟦\d+⟧", "<url>", text)
         text = re.sub(r"<!--.*?-->", "", text).strip()
         co = tuple(check_key(urls[k]) for k in idx)
-        has_repo = bool(REPO_PTR.search(re.sub(r"⟦\d+⟧", "", unit)))
+        has_repo = bool(REPO_PTR.search(unit))
         out.extend(
             {"url": urls[k], "key": check_key(urls[k]), "file": rel, "line": n,
              "sentence": text, "co_urls": co, "repo_pointer": has_repo}
@@ -561,9 +561,9 @@ A live URL does not mean the page still says what the research says it says. Thi
 - **Extraction.** Every `http(s)://` string in {meta['n_files']} markdown files under `research/` was extracted, cleaned of trailing punctuation and unbalanced brackets, and de-duplicated without the `#fragment`. This gives **{n:,} unique URLs** from {meta['n_occ']:,} citations. (FINAL-STATUS counted 3,424 with a simpler regex.)
 - **Priority.** P1: cited in the industry report, the strategic synthesis or FINAL-STATUS ({meta['n_p'][1]} URLs). P2: cited in a `direction-*.md` file and not P1 ({meta['n_p'][2]}). P3: everything else ({meta['n_p'][3]}), randomly sampled with seed {SEED} to fill the request budget.
 - **Robots first.** For each host, `robots.txt` was fetched before any other request (one GET per scheme and host). Rules were applied by RFC 9309 longest match for the `*` group (no group names this checker). Crawl-delay was honoured up to {MAX_CRAWL_DELAY:.0f} s. A `robots.txt` returning 404/410 means no rules (RFC 9309 §2.3.1.3). Any other failure (401/403/429/5xx, timeout, proxy or connection error) means **not checked (robots)**: no further request went to that host.
-- **Check.** HEAD first. GET with `Range: bytes=0-0` only when HEAD was refused (400/403/405/406/501), and the body was not read. Redirects were followed by hand up to 5 hops, and only after the new host's `robots.txt` allowed the target. A redirect to a different path or host counts as **moved**. A redirect that only changes http→https, `www.` or a trailing slash counts as **alive**.
+- **Check.** HEAD first. GET with `Range: bytes=0-0` only when HEAD was refused (400/403/405/406/501), and the body was not read. **Confirmation pass:** every HEAD result of 404/410 was re-checked once with GET (`--confirm-dead`, robots.txt re-read first), because some servers answer HEAD with 404 while GET works. {meta.get('flipped', 0)} of {meta.get('confirmed', 0)} HEAD 404/410 results answered GET with 2xx and are counted as alive or moved; only URLs that failed both are **dead**. Redirects were followed by hand up to 5 hops, and only after the new host's `robots.txt` allowed the target. A redirect to a different path or host counts as **moved**. A redirect that only changes http→https, `www.` or a trailing slash counts as **alive**.
 - **Archive.** For 404/410 results, the archive.org availability API (`/wayback/available`) was queried, after checking archive.org's `robots.txt`.
-- **Limits.** At least {MIN_DELAY:.0f} s between requests to one host; generic User-Agent `{UA}`; {TIMEOUT} s timeout; hard cap of {MAX_REQUESTS:,} HTTP requests including robots.txt and archive calls. **{meta['requests']:,} requests were sent.** crt.sh was never requested (compliance note of 2026-11-15). No logins and no forms.
+- **Limits.** At least {MIN_DELAY:.0f} s between requests to one host; generic User-Agent `{UA}`; {TIMEOUT} s timeout; hard cap of {MAX_REQUESTS:,} HTTP requests including robots.txt and archive calls. **{meta['requests']:,} requests were sent** (main run plus GET confirmation pass), plus 5 in a pre-run smoke test, for {meta['requests'] + 5:,} in total. crt.sh was never requested (compliance note of 2026-11-15). No logins and no forms.
 
 ## Summary
 Shares below are of URLs **attempted** (robots-blocked counts as attempted: robots.txt was read or failed, and the URL was then withheld). "Not attempted" means not sampled, out of budget, crt.sh, or a placeholder.
@@ -611,8 +611,8 @@ These are not evidence that a link is dead. They are listed so a person can chec
 
 ## Limitations
 - **Reachability, not content.** A 2xx response does not confirm that the page still supports the claim. Redirects to homepages and "page not found" pages served with a 200 status (soft 404s) are flagged only when the redirect itself lands on `/`.
-- **HEAD-first bias.** Some servers answer HEAD differently from GET. GET was used only when HEAD was refused, to keep within the request cap.
-- **Access walls are not dead links.** 401/403/429 responses (EDGAR, ProPublica, Cloudflare and similar) and robots.txt files that could not be read are reported separately. They need a browser check, not a re-source.
+- **HEAD-first bias.** Some servers answer HEAD differently from GET. Every HEAD 404/410 was re-checked with GET, but a HEAD 2xx was not, so a page that answers HEAD 200 and GET 404 would be counted alive. One URL (pr-inside.com) is kept as dead on HEAD because its robots.txt disallowed it at confirmation time.
+- **Access walls are not dead links.** 401/403/429 responses and robots.txt files that could not be read are reported separately. They need a browser check, not a re-source.
 - **Sampling.** P3 URLs were sampled at random to fit the {MAX_REQUESTS:,}-request cap. P3 shares are estimates for the unsampled remainder. P1 and P2 were attempted in full, except where the budget ran out (see "Not attempted").
 - **Robots strictness.** Hosts whose `robots.txt` could not be read were not checked at all, so results for those hosts are unknown. Robots rules apply to the `*` group, because no group names this checker.
 - **Single run.** Transient outages and rate limits on {DATE} may show as timeouts or 5xx. One re-run would separate them from persistent failures.
@@ -683,6 +683,10 @@ def main(argv):
                      "co_urls": " ".join(o["co_urls"]), "repo_pointer": o["repo_pointer"]}
                     for o in occ if o["file"] in HEADLINE_DOCS]
     meta = {"n_files": len(files), "n_occ": len(occ), "n_p": Counter(pri.values())}
+    if OUT_CSV.exists():
+        prior = read_csv(OUT_CSV)
+        meta["confirmed"] = sum(1 for r in prior if "confirm" in r["method"])
+        meta["flipped"] = sum(1 for r in prior if "confirm" in r["method"] and r["category"] in ("alive", "moved"))
     if "--confirm-dead" in argv:
         # Some servers (e.g. IIS portals) answer HEAD with a redirect to a 404 page while GET works.
         # Re-check each HEAD 404/410 once with GET (robots re-read first), within the same overall cap.

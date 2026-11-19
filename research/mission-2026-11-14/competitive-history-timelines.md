@@ -105,7 +105,7 @@ Events taken from those files are tagged `prior_repo_source(<ID>)` so the origin
 | 2026-04-06/08 | AEF migration go-live; Ren "fully powers" AEF ($10.3B AUM); **SOC 2 Type 1** ([AEF migration page, 2026](https://engage.aefonline.org/upgrade-timeline/); [AEF release, 2026-04-08](https://www.aefonline.org/thought-leadership/ren-brings-american-endowment-foundation-fully-onto-its-technology-platform-powering-philanthropy-at-scale/)) | technology migration |
 | 2026-05-13 | Giving Compass impact-data partnership (planned phase 1) ([Giving Compass release, 2026-05-13](https://www.givingcompass.org/giving-compass-and-ren-accelerate-nonprofit-impact-discovery-for-daf-advisors/)) | partnership |
 | 2026-08-06 | **Ren Recognize** (charity thank-you tool) ([help-center article, 2026-08-06](https://intercom.help/rengiving/en/articles/12582141-introducing-ren-recognize-celebrate-your-donors-strengthen-relationships)) | product launch |
-| 2026-10-31 | AEF legacy DonorCentral portal shut down ([AEF migration page, 2026-10-31](https://engage.aefonline.org/dc-sunset/)) | discontinuation |
+| 2026-10-31 | AEF legacy DonorCentral portal shut down ([AEF migration page, 2026-10-31](https://engage.aefonline.org/dc-sunset/) ([archived copy](http://web.archive.org/web/20261003000017/https://engage.aefonline.org/dc-sunset/))) | discontinuation |
 
 **Narrative.** Ren's history falls into three phases:
 1. **Trust and DAF administration, 1987–2015.** ([Ren, reviewed 2026-11-14](https://www.reninc.com/about-ren/))
