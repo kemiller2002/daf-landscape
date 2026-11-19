@@ -13,12 +13,14 @@ gap19-ai-calibration.md §3); the ranges below are therefore calibrated assumpti
 
 Scenarios
   V2_BASELINE          v2 distributions (replication check against ai-economics-v2-results.csv)
-  CAL_FIELD_INLOOP     s from production field studies (net of the worker's own checking), q left at v2 (no direct
-                       measurement of second-line QA sampling), a_p capped at the task-exposure evidence
+  CAL_FIELD_INLOOP     s from production field studies (net of the worker's own checking), q range left at v2 (no direct
+                       measurement of second-line QA sampling) but applied to AI-handled cases only (q_p = q * a_p),
+                       a_p capped at the task-exposure evidence
   CAL_TASK_REVIEW      s from task-level experiments (time to first output, before downstream checking), q from measured
                        AI error / non-acceptance rates r applied to AI-handled cases only (q_p = r * a_p), a_p as above
   CAL_CENTRAL          50/50 mixture of the two framings per draw (separate stream, does not disturb CRN)
   CAL_COMPLIANCE_FULL  CAL_TASK_REVIEW, but every AI-handled case re-reviewed (q_p = a_p) for P01, P07, P08, P14
+  ALT_FIELD_Q_TOUCHED  mapping sensitivity: CAL_FIELD_INLOOP with v2 q on all touched cases (literal v2 definition)
   ALT_Q_ON_ALL_TOUCHED mapping sensitivity: error-rate q applied to all touched cases (the literal v2 definition)
   ATTR_SQ_ONLY         CAL_CENTRAL s and q, v2 a_p          (attribution)
   ATTR_A_ONLY          v2 s and q, calibrated a_p           (attribution)
@@ -55,7 +57,7 @@ S_TASK = (0.10, 0.30, 0.56)    # E03 0.25, E04 0.40, E12 0.558; lower 0.10 = fie
 Q_ERR = (0.10, 0.20, 0.40)     # E15 ~0.10 TP miss; E06 0.15 notes not rated good; E13 0.17-0.33 hallucination; E01 0.62 non-adherence
 # q basis: "touched" = share of ALL touched cases re-reviewed (v2 definition); "per_ai_case" = share r of AI-handled cases,
 # entering the model as q_p = r * a_p (only AI-handled cases need re-review of AI output) -- mapping is an inference.
-QT_V2, QA_ERR = (Q_V2, "touched"), (Q_ERR, "per_ai_case")
+QT_V2, QA_V2, QA_ERR = (Q_V2, "touched"), (Q_V2, "per_ai_case"), (Q_ERR, "per_ai_case")
 A_CAP, A_UP = 0.60, 0.20       # E10 0.15 (LLM alone) / 0.47-0.56 (with tooling) share of tasks
 
 
@@ -70,17 +72,19 @@ def a_cal(u: float, a1: float) -> float:
 CAL_SPECS = (
     {"id": "V2_BASELINE", "s": (S_V2,), "q": (QT_V2,), "a": a_v2, "q_override": None,
      "evidence": "v2 assumptions (ai-economics-v2-observed-costs.md §3.2)"},
-    {"id": "CAL_FIELD_INLOOP", "s": (S_FIELD,), "q": (QT_V2,), "a": a_cal, "q_override": None,
-     "evidence": "s: E01,E02,E03,E08,E09,E11; q: unchanged (no measurement of second-line QA); a: E10,E16"},
+    {"id": "CAL_FIELD_INLOOP", "s": (S_FIELD,), "q": (QA_V2,), "a": a_cal, "q_override": None,
+     "evidence": "s: E01,E02,E03,E08,E09,E11; q: v2 range kept (no measurement of second-line QA sampling) but applied to AI-handled cases only; a: E10,E16"},
+    {"id": "ALT_FIELD_Q_TOUCHED", "s": (S_FIELD,), "q": (QT_V2,), "a": a_cal, "q_override": None,
+     "evidence": "mapping sensitivity: CAL_FIELD_INLOOP with v2 q applied to ALL touched cases (literal v2 definition)"},
     {"id": "CAL_TASK_REVIEW", "s": (S_TASK,), "q": (QA_ERR,), "a": a_cal, "q_override": None,
      "evidence": "s: E03,E04,E12,E14; q: E01,E06,E13,E15; a: E10,E16"},
-    {"id": "CAL_CENTRAL", "s": (S_FIELD, S_TASK), "q": (QT_V2, QA_ERR), "a": a_cal, "q_override": None,
+    {"id": "CAL_CENTRAL", "s": (S_FIELD, S_TASK), "q": (QA_V2, QA_ERR), "a": a_cal, "q_override": None,
      "evidence": "50/50 mixture of CAL_FIELD_INLOOP and CAL_TASK_REVIEW (framing drawn per iteration)"},
     {"id": "CAL_COMPLIANCE_FULL", "s": (S_TASK,), "q": (QA_ERR,), "a": a_cal, "q_override": (COMPLIANCE_PROCS, 1.0),
      "evidence": "CAL_TASK_REVIEW + every AI-handled case re-reviewed (r=1, q_p=a_p) for P01,P07,P08,P14: E16, E13"},
     {"id": "ALT_Q_ON_ALL_TOUCHED", "s": (S_TASK,), "q": ((Q_ERR, "touched"),), "a": a_cal, "q_override": None,
      "evidence": "mapping sensitivity: CAL_TASK_REVIEW with the error-rate range applied to ALL touched cases"},
-    {"id": "ATTR_SQ_ONLY", "s": (S_FIELD, S_TASK), "q": (QT_V2, QA_ERR), "a": a_v2, "q_override": None,
+    {"id": "ATTR_SQ_ONLY", "s": (S_FIELD, S_TASK), "q": (QA_V2, QA_ERR), "a": a_v2, "q_override": None,
      "evidence": "attribution: CAL_CENTRAL s,q with v2 a_p"},
     {"id": "ATTR_A_ONLY", "s": (S_V2,), "q": (QT_V2,), "a": a_cal, "q_override": None,
      "evidence": "attribution: v2 s,q with calibrated a_p"},
