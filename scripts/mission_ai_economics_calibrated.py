@@ -253,8 +253,9 @@ def network_rows(scn, procs, sponsors, spec, draws) -> list[dict]:
     for seg, pred in v2.NETWORK_SEGMENTS:
         base = [v2.sponsor_pool_base(s) for s in pop if pred(s)]
         for var, after_d in (("ai_on_workflow", False), ("ai_after_redesign", True)):
-            ns = [v2.network_breakeven([b * value_per_pool_dollar(procs, g, after_d) * g["phi"] for b in base],
-                                       g["tau"], g["F_platform"], g["f_sponsor"]) for g in params]
+            ks = [value_per_pool_dollar(procs, g, after_d) * g["phi"] for g in params]
+            ns = [v2.network_breakeven([b * k for b in base], g["tau"], g["F_platform"], g["f_sponsor"])
+                  for g, k in zip(params, ks)]
             fin = [x for x in ns if math.isfinite(x)]
             out += [row(scn, "v2", "network", "OBSERVED_POPULATION", "p_breakeven_reachable", len(fin) / len(ns), "prob",
                         parameter=var, bucket=seg, note=f"{len(base)} FY2024 sponsors in segment"),
