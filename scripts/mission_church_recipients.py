@@ -52,7 +52,7 @@ SEED = 20261119
 BLOCK = "no_efiled_990_church"
 OUTREACH_YEARS = (2023, 2024)
 OUTREACH_URL = "https://outreach100.com/largest-churches-in-america/{y}"
-OUTREACH_PAGES = 5
+OUTREACH_PAGES = 6
 
 # Sponsor groups. Faith sponsors are the top-50 DAFRC sponsors whose DAFRC subtype is "Religiously-Affiliated", plus
 # Servant Foundation (The Signatry), which DAFRC types National/Standard but which the repo treats as a faith sponsor
@@ -247,19 +247,41 @@ def quantiles(vals: Sequence[float], qs=(0.1, 0.25, 0.5, 0.75, 0.9, 0.99)) -> di
     return {q: s[min(len(s) - 1, int(q * len(s)))] for q in qs} if s else {}
 
 
+CITY_ABBR = {"MT": "MOUNT", "S": "SOUTH", "N": "NORTH", "E": "EAST", "W": "WEST", "SPGS": "SPRINGS", "BCH": "BEACH",
+             "GDNS": "GARDENS", "ST": "SAINT", "FT": "FORT", "HTS": "HEIGHTS", "WDM": "WEST DES MOINES"}
+STATE_NAMES = {"AL": "ALABAMA", "AZ": "ARIZONA", "AR": "ARKANSAS", "CA": "CALIFORNIA", "CO": "COLORADO", "FL": "FLORIDA",
+               "GA": "GEORGIA", "HI": "HAWAII", "IL": "ILLINOIS", "IN": "INDIANA", "IA": "IOWA", "KS": "KANSAS",
+               "KY": "KENTUCKY", "LA": "LOUISIANA", "MD": "MARYLAND", "MI": "MICHIGAN", "MN": "MINNESOTA",
+               "MS": "MISSISSIPPI", "MO": "MISSOURI", "NV": "NEVADA", "NJ": "NEW JERSEY", "NM": "NEW MEXICO",
+               "NY": "NEW YORK", "NC": "NORTH CAROLINA", "OH": "OHIO", "OK": "OKLAHOMA", "OR": "OREGON",
+               "PA": "PENNSYLVANIA", "SC": "SOUTH CAROLINA", "TN": "TENNESSEE", "TX": "TEXAS", "UT": "UTAH",
+               "VA": "VIRGINIA", "WA": "WASHINGTON", "WI": "WISCONSIN"}
+
+
+def norm_city(c: str) -> str:
+    return " ".join(" ".join(CITY_ABBR.get(t, t) for t in re.findall(r"[A-Z]+", c.upper())).split())
+
+
 def match_outreach(out_rows: Sequence[Mapping], cands: Sequence[Mapping]) -> tuple[dict, ...]:
-    """Match each Outreach 100 church to BMF recipients in the same state: all name tokens of the list name (after
-    stop words) must appear in the BMF name, or the two token sets must be equal. Ties: same city first, then the
-    larger DAF total. Returns one row per list church."""
-    by_state = _group_by_fast(cands, lambda c: c["state"])
+    """Match each Outreach 100 church to BMF recipients with the same state and the same (abbreviation-expanded)
+    city whose name contains every list-name token (after stop words).
+    tier `strict`: the BMF name adds nothing but COMMUNITY, OF, COUNTY or geography (city or state words);
+    tier `loose`: any other superset, e.g. LIFE COVENANT CHURCH for Life.Church (listed for checking, not headline).
+    Ties: strict first, then the larger DAF total."""
+    by_place = _group_by_fast(cands, lambda c: (c["state"], norm_city(c["city"])))
+
+    def tier(o, c):
+        ot = norm_tokens(o["name"])
+        if not ot or not ot <= c["tokens"]:
+            return ""
+        geo = frozenset(re.findall(r"[A-Z]+", norm_city(o["city"]) + " " + STATE_NAMES.get(o["state"], "") + " " + o["state"]))
+        return "strict" if (c["tokens"] - ot) <= (geo | {"COMMUNITY", "OF", "COUNTY"}) else "loose"
 
     def one(o):
-        ot = norm_tokens(o["name"])
-        pool = by_state.get(o["state"], ())
-        hits = tuple(c for c in pool if ot and (ot <= c["tokens"] or ot == c["tokens"]))
-        best = sorted(hits, key=lambda c: (c["city"].upper() != o["city"].upper(), -c["dw"]))
-        return {**o, "match": best[0] if best else None, "n_hits": len(hits),
-                "same_city": bool(best) and best[0]["city"].upper() == o["city"].upper()}
+        pool = by_place.get((o["state"], norm_city(o["city"])), ())
+        hits = tuple((t, c) for c in pool for t in [tier(o, c)] if t)
+        best = sorted(hits, key=lambda tc: (tc[0] != "strict", -tc[1]["dw"]))
+        return {**o, "match": best[0][1] if best else None, "tier": best[0][0] if best else "", "n_hits": len(hits)}
     return tuple(one(o) for o in out_rows)
 
 
@@ -347,7 +369,8 @@ def profile(block: Sequence[Mapping], lines: Sequence[Mapping], all_lines_dw: fl
               sum(d["lines"] for d in v), sum(d["dw"] for d in v), sum(d["si"] for d in v), sum(d["dw"] for d in v) / tot,
               value=(sum(d["dw"] for d in v) / gtot[g]) if gtot[g] else "", note="value = share of the group's own DAF-weighted $ that goes to this block")
            for g, v in sorted(by_g.items(), key=lambda kv: -sum(d["dw"] for d in kv[1]))]
-    tiers = [("outreach100_matched", lambda r: bool(r["outreach"])), ("dw_ge_1m", lambda r: r["dw"] >= 1e6),
+    tiers = [("outreach100_matched_strict", lambda r: r["outreach_strict"]),
+             ("outreach100_matched_strict_or_loose", lambda r: bool(r["outreach"])), ("dw_ge_1m", lambda r: r["dw"] >= 1e6),
              ("dw_ge_250k", lambda r: r["dw"] >= 2.5e5), ("top_100_by_dw", lambda r: r["rank"] <= 100),
              ("top_100_ex_lds", lambda r: r["rank_ex_lds"] <= 100)]
     mega = [mk(pre + "megachurch", k, recipients=len(s), dw=sum(r["dw"] for r in s), si=sum(r["si"] for r in s),
@@ -424,13 +447,14 @@ def main(argv: Sequence[str] | None = None) -> int:
                     "reason": reason.get(e, "")}
         rs = tuple(one(e, v) for e, v in by.items())
         m = match_outreach(out_rows, rs)
-        tag = {e: [f"{x['year']} #{x['rank']}" for x in v]
+        tag = {e: [f"{x['year']} #{x['rank']} ({x['tier']})" for x in v]
                for e, v in _group_by_fast((x for x in m if x["match"]), lambda x: x["match"]["ein"]).items()}
         lds = "870234341"
         order = sorted(rs, key=lambda r: -r["dw"])
         rank = {r["ein"]: i + 1 for i, r in enumerate(order)}
         rank_x = {r["ein"]: i + 1 for i, r in enumerate(r for r in order if r["ein"] != lds)}
-        rs2 = tuple({**r, "outreach": "; ".join(tag.get(r["ein"], [])), "rank": rank[r["ein"]],
+        rs2 = tuple({**r, "outreach": "; ".join(tag.get(r["ein"], [])),
+                     "outreach_strict": any("strict" in t for t in tag.get(r["ein"], [])), "rank": rank[r["ein"]],
                      "rank_ex_lds": rank_x.get(r["ein"], 10 ** 9)} for r in rs)
         fam = {r["ein"]: r["family"] for r in rs2}
         ls2 = tuple({**l, "family": fam[l["rec"]], "group": sponsor_group(l["sponsor"], panel)} for l in ls)
@@ -444,13 +468,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     match_rows = [mk("block:outreach100_match", f"{x['year']}#{x['rank']}", x["name"], f"{x['city']}, {x['state']}; attendance {x['attendance']}",
                      1 if x["match"] else 0, dw=x["match"]["dw"] if x["match"] else 0.0,
                      value=x["match"]["ein"] if x["match"] else "",
-                     note=(f"matched BMF {x['match']['name']} ({x['match']['city']}); hits {x['n_hits']}; same_city {x['same_city']}"
+                     note=(f"{x['tier']}: matched BMF {x['match']['name']} ({x['match']['city']}); hits {x['n_hits']}"
                            if x["match"] else "no block match"))
                   for x in blk_match]
     allc_m = {(x["year"], x["rank"]): x for x in allc_match}
     match_rows_all = [mk("church_coded_all:outreach100_match", f"{x['year']}#{x['rank']}", x["name"], f"{x['city']}, {x['state']}",
                          1 if x["match"] else 0, dw=x["match"]["dw"] if x["match"] else 0.0, value=x["match"]["ein"] if x["match"] else "",
-                         note=(f"matched BMF {x['match']['name']} ({x['match']['city']}); reason {x['match']['reason']}" if x["match"] else "no match"))
+                         note=(f"{x['tier']}: matched BMF {x['match']['name']} ({x['match']['city']}); reason {x['match']['reason']}" if x["match"] else "no match"))
                       for x in allc_m.values()]
     write_csv(a.out, rows + match_rows + match_rows_all, FIELDS)
 
@@ -464,8 +488,9 @@ def main(argv: Sequence[str] | None = None) -> int:
              "church_coded_all_recipients": len(allc), "church_coded_all_dw": round(sum(r["dw"] for r in allc)),
              "church_coded_reason_mix": {k: (len(v), round(sum(r["dw"] for r in v))) for k, v in _group_by_fast(allc, lambda r: r["reason"]).items()},
              "outreach_rows": {y: len(v) for y, v in outreach.items()},
-             "outreach_matched_block": sum(1 for x in blk_match if x["match"]),
-             "outreach_matched_church_coded": sum(1 for x in allc_match if x["match"]),
+             "outreach_matched_block": {t: sum(1 for x in blk_match if x["tier"] == t) for t in ("strict", "loose")},
+             "outreach_distinct_eins_block": {t: len({x["match"]["ein"] for x in blk_match if x["tier"] == t}) for t in ("strict", "loose")},
+             "outreach_matched_church_coded": {t: sum(1 for x in allc_match if x["tier"] == t) for t in ("strict", "loose")},
              "centrals": len(centrals), "fetchlog": fetchlog}
     print(json.dumps(check, indent=1, default=str))
     return 0

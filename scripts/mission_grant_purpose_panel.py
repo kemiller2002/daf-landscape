@@ -21,6 +21,8 @@ Purpose classification (ordered; first rule that fires wins; see RULES):
   specific_program      program, project, research, initiative, event, gala, sponsorship, relief, memorial,
                         tribute, a named fund, "for the ..."
   other_descriptive     anything else (free text with no rule hit)
+Also kept: every Schedule I narrative (SupplementalInformationDetail inside IRS990ScheduleI), flagged when it mentions
+restriction (RESTRICT_RX).
 Rollups: boilerplate = boiler_*; specific = specific_*; plus a `modal` overlay: a purpose string carried by more
 than 90% of a sponsor's lines is counted as boilerplate whatever its class (boilerplate_incl_modal).
 
