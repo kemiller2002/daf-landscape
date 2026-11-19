@@ -19,10 +19,10 @@ Run: `python3 scripts/mission_filing_frames.py . --irs-dir <dir with index_2019.
 
 1. **Only 179 of 36,115 new 501(c)(3) Form 990 filers report any DAF account on Schedule D Part I.** The frame is every Form 990 in the IRS e-file index 2022–2026 whose filer is a 501(c)(3) with a BMF ruling of 2021-01 or later (86,637 returns, 83,020 read). Of the 179 holders, 43 are in the DAFRC panel and 136 are not. After removing organisations with a return or formation year before 2021, 122 holders are in the window: 24 in DAFRC and 98 not.
 2. **Most of the 98 non-DAFRC in-window holders are not DAF sponsors.** They are schools, shelters, clubs and ministries that fill Schedule D Part I by mistake: 18 of the 28 with ≥50 "accounts" report $0 of DAF value, and several put dollar amounts in the count field (e.g. 2,435,213 "accounts", $0 value). Applying the cohort's pre-registered rule leaves **7 new cohort members** missed by DAFRC and by the earlier frames: Givmo Charitable Fund, Spiral Giving Network, Neta Foundation, One Big Gift, DAF Gives Charitable (DAFshare), Monument Charitable and Overflow Foundation. All are small (1 to 31 accounts; $0 to $7.6m of DAF assets). 3 are active by a 2026 e-filing; 4 are unknown.
-3. **The largest new non-DAFRC sponsor is excluded by rule, not missed.** Bridges Philanthropic Fund (ruled 2025-01) reported 42 DAF accounts and $107.0m on its TY2025 return. It is run by an Omaha wealth manager (Schedule O), so it falls under the "products of pre-2021 incumbents" exclusion, like bank DAF programs. That exclusion is the ambiguous one that wave 32A flagged.
+3. **The largest new non-DAFRC sponsor is excluded by rule, not missed.** Bridges Philanthropic Fund (ruled 2025-01) reported 42 DAF accounts and $107.0m on its TY2025 return. It is run by an Omaha wealth manager (Schedule O), so it falls under the "products of pre-2021 incumbents" exclusion, like bank DAF programs. That exclusion is the ambiguous one that wave 32A flagged. Bridges’ parent is a wealth manager and trust company, not a DAF sponsor network (Telescope’s case), so under the rule that admits GivingTrax and GoodCoin it could equally be included; Givmo, Spiral and Overflow are admitted although their parents’ founding dates were not checked. Bridges’ only return is for TY2025, after the DAFRC panel ends, so DAFRC could not have listed it [V wave 38C]
 4. **Part IV line 6 is not a safe pre-filter.** Groundswell's amended TY2024 return reports 12,808 DAF accounts and $10.1m in Schedule D Part I while answering "No" on line 6, and its three other returns report no Part I data at all. Across the frame, 14 of 179 holders (7.8%) never answered "Yes" on line 6. The scan therefore read every mirrored return in full instead of relying on line 6.
 5. **Community-foundation exits are small, steady and mostly outside DAFRC.** Among 16,947 Form 990/990-EZ returns (2021–2026 index) filed by 3,673 CF-named or NTEE-T31 filers, **24 geographic community foundations filed an exit return** (Schedule N Part I, or the final-return box) with an exit date in 2021–2026: **6 in 2021, 2 in 2022, 4 in 2023, 6 in 2024, 6 in 2025 and 0 so far in 2026**. 23 of the 24 are small (largest observed total assets under $10m; median $248k; 16 under $1m). 12 filed 990-EZ. **19 of the 24 are not in the DAFRC panel.**
-6. **Exiting CFs do not name DAF balances on Schedule N.** None of the 24 describes a DAF transfer; the assets are described as cash, investments or a remainder-trust interest. 4 (Rusk County, Fairfield, Milbank, Coastal) still reported DAF accounts on Schedule D of the exit-year return. 9 of the 24 transferred to another community foundation, and 7 filed a final return with no Schedule N Part I.
+6. **Exiting CFs do not name DAF balances on Schedule N, but DAF money still moves.** Coastal’s final-return Schedule D shows $5.66m of DAF value inside a $10.07m “cash” transfer, and Greater White Bear Lake moved 96% of its assets, DAFs named, in a Part II disposition [V wave 38C] None of the 24 describes a DAF transfer; the assets are described as cash, investments or a remainder-trust interest. 4 (Rusk County, Fairfield, Milbank, Coastal) still reported DAF accounts on Schedule D of the exit-year return. 9 of the 24 transferred to another community foundation, and 7 filed a final return with no Schedule N Part I.
 
 ---
 
@@ -143,19 +143,20 @@ Run: `python3 scripts/mission_filing_frames.py . --irs-dir <dir with index_2019.
 | SAX05 | Mortarstone Trust and Kindred One Foundation | One DAF each |
 | SAX06 | Fenwick Community Fund | Employer member fund |
 | SAX07 | Richmond Christian Foundation | Local faith foundation |
-| SAX08 | Ten in-window community foundations | Community-foundation exclusion |
+| SAX08 | Ten in-window community foundations (7 are DAFRC panel members; 3 are outside DAFRC) | Community-foundation exclusion. The 98 non-DAFRC holders are 2 existing members (Groundswell, Percent Impact), 7 additions, 7 named exclusions (SAX01, SAX02, SAX04–SAX07), 3 CFs and 79 residual filers [V wave 38C]
 | SAX09 | Other in-window Part I filers (79 EINs) | Single-issue or operating charities, often with implausible entries |
 
 **Effect on the cohort, as arithmetic only (the cohort file itself is not edited).**
 - With the 7 additions the cohort is 25: active 13, acquired 1, pivoted 1, unknown 10, shut 0.
 - Operating in any form ranges from 15/25 = 60.0% (Wilson 95% 40.7–76.6%), counting unknowns as failures, to 25/25 (86.7–100%).
+- Uncommon Giving fails the window test (§3.2; wave 32A). Without it the cohort is 24 (active 13, acquired 1, pivoted 0, unknown 10) and the lower bound is 14/24 = 58.3% (38.8–75.5%). Adding Bridges (active: TY2025 990 e-filed 2026-09-11) would give 16/26 = 61.5% (42.5–77.6%). The strict subset grows from 8 to 12 (active 6, acquired 1, unknown 5): 7/12 = 58.3% (32.0–80.7%) to 12/12 (75.8–100%) [V wave 38C]
 - Among the 15 resolved, 15 are not shut (79.6–100%).
 - All 7 additions enter by IRS ruling in 2022–2024. 4 of the 7 are strict-window companies (Neta, One Big Gift, DAFshare and Monument all have 2023–2024 formation years); the other 3 have parents whose founding dates were not verified.
 
 ### 3.4 Comparison with DAFRC
 - **The 136 non-DAFRC holders are mostly not sponsors.** They are dominated by charities with one to a few "DAFs" or with implausible entries.
 - **The largest in-window holders outside DAFRC are already known or excluded.** They are Bridges ($107.0m, excluded by rule), Percent Impact Foundation (Goodstack, $10.8m, already SC08), Groundswell ($10.1m, visible only on an amended return, already SC02) and Neta ($7.6m, added as SA03). Every other one reports under $4m.
-- **The new in-window sponsors DAFRC misses are tiny.** The seven additions together report $12.39m of DAF assets on their latest positive returns, of which Neta and Monument account for $11.36m.
+- **The new in-window sponsors DAFRC misses are tiny.** The seven additions together report $12.39m of DAF assets on their latest positive returns, of which Neta and Monument account for $11.36m. Part of the miss is timing: Neta, Monument, Overflow and DAFshare e-filed their only positive returns (TY2024) between 2025-10-12 and 2025-11-17, Givmo’s TY2024 return was filed in 2026, and DAFRC’s FY2024 is 30% imputed [V wave 38C]
 
 ---
 
@@ -197,9 +198,9 @@ Run: `python3 scripts/mission_filing_frames.py . --irs-dir <dir with index_2019.
 - **Recipients:** 9 of 24 went to another CF. The rest went to a city, a school foundation, a local charity, or were not itemised; 7 filed a final return with no Schedule N Part I.
 - **DAF balances:**
   - No geographic CF exit names DAF balances on Schedule N.
-  - 4 reported DAF accounts on the exit-year Schedule D: Rusk County 6, Fairfield 12, Milbank 4, Coastal 39.
+  - 4 reported DAF accounts on the exit-year Schedule D: Rusk County 6, Fairfield 12, Milbank 4, Coastal 39. Coastal’s final return reports $5,658,142 of DAF value against $0 total assets at year end, so about 56% of its $10.07m transfer to the San Diego Foundation, which Schedule N calls “CASH”, was DAF money; DAFRC carries Coastal’s FY2024 row as an operating sponsor [V wave 38C]
   - Elsewhere in the frame, DAF balances are named only by:
-    - Greater White Bear Lake Community Foundation, a Part II disposition to CommunityGiving of "fund balances related to DAF, endowment funds and designated funds" ($4.97m, 2025);
+    - Greater White Bear Lake Community Foundation, a Part II disposition to CommunityGiving of "fund balances related to DAF, endowment funds and designated funds" ($4.97m, 2025; 96% of its $5.15m beginning-of-year assets, leaving $26,355 at year end, so an exit in substance though not under this frame’s rule, which makes 24 a floor) [V wave 38C]
     - The Kingdom Trust (NTEE T31), "donor advised funds transferred to public charity donor advised funds";
     - two CF-held supporting organisations that dissolved into a DAF at their CF (L2 Foundation and Ingebritson Family Foundation).
 
@@ -207,12 +208,12 @@ Run: `python3 scripts/mission_filing_frames.py . --irs-dir <dir with index_2019.
 - **`sponsor-mortality-analysis.md` (tier A).** Its 11 ceased DAFRC sponsors include 5 CFs: Sunbury, Shelby, Fairfield, Rusk County and Milbank.
   - All 5 reappear here. Sunbury's exit is dated 2020-07, so it falls outside 2021–2026.
   - Frame B adds **19 geographic CF exits in 2021–2025 that are not in the DAFRC panel**, almost all below $1–5m.
-  - The panel's CF exit rate (1.1%/yr) is therefore a rate for DAFRC-sized CFs. The very small CFs that DAFRC never tracked exit at a steady 2–6 per year in filed returns.
+  - The panel’s CF exit rate (1.1%/yr) counts DAFRC panel exits (36 in 3,175 CF sponsor-years at risk, FY2020–FY2023), most of them CFs that survive but stop reporting DAFs (tier B, 28 of 46 CF exit candidates). Only 5 CF candidates are organisational deaths (tier A), about 0.16%/yr, and that is the rate to compare with these filings. The very small CFs that DAFRC never tracked exit at a steady 2–6 per year in filed returns [V wave 38C]
 - **`cf-consolidation-2021-2026.csv`.**
   - The DAFRC-list Schedule N screen found 5 filed CF liquidations: C010 Shelby, C013 Milbank, C014 Rusk, C017 Coastal, and C012 Fairfield as a disposition. All are reproduced.
   - The press-sourced C002 (Three Rivers Area CF joins Sturgis Area CF as an affiliate, 2025-01-01) is confirmed by filing: a Schedule N liquidation of $5.44m dated 2024-12-31.
   - C011 Keweenaw, C018 White Bear Lake and C019 Watertown appear here as Part II dispositions, not exits.
-- **Reading.** Of the two readings in the queue item, "a handful of small exits" is closer to the data than "a measurable trend", but the handful is about five times larger than DAFRC shows. There are about 4–6 geographic-CF exits a year, overwhelmingly sub-$1m organisations, and they move cash or investments to a neighbouring CF or a local charity without naming DAFs.
+- **Reading.** Of the two readings in the queue item, "a handful of small exits" is closer to the data than "a measurable trend", but over the years both sources cover the handful is about three times what DAFRC’s filed exits show: 12 geographic-CF exits dated 2021–2023 against the 4 panel CFs (Shelby, Fairfield, Milbank, Rusk County) with filed exits in those years. A 24/5 ratio would set five years of filings against panel members only; 2024–2025 exits fall after the panel’s FY2024 end, and DAFRC still shows Coastal as operating. DAFRC’s own panel shows more CF exits (35 in FY2021–FY2023), but most are CFs that survive and stop reporting DAFs [V wave 38C] There are about 4–6 geographic-CF exits a year, overwhelmingly sub-$1m organisations, and they move cash or investments to a neighbouring CF or a local charity without naming DAFs.
 
 ---
 

@@ -8,7 +8,33 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-19, through PR #60) — governing
+## Counts (refresh 2026-11-19, through PR #61) — governing
+
+These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #61 merged, and they supersede the tables below. The PR #61 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#61 (42 PRs) | GitHub |
+| Research documents | 317 documents, 1,178,666 words | `research/**/*.md` |
+| Datasets | 601 CSV files, 345,584 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,925 | regex over `research/**/*.md` |
+| Independent validation | **1,628 register rows** in 54 register files (waves 1–38C): 1,181 confirmed, 360 partially confirmed, 63 contradicted, 17 unverifiable, 7 other | `validation-register*.csv`, classified by the leading word of `validation_result` |
+| Research queue | 762 items: 366 done, 265 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.47 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #61 (validated; report §11.45–§11.47):**
+- **Canada.** Payout net of DAF-to-DAF transfers is 12.0% (12.8% under tier A; 8.8% under tier C, which is an upper bound). The charity-level disbursement quota rarely binds on DAF sponsors.
+- **DAF money abroad through non-Q recipients.** Adds $1.35bn. The measured share of total grants reaching abroad is 5.20% [I-alloc], or 5.10% excluding fundraising and PRI rows.
+- **Escaped-error cost m.** Bank SAR penalties work out at $36k–$471k per SAR, which is 2,600–34,000 handling-times; carrying that to DAF sponsors is analogy only [I]. For DAF sponsors the central m is about 2.2, resting mostly on assumptions. Routing beats assistance up to about m = 10.
+- **Sponsor economics.**
+  - Dechomai is 0.1–3.0% of national sponsors' DAF contributions.
+  - Audited fee economics: Fidelity passes its whole fee to FMR and runs an operating deficit; Renaissance passes 98% to Ren; JCF keeps a small surplus.
+  - The 990 non-DAF net-asset change is not an operating margin.
+- **Filing frames.**
+  - 7 new small DAF sponsors were found that DAFRC missed.
+  - 24 place-based community foundations exited in 2021–2026, 19 of them outside DAFRC. That is about 3× the filed-exit count for overlapping years, not 5×.
+
+## Counts (refresh 2026-11-19, through PR #60) (superseded by the table above)
 
 Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #60 merged. These figures supersede the tables below. The PR #60 description records the head SHA.
 
