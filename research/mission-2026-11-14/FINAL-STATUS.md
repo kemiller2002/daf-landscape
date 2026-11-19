@@ -8,7 +8,32 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (final refresh 2026-11-15 ~17:30 UTC, through PR #50) — governing
+## Counts (refresh 2026-11-19, through PR #53) — governing
+
+Recomputed from the repository at merge commit `7932eb4` (PR #53). Supersedes the tables below.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#53 (34 PRs) | GitHub |
+| Research documents | 265 documents, 920,517 words | `research/**/*.md` |
+| Datasets | 507 CSV files, 208,707 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,584 | regex over `research/**/*.md` |
+| Independent validation | **944 register rows** in 35 register files (waves 1–31B): 724 confirmed, 175 partially confirmed, 24 contradicted, 14 unverifiable, 7 audit rows | `validation-register*.csv`; waves 31A (33/8/1/1) and 31B (32/9/0/1) added to the PR #50 totals |
+| Research queue | 591 items: 311 done, 75 blocked (reasons recorded), 50 monitoring, 149 open, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.29 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+| Owner-directed new research directions | 33 (N1–N33), all validated | `research/mission-2026-11-14/direction-*.md` |
+
+**Thoroughness pass, 2026-11-19 (validated, report §11.28–§11.29):**
+- The coverage matrix was rebuilt from post-baseline evidence, and all 20 AI cells marked "not investigated" now have findings.
+- Ten single-source claims got a second source.
+- The AI-economics behavioural assumptions were calibrated against public evidence. The break-even for intervention C falls from 43% to 16%.
+- Edward Jones and four thin wealth channels were profiled from public filings.
+- The relationship graph was consolidated to up to 893 nodes and 1,051 edges.
+- Fee and announced-versus-delivered evidence was refreshed. The delivery table now reads 17 delivered, 11 partial, 9 with no evidence and 2 contradicted.
+- FY2025 filings were refreshed where the IRS index has them.
+- crt.sh and certspotter are disabled for robots compliance, and claims that rested only on them are now leads.
+
+## Counts (final refresh 2026-11-15 ~17:30 UTC, through PR #50) (superseded by the table above)
 
 Recomputed from the repository at merge commit `20a0eb8` (PR #50). Supersedes the tables below.
 
