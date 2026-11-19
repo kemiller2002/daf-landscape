@@ -575,3 +575,276 @@ def evidence_class(e: dict) -> str:
 
 def redteam_set(edges: tuple, superseded: dict) -> tuple:
     return tuple(e for e in edges if evidence_class(e) and e["edge_id"] not in superseded)
+
+
+# ============================================================== red-team checks
+# One independent public check per edge. Fields: url ('dns:<host>' for a resolver check),
+# find (regex on page text + raw HTML), on_find / on_absent outcomes, and what the check is.
+# A page that is not fetched (robots unreadable/disallow, network error), or a 4xx/5xx on a
+# URL chosen for this pass, gives 'unverified-lead' unless 'on_dead' is set (liveness checks).
+# Outcomes: confirmed / weakened / unverified-lead / contradicted. For 'unknown' edges
+# (explicit negatives / open slots) 'confirmed' means the slot is still unfilled on the
+# independent source; 'contradicted' would mean a party is now named.
+
+DC_NOTE = ("tenant live on donorcentral.com, but NPact acquired DonorCentral NXT and FIMS from Blackbaud "
+           "(PR Newswire 2022-09-12, read in check of E087): vendor of record is NPact, not Blackbaud")
+FC_NOTE = ("tenant serves 'Foundation Cloud Community Portal'; Foundation Cloud is NPact's per NPact's own "
+           "customer stories (EN004 FFTC, EN005 Catholic Foundation), so the [R] owner caveat is lifted")
+AK_NOTE = "tenant serves an akoyaGO module (GOfund/GOapply/GOdonate); scope may be grants or donations, not DAF"
+
+CHECKS = {
+    "E014": dict(url="https://edwardjones.donorfirstx.com/Terms%20of%20Service.pdf",
+                 find=r"administ\w* (the |your )?(edward jones|fund|program)|Ren[^.]{0,80}administ",
+                 on_find="confirmed", on_absent="unverified-lead",
+                 what="EJ portal Terms of Service (a Renaissance Acquisition Company LLC agreement): does it give Ren an administration role?"),
+    "E016": dict(url="https://edwardjones.donorfirstx.com/", find=r"portfolio[^.]{0,120}(managed|manager)[^.]{0,80}Edward Jones",
+                 on_find="confirmed", on_absent="unverified-lead",
+                 what="EJ CGF portal: who manages the portfolios?"),
+    "E018": dict(url="https://www.edwardjones.com/us-en/investment-services/investment-products/donor-advised-funds",
+                 find=r"private (donor[- ]advised fund|DAF)[^.]{0,200}(sponsor|Renaissance|National Philanthropic|Fidelity Charitable)",
+                 on_find="contradicted", on_absent="confirmed",
+                 what="EJ DAF product page: is a sponsor named for the private DAF?"),
+    "E058": dict(url="https://ft.donorfirstx.com/", find=r"sponsor\w*[^.]{0,80}Renaissance Charitable|Renaissance Charitable Foundation[^.]{0,60}sponsor",
+                 on_find="confirmed", on_absent="unverified-lead",
+                 what="Franklin portal re-read (no other public program document found): RCF named as sponsor?"),
+    "E069": dict(url="https://tda.donorfirstx.com/", find=r"TD Ameritrade|Ameritrade", on_find="confirmed",
+                 on_absent="unverified-lead", what="TDA-coded portal: does the page itself name TD Ameritrade?"),
+    "E083": dict(url="https://www.bankofamerica.com/philanthropic/Program_Guidelines_2024.pdf",
+                 find=r"\bRen\b|reninc|RenPSG|Renaissance", on_find="confirmed", on_absent="weakened",
+                 what="BofA CGF Program Guidelines v3.2024: is Ren named? (Guidelines say the fund 'is currently administered by Bank of America Private Bank')"),
+    "E087": dict(url="https://prnewswire.com/news-releases/npact-acquires-fims-and-donorcentral-nxt-products-from-blackbaud-301622291.html",
+                 find=r"NPact Acquires FIMS and DonorCentral", on_find="weakened", on_absent="unverified-lead",
+                 what="PR Newswire 2022-09-12: NPact acquired DonorCentral from Blackbaud, so AEF's DonorCentral vendor after 2022-09 was NPact (cf. EA024 NPact payee)"),
+    "E088": dict(url="https://gccf.donorfirstx.com/", find=r"service: 'dfx'|DFX powered by Ren|Powered_by_REN",
+                 on_find="confirmed", on_absent="unverified-lead", what="Direct fetch of the DFX tenant (edge rested on search index only)"),
+    "E089": dict(url="https://semo.donorfirstx.com/", find=r"service: 'dfx'|DFX powered by Ren|Powered_by_REN",
+                 on_find="confirmed", on_absent="unverified-lead", what="Direct fetch of the DFX tenant"),
+    "E090": dict(url="https://jewishfed.donorfirst.org/", find=r"service: 'dfx'|DFX powered by Ren|Powered_by_REN",
+                 on_find="confirmed", on_absent="unverified-lead", what="Direct fetch of the DonorFirst tenant"),
+    "E093": dict(url="https://www.nptrust.org/", find=r"Wells Fargo", on_find="confirmed", on_absent="unverified-lead",
+                 what="NPT home page: does NPT name a Wells Fargo program?"),
+    "E094": dict(url="https://www.wellsfargoadvisors.com/private-wealth/conversations/philanthropy/donor-advised-funds.htm",
+                 find=r"Wells Fargo[^.]{0,60}manages[^.]{0,40}investments", on_find="confirmed", on_absent="unverified-lead",
+                 what="Live WF Advisors DAF page: does WF say it manages the DAF investments?"),
+    "E113": dict(url="https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202541919349300514_public.xml",
+                 find=r"BNY MELLON,? N\.?A\.?|THE BANK OF NEW YORK MELLON", on_find="confirmed", on_absent="unverified-lead",
+                 what="BNY CGF CY2024 Form 990 (e-file XML) instead of the CauseIQ aggregator: BNY Mellon N.A. named?"),
+    "E155": dict(url="https://www.candid.org/", find=r"Groundswell", on_find="confirmed", on_absent="unverified-lead",
+                 what="Candid side of the claimed integration"),
+    "E157": dict(url="https://tifin.com/news/tifin-give-launches-louise-the-ai-platform-for-philanthropy/19124/",
+                 find=r"OpenAI|GPT-?\d|Anthropic|\bClaude\b|Gemini|Llama|Mistral|Azure OpenAI|Bedrock",
+                 on_find="contradicted", on_absent="confirmed",
+                 what="Louise launch page re-read (tifingive.com unreachable): model vendor named?"),
+    "EA001": dict(url="https://www.vanguardcharitable.org/", find=r"Give Interactive|giveinteractive",
+                  on_find="confirmed", on_absent="unverified-lead",
+                  what="Vanguard Charitable home page / login links: any Give Interactive reference?"),
+    "EA005": dict(url="https://www.cct.org/", find=r"giveinteractive", on_find="confirmed", on_absent="unverified-lead",
+                  what="Chicago Community Trust home page: login link to a Give Interactive tenant?"),
+    "EA006": dict(url="https://jcfny.org/", find=r"giveinteractive", on_find="confirmed", on_absent="weakened",
+                  what="JCF home page: client login link (login.jcfny.org) - Give Interactive?"),
+    "EA007": dict(url="https://impactassets.org/", find=r"giveinteractive", on_find="confirmed", on_absent="weakened",
+                  what="ImpactAssets home page: client login still on Ren iPhi (iphi.stellartechsol.com/calvert)?"),
+    "EA009": dict(url="https://www.minneapolisfoundation.org/", find=r"giveinteractive", on_find="confirmed",
+                  on_absent="weakened", what="Minneapolis Foundation home page: donor login still tmf.iphiview.com?"),
+    "EA011": dict(url="https://www.thriventcharitable.com/", find=r"giveinteractive", on_find="confirmed",
+                  on_absent="weakened", what="Thrivent Charitable home page: log-in still infaith.iphiview.com?"),
+    "EA013": dict(url="https://www.stifelcharitable.org/", find=r"giveinteractive", on_find="confirmed",
+                  on_absent="unverified-lead", what="Stifel Charitable home page: login link"),
+    "EA015": dict(url="https://www.nhf.org/", find=r"giveinteractive", on_find="confirmed", on_absent="unverified-lead",
+                  what="National Heritage Foundation home page: login link"),
+    "EB009": dict(url="dns:jmacarthurtrust.giveinteractive.com", find=r".", on_find="unverified-lead",
+                  on_dead="weakened", what="Public DNS (admissible re-source of a crt.sh-only lead): host resolves; identity still a slug match"),
+    "ED007": dict(url="https://altruist.com/", find=r"(now|officially) part of Vanguard|Vanguard (has )?completed|acquisition[^.]{0,40}(closed|completed)",
+                  on_find="contradicted", on_absent="confirmed",
+                  what="Altruist home page: closing announced? (absent = still pending)"),
+    "ED008": dict(url="dns:api-give.vanguardcharitable.org", find=r"execute-api|amazonaws", on_find="unverified-lead",
+                  on_dead="weakened", what="Public DNS: host resolves (to an AWS API Gateway); name says nothing about the vendor"),
+    "EE001": dict(url="https://www.nptgivingpoint.org/", find=r"DonorView|iPhi|Stellar|reninc", on_find="confirmed",
+                  on_absent="unverified-lead", what="NPT GivingPoint front page: iPhi/DonorView/Ren markers?"),
+    "EE007": dict(url="https://www.nptrust.org/annual-reports/npt-annual-report/", find=r"RSM US|RSM LLP|independent auditor",
+                  on_find="confirmed", on_absent="unverified-lead", what="NPT 2025 annual report page: auditor named?"),
+    "EE009": dict(url="https://www.morganstanley.com/content/dam/msdotcom/what-we-do/wealth-management/gift/ms-gift-how-it-works.pdf",
+                  find=r"Ernst|independent auditor|audited", on_find="confirmed", on_absent="unverified-lead",
+                  what="MS GIFT 'How it works' PDF: auditor named?"),
+    "EG003": dict(url="https://thecommunityfoundation.spectrumportal.net/", find=r"Foundation Cloud Community Portal",
+                  on_find="confirmed", on_absent="unverified-lead", what="GWCF tenant page; " + FC_NOTE),
+    "EH003": dict(url="https://delcf.org/", find=r"delcf\.donorsphere\.org", on_find="confirmed", on_absent="unverified-lead",
+                  what="DCF home page (first-party) links its Login Portal to delcf.donorsphere.org?"),
+    "EH005": dict(url="https://pittsburghfoundation.org/", find=r"donorsphere", on_find="contradicted",
+                  on_absent="confirmed", what="Pittsburgh Foundation home page: any DonorSphere link?"),
+    "EH014": dict(url="https://www.jfnnj.org/", find=r"donorsphere", on_find="confirmed", on_absent="unverified-lead",
+                  what="JFNNJ home page: DonorSphere login link?"),
+    "EH015": dict(url="https://www.ncfgiving.com/", find=r"donorsphere", on_find="contradicted", on_absent="confirmed",
+                  what="NCF home page: any DonorSphere link (absent = no current use shown)?"),
+    "EJ005": dict(url="https://sbfoundation.org/", find=r"spectrumportal\.net", on_find="confirmed", on_absent="unverified-lead",
+                  what="SBF home page links its Donor Portal to an NPact Foundation Cloud tenant (consistent with 'hosted infrastructure')"),
+    "EJ020": dict(url="https://ircommunityfoundation.org/my-fund-has-been-upgraded/", find=r"fcsuite\.com|CommunitySuite|Foundant",
+                  on_find="weakened", on_absent="unverified-lead",
+                  what="IRCF 'My Fund has been Upgraded!' page: fund access moved to Foundant?"),
+    "EJ025": dict(url="https://www.armanino.com/case-studies/transforming-nonprofit-technology-for-greater-impact/",
+                  find=r"Vermont Community Foundation", on_find="confirmed", on_absent="unverified-lead",
+                  what="Direct read of the Armanino case study (edge used search capture)"),
+    "EJ026": dict(url="https://www.slalom.com/us/en/customer-stories", find=r"Silicon Valley Community Foundation|SVCF",
+                  on_find="confirmed", on_absent="unverified-lead", what="Slalom customer stories: SVCF named?"),
+    "EJ028": dict(url="https://www.fundminer.com/community", find=r"Warren County", on_find="confirmed",
+                  on_absent="weakened", what="FundMiner community page re-read: Warren County still listed? (no CF page identified)"),
+    "EK018": dict(url="https://keybank.iphiview.com/keybank/", find=r"KeyBank|KeyCorp", on_find="confirmed",
+                  on_absent="weakened", on_dead="weakened", what="Live re-observation of the iPhi tenant (no KeyBank page links it)"),
+    "EK022": dict(url="https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202541919349300514_public.xml",
+                  find=r"NO LONGER OPERATE THE DONOR ADVISED FUND", on_find="weakened", on_absent="unverified-lead",
+                  what="BNY CGF CY2024 990: DAF program wound down (2024-12-24), so the iPhi tenant is historical at most"),
+    "EK032": dict(url="https://kzcf.org/", find=r"blackbaud\.com", on_find="confirmed", on_absent="weakened",
+                  what="Live re-observation of kzcf.org Blackbaud NXT donation form (CRM/ledger still only implied)"),
+    "EK033": dict(url="https://intercom.help/rengiving/en/articles/6232119-charity-ach-setup-step-by-step",
+                  find=r"ACH grant payments from our DAF programs|grant payments from our DAF programs",
+                  on_find="confirmed", on_absent="unverified-lead", what="Ren help centre: Ren sends ACH grant payments for its DAF programs"),
+    "EL027": dict(url="dns:nuance.fidelitycharitable.org", find=r"nuance", on_find="confirmed", on_absent="unverified-lead",
+                  on_dead="weakened", what="Public DNS: does the host CNAME to a Nuance domain? (Akamai CNAME says nothing about the vendor)"),
+    "EL028": dict(url="https://www.fidelitycharitable.org/nonprofits/faqs.html", find=r"reninc|Stellar|iPhi|donorfirst",
+                  on_find="contradicted", on_absent="confirmed", what="Fidelity Charitable nonprofit FAQ: any Ren marker?"),
+    "EM001": dict(url="https://www.daytonfoundation.org/", find=r"Fund ?360|fdnpartners|Foundation Partners", on_find="confirmed",
+                  on_absent="unverified-lead", what="Dayton Foundation home page: Fund 360 / Foundation Partners named?"),
+    "EM013": dict(url="https://vermontcf.org/donor-portal/", find=r"Sage Intacct|Salesforce|Experience Cloud|force\.com",
+                  on_find="confirmed", on_absent="unverified-lead", what="VCF donor-portal page: Sage/Salesforce markers?"),
+    "EM014": dict(url="https://thenytrust.org/", find=r"Sage Intacct|Intacct", on_find="confirmed", on_absent="unverified-lead",
+                  what="NYCT home page: Sage Intacct named?"),
+    "EM015": dict(url="https://thenytrust.org/", find=r"force\.com|salesforce", on_find="confirmed", on_absent="unverified-lead",
+                  what="NYCT home page: Salesforce-hosted portal link?"),
+    "EM016": dict(url="https://www.calfund.org/", find=r"Financial Edge", on_find="confirmed", on_absent="unverified-lead",
+                  what="CCF home page: Financial Edge named?"),
+    "EM017": dict(url="https://pittsburghfoundation.org/systems-solutions-architect", find=r"NetSuite", on_find="confirmed",
+                  on_absent="unverified-lead", what="Direct read of the first-party posting (edge used search capture)"),
+    "EM018": dict(url="https://pittsburghfoundation.org/systems-solutions-architect", find=r"Salesforce", on_find="confirmed",
+                  on_absent="unverified-lead", what="Direct read of the first-party posting"),
+    "EM019": dict(url="https://www.svcf.org/about/join-our-team", find=r"NetSuite", on_find="confirmed", on_absent="unverified-lead",
+                  what="SVCF careers page (first-party): NetSuite named?"),
+    "EM021": dict(url="https://www.ncfgiving.com/about/careers/", find=r"NetSuite", on_find="confirmed", on_absent="unverified-lead",
+                  what="NCF careers page: NetSuite named?"),
+    "EM034": dict(url="https://www.broadwestpartners.com/", find=r"Cambria", on_find="confirmed", on_absent="unverified-lead",
+                  what="BroadWest site: Cambria named as investor?"),
+    "EN001": dict(url="https://www.svcf.org/", find=r"NPact|Fund Investment Tool", on_find="confirmed", on_absent="unverified-lead",
+                  what="SVCF site: NPact/FIT named (sponsor-side confirmation of the vendor case study)?"),
+    "EN008": dict(url="https://www.thecommunityfoundation.org/news/our-new-donor-portal-has-arrived", find=r"Financial Edge",
+                  on_find="confirmed", on_absent="unverified-lead", what="GWCF portal announcement (first-party): Financial Edge NXT named as ledger?"),
+    "EN011": dict(url="https://ircf.donor-portal.org/login", find=r"Indian River|IRCF", on_find="unverified-lead",
+                  on_absent="weakened", on_dead="weakened",
+                  what="donor-portal.org tenant still live? (tenant use does not show back-office service; IRCF also sends fund access to Foundant)"),
+    "EP003": dict(url="https://www.sdfoundation.org/", find=r"Financial Edge|blackbaud", on_find="confirmed", on_absent="unverified-lead",
+                  what="SDF home page: Blackbaud markers?"),
+    "EP004": dict(url="https://www.nevadacf.org/", find=r"blackbaud", on_find="confirmed", on_absent="unverified-lead",
+                  what="NCF (Nevada) home page: Blackbaud markers?"),
+    "EP007": dict(url="https://www.morganstanley.com/content/dam/msdotcom/what-we-do/wealth-management/gift/ms-gift-how-it-works.pdf",
+                  find=r"\bRen\b|reninc|Ren for Charities", on_find="confirmed", on_absent="unverified-lead",
+                  what="MS GIFT 'How it works' PDF (MS side): Ren named for disbursement?"),
+    "EP008": dict(url="https://www.prnewswire.com/news-releases/ren-debuts-rapid-disbursement-engine-expanding-philanthropic-services-to-meet-rapid-daf-growth-301999647.html",
+                  find=r"Renaissance Charitable", on_find="confirmed", on_absent="unverified-lead",
+                  what="Ren Rapid Disbursement Engine release: RCF named as a user?"),
+    "EQ008": dict(url="https://guide.charityvest.org/about-our-venture/charityvest-%2B-vennfi", find=r"Foundation Source",
+                  on_find="confirmed", on_absent="unverified-lead", what="Charityvest's own guide (sponsor side, no crt.sh): Foundation Source named?"),
+    "EQ015": dict(url="https://www.giftingnetwork.com/", find=r"Orion", on_find="confirmed", on_absent="unverified-lead",
+                  what="GiftingNetwork site: Orion partnership named?"),
+    "ER016": dict(url="https://www.edwardjones.com/us-en/investment-services/investment-products/donor-advised-funds",
+                  find=r"private (donor[- ]advised fund|DAF)[^.]{0,200}(sponsor|Renaissance|National Philanthropic|Fidelity Charitable)",
+                  on_find="contradicted", on_absent="confirmed", what="EJ DAF product page (independent of the release): sponsor named for the private DAF?"),
+    "ER018": dict(url="https://www.cafamerica.org/", find=r"Bonterra|CyberGrants", on_find="unverified-lead", on_absent="unverified-lead",
+                  what="CAF America site: Bonterra named? (even if so, the GS Gives hop is unstated)"),
+    "ES016": dict(url="https://www.dafdirect.org/", find=r"BNY", on_find="weakened", on_absent="confirmed",
+                  what="dafdirect.org: BNY still listed although the 990 records the DAF program's wind-down?"),
+    "ES022": dict(url="https://www.aleragroup.com/", find=r"GiveClear", on_find="confirmed", on_absent="unverified-lead",
+                  what="Alera Group site: GiveClear named as Alera Charitable's sponsor?"),
+    "EV005": dict(url="https://jpmgiving.org/", find=r"export", on_find="confirmed", on_absent="unverified-lead",
+                  what="jpmgiving.org front page: export feature described?"),
+    "EV006": dict(url="https://www.giveinteractive.com/", find=r"\$40\s?B", on_find="unverified-lead", on_absent="unverified-lead",
+                  what="No independent source can test a vendor's own volume claim; vendor home page re-read"),
+    "EV007": dict(url="https://pnc.iphiview.com/scbf/", find=r"PNC", on_find="confirmed", on_absent="weakened", on_dead="weakened",
+                  what="Live tenant path (host resolves to a Ren load balancer)"),
+    "EV008": dict(url="dns:ocf.iphiview.com", find=r".", on_find="unverified-lead", on_dead="weakened",
+                  what="Public DNS: does the tenant host still exist?"),
+    "EX004": dict(url="https://www.pledge1percent.org/pledging-1-percent-to-charity-made-easy-for-companies/", find=r"Tides",
+                  on_find="unverified-lead", on_absent="unverified-lead",
+                  what="Pledge 1% page (sponsor source for Twilio.org): only a Tides referral, not Twilio-specific"),
+    "EX017": dict(url="https://www.crowdstrike.com/en-us/about-us/crowdstrike-foundation/", find=r"CAF America|Charities Aid Foundation",
+                  on_find="confirmed", on_absent="unverified-lead", what="CrowdStrike Foundation page: CAF America named?"),
+    "EX025": dict(url="https://www.pledge1percent.org/pledging-1-percent-to-charity-made-easy-for-companies/", find=r"Tides",
+                  on_find="confirmed", on_absent="unverified-lead", what="Pledge 1% public page (edge used a 403 community guide)"),
+    "EY006": dict(url="https://dafgiving360.org/explore-charities", find=r"Candid|GuideStar", on_find="confirmed",
+                  on_absent="unverified-lead", what="Direct read (edge used a search snippet)"),
+    "EY007": dict(url="https://dafgiving360.org/explore-charities", find=r"Charity Navigator", on_find="confirmed",
+                  on_absent="unverified-lead", what="Direct read (edge used a search snippet)"),
+    "EY008": dict(url="https://www.vanguardcharitable.org/nonprofit-organizations", find=r"Candid|GuideStar",
+                  on_find="confirmed", on_absent="unverified-lead", what="Vanguard Charitable nonprofit page (sponsor side): Candid named?"),
+    "EY015": dict(url="https://benevity.com/solutions/nonprofit-due-diligence", find=r"Charity ?Navigator", on_find="confirmed",
+                  on_absent="weakened", what="Direct re-read of the Benevity page (the snippet text was not on the 2026-11-15 fetch)"),
+    "EY018": dict(url="https://help.daffy.org/en/", find=r"IRS", on_find="confirmed", on_absent="unverified-lead",
+                  what="Daffy help centre front page: IRS status check described?"),
+    "EZ001": dict(url="https://www.edwardjones.com/us-en/investment-services/investment-products/donor-advised-funds",
+                  find=r"private (donor[- ]advised fund|DAF)[^.]{0,200}(sponsor|Renaissance|National Philanthropic|Fidelity Charitable)",
+                  on_find="contradicted", on_absent="confirmed", what="EJ DAF product page: sponsor named for the private DAF?"),
+    "EZ002": dict(url="https://www.edwardjones.com/us-en/investment-services/investment-products/donor-advised-funds",
+                  find=r"private (donor[- ]advised fund|DAF)[^.]{0,200}(sponsor|Renaissance|National Philanthropic|Fidelity Charitable)",
+                  on_find="contradicted", on_absent="confirmed", what="EJ DAF product page: sponsor named for the private DAF?"),
+    "EZ003": dict(url="https://renaissancecharitable.org/", find=r"Edward Jones", on_find="unverified-lead", on_absent="confirmed",
+                  what="RCF home page: Edward Jones named? (the standard EJ CGF is RCF's; only a private-DAF reference would contradict)"),
+    "EZ010": dict(url="https://www.pavefinance.com/", find=r"charit|donor[- ]advised|philanthrop", on_find="contradicted",
+                  on_absent="confirmed", what="Pave home page: any DAF/charitable offering?"),
+    "EZ012": dict(url="https://www.nptrust.org/", find=r"Wells Fargo", on_find="contradicted", on_absent="confirmed",
+                  what="NPT home page: Wells Fargo program named? (absent = slot stays unconfirmed)"),
+    "EZ022": dict(url="https://www.usbank.com/wealth-management/charitable-giving-strategies.html",
+                  find=r"sponsor(ing)? organization[^.]{0,80}(is|:)\s+[A-Z]|National Philanthropic|Fidelity Charitable|Renaissance Charitable|Schwab Charitable|American Endowment",
+                  on_find="contradicted", on_absent="confirmed", what="U.S. Bank charitable-giving page re-read: sponsor named?"),
+}
+
+
+def tenant_url(evidence: str) -> str:
+    m = re.search(r"->\s*(https?://\S+)", evidence)
+    return m.group(1).rstrip(".,;") if m else ""
+
+
+def auto_check(e: dict) -> dict:
+    """Checks for the automated CF vendor-map edges (EI*): fetch the vendor tenant itself."""
+    url = tenant_url(e["evidence_summary"])
+    ev = e["evidence_summary"]
+    if "spectrumportal" in url:
+        return dict(url=url, find=r"Foundation Cloud Community Portal", on_find="confirmed", on_absent="unverified-lead",
+                    what="Direct fetch of the vendor tenant; " + FC_NOTE)
+    if "donorcentral" in url:
+        return dict(url=url, find=r"<title>\s*Donorcentral", on_find="weakened", on_absent="unverified-lead",
+                    on_dead="weakened", what="Direct fetch of the vendor tenant; " + DC_NOTE)
+    if "akoyago" in url:
+        return dict(url=url, find=r"GOfund|GOapply|GOdonate|akoya", on_find="confirmed", on_absent="unverified-lead",
+                    what="Direct fetch of the vendor tenant; " + AK_NOTE)
+    return dict(url=url or e["source_url"], find=re.escape(e["source_entity"][:12]), on_find="confirmed",
+                on_absent="unverified-lead", what="Direct fetch of the linked host: " + ev[:80])
+
+
+def check_for(e: dict) -> dict:
+    return CHECKS.get(e["edge_id"]) or auto_check(e)
+
+
+def run_check(e: dict) -> dict:
+    c = check_for(e)
+    base = {"edge_id": e["edge_id"], "evidence_class": evidence_class(e), "check_url": c["url"],
+            "check_description": c["what"], "check_regex": c["find"]}
+    if c["url"].startswith("dns:"):
+        d = dns(c["url"][4:])
+        if not d["ok"]:
+            oc = c.get("on_dead", "unverified-lead")
+            return {**base, "fetch_result": "DNS: " + d["error"], "http_status": "", "matched": "", "outcome": oc}
+        hay = d["cname"] + " " + " ".join(d["ips"])
+        hit = re.search(c["find"], hay, re.I)
+        return {**base, "fetch_result": f"DNS ok cname={d['cname'] or '-'} ips={','.join(d['ips'])}", "http_status": "",
+                "matched": hay[:120] if hit else "", "outcome": c["on_find"] if hit else c["on_absent"]}
+    r = fetch(c["url"])
+    st = r["status"]
+    fr = r["outcome"] + (f" -> {r['final']}" if r["final"] != c["url"] else "")
+    if r["outcome"] != "fetched":
+        oc = c.get("on_dead", "unverified-lead") if r["outcome"].startswith("error") and "Name or service" in r["outcome"] \
+            else "unverified-lead"
+        return {**base, "fetch_result": fr[:200], "http_status": "", "matched": "", "outcome": oc}
+    if st >= 400:
+        oc = c.get("on_dead", "unverified-lead") if st in (404, 410) else "unverified-lead"
+        return {**base, "fetch_result": fr[:200], "http_status": st, "matched": "", "outcome": oc}
+    hay = r["body"] if r.get("pdf") else text_of(r["body"]) + " " + r["body"]
+    m = snippet(hay, c["find"], 70)
+    return {**base, "fetch_result": fr[:200], "http_status": st, "matched": m[:240],
+            "outcome": c["on_find"] if m else c["on_absent"]}

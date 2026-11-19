@@ -3,7 +3,7 @@
 **Date:** 2026-11-19. **Queue item:** P-CMP-CRT-01. **Governing note:** [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md), including its 2026-11-15 correction and wave-23 corrections.
 
 **Outputs:**
-- [`data/mission-2026-11-14/crtsh-claims-resourcing.csv`](../../data/mission-2026-11-14/crtsh-claims-resourcing.csv): 69 inventoried claims (CRT19-001 … CRT19-069), each with the route tried, the new evidence and a classification.
+- [`data/mission-2026-11-14/crtsh-claims-resourcing.csv`](../../data/mission-2026-11-14/crtsh-claims-resourcing.csv): 70 inventoried claims (CRT19-001 … CRT19-070), each with the route tried, the new evidence and a classification.
 - [`data/mission-2026-11-14/queue-proposals-crt19.csv`](../../data/mission-2026-11-14/queue-proposals-crt19.csv): P-CRT19-01 … P-CRT19-06.
 
 **Rules followed.**
@@ -27,11 +27,11 @@
 
 | Classification | Claims |
 |---|---|
-| re-sourced | 19 |
+| re-sourced | 20 |
 | existence-only via DNS | 29 |
 | unverified lead | 18 |
 | no claim (method notes only) | 3 |
-| **Total** | **69** |
+| **Total** | **70** |
 
 **Main findings:**
 1. **Give Interactive membership mostly survives, but on weaker evidence than reported.** All 9 "known client" sponsors still have live, sponsor-named Give hostnames.
@@ -104,7 +104,7 @@
 
 The availability API returns one "closest" capture per query. I asked for the capture closest to 1996-01-01 ("earliest") and the one closest to 2026-11-19 ("latest"). These approximate the first and last captures; they are not a full CDX listing.
 
-From about the 120th host onward the API returned HTTP 429 and many empty answers. **An empty result is not evidence of absence** (P-CRT19-03).
+From about the 120th host onward the API returned HTTP 429. A second, slower pass re-queried 47 key hosts. Controls returned captures, so most empty results are probably genuine non-captures, but a few hosts stayed rate-limited. **An empty result is still not evidence of absence** (P-CRT19-03).
 
 | Host | Earliest capture | Latest capture | Use |
 |---|---|---|---|
@@ -133,7 +133,26 @@ From about the 120th host onward the API returned HTTP 429 and many empty answer
 
 No capture was returned for cct, impactassets, vanguardcharitable, waterstone, the omahafoundation, ocf-* and fftc-* Give hosts, the Vanguard Charitable subdomains, daf.fftc.org, fcjc.fftc.org or donorportal.cct.org. Several of these fell in the rate-limited window.
 
-NPT_WAYBACK_PLACEHOLDER
+**NPT GivingPoint sites** (second, slower pass; controls `www.vanguardcharitable.org` and `ebcf.giveinteractive.com` returned captures, so the empty results above are probably real non-captures):
+
+| Site | CT first cert (doc) | Earliest Wayback capture returned | Reading |
+|---|---|---|---|
+| nptgivingpoint.org | 2020-10-29 | 2021-03-05 | live by 2021-03 |
+| jpmgiving.org | 2021-06-04 | 2021-12-30 | live by 2021-12 |
+| jpmgiftfund.org | 2022-03-16 | 2024-11-10 | live by 2024-11 (upper bound only) |
+| donoradvisedfundgiving.org (UBS) | 2021-09-23 | 2022-05-18 | live by 2022-05 |
+| **bmodaf.org** | 2026-02-15 (certspotter, current certs only) | **2024-07-31** | **live by 2024-07; the 2026-02-15 date is wrong as a launch date** |
+| rathbonesdaf.org | 2024-11-20 | 2025-04-18 | live by 2025-04 |
+| icgfdaf.org | 2025-06-02 | 2025-07-14 | live by 2025-07 |
+| cazenovecapitaldaf.org | 2021-09-28 | 2025-07-17 | upper bound only |
+| nptukgiving.org | 2021-12-16 | (429; a no-timestamp query returned 2026-08-08) | not dated |
+| tollesondaf.org, pitcairndaf.org | 2025-02-10, 2025-04-28 | HTTP 429 | not dated |
+| npttransatlanticdaf.org | 2025-06-03 | none returned | not dated |
+
+A Wayback first capture is an upper bound on launch, not a launch date.
+- **Rathbones (by 2025-04) and ICGF (by 2025-07)** are consistent with the "new GivingPoint sites around FY2025" reading.
+- **Tolleson, Pitcairn and Transatlantic stay leads.**
+- **BMO:** its site was live by 2024-07-31, well before the certspotter date.
 
 ## 4. Recomputed counts (admissible evidence only)
 
@@ -258,7 +277,7 @@ Each Find string occurs exactly once in its file (checked 2026-11-19). Apply the
 1. **Find:** "CT dates come from crt.sh unless marked; crt.sh covers full history."
    **Replace:** "CT dates come from crt.sh unless marked; crt.sh covers full history. [Compliance, 2026-11-19: the \"First CT cert\" column is an unverified lead. All 13 sites resolve in public DNS; see crtsh-resourcing-2026-11-19.md §3 for Wayback dating.]"
 2. **Find:** "CT first dates: Rathbones 2024-11, Tolleson 2025-02, Pitcairn 2025-04, ICGF and Transatlantic 2025-06."
-   **Replace:** NPT_REPLACE_PLACEHOLDER
+   **Replace:** "CT first dates (leads): Rathbones 2024-11, Tolleson 2025-02, Pitcairn 2025-04, ICGF and Transatlantic 2025-06. Admissible: Wayback captures Rathbones by 2025-04-18 and ICGF by 2025-07-14; Tolleson, Pitcairn and Transatlantic are undated. BMO was live by 2024-07-31 (Wayback), not 2026-02 [crt19]."
 
 ### 5.12 `queue-ren-iphi-attrition.md`
 1. **Find:** "so only 7 named iPhi hosts appear: one ZeroSSL batch on 2025-04-20 (`cafa`, `ccfnj`, `eqt`, `rj`, `ocf`, `www`, `maintenance`)"
@@ -290,7 +309,7 @@ Each Find string occurs exactly once in its file (checked 2026-11-19). Apply the
 ### 5.15 `compliance-note-crtsh-robots.md`
 1. **Append a section** "## Re-sourcing (P-CMP-CRT-01, 2026-11-19)" pointing to this document. Its text:
 
-   "69 claims inventoried: 19 re-sourced, 29 existence-only via DNS, 18 unverified leads. Give admissible lapsed CF tenants: 3 ($3.56bn), not 5 ($4.79bn). Give known clients $36.74bn stand on DNS, of which $23.90bn on first-party or filing evidence. Ren/iPhi and Foundant counts are unchanged. donorsphere.org and donor-portal.org have DNS wildcards, so their CT-only labels cannot be re-sourced by DNS. Certspotter admissibility is open (P-CRT19-02)."
+   "70 claims inventoried: 20 re-sourced, 29 existence-only via DNS, 18 unverified leads. Give admissible lapsed CF tenants: 3 ($3.56bn), not 5 ($4.79bn). Give known clients $36.74bn stand on DNS, of which $23.90bn on first-party or filing evidence. Ren/iPhi and Foundant counts are unchanged. donorsphere.org and donor-portal.org have DNS wildcards, so their CT-only labels cannot be re-sourced by DNS. Certspotter admissibility is open (P-CRT19-02)."
 
 No claim-bearing correction is needed for `direction-patents-security.md` (crt.sh was excluded), `research/iphi-175-client-lead-and-dns-execution-2026-11-11.md` (a method note; the script now refuses `--ct`) or `data/watchlist-snapshots/reports/2026-11-14.md` (historical diff report; do not cite its CT observations).
 
