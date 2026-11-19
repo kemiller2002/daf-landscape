@@ -210,3 +210,6 @@ Last year's CY2024 returns of these sponsors came in batches 11A–11D, so the n
 - "No" means the event is absent from sources this sweep could reach. RECAP holds only purchased documents.
 - The TEOS index has no submission date finer than the year, so "new since baseline" rests on batch 10A being new. Its Last-Modified date is 2026-11-18; the previous index update was 2026-10-21.
 - SEC-based items cannot be monitored under a generic client (P-MON19-02).
+
+## Compliance note (2026-11-19) — governing
+The certspotter results in this sweep are unverified leads: certspotter's operator disallows `/api` in robots.txt, so certspotter is no longer used. See [compliance-note-crtsh-robots.md](compliance-note-crtsh-robots.md).

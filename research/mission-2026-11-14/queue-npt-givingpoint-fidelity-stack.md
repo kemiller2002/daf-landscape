@@ -83,7 +83,7 @@ Outputs:
 | GP14 | `wells` (code only) | Wells Fargo [S] | NPT [S] | — | — | code branch only |
 | GP15 | `nptplus` (code only) | unknown | unknown | — | — | code branch only |
 
-CT dates come from crt.sh unless marked; crt.sh covers full history. DNS evidence uses `https://dns.google/resolve?name=<host>&type=A` for each host in the CSV.
+CT dates come from crt.sh unless marked; crt.sh covers full history. [Compliance, 2026-11-19: the \"First CT cert\" column is an unverified lead. All 13 sites resolve in public DNS; see crtsh-resourcing-2026-11-19.md §3 for Wayback dating.] DNS evidence uses `https://dns.google/resolve?name=<host>&type=A` for each host in the CSV.
 
 **Supporting third-party confirmation (2021+):**
 - **Rathbones**, 2025-08-26: "Rathbones offers donor advised funds in partnership with National Philanthropic Trust UK (NPT UK), a registered charity" ([rathbones.com](https://www.rathbones.com/en-gb/wealth-management/media-centre/news-and-comment/legal-complexity-deterring-wealthy-leaving-money-charity)) [F].
@@ -159,7 +159,7 @@ A search summary also mentions Fidelity "Charitable Technology" engineering post
 
 ### 4.2 Assessment
 1. **The amount is unknown.** No filing or statement gives it. The only defensible bound is NPT's Part IX IT line of $5.87m (FY2025), assuming Ren is paid by NPT US and booked there [I].
-   - The rise of $2.22m (+61%) from FY2024 coincides with new GivingPoint sites. CT first dates: Rathbones 2024-11, Tolleson 2025-02, Pitcairn 2025-04, ICGF and Transatlantic 2025-06.
+   - The rise of $2.22m (+61%) from FY2024 coincides with new GivingPoint sites. CT first dates (leads): Rathbones 2024-11, Tolleson 2025-02, Pitcairn 2025-04, ICGF and Transatlantic 2025-06. Admissible: Wayback captures Rathbones by 2025-04-18 and ICGF by 2025-07-14; Tolleson, Pitcairn and Transatlantic are undated. BMO was live by 2024-07-31 (Wayback), not 2026-02 [crt19].
    - That timing is consistent with expanded Ren work, but it does not prove it [I].
 2. **Why there is no VII-B line.** Ranked [I]:
    - **(a) Treated as a purchase or licence, not contractor compensation.** Practice varies: Cleveland Foundation reports Stellar "hosting & software licence" in VII-B (repo §3), and NPT evidently does not.

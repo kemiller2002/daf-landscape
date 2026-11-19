@@ -66,7 +66,7 @@ The full table is [`cf-ledger-vendors-2026.csv`](../../data/mission-2026-11-14/c
 | CF | DAF $bn | Portal | Ledger | Conf. | Key evidence |
 |---|---|---|---|---|---|
 | Silicon Valley CF | 9.58 | Salesforce | unknown | none | 990: Slalom "consulting" $0.80m / $1.53m / $0.63m (TY2022–24); NaviSite hosting; Deloitte ([TY2023 XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413129349304911_public.xml)) |
-| Chicago Community Trust | 4.65 | GiftingNetwork | unknown; candidate Give Interactive sub-ledger [I] | low | Give `cct` production certificate 2025-06 to 2026-08 ([crt.sh](https://crt.sh/?q=%25.giveinteractive.com)); Clarity Partners $1.41m / $1.04m (TY2023–24) |
+| Chicago Community Trust | 4.65 | GiftingNetwork | unknown; candidate Give Interactive sub-ledger [I] | low | Give `cct` host resolves in public DNS (2026-11-19); the production certificate span 2025-06 to 2026-08 ([crt.sh](https://crt.sh/?q=%25.giveinteractive.com)) is an unverified lead; Clarity Partners $1.41m / $1.04m (TY2023–24) |
 | Foundation for the Carolinas | 2.95 | GiftingNetwork | unknown; candidates Give Interactive and NRS | low | Give Interactive "SOFTWARE" $654,500 (TY2023); NRS "FIDUCIARY SERVICES" $499,715 (TY2022) ([TY2023 XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202433209349318318_public.xml)) |
 | Greater Kansas City CF | 2.57 | donor-portal.org (GKCCF-operated) | GKCCF self-operated (GL product not public) | medium | Privacy policy and audit (finding 3); RSM "TECHNOLOGY SERVICES" about $0.69–0.77m a year; NPact "advising" |
 | New York Community Trust | 1.25 | unidentified | unknown | none | TY2021–24 lines are investment managers and trustees only |
@@ -117,7 +117,7 @@ The full table is [`cf-ledger-vendors-2026.csv`](../../data/mission-2026-11-14/c
 
 **donor-portal.org [F]:**
 - **Hosting:** DigitalOcean nameservers; apex and tenants resolve to 165.245.151.118 (dns.google).
-- **Certificates:** Let's Encrypt certificates from 2020-08-29, and wildcard `*.donor-portal.org` from 2021-10-14 ([crt.sh](https://crt.sh/?q=donor-portal.org)). No tenant names are exposed.
+- **Certificates:** Let's Encrypt certificates from 2020-08-29, and wildcard `*.donor-portal.org` from 2021-10-14 ([crt.sh](https://crt.sh/?q=donor-portal.org); dates are unverified leads). No tenant names are exposed. The zone also has a DNS wildcard (2026-11-19), so DNS cannot enumerate tenants either [crt19].
 - **Apex page:** "To log in, you will need to visit your provider's custom login URL … https://provider.donor-portal.org". The favicon is served from growyourgiving.org (GKCCF's domain).
 - **Tenant shell:** a Vite/React app. `env.js` sets the Datadog service `giving_portal_client`. The bundle hard-codes GKCCF and Greater Horizons links, and ACH micro-deposit text (statement descriptor "AMTS").
 - **Owner:** GKCCF, together with its controlled affiliate Greater Horizons. The privacy policy and audit are cited in finding 3.
@@ -131,7 +131,7 @@ The full table is [`cf-ledger-vendors-2026.csv`](../../data/mission-2026-11-14/c
 - **CF clients by logo:** Nebraska CF, Paso del Norte, CF for Greater New Haven and Warren County Foundation.
 - **Paso del Norte launch:** PdNCF announced the portal on 2023-11-17 ([PdNCF](https://pdnfoundation.org/news/pdncf-announces-new-portal-for-funds)).
 - **Does it supply the ledger?** **No.** It reads from the client's existing finance system.
-- **Certificates:** one certificate name only, `fund-miner.com`, issued 2023-04-20 to 2026-06-07. Tenants sit on path prefixes (`/ncf/`).
+- **Certificates:** one certificate name only, `fund-miner.com`, issued 2023-04-20 to 2026-06-07 (crt.sh; unverified lead) [crt19]. Tenants sit on path prefixes (`/ncf/`).
 
 ## 5. P-EXP-04: FidTech Partners
 
@@ -153,7 +153,7 @@ Source: [`form990-contractors-harvest-full.csv`](../../data/mission-2026-11-14/f
 
 **What remains unknown:**
 - **Ownership and revenue.** The homepage names no owner or leadership ([fidtechpartners.com](https://www.fidtechpartners.com/)). The founding year of 2005 is [R].
-- **No 2021+ client announcement** was found for the CT-only labels `jpmc` and `mssb`.
+- **No 2021+ client announcement** was found for the CT-only labels `jpmc` and `mssb`. They are unverified leads: `donorsphere.org` has a DNS wildcard [crt19].
 - **The 990 floor understates revenue.** Payees under $100k, and sponsors whose top five contractors are larger, are invisible. Houston, Hawai'i and Delaware show no FidTech line.
 
 ## 6. P-99F-05: Northeast Retirement Services

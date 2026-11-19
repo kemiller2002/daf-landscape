@@ -252,8 +252,7 @@ def ct_rows(domain: str, cache_dir: str, do_fetch: bool) -> tuple[dict, ...]:
     data = None  # crt.sh query disabled 2026-11-15: crt.sh robots.txt disallows all crawlers (see research/mission-2026-11-14/compliance-note-crtsh-robots.md)
     src = "crt.sh"
     if data is None:
-        data = fetch_json(f"https://api.certspotter.com/v1/issuances?domain={domain}&include_subdomains=true&expand=dns_names",
-                          cache_dir, do_fetch)
+        data = None  # certspotter disabled 2026-11-19: operator SSLMate's robots.txt disallows /api (see research/mission-2026-11-14/compliance-note-crtsh-robots.md)
         src = "certspotter"
         data = tuple({"name_value": "\n".join(d.get("dns_names", [])), "not_before": d.get("not_before", "")} for d in (data or ()))
     return tuple({"domain": domain, "name": n.strip().lower(), "not_before": (d.get("not_before") or "")[:10], "source": src}
