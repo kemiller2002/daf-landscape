@@ -46,7 +46,7 @@ import re
 import statistics
 import sys
 from functools import reduce
-from typing import Callable, Iterable, Mapping, Sequence
+from typing import Iterable, Mapping, Sequence
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from mission_990_contractors import DAFRC_CSV, DATA, _group_by_fast, ein9, read_csv, write_csv  # noqa: E402
