@@ -54,7 +54,7 @@ from mission_net_payout import itemized, panel_from  # noqa: E402
 FY = 2024
 MODAL_CUT = 0.90
 OUT_REL = os.path.join("data", "mission-2026-11-14", "grant-purpose-panel-2026-11-19.csv")
-PURPOSE_V = 2
+PURPOSE_V = 3
 UA = "research-script/1.0"
 
 # ----------------------------------------------------------------------------- rules (published verbatim in the doc)
@@ -132,19 +132,21 @@ def line_of(el) -> list:
             num(g.get("NonCashAssistanceAmt", "")) or 0.0, g.get("PurposeOfGrantTxt", "")]
 
 
-def supp_of(el) -> tuple:
-    g = {local(c.tag): (c.text or "").strip() for c in el.iter()}
-    ref = g.get("FormAndLineReferenceDesc", "")
-    return (ref, g.get("ExplanationTxt", "")) if re.match(r"(?i)SCHEDULE I\b", ref) else ()
+def notes_of(sched_i_el) -> list:
+    """Every SupplementalInformationDetail inside IRS990ScheduleI (its Part IV / Part I line 2 narratives)."""
+    def one(d):
+        g = {local(c.tag): (c.text or "").strip() for c in d.iter()}
+        return [g.get("FormAndLineReferenceDesc", ""), g.get("ExplanationTxt", "")]
+    return [one(d) for d in sched_i_el.iter() if local(d.tag) == "SupplementalInformationDetail"]
 
 
 def parse_purposes(stream) -> dict:
-    """-> {"lines": [[ein, cash, noncash, purpose], ...], "notes": [[ref, text], ...]} (Schedule I Part I/IV notes)."""
-    keep = ("RecipientTable", "SupplementalInformationDetail")
+    """-> {"lines": [[ein, cash, noncash, purpose], ...], "notes": [[ref, text], ...]} (Schedule I narratives)."""
+    keep = ("RecipientTable", "IRS990ScheduleI")
     evs = filter(lambda te: te[0] in keep, ((local(el.tag), el) for _, el in ET.iterparse(stream, events=("end",))))
-    # line_of / supp_of run before el.clear() (tuple items evaluate left to right), which keeps memory flat
-    items = tuple(("L", line_of(el), el.clear()) if t == "RecipientTable" else ("N", supp_of(el), None) for t, el in evs)
-    return {"lines": [i[1] for i in items if i[0] == "L"], "notes": [list(i[1]) for i in items if i[0] == "N" and i[1]]}
+    # line_of runs before el.clear() (tuple items evaluate left to right), which keeps memory flat
+    items = tuple(("L", line_of(el), el.clear()) if t == "RecipientTable" else ("N", notes_of(el), None) for t, el in evs)
+    return {"lines": [i[1] for i in items if i[0] == "L"], "notes": [n for i in items if i[0] == "N" for n in i[1]]}
 
 
 RESTRICT_RX = re.compile(r"RESTRICT|DESIGNAT|SPECIFIC PURPOSE|PURPOSE OF THE GRANT|GRANT PURPOSE|INTENDED USE|EARMARK", re.I)
