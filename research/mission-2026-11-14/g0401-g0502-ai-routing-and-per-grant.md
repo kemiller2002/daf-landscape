@@ -379,7 +379,7 @@ All values are percentages. "Dollars" are itemised dollars, i.e. Schedule I plus
 3. **Imputed R.** R is imputed for Goldman Sachs and Ayco. The imputation range (2.1–5.2×) moves Goldman Sachs' core per-grant share from 6.0% to 10.2% (CSV `r_case`).
 4. **Within-recipient heterogeneity is ignored.** The unitemised group uses a mean amount, and every grant on a line is treated as equal in size.
 5. **Narrow coverage.** Only six sponsors are pooled, and Fidelity is 88% of report-sponsor grants. DAFgiving360, the second-largest by count, could not be fetched (robots.txt 403). Community foundations are absent from the pools because their stated counts fail the consistency checks.
-6. **Inherited proxy limits.** The proxy's own limits are inherited: Pub 78 and BMF snapshots, name-rule fiscal-sponsor matching, and a screen of review need rather than observed review ([gap19-exception-load-proxy.md](gap19-exception-load-proxy.md) §5).
+6. **Inherited proxy limits.** The proxy's own limits are inherited: Pub 78 and BMF snapshots, name-rule fiscal-sponsor matching (replaced by an EIN-keyed host list in [g0503-0501-exception-proxy-refinements.md](g0503-0501-exception-proxy-refinements.md), which moves the core to 7.76% / 11.61%) [V wave 39C], and a screen of review need rather than observed review ([gap19-exception-load-proxy.md](gap19-exception-load-proxy.md) §5).
 
 ---
 

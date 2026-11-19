@@ -21,7 +21,7 @@
 | Question | Answer [C] |
 |---|---|
 | **(A) Fiscal-sponsor share**, 19-name list → EIN-keyed list | **0.12% → 0.44% of lines; 1.31% → 1.94% of dollars.** That is 740 → 2,682 lines and $1.212bn → $1.800bn.<br>The dollar ÷ count ratio falls from **10.7× to 4.4×**. The directory adds many hosts with smaller lines.<br>(The parent note's 1.30% is on the pre-regeneration denominator of $92.94bn. On $92.72bn the base is 1.31%.) |
-| … components | - 19 Q-B15 hosts, now EIN-keyed (20 EINs): 825 lines, $1.268bn.<br>- Hosts found only in the Fiscal Sponsor Directory: **1,965 lines, $557.1m**.<br>- Excluded as community-foundation / United Way hosts: 113 lines, $25.7m.<br>- Blank-EIN name fallback: 2 lines, $0.68m. Generic markers: 4 lines, $60k.<br>- Including the excluded hosts: 0.46% / 1.97%. |
+| … components | - 19 Q-B15 hosts, now EIN-keyed (20 EINs): 825 lines, $1.268bn.<br>- Hosts found only in the Fiscal Sponsor Directory: **1,965 lines, $557.1m**, including the 113 excluded lines ($25.7m) below; 1,852 lines and $531.4m count in the headline [V wave 39C]<br>- Excluded as community-foundation / United Way hosts: 113 lines, $25.7m.<br>- Blank-EIN name fallback: 2 lines, $0.68m. Generic markers: 4 lines, $60k.<br>- Including the excluded hosts: 0.46% / 1.97%. |
 | **(B) Recent ruling, time-correct** | Of the 29,082 flagged lines ($5.520bn):<br>- **25,185 lines ($4.951bn) carried a recent ruling at grant time**: 4.14% of lines, 5.34% of dollars, against 4.78% / 5.95% before.<br>- **True new organisations: 19,231 lines, $4.376bn (3.16% / 4.72%).** |
 | … split of the 29,082 lines | - new organisation: 19,218 lines, $4,373.7m;<br>- new group subordinate: 13 lines, $2.4m;<br>- **newly listed church: 3,047 lines, $356.1m**;<br>- **reinstatement: 1,974 lines, $84.1m**;<br>- **re-determination: 933 lines, $134.5m**;<br>- **not recent at grant time (ruling reset after the grant): 2,561 lines, $411.4m**;<br>- after the grant year: new organisation 52 lines ($87.8m), church 1,015 ($58.2m), other 269 ($12.3m). |
 | **Core union** | **7.41% / 10.96% → 7.76% / 11.61%** of lines / dollars. The gap is +3.85 pp.<br>Counting only true new organisations as "recent": **6.80% / 11.00%**. |
@@ -31,14 +31,14 @@
 
 **Reading [I]**
 - Both refinements leave the headline roughly where it was: core about **7.8% of lines and 11.6% of dollars**, broad about 25% / 20%. They change what sits inside it.
-- **Fiscal sponsors** are about three times more common by count than the 19-name list showed (0.44% of lines). They are less extreme by dollar weight (4.4×, not 10.7×). The largest additions are intermediaries such as Global Impact, NEO Philanthropy, King Baudouin Foundation US and Give2Asia, plus some hosts with large programmes of their own (50CAN, $94.2m). For those, "fiscal sponsor" is an upper bound (P-G0503-01).
+- **Fiscal sponsors** are about three times more common by count than the 19-name list showed (0.44% of lines). They are less extreme by dollar weight (4.4×, not 10.7×). The largest additions are intermediaries such as Global Impact, NEO Philanthropy, King Baudouin Foundation US and Give2Asia, plus some hosts with large programmes of their own (50CAN, $94.2m). Without 50CAN, Global Impact, NEO Philanthropy and Myriad USA (the directory and BMF name of King Baudouin Foundation US), 147 lines and $239.8m, the fiscal-sponsor share is 0.42% / 1.68% (4.0×), the core 7.74% / 11.35% and the broad 24.77% / 19.59% [V wave 39C] For those, "fiscal sponsor" is an upper bound (P-G0503-01).
 - **New grantees.** About one in three recent-ruling lines (9,799 of 29,082; $1.06bn of $5.52bn) is *not* a new organisation. These are:
   - rulings reset after the grant: 2,561 lines, $411m;
   - reinstatements: 1,974 lines, $84m;
   - re-determinations: 933 lines, $135m;
   - newly listed churches: 3,047 lines, $356m, plus 1,015 lines ($58m) listed only after the grant year;
   - other rulings after the grant year: 269 lines, $12m.
-- The new-grantee cohort proper is **3.2% of lines and 4.7% of dollars**. Its dollars are concentrated: SVCF's $1.309bn Further Future Foundation line is still a true new organisation (ruling 2023-03, present in the 2023-06 BMF with that month).
+- The new-grantee cohort proper is **3.2% of lines and 4.7% of dollars**. Its dollars are concentrated: SVCF's $1.309bn Further Future Foundation line is still a true new organisation (ruling 2023-03, present in the 2023-06 BMF with that month, absent from both 2022 legacy files, and renamed Navigation Charitable Fund in the BMF from the 2024-07 snapshot) [V wave 39C]
 
 ---
 
@@ -51,7 +51,7 @@
    - **National Network of Fiscal Sponsors** (`www.fiscalsponsors.org`). robots.txt is a Squarespace file: `/config`, `/search`, `/account`, `/api/`, `/static/` and some query patterns are disallowed for all agents. The named AI agents share that `*` group, and `/member-directory` is allowed. The [member directory](https://www.fiscalsponsors.org/member-directory) page (HTTP 200) has **no member list in its HTML**. The list is rendered client-side by a third-party script (`cfapi.communitybox.co` / `dashboard.communitybox.co`). **Not used:** this would mean calling a widget API, with membership gating via memberspace. No login was attempted.
 2. **19 Q-B15 hosts.**
    - These are recipient EINs whose **current BMF name** matches the original `FISCAL_SPONSORS` regex: 17 EINs, with two for Tides (Foundation and Center).
-   - Three hosts are not in the 2026-11 BMF: Players Philanthropy Fund, Open Collective Foundation and Trust for Conservation Innovation (now "Multiplier"). For these the script takes the **modal EIN that sponsors reported** on Schedule I lines matching the regex, when it covers at least half of them. This gave 276601178, 814004928 and 912166435.
+   - Three hosts are not in the 2026-11 BMF: Players Philanthropy Fund, Open Collective Foundation and Trust for Conservation Innovation (now "Multiplier"). For these the script takes the **modal EIN that sponsors reported** on Schedule I lines matching the regex, when it covers at least half of them. This gave 276601178, 814004928 and 912166435. Correction: all three EINs are in the 2026-11 BMF, under names the regex does not match (STONIER SCHOLARSHIP INC, OPENCOLLECTIVE FOUNDATION, MULTIPLIER); the hosts are missing by name, not by EIN, and the keyed EINs are right [V wave 39C]
    - These hosts are always counted.
 3. **Directory hosts → EIN** (current EO BMF, 2026-11-09), in this order:
    - exact normalised name + state (292), or + city (1);
@@ -124,7 +124,7 @@ Universe, returns, Schedule I lines, Schedule F denominators, the foreign, not-c
 
   **Reading:**
   - The parent note's guess was right: most of the 4,090 after-period lines (2,289, $398.6m) belonged to organisations the BMF already listed at grant time with an old ruling. Examples, with the as-of ruling first and the 2026-11 ruling second:
-    - Charter Fund: 2005-05 / 2025-08, $76.8m;
+    - Charter Fund: 2005-05 / 2025-08, $76.8m (its FY2024 lines see 2019-12 in the 2024-07 and 2025-01 snapshots, still before the cutoff) [V wave 39C]
     - Musical Instrument Museum: 2006-03 / 2025-08, $36.2m;
     - Life Covenant Church: 1975-07 / 2025-12, $30.8m.
   - BM-A Institute ($83.1m, ruling 2024-09) is a genuine after-period new organisation: it is absent from every snapshot before then.
@@ -139,7 +139,8 @@ All 48 sponsors, FY2023–24 pooled:
 |---|---|---|---|---|---|
 | Base: 19-name regex + markers | 740 | $1,211.6m | 0.12% | 1.31% | 10.7× |
 | Q-B15 hosts, EIN-keyed | 825 | $1,267.7m | 0.14% | 1.37% | 10.1× |
-| Directory-only hosts | 1,965 | $557.1m | 0.32% | 0.60% | 1.9× |
+| Directory-only hosts (incl. 113 excluded community-foundation / United Way lines) | 1,965 | $557.1m | 0.32% | 0.60% | 1.9× |
+| … of which counted in the headline | 1,852 | $531.4m | 0.30% | 0.57% | 1.9× [V wave 39C]
 | **Refined flag (headline)** | **2,682** | **$1,799.8m** | **0.44%** | **1.94%** | **4.4×** |
 | Including community-foundation / United Way hosts | 2,795 | $1,825.5m | 0.46% | 1.97% | 4.3× |
 | … of which DAF-to-DAF lines (whitelist) | 193 | $145.3m | 0.03% | 0.16% | — |
@@ -173,7 +174,7 @@ All 48 sponsors, FY2023–24 pooled:
 | Rank | Sponsor | Base | Refined | Core $ |
 |---|---|---|---|---|
 | 19 | CJP Boston | 1.20% | 4.73% | 6.14% → 9.67% |
-| 24 | New York Community Trust | 1.76% | 4.93% | 5.95% → 9.09% |
+| 24 | New York Community Trust | 1.76% | 4.97% | 5.95% → 9.13% [V wave 39C]
 | 15 | Jewish Communal Fund | 4.09% | 7.13% | — |
 | 42 | Seattle Foundation | 0.74% | 3.32% | — |
 | 48 | San Francisco Foundation | 2.91% | 4.60% | — |
@@ -196,9 +197,10 @@ Shares of all lines and dollars (608,610 lines; $92.72bn):
 
 - **Largest true new-organisation recipients** (as-of ruling = 2026-11 ruling):
   - Further Future Foundation (SVCF), $1,309.0m, 2023-03;
-  - Come and See Foundation, $139.9m (30 lines), 2022-10;
+  - not Come and See Foundation ($139.9m, 30 lines, 2022-10): the script classes it `tc_newly_listed_church` (church/religious label; BMF foundation code 16 at grant time, 10 from the 2025-01 snapshot), so it is outside the true-new-organisation total [V wave 39C]
   - The Just Trust for Education, $131.6m, 2023-02;
-  - Our American Future Foundation, $118.8m (19), 2022-11.
+  - Our American Future Foundation, $118.8m (19), 2022-11;
+  - Deitch Family Charitable Support Trust, $49.7m, 2022-07 [V wave 39C]
 - **Largest re-determinations:**
   - Telescope Fund, $33.1m, 2023-05;
   - New Leaders, $10.5m, 2022-07;
@@ -251,18 +253,18 @@ Count / dollar share. "Core, new orgs only" counts only `tc_new_org` + `tc_new_s
 ## 4. Comparison with the four-national measure (parent §4)
 
 - The like-for-like component of the existing "2.5–3%" measure used the 19-host list: 1.50% of the four nationals' Schedule I dollars. On the EIN-keyed list it is **2.10% of Schedule I dollars** (`fiscal_sponsor_any_share_of_sched_i_usd`, big-4 row), or 2.05% of proxy dollars and 0.24% of lines [C].
-- The like-for-like simple sum therefore rises from ≈3.6% to **≈4.2% of dollars**: 1.96% foreign + 2.10% fiscal sponsors + 0.15% non-501(c)(3) IRC text [C]. This is still above the FY6/2025 "2.5–3%".
-- The count-side claim ("0.3–1% by count at nationals") still holds for foreign + fiscal-sponsor lines. The big-4 fiscal-sponsor count share is 0.24%, against 0.04% before [C].
+- The like-for-like simple sum therefore rises from ≈3.6% to **≈4.2% of dollars**: 1.96% foreign + 2.10% fiscal sponsors + 0.15% non-501(c)(3) IRC text [C]. Without 50CAN, Global Impact, NEO Philanthropy and Myriad USA the fiscal-sponsor term is 1.82% and the sum ≈3.9% [V wave 39C] This is still above the FY6/2025 "2.5–3%".
+- The count-side claim ("0.3–1% by count at nationals") still holds for foreign + fiscal-sponsor lines. The big-4 fiscal-sponsor count share is 0.24%, against 0.04% before [C]. Foreign + fiscal-sponsor lines are 0.67% of big-4 lines (0.47% before) [V wave 39C]
 
 ## 5. Limits
 
 - **Directory listing is self-reported, and a host's EIN is not a project.**
   - Every grant to a listed host is flagged, including grants to the host's own programmes. Examples are 50CAN, Global Fund for Women and Open Space Institute.
-  - The directory-only $557.1m is therefore an upper bound (P-G0503-01).
+  - The directory-only $557.1m (of which $531.4m counts in the headline) is therefore an upper bound (P-G0503-01); 50CAN, Global Impact, NEO Philanthropy and Myriad USA alone are $239.8m [V wave 39C]
   - Conversely, hosts absent from the directory are missed: 71 directory hosts are unmatched and 5 ambiguous. The NNFS list could not be read (§1.1).
 - **Matching is inference.**
   - Near matches (27) and the Schedule I-reported pass (17) rest on name, city or state agreement. Two of the 17 are uncertain: United Way of Southwest Colorado → "Team Up" (EIN 237113221; $42k) and SPM Disability Justice Fund → "Disability Power Bloc" ($31k). Both are immaterial.
-  - The community-foundation / United Way exclusion is a judgement. Including those hosts changes the share by +0.02 pp lines and +0.03 pp dollars.
+  - The community-foundation / United Way exclusion is a judgement. Including those hosts changes the share by +0.02 pp lines and +0.03 pp dollars. The NTEE rule also excludes The Giving Back Fund (T70; 31 lines, $6.85m) and Streams in the Desert Foundation (T31; $5k), which are fiscal-sponsor hosts, and keeps Communities Foundation of Oklahoma (T30J; $3.58m) and DAF sponsors such as United Charitable and Givinga; all immaterial [V wave 39C]
 - **Archive coverage:**
   - No usable dated BMF exists for 2022-09 to 2023-05 (NCCS 403; web.archive.org was unreachable from this session: connection reset at the network proxy, so its robots.txt could not be read and it was not used).
   - FY2023 years ending 2023-03 to 2023-05 rely on the 2023-06 file (336 lines, $121.4m; P-G0503-05).
@@ -271,7 +273,7 @@ Count / dollar share. "Core, new orgs only" counts only `tc_new_org` + `tc_new_s
   - Small organisations filing 990-N are not in the e-file index, so some reinstatements and re-determinations look "new".
   - Revocation records give the revocation date, and the BMF gives the new ruling month; the reinstatement letter itself is not public.
   - The 36-month e-file rule and the church rule are judgements [I].
-- **Churches:** the 3,047 newly listed church lines ($356.1m) stay in the time-correct flag. They are only excluded from the new-organisations-only core (P-G0503-04).
+- **Churches:** the 3,047 newly listed church lines ($356.1m) stay in the time-correct flag. The class is label-based: 2,829 of the lines ($342.4m) carry BMF foundation code 10 (church) in the 2026-11 BMF; 218 lines ($13.7m) are religious organisations with other codes, such as yeshivas and church-planting networks, for which a first ruling month can date them [V wave 39C] They are only excluded from the new-organisations-only core (P-G0503-04).
 - All other limits of the parent note apply: recipient-level Schedule I, community-foundation non-DAF grants, attachment-only sponsors (BofA, Renaissance), and no observed routing.
 
 ## 6. Reproduction
@@ -311,7 +313,7 @@ python3 scripts/mission_exception_refined.py . --np-cache NPCACHE --lines-cache 
 
 | Column(s) | Meaning |
 |---|---|
-| row_type … `sponsor_any_*` | Same columns, rows and definitions as `exception-load-proxy-2026-11-19.csv` ([parent §7](gap19-exception-load-proxy.md#7-data-dictionary-exception-load-proxy-2026-11-19csv)), **except**:<br>- `fiscal_sponsor_name_*` is the EIN-keyed flag (§1.1).<br>- `recent_ruling_24m_*` is `tc_*` + `after_period_new_org` (§1.2).<br>- `any_*` and `any_core_*` are rebuilt from those.<br>- `recent_ruling_after_period_end_*` counts `after_period_*` classes.<br>- `fiscal_sponsor_listed_share_of_sched_i_usd` uses keyed hosts plus name fallback.<br>- The `sponsor_any_*` distributions use the refined broad union. |
+| row_type … `sponsor_any_*` | Same columns, rows and definitions as `exception-load-proxy-2026-11-19.csv` ([parent §7](gap19-exception-load-proxy.md#7-data-dictionary-exception-load-proxy-2026-11-19csv)), **except**:<br>- `fiscal_sponsor_name_*` is the EIN-keyed flag (§1.1).<br>- `recent_ruling_24m_*` is `tc_*` + `after_period_new_org` (§1.2).<br>- `any_*` and `any_core_*` are rebuilt from those.<br>- `recent_ruling_after_period_end_*` counts `after_period_*` classes.<br>- `fiscal_sponsor_listed_share_of_sched_i_usd` uses keyed hosts plus name fallback.<br>- The `sponsor_any_*` distributions use the refined broad union.<br>- `avg_usd_flagged_line`, `avg_usd_other_line` and `fiscal_sponsor_any_share_of_sched_i_usd` also follow the refined flags [V wave 39C] |
 | fs_q19_ein_* | Lines whose EIN is one of the 20 Q-B15 host EINs |
 | fs_fsd_ein_*, fs_fsd_only_ein_* | Lines whose EIN is a directory host; … and not a Q-B15 host |
 | fs_name_fallback_*, fs_marker_* | Blank-EIN lines matched by name; generic-marker lines |
