@@ -20,7 +20,7 @@ Task id b44n27-b39n4, 2026-11-19. Evidence tags: [F] filed or primary figure, [C
     - Non-DAF funds: column (b) of Part I is blank and every contribution is reported as DAF.
     - Affiliates: NPT Transatlantic is a disregarded entity with $163m of assets, and NPT UK is related but not controlled.
     - Timing: the June year end is the same in every year and no amended return exists.
-  - **Recommendation.** Do not replace a filed value with an estimate in the headline series. Carry a flagged sensitivity instead: FY2023 market $261.44bn rather than $256.37bn, and FY2023→24 growth 23.6% rather than 26.1%. Close the item from NPT's audited FY2023 statements (P-B44N27B39N4-01).
+  - **Recommendation.** Do not replace a filed value with an estimate in the headline series. Carry a flagged sensitivity instead: FY2023 market $261.44bn rather than $256.37bn, and FY2023→24 growth 23.6% rather than 26.1%. NPT's own consolidated statements for the year ended 2023-06-30 (https://www.nptrust.org/consolidated-statements-2023/, linked from the 2023 annual report page; PDF created 2024-05-15) report total assets of $28,876,243k and net assets of $28,514,324k. They agree with Part X and the roll-forwards, not with $22.84bn, so P-B44N27B39N4-01 is answered on first-party evidence. Whether to adopt the sensitivity in the headline series remains a repo policy decision [V wave 34A]
 - **(B) Top-50 FY2024 imputed rows: nothing is left to replace.**
   - 24 sponsors in the union of the published and corrected top 50 have imputed FY2024 rows [C].
   - Each one has a filed FY2024 Form 990 in the IRS index. In 95 of the 96 sponsor-metric cells, the existing R1 correction already uses exactly the value in that return.
@@ -120,7 +120,7 @@ Implied FY2023 DAF value:
 - FY2024 DAF value minus FY2024's change in net assets (+$13.963bn) gives **$28.16bn**.
 - Contributions less grants only, with no investment return, gives $26.29bn. This matches the queue item's $26.29bn.
 
-Return needed in FY2024, measured as (EOY − (contributions − grants)) ÷ BOY:
+Return needed in FY2024, measured as (EOY − (contributions − grants) − BOY) ÷ BOY [V wave 34A]
 - **45.2%** on the filed $22.84bn;
 - **18.8%** on Part X net assets.
 
@@ -131,7 +131,7 @@ No other amount between $20bn and $30bn in the FY2023 XML equals $22,843,599,245
 - The Schedule A public-support total ($23.65bn) does not.
 - Publicly traded plus other securities ($22.70bn) does not.
 
-So the figure cannot be traced to a mis-keyed neighbouring line.
+So the figure cannot be traced to a mis-keyed neighbouring line. One near match is worth recording [I]: total assets less savings and temporary cash ($28,241,290,750 − $5,478,323,545 = $22,762,967,205) is within $80.6m (0.35%) of the filed $22,843,599,245, and the $5.08bn gap is 93% of that cash line. A line 4 that left out cash and temporary investments in FY2023 only would fit. In FY2022 and FY2024, total assets less cash is far below line 4, so cash was included in those years. This is not proven [V wave 34A]
 
 ### 2.3 Can the filing explain the gap? [F]
 
@@ -158,15 +158,15 @@ So the figure cannot be traced to a mis-keyed neighbouring line.
 **Conclusion** [I]. The FY2023 Schedule D line 4 is very likely a filer error, understated by about $5.1–5.3bn. The filing alone cannot prove which line is wrong.
 
 Public NPT material does not settle it:
-- NPT's [2023 annual report page](https://www.nptrust.org/annual-reports/the-2023-annual-report/) gives grants ("$4.52 billion … during FY23") but no asset figure.
-- No FY2023 financial statements are listed in the nptrust.org sitemap (528 URLs checked).
+- NPT's [2023 annual report page](https://www.nptrust.org/annual-reports/the-2023-annual-report/) gives grants (
+- No FY2023 financial statements are listed in the nptrust.org sitemap (528 URLs checked). However, the 2023 annual report page links a two-page 
 
 ### 2.4 Decision and effect
 
 **Repo figures should not change in the headline series.**
 - The R1–R4 correction rules replace only imputed values with filed ones. Replacing a filed figure with an estimate would be a new kind of correction.
 - The CSV therefore carries one row, `SENS_filed_inconsistent_with_part_x`, with `applied = 0`. Its corrected value is the filed Part X net assets of $27,919,223,352, a lower bound because NPT's DAF value ran 0.6–1.3% above net assets in the other years.
-- Adopt it only if NPT's audited FY2023 statements confirm it (P-B44N27B39N4-01).
+- NPT's consolidated FY2023 statements (net assets $28,514,324k) support it. Adopting it in the headline series is a policy decision. Because the consolidated basis covers NPT and its affiliates, Part X ($27,919,223,352) stays the conservative value (P-B44N27B39N4-01) [V wave 34A]
 
 What would move if the sensitivity were adopted [C]. The repo values match `direction-league-table-concentration.md`, whose FY2023 row is $256.37bn, CR1 21.7%, CR3 42.9%, CR5 52.9% and HHI 801.
 
@@ -233,7 +233,7 @@ Notes on the table:
 
 ### 3.3 Cross-check: top-50 "paper submission" rows [C]
 
-There are 18 FY2024 rows panel-wide with a paper-submission flag, holding $90.43bn. 15 of them carry an `end_of_tax_period` that ends in 2023. The original queue wording flagged Fidelity's 2023-06-30 period on this basis.
+There are 18 FY2024 rows panel-wide whose provenance resolves to paper submission (a paper flag on at least one metric and no `Imputed` flag), holding $90.43bn. 21 rows carry a paper flag on at least one metric [V wave 34A]. 15 of them carry an `end_of_tax_period` that ends in 2023. The original queue wording flagged Fidelity's 2023-06-30 period on this basis.
 
 All 13 such rows in the top 50 were matched to their FY2024 Form 990:
 
@@ -274,7 +274,7 @@ The only candidate movement is the FY2023 NPT sensitivity in §2.4, which is not
 
 ## 4. Limits
 
-- **NPT's audited FY2023 statements were not found.** NPT publishes only FY2025 summary statements, and no FY2023 PDF is in its sitemap. The direction of the NPT error is therefore inferred from internal consistency, not confirmed. The Part X figure could in principle be the wrong one, though Part X reconciles exactly through Part XI and the next year's BOY figure.
+- **NPT's FY2023 consolidated statements were found by the validator** at https://www.nptrust.org/consolidated-statements-2023/, linked from the 2023 annual report page but absent from the sitemap. They show net assets of $28,514,324k at 2023-06-30, in line with Part X and the roll-forwards, so the error is in Schedule D line 4, not Part X. The two-page PDF carries no auditor's opinion, and it reports no DAF-only figure [V wave 34A]
 - **Schedule D Part I is self-reported**, and R1 trusts it. The UCLA grants cell shows that filed values can be wrong.
 - **Universe.** Only the top 50 (union of 51 sponsors) was rechecked. The 57 unresolved FY2024 imputed rows ($1.10bn, mostly long tail) were not re-run against the newer index (P-B44N27B39N4-05).
 - **Index coverage.** Returns filed after the 2026-11-19 `index_2026.csv` snapshot are not covered.
