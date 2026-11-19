@@ -27,16 +27,16 @@
    | Among the 12 resolved cases | **12/12 (95% Wilson 75.7–100%)** |
    | Bounds over all 18, depending on how the unknowns resolve | **66.7% (43.7–83.7%) to 100% (82.4–100%)** |
 
-   Exposure is 80.9 company-years with no observed shutdown. That still allows an annual shutdown hazard of up to **3.7%** (rule-of-three 95% bound). If every unknown turned out to be a closure, the crude annual rate would be 7.4%.
+   Exposure is 80.9 company-years with no observed shutdown. That still allows an annual shutdown hazard of up to **3.7%** (rule-of-three 95% bound, which assumes the 6 unknowns are still operating) [V wave 32A]. If every unknown turned out to be a closure, the crude annual rate would be 7.4%.
 2. **The filing frame finds no deaths, and with this little exposure it could hardly have found one.** All 10 Frame A sponsors:
-   - carry no DAFRC exit flag through FY2024;
+   - carry no DAFRC exit flag through FY2024. For 6 of the 10 (Daffy, AnonDo, Grapevine, GoodCoin, Matbia, Manifold) the FY2024 DAFRC row is imputed, not filed, so the ProPublica 2024-12 listing is the FY2024 evidence [V wave 32A];
    - have a tax-period 2024-12 return listed on ProPublica;
    - show no IRS revocation.
 
    The DAFRC panel's verified central sponsor exit rate is 1.2%/yr. At that rate, 23 sponsor-years would be expected to yield **0.28 exits**, and there is a 76% chance of seeing none even if these entrants were no healthier than the average sponsor. Zero observed exits is therefore *not* evidence that new sponsors outlive established ones.
 3. **The purposive-50's failure mix does not describe the 2021–2026 generation.**
    - The purposive-50 recorded 17 adverse outcomes (11 voluntary shutdowns, 6 regulatory or insolvency events) and 12 acquisitions.
-   - In `failed-daf-startups.csv`, only one of these 29 has a founding year of 2021 or later (FTX Future Fund, 2022). Twelve have an unknown founding year, and the rest predate 2021. Many are payments intermediaries or corporate-owned giving products.
+   - In `failed-daf-startups.csv`, only one of these 29 has a founding year of 2021 or later (FTX Future Fund, 2022). Thirteen have an unknown founding year, and the other 15 predate 2021 [V wave 32A]. Many are payments intermediaries or corporate-owned giving products.
    - The cohort, defined in advance, contains none of those failure types. Its weak points are **quiet fade**: a third of members are status-unknown small sponsors with no dated activity in the last year. The cohort also shows **channel pivots**.
 4. **Acquisition is not the modal exit here.** It is 1 of 18 (5.6%, 95% CI 1.0–25.8%), against 12 of 50 in the purposive list. The one buyer was a nonprofit rater, not a DAF consolidator. The purposive-50's "consolidators buy the plumbing" pattern (P2) comes from deals made in 2016–2025 with older targets (Pinkaloo, Amicus, iPhi, Vennfi, Giving Place). None of those targets is in this cohort.
 5. **The profiles differ, but n is too small to show cause.**
@@ -54,13 +54,13 @@
 The rules below were written to the scratchpad at 17:11 UTC on 2026-11-19, before any outcome was looked up. They are reproduced here verbatim in substance.
 
 - **Window.** The DAF-holding or DAF-operating unit's first observable entry event falls between 2021-01-01 and 2026-11-19. Entry events are a public launch, an incorporation, an IRS ruling or a first public funding round.
-- **Unit of analysis.** Where a 501(c)(3) sponsor exists solely for the product, the unit is that sponsor EIN, and its IRS ruling date counts as entry. Otherwise the unit is the company. One consequence: companies older than 2021 that created a dedicated sponsor in the window are included, for example GivingTrax (2010) and in/PACT (2015). The **strict subset** (`strict_window_subset=yes`, n=8) keeps only companies founded in the window and is reported separately.
+- **Unit of analysis.** Where a 501(c)(3) sponsor exists solely for the product, the unit is that sponsor EIN, and its IRS ruling date counts as entry. Otherwise the unit is the company. One consequence: companies older than 2021 that created a dedicated sponsor in the window are included, for example GivingTrax (2010) and in/PACT (2015). Uncommon Giving does not pass the window test. Its sponsor (84-3815117) has a FY2020 DAFRC row with 266 DAF accounts, and the product launched publicly on 2020-07-28. Its first observable entry event therefore predates the window, as Endaoment's does. It is in only because its ruling month reads 2021-01. Without it the cohort is 17 (active 10, acquired 1, pivoted 0, unknown 6), and the lower bound is 11/17 = 64.7% (41.3–82.7%) [V wave 32A] The **strict subset** (`strict_window_subset=yes`, n=8) keeps only companies founded in the window and is reported separately.
 - **Product definition.** One of:
   - (i) a DAF or giving account sold to the public;
   - (ii) software, payments or an API built for DAFs or giving accounts;
   - (iii) a DAF-like giving account embedded in a fintech, employer or consumer product.
 - **Exclusions.**
-  - Subsidiaries or products of incumbents founded before 2021 (bank DAF programs, GoFundMe Giving Funds, Altruist DAFs, Telescope Fund).
+  - Subsidiaries or products of incumbents founded before 2021 (bank DAF programs, GoFundMe Giving Funds, Altruist DAFs, Telescope Fund). The rules do not define \"incumbent\". Telescope Fund (a dedicated sponsor ruled in 2023 inside an older network) is excluded, while dedicated in-window sponsors of older companies (GivingTrax, GoodCoin, Goodstack) are included. The strict subset is the only reading free of this choice [V wave 32A].
   - Community foundations and single-issue charities.
   - Fundraising SaaS with no giving-account feature.
   - Non-US entities that do not run a US sponsor.
@@ -168,7 +168,7 @@ Per-row evidence, URLs and notes are in the CSV.
 | Active with dated evidence ≤12 months | 10/18 = 55.6% (33.7%–75.4%) |
 | Exit by acquisition | 1/18 = 5.6% (1.0%–25.8%) |
 | Status unknown | 6/18 = 33.3% (16.3%–56.3%) |
-| Company-years of exposure (entry to 2026-11-19) | 80.9 (median age 4.35 years; range 2.3–5.8) |
+| Company-years of exposure (entry to 2026-11-19) | 80.9 (median age 4.4 years, exactly 4.375; range 2.3–5.8) [V wave 32A] |
 | Rule-of-three 95% upper bound on the annual shutdown hazard | 3.7% |
 | Crude annual shutdown rate if every unknown were a shutdown | 7.4% |
 
@@ -207,7 +207,7 @@ There are no shutdowns in the cohort, so the comparison is between the 8 members
 | Case | Outcome | Mechanism, from evidence | Purposive-50 pattern it matches |
 |---|---|---|---|
 | Causeway | acquired 2023-08-22 | E: launched in 2022 as a test with about 100 donors; acquirer took IP, brand and other assets and relaunched the product in 2024-09. I: sub-scale consumer product with a soft landing at a mission-aligned nonprofit buyer | P2 (acquisition as exit), but the buyer is a rater, not a DAF consolidator |
-| Uncommon Giving | pivoted | E: the 2020 release offered "Anyone can open an Uncommon Giving Wallet, a DAF, with as little as $10". In 2026 the product is an employer CSR suite priced from $5,000/yr. Schedule D accounts fell from 306 (FY2022) to 1 (FY2023–FY2024). I: consumer customer acquisition did not pay; the company moved to employer sales | P3/§1.6 channel pivot (consumer to employer), as with Pinkaloo, Philanthropi and Bright Funds |
+| Uncommon Giving | pivoted | E: the 2020 release offered "Anyone can open an Uncommon Giving Wallet, a DAF, with as little as $10". In 2026 the product is an employer CSR suite (grants management from $2,400/yr; employee giving and volunteering from $5,000/yr) [V wave 32A]. Schedule D accounts fell from 306 (FY2022) to 1 (FY2023–FY2024). I: consumer customer acquisition did not pay; the company moved to employer sales | P3/§1.6 channel pivot (consumer to employer), as with Pinkaloo, Philanthropi and Bright Funds |
 | Manifold for Charity | unknown | E (forum and wiki sources): a $10k monthly donation cap from 2024-01; only prize points redeemable from 2024-05; Sweepcash sunset 2025-03-28; the program was originally grant-funded. I: a giving feature inside a parent app depends on the parent's funding and regulatory choices | §1.5 corporate-owned products die when the parent reprioritizes; P3 borrowed channel |
 | Givepact, Silent Donor, GoodCoin, GivingTrax, iMaaser | unknown | E: each has a TY2024 return or a live site or listing, but no dated activity on or after 2025-11-19. All are small: AnonDo Fund DAF assets $17,982 (FY2023, DAFRC); I Maaser total assets $319 (TY2022); GivingTrax Foundation total assets $78,774 (latest ProPublica filing with data). None has disclosed venture funding except Givepact (Outlier Ventures) | Visibility bias (§8 of the purposive-50): quiet closures leave no press trace |
 
@@ -247,7 +247,7 @@ There are no shutdowns in the cohort, so the comparison is between the 8 members
    - Frames B and C reach entities through search engines and press releases. Funded, surviving companies are over-represented.
    - Firms that died before generating press, and apps already delisted, are invisible: search returns only live listings, and the robots-compliant method cannot enumerate removed App Store IDs (P-GAP19-15-04).
    - The cohort is a census of *visible* entrants, not of all entrants.
-3. **Right-censoring.** The median age is 4.35 years and the maximum 5.8. Venture-backed startups commonly fail later than that. The rule-of-three bound (3.7%/yr; 8.7%/yr for the strict subset) is the honest summary.
+3. **Right-censoring.** The median age is 4.4 years (4.375) and the maximum 5.8 [V wave 32A]. Venture-backed startups commonly fail later than that. The rule-of-three bound (3.7%/yr; 8.7%/yr for the strict subset) is the honest summary.
 4. **Detection lag.** Closures surface in filings with a lag of one to three years: a final return or Schedule N, or auto-revocation after three missed returns. A 2025–2026 closure would currently appear as `unknown`, which is why unknown is never counted as surviving in the lower bound.
 5. **Classification from weak signals.** Four "active" calls (Daffodil, Abundance Capital, Matbia, and Grapevine via search extracts) rest on copyright years, upload paths or search snippets. `evidence_strength` flags these. Under a stricter "active" rule, the active count falls to 6, and the 4 move to unknown.
 6. **Unit-of-analysis choice.** Counting a dedicated sponsor's IRS ruling as entry admits older parent companies. The strict subset (n=8) removes them, and its rates are similar.

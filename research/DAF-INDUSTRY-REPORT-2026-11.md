@@ -985,6 +985,10 @@ Related customer-facing frictions are covered by theme: data export and credenti
    >   - Investigated cells rise from 62.6% to 81.3% after the 20 `ai` cells were filled, most as documented absence.
    >   - Every changed cell has a resolving pointer. Source: [validation-wave31a-report.md](mission-2026-11-14/validation-wave31a-report.md).
 
+### 11.30 Gap-audit batch part A (validated, wave 32A)
+
+**Gap-audit batch part A** (validated, wave 32A). Top-50 sponsors' FY2023–24 Schedule I and F filings were screened for grants that leave the routine "listed, long-recognised US public charity" path. The routes screened were foreign recipients, recipients outside Pub 78 without an explaining label, rulings within 24 months, named fiscal sponsors and private foundations. On that core definition the share is 7.4% of recipient lines and 11.0% of dollars, once one $212.2m totals row is removed. The broad definition gives 25% and 20%; it is count-heavy because of churches and group subordinates. At the four largest nationals the existing "2.5–3%" measure reproduces at 3.6%, about a third of their core 10.0%. Operating foundations ($949m) need no expenditure responsibility under §4966(c)(2)(A). The screen measures recipients, not observed review. A census of 18 DAF entrants from 2021–2026 finds no documented shutdown: 10 active, 1 acquired, 1 pivoted, 6 unknown. Survival is 66.7–100%, with a 3.7%/yr hazard bound if the unknowns survive. Uncommon Giving operated in 2020, so the strict subset (n=8) is the cleaner read (repo [`validation-wave32a-report.md`](mission-2026-11-14/validation-wave32a-report.md)) [V wave 32A]" Source: [validation-wave32a-report.md](mission-2026-11-14/validation-wave32a-report.md).
+
 ---
 
 ## Source register

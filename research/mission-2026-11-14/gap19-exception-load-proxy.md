@@ -3,7 +3,7 @@
 **Date:** 2026-11-19 · **Queue item:** P-GAP19-05 (from the [thoroughness gap audit](thoroughness-gap-audit-2026-11-19.md) §4, row 5)
 
 **Outputs**
-- [`data/mission-2026-11-14/exception-load-proxy-2026-11-19.csv`](../../data/mission-2026-11-14/exception-load-proxy-2026-11-19.csv): 166 rows.
+- [`data/mission-2026-11-14/exception-load-proxy-2026-11-19.csv`](../../data/mission-2026-11-14/exception-load-proxy-2026-11-19.csv): 167 rows [V wave 32A]
   - 100 `sponsor_year` rows, 94 of them with itemised Schedule I;
   - 48 `sponsor` rows (FY2023–24 pooled);
   - 6 `sponsor_type` rows, 5 `dafrc_segment` rows, 3 `all` rows, 1 `big4_nationals` row, and 4 single-year rows (`all_fy`, `big4_fy`).
@@ -37,10 +37,10 @@ Scope: 48 top-50 sponsors (46 DAFRC top-50 plus Stanford and UCLA Foundation, as
 | Question | Answer [C] |
 |---|---|
 | **Broad proxy** (the five categories exactly as briefed) | **25.1% of recipient lines, 19.9% of dollars.**<br>Here the count share is the *larger* one: gap −5.2 pp, dollar share ÷ count share 0.79×. The reason is that 19.3% of lines go to recipients absent from Pub 78, mostly small church and group-subordinate lines. |
-| **Core proxy** (unlabelled non-list recipients only; rulings inside the window only) | **7.4% of lines, 11.2% of dollars.**<br>The dollar share is larger: gap +3.75 pp, 1.51×.<br>Excluding SVCF and the university/hospital sponsors: **7.2% / 9.8%**. |
+| **Core proxy** (unlabelled non-list recipients only; rulings inside the window only) | **7.4% of lines, 11.2% of dollars.**<br>The dollar share is larger: gap +3.75 pp, 1.51×.<br>Excluding SVCF and the university/hospital sponsors: **7.2% / 9.8%**. Without the Greater Horizons FY2024 totals row (§2), core is 7.41% / **10.96%** (gap +3.55 pp, 1.48×) and 7.2% / 9.6% excluding SVCF and university/hospital sponsors [V wave 32A] |
 | **Count-vs-dollar gap by category** | - Fiscal-sponsor names: 0.12% of lines vs 1.30% of dollars (**10.7×**).<br>- Private foundations / ER: 0.39% vs 1.39% (3.5×).<br>- Foreign: 0.63% vs 2.07% (3.3×).<br>- Recent ruling: 4.8% vs 5.9% (1.2×).<br>- Not 501(c)(3) or not in Pub 78: 19.3% vs 9.3% (**0.48×**). |
-| **By sponsor type** (core, count / dollars) | - National (16 sponsors): 7.0% / 10.2%.<br>- Community foundation (22): 8.5% / **16.2%**.<br>- Faith (7, including Servant Foundation): 8.1% / 9.1%.<br>- DonorsTrust (single-issue, non-faith): 12.0% / 8.2%.<br>- Dechomai (processor, 9 lines): 22.2% / 5.6%.<br>- University/hospital (2): 60.0% / 3.8%. |
-| … the distribution across sponsors | Sponsor-level broad dollar share: median **16.4%** (IQR 13.4–21.1%), range 1.35% (UCLA Foundation) to 59.8% (Greater Horizons, driven by one blank line of $212m). Outside the university/hospital sponsors the lowest is 7.9% (Ayco).<br>Sponsor-level broad count share: median 19.7% (IQR 15.5–25.2%). |
+| **By sponsor type** (core, count / dollars) | - National (15 sponsors; Servant Foundation is counted under faith): 7.0% / 10.2%, or 7.0% / 9.9% without the Greater Horizons totals row [V wave 32A]<br>- Community foundation (22): 8.5% / **16.2%**.<br>- Faith (7, including Servant Foundation): 8.1% / 9.1%.<br>- DonorsTrust (single-issue, non-faith): 12.0% / 8.2%.<br>- Dechomai (processor, 9 lines): 22.2% / 5.6%.<br>- University/hospital (2): 60.0% / 3.8%. |
+| … the distribution across sponsors | Sponsor-level broad dollar share: median **16.4%** (IQR 13.4–21.1%), range 1.35% (UCLA Foundation) to 59.8% (Greater Horizons, driven by one blank line of $212m). Outside the university/hospital sponsors the lowest is 5.6% (Dechomai, 9 lines), then 7.9% (Ayco). The 59.8% at Greater Horizons is an e-file totals row (§2). Without it Greater Horizons is 19.8%, the maximum is SVCF at 45.8% and the p75 is 20.7% [V wave 32A]<br>Sponsor-level broad count share: median 19.7% (IQR 15.5–25.2%). |
 | … community foundations | The pooled community-foundation dollar share exceeds its count share by **+11.4 pp** (broad) and +7.7 pp (core). The **median CF** gap is −1.2 pp (broad), so the pooled gap comes from a few large lines, chiefly SVCF's $1.309bn FY2023 line to Further Future Foundation (BMF ruling 2023-03). |
 | **Four nationals compared** (Fidelity, DAFgiving360, Vanguard, NPT) | **Like-for-like with the existing measure** (foreign + named fiscal sponsors + non-501(c)(3) IRC codes), FY2023–24: 1.96% + 1.50% + 0.15% ≈ **3.6% of dollars**. The existing measure, for FY6/2025, is 1.46% + ≈1.20% + ≈0.03% = "2.5–3%". The difference is mostly NPT's higher FY2023–24 foreign share (7.4% vs 4.84%).<br>**Full proxy:** core 7.3% of lines / **10.0% of dollars**; broad 28.3% / 17.8%.<br>The existing measure therefore covers roughly a third of the core dollar proxy at these four. The difference is private foundations (2.05% of dollars, mostly operating foundations), recent rulings (4.25%) and unexplained non-list recipients (0.98%). |
 | **Count side of the existing measure** | The existing "0.3–1% by count at nationals" [I] is reproduced for its own components: foreign + fiscal-sponsor lines are **0.47%** of big-4 lines. It does not hold for the full proxy: 7.3% (core) or 28.3% (broad) of recipient lines. |
@@ -86,7 +86,7 @@ Scope: 48 top-50 sponsors (46 DAFRC top-50 plus Stanford and UCLA Foundation, as
    **Legal basis for the PF/ER split [F/I]:**
    - Under [26 U.S.C. §4966(c)](https://www.law.cornell.edu/uscode/text/26/4966), a DAF distribution escapes taxable-distribution status without expenditure responsibility only when it goes to a §170(b)(1)(A) organisation (other than a disqualified supporting organisation), to the sponsor, or to another DAF.
    - Private operating foundations are §170(b)(1)(A)(vii) organisations, via (F)(i) ([26 U.S.C. §170](https://www.law.cornell.edu/uscode/text/26/170)). They are therefore split out as `pof_only`: verification is needed, but not ER.
-   - Non-operating PFs and Type III non-functionally-integrated SOs need ER under [§4945(h)](https://www.law.cornell.edu/uscode/text/26/4945) standards.
+   - Non-operating PFs and Type III non-functionally-integrated SOs need ER under [§4945(h)](https://www.law.cornell.edu/uscode/text/26/4945) standards. The `er_required` flag is approximate in both directions. It overstates, because conduit and common-fund PFs (§170(b)(1)(F)(ii)–(iii)) are also (A)(vii) organisations. It understates, because donor-controlled Type I, Type II and functionally integrated Type III SOs are disqualified supporting organisations under §4966(d)(4)(A)(ii) but are not screened, and Pub 78 `SOUNK` recipients are not flagged [V wave 32A]
 5. **Denominators.**
    - **Count:** Schedule I lines + Schedule F foreign recipients.
    - **Dollars:** Schedule I dollars (cash + non-cash) + Part IX line 3.
@@ -114,7 +114,7 @@ Scope: 48 top-50 sponsors (46 DAFRC top-50 plus Stanford and UCLA Foundation, as
 - **Fiscal-sponsor matches:** 740 lines, $1.212bn, 25 recipient keys. All but about $55k (two generic-marker lines) come from the named list. Two false positives found in testing ("Quoddy Tides Foundation", "Illinois Public Health Institute") were removed by anchoring the patterns.
 - **The largest single lines** that drive sponsor-level dollar shares:
   - SVCF FY2023 → Further Future Foundation (92-1117448), **$1,309.0m**, BMF ruling 2023-03 (recent ruling);
-  - Greater Horizons FY2024: a line with **no name and no EIN**, $212.2m (blank EIN, so `not_c3_or_not_pub78_unexplained`);
+  - Greater Horizons FY2024: a line with **no name and no EIN**, $212.2m (blank EIN, so `not_c3_or_not_pub78_unexplained`). It is not a grant. $212,187,406 is exactly the sum of the return's 3,282 named lines, and a second blank line carries $3,282, the line count. Together they are an e-filed totals row, so Greater Horizons' Schedule I dollars are double-counted. No other return among the 94 has this pattern [V wave 32A]
   - SVCF FY2023 → The Just Trust for Education, $131.6m (ruling 2023-02);
   - NPT FY2024 → BM-A Institute, $83.1m (ruling 2024-09, after NPT's year-end);
   - NCF: blank-EIN church lines of $88.0m (First Baptist Church Chandler, FY2023) and $54.0m (First Baptist Church of Fremont, FY2024).
@@ -122,7 +122,7 @@ Scope: 48 top-50 sponsors (46 DAFRC top-50 plus Stanford and UCLA Foundation, as
 ## 3. Results
 
 ### 3.1 Pooled, all 48 sponsors (94 sponsor-years), FY2023–24 [C]
-Denominator: 608,612 lines; $92.94bn.
+Denominator: 608,612 lines; $92.94bn. **Validation note:** this includes Greater Horizons' FY2024 totals row (two blank lines: $212,187,406 and 3,282). Without it the denominator is 608,610 lines and $92.72bn; raw not-c3/not-Pub-78 is 9.11% of dollars (0.47×); unexplained is 13,568 lines and $0.89bn (0.96%); blank EIN with no label is $0.06bn on 1,095 lines; broad is 25.08% / 19.72%; core is 7.41% / 10.96% (gap +3.55 pp); and FY2024 core is 7.36% / 9.73% [V wave 32A]
 
 | Category | Lines | $ | Count share | Dollar share | Gap ($ − count), pp | $ share ÷ count share |
 |---|---|---|---|---|---|---|
@@ -140,7 +140,7 @@ Denominator: 608,612 lines; $92.94bn.
   - ER required (PF/SONFI, or BMF 04/24): 422 lines, **$140.6m**;
   - operating foundations only: 1,974 lines, **$1.147bn**.
   - The largest are Lucas Museum of Narrative Art ($200.0m), XQ Institute ($134.1m), Schmidt Ocean Institute ($98.0m), Global Support and Development ($85.7m) and Chicago CRED ($66.5m), all POF.
-  - The largest ER-required lines are Founders Pledge Inc ($53.9m: BMF code 04 but Pub 78 PC, so the IRS lists disagree), Huntington Foundation ($43.6m, Columbus Foundation) and Breakthrough Prize in Life Sciences Foundation ($6.0m, SVCF).
+  - The largest ER-required lines are Founders Pledge Inc ($53.9m: BMF code 04 but Pub 78 PC, so the IRS lists disagree. A sponsor relying on Pub 78 under Rev. Proc. 2018-32 would treat it as a public charity. Without it the ER-required total is about $86.7m [V wave 32A]), Huntington Foundation ($43.6m, Columbus Foundation) and Breakthrough Prize in Life Sciences Foundation ($6.0m, SVCF).
   - P-NEW-REC-01's narrower Pub 78-only PF/SONFI screen found 302 lines and $81.7m.
 - **Recent rulings:** 4,090 lines ($588.8m) carry a ruling month **after** the grant year ended.
   - Examples: BM-A Institute 2024-09; Charter Fund 2025-08; Musical Instrument Museum 2025-08; KIPP New York 2025-12.
@@ -167,7 +167,7 @@ Denominator: 608,612 lines; $92.94bn.
 - The FY2023 dollar figures include SVCF's $1.31bn Further Future line and its $1.66bn CZ Biohub LLC lines.
 
 **Sensitivity:**
-- Excluding university/hospital sponsors and SVCF (88 sponsor-years): broad 25.1% / 17.5%; core **7.2% / 9.8%**.
+- Excluding university/hospital sponsors and SVCF (88 sponsor-years): broad 25.1% / 17.5%; core **7.2% / 9.8%**. Without the Greater Horizons totals row: broad 25.1% / 17.3%, core 7.2% / 9.6% [V wave 32A]
 - Excluding DAF-to-DAF lines: broad 25.3% / 22.8%.
 
 **Average line size:** $121,158 on flagged lines against $163,263 on others (broad). On the broad definition the flagged lines are smaller on average.
@@ -175,7 +175,7 @@ Denominator: 608,612 lines; $92.94bn.
 ### 3.2 Distribution by sponsor type, FY2023–24 [C]
 | Sponsor type | Sponsors (sponsor-years) | Lines | $ | Broad: count | Broad: $ | Broad gap pp | Core: count | Core: $ | Core gap pp | Sponsor median broad $ (p25–p75) | Sponsor median broad count (p25–p75) |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| National | 16 (31) | 471,541 | $63.97bn | 26.48% | 17.85% | −8.6 | 7.03% | 10.21% | +3.2 | 16.87% (15.20–19.68%) | 24.58% (17.05–28.02%) |
+| National (excl. Servant) | 15 (29) | 466,753 | $62.50bn | 26.47% | 17.83% | −8.6 | 7.02% | 10.18% | +3.2 | 16.78% (15.08–20.02%) | 24.54% (16.91–27.35%) [V wave 32A] |
 | Community foundation | 22 (43) | 83,267 | $18.72bn | 17.49% | 28.89% | **+11.4** | 8.51% | **16.17%** | +7.7 | 14.65% (13.45–23.26%) | 18.33% (15.27–21.94%) |
 | Faith (incl. Servant) | 7 (14) | 56,068 | $9.18bn | 24.60% | 19.26% | −5.3 | 8.13% | 9.14% | +1.0 | 18.54% (13.83–22.46%) | 24.62% (15.74–26.78%) |
 | Single-issue, other (DonorsTrust) | 1 (2) | 1,705 | $0.63bn | 16.42% | 13.02% | −3.4 | 12.02% | 8.22% | −3.8 | n=1 | n=1 |
@@ -188,7 +188,7 @@ Denominator: 608,612 lines; $92.94bn.
 
 | Sponsor type | Foreign | Not c3 / not Pub 78 (raw) | … unexplained | Recent ruling | Fiscal sponsor | PF/ER |
 |---|---|---|---|---|---|---|
-| National | 1.91% | 8.32% | 1.34% | 4.58% | 1.45% | 1.72% |
+| National (excl. Servant) | 1.96% | 8.42% | 1.36% | 4.36% | 1.49% | 1.75% [V wave 32A] |
 | Community foundation | 2.73% | 13.47% | 1.05% | **11.04%** | 1.02% | 0.77% |
 | Faith | 1.83% | 9.08% | 0.48% | 6.89% | 0.99% | 0.51% |
 | Big-4 nationals | 2.00% | 8.20% | 0.98% | 4.25% | 1.47% | **2.05%** |
@@ -197,7 +197,7 @@ Denominator: 608,612 lines; $92.94bn.
 
 | Sponsor type | Foreign | Not c3 / not Pub 78 (raw) | … unexplained | Recent ruling | Fiscal sponsor | PF/ER |
 |---|---|---|---|---|---|---|
-| National | 0.35% | 21.12% | 2.28% | 4.66% | 0.08% | 0.39% |
+| National (excl. Servant) | 0.36% | 21.13% | 2.28% | 4.64% | 0.08% | 0.39% [V wave 32A] |
 | Community foundation | **1.34%** | 10.98% | 2.51% | 4.53% | **0.34%** | 0.41% |
 | Faith | 0.98% | 16.98% | 1.41% | **6.20%** | 0.13% | 0.38% |
 | Big-4 nationals | 0.43% | 22.61% | 2.33% | 4.91% | 0.04% | 0.41% |
@@ -205,7 +205,7 @@ Denominator: 608,612 lines; $92.94bn.
 **Reading [I]:**
 - **National and faith sponsors** have count-heavy broad loads. Their many small church and group-subordinate lines (NCF, Thrivent, Fidelity, DAFgiving360) are absent from Pub 78. Under Rev. Proc. 2018-32 these can usually be cleared from the BMF or a group ruling.
 - **Community foundations** have the most dollar-heavy load. Their **pooled** dollar-minus-count gap is +11.4 pp, but the **median CF** gap is −1.2 pp. The pooled gap comes mostly from SVCF (recent-ruling $1.31bn; foreign 4.2%), Marin (foreign 16.4% of dollars) and Community Foundation of New Jersey (PF/ER 12.6%).
-- Community foundations also have the highest foreign and fiscal-sponsor **count** shares (1.34% and 0.34%), about four times the nationals'.
+- Among the national, community-foundation and faith types, community foundations have the highest foreign and fiscal-sponsor **count** shares (1.34% and 0.34%), about four times the nationals'. The two university/hospital sponsors are higher on foreign counts (56.2%) [V wave 32A]
 - **University/hospital sponsors** are an outlier on counts. Stanford's 286 Part III foreign individual grants and Schedule F counts sit on a base of only 685 lines.
 
 ### 3.3 Per sponsor, FY2023–24 pooled [C]
@@ -264,7 +264,7 @@ Ranks 9 (Renaissance) and 11 (BofA CGF) are absent because their Schedule I is a
 
 
 **Notes [C/I]:**
-- **Greater Horizons (59.8% of dollars)** is driven by one FY2024 line with no name and no EIN ($212.2m).
+- **Greater Horizons (59.8% of dollars)** is driven by one FY2024 line with no name and no EIN ($212.2m). That line is an e-filed total: it equals the sum of the 3,282 named lines, and a second blank line holds the count. Without them Greater Horizons is 25.1% / 19.8% broad and 7.2% / 9.5% core (core gap +2.3 pp) [V wave 32A]
 - **SVCF (45.8%)** is driven by the $1.309bn Further Future Foundation line (recent ruling) and the $1.66bn CZ Biohub LLC lines (raw not-in-Pub-78; labelled, so not core).
 - **Thrivent (50.6% of lines)** and **NCF** are dominated by church and group-subordinate recipients that are absent from Pub 78. Their core shares are low (3.8% / 2.6% and 7.5% / 5.9%).
 - **Columbus Foundation** (8.7% PF/ER, the Huntington Foundation lines) and **Community Foundation of New Jersey** (12.6% PF/ER) have the highest PF/ER dollar shares.
