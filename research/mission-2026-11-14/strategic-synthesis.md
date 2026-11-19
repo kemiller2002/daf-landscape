@@ -95,7 +95,7 @@ Where it conflicts with A–G, the wave 14–21 additions or the wave 22–30 ad
 
 **Notable, outside the top ten.**
 - 42.2% of covered DAF dollars go to recipients that report any lobbying (median intensity 0.20%) ([direction-recipient-lobbying.md](direction-recipient-lobbying.md)).
-- International grants (NTEE Q recipients plus direct foreign grants) are 7.8% of top-50 sponsors' net Schedule I plus line 3 dollars, an upper-leaning combination [V wave 34S] ([direction-foreign-grants-schedule-f.md](direction-foreign-grants-schedule-f.md)).
+- International grants (NTEE Q recipients plus direct foreign grants) are 7.8% of top-50 sponsors' net Schedule I plus line 3 dollars, an upper-leaning combination [V wave 34S]. DAF money measured as actually reaching abroad (direct grants plus the top 150 NTEE Q and friends-of recipients at their own foreign-expense shares) is 4.74% on the same base, or 5.93% extrapolated [I] ([b45n31-01-daf-money-abroad.md](b45n31-01-daf-money-abroad.md)) [V wave 37A] ([direction-foreign-grants-schedule-f.md](direction-foreign-grants-schedule-f.md)).
 - NPT passed DAFgiving360 for #2 in FY2024 ([direction-league-table-concentration.md](direction-league-table-concentration.md)).
 - The startup cohort shows no documented shutdown ([gap19-startup-cohort.md](gap19-startup-cohort.md)). [gap19-11]\n- Top-50 DAF grants are a median 5.9% (pooled 6.9%) of recipients' line 1h contributions, falling from 17.8% pooled under $1m of revenue to 3.7% at $100m and over ([b40n12-daf-share-of-recipient-revenue.md](b40n12-daf-share-of-recipient-revenue.md); wave 33A) [V wave 34S].
 
@@ -620,7 +620,7 @@ Each row gives the corrected figure and the governing source. Where the earlier 
 
 | Topic | Earlier figure or reading | Corrected figure (governing) | Source |
 |---|---|---|---|
-| International share of DAF grants | 5.6% (NTEE Q, Schedule I only) | **7.8%** with direct foreign grants (8.1% broad). Understated by 2.2–2.6 points against the published 5.6%, or 2.4–2.7 like-for-like. An upper-leaning combination, not money leaving the US | [direction-foreign-grants-schedule-f.md](direction-foreign-grants-schedule-f.md); wave 30 |
+| International share of DAF grants | 5.6% (NTEE Q, Schedule I only) | **7.8%** with direct foreign grants (8.1% broad). Understated by 2.2–2.6 points against the published 5.6%, or 2.4–2.7 like-for-like. An upper-leaning combination, not money leaving the US. Measured money abroad on the same base: 4.74% (5.93% extrapolated [I]; 3.82% of total grants) [V wave 37A] | [direction-foreign-grants-schedule-f.md](direction-foreign-grants-schedule-f.md); wave 30 |
 | Donate pages, any DAF option | 75/186 (40.3%) | **75/182 (41.2%)** after removing four non-donate pages. A **lower bound** for large universities: 79/182 (43.4%) counting four with tools one step deeper | [direction-nonprofit-donate-pages.md](direction-nonprofit-donate-pages.md); waves 24B, 26 |
 | Donate pages, DAFpay | 25/186 (13.4%) | **25/182 (13.7%)** | same; wave 24B |
 | NPT FY2023 DAF assets | $22.84bn used as filed | A real filed value, **very likely a filer error**. Part X net assets are $27.92bn, and NPT's consolidated statements report $28.51bn at 2023-06-30 [V wave 34A]. Using them, FY2023 CR5 rises from 52.9% to 53.8%, HHI from 801 to 808, and NPT's share from 8.9% to about 10.7%. Endpoints and trend unchanged | [direction-league-table-concentration.md](direction-league-table-concentration.md); [direction-sponsor-financial-resilience.md](direction-sponsor-financial-resilience.md); wave 29 |

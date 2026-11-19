@@ -22,7 +22,7 @@ Main scope: top-50 sponsors excluding the two university/hospital sponsors, the 
 
 | Question | Answer |
 |---|---|
-| **DAF dollars reaching abroad via the 150 largest Q / friends-of recipients** | **$1.868bn** [C].<br>- FY2023 $865.4m; FY2024 $1,002.3m.<br>- Bounds on other share definitions: floor $1.341bn (foreign grants only, line 3 ÷ total expenses); high $2.321bn (line 3 ÷ lines 1–3, the P-NEW-FGN-01 intermediary basis).<br>- DAF-weighted: $1.801bn. |
+| **DAF dollars reaching abroad via the 150 largest Q / friends-of recipients** | **$1.868bn** [C for the arithmetic; allocating DAF dollars at each recipient's average foreign-expense share is an assumption, I]. [V wave 37A]<br>- FY2023 $865.4m; FY2024 $1,002.3m.<br>- Bounds on other share definitions: floor $1.341bn (foreign grants only, line 3 ÷ total expenses); high $2.321bn (line 3 ÷ lines 1–3, the P-NEW-FGN-01 intermediary basis).<br>- DAF-weighted: $1.801bn. |
 | **Share of their inbound DAF dollars** | **58.8%** of $3.179bn inbound [C].<br>- The 147 recipients that file a Form 990: **61.7%**.<br>- Three church-affiliated recipients file no 990 (Compassion International, OneHope, Convoy of Hope; $150.5m inbound). They count as zero here. |
 | **Where it goes** (central estimate, Schedule F Part I) | - **Sub-Saharan Africa 35.2%**;<br>- Middle East and North Africa 24.5%;<br>- Europe 13.2%;<br>- South Asia 6.4%;<br>- Russia/NIS 6.2%;<br>- East Asia and Pacific 4.8%;<br>- Central America/Caribbean 4.2%;<br>- South America 2.8%;<br>- North America 2.2% [C].<br><br>The direct route is 49.6% Europe. |
 | **Combined with the direct route** ($1.891bn, 1.92% of total grants) | **Measured:** direct + top-150 = **$3.759bn = 3.82% of total grants** (lines 1–3). That is **double the direct share** [C].<br>- Adding the P-NEW-FGN-01 pass-through of the three named intermediaries outside the Q/friends frame (CAF America, Global Greengrants, Global Fund for Children; $58.8m) gives 3.88%.<br>- **Extrapolated [I]:** with the remaining Q/friends inbound ($1.519bn) at the top-150 share, $4.695bn = **4.78%**.<br>- On P-NEW-FGN-01's net Schedule I + line 3 base: 2.39% direct → **4.74%** measured → **5.93% [I]**. The 7.83% "NTEE Q + direct" upper bound is therefore about 2 points too high as a measure of money leaving the US. |
@@ -60,7 +60,7 @@ Main scope: top-50 sponsors excluding the two university/hospital sponsors, the 
 8. **Extrapolation [I].** Two inbound amounts are extrapolated:
    - targets outside the top 150 ($1.369bn);
    - the three top-150 recipients that file no 990 ($150.5m).
-   - Both are multiplied by the dollar-weighted share of the 147 parsed recipients (61.7%). As a sensitivity, ranks 101–150 give 61.6% and almost the same total.
+   - Both are multiplied by the dollar-weighted share of the 147 parsed recipients (61.7%). As a sensitivity, ranks 101–150 give 61.6% and almost the same total. Neither tests ranks 151 and below (5,270 recipients, $1.369bn, about $0.26m each), where small US-based Q-coded groups may weigh more. [V wave 37A]
 9. **DAF weighting.** A variant multiplies each sponsor-year's lines by its DAF share of grants (`sponsor-cost-structure.csv`, capped at 1), as in P-NEW-RCP-01.
 
 Two consecutive runs produced byte-identical CSVs.
@@ -80,7 +80,7 @@ Two consecutive runs produced byte-identical CSVs.
 - **Cap:** the line-25 cap binds in 8 recipient-years (DKT International, Association for Cultural Interchange, Impact Community Foundation and others).
 - **Zero foreign spending as filed:**
   - Mission Mutual ($49.4m inbound): no Schedule F, line 3 = 0. It is a missionary fiscal sponsor.
-  - American Israel Education Foundation ($28.8m): Part IV line 14b answered Yes, but Schedule F Part I reports $0.
+  - American Israel Education Foundation ($28.8m): Part IV line 14b answered Yes, but Schedule F Part I reports $0. Its Schedule F Part IV answers Yes to both a transfer to a foreign corporation and ownership of one in FY2023 and FY2024, so the zero probably understates its foreign spending. [V wave 37A]
   - Council on Foreign Relations ($14.4m) and Union of Concerned Scientists ($14.5m): US-based Q05 policy groups.
   - These are kept at zero as filed.
 
@@ -176,7 +176,7 @@ Shares in the table are pooled over the recipient's two returns. The dollar figu
 
 ## 4. Limits
 
-1. **Proportionality and fungibility [I].** Each recipient's average foreign share is applied to its DAF money. Designated DAF gifts (e.g. "Ukraine relief") may be more or less foreign than the average. Timing is ignored: a gift booked in FY2024 may be spent later. P-B4531-01-04 proposes a test.
+1. **Proportionality and fungibility [I].** Each recipient's average foreign share is applied to its DAF money. Designated DAF gifts (e.g. "Ukraine relief") may be more or less foreign than the average. Timing is ignored: a gift booked in FY2024 may be spent later. For example, Friends of the IDF's FY2023 revenue ($282.0m) was 1.97 times its total expenses ($143.2m). [V wave 37A] P-B4531-01-04 proposes a test.
 2. **Expense share includes overhead in the denominator.** Line 25 includes fundraising and management. Allocating DAF dollars pro rata to all expenses lowers the share compared with a programme-only basis. The floor and high variants bracket this.
 3. **Frame.**
    - Only NTEE Q and friends-of names are in the frame. Non-Q recipients that work abroad are outside it: medical NGOs coded E, faith missions coded X, Global Greengrants (C12), Global Fund for Children (A33Z) and universities' overseas programmes. Their foreign spend is uncounted, apart from the three named intermediaries added from P-NEW-FGN-01.
@@ -186,7 +186,7 @@ Shares in the table are pooled over the recipient's two returns. The dollar figu
    - Part I reports regions, not countries, and AIEF-type zeros are taken as filed.
    - The "investment" exclusion is a text rule: a row such as "investment in affiliates" (14 rows across all parsed returns) is excluded even when the affiliate runs programmes.
    - Region shares follow Part I spending, not specifically the DAF-funded part.
-6. **Double counting with the direct route is unlikely but not ruled out.**
+6. **Double counting with the direct route is unlikely but not ruled out.** Validation found none: the central measure takes the larger of line 3 and Part I, never their sum, and the two routes cannot overlap at the sponsor. 11 of the 150 recipients ($178.3m abroad) are themselves DAFRC-panel DAF sponsors (e.g. KBFUS, JNF, World Vision, Rotary Foundation), so some inbound may sit in a DAF there before going abroad. [V wave 37A]
    - Direct foreign grants go to foreign organisations, and this route covers US organisations, so the two do not overlap at the sponsor.
    - A recipient's re-grant to another US target (e.g. a friends-of body granting to a Q organisation) would count twice only if both are in the top 150 and the first reports it on line 3, which by definition it would not.
 7. **Sponsor scope.** University/hospital sponsors are excluded, as in the direct figure. The six attachment-only sponsor-years have no Schedule I lines, so their indirect routes are not measured.

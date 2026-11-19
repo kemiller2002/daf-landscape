@@ -146,7 +146,7 @@ Recomputed from the repository at merge commit `20a0eb8` (PR #50). Supersedes th
 | Industry report | §11.1–§11.27 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
 | Owner-directed new research directions | 33 (N1–N33), all validated | `research/mission-2026-11-14/direction-*.md` |
 
-**Seventh-round additions (validated, report §11.27):** direct foreign grants are 1.92% of top-50 sponsors' grants ($1.89bn over FY2023–24), lifting the international sector share from 5.6% to 7.8%; about 42% of covered DAF grant dollars go to charities that report any lobbying, with median lobbying intensity of about 0.2% of expenses (descriptive, lawful activity); 1,240 sponsors under $50m hold 2.84% of assets, pay out less (median 11.7%) and account for nearly all entries and exits.
+**Seventh-round additions (validated, report §11.27):** direct foreign grants are 1.92% of top-50 sponsors' grants ($1.89bn over FY2023–24), lifting the international sector share from 5.6% to 7.8% (a recipient-sector share; DAF money measured as reaching abroad, including via US-registered NTEE Q and friends-of recipients, is 3.82% of top-50 grants, or 4.74% of net Schedule I plus line 3) [V wave 37A]; about 42% of covered DAF grant dollars go to charities that report any lobbying, with median lobbying intensity of about 0.2% of expenses (descriptive, lawful activity); 1,240 sponsors under $50m hold 2.84% of assets, pay out less (median 11.7%) and account for nearly all entries and exits.
 
 ## Counts (final refresh 2026-11-15 ~16:50 UTC, through PR #48) (superseded by the table above)
 

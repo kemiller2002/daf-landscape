@@ -19,8 +19,8 @@ Evidence tags: [F] computed here from filed/panel data, [Q] quoted from a primar
 | **(a) vs (b), FY2023** | Excluding processors: **beginning assets: median sponsor 11.2%, pooled 22.6%. IRS/IPS formula: median 9.2%, pooled 16.7%** [F]. Across FY2020–24, the IRS formula is 0.6–3.1 points below beginning assets at the median and 3.6–10.2 points below in the pooled figure (§3). |
 | **(c) filters** | The ≥$1m filter raises the median by 0.3–0.7 points and barely moves the pooled figure. FY2023 medians are 11.8% (beginning assets) and 9.7% (IRS). Removing processors lowers the pooled beginning-asset figure by 1.4–1.8 points (FY2023: 24.0% → 22.6%) and moves the median by ≤0.2 points [F]. |
 | **(d) net of R5 (central)** | FY2023, excluding processors: pooled beginning-assets payout falls from **22.6% to 20.8%** and the median from 11.2% to 11.1%. Pooled IRS falls from 16.7% to 15.6%; the median from 9.2% to 9.1%. Central-tier netting moves pooled figures by 1.1–3.2 points but medians by ≤0.4 points (≤0.8 in the upper tier) [F]. |
-| **Bridge from 23.9% to 9%, FY2023** [I for the attribution] | Total gap 14.9 points. (i) Data/universe (NPT vs corrected panel): +0.1. (ii) Processors removed: −1.5. (iii) **Denominator** (beginning → IRS, Shapley): **−5.9**. (iv) **Sponsor weighting**: pooled → median sponsor −9.4, then median sponsor → median *account* if every account paid its sponsor's rate +8.3 (net −1.1). (v) **Within-sponsor distribution** (residual to 9%) **−6.6** [I]. If DAFRC's account rate is closer to beginning assets, the denominator step drops out and the within-sponsor residual becomes −12.5 [I]. |
-| **Reading** [I] | The median sponsor on the IRS formula (9.3%) lands next to DAFRC's account median (9%) by coincidence, not because the two measure the same thing. Weighted by accounts, the median account sits at a fast-paying national: Fidelity's own rate in 4 of 5 years (FY2023: 15.6% IRS formula, 21.5% beginning assets). For the account median to be 9%, account rates within sponsors must be strongly right-skewed. That fits DAFRC's own mean of 18% against a median of 9%, and its 22% of inactive accounts [Q]. |
+| **Bridge from 23.9% to 9%, FY2023** [I for the attribution] | Total gap 14.9 points. (i) Data/universe (NPT vs corrected panel): +0.1. (ii) Processors removed: −1.5. (iii) **Denominator** (beginning → IRS, Shapley): **−5.9**. (iv) **Sponsor weighting**: pooled → median sponsor −9.4, then median sponsor → median *account* if every account paid its sponsor's rate +8.3 (net −1.1). (v) **Residual to 9%** (within-sponsor distribution plus DAFRC's different sample, three-year window and undisclosed denominator, which cannot be separated) **−6.6** [I]. [V wave 37A] If DAFRC's account rate is closer to beginning assets, the denominator step drops out and the within-sponsor residual becomes −12.5 [I]. |
+| **Reading** [I] | The median sponsor on the IRS formula (9.3%) lands next to DAFRC's account median (9%). This is numerical proximity, not identity: the two do not measure the same thing, and the proximity holds in every year of DAFRC's window (FY2020–22 medians 9.4%, 8.4%, 9.6%), so it cannot be shown to be a coincidence without account-level data. [V wave 37A] Weighted by accounts, the median account sits at a fast-paying national: Fidelity's own rate in 3 of 5 years (FY2020, FY2023 and FY2024; FY2023: 15.6% IRS formula, 21.5% beginning assets). [V wave 37A] For the account median to be 9%, account rates within sponsors must be strongly right-skewed. That fits DAFRC's own mean of 18% against a median of 9%, and its 22% of inactive accounts [Q]. |
 
 ## 1. Question and sources of the three figures
 
@@ -182,7 +182,7 @@ These are universe differences that Schedule D Part I and the DAFRC panel cannot
 - processors: 10%;
 - denominator: 39%;
 - net sponsor weighting: 7% (−9.4 + 8.3);
-- within-sponsor: 44% [I].
+- residual (within-sponsor distribution plus sample, window and definition differences): 44% [I]. [V wave 37A]
 
 If the account-level rate is assumed to be on beginning balances, the account-weighted median is 21.53%. The denominator step then disappears, net weighting is −1.05 points, and the within-sponsor residual is −12.5 points (84% of the gap) [I]. Because DAFRC does not state its denominator in the published documents, the defensible statement is: **denominator 0–6 points, net sponsor weighting about 1 point, within-sponsor distribution 6.6–12.5 points** [I].
 
@@ -198,16 +198,16 @@ If the account-level rate is assumed to be on beginning balances, the account-we
   - within-sponsor residual −8.2 (IRS) or −14.8 (beginning assets) [F]/[I].
 - **R5 central, FY2023:** D −5.2, W1 −8.1, W2 +7.0, residual −5.6 (IRS) or −10.8 (beginning assets). Netting shrinks every step a little but changes no ranking [F]/[I].
 - **≥$1m matched:** M_irs 9.69%, W1 −8.8, W2 +7.8 [F].
-- **Pivot sponsor.** Excluding processors, the account-weighted median is Fidelity Charitable's own rate in FY2020, 2022, 2023 and 2024. Fidelity's FY2023 rate is 15.63% on the IRS formula, which matches IPS's row for Fidelity. W2 therefore rests on one sponsor (proposal P-B39N8-01-04).
+- **Pivot sponsor.** Excluding processors, the account-weighted median is Fidelity Charitable's own rate in FY2020, 2023 and 2024. In FY2022 it is another sponsor next to Fidelity: T. Rowe Price Program for Charitable Giving on beginning assets (22.56%; Fidelity 23.15%) and The Alaska Community Foundation on the IRS formula (19.19%; Fidelity 19.25%). [V wave 37A] Fidelity's FY2023 rate is 15.63% on the IRS formula, which matches IPS's row for Fidelity. W2 therefore rests on one sponsor (proposal P-B39N8-01-04).
 - **With processors**, the account-weighted median is a processor rate (FY2023 W_irs 86%), because processors hold most accounts (mostly micro-accounts). That row is in the CSV but is not meaningful for the bridge [F].
 
 ## 6. Limits
 
 - **DAFRC's account-level denominator is not stated** in the executive summary or the study slides. The within-sponsor residual is therefore a range, and it also absorbs:
-  - the voluntary 111-programme sample (no processors; its mix of national and CF programmes is not published here);
+  - the voluntary 111-programme sample: 83 community foundations, 15 national programmes and 13 religiously affiliated organisations (study slides p.3), no processor category, and just over 50,000 accounts, against 685,120 FY2023 EOY accounts in the panel excluding processors (Fidelity alone 190,162). The account-weighted median W therefore describes a population DAFRC did not sample; [V wave 37A]
   - the three-year 2020–22 window, against single fiscal years here;
   - the definition [I].
-- **The account-weighted median assumes every account in a sponsor pays the sponsor rate.** It is a construction, not data. Fund-level payout is not public in Form 990 filings.
+- **The account-weighted median assumes every account in a sponsor pays the sponsor rate.** It is a construction, not data. DAFRC's own account means run the other way from sponsor rates: 16% at national programmes and 18% at community foundations (study slides p.14). [V wave 37A] Fund-level payout is not public in Form 990 filings.
 - **IPS's 501(c)(3), total-grants and submission-date screens could not be applied.** The blank-vs-zero distinction is not in the DAFRC panel.
 - **FY2019 is uncorrected.** R1–R4 cover FY2020–24 only, so FY2020 beginning-asset figures use the published FY2019 values.
 - **R5 uses the Schedule I cache** built by `mission_net_payout.py`, from an earlier session's scratch directory. The rebuild matches the published netting totals exactly, but the cache itself is not in the repository.
