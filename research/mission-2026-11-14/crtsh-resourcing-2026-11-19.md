@@ -158,12 +158,12 @@ A Wayback first capture is an upper bound on launch, not a launch date.
 
 | Count | Before | After | Change and basis |
 |---|---|---|---|
-| Give "known clients", DAFRC FY2024 | $36.74bn (9 sponsors) | **$36.74bn on DNS existence; $23.90bn on first-party or filing evidence** | Unchanged membership. $12.84bn (CCT 4.65, IA 3.63, JCF 2.87, Minneapolis 0.60, Thrivent 0.59, Stifel 0.49) is DNS-only. First-party/filing tier is 59.7% of $40bn |
+| Give "known clients", DAFRC FY2024 | $36.74bn (9 sponsors) | **$36.74bn on DNS existence; $23.90bn on first-party or filing evidence** | Unchanged membership. $12.84bn (CCT 4.65, IA 3.63, JCF 2.87, Minneapolis 0.60, Thrivent 0.59, Stifel 0.49) is DNS-only. First-party/filing tier is 59.7% of $40bn. Basis: DAFRC sponsor-universe FY2024 values, in which ImpactAssets ($3.63bn) and Signatry ($0.40bn) are imputed; on the R1-corrected league table ImpactAssets is $2.90bn, giving a DNS-only tier of $12.11bn [V wave 31B] |
 | Same, batch-38 basis (Vanguard FYE 2025-06 $27.01bn) | $41.80bn | **$41.80bn on DNS; $28.96bn first-party/filing** | — |
 | CT-discovered five (wave 23) | $9.81bn | **$9.21bn** | Arithmetic: 4,649,987,855 + 2,870,570,567 + 601,822,240 + 594,270,055 + 493,554,856 = 9,210,205,573. "$32.59bn without all five" is correct |
 | Certified by 2025-09-30 (claim-time pipeline) | $31.64bn (Vanguard, CCT, IA, Signatry) | **$6.06bn** (Signatry 1.41, CCT 4.65) | Only these two have an admissible date before 2025-09-30. Vanguard's earliest admissible date is the 2025-11-04 release. IA has no admissible date |
 | Live for donors | $1.95bn | $1.95bn | Unchanged (first-party login pages) |
-| Lapsed Give CF tenants | 5, $4.79bn | **3, $3.56bn** (EBCF 0.53, FFTC 2.95, Kalamazoo 0.08) | Omaha ($0.52bn) is an unverified lead. San Diego ($0.71bn) status is unknown: its staging host resolves |
+| Lapsed Give CF tenants | 5, $4.79bn | **3, $3.56bn** (EBCF 0.53, FFTC 2.95, Kalamazoo 0.08) | Omaha ($0.52bn) is an unverified lead. San Diego ($0.71bn) status is unknown: its staging host resolves. FFTC's $2.95bn is the DAFRC-imputed value; the R1-corrected FY2024 figure is $2.62bn, which makes the three $3.23bn [V wave 31B] |
 | Give CF tenants (cf-vendor-map §5 table) | 6 CFs | **6 CFs**, on DNS, Wayback or 990 | CCT, Minneapolis and SDF by DNS; EBCF and KZCF by Wayback; FFTC by 990. All dates are leads except the EBCF and KZCF Wayback spans |
 | Give hostnames | 138 CT names (doc); 141 (snapshot) | **89 live hostnames** | 139 non-wildcard seeds: 89 resolve, 50 NXDOMAIN |
 | ImpactAssets Give feature hosts | "~15 ia-* in 2026" | **8 resolve** | 19 IA-related names: 11 resolve in total, 8 of them feature hosts |
@@ -309,7 +309,7 @@ Each Find string occurs exactly once in its file (checked 2026-11-19). Apply the
 ### 5.15 `compliance-note-crtsh-robots.md`
 1. **Append a section** "## Re-sourcing (P-CMP-CRT-01, 2026-11-19)" pointing to this document. Its text:
 
-   "70 claims inventoried: 20 re-sourced, 29 existence-only via DNS, 18 unverified leads. Give admissible lapsed CF tenants: 3 ($3.56bn), not 5 ($4.79bn). Give known clients $36.74bn stand on DNS, of which $23.90bn on first-party or filing evidence. Ren/iPhi and Foundant counts are unchanged. donorsphere.org and donor-portal.org have DNS wildcards, so their CT-only labels cannot be re-sourced by DNS. Certspotter admissibility is open (P-CRT19-02)."
+   "70 claims inventoried: 20 re-sourced, 29 existence-only via DNS, 18 unverified leads. Give admissible lapsed CF tenants: 3 ($3.56bn), not 5 ($4.79bn). Give known clients $36.74bn stand on DNS, of which $23.90bn on first-party or filing evidence. Ren/iPhi and Foundant counts are unchanged. donorsphere.org and donor-portal.org have DNS wildcards, so their CT-only labels cannot be re-sourced by DNS. Certspotter is treated like crt.sh from 2026-11-19, because its operator's robots.txt (sslmate.com) disallows /api; its results are unverified leads (P-CRT19-02 closed by the compliance note) [V wave 31B]."
 
 No claim-bearing correction is needed for `direction-patents-security.md` (crt.sh was excluded), `research/iphi-175-client-lead-and-dns-execution-2026-11-11.md` (a method note; the script now refuses `--ct`) or `data/watchlist-snapshots/reports/2026-11-14.md` (historical diff report; do not cite its CT observations).
 
@@ -317,7 +317,7 @@ No claim-bearing correction is needed for `direction-patents-security.md` (crt.s
 
 - **Certspotter is not crt.sh, but it raises the same question.** `api.certspotter.com/robots.txt` returns 404, while `sslmate.com/robots.txt` (the same operator) disallows `/api` and `/crt` for all agents.
   - Several repo dates come from certspotter only: `tc-innov`, `vc-innov`, `ia-innov`, the `*-sftp.int` first dates, BMO 2026-02-15, the Fidelity CT set and the CCT 2026-09-01 renewals.
-  - I did not query certspotter. I have classed these claims by their DNS status only. The admissibility decision is P-CRT19-02.
+  - I did not query certspotter. I have classed these claims by their DNS status only. The admissibility decision (P-CRT19-02) was taken the same day in compliance-note-crtsh-robots.md: certspotter is no longer used, and its results are unverified leads unless confirmed by DNS, first-party pages or filings [V wave 31B].
 - **Wayback coverage is partial** because of HTTP 429 rate-limiting (P-CRT19-03). The availability API's "closest" capture is only an approximation of the first and last capture.
 - **DNS shows existence today, not history and not stage.** A resolving `*-staging` name says nothing about whether production exists. Absence claims ("no production host") cannot be re-sourced by DNS without guessing names.
 - **The CT names used as DNS seeds came from earlier crt.sh output.** Re-sourcing by DNS confirms each name independently, but the list of names was found through crt.sh. Names that were never seen in CT were not probed.

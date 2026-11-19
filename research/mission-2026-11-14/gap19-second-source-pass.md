@@ -156,3 +156,10 @@ Access date is 2026-11-19 unless stated. Robots.txt was read first for every hos
 | R4 | Repo: NPT–Ren payment trail | 2026-11-15 | research/mission-2026-11-14/queue-npt-givingpoint-fidelity-stack.md §4 |
 
 **Hosts not fetched** (robots.txt returned 403): `www.dafgiving360.org`, `www.schwabcharitable.org` and `reports.adviserinfo.sec.gov`. `www.reninc.com` returned 403 to pages partway through the session, and I stopped requesting it. EDGAR full-text search was blocked by a session permission control.
+
+## Validation corrections (wave 31B, 2026-11-19) — governing
+These corrections from [validation-wave31b-report.md](validation-wave31b-report.md) could not be applied inline and govern the text above:
+
+1. **C08 row: make the quotation verbatim.**
+   - **Find:** "\"Each DAF account is assessed an annualized administrative fee of 0.60% … Accounts with assets exceeding $500,000 will receive a quarterly rebate\"."
+   - **Replace with:** "\"Each DAF account is assessed an annualized administrative fee of 0.60% of the account balance. Accounts with assets in excess of $500,000 are eligible for a reduced fee in accordance with the tiered schedule\", applied as a \"quarterly rebate for the difference between the tiered fee and\" the 0.60% charged [V wave 31B]."

@@ -127,7 +127,7 @@ Two notes on this table:
 - **Non-publishing sites [F].** CalFund's fee PDFs returned 502, and FFTC's older URL returned 404. Tampa's "Community Investment Fee Schedule" link (2022) now redirects to the homepage. Several CFs state that the schedule is "available upon request" (Boston, Lancaster).
 - **Selection bias [I].** The largest CFs are over-represented among non-publishers: 3 of the top 10 (SVCF, California CF, Boston) have no published schedule.
 
-### 3.2 Effective annual admin fee, published schedules (n=34; n=33 at $10m)
+### 3.2 Effective annual admin fee, published schedules (n=37; n=35 at $10m; refreshed 2026-11-19 [V wave 31B])
 
 | Balance | Min | P25 | Median | P75 | Max | Mean | DAF-asset-weighted mean |
 |---|---|---|---|---|---|---|---|
@@ -192,7 +192,7 @@ Sources: each row's `source_url` in the CSV. Examples: [CCT](https://donorportal
 - **Admin layer [C].**
   - At **$100k** the CF median (100 bps) is 1.67x the 60 bps charged by Fidelity, Vanguard, DAFgiving360 and Charityvest. 32 of 34 CFs charge more.
   - At **$1m** it is 2.2x the 45 bps (Bank of America 50). All 34 CFs charge more.
-  - At **$10m** it is 3.6–4.7x the 14–19 bps nationals. All 33 CFs charge more.
+  - At **$10m** it is 3.6–4.7x the 14–19 bps nationals. All 35 CFs charge more [V wave 31B].
 - **Where the gap comes from.** The gap widens with balance because national tiers break at $500k and $1m, while CF tiers commonly hold 1% to $1–2m.
 - **Investment layer [F/I].** CF admin fees generally exclude investment costs, so the all-in gap depends on the investment layer:
   - Atlanta's pool is about 92 bps. GHCF's pools are 18–50 bps. GiveWell's are 5–66 bps. Birmingham's are "usually" 10–60 bps. SPMCF's options are 14–53 bps.

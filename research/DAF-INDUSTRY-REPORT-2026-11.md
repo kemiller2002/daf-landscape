@@ -179,10 +179,12 @@ The timeline has 195 dated events across 16 company groups and 163 source URLs (
 
 | Delivery status | Count |
 |---|---|
-| Evidence of delivery | 15 |
-| Partial | 10 |
-| No public evidence yet | 12 |
+| Evidence of delivery | 17 |
+| Partial | 11 |
+| No public evidence yet | 9 |
 | Contradicted | 2 |
+
+Re-checked 2026-11-19: 5 status changes, all upward (repo [`announced-vs-delivered-refresh-2026-11-19.csv`](../data/mission-2026-11-14/announced-vs-delivered-refresh-2026-11-19.csv)) [V wave 31B].
 
 By company:
 - **Daffy:** 5 of 5 delivered. ([Daffy MCP docs](https://docs.daffy.org/agents/mcp); [Daffy membership tier changes](https://help.daffy.org/en/articles/11730892-how-do-i-change-my-membership); repo [`announced-vs-delivered.csv`](../data/mission-2026-11-14/announced-vs-delivered.csv))
@@ -918,6 +920,37 @@ Related customer-facing frictions are covered by theme: data export and credenti
    >   - 134 of the 138 FY2021–24 entrants and 85 of the 90 candidate exits are in the tail.
    >   - Foundant serves 80% of tail CFs with an identified vendor, and 38% show none.
    >   - No tail sponsor has a published fee in the repo. AI-native implications are inference only. Sources: [direction-foreign-grants-schedule-f.md](mission-2026-11-14/direction-foreign-grants-schedule-f.md), [direction-recipient-lobbying.md](mission-2026-11-14/direction-recipient-lobbying.md), [direction-long-tail-sponsors.md](mission-2026-11-14/direction-long-tail-sponsors.md), [validation-wave30-report.md](mission-2026-11-14/validation-wave30-report.md).
+
+### 11.28 Thoroughness pass part B (validated, wave 31B)
+
+**Thoroughness pass part B (validated, wave 31B).**
+   > - **crt.sh re-sourcing (DNS re-run of 167 hosts on 2026-11-19; no crt.sh or certspotter request).**
+   >   - Of 139 Give Interactive hostnames, 89 still resolve. donorsphere.org and donor-portal.org answer any label (DNS wildcards), so their certificate-only tenant labels count for nothing.
+   >   - Give's nine known clients hold $36.74bn of FY2024 DAF assets on DNS evidence. Only $23.90bn (Vanguard Charitable, The Signatry and WaterStone) rests on first-party or filing evidence. These figures use the DAFRC values; with ImpactAssets at its filed $2.90bn, the DNS-only part is $12.1bn.
+   >   - The five clients discovered from certificate logs hold $9.21bn, not $9.81bn. Without them the total is $32.59bn.
+   >   - On admissible evidence Give lost three community-foundation tenants (East Bay, Carolinas and Kalamazoo, $3.56bn on DAFRC values), not five.
+   >   - Only $6.06bn of tenants (The Signatry and CCT) is dated before September 2025.
+   >   - Certspotter is no longer used, because its operator's robots.txt disallows its API.
+   > - **Second sources.**
+   >   - Give Interactive's Vanguard Charitable mandate rests on a release Give issued. Vanguard Charitable's FY2026 audited statements do not mention it and show no software capitalised.
+   >   - RCF's sponsorship of the Commonwealth Charitable Fund is confirmed by its circular and the West Virginia registry.
+   >   - Bain Capital's 2023 release adds a third Ren SOC 2 statement ("Type 1").
+   >   - DAFgiving360's tiered fee is confirmed in its December 2024 Program Policies.
+   >   - Sixteen attorneys general wrote to Fidelity Charitable, DAFgiving360's sponsor and Vanguard Charitable on 2026-05-21 about SPLC payment restrictions.
+   > - **Wealth channels.**
+   >   - The Edward Jones Form CRS and advisory brochure name no DAF; its private DAF's sponsor is still undisclosed. The 10-K negatives were not re-read (sec.gov robots).
+   >   - SEI runs two DAFs: RCF (Ren) and GiveClear (TIFIN Give).
+   >   - Bank of America N.A. is the Charitable Gift Fund's sole trustee, and BofA Private Bank administers it.
+   >   - Fidelity Charitable paid Wells Fargo Advisors $3.41m for investment management in FY2025.
+   >   - Wells Fargo's live pages no longer name NPT.
+   >   - AOGF's PNC payments ($196k, $149k) are labelled like all its contractors and do not show DAF administration.
+   > - **AI.** Twelve of the 20 entities were re-read. None documents AI in grant approval or money movement. NCF's AI site search is the one donor-facing feature. Parent-firm AI (Morgan Stanley, SEI, Edward Jones) is not tied to the DAF programs.
+   > - **Clarity/EDF.** The four new outcomes follow the EDF v0.3 sequence and alter no validated number. Fidelity's fee-sized shortfall holds only over five years for its active asset-allocation pools, and in every window for Money Market.
+   > - **Fees and delivery.**
+   >   - Minneapolis, San Francisco and Greater Cincinnati now have 2025–26 fee schedules.
+   >   - The CF medians stay 100 / 100 / 67 bps at $100k / $1m / $10m, so the 1.7x / 2.2x / 3.6–4.7x ratios stand. Coverage rises to 37 schedules and 46% of top-100 CF DAF assets once the census is merged.
+   >   - Of 39 announced-vs-delivered items, 17 are delivered, 11 partial, 9 without evidence and 2 contradicted (was 15 / 10 / 12 / 2).
+   >   - 18 newer announcements add 8 delivered, 3 partial and 7 without evidence. The ImpactAssets DAF hub, promised for 2026-09-08, is overdue. Source: [validation-wave31b-report.md](mission-2026-11-14/validation-wave31b-report.md).
 
 ---
 

@@ -106,7 +106,8 @@ Sources for the table:
 | WaterStone | live (2026-11-01) | 2025-10-28 | 0.54 | 0.54 |
 | Stifel Charitable | implementation (staging) | 2026-06-25 | 0.49 | 0.49 |
 | **All identified** | | | **36.74** | **36.40** |
-| Certified by 2025-09-30 (Vanguard, CCT, ImpactAssets, Signatry; CT-only lead) | | | 31.64 | 31.30 |\n| Admissibly dated by 2025-09-30 (Signatry: Wayback 2021-10-27; CCT: cct-sandbox Wayback 2025-02-23) [crt19] | | | 6.06 | |
+| Certified by 2025-09-30 (Vanguard, CCT, ImpactAssets, Signatry; CT-only lead) | | | 31.64 | 31.30 |
+| Admissibly dated by 2025-09-30 (Signatry: Wayback 2021-10-27; CCT: cct-sandbox Wayback 2025-02-23) [crt19] | | | 6.06 | |
 | Live for donors today (Signatry entities, WaterStone) | | | 1.95 | 2.34 |
 
 `nhf`, `jttw` and `jmacarthurtrust` are unresolved and add nothing. Foundation for the Carolinas ($2.95bn) is excluded because it lapsed by Feb 2024.

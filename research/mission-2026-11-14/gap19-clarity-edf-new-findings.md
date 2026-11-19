@@ -14,7 +14,7 @@
 **Rules followed**
 - **Numbers.** Every number is copied from the governing document named beside it, with that document's validation corrections applied. No validated number was changed. A derived figure would be marked [C]; this note adds none.
 - **Scope.** The four outcomes are exactly the ones the queue text names. Two of them each combine two findings, as the queue text does.
-- **Files not edited.** The queue item also asks for the results to be appended to `industry-incentives-structural-analysis.md` §6 and `incentive-map.csv`. This task's write scope does not include those files, so §7 gives the rows ready to append. They are not governing until a validator accepts them.
+- **Files not edited.** The queue item also asks for the results to be appended to `industry-incentives-structural-analysis.md` §6 and `incentive-map.csv`. §7 gives the rows. They were appended to both files in the same commit (`f2d5934`) and were accepted by validation wave 31B.
 - **Labels.** [F] means the source states it; [C] is a repository computation; [I] is an inference.
 
 ---
@@ -48,7 +48,7 @@ Confidence labels are the policy's five qualitative labels. They are not probabi
 | G12-1 | Community-foundation DAF admin fees sit well above the nationals' fees, and CF top-officer pay barely scales with size | direction-cf-consolidation-fees (wave 25A); direction-sponsor-executive-compensation (wave 28) | **Mixed, leaning structural** on the cost level (fixed whole-organisation cost over a small DAF base). **Habit** on fee opacity and on the absence of consolidation. | internal-demonstration / suggestive | High / Low-Medium | Lower-cost back office for one partner CF, on new funds only: **Experimental**. A full system-of-record migration would be **Strategic**. |
 | G12-2 | Most surveyed sponsors do not pass full donor contact data to nonprofits by default | direction-nonprofit-side-experience (wave 29) | **Mixed, leaning habit** | internal-demonstration / suggestive | Medium / Medium | Disclosure by consent per grant, with a "confidential" option: **Guardrail** |
 | G12-3 | No open, multi-sponsor DAF grant-request standard exists | direction-data-standards-interoperability (wave 25B) | **Mixed:** a coordination habit plus a financial origin (vendor-governed rail economics) | internal-demonstration (absence) / suggestive | Medium-High / Low-Medium | Publish and implement a minimal open grant record: **Experimental**. Agent-submitted grants over it: **Guardrail**. |
-| G12-4 | Fidelity's published pool returns trail their benchmarks by about its first-tier admin fee | direction-investment-menus-performance (wave 27) | The shortfall is **structural** (fee arithmetic under an asset-based fee). The non-comparable reporting basis across sponsors is **habit**. | internal-demonstration / suggestive (attribution) | High / Medium-High | Report returns on a declared gross and net basis: **Fast**. Choose an asset-based or flat pricing model: **Strategic**. |
+| G12-4 | Fidelity's asset-allocation pools trail their composites over 5 years by about its first-tier admin fee (0.58–0.76 pp); its Money Market pool trails by 0.65 pp in every window. Over 1 and 3 years the asset-allocation pools are mostly above their composites [V wave 31B] | direction-investment-menus-performance (wave 27) | The shortfall is **structural** (fee arithmetic under an asset-based fee). The non-comparable reporting basis across sponsors is **habit**. | internal-demonstration / suggestive (attribution) | High / Medium-High | Report returns on a declared gross and net basis: **Fast**. Choose an asset-based or flat pricing model: **Strategic**. |
 
 **What this does to existing conclusions.**
 - Nothing here changes a validated figure.
@@ -402,7 +402,7 @@ Five docs carry `edf_status = diagnosed_G12-n`: G12-1 draws on two of them (cf-c
 
 ---
 
-## 7. Rows ready to append to `incentive-map.csv` (not applied; not governing)
+## 7. Rows appended to `incentive-map.csv` (applied 2026-11-19; validated, wave 31B)
 
 These use the same columns as `incentive-map.csv`: stakeholder, incentive, mechanism, evidence_url, evidence_date, effect_on_modernization, structural_or_habit, clarity_status, notes.
 
