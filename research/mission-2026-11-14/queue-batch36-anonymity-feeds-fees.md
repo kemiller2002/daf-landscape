@@ -194,7 +194,7 @@ Per $1,000 gift, nonprofit-paid default (donor does not cover). Full detail is i
 - **What the 80% figure does not say:**
   - the period ("past year" with no date);
   - the metric ("usage", which could mean dollars or gifts);
-  - the split of the other ~20% between nonprofit-paid, donor-covered (grossed-up), platform-absorbed (Every.org) and DAFpay Network-netted fees.
+  - the split of the other ~20% between nonprofit-paid, donor-covered (grossed-up), platform-absorbed (Every.org) and DAFpay Network-deducted fees. DPN's TY2025 990 books these as an unnamed “fees for services – other” expense of 3.02% of contributions, not netted before receipt [V wave 37B]
 - **The split exists in Chariot's data.** The Grant API exposes `feeDetail.total` and `contributions[].feeType` ∈ {chariot, daf, fundraising_application}, and platforms can add `applicationFeeAmount` ([Get Grant](https://docs.givechariot.com/v2026-04-01/api/grants/get.md); [Create Grant](https://docs.givechariot.com/v2026-04-01/api/grants/create.md)) [F]. The data is not public.
 - **Searches:** for partner-platform annual reports, Pan-Mass Challenge 990 fee lines and Chariot press statements. They found no further breakdown.
 

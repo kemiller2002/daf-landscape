@@ -50,7 +50,7 @@ m is the cost of an escaped error, in units of one case's handling time. It has 
 2. **The ranking does not depend on the formula.**
    - The probability that C ranks first rises from 0.2% to only 1.2% (route) or 3.9% (hybrid). The most likely winner changes in **no process** at any archetype or scenario.
    - Redesign (D) and conventional automation (B) still win on gross value. C overtakes them only when h ≥ 0.70, which is above the evidence range: then P03 and P07 flip to C, and at h = 0.90 so do P13 and P14 (and P08 at CF_1BN) [V wave 36B]
-   - So C's last place in the ranking reflects the comparison set (uncalibrated B and D priors) and the amenable share a_p ≤ 0.6. It does not reflect how AI is deployed.
+   - So C's last place in the ranking reflects the comparison set (uncalibrated B and D priors) and the amenable share a_p ≤ 0.6. It does not reflect how AI is deployed. The B/D recut ([g0401-0103-ai-bd-recut.md](g0401-0103-ai-bd-recut.md)) only partly confirms this: cutting B and D to RPA-audit realization (D by analogy [I]) raises routing’s P(C first) from 0.012 to 0.072, but manual improvement (A), whose α is also an unsourced prior, becomes the modal winner in 6 of 15 processes. C becomes modal only if A is cut too or h runs up to 0.80 [S]. [V wave 37C]
 3. **The result turns on two unmeasured numbers.**
    - **The escaped-error cost (m).** At m = 20 the routing pool ($44k) falls below the assist pool. At m = 50 it is $0.
    - **The share of high-confidence cases (h).** At h = 0.10 the routing pool ($328k) is below assist. At h ≥ 0.21 it is above.
@@ -118,7 +118,7 @@ C_hybrid = C_route + (1 − h)·(s·a_p·L − 0.5·q_p·L)
 | Parameter | Main Monte Carlo | Evidence | Sweep [I] |
 |---|---|---|---|
 | h | uniform(0.21, 0.49) | **E19** Agarwal, Moehring, Rajpurkar & Salz, NBER w31422 (rev. Aug 2026), §6.3 [F]: at high false-negative cost, "21% of cases are delegated to the AI" for Bayesian deciders; with observed behaviour "humans are involved in 51% of cases" (so 49% go to AI alone). At low cost "the AI decides almost all cases". Mapping radiology cases to DAF AI-amenable back-office cases is [I] | 0.10, 0.21, 0.35, 0.49, 0.70, 0.90 |
-| e | uniform(0, 0.10) | Lower end: E19, where AI alone outperforms AI-assisted humans in the delegated range (excess error ≤ 0). Upper end: E15, where auto-closing AML alerts would miss about 10% of true positives (a share of positives, not of closed alerts, so [I]) | 0, 0.02, 0.05, 0.10, 0.20, 0.40. The values 0.20 and 0.40 are the mode and top of the calibrated unconditional error range: confidence carries no information |
+| e | uniform(0, 0.10) | Lower end: E19, where AI alone outperforms AI-assisted humans in the delegated range (excess error ≤ 0). Upper end: E15, where auto-closing AML alerts would miss about 10% of true positives (a share of positives, not of closed alerts, so [I]; per closed alert E15 implies at most 0.39%, so the 0.10 now rests on the OCBC invoice benchmark’s 10% error budget, CB-04) [V wave 37C] | 0, 0.02, 0.05, 0.10, 0.20, 0.40. The values 0.20 and 0.40 are the mode and top of the calibrated unconditional error range: confidence carries no information |
 | k | triangular(0.03, 0.10, 0.30); k = 1 for P01, P07, P08 and P14 under CAL_COMPLIANCE_FULL | v2's QA range, which the calibration keeps as **unsourced**. No source measures a second-line QA sampling rate. E16 (2% of financial-firm AI use cases fully autonomous) is the basis for the k = 1 stress | 0.02, 0.05, 0.10, 0.30, 1.0 |
 | ρ | 0 | Definition in E19: AI-alone decisions take zero human time | 0, 0.10, 0.25, 0.50 |
 | m | sweep only: 1, 5, 20 in the headline | **No evidence** | 0, 1, 5, 20, 50 |
@@ -224,7 +224,7 @@ All rows are large national, CAL_CENTRAL. "Break-even h" is the h at which C_rou
   - Hence a large-national pool 2.4–3.1× the assist pool and a platform break-even rising from 13% to 29–38% of draws (m = 5 to 1). Both depend on the unsourced m and on ρ = 0 [V wave 36B]
 - **Not supported for ranking.**
   - Even with routing, C ranks first in about 1% of process-draws, and no modal winner changes inside the evidence range.
-  - C's weakness in ranking is therefore not an artefact of the assist formula. It comes from a_p ≤ 0.6 and from B and D's v1 priors.
+  - C's weakness in ranking is therefore not an artefact of the assist formula. It comes from a_p ≤ 0.6 and from the v1 priors of A, B and D: cutting B and D alone hands processes to A, not to C [S] ([g0401-0103-ai-bd-recut.md](g0401-0103-ai-bd-recut.md)). [V wave 37C]
   - Those priors were never calibrated (proposal P-G0401-03).
 - **The new weak point is different.**
   - Routing swaps one inference (s from production field studies) for another: h from one radiology experiment, and m from no source at all.
@@ -233,7 +233,7 @@ All rows are large national, CAL_CENTRAL. "Break-even h" is the h at which C_rou
 ### A5. Limits (Part A)
 
 1. **The h evidence is one study in another domain** (E19, radiology; with E15's single-bank ML triage as context). No public DAF or financial back-office study reports the share of cases auto-closed under a confidence threshold together with the error rate in that band (P-G0401-01).
-2. **e is bounded, not measured.** E15's 10% is a share of true positives missed, and converting it to a per-closed-case rate needs alert prevalence. The E15 abstract does not report prevalence.
+2. **e is bounded, not measured.** E15's 10% is a share of true positives missed. The E15 full text gives the prevalence (“less than 3% of the alerted ones”, p. 3), which converts it to at most 0.39% per closed alert (about 0.77% at the baseline’s ~80% recall) [C] ([g0401-0103-ai-bd-recut.md](g0401-0103-ai-bd-recut.md) CB-01c). The 0.10 upper end therefore no longer rests on E15. [V wave 37C]
 3. **m (the cost of an escaped error) is unsourced** and dominates the result (P-G0401-02). k is still v2's unsourced QA range.
 4. **Structure.** Routing is applied per process with one global h per draw. In practice h would differ by process, being higher for P11 and P02-type intake and lower for P07 and P08.
 5. **Unchanged assumptions.** The calibrated model's other assumptions (φ, d, β, b, fixed costs, τ) are unchanged and still set net results and network break-even.

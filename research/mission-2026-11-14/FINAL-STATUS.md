@@ -8,7 +8,30 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-19, through PR #59) — governing
+## Counts (refresh 2026-11-19, through PR #60) — governing
+
+Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #60 merged. These figures supersede the tables below. The PR #60 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#60 (41 PRs) | GitHub |
+| Research documents | 309 documents, 1,141,857 words | `research/**/*.md` |
+| Datasets | 585 CSV files, 340,594 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,866 | regex over `research/**/*.md` |
+| Independent validation | **1,536 register rows** in 51 register files (waves 1–37C): 1,118 confirmed, 337 partially confirmed, 57 contradicted, 17 unverifiable, 7 other | `validation-register*.csv`, classified by the leading word of `validation_result` |
+| Research queue | 734 items: 358 done, 245 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.44 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #60 (validated; report §11.42–§11.44):**
+- **Payout definitions.** IPS's 9.7% median reproduces from IPS's own file. The 23.9% figure is NPT's FY2023 aggregate. The gap from 23.9% to 9% comes mostly from the move from pooled to median sponsor (−9.4 pts) and from the denominator (−5.9 pts). The remainder is a residual that mixes sample, window and definition, so it is not purely the distribution within sponsors.
+- **DAF money abroad.** The 150 largest international recipients carry $1.87bn of DAF money abroad; this figure depends on an allocation assumption. Including direct foreign grants, measured outflow is 3.82% of total grants. The earlier 7.8% is a share by recipient sector.
+- **Dechomai.** $3.27bn of non-cash intake in 2021–24, 83% of it private business interests, with $1.15bn routed to six national sponsors. Its fee take is not measured, and its fee and administration outflows are 0.39–0.62% of intake.
+- **DAFpay Network TY2025.** "Other fees" are 3.0% of contributions and are booked as an expense. The return is not audited.
+- **Canada.** The CRA T3010 panel reproduces Blumberg & Pasha: C$18.60bn at 864 sponsors in the 2025 release. Counting blank disbursement lines as zero, the median payout is 4–5%.
+- **Australia.** The 6% giving-fund minimum has been decided but was not registered as of 2026-11-19. Only the rename to "giving fund" has commenced.
+- **AI economics.** With B and D held to C's evidence standard, AI assistance still wins no process, and the processes B and D lose go to manual improvement, whose α is unsourced. The bound E15 implies is a miss rate of at most 0.39% per auto-closed alert, not 0.10.
+
+## Counts (refresh 2026-11-19, through PR #59) (superseded by the table above)
 
 Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #59 merged. These counts supersede the tables below. The PR #59 description records the head SHA.
 
@@ -146,7 +169,7 @@ Recomputed from the repository at merge commit `20a0eb8` (PR #50). Supersedes th
 | Industry report | §11.1–§11.27 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
 | Owner-directed new research directions | 33 (N1–N33), all validated | `research/mission-2026-11-14/direction-*.md` |
 
-**Seventh-round additions (validated, report §11.27):** direct foreign grants are 1.92% of top-50 sponsors' grants ($1.89bn over FY2023–24), lifting the international sector share from 5.6% to 7.8%; about 42% of covered DAF grant dollars go to charities that report any lobbying, with median lobbying intensity of about 0.2% of expenses (descriptive, lawful activity); 1,240 sponsors under $50m hold 2.84% of assets, pay out less (median 11.7%) and account for nearly all entries and exits.
+**Seventh-round additions (validated, report §11.27):** direct foreign grants are 1.92% of top-50 sponsors' grants ($1.89bn over FY2023–24), lifting the international sector share from 5.6% to 7.8% (a recipient-sector share; DAF money measured as reaching abroad, including via US-registered NTEE Q and friends-of recipients, is 3.82% of top-50 grants, or 4.74% of net Schedule I plus line 3) [V wave 37A]; about 42% of covered DAF grant dollars go to charities that report any lobbying, with median lobbying intensity of about 0.2% of expenses (descriptive, lawful activity); 1,240 sponsors under $50m hold 2.84% of assets, pay out less (median 11.7%) and account for nearly all entries and exits.
 
 ## Counts (final refresh 2026-11-15 ~16:50 UTC, through PR #48) (superseded by the table above)
 

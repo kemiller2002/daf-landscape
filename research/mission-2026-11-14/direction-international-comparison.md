@@ -32,7 +32,7 @@
    The legal mechanics match the US sponsor model: an irrevocable gift, a receipt, and advisory recommendations that the trustees can refuse [F: S01, S13, S29, S35].
 2. **Payout floors exist abroad and are rising. The US has none.**
    - **Canada:** a charity-level disbursement quota of 3.5% on the first $1m of investment property and **5% above $1m**, for fiscal periods beginning on or after 2023-01-01 [S: S14].
-   - **Australia:** public funds must distribute the greater of $8,800 or **4%**, and private funds the greater of $11,000 or **5%** [F: S23]. On 2026-02-26 the government decided to move both to **6%**, with 3-year smoothing [F: S25].
+   - **Australia:** public funds must distribute the greater of $8,800 or **4%**, and private funds the greater of $11,000 or **5%** [F: S23]. On 2026-02-26 the government decided to move both to **6%**, with 3-year smoothing [F: S25]. As at 2026-11-19 no amending guideline instrument is registered. F2022L00184 (4%) and F2019L01227 (5%, compilation 2) remain the operative texts, continued as giving-fund guidelines by Act No. 86 of 2026, Sch 7, items 17–18, from 2026-10-01. The 6% rate is decided, not drafted [V wave 37B]
    - **UK:** no payout rule [F: S01].
    - **The floor is never per account.** In Canada and Australia it applies at the sponsor or fund level; ACF states that its sub-fund holders have no individual minimum [F: S29].
 3. **Market sizes (latest found):**
@@ -40,7 +40,7 @@
    | Market | Assets | Grants / gifts | Payout measure | Source |
    |---|---|---|---|---|
    | UK | £3.1bn (2024) | £787.7m | 28.3% (on prior year-end assets) | 10 sponsors [F: S01] |
-   | Canada | C$16.64bn (2024) | C$1.92bn | 12% of same-year DAF assets | 834 charities reporting DAFs on T3010 [F: S13] |
+   | Canada | C$16.64bn (2024; CRA open data C$16.67bn at 846 charities); C$18.60bn in the incomplete 2025 CRA release | C$1.92bn (2024); C$2.09bn (2025) | 12% of same-year DAF assets (11.2% in 2025; 13.3% on prior-year assets) | 834 charities reporting DAFs on T3010 [F: S13]; 864 in the 2025 release [C: b39n3] [V wave 37B] |
    | Australia | A$10.7bn (2023) in private ancillary funds alone | n/a | n/a | 3,707 giving funds at 2025-03-03 [F: S23; S: S24] |
    | Switzerland | CHF 1.2bn (2023) of umbrella-foundation fund capital | n/a | n/a | [F: S35] |
    | US (comparator) | n/a | $58.41bn (FY2024, netted) | 22.8% | [R02] |
@@ -154,7 +154,7 @@
 | Gifts out | $1,918,665,555 | 58% of donations |
 | Gifts ÷ assets | 12% | |
 | Accounts | 185,506 | Authors call this "highly exaggerated by transpositional errors" |
-| Average account | $89,724 | |
+| Average account | $89,724 | Inflated denominator: the CRA 2024 release has 186,421 accounts as filed but 60,419 once 14 impossible returns are removed, giving an average of C$275,905 [C: b39n3] [V wave 37B] |
 
 - **Other figures:**
   - The WellFunded database: **$17.3bn** across 205 sponsors on the "most recent" T3010s, with the top ten holding 66% [S: [S37](https://futureofgood.co/new-database-maps-canadas-17-3-billion-daf-landscape-and-where-philanthropic-wealth-is-concentrated/), 2026-08-10].
@@ -191,7 +191,7 @@
   - **2024-12-05:** the government announced it would align and raise the rates, allow three-year smoothing and rename the funds "giving funds" [F: S23].
   - **2025-06-10:** Treasury opened consultation, which closed 2025-08-01 [F: [S38](https://ministers.treasury.gov.au/ministers/andrew-leigh-2025/media-releases/more-give-new-giving-fund-rules-aim-boost-charity)].
   - **2026-02-26:** Assistant Minister Leigh set the minimum annual distribution for public and private giving funds at **6% of net assets**, with three-year smoothing. Existing funds have two years before they must comply. The rule applies "from the first financial year following amendments to the giving fund guidelines" [F: [S25](https://ministers.treasury.gov.au/ministers/andrew-leigh-2025/media-releases/boosting-support-australian-charities)].
-- **Status:** Philanthropy Australia treats the guideline amendments as still to come [S: [S40](https://www.philanthropy.org.au/explainer-changes-to-the-minimum-distribution-for-giving-funds/)]. We did not find the amended instrument (P-B39N3-02).
+- **Status:** Philanthropy Australia treats the guideline amendments as still to come [S: [S40](https://www.philanthropy.org.au/explainer-changes-to-the-minimum-distribution-for-giving-funds/)]. We did not find the amended instrument (P-B39N3-02). This was confirmed on the Federal Register of Legislation on 2026-11-19: no title contains “Giving Fund”, and neither guideline has a compilation after 2022. Only the rename has commenced (C2026A00086, Sch 7, 2026-10-01) [V wave 37B]
 - **Discrepancy:** the June 2025 paper said the higher rate would not apply for five years after amendment. The February 2026 release says two years [F: S23, S25].
 - **Sub-funds:** sub-fund holders at ACF have no individual minimum. ACF must distribute 4% at the consolidated trust level [F: S29]. APS asks each giving fund to give 4% [F: [S26](https://www.australianphilanthropicservices.com.au/faqs-aps-foundation/)].
 
@@ -235,7 +235,7 @@
 
 ## 7. Lessons for a US AI-native entrant [I unless cited]
 
-1. **Build payout analytics in from day one.** Every peer market studied has, or is adopting, a sponsor-level floor: Canada 5% above $1m, and Australia moving to 6% with smoothing. Smoothing, Commissioner reductions and a charity-level DQ create the same work a US rule would: account-level dormancy tracking and aggregate floor management. An entrant that can show per-account payout and simulate the floor is ready if the US moves.
+1. **Build payout analytics in from day one.** Every peer market studied has, or is adopting, a sponsor-level floor: Canada 5% above $1m, and Australia 4%/5% today, with 6% and smoothing decided but not yet in any registered instrument at 2026-11-19 [V wave 37B] Smoothing, Commissioner reductions and a charity-level DQ create the same work a US rule would: account-level dormancy tracking and aggregate floor management. An entrant that can show per-account payout and simulate the floor is ready if the US moves.
 2. **The large consumer models abroad ran their own stacks.**
    - **Own stacks:** CHIMP, Canada Gives, CAF and APS run their own platforms or name no vendor.
    - **Where US vendors appear:** Ren, Foundant and NPact are concentrated at adviser-channel and community-foundation sponsors (NPT UK, ACF, Calgary).

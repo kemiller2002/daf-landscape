@@ -50,7 +50,7 @@
 | **Q-B16** Daffy unit economics | **Partially answered** | Daffy Charitable Fund CY2024: operating cost $360k, 0 employees, "Fee Income" inside $141.6k of other revenue. Membership revenue is not in the fund's 990 and is presumably with the operating company [I]. Company P&L not public |
 | **Q-B14** failed or exited DAF tech providers | **Answered** | Closed by [failed-daf-startups-deep-research.md](failed-daf-startups-deep-research.md) §1 (as corrected by W4-10 and W4-11) |
 | **P-AGA-05** SOC reliance at NCF and Charityvest | **Not public** | No SOC or service-organization reference in the NCF or Charityvest audits (repo `sponsor-audit-notes.csv`). Foundation Source publishes no attestation (`vendor-assurance-scope-2026.csv`). A targeted search found none |
-| **P-AGF-02** DAF dollars to DAFpay fees in 2025 | **Not public** | No platform-wide DAFpay dollar total. The "grew 46% in 2025 to over $5 million" line on Chariot's DAFpay page sits next to a customer quote and is ambiguous [I]. DPN, the only audited slice, books no fee revenue |
+| **P-AGF-02** DAF dollars to DAFpay fees in 2025 | **Not public** | No platform-wide DAFpay dollar total. The "grew 46% in 2025 to over $5 million" line on Chariot's DAFpay page sits next to a customer quote and is ambiguous [I]. DPN, the only slice with a public 990, books no fee revenue. Its 990 is not audited: `FSAuditedInd` is false or 0 in TY2024 and TY2025. Its TY2025 return books $88,736 of “fees for services – other” (3.02% of $2,941,073 contributions), an unnamed expense consistent with the 2.9% fee [V wave 37B] |
 | **P-CON-08** renewal calendar | **Partially answered** | Public terms exist only for Ren (1-year renewals, 60-day notice), Ren iPhi (12-month auto-renew; notice drafted "thirty (60) days") and NPact (3-year initial term, 1-year renewals, 90-day notice). Sponsor-specific start dates are not public. 8 dated migration events give only go-live anchors |
 
 ---
@@ -146,11 +146,11 @@
 
 | | TY2023 | TY2024 | TY2025 |
 |---|---|---|---|
-| Filing | 990-N (< $50k receipts) | 990, filed 2025-03-13 ([XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202510729349301206_public.xml)) | 990, filed 2026-05-19 (summary only; XML not yet in the S3 mirror) |
+| Filing | 990-N (< $50k receipts) | 990, filed 2025-03-13 ([XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202510729349301206_public.xml)) | 990, ReturnTs 2026-05-18T19:51:48-06:00 (XML public in IRS TEOS `2026_TEOS_XML_05B`; not in the S3 mirror at 2026-11-19) [V wave 37B] |
 | Contributions | — | $1,199,247 | $2,941,073 |
 | Program-service revenue | — | **$0** | $0 |
 | Grants paid | — | $831,404 (largest: Chai Lifeline $372,832; Effective Ventures Foundation $155,818) | n/a in summary |
-| Fees for services (other) | — | $18,345 | n/a |
+| Fees for services (other) | — | $18,345 | $88,736 (TY2025 XML, IRS TEOS `2026_TEOS_XML_05B`) [V wave 37B] |
 | Self-description | — | "THE CHARITY OPERATES AS A SPONSOR TO DONOR ADVISED FUNDS…" | — |
 | Location / officers | — | Boone, IA. Unpaid directors: Salomon Serfati (principal officer), Yitzhak Moshe Bengualid Goldstein, Laivi Forta | same |
 
@@ -160,7 +160,7 @@ Source: [ProPublica organization page](https://projects.propublica.org/nonprofit
 - **The pricing pages and the 80% fit together only if the fee-free volume sits in Enterprise or custom contracts.** The only *published* subscription (Components, $199/mo) still carries 2.9%. "Subscription" in the 80% sentence must therefore mean negotiated plans with an included-volume allowance.
 - **The metric is probably dollars, not gifts.** The sentence ties fee-free use to "large nonprofits". Pan-Mass Challenge alone passed $5m of DAFpay in a calendar year (Chariot year-in-review, [R]), so a few large subscribers can dominate dollar volume. This is not confirmed.
 - **DPN's 990 cannot bound the fee-bearing share:**
-  - It books no program-service revenue and only $18k of other fees. The 2.9% on DPN-routed gifts is therefore taken before DPN records the contribution, or outside DPN.
+  - In TY2024 it books no program-service revenue and only $18k of other fees (1.53% of contributions). The TY2025 return revises this. Its XML is public in IRS TEOS `2026_TEOS_XML_05B` and was read in wave 37B. DPN records contributions gross ($2,941,073) and books $88,736 of “fees for services – other” (3.02%). The 2.9% on DPN-routed gifts therefore appears as an unnamed DPN expense, not netted before receipt. TY2024's 1.53% remains unexplained [V wave 37B]
   - DPN carries only unclaimed-nonprofit and five named Jewish-giving-platform flows, about $1.2m in TY2024 and $2.9m in TY2025.
   - Upper bound on fees on that slice, if all of it bore 2.9% grossed on receipt: about $36k (TY2024) and $88k (TY2025) [I].
 - **Change over time:** not traceable. Wayback could not be reached, and GitBook page history is not public. The text is unchanged between batch 36C (2026-11-14/15) and this read.
