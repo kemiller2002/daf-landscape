@@ -21,9 +21,9 @@ Tags: **[F]** computed from filings or the BMF by the script · **[P]** quoted p
 - **Concentration is extreme.** Gini 0.816 [F].
   - The top 1% (295 recipients) take 42.5% of dollars and the top 10% (2,947) take 74.5%. The bottom half take 4.2%.
   - The LDS Church alone takes 7.5%.
-  - Among congregations only, the top 1% take 28.8% and the top 10% take 66.4% (Gini 0.757).
+  - Among congregations only, the top 1% take 29.1% and the top 10% take 66.6% (Gini 0.757) [V wave 35C].
 - **Grant size is modest.** Medians [F]:
-  - per church, over two years: $39,057 (congregations $37,462);
+  - per church, over two years: $39,057 (congregations $37,426) [V wave 35C];
   - per Schedule I line (one sponsor-year's total to one church): $17,479;
   - Schedule I's p10 line is $6,224, close to the $5,000 reporting threshold.
   - Mean per church: $209,629.
@@ -47,7 +47,7 @@ Tags: **[F]** computed from filings or the BMF by the script · **[P]** quoted p
   - By grant size, 516 congregations with at least $1m hold 41.1% of congregation dollars [F].
 - **Giving pages (P-B41N15-01, partial).** The sample was 50 seeded congregations. Websites were found for 21 of the 40 searched. 14 pages were read (10 giving pages and 4 homepages). **None showed any DAF option**: no DAFpay, no DAF Direct, no sponsor name, no DAF text and no EIN [O].
   - Subsplash appears on 5 of the 14 pages and Pushpay on 3 [O].
-  - For comparison, 40.3% of the top-300 recipients' donate pages show some DAF option, and religion's rate there is 3 of 14.
+  - For comparison, 41.2% (75 of 182) of the top-300 recipients' donate pages show some DAF option, and religion's rate there is 3 of 13, both after the governing wave-24B correction [V wave 35C].
 
 ## 1. Method
 
@@ -63,7 +63,7 @@ Tags: **[F]** computed from filings or the BMF by the script · **[P]** quoted p
 3. **Recipient type** (`rtype_of`, name rules in order).
    - The types are school/seminary (strict words), denominational body, congregation, school (college/university/institute), then ministry/order; anything else is unclassified.
    - An Outreach 100 match forces `congregation`.
-   - **Audit:** in a random 80 block recipients (seed 7), all 72 labelled names read as consistent with their label. 8 were unclassified, several of which look like congregations ("THE RIVER", "CHRIST CENTRAL"). The congregation share is therefore a lower bound [I].
+   - **Audit:** in a random 80 block recipients (seed 7), all 72 labelled names read as consistent with their label. A validator's stratified draw (16 per type, seed 3503) found congregation labels right for 16 of 16 and school labels for 13 of 16, but ministry labels for 11 of 16 (2 congregations, 3 ambiguous centres) and denominational-body labels for only 7 of 16: parishes matched SYNOD or CORPORATION SOLE, and orders, Chabad bodies, a school and a social-service centre also landed there. The dollar effect is small, because LDS and dioceses dominate that type; names in it containing PARISH, CHURCH, CONGREGATION or TEMPLE hold $54.4m (0.9% of block) [V wave 35C]. 8 were unclassified, several of which look like congregations ("THE RIVER", "CHRIST CENTRAL"). The congregation share is therefore a lower bound [I].
    - Known mislabels among the top 50 congregations include Fellowship of Catholic University Students ($11.3m, which matches `FELLOWSHIP`) and the Protestant Episcopal Cathedral Foundation (Washington National Cathedral).
 4. **Denomination.**
    - (a) **GEN.** The BMF `GROUP` field is the "four-digit internal number assigned to central/parent organizations holding group exemption letters" [P, IRS EO BMF data dictionary]. Each GEN is resolved to the BMF row with that GROUP and AFFILIATION 8 ("parent (group ruling) and is a church") or 6 ("parent… not a church") [P]. That row's name is classified by keyword (`FAMILIES`). 3,964 GENs have a central in the BMF; all 357 GENs in the block resolve.
@@ -74,7 +74,7 @@ Tags: **[F]** computed from filings or the BMF by the script · **[P]** quoted p
 5. **Sponsor groups.**
    - **faith_christian:** NCF, Servant Foundation and Thrivent Charitable.
    - **faith_jewish:** Jewish Communal Fund, CJP, JCF San Francisco and JCF Los Angeles.
-   - These are the top-50 sponsors that DAFRC types "Religiously-Affiliated", plus Servant Foundation, which DAFRC types National/Standard and the repo lists as faith (direction-sponsor-executive-compensation.md, faith_single_issue).
+   - These are the top-50 sponsors that DAFRC types "Religiously-Affiliated", plus Servant Foundation, which DAFRC types National/Standard and the repo lists as faith (direction-sponsor-executive-compensation.md, faith_single_issue). That list also includes DonorsTrust, which is kept here in `other` ($32.9m, 0.5% of block); counting it would raise the faith share to 22.6% [V wave 35C].
    - **national:** all other DAFRC national sponsors.
    - **community_foundation:** community foundations.
    - **other:** Dechomai, DonorsTrust and the two universities.
@@ -83,7 +83,7 @@ Tags: **[F]** computed from filings or the BMF by the script · **[P]** quoted p
    - **Matching:** same state, same abbreviation-expanded city, and every list-name token (after stop words such as CHURCH and INC) present in the BMF name.
      - `strict`: the BMF name adds only COMMUNITY/OF/COUNTY or city/state words.
      - `loose`: any superset.
-   - Loose matches include true pairs (Life.Church = LIFE COVENANT CHURCH INC; Saddleback = SADDLEBACK VALLEY COMMUNITY CHURCH; The Summit Church = SUMMIT CHURCH-HOMESTEAD HEIGHTS BAPTIST) and false ones (Woodlands Church → First Baptist Church of the Woodlands; Faith Church → Faith Lutheran). Loose matches are therefore reported only as an upper bound.
+   - Loose matches include true pairs (Life.Church = LIFE COVENANT CHURCH INC; Saddleback = SADDLEBACK VALLEY COMMUNITY CHURCH; The Summit Church = SUMMIT CHURCH-HOMESTEAD HEIGHTS BAPTIST) and false ones (Woodlands Church → First Baptist Church of the Woodlands; Faith Church → Faith Lutheran). Loose matches are therefore reported only as an upper bound. On reading, 16 of the 18 loose EINs are true pairs, and the two false ones hold $0.9m, so the loose tier (about $198.3m without them) is close to a point estimate. Free Chapel (Gainesville, GA; $8.1m) is a true list church missed because Outreach places it in Florida [V wave 35C].
    - Outreach describes its list as self-reported Lifeway survey data plus Hartford Institute public data [P].
 7. **Concentration.** Shares of the top k% by DAF-weighted dollars, Lorenz points at 5% steps (smallest first), and Gini.
 8. **Giving pages (P-B41N15-01).**
@@ -124,7 +124,7 @@ The faith-sponsor column is Christian plus Jewish faith sponsors, from `block:rt
 | Scope | n | Gini | Top 0.1% | Top 1% | Top 10% | Top 100 | Bottom 50% |
 |---|---|---|---|---|---|---|---|
 | block | 29,469 | 0.816 | 22.4% | 42.5% | 74.5% | 31.7% | 4.2% |
-| block_congregations | 21,774 | 0.757 | 8.7% | 28.8% | 66.4% | 20.5% | 5.9% |
+| block_congregations | 21,774 | 0.757 | 8.7% | 29.1% | 66.6% | 20.5% | 5.9% [V wave 35C] |
 | church_coded_all | 30,841 | 0.833 | — | — | — | — | — |
 
 Lorenz points for the block (smallest first; cumulative share of dollars): 50% of churches → 4.2%; 80% → 15.2%; 90% → 25.5%; 95% → 36.1% [F].
@@ -134,7 +134,7 @@ Lorenz points for the block (smallest first; cumulative share of dollars): 50% o
 | # | Recipient (BMF) | State | Type | $m | Largest sponsor |
 |---|---|---|---|---|---|
 | 1 | The Church of Jesus Christ of Latter-day Saints | UT | denominational body | 464.2 | Fidelity |
-| 2 | Come and See Foundation | CO | unclassified | 135.9 | Servant Foundation |
+| 2 | Come and See Foundation | CO | ministry (family unclassified) [V wave 35C] | 135.9 | Servant Foundation |
 | 3 | Campus Crusade for Christ (Cru) | FL | ministry | 92.5 | NCF |
 | 4 | World Literature Crusade | CO | ministry | 87.9 | Servant Foundation |
 | 5 | Wycliffe Bible Translators | FL | ministry | 42.5 | NCF |
@@ -179,6 +179,8 @@ The top 50, with GEN, family and sponsor counts, are in `block:top_recipient` an
 | 3741 | Protestant Episcopal Church in the USA | 447 | 51.9 | 0.8% |
 | 1617 | Presbyterian Church (USA) | 404 | 50.4 | 0.8% |
 
+Two single-organisation group rulings rank among these by dollars and are left out of the table: GEN 3864 (Campus Crusade for Christ, 1 recipient, $92.5m, 1.5%) and GEN 4067 (World Literature Crusade, AFFILIATION 6, 1 recipient, $87.9m, 1.4%) [V wave 35C].
+
 **Family, block and congregations** [F, by method in §1.4]:
 
 | Family | Block $ share | Congregation $ share |
@@ -195,7 +197,8 @@ The top 50, with GEN, family and sponsor counts, are in `block:top_recipient` an
 | Pentecostal | 2.6% | 4.2% |
 | Methodist | 2.0% | 3.6% |
 | Episcopal/Anglican | 1.2% | 2.0% |
-| other faith, Orthodox, Muslim, Unitarian, Adventist | 3.2% | 1.9% |
+| other faith, Orthodox, Muslim, Unitarian, Adventist | 2.7% | 1.9% |
+| ambiguous (temple, congregation, sanctuary etc., no family) | 1.4% | 2.6% [V wave 35C] |
 
 - **Catholic dollars are thin per parish.** 2,576 Catholic congregations average $98k [F]. The Catholic total is held up by the USCCB, dioceses, orders and schools.
 - **Faith-sponsor share by family** [F]:
@@ -267,10 +270,10 @@ Among community foundations, SVCF sends 0.5% and Chicago 1.1%.
 
 - **No host disallowed the pages by robots.txt.** Every site was checked before fetching.
 - **0 of 14 pages read (10 giving, 4 homepages) show any DAF option.** That covers DAFpay/Chariot, DAF Direct, sponsor names, "donor-advised"/"DAF" text and an own-EIN display [O]. The 95% Wilson upper bound on 0/14 is 21.5% [I].
-- **Platforms on the 14 pages:** Subsplash 5, Pushpay 3, Planning Center 1, other form vendors 3, none detected 4 [O].
+- **Platforms on the 14 pages:** Subsplash 5, Pushpay 3, Planning Center 1, other form vendors 3, none detected 7 (3 of the 10 giving pages and all 4 homepages) [O] [V wave 35C].
   - The scanned giving pages are on Subsplash (Calvary Chapel Edmonds, Cherry Creek Presbyterian, Christ Central Durham, Wellspring), Pushpay (Chesterfield Presbyterian, RockHarbor, Compass Bible with Planning Center) and own forms (Sinai Temple, St. Ann Marietta, First UMC Madison).
   - The faith doc found that none of these platforms offers a DAF grant rail [O, repo]. Subsplash publishes DAF instructions for congregations, but none of the four Subsplash pages showed them.
-- **Comparison.** The top-300 donate-page census found 40.3% with any DAF option overall and 3 of 14 for religion (all parachurch, no DAFpay). For congregations in the church block the rate observed is 0 of 14.
+- **Comparison.** The top-300 donate-page census, as corrected in wave 24B, found 41.2% (75/182) with any DAF option overall and 3 of 13 for religion (all parachurch, no DAFpay) [V wave 35C]. For congregations in the church block the rate observed is 0 of 14.
 - Detail is in `donate_scan:congregation`. Each row has its site, its source note, the giving URL, the flags and the robots result.
 
 ## 4. How this relates to the faith-platform direction doc
@@ -289,7 +292,7 @@ This study tests several of those points directly:
 - **E2 partly.** Schedule I lines to congregations have a median of $17k and p10 of $6.4k, and 57.5% of churches have one sponsor (§3.3). Small per-grant sizes cannot be seen in Schedule I [F/I].
 - **E3 quantified.** Faith sponsors send 21–26% of church dollars, against 10% of all top-50 dollars. Servant Foundation and Thrivent send about 40% of their own dollars to this block (§3.5).
   - But **about three-quarters of church DAF dollars come from national sponsors**, led by Fidelity and DAFgiving360. Those are sponsors that are reached through DAFpay or sponsor links.
-  - So "faith sponsors pay without a donate page" explains at most a fifth of the dollars [I].
+  - So "faith sponsors pay without a donate page" explains about a fifth to a quarter of the dollars (22.1% of the block, 25.7% of all church-coded dollars) [I] [V wave 35C].
   - Most church DAF money arrives from nationals with no visible DAF option on the church's page. That fits portal-initiated grants by donors who already know the church's EIN and address [I].
 - **E4 consistent.** Every platform detected on the scanned pages (Subsplash, Pushpay, Planning Center) is one the faith doc found has no DAF grant rail [O].
 - **E5.** No church in the sample showed its EIN, which national sponsors' grant forms ask for [O].
@@ -299,7 +302,7 @@ This study tests several of those points directly:
 
 1. **Top-50 frame only.** Sponsors outside the 50 largest by DAF assets are absent, including WaterStone, NCF affiliates and most Jewish and Catholic foundations. Renaissance and BofA do not itemise Schedule I. DAF-weighting assumes each sponsor-year's DAF share applies to all its lines.
 2. **Schedule I lines.** They aggregate per recipient-year and omit recipients at or under $5,000. Church grants sit close to that threshold, so the dollar total and the small-church count are understated by an unknown amount (proposal 05).
-3. **Name rules.** Recipient type and denomination family come from keyword rules on BMF names. GEN central names are authoritative for the 47.8% of dollars with a GEN; elsewhere names are an [I] classification. Known mislabels are listed in §1.3.
+3. **Name rules.** Recipient type and denomination family come from keyword rules on BMF names. GEN central names are authoritative for most of the 47.8% of dollars with a GEN; elsewhere names are an [I] classification. Two exceptions: the BMF central name for GEN 2573 (UMC) is truncated, so its subordinates fall back to own-name rules (64 recipients, $12.5m, not labelled Methodist), and GEN 2269 (Converge, the Baptist General Conference; $49.7m) has only $12.0m labelled Baptist. Methodist and Baptist shares are therefore understated by up to about 0.2 and 0.6 points [V wave 35C]. Known mislabels are listed in §1.3.
 4. **"Church" means the IRS code.** FOUNDATION 10 includes auxiliaries, conventions and schools. The BMF is the 2026-11 extract and is applied to FY2023–24 dollars.
 5. **Megachurch matching** is name + city + state against one public list. Legal names that differ from brand names are missed, and loose matches include errors. Outreach's list is self-reported and partly secondary data [P].
 6. **Giving pages.** The test is small and partial: n = 14 pages read, with websites found by search for only 21 of 40 searched congregations. Congregations with findable websites may differ from those without. The sample is dollar-stratified (half from the top decile), not proportional. Static detection cannot see options shown only after interaction, such as a "DAF" method inside a Pushpay modal; the census has the same limit.

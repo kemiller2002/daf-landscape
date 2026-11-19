@@ -38,7 +38,7 @@ Tags: [F] computed from filings by the script · [P] quoted primary source · [I
   - **The published rules contain no revenue threshold.** The 2023 release notes use revenue only to assign a "size classification" for scoring [P].
 - **Result, central rule set** [F]: **76.9%** of top-50 FY2023–24 DAF-weighted Schedule I dollars ($56.93bn of $74.07bn) go to recipients that pass every rule CN publishes and filings can test. Those recipients are **51.2%** of recipient units (89,124 of 174,220). On the as-filed Schedule I basis the dollar share is 76.3%.
 - **The remaining 23.1% of dollars:**
-  - churches with no e-filed 990: 8.3%;
+  - church-status organisations (BMF FOUNDATION 10) with no e-filed 990: 8.3%. By name rules about 4.4 points of this are congregations; ministries and orders are 1.3, denominational bodies 1.1 (the LDS Church alone 0.6), schools 0.7 and unclassified names 0.9 (b4026-06) [V wave 35C];
   - EINs not in the IRS BMF: 5.6%, mostly CZ Biohub LLCs and governmental units rather than revoked charities [V wave 34B];
   - fewer than three e-filed returns in six years: 3.4%, of which Navigation Charitable Fund's $1.26bn is about half (49.5%) [V wave 34B];
   - private foundations: 1.7%;
@@ -285,7 +285,7 @@ By recipient type, the eligible share of dollars is:
 
 **Reading [I].**
 - **Eligibility is mostly a question of church status, subsidiary or government-unit status and organisation age, not of size [V wave 34B]** Above $1m of BMF revenue, at least 98% of recipients and at least 89.6% of dollars are eligible.
-- **The unrated majority by count is real but small by dollars.** Recipients failing CN's filing rules are 48.8% of recipient units but 23.1% of dollars, and about a third of those dollars (8.3 of 23.1 points) go to church-status organisations with no e-filed 990 [V wave 34B].
+- **The unrated majority by count is real but small by dollars.** Recipients failing CN's filing rules are 48.8% of recipient units but 23.1% of dollars, and about a third of those dollars (8.3 of 23.1 points) go to church-status organisations with no e-filed 990 [V wave 34B]. Only about 4.4 of those 8.3 points go to congregations by name rules; the rest go to ministries, denominational bodies, schools and unclassified names ([b4026-06-church-daf-recipients.md](b4026-06-church-daf-recipients.md)) [V wave 35C].
 - This is the shape the repo's ratings-integration note assumed: "Build the differentiator around the roughly 83% of Pub 78 entities with no rating". The DAF-dollar version is roughly one dollar in four.
 
 ## 5. Limits

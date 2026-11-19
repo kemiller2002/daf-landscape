@@ -114,7 +114,7 @@ The evidence below explains why they diverge.
 - Religion has **$10.55bn across 55,993 recipients** (all ex university/hospital, FY2023–24). That is **32.1% of all recipients** and **27.0% of all lines**, but 13.6% of dollars.
 - Average per recipient: **$188k for religion vs $444k for all sectors.** Average per line: **$65k vs $129k**.
 - The 22 religion recipients in the top-300 sample hold **$1.58bn, 15.0% of religion dollars**. The sample as a whole holds 31.4% of all net dollars. The 14 scanned religion pages hold $0.84bn (7.9%).
-- Those 22 are mostly parachurch ministries (Samaritan's Purse, Cru, Wycliffe, CRS, Focus on the Family, Salvation Army). Only 2–4 are congregations (LDS, Life.Church, Congregation Ohr Torah, possibly Amidei Zion of Bobov). None of the congregations was scanned: LDS had no donate link, Life.Church was unreachable, and the others had no website.
+- Those 22 are mostly parachurch ministries (Samaritan's Purse, Cru, Wycliffe, CRS, Focus on the Family, Salvation Army). Only 2–4 are congregations (LDS, Life.Church, Congregation Ohr Torah, possibly Amidei Zion of Bobov). None of the congregations was scanned: LDS had no donate link, Life.Church was unreachable, and the others had no website. Under the name rules of [b4026-06-church-daf-recipients.md](b4026-06-church-daf-recipients.md), two of the four are congregations (Life.Church, Ohr Torah); LDS is the denominational central and Amidei Zion of Bobov is unclassified. That study then read 14 pages of 50 seeded church-block congregations (10 giving pages, 4 homepages): none showed a DAF option (95% upper bound 21.5%), and a wave-35C re-read of 8 giving pages confirmed this [V wave 35C].
 - **So the 21% says little about the congregations that receive most religion DAF dollars by count** [I].
 
 **E2. Religion DAF money arrives as many small grants**
@@ -127,12 +127,12 @@ The evidence below explains why they diverge.
 **E3. Faith sponsors pay churches without a donate-page step** [O/F]
 - NCF, JCF NY and JCF LA all describe the same flow: the sponsor verifies the recipient's status and address, then pays by ACH or check, sending a letter that names the fundholder.
 - Single-issue sponsors send **32.5% of their dollars to religion** [R]. Their grants therefore need no button on the church's site.
-- These sponsors are largely absent from Chariot's partner lists [O]. A DAFpay widget on a church page would serve mainly donors at national sponsors [I].
+- These sponsors are largely absent from Chariot's partner lists [O]. A DAFpay widget on a church page would serve mainly donors at national sponsors [I]. In the top-50 church block, nationals send 74.2% of DAF-weighted dollars and the seven faith sponsors 22.1%, against the faith sponsors' 10.0% of all top-50 dollars (b4026-06) [V wave 35C].
 
 **E4. Church giving platforms have no DAF rail** [O]
 - Of the nine resolved church platforms, only Overflow offers in-checkout DAF grants. Pushpay's is "coming soon".
 - A congregation using Pushpay, Tithely, Givelify, Kindrid, ACST/Vanco, Subsplash or Planning Center has no DAF method to switch on. At most it can add text instructions, as Subsplash advises.
-- **Inference:** this probably keeps DAF options off congregation pages. It does not explain the 14 scanned pages: those are large ministries on Blackbaud, Fundraise Up, EveryAction and Stripe forms, not church platforms (repo `donate_platforms` field) [R/I].
+- **Inference:** this probably keeps DAF options off congregation pages. The 14 congregation pages later read (b4026-06) showed Subsplash (5), Pushpay (3) and Planning Center (1), with no platform detected on 7, and none showed a DAF option [O] [V wave 35C]. It does not explain the 14 scanned pages: those are large ministries on Blackbaud, Fundraise Up, EveryAction and Stripe forms, not church platforms (repo `donate_platforms` field) [R/I].
 
 **E5. Church legal status adds onboarding friction** [O → I]
 - Churches need not apply for recognition or file a 990.
