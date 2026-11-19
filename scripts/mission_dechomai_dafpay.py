@@ -70,7 +70,7 @@ GROUP_NAME_RX = (
     ("NPT", re.compile(r"national philanthropic", re.I)),
 )
 SPONSOR_TAX_PERIODS = ("202106", "202506")            # inclusive range of TAX_PERIOD (yyyymm) read for sponsors
-PUBLISHED_FEE = {"low": 0.01, "high": 0.03, "min_usd": 10000.0}
+PUBLISHED_FEE = {"low": 0.01, "high": 0.03, "avg_low": 0.012, "avg_high": 0.014, "min_usd": 10000.0}  # dechomai.org/faqs Q8
 DAFPAY_RATE = 0.029
 DAFPAY_BAND = 0.005                                   # +/- 0.5 pp counts as "about 2.9%"
 CHARIOT_RX = re.compile(r"chariot", re.I)
@@ -508,6 +508,8 @@ def dechomai_year_metrics(records: Sequence[Mapping], year: str) -> tuple[dict, 
                   "Schedule R or in either Part IX, so not a confirmed fee", **b),)
     published = (("published_fee_1pct_of_schedM", PUBLISHED_FEE["low"] * sm_total),
                  ("published_fee_3pct_of_schedM", PUBLISHED_FEE["high"] * sm_total),
+                 ("published_avg_fee_1.2pct_of_schedM", PUBLISHED_FEE["avg_low"] * sm_total),
+                 ("published_avg_fee_1.4pct_of_schedM", PUBLISHED_FEE["avg_high"] * sm_total),
                  ("published_min_fee_x_schedM_count", PUBLISHED_FEE["min_usd"] * sm_count))
     pub_rows = tuple(row(record_type="effective_take", item=k, amount_usd=v, amount2_usd=sm_total, count=sm_count,
                          ratio=ratio(v, sm_total), text="benchmark from the published fee one-pager", **b)
@@ -647,6 +649,7 @@ def four_year_rows(derived: Sequence[Mapping]) -> tuple[dict, ...]:
                             "take_partIX_all_fees_for_services", "take_all_nongrant_expenses",
                             "unreconciled_schedR_DAT_admin_reimbursement_to_DF",
                             "published_fee_1pct_of_schedM", "published_fee_3pct_of_schedM",
+                            "published_avg_fee_1.2pct_of_schedM", "published_avg_fee_1.4pct_of_schedM",
                             "published_min_fee_x_schedM_count"))
     groups = sorted({r["sponsor_group"] for r in derived if r["record_type"] == "routing_dechomai_to_sponsor"})
     routes = tuple(row(record_type="routing_dechomai_to_sponsor", sponsor_group=g,
