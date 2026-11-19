@@ -13,7 +13,8 @@ Numerator   Every DAFRC 2025 panel sponsor whose FY2023 or FY2024 return (netpay
             (mission_exception_load.drop_totals_rows); DAF-to-DAF lines dropped (mission_recipient_sectors.annotate:
             whitelist `include` EINs, self-lines, unique whitelisted-name matches). DAF weight per sponsor-year: its
             daf_share_of_grants from sponsor-cost-structure.csv (capped to [0, 1]); where absent, Schedule D DAF grants /
-            Part IX line 1 from the same cached return (capped); where that is absent too, 1.
+            Part IX line 1 from the same cached return (capped); where that is absent too, 1
+            (--default-weight; 0 gives the lower-bound sensitivity).
 Recipients  (i)  the committed sample (2,352 EINs; frame = BMF-listed, non-excluded recipients of top-50 grants;
                  seed 20261119) with Part VIII lines from the committed q1226 cache (cross-checked against q1202);
             (ii) a supplementary stratified sample of `new-only` recipients: BMF-listed, non-excluded EINs that get
@@ -72,15 +73,15 @@ def sponsor_years(chosen: Mapping, panel: Mapping, rank: Mapping) -> dict:
             for k, x in chosen.items() if k[0] in panel and k[1] in FYS}
 
 
-def weight_fallback(cost_w: Mapping, sy: Mapping) -> tuple[dict, dict]:
-    """-> (weights, source per key). cost-structure share; else Sched D DAF grants / Part IX line 1; else 1."""
+def weight_fallback(cost_w: Mapping, sy: Mapping, default: float = 1.0) -> tuple[dict, dict]:
+    """-> (weights, source per key). cost-structure share; else Sched D DAF grants / Part IX line 1; else `default`."""
     def one(k, x):
         if k in cost_w:
             return cost_w[k], "cost_structure"
         g, p = x.get("sched_d_daf_grants"), x.get("part_ix_line1_grants_domestic_orgs")
         if g is not None and p:
             return min(1.0, max(0.0, g / p)), "sched_d_over_part_ix_l1"
-        return 1.0, "default_1"
+        return default, "default_1"
     pairs = {k: one(k, v["x"]) for k, v in sy.items()}
     return {k: v[0] for k, v in pairs.items()}, {k: v[1] for k, v in pairs.items()}
 
@@ -232,6 +233,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     ap.add_argument("--supp-certainty", type=int, default=100)
     ap.add_argument("--workers", type=int, default=16)
     ap.add_argument("--boot", type=int, default=500)
+    ap.add_argument("--default-weight", type=float, default=1.0,
+                    help="DAF weight for sponsor-years with no DAF share anywhere (sensitivity: 0)")
     ap.add_argument("--out", default=OUT)
     a = ap.parse_args(argv)
 
@@ -256,7 +259,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     groups = _group_by_fast((panel[e] for e in wl_eins if e in panel), lambda p: norm_name(p["name"]))
     wl_names = {k: v[0]["ein"] for k, v in groups.items() if k and len(v) == 1}
     ann = {k: annotate(k[0], v["lines"], {}, wl_eins, wl_names) for k, v in good.items()}
-    weights, wsrc = weight_fallback(base.sponsor_weights(read_csv(COST), good), {k: item[k] for k in good})
+    weights, wsrc = weight_fallback(base.sponsor_weights(read_csv(COST), good), {k: item[k] for k in good}, a.default_weight)
     ann50 = {k: v for k, v in ann.items() if tiers[k] == "top50"}
     annoth = {k: v for k, v in ann.items() if tiers[k] == "other"}
     comb = combine(base.numerators(ann50, weights), base.numerators(annoth, weights))
@@ -316,7 +319,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     sy_status = {f"{t}:{k}": len(v) for (t, k), v in sorted(_group_by_fast(
         sy.items(), lambda kv: (kv[1]["tier"], kv[1]["pre"] if kv[1]["pre"] != "itemised"
                                 else "lines_" + loaded[kv[0]]["status"].split(":")[0])).items())}
-    dafrc24 = {ein9(r["ein"]): num(r.get("daf_grants")) or 0.0 for r in dafrc if r["fiscal_year_end"] == "2024"}
+    dafrc24 = {ein9(r["ein"]): num(r.get("total_daf_grants")) or 0.0 for r in dafrc if r["fiscal_year_end"] == "2024"}
     with_lines24 = frozenset(k[0] for k in good if k[1] == 2024)
     pick = lambda vn, b, sc="all_ex_excluded": next(s for s in summ if s["variant"] == vn and s["basis"] == b and s["scope"] == sc)  # noqa: E731
     rnd = lambda d: {k: (round(v, 4) if isinstance(v, float) else v) for k, v in d.items() if k not in ("source",)}  # noqa: E731
@@ -349,7 +352,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "uplift_other_over_top50_committed_frame_weighted": uplift,
         "implied_uplift_from_scaling": 1 / c50 - 1,
         "disposition": [rnd(d) for d in disp],
-        "headline": {f"{vn}|{b}": rnd({k: pick(vn, b)[k] for k in ("respondents", "weighted_recipients", "median_share",
+        "headline": {f"{vn}|{b}": rnd({k: pick(vn, b).get(k) for k in ("respondents", "weighted_recipients", "median_share",
                      "median_ci95_lo", "median_ci95_hi", "pooled_share", "pooled_ci95_lo", "pooled_ci95_hi",
                      "scaled_pooled_inference", "coverage_used")}) for vn, _, _ in VARIANTS for b in BASES},
         "bands": {f"{vn}|{b}|{sc}": round(pick(vn, b, sc)["pooled_share"] or 0, 4) for vn in ("top50_old_frame", "all_old_frame", "all_expanded_frame", "all_new_only")
