@@ -158,8 +158,8 @@ So the figure cannot be traced to a mis-keyed neighbouring line. One near match 
 **Conclusion** [I]. The FY2023 Schedule D line 4 is very likely a filer error, understated by about $5.1–5.3bn. The filing alone cannot prove which line is wrong.
 
 Public NPT material does not settle it:
-- NPT's [2023 annual report page](https://www.nptrust.org/annual-reports/the-2023-annual-report/) gives grants (
-- No FY2023 financial statements are listed in the nptrust.org sitemap (528 URLs checked). However, the 2023 annual report page links a two-page 
+- NPT's [2023 annual report page](https://www.nptrust.org/annual-reports/the-2023-annual-report/) gives grants ("$4.52 billion … during FY23"). Its chart data (in `data-data` attributes, not in the visible text) also give "charitable assets under management" of $22.13bn for FY22 and $28.81bn for FY23. The 2024 page gives $28.82bn for FY23 and $42.94bn for FY24 [V wave 34A]
+- No FY2023 financial statements are listed in the nptrust.org sitemap (528 URLs checked). However, the 2023 annual report page links a two-page "Consolidated Statements" PDF at https://www.nptrust.org/consolidated-statements-2023/ (created 2024-05-15). At 2023-06-30 it shows total assets of $28,876,243k, investments of $23,169,028k, cash of $5,648,084k and net assets without donor restrictions of $28,514,324k. Consolidated net assets run 2.4%, 2.1% and 1.9% above 990 Part X in FY2022–24 (FY2022 $21,759,900k; FY2024 $42,686,748k from https://www.nptrust.org/consolidated-statements-2024-npt/). So Part X is the consistent series and Schedule D line 4 is the outlier. The PDF carries no auditor's opinion [V wave 34A]
 
 ### 2.4 Decision and effect
 

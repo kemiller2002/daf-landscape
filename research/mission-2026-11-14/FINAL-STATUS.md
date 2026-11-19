@@ -8,7 +8,31 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-19, through PR #57) — governing
+## Counts (refresh 2026-11-19, through PR #58) — governing
+
+These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #58 merged, and supersede the tables below. The PR #58 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#58 (39 PRs) | GitHub |
+| Research documents | 293 documents, 1,068,274 words | `research/**/*.md` |
+| Datasets | 556 CSV files, 219,447 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,784 | regex over `research/**/*.md` |
+| Independent validation | **1,349 register rows** in 45 register files (waves 1–35C): 992 confirmed, 285 partially confirmed, 48 contradicted, 17 unverifiable, 7 other | `validation-register*.csv`, classified by the leading word of `validation_result` |
+| Research queue | 685 items: 338 done, 216 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.38 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #58 (validated; report §11.36–§11.38):**
+- **Tail admin-fee pool.** CFs-only central estimate is about $90m. The whole-tail figure of about $138m is an upper bracket, with a range of $76m–$184m, replacing the $92m hypothetical.
+- **Schedule I purpose text cannot measure donor restrictions.** About half of dollars carry generic text, about half carry sector labels, and about 1–2% have a specific purpose.
+- **Ren acknowledgement defaults track guide vintage.** The evidence shows neither a sponsor setting nor a platform limit.
+- **Adviser-managed assets.** The share is 46.9% at Fidelity Charitable and 0% at Vanguard. DAFgiving360 is only bracketed and NPT cannot be estimated.
+- **NPT foreign grants.** None of NPT's FY2023–24 foreign grants went to related organisations as filed, though Schedule R does not cover disregarded entities. In FY2025, £30.9m went from NPT Transatlantic to NPT UK.
+- **The $6.18bn "church" block is about half congregations.** Faith sponsors send about 22–26% of it, and none of the 14 congregation giving pages read offers a DAF option.
+
+**Process note.** A correction-applier bug truncated replacement text at inner double quotes. It was found in wave 35B and fixed. The 17 affected passages from waves 34S/34A/34B were repaired and audited against their reports.
+
+## Counts (refresh 2026-11-19, through PR #57) (superseded by the table above)
 
 Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #57 merged. These figures supersede the tables below. The PR #57 description records the head SHA.
 

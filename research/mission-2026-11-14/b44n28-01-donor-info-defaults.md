@@ -11,7 +11,7 @@
 
 | Question | Finding | Confidence |
 |---|---|---|
-| **Do the top-20 sponsors withhold donor contact data by default?** | **Neither rule holds. Full contact is the documented default for 33.2% of top-20 assets, and withholding (name or fund name only) for 17.2%. The default is undocumented for 44.6%: no default is stated at NPT, AEF and CJP (20.9%), and the five not-determinable sponsors hold 23.7%. A documented required choice covers only 5.0% (SVCF, JCF).** [V wave 34A]<br>- **Full contact by default:** 5 sponsors with **33.2%** of top-20 assets (Fidelity, RCF, NCF, ImpactAssets, FFTC).<br>- **Contact withheld by default (name only or fund name only):** 5 sponsors with **17.2%** (Vanguard, MS GIFT, BofA CGF, GKCCF; CCT is name only).<br>- **Donor must choose (documented: SVCF, JCF, 5.0%) or no default stated (NPT, AEF, CJP, 20.9%):** 5 sponsors with **25.9%**. An unstated default is not evidence that the donor must choose [V wave 34A]<br>- **Not determinable:** 5 sponsors with **23.7%**. Two are blocked by robots (DAFgiving360, Raymond James Charitable). GS DAF is blocked too, and its only public circular is from 2008, before the 2021 evidence cutoff. Greater Horizons and Dechomai publish no relevant text. | High for the 15 determinable rows (first-party text). The asset shares hinge on DAFgiving360. Its 2024 policy lists options without a default, but says it 
+| **Do the top-20 sponsors withhold donor contact data by default?** | **Neither rule holds. Full contact is the documented default for 33.2% of top-20 assets, and withholding (name or fund name only) for 17.2%. The default is undocumented for 44.6%: no default is stated at NPT, AEF and CJP (20.9%), and the five not-determinable sponsors hold 23.7%. A documented required choice covers only 5.0% (SVCF, JCF).** [V wave 34A]<br>- **Full contact by default:** 5 sponsors with **33.2%** of top-20 assets (Fidelity, RCF, NCF, ImpactAssets, FFTC).<br>- **Contact withheld by default (name only or fund name only):** 5 sponsors with **17.2%** (Vanguard, MS GIFT, BofA CGF, GKCCF; CCT is name only).<br>- **Donor must choose (documented: SVCF, JCF, 5.0%) or no default stated (NPT, AEF, CJP, 20.9%):** 5 sponsors with **25.9%**. An unstated default is not evidence that the donor must choose [V wave 34A]<br>- **Not determinable:** 5 sponsors with **23.7%**. Two are blocked by robots (DAFgiving360, Raymond James Charitable). GS DAF is blocked too, and its only public circular is from 2008, before the 2021 evidence cutoff. Greater Horizons and Dechomai publish no relevant text. | High for the 15 determinable rows (first-party text). The asset shares hinge on DAFgiving360. Its 2024 policy lists options without a default, but says it ‘does not release the account holder's name and contact information to any recipient charity without the account holder's explicit consent’, which leans toward withholding when no choice is made [V wave 34A] [V wave 35B]
 | **No sponsor defaults to anonymous** | **0 of 20.** Anonymity is opt-in everywhere it is documented: per grant at all 15 determinable sponsors, and also fund-wide at SVCF, CCT and FFTC. | High |
 | **Largest single fact** | **Fidelity Charitable preselects full acknowledgement (name, address, fund name) on every grant.** Its 2025 grants went out **80% with donor name and address, 15% with the fund name only and 5% anonymous** (2026 Giving Report). Fidelity alone holds 26.4% of top-20 assets. | High |
 | **The DAFRC survey baseline (CF-weighted)** | DAFRC found 36% of sponsors default to full contact (count basis, n=128, 86% CFs). The top-20 count is **5 of 15 determinable sponsors (33%)**, close to DAFRC. On an asset basis the full-contact share is **43.6% of determinable assets**, because Fidelity dominates. | Medium. The categories are not identical to DAFRC's |
@@ -23,7 +23,7 @@
 - the single largest sponsor defaults to full contact;
 - the next three (NPT, DAFgiving360, Vanguard) split between "donor chooses", "unknown" and "fund name only".
 
-The G12-2 reconsider-trigger was "P-B44N28-01 shows the top-20 nationals already default to full contact". It is **partly met**. Fidelity, RCF and NCF do default to full contact. Vanguard, MS GIFT and BofA do not, and DAFgiving360 is unobserved. The classification "mixed, leaning habit" stands. The variation is again large under one law, and it now appears even within a single vendor platform (Ren; §3.2). An entrant's edge is smaller against Fidelity, RCF and NCF and intact against fund-name-default sponsors (§4).
+The G12-2 reconsider-trigger was "P-B44N28-01 shows the top-20 nationals already default to full contact". It is **partly met**. Fidelity, RCF and NCF do default to full contact. Vanguard, MS GIFT and BofA do not, and DAFgiving360 is unobserved. The classification "mixed, leaning habit" stands. The variation is again large under one law, and it also appears on a single vendor platform (Ren; §3.2), where the stated default tracks guide vintage rather than sponsor (b4428-02) [V wave 35B]. An entrant's edge is smaller against Fidelity, RCF and NCF and intact against fund-name-default sponsors (§4).
 
 ## 1. Method
 
@@ -54,22 +54,22 @@ The G12-2 reconsider-trigger was "P-B44N28-01 shows the top-20 nationals already
 |---|---|---|---|---|---|---|
 | 1 | Fidelity Charitable | 66.20 | **Full contact:** name, address and Giving Account name preselected | No (default; changeable per grant or by phone) | Address yes; email not stated | DAF Direct; Stripe/ACH reports; Chariot managed source |
 | 2 | NPT | 42.12 | **Donor chooses** any combination of fund name, advisor names and address; no default stated | Acknowledgment preference is a step | Address if selected | PayPal Grant Payments (donor-selected PII) |
-| 3 | DAFgiving360 | 40.94 | **Not determinable.** Live site blocked. The 2024 policy lists 3 options with no default, and under §1.5 that text alone would code  | Unknown | Address if chosen | DAF Direct; DAFpay access method (2026-05-31) |
+| 3 | DAFgiving360 | 40.94 | **Not determinable.** Live site blocked. The 2024 policy lists 3 options with no default, and under §1.5 that text alone would code ‘no default stated’, as NPT is coded. It adds that DAFgiving360 ‘does not release the account holder's name and contact information ... without the account holder's explicit consent’ [V wave 34A] [V wave 35B] | Unknown | Address if chosen | DAF Direct; DAFpay access method (2026-05-31) |
 | 4 | Vanguard Charitable | 21.95 | **Fund name only**: "account name will appear … unless anonymity is requested" | No | Only if donor adds personal info | PayPal Grant Payments |
 | 5 | GS DAF | 12.64 | **Blocked** (robots `Disallow: /`) | Unknown | Unknown | None found |
 | 6 | SVCF | 9.58 | **Set at opening:** advisor names as specified; address is a required "Choose one" election | Yes, at account opening | Address only if elected | None found |
 | 7 | MS GIFT | 9.11 | **Fund name only:** letter identifies the DAF name unless anonymous | No; address opt-in | Address if elected | None found |
 | 8 | AEF | 8.38 | **Donor chooses:** "donor or account name (per your instructions)" | Unknown (form not public) | Not stated | None found |
-| 9 | RCF | 5.91 | **Full contact including email:**  No | **Email and address by default** | "Ren (Pinkaloo)" as Chariot managed source (not RCF-specific) |
+| 9 | RCF | 5.91 | **Full contact including email:** ‘By default … name, email, and address’ (Ren ‘Giving Platform’ guide on RCF's portal, 2026-10-06). The RCF Program Circular (PDF modified 2026-07-23) lists options with no default, RCF's own 2023–24 guide says ‘The default is Fund Name Only’, and private-label programs such as TSA's carry their own defaults, so this is an upper bound for RCF's $5.91bn. Coded by the 2023–24 guide, top-20 full contact would be 30.9% and withholding 19.5% [V wave 34A] | No [V wave 35B] | **Email and address by default** | "Ren (Pinkaloo)" as Chariot managed source (not RCF-specific) |
 | 10 | NCF | 5.68 | **Full contact:** fund name "alongside your name and address" | No | Address yes | None found |
 | 11 | BofA CGF | 4.73 | **Fund name only:** "The default is Fund Name Only" | No | Only via custom acknowledgement | None found |
 | 12 | Chicago Community Trust | 4.65 | **Name only:** letter names the DAF advisor unless anonymous | No | Not stated | None found |
 | 13 | ImpactAssets | 2.90 | **Full contact:** donor and joint advisor name and address | No online; paper form says "select one" | Address yes | None found |
 | 14 | Jewish Communal Fund | 2.87 | **Donor must choose:** fund name plus signers' or named names and addresses, or anonymous | Yes (no preselected box) | Address unless anonymous | None found |
 | 15 | FFTC | 2.62 | **Full contact:** fund name plus advisor name and address | No | Address yes | None found |
-| 16 | GKCCF | 2.57 | **Fund name only:** name and email  Unknown | Email typically if shared | None found |
+| 16 | GKCCF | 2.57 | **Fund name only:** name and email ‘encouraged’, donor decides. GKCCF also says the check stub ‘will likely include the donor's name and contact information (typically an email address)’. Coded the way CJP is, this would be ‘no default stated’, and the withheld share would fall to 16.1% [V wave 34A] | Unknown [V wave 35B] | Email typically if shared | None found |
 | 17 | Greater Horizons | 2.53 | **Not determinable** (no public text) | Unknown | Unknown | None found |
-| 18 | CJP | 1.93 | **Donor chooses:** DAF name, name, address and email "each at your direction" | Yes? | Address and email at donor direction | None found |
+| 18 | CJP | 1.93 | **Donor chooses** (but Policies §4.5 state a fund-name rule ‘unless otherwise requested’; coded by it, as in b4428-02, withholding would be 17.9% and no stated default 20.1%) [V wave 35B] DAF name, name, address and email "each at your direction" | Yes? | Address and email at donor direction | None found |
 | 19 | Raymond James Charitable | 1.89 | **Blocked** (robots 403) | Unknown | Unknown | None found |
 | 20 | Dechomai Asset Trust | 1.43 | **Not determinable** (no public text) | Unknown | Unknown | None found |
 
@@ -94,29 +94,30 @@ Computed by `build.py` from the CSV. The asset field is the FY2024 `daf_assets_e
 - **Sensitivity to DAFgiving360 (16.3% of top-20 assets).**
   - If its default is full contact, the full-contact share rises to **49.6%** of top-20 assets: (83.31 + 40.94) / 250.63.
   - If its default is name only or fund name only, the withheld share rises to **33.5%**: (43.02 + 40.94) / 250.63.
-  - Either way, **no reading makes contact-withholding the asset-weighted majority** unless the 
+  - Either way, **no reading makes contact-withholding the asset-weighted majority** unless the ‘donor chooses’ sponsors effectively send no contact data. That condition is not remote. If DAFgiving360's explicit-consent clause means no contact without an election, and NPT, AEF and CJP likewise send none unless it is chosen, withholding when no choice is made would cover 33.5% + 20.9% = 54.4% of top-20 assets. The asset-weighted answer is therefore open, not settled against withholding [V wave 34A] [V wave 35B]
 
 ### 3.1 What changes from the repo
 
 | Repo statement | Where | This pass | Change |
 |---|---|---|---|
-| "Withheld donor contact data by default" (outcome E, G12-2), from DAFRC 36/24/35/1 | [gap19-clarity-edf-new-findings.md](gap19-clarity-edf-new-findings.md) §3; [industry-incentives-structural-analysis.md](industry-incentives-structural-analysis.md) §6 | Top 20: full contact 33% by count (≈DAFRC 36%). **Asset-weighted it is 33–50% depending on DAFgiving360.** Fund-name-or-name-only is 17–34% | **Weakens** the headline for the nationals. Recommended wording:  |
+| "Withheld donor contact data by default" (outcome E, G12-2), from DAFRC 36/24/35/1 | [gap19-clarity-edf-new-findings.md](gap19-clarity-edf-new-findings.md) §3; [industry-incentives-structural-analysis.md](industry-incentives-structural-analysis.md) §6 | Top 20: full contact 33% by count (≈DAFRC 36%). **Asset-weighted it is 33–50% depending on DAFgiving360.** Fund-name-or-name-only is 17–34% | **Weakens** the headline for the nationals. Recommended wording: ‘defaults vary. A documented full-contact default covers 33–50% of top-20 assets and a documented withholding default 17–34%; both ranges turn on DAFgiving360. The default is undocumented for the rest, and no top-20 sponsor defaults to anonymous’ [V wave 34A] [V wave 35B] |
 | Fidelity: "donor-permitted only" | anonymity-data-flow A13; nonprofit-side-panel `fidelity` | Permission is **preselected**: full acknowledgement is the default on every grant. 80/15/5 in 2025 | **Adds** the default and outcome data |
-| RCF: "sub-fund name on the grant letter unless anonymous" [S] | nonprofit-side-panel `rcf_ren` (Salvation Army FAQ) | RCF's own 2026-10 DFX guide defaults to **name, email and address** | **Changes** the RCF coding. The TSA FAQ is one private-label program |
+| RCF: "sub-fund name on the grant letter unless anonymous" [S] | nonprofit-side-panel `rcf_ren` (Salvation Army FAQ) | The Ren ‘Giving Platform’ guide on RCF's portals (2026-10) defaults to **name, email and address**; RCF's 2023–24 guide said Fund Name Only (b4428-02) [V wave 35B] | **Changes** the RCF coding. The TSA FAQ is one private-label program |
 | SVCF: "address only if requested" | cf-supplement `cf_svcf` | The address is a **required "Choose one"** election at opening | **Refines** |
 | AEF: "not found" | nonprofit-side-panel `aef` | "donor or account name (per your instructions)"; anonymity on the form | **Fills** the gap (default still unstated) |
 | NPT, Vanguard, FFTC, CCT, NCF | panel and cf-supplement | Same text re-read | **Confirms**. NCF adds that name and address appear by default |
 | DAFRC "35% fund name only" read as a national pattern | direction-nonprofit-side-experience §2.1 | 4 of 15 determinable top-20 sponsors (15.3% of assets) default to fund name only | **Consistent** in count; not dominant by assets |
 
-### 3.2 A vendor platform shows two defaults
+### 3.2 A vendor platform shows two defaults, by guide vintage [V wave 35B]
 
-Both portals are Ren-administered, and their guides from 2025–26 give different defaults:
+Both portals run on Ren's platform (Ren's administration of BofA CGF is inferred, CE0076), and their guides from 2025–26 give different defaults (b4428-02 §3.2) [V wave 35B]:
 
 - BofA's DonorFirst guide says "The default is Fund Name Only" (PDF modified 2026-02-23).
-- RCF's DFX guide says the default "includes the grant advisor's name, email, and address" (PDF 2026-10-06).
+- The Ren ‘Giving Platform Donor User Guide’ on RCF's portal (the same file, SHA-1 93d97b49e84a, on seven RCF portals; its text names Ren, not RCF) says the default [V wave 35B] "includes the grant advisor's name, email, and address" (PDF 2026-10-06).
 - MS GIFT, also Ren back-office, states a fund-name default in its 2022 Grantee Guidelines.
+- RCF's own earlier guide (template 2309-RCF-FRM-DAF-DONORGUIDE, ©2023; TDA PDF 2024-07-12, UBS PDF 2024-06-14) says ‘The default is Fund Name Only’, as BofA's does [V wave 35B].
 
-Under EDF this points to a **configurable sponsor setting, not a platform constraint** [I]. It supports G12-2's "organizational origin, leaning habit". The question is queued as P-B4428-02.
+These documents do not show a configurable sponsor setting. BofA's 2026-02 guide and RCF's 2023–24 guide state the same fund-name default, and the full-contact text comes from a newer Ren platform guide, so the two defaults differ by guide vintage, not by sponsor. Whether the change is a sponsor setting or a platform release is unresolved. Under EDF the variation still points to organizational or platform origin, not law (P-B4428-02; b4428-02 §3.4) [V wave 35B]. It supports G12-2's "organizational origin, leaning habit". The question is queued as P-B4428-02.
 
 ### 3.3 Outcomes, where published
 
@@ -249,7 +250,7 @@ The fetcher made 76 requests in all:
 | S14 | MS GIFT, program page and FAQ | live | https://www.morganstanley.com/gift |
 | S15 | AEF, FAQs for individual donors | live | https://www.aefonline.org/thought-leadership/faqs-individual-donors/ |
 | S16 | AEF, Grant Recommendation Process for Donors | 2021-12-09 | https://www.aefonline.org/wp-content/uploads/2023/07/Grant-Recommendation-Process-for-Donors.pdf |
-| S17 | RCF, DFX Donor User Guide | 2026-10-06 | https://rcf.donorfirstx.com/pdf/RCF/Donor%20User%20Guide.pdf |
+| S17 | RCF portal, Ren ‘Giving Platform Donor User Guide’ (same file on seven RCF portals, SHA-1 93d97b49e84a) [V wave 35B] | 2026-10-06 | https://rcf.donorfirstx.com/pdf/RCF/Donor%20User%20Guide.pdf |
 | S18 | RCF, Program Circular | 2026-06-01 | https://rcf.donorfirstx.com/pdf/RCF/RCF%20Program%20Circular.pdf |
 | S19 | NCF, Guide to giving | live | https://ncfgiving.com/guide |
 | S20 | NCF, Giving Fund | live | https://www.ncfgiving.com/giving-fund |

@@ -15,7 +15,7 @@
 
 | Question | Answer | Confidence |
 |---|---|---|
-| **How often do tail sponsors publish a fee?** | **7 of 60 (11.7%; Wilson 95% 5.8–22.2%)** publish a 2021-or-live balance-based admin rate (one of them a stated 0%). Counting one pre-2021 schedule: 8/60 (13.3%). **Counting any published fee term** (a rate, an opening minimum, a linked schedule, or an unquantified fee): **16/60 (26.7%; 17.1–39.0%)**, with Columbus Medical Association Foundation reclassified from `no_published_fee` to `partial`: a $10,000 minimum and a quarterly administration fee \. The design-weighted rate is 11.7%, the same, because allocation is close to proportional [C]. | High on the counts [C]. Medium on the "no published fee" calls (see §4) |
+| **How often do tail sponsors publish a fee?** | **7 of 60 (11.7%; Wilson 95% 5.8–22.2%)** publish a 2021-or-live balance-based admin rate (one of them a stated 0%). Counting one pre-2021 schedule: 8/60 (13.3%). **Counting any published fee term** (a rate, an opening minimum, a linked schedule, or an unquantified fee): **16/60 (26.7%; 17.1–39.0%)**, with Columbus Medical Association Foundation reclassified from `no_published_fee` to `partial`: a $10,000 minimum and a quarterly administration fee "based on the size of the fund" [V wave 34B]. The design-weighted rate is 11.7%, the same, because allocation is close to proportional [C]. | High on the counts [C]. Medium on the "no published fee" calls (see §4) |
 | **By type** | **CFs: 6/31 (19.4%; 9.2–36.3%)** publish a 2021+ rate, and 12/31 (38.7%) publish some fee term. Single-issue 0/13 (0–22.8%), faith 0/8 (0–32.4%), other 1/8 (Cal Poly Pomona's 2%). Among the 53 sites that could be read within robots rules, the rate is 7/53 (13.2%) overall and 6/26 (23.1%) for CFs [C]. | High [C] |
 | **By size** | Publication falls with size: 2021+ rate published by 3/14 sponsors in the $10–50m band, 3/24 in $1–10m, 1/18 under $1m and 0/4 at zero assets. Any fee term: 7/14, 5/24, 4/18, 0/4 [C; V wave 34B]. The intervals overlap. | Medium [C] |
 | **What the publishers charge** | Effective annual admin fee, the 7 sponsors with a rate: median **150 bps at $25k, $100k and $500k** (IQR 138–175 at the first two). CFs only (n = 6, including the 0% Adirondack Trust Company Community Fund): **150 / 150 / 138 bps**. Range: 0 bps (ATC; a 0.5% bank investment fee instead) to 200 bps (Whatcom non-endowed; Cal Poly Pomona) [C]. Minimum annual fees, where stated: $150–$250. Opening minimums, where stated (13 of 60): median $5,000 ($0 to $100,000) [F/C]. | High on each schedule [F]; low on the distribution (n = 6–7) |
@@ -100,8 +100,8 @@ See T2 and T3 in the Appendix. Headline:
 | Faith | 8 | 0 (0–32.4%) | 1 (12.5%) |
 | Other (university/hospital, nationals, processors) | 8 | 1 (12.5%) | 2 (25.0%) [V wave 34B] |
 
-- **[C] 33 of 60 sites were read and contain no DAF fee at all [V wave 34B]** A further 7 hosts refused the study's user agent with HTTP 403 (Wichita Falls, Clinton County OH, West Kentucky, Greene County PA, Clarinda, Williams College, Wheaton College), and 4 sponsors have no website. Read with another generic agent, robots.txt on the five CF hosts allows all agents (\
-- **[I] Outside CFs, a DAF is mostly an accommodation, not a product.** Single-issue, faith and university sponsors in the sample rarely market DAFs with terms. The exceptions are Cal Poly Pomona and Columbus Medical Association Foundation, whose fund page lists donor-advised funds with a $10,000 minimum and a quarterly fee \ Examples:
+- **[C] 33 of 60 sites were read and contain no DAF fee at all [V wave 34B]** A further 7 hosts refused the study's user agent with HTTP 403 (Wichita Falls, Clinton County OH, West Kentucky, Greene County PA, Clarinda, Williams College, Wheaton College), and 4 sponsors have no website. Read with another generic agent, robots.txt on the five CF hosts allows all agents ("User-agent: * Disallow:" or only /wp-admin/). The 403 is a server response to `research-script/1.0`, not a robots disallow. Williams and Wheaton return 403 to both agents. All seven stay unknown [V wave 34B]
+- **[I] Outside CFs, a DAF is mostly an accommodation, not a product.** Single-issue, faith and university sponsors in the sample rarely market DAFs with terms. The exceptions are Cal Poly Pomona and Columbus Medical Association Foundation, whose fund page lists donor-advised funds with a $10,000 minimum and a quarterly fee "based on the size of the fund" (cmafohio.org/create-a-personalized-charitable-fund) [V wave 34B] Examples:
   - IIE's "DAF" page is about giving *to* IIE from a DAF.
   - Christian Aid Ministries Foundation describes its DAF with no fee. A now-404 page indexed by search said it "generally" charges nothing; this is not used.
   - The one non-CF schedule is Cal Poly Pomona's: 2% of balance, a $100,000 opening minimum, and at least 50% of each year's distributions to the Foundation.
@@ -140,7 +140,7 @@ See T2 and T3 in the Appendix. Headline:
 | Measure | Tail CFs (sample) | Top-100 CFs |
 |---|---|---|
 | 2021+ schedule published | 6/31 = 19.4% (9.2–36.3%) | 34/100 = 34.0% (25.5–43.7%) |
-| Any fee term or schedule | 12/31 = 38.7% (23.7–56.2%) | 52/100 = 52.0% (42.3–61.5%); 59/100 = 59.0% (49.2–68.1%) counting the 7 `no_rates_published` rows (e.g. Boston \ |
+| Any fee term or schedule | 12/31 = 38.7% (23.7–56.2%) | 52/100 = 52.0% (42.3–61.5%); 59/100 = 59.0% (49.2–68.1%) counting the 7 `no_rates_published` rows (e.g. Boston "available upon request", Greater Salina's separate schedule), as the tail rules would [V wave 34B] |
 | Admin bps, $25k | 150 (131–150; n=6) | 118 (100–188; n=34) |
 | Admin bps, $100k | 150 (131–150; n=6) | 100 (100–125; n=34) |
 | Admin bps, $500k | 138 (106–150; n=6) | 100 (100–125; n=34) |

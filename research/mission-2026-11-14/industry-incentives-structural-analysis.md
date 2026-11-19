@@ -317,10 +317,10 @@ The repo already documents several sources of lock-in:
   - *Regulatory-uncertainty:* unfinished regulations [[S02](https://cof.org/page/proposed-rule-taxes-taxable-distributions-donor-advised-funds-under-section-4966)].
   - *Reputational/discretionary:* the SPLC pattern [[S16](https://oag.ca.gov/node/623769)].
   - *Organizational:* trustee-approval design.
-  - *Informational:* purpose fields that indicate benefit risk.
+  - *Informational:* purpose fields that indicate benefit risk. These exist only in sponsors' internal recommendation records: event, gala, ticket, auction, golf, dinner, luncheon or sponsorship text appears on 107 of 322,773 top-50 Schedule I lines (0.03%), so public purpose text cannot supply this signal (P-B40N13-01). [V wave 35A]
 - **Propagation:** a restricted grant purpose triggers manual inquiry, which adds days and creates peak backlogs.
 - **Evidence:**
-  - Grant-purpose sensitivity is documented: an unrestricted purpose expedites the grant.
+  - Grant-purpose sensitivity is documented by a sponsor, not in filings. Fidelity Charitable's FAQ says selecting \
   - The share of time spent on status checks versus purpose review is **not observed**. Repo hypothesis H2, "most grants reviewed manually," is *unsupported* [repo `batch-2a`].
 - **Control points:**
   1. Automated status-plus-purpose triage, with human review of exceptions only.

@@ -213,7 +213,7 @@ What the filings do say [F]:
   - UBS Financial Services, $11,756,056;
   - ICONIQ, $10,584,656.
 
-  Wells Fargo Advisors is not among Fidelity's listed contractors for FYE 2022–2024 (repo harvest). [I] This is most likely Fidelity's adviser-managed account programme. The return does not say so (P-G07-02).
+  Wells Fargo Advisors is not among Fidelity's listed contractors for FYE 2022–2024 (repo harvest). [I] This is most likely Fidelity's adviser-managed account programme. The return does not say so. P-G07-02 (g0702-b4531) finds that Fidelity's audited investment management fees equal line 11f to the dollar in FY2022–25 and that CIAP held 46.9% of investments at June 2025. That is consistent with this reading but does not name the payee programme [V wave 35B].
 - **Investment manager to a community foundation** [F] (EZ013): the Winston-Salem Foundation paid Wells Fargo Private Bank $400,765 in CY2024 (822 DAFs, $261.5m) ([XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543149349302739_public.xml)).
 
 ### 4.2 Merrill / Bank of America
