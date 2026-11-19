@@ -18,11 +18,11 @@ python3 scripts/mission_coverage.py . --summarize data/mission-2026-11-14/covera
 
 | Measure | 2026-11-14 matrix | 2026-11-19 rebuild |
 |---|---|---|
-| Cells investigated (status other than NI) | 248 (62.6%) | 302 (76.3%) |
+| Cells investigated (status other than NI) | 248 (62.6%) | 302 (76.3%); **322 (81.3%)** after the 20 `ai` cells were filled (P-G02-01) [V wave 31A] |
 | Cells partially validated or better (PV, IC or RC) | 57 (14.4%) | 148 (37.4%) |
-| Not investigated (NI) | 148 | 94 |
-| Discovery started (DS) | 58 | 30 |
-| Evidence collected (EC) | 113 | 97 |
+| Not investigated (NI) | 148 | 94; **74** after P-G02-01 |
+| Discovery started (DS) | 58 | 30; **37** after P-G02-01 |
+| Evidence collected (EC) | 113 | 97; **110** after P-G02-01 |
 | Partially validated (PV) | 20 | 34 |
 | Independently corroborated (IC) | 37 | 114 |
 | Contradictory evidence (CE) | 3 | 3 |
@@ -64,7 +64,7 @@ python3 scripts/mission_coverage.py . --summarize data/mission-2026-11-14/covera
 
 | Item | Before | After |
 |---|---|---|
-| ai | 25 | 20 |
+| ai | 25 | 20 (0 after P-G02-01: 13 EC, 7 DS) |
 | custody_invest | 19 | 13 |
 | assurance | 17 | 11 |
 | ownership_funding | 14 | 9 |
@@ -150,7 +150,7 @@ The validation status is in `validation_status`:
 
 The old status, the change type, and the old evidence files and notes are kept in their own columns.
 
-## 4. Cells still Not investigated (94), by entity
+## 4. Cells still Not investigated (94 before P-G02-01; 74 after, with every `ai` entry below now filled), by entity
 
 | Entity | NI cells |
 |---|---|
@@ -177,7 +177,7 @@ The old status, the change type, and the old evidence files and notes are kept i
 | AEF, Charityvest, Chariot, Endaoment, Goldman Sachs, NPT, RCF | one each: ai (AEF, Charityvest, GS, NPT, RCF); custody_invest (Chariot, Endaoment) |
 
 **Patterns**
-- `ai` is the largest remaining gap: 20 of 33 entities. P-G02-01 proposes a cheap public check for it.
+- `ai` was the largest remaining gap (20 of 33 entities). P-G02-01 has since filled all 20 cells from `ai-coverage-20-entities-2026-11-19.csv` (13 EC, mostly documented absence; 7 DS). `custody_invest` (13) is now the largest NI item [V wave 31A].
 - The four thin wealth channels (OneAscent, Pave, SEI, TIAA) hold 28 of the 94 NI cells. They are already queued as P-GAP19-08.
 - Edward Jones is queued as P-GAP19-07.
 - Several `custody_invest` NI cells sit on vendors or processors where the item may not apply: Chariot, Give Interactive, Foundant, NPact, Stellar, Givinga and Benevity.

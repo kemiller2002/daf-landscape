@@ -18,7 +18,7 @@
 ## 1. Bottom line
 
 1. **The A/B/C/D ranking does not change.** [S]
-   - In 156 comparisons (12 scenario-model runs × 6 archetypes × gross and net), the most likely winner changes in **no process**. That covers v2 and both v2b pool variants.
+   - In 156 comparisons (13 scenario-model runs, 3 of them the baselines themselves, × 6 archetypes × gross and net; 120 are non-trivial), the most likely winner changes in **no process**. That covers v2 and both v2b pool variants [V wave 31A].
    - Redesign (D) and conventional automation (B) still win by gross. Manual improvement (A) or "none" still wins by net.
    - The v2 conclusion that rankings "follow these assumptions" is therefore only half right. The ranking is robust to s, q and a. What the assumptions set is **how large the AI value is**.
 2. **AI on the existing workflow (C) gets weaker, not stronger.** [S]
@@ -49,7 +49,7 @@
 6. **What moves the result most is how re-review is costed** (§5). [S]
    - If the measured error rates were charged to *every* touched case, as the literal v2 definition of q allows, the large-national pool would fall to **$110k**.
    - If v2's q range were charged to every case alongside field-measured s, the pool would fall to **$0**.
-   - The central case charges review only to AI-handled cases. That is a modelling choice (§3.2). It is not a measurement.
+   - The central case charges review only to AI-handled cases. That is a modelling choice (§3.2). It is not a measurement. In the field framing it also scales v2's unsourced QA range by a (≈0.37), cutting that charge by about 60% without new evidence. So the field-framing $202k, and half of the central $445k, depend on the basis as much as on the evidence [V wave 31A].
 
 ---
 

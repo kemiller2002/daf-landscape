@@ -15,7 +15,7 @@
   - The NPact Foundation Cloud tenants are confirmed. Every tenant fetched serves "Foundation Cloud Community Portal", and NPact's own customer stories identify the product as NPact's, so the [R] owner caveat no longer applies.
   - The explicit negatives hold on independent pages (Edward Jones private DAF sponsor, Wells Fargo sponsor, U.S. Bank, Pave, Fidelity–Ren, TIFIN's LLM vendor). The Edward Jones private DAF must still not be assigned to RCF or Ren.
 - **Status after consolidation and red team:** confirmed 958, inferred 47, historically_confirmed 23, unknown 11, reported 5, probable 3, unverified_lead 2, pending 1, rejected 1 (raw rows: confirmed 971, inferred 81, historically_confirmed 30, unknown 17, reported 6, probable 3, pending 1, rejected 1).
-- **Concentration figures.** Sponsor-asset concentration is unchanged because it does not depend on the graph. Recomputed from the DAFRC FY2024 file: CR3 45.5%, CR5 55.8%, HHI 830. **The Ren-linked asset share changes:** 32.2% ($105.62bn, 54 sponsors) on confirmed edges, against the report's 28% ($91.6bn). Restricted to sources dated 2024 or later it is 31.6%.
+- **Concentration figures.** Sponsor-asset concentration is unchanged because it does not depend on the graph. Recomputed from the DAFRC FY2024 file: CR3 45.5%, CR5 55.8%, HHI 830. **The Ren-linked asset share changes:** 32.2% ($105.62bn, 54 sponsors) on confirmed edges, against the report's 28% ($91.6bn). Restricted to sources dated 2024 or later it is 31.6%. On corrected FY2024 assets the shares are the same (32.2%, $103.96bn of $323.27bn; 31.6%). These are floors. Six sponsors with confirmed Ren edges were not EIN-matched: Thrivent, T. Rowe Price Program, CF of Greater Memphis, JF of Greater Philadelphia, Greater Green Bay CF and Catholic Community Foundation (38-3941057). With them the share is 32.9% (60 sponsors, $107.71bn), or 32.2% on 2024+ sources [V wave 31A].
 
 ## 2. Method
 
@@ -332,7 +332,7 @@ Supersessions applied (superseded ← superseding): EA027 ← EK021; EA032 ← E
 
 ## 7. Changes to report figures (Find/Replace proposals)
 
-These are proposals only; neither document was edited. "Occurrences" is the number of times the Find text appears in the target file as of this run (1 = safe to apply).
+These are proposals only; neither document was edited. Validation wave 31A accepts FR1 (as \"up to 893 nodes\"), FR2 and FR4–FR7, and supersedes FR3 with the governing text in validation-wave31a-report.md [V wave 31A]. "Occurrences" is the number of times the Find text appears in the target file as of this run (1 = safe to apply).
 
 - **FR1** — `research/DAF-INDUSTRY-REPORT-2026-11.md` (occurrences: 1)
   - **Find:** "The relationship graph has 131 nodes and 167 edges, every edge sourced and status-labelled"

@@ -210,11 +210,11 @@ The FY2025 and FY2024 columns cover different sponsor sets, so the compensation 
   - Christian Community Foundation (WaterStone): $366,469.
   - T. Rowe Price Program: $259,797.
   - Ayco: $223,523, Stellar, final return.
-  - Community Foundation (EIN 58-1723645): $203,119.
+  - Community Foundation of Greater Memphis (EIN 58-1723645): $203,119, Stellar Technology Solutions LLC, \"software\" [V wave 31A].
   - Greater Green Bay CF: $185,735, Stellar, "ERP system provider".
   - Goldman Sachs Charitable Gift Fund: $172,604.
   - Jewish Federation of Greater Seattle: $155,909.
-  - Jewish Federation of Greater … (EIN 23-1500085): $500,842, Renaissance Administration.
+  - Jewish Federation of Greater Philadelphia (EIN 23-1500085): $500,842, Renaissance Administration [V wave 31A].
 - **Ren payers whose FY2025 return is not yet indexed:** MS GIFT, RCF, NCF, ImpactAssets, US Charitable Gift Trust, Cleveland Foundation, CF of Greater Des Moines, CF of Acadiana, Catholic Community Foundation (EIN 38-3941057), GS DAPF (Stellar FY2022 only), Bradley Impact Fund, Baton Rouge Area Foundation, RSF Social Finance and CF of Greater Flint.
 - **Parsed FY2025 returns with no Ren line:** Jewish Communal Fund, Servant Foundation, Arkansas CF, "Jewish Federation of Metropolitan …" (EIN 36-2167761), Greater Miami Jewish Federation and Southwest Florida CF. **None of these named Ren in FY2024 either**, so they are not new FY2025 attrition.
 - **Measures:**
@@ -345,3 +345,20 @@ python3 -I scripts/mission_fy2025_refresh.py --irs-dir IRS --work WORK --fetch \
 - **Run time:** about 35 seconds with the network for 977 returns (8 threads), and about 5 seconds from the cache.
 - **Summary JSON:** the run prints a JSON summary with coverage (refresh and as built), churn, concentration, netting tiers and pairs, the vendor table and the Ren panel. Every figure above comes from that summary or from the CSVs.
 - **Scratch:** the extract cache and the zip members were kept in the session scratchpad only. The two zips were deleted after extraction.
+
+## Validation corrections (wave 31A, 2026-11-19) — governing
+These corrections from [validation-wave31a-report.md](validation-wave31a-report.md) could not be applied inline and govern the text above:
+
+1. **§4.2, unnamed payer (Memphis).**
+   - **Find:** "  - Community Foundation (EIN 58-1723645): $203,119."
+   - **Replace with:** "  - Community Foundation of Greater Memphis (EIN 58-1723645): $203,119, Stellar Technology Solutions LLC, \"software\" [V wave 31A]."
+2. **§4.2, unnamed payer (Philadelphia).**
+   - **Find:** "  - Jewish Federation of Greater … (EIN 23-1500085): $500,842, Renaissance Administration."
+   - **Replace with:** "  - Jewish Federation of Greater Philadelphia (EIN 23-1500085): $500,842, Renaissance Administration [V wave 31A]."
+3. **§4.3, Kalamazoo provenance.**
+   - **Find:** "\"TECHNOLOGY/SOFTWARE CONSULTATION\", $416,932, CY2025."
+   - **Replace with:** "\"TECHNOLOGY/SOFTWARE CONSULTATION\", $416,932, CY2025 (read from the TEOS 10A zip; on 2026-11-19 the return was not yet on the GivingTuesday mirror or ProPublica, so it has not been independently re-read [V wave 31A])."
+4. **§6, suspect filed values.**
+   - **Find:** "  - Armstrong County CF, which files $10.3m against a FY2024 corrected value of $148.2m (already flagged in the full-universe report)."
+   - **Replace with:** "  - Armstrong County CF, which files $10.3m against a FY2024 corrected value of $148.2m (already flagged in the full-universe report).
+  - Greater Green Bay CF, which files a negative FY2025 DAF year-end value (−$5,666,175; object 202513179349310111) [V wave 31A]."

@@ -4,7 +4,7 @@
 
 **Consolidation (2026-11-15):** §11 was reorganised from a chronological list of batch summaries into themes, and figures in §1–§10 that later validation superseded were updated. Every change, with its governing source, is in the [consolidation changelog](mission-2026-11-14/consolidation-changelog.md). The pre-consolidation text is archived in [`archive/`](mission-2026-11-14/archive/DAF-INDUSTRY-REPORT-2026-11.pre-consolidation.md).
 
-This report sits on top of the repository's 96 research documents and 89 datasets (repo [`repo-inventory-final.json`](../data/mission-2026-11-14/repo-inventory-final.json)). It does not repeat them. Each section states the current best understanding, its evidence state, and where the evidence lives.
+This report sits on top of the repository's research documents and datasets: 96 and 89 at the baseline inventory (repo [`repo-inventory-final.json`](../data/mission-2026-11-14/repo-inventory-final.json)), and 265 Markdown files under `research/` and 507 CSV files under `data/` as of 2026-11-19 (file count, PR #53). It does not repeat them. Each section states the current best understanding, its evidence state, and where the evidence lives.
 
 **Labels used throughout:**
 - **Claim states** follow the EDF claim-and-confidence policy: *internal-demonstration, suggestive, unsupported, contradicted*. Confidence runs Low → High.
@@ -59,7 +59,7 @@ Sources: [vendor dependency and concentration](mission-2026-11-14/vendor-depende
 
 ## 2. Who does what: legal sponsor, administrator, technology, rails, distribution
 
-The industry is a stack whose layers are often owned by different parties. The relationship graph has 131 nodes and 167 edges, every edge sourced and status-labelled (repo [`relationship-graph-nodes.csv`](../data/mission-2026-11-14/relationship-graph-nodes.csv); repo [`relationship-graph-edges.csv`](../data/mission-2026-11-14/relationship-graph-edges.csv)): 134 confirmed (one more after red-team), 17 historically confirmed, 11 inferred, 5 unknown. A red-team sample of 15 "confirmed" edges found 0 status errors and 2 scope imprecisions (repo [`validation-register-wave2b.csv`](../data/mission-2026-11-14/validation-register-wave2b.csv); repo [`red-team-wave2b-graph-data-incentives.md`](../research/mission-2026-11-14/red-team-wave2b-graph-data-incentives.md)).
+The industry is a stack whose layers are often owned by different parties. The consolidated relationship graph (2026-11-19) has up to 893 nodes and 1,051 edges, merged from the base file and 26 additions files (1,110 rows; 51 duplicates merged, 8 alias self-loops set aside), every edge sourced and status-labelled (repo [`relationship-graph-edges-consolidated-2026-11-19.csv`](../data/mission-2026-11-14/relationship-graph-edges-consolidated-2026-11-19.csv); [V wave 31A]) (repo [`relationship-graph-nodes.csv`](../data/mission-2026-11-14/relationship-graph-nodes.csv); repo [`relationship-graph-edges.csv`](../data/mission-2026-11-14/relationship-graph-edges.csv)): 134 confirmed (one more after red-team), 17 historically confirmed, 11 inferred, 5 unknown. A red-team sample of 15 "confirmed" edges found 0 status errors and 2 scope imprecisions (repo [`validation-register-wave2b.csv`](../data/mission-2026-11-14/validation-register-wave2b.csv); repo [`red-team-wave2b-graph-data-incentives.md`](../research/mission-2026-11-14/red-team-wave2b-graph-data-incentives.md)).
 
 ### 2.1 Affiliate-integrated nationals
 Fidelity Charitable, DAFgiving360 and Vanguard Charitable combine sponsor brand, affiliated investment funds and affiliated administration ([Fidelity Charitable FY2025 audited statements](https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/audited-financial-statements-2025-2024.pdf); [DAFgiving360 FY2025 results](https://www.dafgiving360.org/press-release/fiscal-year-2025-results); [Vanguard Charitable FY2025 financial statements](https://www.vanguardcharitable.org/sites/default/files/2026-02/vanguard-charitable-2025-financial-statements.pdf)):
@@ -144,7 +144,7 @@ Sources: [vendor graph](mission-2026-11-14/vendor-dependency-concentration.md); 
 - Both raised effective prices as they moved upmarket ([Vennfi seed release ('zero fees')](https://www.newswire.com/news/this-startup-raised-3-7m-to-let-anyone-donate-stocks-and-etfs-with-a-21260863); [Physician on FIRE on Charityvest fees](https://www.physicianonfire.com/better-donor-advised-fund/); [Charityvest fee guide](https://guide.charityvest.org/for-donors/fees-and-expenses); [Daffy membership tier changes](https://help.daffy.org/en/articles/11730892-how-do-i-change-my-membership)). Incumbents removed minimums (2020) ([ThinkAdvisor on Fidelity minimums](https://www.thinkadvisor.com/2020/09/30/fidelity-charitable-ends-daf-account-minimums/); [Schwab Charitable minimums release](https://www.dafgiving360.org/press-releases/schwab-charitable-expands-access-and-options)).
 
 **Vendor economics.** Ren's corporate revenue, margins and customer concentration are not public ((source: repo inference — no primary URL)). The audited RCF payment is a named service fee, not Ren's ARR ([RCF FY2024 audited statements](https://renaissancecharitable.org/wp-content/uploads/2026/01/2024RCFAuditedFinancialStatements.pdf)). Ren's claims of ">60%", "about half" or "$200bn" of DAF assets are **unsupported** on public evidence: ([Ren homepage](https://www.reninc.com/); [Great Hill investment in Ren (Pulse 2.0)](https://pulse2.com/great-hill-partners-announces-strategic-growth-investment-in-donor-advised-fund-platform-ren/); [AEF/Ren release, Apr 2026](https://www.aefonline.org/thought-leadership/ren-brings-american-endowment-foundation-fully-onto-its-technology-platform-powering-philanthropy-at-scale/))
-- On public evidence, sponsors holding about **28%** of FY2024 DAF assets ($91.6bn of $327.9bn) use Ren technology in some form **[V wave 3]**. The full Form 990 harvest (all 1,512 sponsors) finds Ren/Stellar named by 30 sponsors holding $48.55bn (14.8%) in any FY2022–25 return, but only 18 sponsors holding $30.18bn (9.2%) in their latest return [V wave 5], and about 5% (RCF, MS GIFT) on Ren-paid administration. Nearly half of the 28% is NPT, evidenced by hosting (iPhi login redirect, shared Ren load balancer, Ren-hosted "NPT iPhi Statuspage") rather than a disclosed contract **[I: hosting inference, single-source]**. A 2026-11-19 second-source pass found no NPT filing, privacy-policy processor list, product article or Ren page naming Ren as NPT's vendor; Ren is not among NPT's five listed FY2025 contractors (the fifth is paid $220,927) ([gap19-second-source-pass.md](mission-2026-11-14/gap19-second-source-pass.md) C01) ([MS GIFT 990 via GivingTuesday mirror; Goldman PWM portal gspf.goldman.com; NPT GivingPoint](mission-2026-11-14/validation-wave3-report.md)). Ren's "60%+"/"about half" claims remain unreachable without Fidelity Charitable, DAFgiving360 or Vanguard Charitable, none of which shows a Ren vendor; Vanguard chose Give Interactive. (Earlier estimates: 8.7% → 9.0% → 28% of assets after NPT and Goldman evidence.) ([DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`validation-register-wave2b.csv`](../data/mission-2026-11-14/validation-register-wave2b.csv)) <!-- CITE-CHECK RESOLVED 2026-11-14 (text corrected): Validator V2B-05 recomputed $29.65bn = 9.04% for RCF, AEF, MS GIFT and BofA from DAFRC FY2024 (all imputed); the 8.7% ($28.5bn) figure was only partially confirmed. Not changed. -->.
+- On public evidence, sponsors holding about **28%** of FY2024 DAF assets ($91.6bn of $327.9bn) use Ren technology in some form **[V wave 3]**. The consolidated relationship graph (2026-11-19) puts the share of FY2024 DAF assets at sponsors with any confirmed Ren/Stellar technology, administration or payment link at **32.2%** ($105.6bn, 54 sponsors), or 31.6% when the evidence is dated 2024 or later. This is a floor: six sponsors with confirmed Ren edges were not EIN-matched, and with them the share is 32.9%. The same shares hold on corrected FY2024 assets. The rise from 28% is breadth: 40 added sponsors ($15.9bn), 29 of them on tenant or portal-link observation and 11 on Form 990 payee lines (5 of those FY2022–23 only). NPT (12.8% of the market, about 40% of the tier) still rests on hosting evidence [I]. The figure measures a public Ren link, not Ren as system of record (repo [`gap19-graph-consolidation.md`](mission-2026-11-14/gap19-graph-consolidation.md) §4; [V wave 31A]). The full Form 990 harvest (all 1,512 sponsors) finds Ren/Stellar named by 30 sponsors holding $48.55bn (14.8%) in any FY2022–25 return, but only 18 sponsors holding $30.18bn (9.2%) in their latest return [V wave 5], and about 5% (RCF, MS GIFT) on Ren-paid administration. Nearly half of the 28% is NPT, evidenced by hosting (iPhi login redirect, shared Ren load balancer, Ren-hosted "NPT iPhi Statuspage") rather than a disclosed contract **[I: hosting inference, single-source]**. A 2026-11-19 second-source pass found no NPT filing, privacy-policy processor list, product article or Ren page naming Ren as NPT's vendor; Ren is not among NPT's five listed FY2025 contractors (the fifth is paid $220,927) ([gap19-second-source-pass.md](mission-2026-11-14/gap19-second-source-pass.md) C01) ([MS GIFT 990 via GivingTuesday mirror; Goldman PWM portal gspf.goldman.com; NPT GivingPoint](mission-2026-11-14/validation-wave3-report.md)). Ren's "60%+"/"about half" claims remain unreachable without Fidelity Charitable, DAFgiving360 or Vanguard Charitable, none of which shows a Ren vendor; Vanguard chose Give Interactive. (Earlier estimates: 8.7% → 9.0% → 28% of assets after NPT and Goldman evidence.) ([DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`validation-register-wave2b.csv`](../data/mission-2026-11-14/validation-register-wave2b.csv)) <!-- CITE-CHECK RESOLVED 2026-11-14 (text corrected): Validator V2B-05 recomputed $29.65bn = 9.04% for RCF, AEF, MS GIFT and BofA from DAFRC FY2024 (all imputed); the 8.7% ($28.5bn) figure was only partially confirmed. Not changed. -->.
 - The "$200bn" figure includes non-DAF assets ([AEF/Ren release, Apr 2026](https://www.aefonline.org/thought-leadership/ren-brings-american-endowment-foundation-fully-onto-its-technology-platform-powering-philanthropy-at-scale/)).
 - The arithmetic ceiling outside the four largest sponsors is about 48% **[RT]** ([Fidelity Charitable FY2025 audited statements](https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/audited-financial-statements-2025-2024.pdf); [Vanguard Charitable FY2025 financial statements](https://www.vanguardcharitable.org/sites/default/files/2026-02/vanguard-charitable-2025-financial-statements.pdf); [DAFRC Updated Analysis dataset](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx); repo [`validation-register-wave2b.csv`](../data/mission-2026-11-14/validation-register-wave2b.csv)).
 
@@ -619,7 +619,7 @@ What survives from v1:
 
 What changes:
 - "AI ranks last everywhere" fails for complex-asset and non-standard-grantee review.
-- A shared AI platform breaks even in 43% of draws with the five largest nationals in the network, and in 0.4% with community foundations under $250m alone.
+- A shared AI platform breaks even in 43% of draws with the five largest nationals in the network, and in 0.4% with community foundations under $250m alone. Calibrated to 21 published studies (2021+), the 43% falls to 16% and the large-national AI value pool to $445k from $1.18m ($202k on field evidence, $793k on task experiments). No process changes its most likely winner. The calibrated figure assumes re-review only on AI-handled cases; on v2's all-touched basis the pool is $110k (repo [`gap19-ai-calibration.md`](mission-2026-11-14/gap19-ai-calibration.md); [V wave 31A]).
 - A $120k/yr AI product cannot be funded from process savings below about $1bn of DAF assets. The economic buyer is an administrator or platform vendor, not an individual sponsor.
 
 What the cost-structure data does to the v1 model ([sponsor-cost-structure-and-sensitivities.md](mission-2026-11-14/sponsor-cost-structure-and-sensitivities.md)):
@@ -952,6 +952,39 @@ Related customer-facing frictions are covered by theme: data export and credenti
    >   - Of 39 announced-vs-delivered items, 17 are delivered, 11 partial, 9 without evidence and 2 contradicted (was 15 / 10 / 12 / 2).
    >   - 18 newer announcements add 8 delivered, 3 partial and 7 without evidence. The ImpactAssets DAF hub, promised for 2026-09-08, is overdue. Source: [validation-wave31b-report.md](mission-2026-11-14/validation-wave31b-report.md).
 
+### 11.29 Thoroughness pass part A (validated, wave 31A)
+
+**Thoroughness pass part A (validated, wave 31A).**
+   > - **AI economics calibrated to published evidence (21 sources, 2021+, all resolving).**
+   >   - **Field studies:**
+   >     - customer support +14–15% resolutions per hour, −9% handle time;
+   >     - whole-job savings 3–5.4% of hours;
+   >     - UK civil service 19 min/day against a comparison group (26 min/day self-reported);
+   >     - experienced developers 19% slower.
+   >   - **Experiments:** consulting tasks 25% faster, writing −40%.
+   >   - **Errors:** legal RAG hallucination 17–33%. Only 2% of UK financial-firm AI use cases are fully autonomous.
+   >   - **Model results:**
+   >     - The ranking of redesign, conventional automation, manual fixes and AI-on-workflow is unchanged in every process.
+   >     - The large-national AI value pool falls about 60%, from $1.18m to $445k ($202k–$793k across framings).
+   >     - v2's implied 17% labour saving becomes 7.9%.
+   >     - Shared-platform break-even falls from 43% to 16% of draws.
+   >   - The re-review basis (AI-handled cases only) is a modelling choice. On v2's all-touched basis the pool is $110k.
+   > - **Relationship graph consolidated (27 files, 1,110 rows → 1,051 live edges, up to 893 nodes; reproduced exactly).**
+   >   - Red team of 109 weaker edges: 41 confirmed, 16 weakened, 52 unverified, 0 contradicted.
+   >   - The DonorCentral edges belong to NPact, not Blackbaud (acquired 2022-09-12).
+   >   - BofA's guidelines name Bank of America Private Bank as administrator, with Ren as technology vendor. BNY Mellon CGF's iPhi tenant is historical (program ended 2024-12-24).
+   >   - Sponsor-asset CR3 45.5%, CR5 55.8% and HHI 830 are unchanged.
+   >   - The Ren-linked share is 32.2% as a floor (32.9% with six EIN-unmatched sponsors; 31.6% on 2024+ evidence). It is up from 28% through breadth, not new evidence on the largest sponsors.
+   > - **FY2025 filing refresh (index of 2026-11-18).**
+   >   - 76 new returns bring coverage to 974 sponsors and 68.0% of FY2024 corrected assets. The top 50 are unchanged at 24 filed, and 26 remain unindexed.
+   >   - Covered-filer DAF-to-DAF netting is $3.05–3.80bn (7.1% central), a lower bound. One DAFgiving360 → Fidelity line of $976.6m is 29% of it.
+   >   - No Ren attrition is visible: 10 FY2025 Ren payers ($3.35m), and all 8 comparable FY2024 payers name Ren again.
+   >   - Kalamazoo CF pays Give Interactive $416,932. This is not yet independently re-read.
+   > - **Coverage matrix rebuilt (396 cells).**
+   >   - PV-or-better rises from 14.4% to 37.4%.
+   >   - Investigated cells rise from 62.6% to 81.3% after the 20 `ai` cells were filled, most as documented absence.
+   >   - Every changed cell has a resolving pointer. Source: [validation-wave31a-report.md](mission-2026-11-14/validation-wave31a-report.md).
+
 ---
 
 ## Source register
@@ -1206,3 +1239,51 @@ Source: [validation-wave30-report.md](mission-2026-11-14/validation-wave30-repor
    - **Find:** "and 13.6% to religion, with the top 100 recipients taking 24.3%."
    - **Replace with:** "and 13.6% to religion, with the top 100 recipients taking 24.3%. Schedule I shows international recipients (NTEE Q) at 5.6%, but direct foreign grants (Part IX line 3 / Schedule F, $1.89bn) sit outside Schedule I. Including them, international is 7.8% of Schedule I plus foreign grants [V wave 30]."
 2. **New subsection after §11.26.** Add "### 11.27 New directions N31–N33 (validated, wave 30)", containing the paragraph below. If §11.27 is already taken, use the next free number.
+
+## Validation corrections (wave 31A, 2026-11-19) — governing
+These corrections from [validation-wave31a-report.md](mission-2026-11-14/validation-wave31a-report.md) could not be applied inline and govern the text above:
+
+1. **§4 vendor bullet, Ren-linked share (replaces graph proposal FR3).**
+   - **Find:** "- On public evidence, sponsors holding about **28%** of FY2024 DAF assets ($91.6bn of $327.9bn) use Ren technology in some form **[V wave 3]**."
+   - **Replace with:** "- On public evidence, sponsors holding about **28%** of FY2024 DAF assets ($91.6bn of $327.9bn) use Ren technology in some form **[V wave 3]**. The consolidated relationship graph (2026-11-19) puts the share of FY2024 DAF assets at sponsors with any confirmed Ren/Stellar technology, administration or payment link at **32.2%** ($105.6bn, 54 sponsors), or 31.6% when the evidence is dated 2024 or later. This is a floor: six sponsors with confirmed Ren edges were not EIN-matched, and with them the share is 32.9%. The same shares hold on corrected FY2024 assets. The rise from 28% is breadth: 40 added sponsors ($15.9bn), 29 of them on tenant or portal-link observation and 11 on Form 990 payee lines (5 of those FY2022–23 only). NPT (12.8% of the market, about 40% of the tier) still rests on hosting evidence [I]. The figure measures a public Ren link, not Ren as system of record (repo [`gap19-graph-consolidation.md`](mission-2026-11-14/gap19-graph-consolidation.md) §4; [V wave 31A])."
+2. **Graph size (graph proposal FR1, accepted with qualifier).**
+   - **Find:** "The relationship graph has 131 nodes and 167 edges, every edge sourced and status-labelled"
+   - **Replace with:** "The consolidated relationship graph (2026-11-19) has up to 893 nodes and 1,051 edges, merged from the base file and 26 additions files (1,110 rows; 51 duplicates merged, 8 alias self-loops set aside), every edge sourced and status-labelled (repo [`relationship-graph-edges-consolidated-2026-11-19.csv`](../data/mission-2026-11-14/relationship-graph-edges-consolidated-2026-11-19.csv); [V wave 31A])"
+3. **Status counts (graph proposal FR2, accepted).**
+   - **Find:** "134 confirmed (one more after red-team), 17 historically confirmed, 11 inferred, 5 unknown. A red-team sample of 15 \"confirmed\" edges found 0 status errors and 2 scope imprecisions"
+   - **Replace with:** "958 confirmed, 23 historically confirmed, 47 inferred, 11 unknown, 5 reported, 3 probable, 2 unverified lead, 1 pending, 1 rejected. A wave-2B red-team sample of 15 \"confirmed\" base edges found 0 status errors and 2 scope imprecisions. A 2026-11-19 red team of all 109 inferred, unknown, reported, probable, pending, vendor-claim and crt.sh-sourced edges (one independent public check each) marked 41 confirmed, 16 weakened, 52 unverified leads and 0 contradicted (repo [`gap19-graph-consolidation.md`](mission-2026-11-14/gap19-graph-consolidation.md); [V wave 31A])"
+4. **AI economics v2, platform break-even.**
+   - **Find:** "- A shared AI platform breaks even in 43% of draws with the five largest nationals in the network, and in 0.4% with community foundations under $250m alone."
+   - **Replace with:** "- A shared AI platform breaks even in 43% of draws with the five largest nationals in the network, and in 0.4% with community foundations under $250m alone. Calibrated to 21 published studies (2021+), the 43% falls to 16% and the large-national AI value pool to $445k from $1.18m ($202k on field evidence, $793k on task experiments). No process changes its most likely winner. The calibrated figure assumes re-review only on AI-handled cases; on v2's all-touched basis the pool is $110k (repo [`gap19-ai-calibration.md`](mission-2026-11-14/gap19-ai-calibration.md); [V wave 31A])."
+5. **New subsection after §11.27.** Add "### 11.28 Thoroughness pass part A (validated, wave 31A)", containing the paragraph below. If §11.28 is already taken, use the next free number.
+
+   > **Thoroughness pass part A (validated, wave 31A).**
+   > - **AI economics calibrated to published evidence (21 sources, 2021+, all resolving).**
+   >   - **Field studies:**
+   >     - customer support +14–15% resolutions per hour, −9% handle time;
+   >     - whole-job savings 3–5.4% of hours;
+   >     - UK civil service 19 min/day against a comparison group (26 min/day self-reported);
+   >     - experienced developers 19% slower.
+   >   - **Experiments:** consulting tasks 25% faster, writing −40%.
+   >   - **Errors:** legal RAG hallucination 17–33%. Only 2% of UK financial-firm AI use cases are fully autonomous.
+   >   - **Model results:**
+   >     - The ranking of redesign, conventional automation, manual fixes and AI-on-workflow is unchanged in every process.
+   >     - The large-national AI value pool falls about 60%, from $1.18m to $445k ($202k–$793k across framings).
+   >     - v2's implied 17% labour saving becomes 7.9%.
+   >     - Shared-platform break-even falls from 43% to 16% of draws.
+   >   - The re-review basis (AI-handled cases only) is a modelling choice. On v2's all-touched basis the pool is $110k.
+   > - **Relationship graph consolidated (27 files, 1,110 rows → 1,051 live edges, up to 893 nodes; reproduced exactly).**
+   >   - Red team of 109 weaker edges: 41 confirmed, 16 weakened, 52 unverified, 0 contradicted.
+   >   - The DonorCentral edges belong to NPact, not Blackbaud (acquired 2022-09-12).
+   >   - BofA's guidelines name Bank of America Private Bank as administrator, with Ren as technology vendor. BNY Mellon CGF's iPhi tenant is historical (program ended 2024-12-24).
+   >   - Sponsor-asset CR3 45.5%, CR5 55.8% and HHI 830 are unchanged.
+   >   - The Ren-linked share is 32.2% as a floor (32.9% with six EIN-unmatched sponsors; 31.6% on 2024+ evidence). It is up from 28% through breadth, not new evidence on the largest sponsors.
+   > - **FY2025 filing refresh (index of 2026-11-18).**
+   >   - 76 new returns bring coverage to 974 sponsors and 68.0% of FY2024 corrected assets. The top 50 are unchanged at 24 filed, and 26 remain unindexed.
+   >   - Covered-filer DAF-to-DAF netting is $3.05–3.80bn (7.1% central), a lower bound. One DAFgiving360 → Fidelity line of $976.6m is 29% of it.
+   >   - No Ren attrition is visible: 10 FY2025 Ren payers ($3.35m), and all 8 comparable FY2024 payers name Ren again.
+   >   - Kalamazoo CF pays Give Interactive $416,932. This is not yet independently re-read.
+   > - **Coverage matrix rebuilt (396 cells).**
+   >   - PV-or-better rises from 14.4% to 37.4%.
+   >   - Investigated cells rise from 62.6% to 81.3% after the 20 `ai` cells were filled, most as documented absence.
+   >   - Every changed cell has a resolving pointer.
