@@ -131,9 +131,14 @@ def is_strict(rec: Mapping) -> bool:
             and note_value(rec, "country") in ("", "US"))
 
 
+def is_distinct(rec: Mapping) -> bool:
+    """Drop records flagged dup_of= in every scope, so one event is never counted twice [V wave 32B]."""
+    return not note_value(rec, "dup_of")
+
+
 SCOPES: tuple[tuple[str, Callable[[Mapping], bool]], ...] = (
-    ("all_venues", lambda r: True),
-    ("review_venues", lambda r: r["venue_type"] in REVIEW_VENUES),
+    ("all_venues", is_distinct),
+    ("review_venues", lambda r: r["venue_type"] in REVIEW_VENUES and is_distinct(r)),
     ("strict", is_strict),
 )
 

@@ -333,16 +333,17 @@ def _amt(l: Sequence) -> float:
     return float(l[4] or 0.0) + float(l[5] or 0.0)
 
 
-def is_totals_row(l: Sequence, lines: Sequence) -> bool:
+def is_totals_row(l: Sequence, named_sum: float, named_n: int) -> bool:
     """A Schedule I line with no name and no EIN whose amount equals the sum of the named
-    lines, or the number of lines, is a filer's totals row, not a grant [V wave 32A]."""
-    named = tuple(x for x in lines if x[1].strip())
+    lines, or the number of named lines, is a filer's totals row, not a grant [V wave 32A]."""
     return (not l[0] and not l[1].strip()
-            and (abs(_amt(l) - sum(map(_amt, named))) < 1.0 or abs(_amt(l) - len(named)) < 0.5))
+            and (abs(_amt(l) - named_sum) < 1.0 or abs(_amt(l) - named_n) < 0.5))
 
 
 def drop_totals_rows(v: Mapping) -> dict:
-    return {**v, "lines": [l for l in v["lines"] if not is_totals_row(l, v["lines"])]}
+    named = tuple(x for x in v["lines"] if x[1].strip())
+    s, n = sum(map(_amt, named)), len(named)
+    return {**v, "lines": [l for l in v["lines"] if not is_totals_row(l, s, n)]}
 
 
 def main(argv: Sequence[str] | None = None) -> int:

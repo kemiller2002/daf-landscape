@@ -394,3 +394,16 @@ python3 scripts/mission_exception_load.py . --np-cache NPCACHE --lines-cache LIN
 | S9 | Existing four-national measure: [breadth-community-faith-infrastructure-emerging.md](breadth-community-faith-infrastructure-emerging.md) §6, from Forms 990 FY6/2025 of [Fidelity Charitable](https://projects.propublica.org/nonprofits/organizations/110303001/202601389349301700/IRS990), [DAFgiving360](https://projects.propublica.org/nonprofits/organizations/311640316/202611199349300601/IRS990ScheduleF), [Vanguard Charitable](https://projects.propublica.org/nonprofits/organizations/232888152/202621329349306657/IRS990) and [NPT](https://projects.propublica.org/nonprofits/organizations/237825575/202601289349302480/IRS990ScheduleF) | quoted, not re-fetched | (as in that file) |
 | S10 | [Fidelity Charitable 2025 Giving Report](https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2025-giving-report.pdf) (2,664,446 grants in 2024), via [daf-grant-exception-unit-economics-evidence-and-sensitivity-2026-11-12.md](../daf-grant-exception-unit-economics-evidence-and-sensitivity-2026-11-12.md) | quoted, not re-fetched | — |
 | S11 | Repo: DAFRC panel `dafrc-sponsor-schedule-d-fy2019-2024.csv` (universe, rank, segment); `daf-to-daf-recipient-whitelist.csv` (DAF-to-DAF flag); [direction-recipient-compliance-screen.md](direction-recipient-compliance-screen.md) (labels, revocation results) | repo | n/a |
+
+## Regeneration note (after validation wave 32A) — governing
+
+`scripts/mission_exception_load.py` now drops Schedule I lines with no name and no EIN whose amount equals the sum of the return's named lines, or the number of named lines (`drop_totals_rows`). Only Greater Horizons' FY2024 return has such lines (two: the $212.2m totals row and the 3,282 line count). The CSV was regenerated. It holds 167 rows, and the 8 rows touching Greater Horizons, National or the pooled scopes changed. For all top-50 itemising sponsors the CSV now gives:
+
+| Measure | Value |
+|---|---|
+| Recipient lines | 608,610 |
+| Grant dollars | $92.72bn |
+| Broad share (lines / dollars) | 25.08% / 19.72% |
+| Core share (lines / dollars) | 7.41% / 10.96% |
+
+These figures match the wave 32A corrections above. The National sponsor-type row was not changed by this regeneration. Its de-duplicated values (Servant Foundation removed) are the ones in the wave 32A correction to §3.2 [V wave 32A].

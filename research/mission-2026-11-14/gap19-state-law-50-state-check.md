@@ -13,9 +13,9 @@ Labels: **[F]** the source states it directly (official text read). **[S]** seco
 | Question | Answer |
 |---|---|
 | **Does the negative hold?** | **Yes for 50 of 51 jurisdictions, with one qualification. Connecticut could not be checked.** No 2021–2026 bill or enacted text found in any state or DC imposes a payout, account-level reporting or donor-intent mandate on DAF sponsors. The CA AB 1353 exception (an intent-only bill) is confirmed. The pre-2021 CA bills AB 1712 and AB 2936 remain the only sponsor-reporting proposals found. |
-| **Qualification (correction to "no state has")** | **New Jersey has an older, narrow rule that reaches assets held in a DAF.** Under P.L.2000 c.143 as amended by P.L.2018 c.29, hospital-conversion assets that a charity moved "to a donor-advised fund" and has not spent count as "remaining charitable assets". The Superior Court may reallocate them to a successor nonprofit hospital [F; G095, G097]. It covers one asset class and predates 2021. Read the tracker's negative as "no general DAF mandate". It is not true that no state law reaches DAF-held assets. |
+| **Qualification (correction to "no state has")** | **New Jersey has an older, narrow rule that reaches assets held in a DAF.** Under P.L.2000 c.143, hospital-conversion assets that a charity moved "to a donor-advised fund" and has not spent count as "remaining charitable assets". The donor-advised-fund clause was added by P.L.2014 c.82 (approved 2014-12-26) and kept by P.L.2018 c.29 [V wave 32B] The Superior Court may reallocate them to a successor nonprofit hospital [F; G095, G097]. It covers one asset class and predates 2021. Read the tracker's negative as "no general DAF mandate". It is not true that no state law reaches DAF-held assets. |
 | **Counts** | **checked-none 38, found 12, not checkable 1 (CT).** "Found" means DAF wording was found in a 2021–2026 bill or in enacted text in force during the window. **None of the 12 "found" states has a mandate of the three kinds.** |
-| **What the DAF mentions are** | Of 37 in-window instrument rows with DAF wording, **16 are tax treatment** (credits or deductions that exclude or include DAF gifts, and wealth-tax bills that count DAF gifts in the base), 11 are regulatory exclusions or conditions (platform-law exclusions, credit-union DAF accounts, Alaska's PFD-program bar), 1 is a disclosure duty on officials (CA FPPC), 1 is an intent bill, 4 are descriptive wording (resolutions, a definition), 3 were not read, and 1 is the narrow NJ asset rule. |
+| **What the DAF mentions are** | Of 37 in-window instrument rows with DAF wording, **16 are tax treatment** (credits or deductions that exclude or include DAF gifts, and wealth-tax bills that count DAF gifts in the base), 11 are regulatory exclusions or conditions (platform-law exclusions, credit-union DAF accounts, Alaska's PFD-program bar), 1 is a disclosure duty on officials (CA FPPC), 1 is an intent bill, 4 are descriptive wording (resolutions, a definition), 3 were not read, and 1 is the narrow NJ asset rule. The 37 rows are 34 distinct instruments: HI HB 992 and SB 1311 each have a 2025 and a 2026 row, and IL HB 4462 is the enactment of 205 ILCS 305/39. The regulatory exclusions are therefore 8 distinct instruments [V wave 32B] |
 
 ---
 
@@ -88,7 +88,7 @@ OS = Open States hits for `"donor advised"` / `"donor-advised"` (all years, incl
 | NE | checked-none | 0 / 0 | 295 | — | none |
 | NV | checked-none | 0 / 0 | 103 | — | none |
 | NH | checked-none | 0 / 0 | 51 | — (thin index) | robots unreadable |
-| NJ | found | 2 / 2 | 1458 | P.L.2000 c.143 as amended by P.L.2018 c.29 (in force): court may reallocate undisbursed conversion assets held in a DAF [F] | pub.njleg.gov PDF |
+| NJ | found | 2 / 2 | 1458 | P.L.2000 c.143 as amended by P.L.2014 c.82 (which added the DAF clause) and P.L.2018 c.29 (in force): court may reallocate undisbursed conversion assets held in a DAF [F] | pub.njleg.gov PDFs (PL14/82, PL18/29) [V wave 32B]
 | NM | checked-none | 0 / 0 | 409 | — | none |
 | NY | found | 8 / 0 | 1908 | A5092 and S4482 (2021), A3252 and S1570 (2023), A3632 and S165 (2025): billionaire mark-to-market tax counts DAF gifts in the base (S4482 and S165 inferred) | nysenate.gov 403 today |
 | NC | found | 1 / 1 | 899 | SB 684 (2025, 1st reading): endowment credit; "endowed fund" includes donor-advised funds [F] | ncleg.gov PDF |
@@ -118,7 +118,7 @@ OS = Open States hits for `"donor advised"` / `"donor-advised"` (all years, incl
    - No 2021–2026 bill found in any state or DC would impose a payout, account-level reporting or donor-intent duty on DAF sponsors. The only DAF-titled bill in the window is CA AB 1353, which is intent-only and died at the desk on 2022-02-01 [G055].
    - Sponsor-reporting proposals exist only before 2021: CA AB 1712 and AB 2936 [G058–G059].
    - **V25A-17 can move from unverifiable to "checked, with limits"** (§5): CT is unchecked, and most checked-none rows rest on one aggregator screen.
-2. **Correction: the blanket "no state has" wording is too broad.** New Jersey's hospital-conversion law (2014, amended 2018) treats undisbursed conversion assets "transferred … to a donor-advised fund" as "remaining charitable assets" that the Superior Court may reallocate to a successor hospital [F; G095]. It protects charitable purpose for one asset class. It is pre-2021 and narrow, but it reaches DAF-held money. The tracker's §1 answer should be read as "no general DAF payout, reporting or donor-intent mandate".
+2. **Correction: the blanket "no state has" wording is too broad.** New Jersey's hospital-conversion law (P.L.2000 c.143; the DAF clause was added by P.L.2014 c.82 and kept by P.L.2018 c.29) treats undisbursed conversion assets "transferred … to a donor-advised fund" as "remaining charitable assets". The Superior Court may reallocate them to the entity acquiring or operating an equivalent nonprofit hospital [F; G095] [V wave 32B] It protects charitable purpose for one asset class. It is pre-2021 and narrow, but it reaches DAF-held money. The tracker's §1 answer should be read as "no general DAF payout, reporting or donor-intent mandate".
 3. **Tax treatment is the main way state law names DAFs, and it cuts both ways.**
    - **Excluded:** Illinois Gives (enacted) and Kansas K.A.R. 92-12-152 (in force) [tracker T20–T21]. Also the proposed Missouri Gives bills HB 1181 and HB 2216 ("Is not a donor advised fund") [F; G083–G084] and Wisconsin AB 665 [S; G110].
    - **Included:** Endow Mississippi (2019, through 2023) [F; G087] and North Carolina SB 684 (2025, proposed) [F; G093] define "endowed fund" to include donor-advised funds.
@@ -166,7 +166,7 @@ OS = Open States hits for `"donor advised"` / `"donor-advised"` (all years, incl
 | in_window_2021_2026 | `Y` if introduced or enacted 2021–2026, or in force during it; `N` for pre-2021 context |
 | evidence_label | F, S, I or combinations |
 | verification | How the text was checked (official text fetched / aggregator hit / search snippet / tracker row) |
-| url | Instrument URL (official where read), or the Open States search URL on state rows |
+| url | Instrument URL (official where read), or the Open States search URL on state rows. The 47 Open States bill-page URLs returned HTTP 404 on 2026-11-19; their status values come from the Open States search-result rows [V wave 32B]
 | os_hits_donor_advised, os_hits_donor_hyphen_advised | State rows: Open States hit counts for each phrasing (all years) |
 | os_control_hits_irc | State rows: Open States count for `"internal revenue code"` (text-index control, all years) |
 | official_check | State rows: official-site search or document read, if any |

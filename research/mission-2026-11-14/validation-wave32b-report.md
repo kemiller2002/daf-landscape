@@ -6,7 +6,7 @@
 
 - I recomputed the Poisson intervals with my own inversion of the regularized incomplete gamma function, and I re-derived every denominator from the DAFRC FY2024 file and the applied R1 rows.
 - I re-read every Trustpilot record (33) from the pages' embedded JSON, all 6 Google Play records, 6 BBB records and 2 give.org reports. That is 47 of 47 additions.
-- I re-read 13 official texts (NJ P.L.2018 c.29, NJ P.L.2014 c.82, NJ S2247 I1, NC SB 684, MO HB 1181 and HB 2216, MS SB 2210, OH SB 12, HI Acts 205 and 108, HI HB 992 HD1, Iowa 15E.305, N.D.C.C. 57-38, KS K.A.R. 92-12-152, CA FPPC Reg. 18424.3) and re-ran one Florida official search.
+- I re-read 15 official texts (NJ P.L.2018 c.29, NJ P.L.2014 c.82, NJ S2247 I1, NC SB 684, MO HB 1181 and HB 2216, MS SB 2210, OH SB 12, HI Acts 205 and 108, HI HB 992 HD1, Iowa 15E.305, N.D.C.C. 57-38, KS K.A.R. 92-12-152, CA FPPC Reg. 18424.3) and re-ran one Florida official search.
 - robots.txt was read before the first request to each host. No sec.gov, crt.sh or certspotter requests were made, there was no outreach, and all evidence is from 2021 or later except the enacted texts under test.
 
 ---
@@ -16,7 +16,7 @@
 | Result | Count | P-GAP19-13 (complaints) | P-GAP19-14 (state law) |
 |---|---|---|---|
 | confirmed | 31 | 15 | 16 |
-| partially_confirmed | 10 | 6 | 4 |
+| partially_confirmed | 10 | 5 | 5 |
 | contradicted | 3 | 2 | 1 |
 | unverifiable | 1 | 0 | 1 |
 | **Total** | **45** | **22** | **23** |
@@ -63,7 +63,7 @@
    - The headline, the per-state table and CSV row G095 cite only "P.L.2000 c.143 as amended by P.L.2018 c.29".
    - Finding 2 in the study says "(2014, amended 2018)", which is correct but does not name the act.
 3. **The "no mandate" negative holds, with limits (V32B-28).**
-   - I re-read 13 official texts and none is a sponsor mandate.
+   - I re-read 15 official texts and none is a sponsor mandate.
    - A web search for 2025–26 state DAF payout bills found only federal material and Colorado SB26-118. That bill concerns financial institutions paying charitable beneficiary designations, and no DAF wording is reported. Its text was not read, because the bill_files downloads are disallowed by robots.txt.
    - The study's own limits stand: Connecticut is unchecked, recall is 6 of 8, and 36 states rest on one aggregator screen.
    - The classification "N" for the CA and HI platform exclusions is right for the three mandate types tested. The exclusion is conditional, though: a sponsor that names charities to non-advisors falls under the platform law.
@@ -103,8 +103,8 @@
    - **Find:** "- the same divided by 5.883 for a per-year rate;"
    - **Replace with:** "- the same divided by 5.881 for a per-year rate [V wave 32B]"
 3. **Window length, denominator notes.**
-   - **Find:** "The per-year column divides by 5.883 and assumes"
-   - **Replace with:** "The per-year column divides by 5.881 [V wave 32B]; it assumes"
+   - **Find:** "The per-year column divides by 5.883 and assumes a stable account base, which is optimistic for growing sponsors."
+   - **Replace with:** "The per-year column divides by 5.881 and assumes a stable account base, which is optimistic for growing sponsors [V wave 32B]"
 4. **Window length, data dictionary.**
    - **Find:** "| window_years | number | 5.883, or the aggregate's own window |"
    - **Replace with:** "| window_years | number | 5.881, or the aggregate's own window [V wave 32B]"
@@ -118,8 +118,8 @@
    - **Find:** "   - It shows 40.0 complaints per $1bn [17.3–78.9] on review venues, from 8 records."
    - **Replace with:** "   - It shows 40.0 complaints per $1bn [17.3–78.9] on review venues, from 8 records. One Trustpilot/BBB pair (-037/-040) is a single incident, so the distinct-incident rate is 35.0 per $1bn [14.1–72.2] from 7 [V wave 32B]"
 8. **NFG account-count source (V32B-02).**
-   - **Find:** "   - DAFRC's FY2024 account count for it is \"1\" (imputed), so we did not compute a per-account rate."
-   - **Replace with:** "   - DAFRC's FY2024 account count for it is \"1\". DAFRC marks it imputed, and the filed 990 also shows 1, so we did not compute a per-account rate [V wave 32B]"
+   - **Find:** "   - DAFRC's FY2024 account count for it is "1" (imputed), so we did not compute a per-account rate."
+   - **Replace with:** "   - DAFRC's FY2024 account count for it is "1". DAFRC marks it imputed, and the filed 990 also shows 1, so we did not compute a per-account rate [V wave 32B]"
 9. **PPGF row dedup (V32B-09).**
    - **Find:** "| PayPal Charitable Giving Fund | all_venues | 380,644 (filed) | $0.80bn | 5 | 1 | 0.131 [0.043–0.307] | 0.022 | 6.284 [2.040–14.665] |"
    - **Replace with:** "| PayPal Charitable Giving Fund | all_venues | 380,644 (filed) | $0.80bn | 5 rows; 4 distinct (CMP-G1913-046 is dup_of CMP-232) | 1 | 0.131 [0.043–0.307]; distinct 0.105 [0.029–0.269] | 0.022; distinct 0.018 | 6.284 [2.040–14.665]; distinct 5.027 [1.370–12.871] [V wave 32B]"
@@ -141,14 +141,14 @@
 
 ### `research/mission-2026-11-14/gap19-state-law-50-state-check.md`
 1. **Headline NJ citation (V32B-27).**
-   - **Find:** "Under P.L.2000 c.143 as amended by P.L.2018 c.29, hospital-conversion assets that a charity moved \"to a donor-advised fund\" and has not spent count as \"remaining charitable assets\"."
-   - **Replace with:** "Under P.L.2000 c.143, hospital-conversion assets that a charity moved \"to a donor-advised fund\" and has not spent count as \"remaining charitable assets\". The donor-advised-fund clause was added by P.L.2014 c.82 (approved 2014-12-26) and kept by P.L.2018 c.29 [V wave 32B]"
+   - **Find:** "Under P.L.2000 c.143 as amended by P.L.2018 c.29, hospital-conversion assets that a charity moved "to a donor-advised fund" and has not spent count as "remaining charitable assets"."
+   - **Replace with:** "Under P.L.2000 c.143, hospital-conversion assets that a charity moved "to a donor-advised fund" and has not spent count as "remaining charitable assets". The donor-advised-fund clause was added by P.L.2014 c.82 (approved 2014-12-26) and kept by P.L.2018 c.29 [V wave 32B]"
 2. **Per-state table, NJ row.**
    - **Find:** "| NJ | found | 2 / 2 | 1458 | P.L.2000 c.143 as amended by P.L.2018 c.29 (in force): court may reallocate undisbursed conversion assets held in a DAF [F] | pub.njleg.gov PDF |"
    - **Replace with:** "| NJ | found | 2 / 2 | 1458 | P.L.2000 c.143 as amended by P.L.2014 c.82 (which added the DAF clause) and P.L.2018 c.29 (in force): court may reallocate undisbursed conversion assets held in a DAF [F] | pub.njleg.gov PDFs (PL14/82, PL18/29) [V wave 32B]"
 3. **Finding 2.**
-   - **Find:** "New Jersey's hospital-conversion law (2014, amended 2018) treats undisbursed conversion assets \"transferred … to a donor-advised fund\" as \"remaining charitable assets\" that the Superior Court may reallocate to a successor hospital [F; G095]."
-   - **Replace with:** "New Jersey's hospital-conversion law (P.L.2000 c.143; the DAF clause was added by P.L.2014 c.82 and kept by P.L.2018 c.29) treats undisbursed conversion assets \"transferred … to a donor-advised fund\" as \"remaining charitable assets\". The Superior Court may reallocate them to the entity acquiring or operating an equivalent nonprofit hospital [F; G095] [V wave 32B]"
+   - **Find:** "New Jersey's hospital-conversion law (2014, amended 2018) treats undisbursed conversion assets "transferred … to a donor-advised fund" as "remaining charitable assets" that the Superior Court may reallocate to a successor hospital [F; G095]."
+   - **Replace with:** "New Jersey's hospital-conversion law (P.L.2000 c.143; the DAF clause was added by P.L.2014 c.82 and kept by P.L.2018 c.29) treats undisbursed conversion assets "transferred … to a donor-advised fund" as "remaining charitable assets". The Superior Court may reallocate them to the entity acquiring or operating an equivalent nonprofit hospital [F; G095] [V wave 32B]"
 4. **Instrument count (V32B-29).**
    - **Find:** "3 were not read, and 1 is the narrow NJ asset rule."
    - **Replace with:** "3 were not read, and 1 is the narrow NJ asset rule. The 37 rows are 34 distinct instruments: HI HB 992 and SB 1311 each have a 2025 and a 2026 row, and IL HB 4462 is the enactment of 205 ILCS 305/39. The regulatory exclusions are therefore 8 distinct instruments [V wave 32B]"
@@ -168,8 +168,8 @@
 
 ### `research/DAF-INDUSTRY-REPORT-2026-11.md`
 1. **New subsection §11.31.** Add "### 11.31 Gap-audit batch part B (validated, wave 32B)", containing the paragraph below, after §11.30 (wave 32A). If §11.31 is already taken, use the next free number.
-   - **Find (if wave 32A's §11.30 has been applied):** "is the cleaner read (repo [`validation-wave32a-report.md`](mission-2026-11-14/validation-wave32a-report.md)) [V wave 32A]"
-   - **Find (if it has not, insert after §11.29):** "   >   - Every changed cell has a resolving pointer. Source: [validation-wave31a-report.md](mission-2026-11-14/validation-wave31a-report.md)."
+   - **Find (wave 32A's §11.30 is already in the report as of 2026-11-19, so use this one):** "is the cleaner read (repo [`validation-wave32a-report.md`](mission-2026-11-14/validation-wave32a-report.md)) [V wave 32A]"
+   - **Find (fallback, only if §11.30 is absent; inserts after §11.29):** "   >   - Every changed cell has a resolving pointer. Source: [validation-wave31a-report.md](mission-2026-11-14/validation-wave31a-report.md)."
    - **Replace with:** the found text, followed by a blank line, the heading "### 11.31 Gap-audit batch part B (validated, wave 32B)", a blank line and the paragraph below, ending "[V wave 32B]".
 
 New subsection text:

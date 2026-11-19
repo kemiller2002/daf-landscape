@@ -25,15 +25,15 @@
    - 42 of the 46 new complaint or mixed records concern them, and 27 of the 46 come from nonprofits (including one volunteer).
 3. **Rates depend on the denominator.** On review venues, 2021-01-01 to 2026-11-19 ([rates CSV](../../data/mission-2026-11-14/complaint-rates-2026-11-19.csv)):
    - **Fidelity Charitable:** 27 records. That is **1.32 per 10,000 FY2024 accounts [95% CI 0.87–1.92]**, or 2.13 per $1bn of FY2024 grants [1.41–3.10].
-   - **AOGF/Benevity:** 56 records. That is **0.78 per 10,000 accounts [0.59–1.01]**, but **28.7 per $1bn of grants [21.7–37.3]**.
-   - So per account, Fidelity ranks worse than AOGF; per grant dollar, AOGF is about 13 times worse. Neither ranking is a prevalence estimate (§6).
+   - **AOGF/Benevity:** 56 records. That is **0.78 per 10,000 accounts [0.59–1.01]**, but **28.7 per $1bn of grants [21.7–37.3]**. The 56 include 9 added reviews from non-US reviewers (Benevity's other programmes). On the strict scope (47 records), the figures are 0.65 per 10,000 [0.48–0.87] and 24.1 per $1bn [17.7–32.0] [V wave 32B]
+   - So per account, Fidelity ranks worse than AOGF; per grant dollar, AOGF is about 13 times worse on review venues and 11 times worse on the strict scope. Neither ranking is a prevalence estimate (§6) [V wave 32B]
 4. **Network for Good has the highest rate per grant dollar, but its account count is unusable.**
-   - It shows 40.0 complaints per $1bn [17.3–78.9] on review venues, from 8 records.
-   - DAFRC's FY2024 account count for it is "1" (imputed), so we did not compute a per-account rate.
+   - It shows 40.0 complaints per $1bn [17.3–78.9] on review venues, from 8 records. One Trustpilot/BBB pair (-037/-040) is a single incident, so the distinct-incident rate is 35.0 per $1bn [14.1–72.2] from 7 [V wave 32B]
+   - DAFRC's FY2024 account count for it is "1". DAFRC marks it imputed, and the filed 990 also shows 1, so we did not compute a per-account rate [V wave 32B]
    - BBB Wise Giving Alliance's own count is 2 complaints in 36 months, both about check disbursement. That gives 10.0 per $1bn over 3 years [1.2–36.2] ([give.org](https://give.org/charity-reviews/other/forgood-in-washington-dc-9999-1290)).
 5. **Adding the new records changes the headline category.**
    - Across all 2021+ complaint and mixed records (123 old + 46 new = 169), **grant delay (33)** now leads, ahead of UX/app (25), discretion (20), and account access and receipt/attribution (18 each).
-   - The original corpus led with UX/app and login. That came from the App Store, which now supplies 110 of 291 records (37.8%, down from 42.6%).
+   - The original corpus led with UX/app and login. That came from the App Store. App-store records (104 App Store plus 6 Google Play) now make up 110 of 291 records (37.8%, down from 42.6%) [V wave 32B]
 6. **The new processor complaints mostly describe rules, not one-off bugs.** Examples:
    - a $75 matched gift held about eight months because the charity is below a paper-check threshold (CMP-G1913-001);
    - a returned check that YourCause would not reissue until the charity registered, after which the gift went to an employer-chosen charity (CMP-G1913-034);
@@ -90,7 +90,7 @@ Mightycause ($0.10bn) is sixth. Givinga, which `mission_complaint_rates.py` incl
 - `notes` carries machine-readable tokens: `country=XX` (Trustpilot reviewer country) and `dup_of=<record_id>` (the same incident in two venues).
 - Record ids use the prefix `CMP-G1913-NNN` so they cannot collide with future `CMP-NNN` corpus rows.
 
-**Window:** 2021-01-01 to 2026-11-19, which is 5.883 years. Records whose first year is before 2021 are excluded, as in `mission_complaint_rates.py`.
+**Window:** 2021-01-01 to 2026-11-19, which is 5.881 years (2,148 days ÷ 365.25) [V wave 32B] Records whose first year is before 2021 are excluded, as in `mission_complaint_rates.py`.
 
 **Numerator scopes:**
 - **all_venues:** every in-window complaint or mixed record, old corpus plus additions.
@@ -106,7 +106,7 @@ Mightycause ($0.10bn) is sixth. Givinga, which `mission_complaint_rates.py` incl
 
 **Rates:**
 - n / accounts × 10,000 over the whole window;
-- the same divided by 5.883 for a per-year rate;
+- the same divided by 5.881 for a per-year rate [V wave 32B]
 - n per $1bn of FY2024 grants.
 
 **Intervals:** exact (Garwood) 95% Poisson intervals on n, scaled by the denominator. We used Poisson rather than Wilson because one account can generate several complaints and complaints are not Bernoulli trials over accounts. For zero counts we report only the upper bound (3.69 / denominator).
@@ -171,15 +171,15 @@ All rates use FY2024 denominators and the 2021-01-01 to 2026-11-19 window. "n/c"
 | Renaissance Charitable Foundation | review_venues | 25,824 (filed) | $0.77bn | 1 | 1 | 0.387 [0.010–2.158] | 0.066 | 1.297 [0.033–7.229] |
 | AOGF (Benevity) | review_venues (= all) | 720,545 (filed) | $1.95bn | 56 | 29 | 0.777 [0.587–1.009] | 0.132 | 28.715 [21.691–37.288] |
 | AOGF (Benevity) | strict | 720,545 (filed) | $1.95bn | 47 | 20 | 0.652 [0.479–0.867] | 0.111 | 24.100 [17.708–32.048] |
-| PayPal Charitable Giving Fund | all_venues | 380,644 (filed) | $0.80bn | 5 | 1 | 0.131 [0.043–0.307] | 0.022 | 6.284 [2.040–14.665] |
+| PayPal Charitable Giving Fund | all_venues | 380,644 (filed) | $0.80bn | 5 rows; 4 distinct (CMP-G1913-046 is dup_of CMP-232) | 1 | 0.131 [0.043–0.307]; distinct 0.105 [0.029–0.269] | 0.022; distinct 0.018 | 6.284 [2.040–14.665]; distinct 5.027 [1.370–12.871] [V wave 32B]
 | Blackbaud Giving Fund (YourCause) | review_venues (= all) | 460 (imputed) | $0.55bn | 3 | 3 | 65.2 [13.4–190.6] (unreliable) | 11.090 | 5.429 [1.120–15.866] |
 | Blackbaud Giving Fund (YourCause) | strict | 460 (imputed) | $0.55bn | 2 | 2 | 43.5 [5.3–157.1] (unreliable) | 7.393 | 3.619 [0.438–13.074] |
-| Network for Good (For Good) | all_venues | 1 (implausible) | $0.20bn | 9 | 9 | n/c | n/c | 45.053 [20.601–85.525] |
-| Network for Good (For Good) | review_venues | 1 (implausible) | $0.20bn | 8 | 8 | n/c | n/c | 40.047 [17.290–78.909] |
+| Network for Good (For Good) | all_venues | 1 (implausible) | $0.20bn | 9 rows; 8 distinct (-040 is dup_of -037) | 9 | n/c | n/c | 45.053 [20.601–85.525]; distinct 40.047 [17.290–78.909] [V wave 32B]
+| Network for Good (For Good) | review_venues | 1 (implausible) | $0.20bn | 8 rows; 7 distinct (-040 is dup_of -037) | 8 | n/c | n/c | 40.047 [17.290–78.909]; distinct 35.041 [14.088–72.199] [V wave 32B]
 | Network for Good (For Good) | strict | 1 (implausible) | $0.20bn | 7 | 7 | n/c | n/c | 35.041 [14.088–72.199] |
 | Network for Good (For Good) | BBB WGA 36-month count | 1 (implausible) | $0.20bn | 2 | — | n/c | n/c | 10.012 [1.212–36.166] (3-year window) |
 | Pooled top-15 sponsors | review_venues | 230,438 (Fidelity + RCF) | $13.43bn | 28 | 4 | 1.215 [0.807–1.756] | 0.207 | 2.085 [1.386–3.014] |
-| Pooled processors | review_venues | n/c | $2.70bn | 67 | 40 | n/c | n/c | 24.791 [19.213–31.484] |
+| Pooled processors | review_venues | n/c | $2.70bn | 67 rows; 66 distinct | 40 | n/c | n/c | 24.791 [19.213–31.484]; distinct 24.421 [18.887–31.070] [V wave 32B]
 
 DAFgiving360, Vanguard Charitable, GS DAPF, Morgan Stanley GIFT and PPGF have **zero** review-venue records. Their all-venue counts come entirely from forums, press, regulators and advocacy groups.
 
@@ -210,7 +210,7 @@ These are strict-scope rows. The upper bound is only what a complete venue would
 - **Processor "accounts" are not sponsor DAF accounts.** AOGF's 720,545 (IRS 990) almost certainly counts workplace donor accounts. PPGF's 380,644 is a filed count that replaced DAFRC's imputed 694,979. These figures cannot be compared with Fidelity's 204,614 donor-advised accounts. This is the main reason the per-account and per-dollar rankings diverge (P-G1913-03).
 - **Grant dollars are the more comparable denominator across sponsors and processors.** They are still a weak unit for delay complaints, which happen per gift.
 - **Fidelity grant-count side calculation (not in the CSV).** The repository's [`grant-rail-shares-panel-2026.csv`](../../data/mission-2026-11-14/grant-rail-shares-panel-2026.csv) records Fidelity's "nearly 2.7 million grants in 2024". Dividing 27 review-venue complaints over 5.88 years by that one-year grant count gives **about 0.017 complaints per 10,000 grants per year**. No other entity in the frame has a grant count in the repo (P-G1913-02).
-- **DAFRC FY2024 timing** means fiscal years ending in 2024 or early 2025 (AOGF's year ends 31 March). Complaints span about six years; the denominators are one year. The per-year column divides by 5.883 and assumes a stable account base, which is optimistic for growing sponsors.
+- **DAFRC FY2024 timing** means fiscal years ending in 2024 or early 2025 (AOGF's year ends 31 March). Complaints span about six years; the denominators are one year. The per-year column divides by 5.881 and assumes a stable account base, which is optimistic for growing sponsors [V wave 32B]
 
 ---
 
@@ -284,7 +284,7 @@ The new records number 46 complaint/mixed plus 1 praise.
 - **Attribution.**
   - Benevity reviews span its Canadian, UK and other giving funds. The strict scope keeps US reviewers only.
   - Three new records have low attribution (Blackbaud product not named; Ren product not named; Benevity reviewer with no subject). Strict excludes them.
-  - One BBB/Trustpilot pair is the same incident and is counted once in strict.
+  - One BBB/Trustpilot pair is the same incident and is counted once in strict, but twice in review_venues and all_venues. CMP-G1913-046 and CMP-232 (the same Alaska suit) are likewise counted twice in PPGF all_venues [V wave 32B]
 - **Allegations are not findings.** Reviews and BBB complaints are one-sided. Where the business responded (Bonterra), the response is summarized in `resolution`.
 - **Earlier rates.** [`complaint-rates-normalised.csv`](../../data/mission-2026-11-14/complaint-rates-normalised.csv) (P-QA3-04) uses the same denominators but a different entity frame and no intervals. Fidelity's all-venue count rises from 47 there to 50 here: the 3 Google Play records.
 
@@ -344,7 +344,7 @@ The columns and definitions are identical to corpus §11, with these conventions
 | grants_source | text | As for accounts |
 | scope | enum | `all_venues`, `review_venues`, `strict` (§2.3), `venue_reported_aggregate` |
 | window | text | `2021-01-01..2026-11-19`, or the aggregate's label and source URL |
-| window_years | number | 5.883, or the aggregate's own window |
+| window_years | number | 5.881, or the aggregate's own window [V wave 32B]
 | n_complaint_mixed | integer | Records in scope with valence complaint or mixed |
 | n_high_critical | integer | Of which severity high or critical |
 | n_from_additions | integer | Of which `CMP-G1913-*` records |
