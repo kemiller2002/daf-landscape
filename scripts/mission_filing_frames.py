@@ -285,7 +285,16 @@ def needs_full_b(h: Mapping) -> bool:
                                            "partial_liq_ind", "ez_dissolved_ind"))
 
 
+def read_ok(h: Mapping) -> bool:
+    return h.get("status") == "ok"
+
+
 def scan(rets: Mapping, cache: str, fetch: bool, workers: int, needs, label: str) -> dict:
+    """Head pass (to the end of Part IV) on every return, then a full read of every return `needs` selects.
+    The run reported here reads every mirrored return in full (needs=read_ok): the Part IV pre-filters
+    (line 6 for frame A; Part I line 2 / final-return box for frame B) are kept as columns and their recall is
+    measured against the full read instead of being relied on (Groundswell's amended TY2024 return reports
+    12,808 DAF accounts in Schedule D Part I while answering 'No' on Part IV line 6)."""
     oids = sorted(rets)
     heads = dict(zip(oids, pmap(lambda o: head_of(o, cache, fetch), oids, workers, f"{label} head")))
     want = sorted(o for o, h in heads.items() if needs(h))
@@ -340,7 +349,8 @@ def cf_exit_rows(u: Mapping, bmf: Mapping, sb: Mapping, panel: frozenset) -> lis
     heads = sb["heads"]
     max_assets = reduce(lambda acc, h: {**acc, h["filer_ein"]: max(acc.get(h["filer_ein"], 0.0), h["total_assets_eoy"])},
                         (h for h in heads.values() if h.get("status") == "ok" and h.get("filer_ein")), {})
-    flagged = sorted((o for o in sb["fulls"]), key=lambda o: (u["b"][o]["EIN"], o))
+    flagged = sorted((o for o, f in sb["fulls"].items() if needs_full_b(heads.get(o, {})) or f.get("has_sched_n")
+                      or f.get("status") != "ok"), key=lambda o: (u["b"][o]["EIN"], o))
 
     def is_cf(name: str, ein: str) -> bool:
         return bool(CF_NAME.search(name or "")) or bool(ein and bmf.get(ein, {}).get("NTEE_CD", "").startswith("T31"))
@@ -498,8 +508,8 @@ def main(argv: Sequence[str]) -> int:
                       "a_eins": len({r["EIN"] for r in u["a"].values()}), "b_returns": len(u["b"]),
                       "b_eins": len({r["EIN"] for r in u["b"].values()}),
                       "funnel_990_returns_by_fdn": dict(sorted(u["funnel"].items()))}), flush=True)
-    sa = scan(cut(u["a"]), a.cache, a.fetch, a.workers, needs_full_a, "A") if a.task in ("scan-a", "all", "build") else None
-    sb = scan(cut(u["b"]), a.cache, a.fetch, a.workers, needs_full_b, "B") if a.task in ("scan-b", "all", "build") else None
+    sa = scan(cut(u["a"]), a.cache, a.fetch, a.workers, read_ok, "A") if a.task in ("scan-a", "all", "build") else None
+    sb = scan(cut(u["b"]), a.cache, a.fetch, a.workers, read_ok, "B") if a.task in ("scan-b", "all", "build") else None
     if a.task in ("build", "all"):
         print(json.dumps(build(u, bmf, sa, sb, a.irs_dir), indent=1, default=str))
     else:
