@@ -5,7 +5,7 @@
   - P-G0702-05 and P-G0702-03, from [g0702-b4531-national-990-reads.md](g0702-b4531-national-990-reads.md).
   Both are read with their [V wave 35B] corrections from [validation-wave35b-report.md](validation-wave35b-report.md). The governing Schedule R line is **1b** (gift, grant or capital contribution *to* a related organisation), not 1d (V35B-29/-30).
 - **Date:** 2026-11-19. Every page, PDF and API answer was read on that date.
-- **Data:** [`data/mission-2026-11-14/npt-ren-followups-2026-11-19.csv`](../../data/mission-2026-11-14/npt-ren-followups-2026-11-19.csv) (data dictionary in §6).
+- **Data:** [`data/mission-2026-11-14/npt-ren-followups-2026-11-19.csv`](../../data/mission-2026-11-14/npt-ren-followups-2026-11-19.csv) (79 rows; data dictionary in §6). The script's `csv` mode rebuilt it byte for byte twice (md5 `70df32fc…`), and the `wayback` mode reran offline from the cache with identical output.
 - **Script:** [`scripts/mission_npt_ren_followups.py`](../../scripts/mission_npt_ren_followups.py). It has two modes:
   - `wayback` enumerates captures through the archive.org availability API, with a cached, repeatable run;
   - `npt990` prints the Schedule R Part V indicators, the Part IX program-column composition, the Schedule F Part II line tests and the H.10 FX tests from NPT's FY2025 XML.
@@ -19,11 +19,78 @@
 
 ## 0. Answers
 
-__ANSWERS__
+| Question | Finding | Confidence |
+|---|---|---|
+| **(1) When did the RCF default switch?** (P-B442802-01) | **The full-contact file reached the RCF portals between 2026-07-22 and 2026-11-19, most likely 2026-10-06 to 2026-11-10.**<br>- The RCF core path was last captured on **2026-07-22**. That capture predates the current file, whose PDF creation date is 2026-10-06 (SHA-1 `93d97b49e84a`).<br>- All seven portal copies share one ETag and the server write time **2026-11-10 19:59:13 GMT**: a single deployment.<br>- The archived "before" files (rcf 2026-03-16 and 2026-07-22; ampf 2024-09-03; mdrt 2025-03-20, 2025-07-24 and 2026-07-10) could not be opened, because web.archive.org was unreachable. So their text and hashes are unknown.<br>- UBS's "Fund Name Only" 2309 guide was captured on 2025-04-21 and is unchanged since 2024-06 (SHA-1 `0025f0fe726a`). The TDA copy has no capture and is unchanged since 2024-07-12 (`789efac9bf3b`) [F/H/I] | High on dates; the text change itself is unobserved |
+| **(2) NPT segregated-account assets** (P-G0702-05) | **Not public.**<br>- nptrust.org holds only two-page consolidated summaries for FY2019–FY2025, with no notes and no investment split. nptuk.org holds none.<br>- **Correction:** the "$116.3m asset management fees" is a mislabelled row. It is NPT's **program-services expense excluding grants** ($116.26m FY2025; $94.29m FY2024, captioned "Program services" in the FY2024 PDF).<br>- The 990 proxy for its composition (Part IX column B less grants, $114.17m): **line 11f investment management fees 81.9%** ($93.51m), staff 11.4%, "program fees" 3.8%, IT 1.7%, other 1.1% [F/C].<br>- The published model advisory fee is 0.10–0.15%. Applied to all assets, it would explain only $41.7m–$62.5m of line 11f. The residual of $31.0m–$51.9m is unattributed, and it is not convertible into a segregated share [C/I] | High on absence and on the relabel; the share is still not estimable |
+| **(3) Schedule R line 1b against the £30.939m transfer** (P-G0702-03) | **The filed "No" is not reconciled by the instructions.**<br>- The disregarded-entity exception removes only NPT↔Transatlantic transactions from Part V.<br>- Appendix F makes Transatlantic's activities NPT's own. So Transatlantic's grant to NPT UK, a Part II related organisation, is a line-1b gift or grant, and line 1b should read Yes.<br>- NPT UK's note 14 also reports £30.9m "from National Philanthropic Trust", which would independently require Yes.<br>- No Part V line-2 row names NPT UK, and NPT lists NPT UK as not controlled [F/I] | Medium–high (instruction text [F]; application [I]) |
+| **Is the $39.1m Europe line the transfer?** | **The only candidate; consistent, not proven.**<br>- It is the only FY2025 Part II line above $16.8m.<br>- Its implied rate of 1.2638 USD/GBP lies inside the FY2025 H.10 range (1.2158–1.3754). H.10 was within ±0.0025 of it on 11 days (2024-07-01; mid-November 2024 to February 2025).<br>- Against: the round figure fits a USD wire, although roundness is common here (17 of 57 lines of $1m or more), and the purpose label "ENVIRONMENT, ANIMALS" is odd for a DAF-to-DAF transfer.<br>- If it is the transfer, it is 12.6% of FY2025 line 3 ($310.5m) [C/I] | Low–medium |
 
 ## 1. P-B442802-01: dating the RCF default switch
 
-__ITEM1__
+### 1.1 Access
+
+- archive.org robots.txt disallows only `/control/` and `/report/`, so the availability API (`archive.org/wayback/available`) was used.
+- **web.archive.org**, which hosts the CDX API and the snapshots, reset every connection from this session (three curl tries). The WebFetch tool refused the host. Its robots.txt therefore could not be read, so **no snapshot was opened and no CDX query was made** [B]. This matches every earlier repo attempt (`queue-batch34-escheat-terms.md`, `queue-batch38-*`, `crtsh-resourcing-2026-11-19.md`).
+- The task asked for SHA-1 hashes of the captures. CDX digests and snapshot hashes were **not obtainable**. Only the live files are hashed (§1.3).
+
+### 1.2 Captures listed by the availability API [H]
+
+The script ran 369 cached probes. Two features of the API matter:
+- it answers with the closest capture at any distance;
+- it intermittently returns `{}`, and HTTP 429 came back once, which the script handled with back-off.
+
+| Target | URL path | Captures (UTC) |
+|---|---|---|
+| RCF core: Giving Platform guide path | rcf.donorfirstx.com/pdf/RCF/Donor%20User%20Guide.pdf | **2026-03-16 03:12:45; 2026-07-22 20:08:22** |
+| UBS: Giving Platform guide path | ubs.donorfirstx.com/pdf/UBS/Donor%20User%20Guide.pdf | none |
+| TDA: 2309 template guide | tda.donorfirstx.com/pdf/tda/RCF%20Donor%20User%20Guide.pdf | none |
+| UBS: 2309 template guide | ubs.donorfirstx.com/pdf/UBS/UBS%20Donor%20User%20Guide.pdf | **2025-04-21 14:54:51** |
+| Ameriprise: Giving Platform guide path | ampf.donorfirstx.com/pdf/AMPF/Donor%20User%20Guide.pdf | **2024-09-03 04:52:13** |
+| MDRT: Giving Platform guide path | mdrt.donorfirstx.com/pdf/mdrt/Donor%20User%20Guide.pdf | **2025-03-20 17:42:03; 2025-07-24 15:11:23; 2026-07-10 22:54:33** |
+| RBC, RCF Giving Fund, Northwestern Mutual: Giving Platform guide paths | rbcrcf / rcfgivingfund / northwesternmutual | none |
+
+All listed captures have status 200.
+
+### 1.3 Live files and server dates (2026-11-19) [F]
+
+| File | SHA-1 | PDF created / modified | HTTP Last-Modified | ETag | Acknowledgement text |
+|---|---|---|---|---|---|
+| rcf …/RCF/Donor User Guide.pdf | `93d97b49e84aa447f59b631dea1faee9e53c65ac` | 2026-10-06 20:35:40 / same (pdf-lib) | 2026-11-10 19:59:13 GMT | `34726ef54d71dd1:0` | "By default, this includes the grant advisor's name, email, and address" |
+| ubs …/UBS/Donor User Guide.pdf | same SHA-1 | same | 2026-11-10 19:59:13 GMT | same | same |
+| ampf, rbcrcf, mdrt, rcfgivingfund, northwesternmutual (HEAD only) | — (Content-Length 5,923,340, the same as above) | — | 2026-11-10 19:59:13 GMT | same | — |
+| tda …/RCF Donor User Guide.pdf | `789efac9bf3ba248d4bb154184ffb3c16d595013` | 2023-09-06 / 2024-07-12 | 2024-07-12 19:24:56 GMT | `4a9d32d91d4da1:0` | "The default is “Fund Name Only”." |
+| ubs …/UBS/UBS Donor User Guide.pdf | `0025f0fe726a4f2dec6b7df97b2f37dddad1c2b5` | 2023-09-06 / 2024-06-14 | 2024-06-26 13:22:53 GMT | `d73b41f3cbc7da1:0` | "The default is “Fund Name Only”." |
+
+**All seven "Giving Platform" copies carry the same ETag and Last-Modified time.** They are one deployment, written to the servers at 2026-11-10 19:59:13 GMT [F].
+
+### 1.4 Bracketing the switch
+
+**RCF core portal (rcf.donorfirstx.com, `Donor User Guide.pdf`):**
+- **Before.** The last capture is **2026-07-22 20:08:22**. It predates the current file's own creation date (2026-10-06), so the URL then served a **different, earlier file** [I from dates]. Its text, and so whether it said "Fund Name Only", is unknown (P-NPTREN-01).
+- **After.** The full-contact file cannot have been served before **2026-10-06 20:35:40** (its PDF creation time). It was last written to the server on **2026-11-10**, and it was read on **2026-11-19**.
+- **Bracket:** the switch on this path happened **after 2026-07-22 and by 2026-11-19**. Within that, the file evidence points to 2026-10-06 to 2026-11-10 [F/H/I].
+- **Bracketing hashes:**
+  - "after": the live file, SHA-1 `93d97b49e84a…`;
+  - "before": unavailable, since the 2026-07-22 snapshot could not be opened.
+
+**Same path on other RCF portals:**
+- Ameriprise (2024-09-03) and MDRT (2025-03-20, 2025-07-24, 2026-07-10) captured a `Donor User Guide.pdf` before the current file existed.
+- So each portal had an earlier guide at the very path the 2026 file now occupies. The 2026 guide **replaced** earlier files rather than adding a new path [I].
+- The latest pre-switch capture on any portal is MDRT, 2026-07-10, which fits the RCF bracket.
+
+**UBS portal (the two-guide program):**
+- The 2309 "Fund Name Only" guide was captured on **2025-04-21**. Its live copy has been unchanged on the server since 2024-06-26 (Last-Modified, and the PDF's own 2024-06-14 date). The capture is therefore very probably the same file [I].
+- The Giving Platform path on UBS has no capture.
+- So UBS has served the "Fund Name Only" guide continuously from at least June 2024 [F] / April 2025 [H] to today, and it gained the full-contact guide alongside it in the October–November 2026 deployment.
+
+**TDA:** no capture. The live 2309 guide (Fund Name Only) has been unchanged since 2024-07-12 [F].
+
+**Reading:**
+- On RCF's portals, the full-contact text arrives with **one Ren deployment** of the generic "Giving Platform" guide: one file, one server write time, seven portals.
+- The text was not phased in program by program. That fits the platform-release reading in b4428-02 §3.4 better than an RCF-only setting [I].
+- What the capture history **cannot** show is whether the pre-October files at the same paths said "Fund Name Only". Only the snapshot contents (P-NPTREN-01) can settle that.
+- A `pdf-lib` save date can postdate older text, so 2026-10-06 bounds the file, not the wording.
 
 ## 2. P-G0702-05: NPT segregated (adviser-managed) account assets
 
@@ -183,6 +250,14 @@ The return is NPT's FY2025 Form 990: object 202601289349302480, EIN 237825575, t
 - If both receipts are real and separate, the other one is not in Part II as a single line. It would then sit outside Schedule F or be split into lines under $16.8m [I].
 
 **Effect:** if the line is the transfer, 12.6% of NPT's FY2025 Schedule F line 3 ($39.1m of $310.5m) is affiliate re-granting. That is in line with the g0702 estimate of ≈ 12.9% at the mean rate [C].
+
+### Repo passages these findings change (proposals only; no existing file was edited)
+
+- **"$116.3m / $116,260k asset management fees"** should read "program services expense excluding grants ($116,260k; FY2024 $94,289k)". It appears in:
+  - g0702-b4531 §2.5;
+  - `queue-batch37-filing-questions.md` (P-GPT-03 row and the FY2025 consolidated-statements source row).
+  `queue-batch35-access-owners-faith.md` already flags the caption as a probable layout error, which is now confirmed. Its 27 bps "fee" reading should be dropped (P-NPTREN-06).
+- **b4428-02 §3.4:** the switch can now be dated to a single October–November 2026 deployment across seven RCF portals. The "before" text is still unread.
 
 ## 4. Method
 

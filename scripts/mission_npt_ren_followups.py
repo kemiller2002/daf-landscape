@@ -255,7 +255,7 @@ NPT25 = "https://www.nptrust.org/wp-content/uploads/2026/09/FY25-AR-Consolidated
 NPT24 = "https://www.nptrust.org/wp-content/uploads/2025/10/Consolidated-Statements-2024-NPT.pdf"
 STATEMENTS = (  # (subject, fy, value_usd_thousands, quote, url, sha1, note)
     ("Investments, fair value", "FY2025", 47837978, "Investments, fair value 47,837,978", NPT25, "e7529055f11cff15942e93076c023d62c617aa6e", "no split by pooled/segregated"),
-    ("Investments, fair value", "FY2024", 36915275, "Investments, fair value 36,915,275", NPT25, "e7529055f11cff15942e93076c023d62c617aa6e", ""),
+    ("Investments, fair value", "FY2024", 36915275, "Investments, fair value 36,915,275 23,080,890", NPT24, "ddfc47eeea7af36a33b2251b559e66e893282b8b", "FY2024 PDF"),
     ("Expense row captioned 'Asset management fees payable'", "FY2025", 116260, "Asset management fees payable 116,260 94,289", NPT25, "e7529055f11cff15942e93076c023d62c617aa6e", "caption reused from liabilities; same FY2024 figure is 'Program services' in the FY2024 PDF"),
     ("Program services (FY2024 PDF caption)", "FY2024", 94289, "Program services 94,289 71,021", NPT24, "ddfc47eeea7af36a33b2251b559e66e893282b8b", "so 116,260 (FY2025) is program services excluding grants"),
     ("Balance-sheet liability 'Asset management fees payable'", "FY2025", 400, "Asset management fees payable 400 353", NPT25, "e7529055f11cff15942e93076c023d62c617aa6e", "the real fee payable"),
@@ -298,7 +298,7 @@ def wayback_rows(path):
           source_url=c["snapshot_url"], evidence="H", note="availability API only; snapshot not opened (web.archive.org unreachable); no digest")
         for t in data for c in t["captures"]) + tuple(
         R(item="P-B442802-01", row_type="wayback_none", subject=t["url"], value="0", unit="count",
-          source_url="https://archive.org/wayback/available?url=" + t["url"], evidence="H", note="no capture returned at any probe (2021-01 to 2026-11 grid)")
+          source_url="https://archive.org/wayback/available?url=" + t["url"], evidence="H", note="no capture returned at three spread-out pilot probes (2021-01, 2023-12, 2026-11), each retried up to 3 times")
         for t in data if not t["captures"])
 
 
