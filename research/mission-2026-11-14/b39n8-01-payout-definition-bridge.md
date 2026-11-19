@@ -16,9 +16,9 @@ Evidence tags: [F] computed here from filed/panel data, [Q] quoted from a primar
 | **Where does "23.9%" come from?** | It is **NPT's FY2023 aggregate payout**: all grants divided by all prior-year assets (NPT 2024 DAF Report; quoted by IPS 2025 p.14) [Q]. The repo's corrected panel gives **24.0%** on the same definition for FY2023 (market total $54.83bn / $228.14bn) [F]. The repo's other "23.9%" (pooled FY2021–24, excluding processors, itemised Schedule I sample; [queue-net-payout-fidelity-outliers.md](queue-net-payout-fidelity-outliers.md)) is a different statistic that happens to be equal. |
 | **IPS 9.7% reproduced?** | **Exactly, from IPS's own sponsor file:** the median of its 1,487 FY2023 sponsor rates is 9.68%, the same as its Summary Table. Recomputing grants ÷ (assets + grants) from IPS's columns gives the same rates to within 5e-12 [F]. **On the repo panel, the same formula gives 9.33%** (1,481 sponsors with assets > 0). The gap is **entirely a difference in universe**. On the 1,315 EINs in both datasets, all 1,315 rates agree to within 0.05 points, and both medians are 9.77% [F]. |
 | **Why the universes differ** | (1) IPS computes no rate for **248 sponsors whose DAF-grants cell is blank**, but keeps 100 with an explicit 0. Counting the blanks as 0% would give an IPS median of **7.72%** [F]. (2) IPS has **172 small sponsors that were never in the DAFRC panel** (169 single-issue; median DAF assets $126k; median rate 7.3%). (3) The repo has **166 sponsor-years outside IPS's rated set**: 79 have a blank grants cell in IPS, 87 are not on IPS's list, 83 have zero grants, and 23 still use imputed values [F]. The repo panel with DAF grants > 0 gives 10.20%. So the two bounds, 9.33% and 10.20%, bracket IPS's 9.68% [F]. |
-| **(a) vs (b), FY2023** | Excluding processors: **beginning assets: median sponsor 11.2%, pooled 22.6%. IRS/IPS formula: median 9.2%, pooled 16.7%** [F]. Across FY2020–24, the IRS formula is 1.0–3.0 points below beginning assets at the median and 5.9–10.2 points below in the pooled figure (§2). |
+| **(a) vs (b), FY2023** | Excluding processors: **beginning assets: median sponsor 11.2%, pooled 22.6%. IRS/IPS formula: median 9.2%, pooled 16.7%** [F]. Across FY2020–24, the IRS formula is 0.6–3.1 points below beginning assets at the median and 3.6–10.2 points below in the pooled figure (§3). |
 | **(c) filters** | The ≥$1m filter raises the median by 0.3–0.7 points and barely moves the pooled figure. FY2023 medians are 11.8% (beginning assets) and 9.7% (IRS). Removing processors lowers the pooled beginning-asset figure by 1.4–1.8 points (FY2023: 24.0% → 22.6%) and moves the median by ≤0.2 points [F]. |
-| **(d) net of R5 (central)** | FY2023, excluding processors: pooled beginning-assets payout falls from **22.6% to 20.8%** and the median from 11.2% to 11.1%. Pooled IRS falls from 16.7% to 15.6%; the median from 9.2% to 9.1%. Netting moves pooled figures by 1.0–3.0 points but medians by ≤0.6 points [F]. |
+| **(d) net of R5 (central)** | FY2023, excluding processors: pooled beginning-assets payout falls from **22.6% to 20.8%** and the median from 11.2% to 11.1%. Pooled IRS falls from 16.7% to 15.6%; the median from 9.2% to 9.1%. Central-tier netting moves pooled figures by 1.1–3.2 points but medians by ≤0.4 points (≤0.8 in the upper tier) [F]. |
 | **Bridge from 23.9% to 9%, FY2023** [I for the attribution] | Total gap 14.9 points. (i) Data/universe (NPT vs corrected panel): +0.1. (ii) Processors removed: −1.5. (iii) **Denominator** (beginning → IRS, Shapley): **−5.9**. (iv) **Sponsor weighting**: pooled → median sponsor −9.4, then median sponsor → median *account* if every account paid its sponsor's rate +8.3 (net −1.1). (v) **Within-sponsor distribution** (residual to 9%) **−6.6** [I]. If DAFRC's account rate is closer to beginning assets, the denominator step drops out and the within-sponsor residual becomes −12.5 [I]. |
 | **Reading** [I] | The median sponsor on the IRS formula (9.3%) lands next to DAFRC's account median (9%) by coincidence, not because the two measure the same thing. Weighted by accounts, the median account sits at a fast-paying national: Fidelity's own rate in 4 of 5 years (FY2023: 15.6% IRS formula, 21.5% beginning assets). For the account median to be 9%, account rates within sponsors must be strongly right-skewed. That fits DAFRC's own mean of 18% against a median of 9%, and its 22% of inactive accounts [Q]. |
 
@@ -108,9 +108,9 @@ The steps between them:
 All values are [F]. Further rows are in the CSV: R5 lower and upper for every sample, p25, p75, mean, share below 5%, and the account-weighted median.
 
 **What the grid shows** [F]:
-- The denominator moves medians only modestly (1–3 points) but moves pooled figures a lot (6–10 points). Pooled payout is driven by large, fast-paying sponsors, whose grants are a large fraction of their year-end assets plus grants.
+- The denominator moves medians only modestly (0.6–3.1 points) but moves pooled figures a lot (3.6–10.2 points). Pooled payout is driven by large, fast-paying sponsors, whose grants are a large fraction of their year-end assets plus grants.
 - The ≥$1m filter and the filed-only filter each move the median by under 1 point.
-- R5 netting lowers pooled payout by 1.0–3.0 points (FY2022 excluding processors: 22.2% → 19.5%) but medians by ≤0.6 points. Most small sponsors make few or no DAF-to-DAF grants.
+- R5 central netting lowers pooled payout by 1.1–3.2 points (FY2022 excluding processors: 22.2% → 19.5%) but medians by ≤0.4 points (≤0.8 in the upper tier). Most small sponsors make few or no DAF-to-DAF grants.
 - FY2020's market total (26.9%) is above the matched pooled figure (24.8%). Its denominator is the uncorrected FY2019 panel, and its numerator includes sponsors without a FY2019 row.
 
 ### 3.1 IPS reproduction by year (IRS formula, all sponsor types)
@@ -158,7 +158,7 @@ These are universe differences that Schedule D Part I and the DAFRC panel cannot
 
 ## 5. Decomposition of the 23.9% → 9% gap
 
-### 5.1 FY2023, excluding processors, matched sample (n = 1,418), gross
+### 5.1 FY2023, excluding processors, matched sample (n = 1,417), gross
 
 | Weighting ↓ / denominator → | Beginning assets | IRS (EOY + grants) |
 |---|---|---|
