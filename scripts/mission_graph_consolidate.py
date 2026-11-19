@@ -526,3 +526,23 @@ def dedup(edges: tuple, superseded: dict) -> tuple:
                     "superseded_ids": ";".join(i for i in ids if i in superseded),
                     "member_files": ";".join(sorted({m["file"] for m in members}))})
     return tuple(sorted(out, key=lambda e: e["edge_id"]))
+
+
+PLACEHOLDER_RX = r"^(unknown|unidentified|any daf|daf providers on dafpay)"
+REDTEAM_STATUSES = ("inferred", "unknown", "probable", "reported", "pending")
+VENDOR_CLAIM_RX = r"vendor[- ]claim|vendor[- ]stated|\[V\] vendor|vendor wording"
+
+
+def evidence_class(e: dict) -> str:
+    blob = " ".join((e["evidence_summary"], e["notes"], e["source_url"]))
+    if e["status"] in REDTEAM_STATUSES:
+        return e["status"]
+    if "crt.sh" in e["source_url"].lower():
+        return "crt.sh-sourced"
+    if e["relationship_type"] == "vendor_claim" or re.search(VENDOR_CLAIM_RX, blob, re.I):
+        return "vendor_claim"
+    return ""
+
+
+def redteam_set(edges: tuple, superseded: dict) -> tuple:
+    return tuple(e for e in edges if evidence_class(e) and e["edge_id"] not in superseded)

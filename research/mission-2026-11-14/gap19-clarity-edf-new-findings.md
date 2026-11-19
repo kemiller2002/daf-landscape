@@ -384,14 +384,14 @@ Postures across the 33 rows:
 
 | Posture | Docs |
 |---|---|
-| Fast | 8 |
-| Experimental | 12 |
-| Guardrail | 8 |
-| Strategic | 5 |
+| Fast | 9 |
+| Experimental | 13 |
+| Guardrail | 7 |
+| Strategic | 4 |
 
 These counts are a tally of the CSV, not evidence.
 
-The four docs diagnosed here carry `edf_status = diagnosed_G12-n`. Seven more carry `eligible_not_diagnosed` and are candidates for a later EDF pass:
+Five docs carry `edf_status = diagnosed_G12-n`: G12-1 draws on two of them (cf-consolidation-fees and sponsor-executive-compensation), and G12-2 to G12-4 on one each. Seven more carry `eligible_not_diagnosed` and are candidates for a later EDF pass:
 - ai-product-census
 - gift-office-daf-handling
 - nonprofit-donate-pages
@@ -431,4 +431,4 @@ Text for `industry-incentives-structural-analysis.md` §6: §§2–5 above, as O
 - All diagnoses are desk analysis on repository documents. No new fetching was done.
 - The classifications are suggestive by construction: the same research process that produced the facts also produced these readings, so they are not independent replications.
 - Postures describe an entrant's response under the stated assumptions. They are not recommendations to act without the reconsideration checks.
-- The posture matrix ambiguity in the pinned Clarity text (§0) is resolved toward the prose. A reader applying the ASCII figure would swap Guardrail and Strategic on the correctability axis for the two rows marked Guardrail in §§3–4.
+- The posture matrix ambiguity in the pinned Clarity text (§0) is resolved toward the prose. A reader applying the ASCII figure instead (Guardrail on the high-correctability side) would relabel as Strategic the responses marked Guardrail in §§3–4, because those are high impact with low correctability.

@@ -503,3 +503,6 @@ The repo already documents several sources of lock-in:
 Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
 
 - **W4-13** (research/mission-2026-11-14/industry-incentives-structural-analysis.md line 143): replace "Sixteen attorneys general asked them on May 22, 2026" → "Sixteen attorneys general, led by Minnesota, asked them in a letter dated May 21, 2026 (California release May 22)"
+
+## Additions (2026-11-19): Outcomes D–G under EDF v0.3 and Clarity
+Four newly observed outcomes were run through the EDF v0.3 nine-step sequence with Clarity posture: the community-foundation cost gap (D), withheld donor contact data by default (E), no open DAF grant-request standard (F), and Fidelity's pool shortfall about equal to its admin fee over five years (G). Full diagnostics, claim states and confidence are in [gap19-clarity-edf-new-findings.md](gap19-clarity-edf-new-findings.md) §§2–5; the four corresponding rows were appended to `data/mission-2026-11-14/incentive-map.csv`. All 33 direction documents now carry a Clarity/EDF tag in `data/mission-2026-11-14/clarity-edf-direction-tags-2026-11-19.csv`.
