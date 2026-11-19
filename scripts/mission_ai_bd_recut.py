@@ -23,7 +23,8 @@ B and D recut [I = inference; evidence ids refer to data/mission-2026-11-14/ai-b
     BD_WIDE     explicit ignorance sweep [I]: r_B, r_D ~ U(0.07, 1.00) and d_p lower bound widened from 0.3*d1 to 0
                 for every process without redesign evidence (all but P09/P10).
     BD_PROGRAM  stress [I]: r_B, r_D ~ U(0.07, 0.15) (HUD program-level realization incl. unused bots); P09/P10 r_D = 1.
-  r_B and r_D are drawn once per iteration from an independent stream Random(42 + 15485863); independence is [I].
+    ABD_FIELD   BD_FIELD plus the same realization range on A (manual improvement, also a v1 prior) [I].
+  r_B, r_D (and r_A) are drawn once per iteration from an independent stream Random(42 + 15485863); independence is [I].
 
 C variants (all on CAL_CENTRAL calibrated draws)
   ASSIST          calibrated C (assist every amenable case)
@@ -77,6 +78,8 @@ BD_SPECS = (
      "note": "ignorance sweep [I]: r~U(0.07,1.0); d_p lower bound 0 for processes without redesign evidence"},
     {"id": "BD_PROGRAM", "rB": ("uni", (0.07, 0.15)), "rD": ("uni", (0.07, 0.15)), "d_wide": False,
      "note": "stress [I]: program-level realization 7-15% (BD-E01); P09/P10 r_D=1"},
+    {"id": "ABD_FIELD", "rB": ("tri", R_FIELD), "rD": ("tri", R_FIELD), "rA": ("tri", R_FIELD), "d_wide": False,
+     "note": "BD_FIELD plus the same realization range on manual improvement A (alpha is also an uncalibrated v1 prior) [I]"},
 )
 C_VARIANTS = (
     {"id": "ASSIST", "kind": "assist", "ranges": None, "m": 1.0},
@@ -200,9 +203,9 @@ def draw_r(u: float, dist) -> float:
     return v2.tri(u, *par) if kind == "tri" else v2.uni(u, *par)
 
 
-def recut_stream(n: int) -> tuple[tuple[float, float], ...]:
+def recut_stream(n: int) -> tuple[tuple[float, float, float], ...]:
     rng = random.Random(RECUT_SEED)
-    return tuple((rng.random(), rng.random()) for _ in range(n))
+    return tuple((rng.random(), rng.random(), rng.random()) for _ in range(n))
 
 
 def draw_route_a01(u: Sequence[float]) -> dict:
@@ -240,16 +243,17 @@ def bd_values(cp: Mapping, spec: Mapping, rB: float, rD: float) -> tuple[float, 
     B = cp["others"]["B"] * rB
     has_ev = cp["pid"] in D_EVIDENCE_PROCS
     D0 = (d_wide(cp["u_d"], cp["d"], cp["d1"]) * cp["L"]) if (spec["d_wide"] and not has_ev) else cp["others"]["D"]
-    return B, D0 * (1.0 if has_ev and spec["id"] in ("BD_FIELD", "BD_PROGRAM") else rD)
+    return B, D0 * (1.0 if has_ev and spec["id"] in ("BD_FIELD", "BD_PROGRAM", "ABD_FIELD") else rD)
 
 
-def eval_draw(d: Mapping, cvals: Mapping, spec: Mapping, ru: tuple[float, float], fixed_r: float | None = None) -> dict:
+def eval_draw(d: Mapping, cvals: Mapping, spec: Mapping, ru: Sequence[float], fixed_r: float | None = None) -> dict:
     rB = fixed_r if fixed_r is not None else draw_r(ru[0], spec["rB"])
     rD = fixed_r if fixed_r is not None else draw_r(ru[1], spec["rD"])
+    rA = draw_r(ru[2], spec.get("rA")) if fixed_r is None else 1.0
     out = {}
     for cp in d["procs"]:
         B, D = (cp["others"]["B"] * rB, cp["others"]["D"] * rD) if fixed_r is not None else bd_values(cp, spec, rB, rD)
-        gross = {"A": cp["others"]["A"], "B": B, "C": cvals[cp["pid"]], "D": D}
+        gross = {"A": cp["others"]["A"] * rA, "B": B, "C": cvals[cp["pid"]], "D": D}
         net = {i: gross[i] - cp["F"][i] for i in OPTS}
         best_bd = max(cp["others"]["B"], cp["others"]["D"])
         c = gross["C"]
@@ -348,7 +352,8 @@ def evidence_rows() -> list[dict]:
 
 
 def spec_rows() -> list[dict]:
-    out = [row("ALL", "spec", sp["id"], "ALL", "spec", "bd_spec", f"rB={sp['rB']}; rD={sp['rD']}; d_wide={sp['d_wide']}",
+    out = [row("ALL", "spec", sp["id"], "ALL", "spec", "bd_spec",
+               f"rB={sp['rB']}; rD={sp['rD']}; rA={sp.get('rA')}; d_wide={sp['d_wide']}",
                note=sp["note"], record_type="spec") for sp in BD_SPECS]
     out += [row("ALL", cv["id"], "spec", "ALL", "spec", "c_spec", f"kind={cv['kind']}; ranges={cv['ranges']}; m={cv['m']:g}",
                 note=("G04: h~U(.21,.49), e~U(0,.10)" if cv["ranges"] == "G04" else
