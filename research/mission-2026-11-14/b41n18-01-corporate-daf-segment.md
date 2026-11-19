@@ -19,8 +19,8 @@
 
 | Question | Answer | Confidence |
 |---|---|---|
-| Do the 14 sponsors publish a corporate vs individual split? | **13 of 14 publish none, for any of the four metrics** (DAF counts, contributions, grants, fees), in any CY2021–2025 source read:<br>- 61 Form 990 returns: Schedule O and Schedule D narrative, plus a full-text scan of every narrative field;<br>- audited statements where reachable;<br>- annual reports and web pages.<br>**The exception is SVCF.** Its audited notes give **corporate-advised fund grants** for every year 2021–2025: about $100m, $175m, $134m, $189m and $153m [F]. SVCF publishes no corporate count, contribution, asset or fee figure. | High for the sources read; 4 community-foundation sites could not be read (§6) |
-| Corporate share where data exist (grants) | - **SVCF:** 2.8%–6.9% of advised-fund grants by year [C].<br>- **Fidelity Charitable:** 3.5% (2024) and 2.95% (2025) of all grants [C].<br>- **Pooled Fidelity + SVCF:** **3.9% (CY2024)** and **3.4% (CY2025)** [C].<br>- Adding AOGF's Schedule D DAF column as if it were all corporate raises the pooled share to **9.1%** [C]. That is an upper bound: wave 26 found the column is not wholly corporate. | High (lower bound); medium (upper bound) |
+| Do the 14 sponsors publish a corporate vs individual split? | **13 of 14 publish none, for any of the four metrics** (DAF counts, contributions, grants, fees), in any CY2021–2025 source read:<br>- 61 Form 990 returns: Schedule O and Schedule D narrative, plus a full-text scan of every narrative field;<br>- audited statements where reachable;<br>- annual reports and web pages.<br>**The exception is SVCF.** Its audited notes give **corporate-advised fund grants** for every year 2021–2025: about $100m, $175m, $134m, $189m and $153m [F]. SVCF publishes no corporate count, contribution, asset or fee figure. | High for the sources read; 5 community foundations’ statements could not be read: Chicago and California CF (robots.txt 403), Oregon CF (/assets disallowed), Columbus (none located) and GKCCF (no statements link) (§6) [V wave 36A] |
+| Corporate share where data exist (grants) | - **SVCF:** 2.8%–6.9% of advised-fund grants by year [C].<br>- **Fidelity Charitable:** 3.5% (2024) and 2.95% (2025) of all grants [C].<br>- **Pooled Fidelity + SVCF:** **3.9% (CY2024)** and **3.4% (CY2025)** [C].<br>- Adding AOGF's Schedule D DAF column as if it were all corporate raises the pooled share to **9.1%** [C]. That is an upper bound only for this three-sponsor pool, not for the market. It mixes CY2025 with FYE 2026-03 and puts AOGF’s non-DAF other-funds column ($935.7m) in the denominator. Its level is set mainly by AOGF’s weight in the pool ($1.39bn of $22.8bn). AOGF’s Schedule D Part XIII says corporate donors give into its DAFs with ongoing advice, while individual micro-donations carry none. So the column is probably mostly corporate [I], and 9.1% is likely close to the pool’s true value rather than a loose bound [V wave 36A] | High (lower bound); medium (upper bound) |
 | Corporate share of assets | **Not estimable from published data** except at AOGF: its DAF column holds $205.7m of $268.0m Schedule D end-of-year value (76.7%) [C]. Neither Fidelity nor SVCF publishes corporate assets. | — |
 | Extrapolation to the 13 sponsors without a split | **[I] $278m–$691m of corporate DAF grants**, on $9.95bn of FY2024 Schedule D grants. This applies the observed 2.8%–6.9% range. It assumes their mix is like Fidelity's and SVCF's, which is untested. Tides and GKCCF probably sit above it (§4). | Low |
 | Do sponsor sources confirm the repo's named programs? | **Sponsor-side confirmation in the 2021+ window: PagerDuty and Unity (Tides blog, 2021), NVIDIA (SVCF page, 2022) and Remitly (RPA article, 2026).**<br>- Okta and Twilio appear only in dated Tides posts (2018, 2019).<br>- The other named programs appear in no sponsor's 990, audited statements or pages: Braze, Olo, Zuora, Upwork, Rapid7, Hyatt (NPT), CrowdStrike (CAF), Brilliant Earth, Pluralsight and Lam.<br>- Four corporate programs that the SEC list lacks were found on sponsor pages: DoorDash and eBay (SVCF), Bain Capital Relief Fund and IR+M (Boston Foundation). | High |
@@ -43,7 +43,7 @@
    - Schedule D Part I DAF and "funds and other accounts" columns (`DonorAdvisedFundsHeldCnt`, `…ContriAmt`, `…GrantsAmt`, `…VlEOYAmt`).
    - Every Schedule D supplemental and Schedule O explanation.
    - A regex scan of **every** text field in each return (Part III program text, mission, Schedule I purposes) for corporate-DAF phrases.
-   - The values match the repo harvest [`form990-returns-schedule-d-harvest-full.csv`](../../data/mission-2026-11-14/form990-returns-schedule-d-harvest-full.csv) for all 46 overlapping returns (0 mismatches) [C].
+   - The values match the repo harvest [`form990-returns-schedule-d-harvest-full.csv`](../../data/mission-2026-11-14/form990-returns-schedule-d-harvest-full.csv) for the 46 overlapping returns that have harvest values (0 mismatches). A 47th overlapping return, Boston Foundation 202641269349301584, has blank harvest values (http_404) [C] [V wave 36A]
 4. **Audited statements and reports.** These were found through each host's robots-allowed sitemap or financials page, then converted with `pdftotext` and searched for "corporate", "company" and "advised":
    - Tides consolidated FS (CY2022, CY2023, CY2024);
    - CAF America FS (FYE 2023-04, 2024-04) and the CAF Group Annual Report 2024/25;
@@ -102,7 +102,7 @@ Year-by-year values for every return are in CSV rows SN01–SN61. One filed anom
 
 ### 2.2 Corporate signals that are not splits
 
-- **Tides CY2024 Schedule I** lists a $1,696,333 grant to "AMERICAN ONLINE GIVING FOUNDATION INC (EMPLOYEE GIVING)" [X] ([XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202523189349301347_public.xml)). Corporate or employee-matching flows therefore leave Tides through Benevity's AOGF. The corporations page also advertises "partnerships with employee giving match programs" [F].
+- **Tides CY2024 Schedule I** lists a $1,696,333 grant to "AMERICAN ONLINE GIVING FOUNDATION INC (EMPLOYEE GIVING)" [X] ([XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202523189349301347_public.xml)). This is one $1.7m Tides grant to AOGF’s employee-giving program (purpose “Equity, human rights, and economic empowerment”). It does not show which Tides fund made the grant, or that the money is corporate, so it is a signal only [V wave 36A] The corporations page also advertises "partnerships with employee giving match programs" [F].
 - **CAF America** sells an Employee Engagement Fund: company-funded matching-gift and volunteer-grant funds [F]. These funds are not reported separately.
 - **The CAF Group (UK) Annual Report 2024/25** reports "Corporate donors £71.2m paid out to charities worldwide" [F]. This is a group-wide figure, not CAF America's and not DAF-specific, so it is **not used** for sizing.
 - **Fidelity Charitable 2024:** the corporate share of grant *count* was 24,975 of "nearly 2.7 million" grants, about **0.9%** [C]. The corporate share of grant *dollars* was 3.5%: corporate grants average more than three times the dollar size.
@@ -123,7 +123,7 @@ The 2025 report also gives 2023 corporate grants as $237M. SA01's note on the re
 
 ### 3.2 SVCF corporate-advised funds (SA02, extended back to 2021)
 
-Each audited statement gives two years, under its "Corporate Advised" and "Advised Funds" net-asset notes.
+Each audited statement gives two years, under its "Corporate Advised" and "Advised Funds" programme descriptions in Note 1 (Programs), not in a net-asset note [V wave 36A].
 
 | Year | Corporate-advised grants | Donor-advised grants | Corporate share of the two [C] | Source |
 |---|---|---|---|---|
@@ -164,7 +164,7 @@ Each audited statement gives two years, under its "Corporate Advised" and "Advis
 **B. [I] Extrapolation to the 13 sponsors without a split (SE04).**
 - Method: apply the lowest and highest single-year shares observed at Fidelity and SVCF (2.80% to 6.94%, CY2021–2025) to the 13 sponsors' FY2024 Schedule D DAF grants. FY2024 follows the league-table convention: Tides FYE 2024-12, CAF FYE 2024-04, NPT FYE 2024-06, and so on.
 - Base: $9.95bn of grants, of which NPT is $5.56bn.
-- Result: **$278m–$691m of corporate DAF grants [I]**.
+- Result: **$278m–$691m of corporate DAF grants [I]**. Two further caveats apply. If a sponsor reports corporate funds outside its Schedule D DAF column (unknown even at SVCF, §3.2), the corporate amount adds to the base rather than sitting inside it. CAF America’s FYE 2024-04 Schedule D ($821.2m grants; $441.3m end-of-year value) does not match CAF America’s own column in its consolidating schedule ($730.5m grants to third parties; $200.5m designated DAFs). The end-of-year value is near the consolidated $430.8m, so the base may include CADF and CAF Canada [V wave 36A]
 
 Why this is low confidence:
 - **NPT dominates the base**, and NPT publishes nothing on its corporate book. Hyatt is the only NPT corporate DAF named in SEC filings.
@@ -172,7 +172,7 @@ Why this is low confidence:
   - It is Pledge 1%'s default U.S. corporate DAF partner (direction doc §3).
   - Eight SEC-named corporate DAFs sit at Tides. That is **≥3.1% of its 261 CY2024 DAFs by count** [C], if all eight are still active.
   - Its web page claims "over 400 donor advised funds", which does not reconcile with the 261 on its 990.
-- **GKCCF's "hundreds of companies" claim** implies ≥200 corporate DAFs [I: reading "hundreds" as at least 200]. That is **≥6.6% of its 3,052 DAFs by count**, which is far above Fidelity's 0.25%.
+- **GKCCF's "hundreds of companies" claim** implies ≥200 corporate DAFs [I: reading "hundreds" as at least 200]. That is **≥6.6% of its 3,052 DAFs by count**, which is far above Fidelity's 0.25%. The page is undated marketing copy and counts companies, not funds, so the 200-fund floor is an inference, not a filed number [V wave 36A]
 - Count floors from named programs elsewhere are small:
   - RPA: ≥1 of 67 (1.5%; Remitly) [C];
   - SVCF: ≥5 named corporate-advised funds (Brilliant Earth, Pluralsight, NVIDIA, DoorDash, eBay) against 1,011 Schedule D DAFs (0.5%) [C]. It is unknown whether Schedule D counts them.

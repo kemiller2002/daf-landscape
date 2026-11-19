@@ -15,12 +15,12 @@ Evidence tags: [F] filed figure, [C] computed here, [I] inference.
 |---|---|
 | **Coverage** | 96 of the 100 largest CFs (by FY2024 DAF assets) have an itemised FY2023–24 Schedule I in XML: 190 returns, 173,088 lines after removing DAF-to-DAF lines, $22.07bn of US-located grant dollars. The other 4 CFs (Hawaii, Sacramento Region, Monterey County, SW Washington) file Schedule I as an attachment only [C]. |
 | **Reproduces P-NEW-GEO-01** | For the 22 CFs in the earlier study, own-state shares match exactly (maximum absolute difference 0.0000). Own-metro shares differ by at most 0.0001 (CF of Tampa Bay, rounding) [C]. |
-| **Local share, 96 CFs** | **Median own-state share 83.1%** (mean 78.3%, range 20.0% Chicago Community Trust to 98.8% Omaha CF). **Median own-metro share 69.4%** (n = 94). **Median own-county share 54.5%** (n = 94). Dollar-pooled own-state share 65.3%; SVCF and Chicago pull the pooled figure down [C]. |
-| **Smaller CFs are more local** | The 74 CFs not in the earlier study have a median own-state share of 85.7%, against 71.2% for the earlier 22. CFs ranked 51–100 have a median of 86.0%, against 76.8% for ranks 1–50. Only 4 of the 96 CFs keep less than half their dollars in-state (Chicago, Greater Kansas City, CF of New Jersey, Greater Cincinnati); 55 keep 80% or more [C]. |
+| **Local share, 96 CFs** | **Median own-state share 83.1%** (mean 78.3%, range 20.0% Chicago Community Trust to 98.8% Omaha CF; Omaha’s XML Schedule I is truncated to 8 of 800+ recipients a year, so the highest measured share is Idaho CF at 98.0%) [V wave 36A]. **Median own-metro share 69.4%** (n = 94). **Median own-county share 54.5%** (n = 94). Dollar-pooled own-state share 65.3%; SVCF and Chicago pull the pooled figure down [C]. |
+| **Smaller CFs are more local** (unconditional medians; with DAF share held fixed, neither size term is significant for own-state share, §3.2) [V wave 36A] | The 74 CFs not in the earlier study have a median own-state share of 85.7%, against 71.2% for the earlier 22. CFs ranked 51–100 have a median of 86.0%, against 76.8% for ranks 1–50. Only 4 of the 96 CFs keep less than half their dollars in-state (Chicago, Greater Kansas City, CF of New Jersey, Greater Cincinnati); 55 keep 80% or more [C]. |
 | **Does local share fall as the DAF share rises?** | **Yes, in the cross-section.** Pearson r = **−0.45** (95% CI −0.59 to −0.27, n = 95); Spearman ρ = −0.43 (bootstrap CI −0.60 to −0.23). OLS with log DAF assets and log Schedule I dollars as size controls: **−0.25 own-state share per unit DAF share** (HC1 95% CI −0.39 to −0.10). So 10 points more DAF share goes with about 2.5 points less in-state share. The size controls themselves are not significant [C]. |
-| **Robustness** | The slope stays negative without SVCF (−0.25, CI −0.40 to −0.10). It also holds for the 74 newly added CFs alone (−0.23, CI −0.38 to −0.09), and without the 21 CFs whose home metro crosses a state line (−0.18, CI −0.31 to −0.04). For own-metro share the slope is −0.21 (CI −0.39 to −0.02). For own-county share it is −0.23, but the CI (−0.46 to +0.003) includes zero [C]. |
+| **Robustness** | The slope stays negative without SVCF (−0.25, CI −0.40 to −0.10). It also holds for the 74 newly added CFs alone (−0.23, CI −0.38 to −0.09), and without the 21 CFs whose home metro crosses a state line (−0.18, CI −0.31 to −0.04). For own-metro share the slope is −0.21 (CI −0.39 to −0.02). For own-county share it is −0.23, but the CI (−0.46 to +0.003) includes zero [C]. An independent re-estimation (statsmodels, HC1) reproduces every slope and CI to ±0.001. A multi-state-metro dummy used as a control, instead of dropping those CFs, gives −0.23 (−0.37 to −0.09). Dropping the 4 CFs under 50% in-state gives −0.19 (−0.33 to −0.06). Leave-one-out slopes range from −0.28 to −0.22 [V wave 36A] |
 | **DAF vs discretionary split** | **Not possible for 93 of 96 CFs.** Purpose text marks DAF grants on only $118m of $22.07bn (0.5%), and discretionary grants on $7m. Three CFs label DAF grants line by line, and the within-CF comparison splits 2 to 1. DAF-flagged lines are less in-state at Birmingham (68.3% vs 98.8%) and Lancaster County (95.8% vs 98.1%), but more in-state at Minneapolis (78.0% vs 72.2%). So the cross-CF result uses the Schedule D DAF share of grants as a covariate, as the brief allowed [C]. |
-| **Reading** | The relationship is an association across CFs, not a measured effect of DAF grants themselves. CFs whose grants are mostly DAF grants (Chicago 94%, CF of New Jersey 100%, SVCF 95%) also have national or metropolitan-commuter donor bases [I]. |
+| **Reading** | The relationship is an association across CFs, not a measured effect of DAF grants themselves. It is also close to what a pure composition effect would give. The bivariate fit is 100.8% in-state at a DAF share of 0 and 66.4% at a share of 1, as if non-DAF grants were all in-state and DAF grants two-thirds in-state. The data cannot separate this from donor-base confounding. The direction may also run the other way: a CF with a national brand or national grantees may draw more DAF donors [V wave 36A] CFs whose grants are mostly DAF grants (Chicago 94%, CF of New Jersey 100%, SVCF 95%) also have national or metropolitan-commuter donor bases [I]. |
 
 ## 1. Question and definitions
 
@@ -45,7 +45,7 @@ The question is whether the earlier finding (22 top-50 CFs: median 71% in-state)
    - That leaves 190 returns for 96 CFs.
 3. **Lines.** Each return's Schedule I `RecipientTable` was re-read in full: EIN, name, state, ZIP, city, cash, non-cash and purpose.
    - 30 returns came from local XML copies in scratch; 160 were streamed from the GivingTuesday mirror of IRS TEOS (`https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/{object_id}_public.xml`) with User-Agent `research-script/1.0`.
-   - A return was accepted only when the line count equalled the cache's `sched_i_lines` and the dollar total was within 0.5% of `sched_i_total`. **All 190 passed.**
+   - A return was accepted only when the line count equalled the cache's `sched_i_lines` and the dollar total was within 0.5% of `sched_i_total`. **All 190 passed.** The check compares each XML with a cache parsed from the same XML, so it cannot catch a truncated schedule. Omaha CF’s schedule is truncated (§3.1) [V wave 36A]
 4. **DAF-to-DAF exclusion:** `mission_recipient_sectors.annotate`, unchanged. $2.88bn of lines were removed (the largest is SVCF's).
 5. **Geocoding:** `mission_grant_geography.geo_line` with the same Census files.
    - The files are the 2020 ZCTA520–county relationship (largest land overlap) and cbsa-est2024-alldata (July 2023 delineations).
@@ -76,8 +76,8 @@ The question is whether the earlier finding (22 top-50 CFs: median 71% in-state)
 
 - The median CF reaches 37.5 states and territories, and sends a median 5.6% of its US dollars to DC/NY/MA/CA outside its home state.
 - **Lowest own-state shares:** Chicago Community Trust 20.0% (DAF share 94%), Greater Kansas City CF 35.9% (83%; largest other state KS), CF of New Jersey 38.6% (100%; NY), Greater Cincinnati Foundation 42.5% (86%), Delaware CF 53.2%, Foundation For The Carolinas 53.8%.
-  - Kansas City, New Jersey, Cincinnati and Delaware sit in metros that cross state lines.
-- **Highest:** Omaha CF 98.8%, Idaho CF 98.0%, Lancaster County CF 97.3% (DAF share 19%), Greater Kanawha Valley 97.0%, Central New York CF 95.4%, Grand Rapids CF 94.6%.
+  - Kansas City, New Jersey, Cincinnati and Delaware sit in metros that cross state lines. Only at Kansas City is the gap mostly the neighbouring state (KS is about a quarter of dollars). Cincinnati’s largest out-of-state recipients are The Nature Conservancy in Arlington, VA ($58.2m) and Conservation International in DC ($25.9m). Delaware’s largest is The Conservation Fund in VA ($10.75m), and CF of New Jersey’s is GBSC Foundation in SC ($14.25m). These are national headquarters addresses, not neighbouring-state recipients [V wave 36A]
+- **Highest:** Idaho CF 98.0%, Lancaster County CF 97.3% (DAF share 19%), Greater Kanawha Valley 97.0%, Central New York CF 95.4%, Grand Rapids CF 94.6%. Omaha CF shows 98.8%, but its XML Schedule I is truncated. Each year has 8 RecipientTable rows, against 824 (FY2023) and 863 (FY2024) 501(c)(3) recipients counted in the same schedule. Its 16 lines ($0.83m) cover 0.4% of its Part IX line 1 grants, so its shares are not measured. Without Omaha, the median own-state share is 83.0%, Pearson r is −0.47 and the controlled slope is −0.255 (HC1 CI −0.397 to −0.114) [V wave 36A]
 - **Own-metro outliers:**
   - SVCF 4.4%: its largest lines go to San Mateo County, which is in the SF–Oakland CBSA.
   - South Dakota CF 5.9%: it is headquartered in Pierre (Pierre micropolitan area) but grants statewide.
@@ -145,7 +145,7 @@ The CSV is the scatter: x = `daf_share_of_grants`, y = `own_state_share` (or `ow
   - The DAF share mixes Schedule D (DAF grants) with Part IX lines 1–3 (all grants, including to individuals and foreign recipients).
   - It exceeds 1 for two CFs (capped).
   - SE Michigan's negative Schedule D figures look like a sign error and are left blank (see P-B4221-02-03).
-- **Size ranking.** The universe is ranked by DAF assets, not total assets. A CF with a large endowment but a small DAF book can be missing from the "100 largest".
+- **Size ranking.** The universe is ranked by DAF assets, not total assets. It also inherits DAFRC errors. Armstrong County CF (rank 73) is ranked on a DAFRC FY2024 paper-submission value of $148.2m (479 accounts). Its own Schedule D shows $8.9m (FY2023, 31 accounts) and $9.5m (FY2024, 28 accounts), so it does not belong in the top 100 [V wave 36A] A CF with a large endowment but a small DAF book can be missing from the "100 largest".
 - **Statistics.**
   - The intervals are normal approximations; t-intervals at n = 95 differ in the third decimal.
   - The bootstrap uses a fixed seed.
@@ -231,7 +231,7 @@ python3 scripts/mission_cf_local_share_top100.py . --np-cache $SCRATCH/npcache -
 | 23 | Communities Foundation Of Texas Inc | TX | 289 | 85.2 | 77.3 | 54.3 | 45.3 |  |
 | 24 | East Bay Community Foundation | CA | 227 | 78.0 | 39.5 | 28.9 | 94.9 |  |
 | 25 | The Pittsburgh Foundation | PA | 115 | 87.3 | 83.1 | 73.8 | 45.1 |  |
-| 26 | Omaha Community Foundation | NE | 1 | 98.8 | 90.2 | 86.1 | 88.4 |  |
+| 26 | Omaha Community Foundation (XML Schedule I truncated to 8 of 800+ recipients a year; shares not measured) [V wave 36A] | NE | 1 | 98.8 | 90.2 | 86.1 | 88.4 |  |
 | 27 | The Greater Cincinnati Foundation | OH | 315 | 42.5 | 42.4 | 39.1 | 85.9 |  |
 | 28 | Givewell Community Foundation Inc | FL | 127 | 92.9 | 88.0 | 89.2 | 100.0 (capped) |  |
 | 29 | The Community Foundation For | FL | 150 | 76.4 | 69.1 | 63.5 | 97.8 |  |
@@ -276,7 +276,7 @@ python3 scripts/mission_cf_local_share_top100.py . --np-cache $SCRATCH/npcache -
 | 70 | Coastal Community Foundation | SC | 44 | 85.7 | 47.9 | 39.9 | 63.0 |  |
 | 71 | Princeton Area Community Foundation Inc | NJ | 43 | 75.0 | 56.0 | 54.4 | 83.7 |  |
 | 72 | Santa Barbara Foundation | CA | 118 | 90.8 | 84.1 | 84.0 | 85.7 |  |
-| 73 | Armstrong County Community | PA | 1 | 77.5 | 77.1 | 76.5 | 38.2 |  |
+| 73 | Armstrong County Community (ranked on a DAFRC paper-submission value; own Schedule D DAF assets $9.5m) [V wave 36A] | PA | 1 | 77.5 | 77.1 | 76.5 | 38.2 |  |
 | 74 | Gulf Coast Community Foundation Inc | FL | 74 | 86.0 | 69.1 | 61.4 | 76.1 |  |
 | 75 | The Philadelphia Foundation | PA | 80 | 69.9 | 68.7 | 53.2 | 50.9 |  |
 | 76 | The Vermont Community Foundation | VT | 81 | 89.7 | — | 6.8 | 64.8 |  |
