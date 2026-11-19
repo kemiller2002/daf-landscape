@@ -173,7 +173,7 @@ Source: `non-dafrc-daf-filers-summary.csv` and `non-dafrc-daf-filers-990.csv` (6
 | 2023 | 1,308 | 424 | 108 | 41 | 141 | 592 | 2 | $0.15bn | $0.15bn | 2,376 | 0.06% |
 | 2024* | 1,235 | 413 | 106 | 42 | 140 | 529 | 4 | $0.34bn | $0.34bn | 11,992 | 0.10% |
 
-\*FY2024 lacks returns processed in 2026, because no 2026 SOI extract exists yet. FY2025 (172 rows) is partial and not shown.
+\*FY2024 lacks returns processed in 2026, because no 2026 SOI extract exists yet. FY2025 (172 rows) is partial and not shown. The FY2024 account total (11,992) excludes Groundswell Charitable Foundation’s 12,808 accounts, which appear only on an amended return e-filed 2026-01-28 that answers line 6 “No” [F] [V wave 39B]
 
 **Findings**
 1. **DAFRC misses a long tail of small sponsors, not money.**
@@ -258,7 +258,7 @@ R1–R4 columns are in $bn, except accounts.
 - **Part VII-B lists only the five largest contractors paid over $100k.** Only 9.4% of the reported engagements over $100k are itemised. Absence of a vendor is not evidence of no relationship, and asset coverage is a floor.
 - **The FY2025 mirror lags.** 144 FY2025 returns are not mirrored. The FY2025 footprint is partial, and FY2025 corrections are out of scope.
 - **The outside-DAFRC scan sees only filers that answer Part IV line 6 "Yes".**
-  - Sponsors that answer "No", file a 990-EZ (no Schedule D) or file on paper are invisible (proposal P-99F-03).
+  - Sponsors that answer "No", file a 990-EZ (no Schedule D) or file on paper are invisible (proposal P-99F-03). Reading Schedule D directly ([g1915b-04-line6-vs-schedule-d.md](g1915b-04-line6-vs-schedule-d.md)) finds 14 plausible line-6 “No” returns outside the panel in FY2021–26 (12,863 accounts, $15.81m). The FY2021–24 part is 7 returns and $10.83m, 93% of it Groundswell. The asset totals do not move, but FY2024 non-DAFRC accounts roughly double, from 11,992 to about 24,800 [C] [V wave 39B]
   - FY2020 has 145 "Yes" rows with no matching OBJECT_ID in the 2020–2026 indexes.
   - The 2026 SOI extract does not exist yet, so FY2024 is short of late filers.
   - Non-DAFRC EINs may include entities DAFRC excluded deliberately by vetting. The scan cannot tell exclusion from omission.

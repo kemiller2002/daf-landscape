@@ -35,16 +35,16 @@ Run: `python3 scripts/mission_line6_check.py . --irs-dir <index_2019..2026.csv d
    - Against DAFRC's market totals the miss is negligible. Even the FY2023 peak is 0.089% of DAFRC's $256.39bn.
    - DAFRC's only true FY2021–FY2024 miss is 7 returns, 12,826 accounts and $10.83m, and Groundswell is 93% of that money. **As in batch 37 and batch 38, the line-6 tail adds accounts and sponsors, not money.**
 6. **Year-level versus filer-level screens.** 8 of the 24 plausible EINs answer "Yes" in some other return read, so an EIN-level screen across years would still find the sponsor (11 returns, $235.0m, mostly Legacy Global). **16 EINs never answer "Yes" in any return read (22 returns, 12,935 accounts, $30.2m)**, and only reading Schedule D finds them [C].
-7. **Reverse case (line 6 "Yes", Part I DAF accounts missing or zero): 3,297 effective returns from 1,511 EINs, FY2021–FY2026.** That is 27.9% of the 11,825 effective line-6 "Yes" returns [C].
+7. **Reverse case (line 6 "Yes", Part I DAF accounts missing or zero): 3,297 effective returns from 1,511 EINs, FY2021–FY2026.** Not all are disagreements. Line 6 also asks about “any similar funds or accounts”, and at least 567 of these returns (226 EINs) are P-MOR-01’s “other funds column only” rows, which fill Schedule D Part I column (b) instead of (a); in a 60-return XML sample, 8 had column (b) > 0. A further 341 report column (a) DAF contributions or grants with no or zero year-end count, as a sponsor winding down would (Ayco FY2025, Jasper Ridge FY2022, TIAA Charitable FY2021). At most 2,389 returns (1,153 EINs) show no Part I activity at all [C] [V wave 39B] That is 27.9% of the 11,825 effective line-6 "Yes" returns [C].
    - 2,546 returns (1,114 EINs) leave the Part I DAF column blank.
    - 596 (345 EINs) report zero or blank count and value.
    - 155 (88 EINs) report a value but no count. Their values total $455.7m, of which $332.6m is at DAFRC panel members such as The Blackbaud Giving Fund.
    - **None of the returns read answered "Yes" without attaching Schedule D**, among the sources that record whether Schedule D is present.
    - By year: 720, 761, 804, 773, 235 and 4 returns in FY2021–FY2026; FY2025–26 are incomplete.
    - 282 returns (153 EINs) are DAFRC panel members and 3,015 (1,358 EINs) are not.
-   - A line-6 sponsor count therefore over-counts: 3,837 EINs answer "Yes" in some return, while 2,720 EINs report accounts > 0.
+   - A line-6 sponsor count therefore over-counts: 3,837 EINs answer "Yes" in some return, while 2,720 EINs report accounts > 0. Part of the gap is column-(b) filers whose “Yes” is correct under line 6’s “similar funds or accounts” wording, so what is over-counted is DAF sponsors, not wrong answers [I] [V wave 39B]
 8. **The reverse case hides little money, but more than the forward case, and only as a proxy.** Of the reverse returns, 428 come from EINs that reported positive DAF values in an earlier return. Carrying that earlier value forward gives $53.2m (FY2022), $358.0m (FY2023), $453.8m (FY2024) and $1,771.4m (FY2025) [I].
-   - The FY2025 figure is mostly Ayco Charitable Foundation ($1.158bn). Ayco's FY2025 return reports zero DAFs at year end, so for Ayco a carry-forward is wrong.
+   - The FY2025 figure is mostly Ayco Charitable Foundation ($1.158bn). Ayco's FY2025 return reports zero DAFs at year end, so for Ayco a carry-forward is wrong. Its line 6 “Yes” is also correct: the return reports $408.1m of DAF contributions and $452.6m of DAF grants during the year, with zero DAFs and zero total assets at year end. It is a wind-down, not a reporting gap [F] [V wave 39B]
    - Treat these figures as an upper bound on Part I gaps, not as missing assets. DAFRC handles the FY2021–24 panel part through imputation or "closed" flags (batch 33, P-B32B-01).
 
 ---
@@ -115,7 +115,7 @@ Run: `python3 scripts/mission_line6_check.py . --irs-dir <index_2019..2026.csv d
   - all CF-named or T31 filers (frame B);
   - the newest return of T30/T31/T70 and DAF-named filers (batch 37);
   - the newest FY2022+ return of every 501(c)(3) with ≥ $1m assets (batch 38).
-- **Not read:** line-6 "No" filers under $1m that fall outside those frames, and the older returns of ≥ $1m filers. **The forward counts are therefore a floor.**
+- **Not read:** line-6 "No" filers under $1m that fall outside those frames, and the older returns of ≥ $1m filers. **The forward counts are therefore a floor** on returns that put a count in Part I column (a) while answering “No”. They are not a floor on DAF assets missed: most plausible outside-panel rows are operating charities (Long Island Children’s Museum alone is $2.60m of the $15.81m). The batch-38 rate (5 plausible returns, $3.0m, in 126,736 large-filer returns) is an estimate for the unread remainder, not a bound [I] [V wave 39B]
   - The batch-38 frame gives a rough rate for the unread remainder: 9 forward returns among 126,736 newest returns of large line-6 "No" filers, 5 of them plausible and worth $3.0m together.
 
 ### 3.2 Forward case, all 44 rows by DAFRC treatment
@@ -166,7 +166,7 @@ Run: `python3 scripts/mission_line6_check.py . --irs-dir <index_2019..2026.csv d
   - A filer counts as a sponsor if it "filed Part I (a) of Schedule D in FY 2024 or FY 2023, reported at least $1 of DAF assets", subject to vetting. The rules for non-respondents are "$1 million or more in DAF assets", or all four Part I fields filled and DAF grants ≤ organisational grants for three consecutive years.
   - The vetting text does not mention Part IV line 6 ([Updated Analysis Technical Appendix](https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Technical-Appendix.pdf), pp. 2–4) [F].
   - So a line-6 "No" return is in scope for DAFRC whenever its Part I is filled. The data confirm this: 17 returns ($245.1m) are carried at filed value.
-  - DAFRC misses forward-case filers for other reasons. The filer may not be vetted (Groundswell had no FY2023 Part I and its FY2024 Part I arrived by amendment on 2026-01-28), or it may not be a sponsor.
+  - DAFRC misses forward-case filers for other reasons. The filer may not be vetted (Groundswell had no FY2023 Part I and its FY2024 Part I arrived by amendment on 2026-01-28), or it may not be a sponsor. Groundswell’s original TY2024 return (202513219349318726) was e-filed on 2025-11-17, after DAFRC’s 1 October 2025 cut-off, with line 6 = 0 and no Part I. The spring 2026 update replaced only submitted or imputed values with data available by 1 March 2026 and did not re-vet [F] [V wave 39B]
   - DAFRC's data-quality rules delete counts ≤ 0 and assets < $1 and then impute. Reverse-case returns at panel sponsors are therefore imputed or closed, not taken as zero (batch 33).
 - **IRS SOI annual extract.**
   - The Form 990 extract documentation lists `dnradvisedfundscd`, "Donor advised funds?", from 990 Core Pt IV-6. It has no Schedule D field: every schedule field in the documentation is Schedule A ([25eofinextractdoc.xlsx](https://www.irs.gov/pub/irs-soi/25eofinextractdoc.xlsx), sheet "990") [F].

@@ -322,7 +322,7 @@ All strings are from the CSV rows `modal_winners_gross_P01_P15`.
 4. **A is still a prior.** ABD_FIELD applies the RPA realization range to A by analogy.
 5. **Independence.** r_A, r_B and r_D are drawn independently. Positively correlated realization (one sponsor's execution quality) would move ranks less.
 6. **Fixed costs are unchanged.** HUD spent $489,885 on a bot expected to save 100 hours a year. F_B is not recut (P-G0403-05).
-7. **h and e for C** are global per draw. m is now bounded ([g0403-04-escaped-error-cost.md](g0403-04-escaped-error-cost.md)). Conditional on enforcement, a missed SAR at the four core depository banks cost $36k–$471k in FinCEN penalty (2,600–34,000 P14 handling units). The DAF excise regime gives 1–174 units per escaped P07/P08 error, and the composite central m is 2.4 [C/I]. [V wave 38B]
+7. **h and e for C** are global per draw. m is now bounded ([g0403-04-escaped-error-cost.md](g0403-04-escaped-error-cost.md)). Conditional on enforcement, a missed SAR at the four core depository banks cost $36k–$471k in FinCEN penalty (2,600–34,000 P14 handling units). The DAF excise regime gives 1–174 units per escaped P07/P08 error, and the composite central m is 2.4 [C/I]. [V wave 38B] P08 carries no sponsor tax, so the composite central is 2.20. With IRS-bounded detection (P ≈ 0.0018), an escaped P07 error costs about 1.02 units at a $5,100 grant, and the central m is 1.56–1.77 [C/I] [V wave 39B]
 8. **Interval types.** Wilson intervals in the CSV cover Monte Carlo error only. Assumption ranges are shown by variants and sweeps.
 9. **Blocked or missing sources:**
    - E17 full text (SSRN and Wiley 403).

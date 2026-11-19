@@ -25,7 +25,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 **Additions in PR #61 (validated; report §11.45–§11.47):**
 - **Canada.** Payout net of DAF-to-DAF transfers is 12.0% (12.8% under tier A; 8.8% under tier C, which is an upper bound). The charity-level disbursement quota rarely binds on DAF sponsors.
 - **DAF money abroad through non-Q recipients.** Adds $1.35bn. The measured share of total grants reaching abroad is 5.20% [I-alloc], or 5.10% excluding fundraising and PRI rows.
-- **Escaped-error cost m.** Bank SAR penalties work out at $36k–$471k per SAR, which is 2,600–34,000 handling-times; carrying that to DAF sponsors is analogy only [I]. For DAF sponsors the central m is about 2.2, resting mostly on assumptions. Routing beats assistance up to about m = 10.
+- **Escaped-error cost m.** Bank SAR penalties work out at $36k–$471k per SAR, which is 2,600–34,000 handling-times; carrying that to DAF sponsors is analogy only [I]. For DAF sponsors the central m is about 2.2 (wave 38B). Bounding IRS detection (P ≈ 0.0012–0.0099) lowers it to 1.56–1.77, and it rests mostly on unsourced operational-rework and sanctions-pricing assumptions [V wave 39B] Routing beats assistance up to about m = 10.
 - **Sponsor economics.**
   - Dechomai is 0.1–3.0% of national sponsors' DAF contributions.
   - Audited fee economics: Fidelity passes its whole fee to FMR and runs an operating deficit; Renaissance passes 98% to Ren; JCF keeps a small surplus.
@@ -76,7 +76,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 - **Corporate DAFs.** 13 of 14 sponsors publish no corporate split. Where the split is measured, corporate DAFs are 3.4–3.9% of DAF grants; 9.1% is a ceiling that applies only to the measured pool.
 - **Unlisted recipients.** About 4% of the $0.82bn of top-50 grants to unlisted EINs is identifiable sponsor EIN misreporting. The roughly 51% that is "unmatched" is an upper bound on grantees the IRS lists do not recognise.
 - **Large single grants.** SVCF's $1.309bn FY2023 line went to Further Future Foundation, now Navigation Charitable Fund. That fund owns Voltage Park and had granted out 3.1% of the money by end-2024.
-- **AI routing.** Confidence-gated routing roughly triples intervention C's value pool when an escaped error costs one case-handling's worth. It still beats assistance up to about ten, and the pool falls below assist near m = 20. Wave 38B's central m is 2.4, but bank-style compliance errors that escape would erase the gain. [V wave 38B] C still almost never ranks first.
+- **AI routing.** Confidence-gated routing roughly triples intervention C's value pool when an escaped error costs one case-handling's worth. It still beats assistance up to about ten, and the pool falls below assist near m = 20. The central m is 2.20 after wave 38B’s correction (it was given as 2.4), and IRS-bounded detection lowers it to 1.56–1.77. Bank-style compliance errors that escape, or sanctions misses priced per missed alert, would still erase the gain [V wave 39B] [V wave 38B] C still almost never ranks first.
 - **Exceptions per grant.** Measured by number of grants, about 7–8.5% fall in the core exception categories.
 - **NPT and Ren follow-ups.**
   - The $116.3m that had been called "asset management fees" is in fact program services excluding grants. Five passages were corrected.

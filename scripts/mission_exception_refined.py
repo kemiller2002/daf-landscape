@@ -24,15 +24,19 @@ of its five categories:
                          dropped_reset_after_grant  ruling at grant time was older than the cutoff; a later
                                                     reinstatement / re-determination moved it;
                          after_period_new_org       not recognised by grant-year end, no sign of earlier existence;
+                         after_period_church        the same for a line labelled church/religious;
                          after_period_other         ruling after grant-year end, with earlier existence;
-                         tc_new_org / tc_new_subordinate / tc_reinstatement / tc_redetermination
+                         tc_new_org / tc_new_subordinate / tc_newly_listed_church / tc_reinstatement /
+                         tc_redetermination
                                                     ruling inside [start - 24 months, end] at grant time, split by
                                                     the evidence of earlier existence: an auto-revocation dated
                                                     before the ruling (reinstatement), an older ruling month in an
                                                     earlier BMF snapshot, or an e-filed return (IRS e-file index,
                                                     2021+) for a tax period >= 36 months before the ruling
-                                                    (re-determination); otherwise new (group subordinate when the
-                                                    BMF GROUP code is non-zero).
+                                                    (re-determination); otherwise a church newly listed (line
+                                                    labelled church/religious: churches need no application, so a
+                                                    first ruling month does not date them), else new (group
+                                                    subordinate when the BMF GROUP code is non-zero).
                        The refined `recent_ruling_24m` = tc_* plus after_period_new_org (broad union); the refined
                        core union uses tc_* only (as the original core used in-window rulings only). `any_core_new_only`
                        uses tc_new_org + tc_new_subordinate only.
@@ -99,8 +103,8 @@ STOP = frozenset({"INC", "INCORPORATED", "THE", "CORP", "CORPORATION", "CO", "LT
                   "OF", "AND", "FOR", "S"})
 STATES = {"OHIO": "OH", "CALIFORNIA": "CA", "NEW YORK": "NY", "PUERTO RICO": "PR"}
 
-RR_CLASSES = ("tc_new_org", "tc_new_subordinate", "tc_reinstatement", "tc_redetermination",
-              "dropped_reset_after_grant", "after_period_new_org", "after_period_other")
+RR_CLASSES = ("tc_new_org", "tc_new_subordinate", "tc_newly_listed_church", "tc_reinstatement", "tc_redetermination",
+              "dropped_reset_after_grant", "after_period_new_org", "after_period_church", "after_period_other")
 EXTRA_SI = (("fs_q19_ein", "fs_fsd_ein", "fs_fsd_only_ein", "fs_name_fallback", "fs_marker", "fs_grantmaker_host",
              "fs_all_incl_grantmakers", "fs_d2d", "rr_base", "rr_tc", "rr_asof_lag_ge3m", "rr_efile_proxy_new",
              "rr_efile_proxy_new_and_tc", "any_core_new_only", "any_core_fs_all", "any_core_base_recent")
@@ -241,7 +245,7 @@ def asof_month(end: dt.date, months: Sequence[str]) -> str:
 
 
 def classify(ein: str, now_ruling: str, start: dt.date, end: dt.date, arch: Mapping, months: Sequence[str],
-             legacy: Sequence[str], revs: Mapping, efile_first: Mapping, group: str) -> dict:
+             legacy: Sequence[str], revs: Mapping, efile_first: Mapping, group: str, church: bool) -> dict:
     """Time-correct class of one recent-ruling line (see module docstring)."""
     cutoff, endm = mel.ruling_cutoff(start), end.strftime("%Y%m")
     snap = asof_month(end, months)
@@ -254,11 +258,13 @@ def classify(ein: str, now_ruling: str, start: dt.date, end: dt.date, arch: Mapp
     older = any(r < ref for r in seen)
     ef = efile_first.get(ein, "")
     old_filer = bool(ef) and ef <= months_back(ref, PRIOR_EFILE_MONTHS)
-    kind = "reinstatement" if rev_before else ("redetermination" if older or old_filer else "new")
+    kind = ("reinstatement" if rev_before else "redetermination" if older or old_filer else
+            "church" if church else "new_subordinate" if group not in ("", "0", "0000") else "new_org")
     in_window = cutoff <= ref <= endm
     cls = ("dropped_reset_after_grant" if ref < cutoff else
-           (f"tc_{'new_subordinate' if group not in ('', '0', '0000') else 'new_org'}" if kind == "new" else f"tc_{kind}")
-           if in_window else ("after_period_new_org" if kind == "new" else "after_period_other"))
+           ("tc_newly_listed_church" if kind == "church" else f"tc_{kind}") if in_window else
+           ("after_period_new_org" if kind in ("new_org", "new_subordinate") else
+            "after_period_church" if kind == "church" else "after_period_other"))
     lag = (int(snap[:4]) * 12 + int(snap[5:7])) - (end.year * 12 + end.month)
     return {"class": cls, "asof_snapshot": snap, "ruling_asof": at, "ruling_ref": ref, "first_seen": first_seen,
             "efile_first": ef, "efile_new": (not ef) or ef >= cutoff, "lag_ge3m": lag >= 3}
@@ -512,7 +518,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     revs = load_revocations(a.revocation, rr_eins)
     efile = load_efile_first(a.efile_index_dir, rr_eins)
     rr = {k: tuple(classify(r["ein"], ym(r["bmf_ruling"]), period[k]["start"], period[k]["end"], arch, months, legacy,
-                            revs, efile, groups.get(r["ein"], ""))
+                            revs, efile, groups.get(r["ein"], ""), "church_or_religious" in r["labels"])
                    if "recent_ruling_24m" in f else None for r, f in zip(rs, base_flags[k]))
           for k, rs in screened.items()}
     both = {k: tuple(refined_flags(r, f, fsx, x, fsd_names) for r, f, x in zip(rs, base_flags[k], rr[k]))

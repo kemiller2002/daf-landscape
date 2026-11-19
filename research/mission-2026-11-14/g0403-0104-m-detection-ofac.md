@@ -39,8 +39,8 @@
 6. **OFAC penalty per apparent violation, conditional on enforcement [C]:**
    - **Processors (n = 8):** $4.19–$2,012, median **$168.50**. In P14 handling units that is **0.3–145, median 12.2**.
    - **Crypto (n = 7):** $43.65–$12,218, median $438.
-   - These amounts are 2–3 orders of magnitude below the bank-SAR median of $175,749 (12,678 units). As a sanctions-screening analogue for P01/P14 at a DAF sponsor, they are the nearest regime [I].
-7. **One case shows how pricing per missed alert changes the result [C].** In Amex 2022, a single "high confidence" alert was "erroneously closed" by an analyst, and 214 violations followed. The penalty was $430,500 per missed alert, or **31,055 handling units**.
+   - These amounts are 2–3 orders of magnitude below the bank-SAR median of $175,749 (12,678 units). As a sanctions-screening analogue for P01/P14 at a DAF sponsor, they are the nearest regime [I]. American Express National Bank is a national bank, which §2.3 otherwise excludes; without it the processor group (n = 7) has median $95.62 (6.9 units) and maximum $624.28 (45.0 units) [C] [V wave 39B]
+7. **One case shows how pricing per missed alert changes the result [C].** In Amex 2022, a single "high confidence" alert was "erroneously closed" by an analyst, and 214 violations followed. The penalty was $430,500 per missed alert, or **31,055 handling units**. The release attributes the 214 transactions to “a combination of human error and sanctions compliance program deficiencies”: after the alert was closed, a customer-care agent lifted the suspension and an incorrect re-suspension code let seven more transactions through. So $430,500 prices one missed alert plus two later control failures, an upper bound per missed alert [F/I] [V wave 39B]
    - An AI that auto-closes a true sanctions match is that case. Per-violation pricing (median 12 units) suits volume-type geolocation misses, but not a missed true match.
 8. **Routing rerun (large national, CAL_CENTRAL) [S]:**
    - The route pool is **$1.31m** at the IRS-bounded central m and **$1.32m** with the OFAC analogue. It was $1.27m at m = 2.2.
@@ -74,7 +74,7 @@
 - **Channel.** For an escaped error the main route to a tax is an IRS examination of the sponsor's return. P = c × q:
   - c is the yearly exam coverage of the filer population;
   - q is the probability that an exam finds and taxes the specific error.
-  - **q is set to 1**, so every P here is an upper bound on this channel [I]. Press, whistleblower and state AG detection are not quantified.
+  - **q is set to 1**, so every P here is an upper bound on this channel [I]. Press, whistleblower and state AG detection are not quantified. The settings are therefore upper bounds only for a randomly selected filer on the exam channel. Exams are not random: 34.1%–39.6% of EO closures in FY2021–24 were picked up from a related examination (Pub 5329), and large sponsors may be examined above the all-filer rate. The incidence ratio (15 ÷ 1,512) bounds P only if every sponsor has at least one escaped taxable distribution a year. Read 0.0012–0.0099 as average-filer exam coverage, not as a ceiling on P for a given sponsor; tripling it leaves the central composite at 1.58 [C/I] [V wave 39B]
 - **Coverage measures [C]:**
   - *Narrow:* Data Book "Forms 990, 990-EZ and 990-N" returns examined ÷ e-filed 990 + 990-EZ (IRS e-file index, same processing year). The numerator includes 990-N exams and the denominator does not, which slightly overstates the rate.
   - *Per 501(c)(3):* the same numerator ÷ recognized 501(c)(3) organizations (Data Book Table 2-6). This understates the rate, because the denominator includes 990-N filers and churches.
@@ -118,12 +118,12 @@
 | 2022 | 1,343 | 170 | 292 | 3,425 | 515,245 | 1,480,565 | 0.261% | 0.091% | 0.542% |
 | 2023 | 1,029 | 81 | 231 | 2,464 | 557,294 | 1,514,558 | 0.185% | 0.068% | 0.361% |
 | 2024 | 666 | 72 | 210 | 1,955 | 578,455 | 1,548,798 | 0.115% | 0.043% | 0.277% |
-| 2025 | 889 | 77 | 188 | 2,762 [C] | 594,022 | 1,596,231 | 0.150% | 0.056% | 0.381% |
+| 2025 | 889 | 77 | 188 | 2,777 [F: TIGTA Figure 5, p. 9; 2,762 derived earlier] | 594,022 | 1,596,231 | 0.150% | 0.056% | 0.383% [V wave 39B]
 
 - **Exam outcomes.** TE/GE change rates on closed EO exams were 82.3% / 77.5% / 75.7% / 74.5% (FY2021–24) [F]. An exam usually changes something, but whether it touches a specific grant is not reported.
 - **Form 4720 exams.** These fell from 301 to 188 a year. They cover all charities, private foundations and related persons, so they cap exam-generated §4966/§4967 assessments at a few hundred returns a year across all chapter-42 taxes [C].
 - **No DAF-specific compliance strategy.** None of TE/GE's in-process compliance strategies (read 2026-11-19) targets DAFs or sponsoring organizations. The exempt-organization strategies cover loans to disqualified persons, NIL, government grant abuse, hospitals, corporate jets, **"Addressing Illicit Financing Activities by Exempt Organizations"** and employment-tax items [F]. Nor does the FY2027 program letter (Pub 5313) mention DAFs. Its only "donor" mention concerns the new scholarship tax credit [F].
-- **Direction of travel.** TIGTA (2026-1S0-042) reports that EO "completed fewer examinations in FY 2025 compared to FY 2021, by 15 … percent". It also reports 723 TE/GE employees taking deferred resignation in FY2025, whose loss "will likely affect future goals" [F]. Coverage is therefore not rising.
+- **Direction of travel.** TIGTA (2026-1S0-042) reports that EO "completed fewer examinations in FY 2025 compared to FY 2021, by 15 … percent". It also reports 723 TE/GE employees taking deferred resignation in FY2025, whose loss "will likely affect future goals" [F]. Coverage is therefore not rising. Corrections: TIGTA’s Figure 5 (p. 9) quotes 2,777 EO examination closures in FY2025 (28% no change), so the FY2025 count need not be derived (limit 4); and 723 is TE/GE’s workforce reduction from January 2025 to January 2026 (about 32%) through voluntary separation, deferred resignation or other incentives (p. 5), not deferred resignations in FY2025 alone [F] [V wave 39B]
 
 ### 3.2 §4966 sponsor tax reported on Form 4720 (SOI) [F] and derived figures [C]
 
@@ -202,7 +202,7 @@ The P07 values here were computed with `ee.m_daf` (P07 handling 90 min × $55.45
 | irs_bounded | low / central / high | 1.001 / 1.023 / 1.954 | 1 | 1.00 / 7.34 / 1,268.8 | 1.000 / **1.773** / 55.03 |
 | irs_bounded_ofac | low / central / high | 1.001 / 1.023 / 1.954 | 1 | 1.00 / 2.22 / 146.1 | 1.001 / **1.564** / **9.28** |
 
-- **Proposed m for the routing model:** low 1.0, central **1.6–1.8**, high **9.3** with the OFAC analogue, or 55 if bank-SAR transfer is kept [I].
+- **Proposed m for the routing model:** low 1.0, central **1.6–1.8**, high **9.3** with the OFAC analogue, or 55 if bank-SAR transfer is kept [I]. The OFAC figures assume per-violation pricing. Pricing P01/P14 at the Amex per-missed-alert figure (31,055 units), the kind §4.2 says fits a DAF sanctions miss, with the same unsourced P_OFAC gives composite m of 13.7 / 128 / 1,269 (low / central / high). The robust result is that the §4966 channel is negligible (0.008 of the central m); the composite is not pinned down [C] [V wave 39B]
 - **What remains of the central m:**
   - about 1.0 from the unsourced operational m = 2 on the 51% of weight outside compliance;
   - about 0.49 from correction units;
