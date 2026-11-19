@@ -93,7 +93,7 @@ fiscalsponsordirectory,Charitable Ventures of Orange County,"Santa Ana, CA",http
 fiscalsponsordirectory,"Charity Music, Inc","Sterling Heights, MI",https://fiscalsponsordirectory.org/?page_id=750,MI,name_state,202155382,CHARITY MUSIC INC,ROCKWOOD,MI,03,A68,200512,False,0,0
 fiscalsponsordirectory,CHC: Creating Healthier Communities,"Alexandria, VA",https://fiscalsponsordirectory.org/chc-creating-healthier-communities/,VA,sched_i_reported_ein,136167225,CHC CREATING HEALTHIER COMMUNITIES,,VA,03,,198508,False,5,257197
 fiscalsponsordirectory,Chicago Filmmakers,"Chicago, IL",https://fiscalsponsordirectory.org/?page_id=682,IL,name_state,362885210,CHICAGO FILMMAKERS,CHICAGO,IL,03,A31Z,197611,False,0,0
-fiscalsponsordirectory,Children’s Network of Solano County,"Fairfield, CA",https://fiscalsponsordirectory.org/?page_id=453,CA,unmatched,,,,,,,,,,
+fiscalsponsordirectory,Children’s Network of Solano County,"Fairfield, CA",https://fiscalsponsordirectory.org/?page_id=453,CA,name_state,680014506,CHILDRENS NETWORK OF SOLANO COUNTY,FAIRFIELD,CA,03,P30Z,198306,False,0,0
 fiscalsponsordirectory,Cinematography for Actors Institute,"Los Angeles, CA",https://fiscalsponsordirectory.org/cinematography-for-actors-institute/,CA,name_state,992161365,CINEMATOGRAPHY FOR ACTORS INSTITUTE INC,LOS ANGELES,CA,03,B03,202405,False,0,0
 fiscalsponsordirectory,City Embrace Counseling Center,"San Francisco, CA",https://fiscalsponsordirectory.org/city-embrace-counseling-center/,CA,name_state,461168308,CITY EMBRACE COUNSELING CENTER INC,SAN FRANCISCO,CA,03,F60,201410,False,0,0
 fiscalsponsordirectory,City Lore,"New York, NY",https://fiscalsponsordirectory.org/?page_id=4048,NY,name_state,112740189,CITY LORE INC,NEW YORK,NY,03,A200,198704,False,6,345075
@@ -218,7 +218,7 @@ fiscalsponsordirectory,Heluna Health,"City of Industry, CA",https://fiscalsponso
 fiscalsponsordirectory,Holistic Underground Inc.,"Oakland, CA",https://fiscalsponsordirectory.org/?page_id=15470,CA,name_state,474688802,HOLISTIC UNDERGROUND INC,OAKLAND,CA,03,A20,201512,False,1,16500
 fiscalsponsordirectory,Hope Across Borders,"Cheyenne, WY",https://fiscalsponsordirectory.org/hope-across-borders/,WY,name_state,933952747,HOPE ACROSS BORDERS INC,CHEYENNE,WY,03,B99,202409,False,0,0
 fiscalsponsordirectory,Houston Cinema Arts Society,"Houston, TX",https://fiscalsponsordirectory.org/?page_id=2887,TX,name_state,300507986,HOUSTON CINEMA ARTS SOCIETY,HOUSTON,TX,03,A31,200903,False,2,26000
-fiscalsponsordirectory,Hudson County Latino Foundation,"Jersey City, N.J.",https://fiscalsponsordirectory.org/?page_id=6835,,unmatched,,,,,,,,,,
+fiscalsponsordirectory,Hudson County Latino Foundation,"Jersey City, N.J.",https://fiscalsponsordirectory.org/?page_id=6835,NJ,unmatched,,,,,,,,,,
 fiscalsponsordirectory,Humanitarian Social Innovations,"Bethlehem, PA",https://fiscalsponsordirectory.org/?page_id=920,PA,name_state,464779591,HUMANITARIAN SOCIAL INNOVATIONS,BETHLEHEM,PA,03,Q33,201412,False,2,25750
 fiscalsponsordirectory,Humanity Pathways Global,"Detroit, MI",https://fiscalsponsordirectory.org/?page_id=15397,MI,name_state,933850002,HUMANITY PATHWAYS GLOBAL,DETROIT,MI,03,W99,202404,False,0,0
 fiscalsponsordirectory,Image Essays,"Houston, TX",https://fiscalsponsordirectory.org/?page_id=5410,TX,unmatched,,,,,,,,,,
@@ -305,8 +305,8 @@ fiscalsponsordirectory,Open Space Institute Inc.,"New York, NY",https://fiscalsp
 fiscalsponsordirectory,Operation Restoration,"New Orleans, LA",https://fiscalsponsordirectory.org/?page_id=14261,LA,name_state,611791941,OPERATION RESTORATION,NEW ORLEANS,LA,03,P20,201608,False,5,2696250
 fiscalsponsordirectory,Oregon Wildlife Foundation,"Portland, OR",https://fiscalsponsordirectory.org/?page_id=3065,OR,near_name_same_city,930797904,OREGON WILDLIFE HERITAGE FOUNDATION,PORTLAND,OR,03,D300,198112,False,5,376991
 fiscalsponsordirectory,Ozcat Entertainment,"Vallejo, CA",https://fiscalsponsordirectory.org/?page_id=533,CA,unmatched,,,,,,,,,,
-fiscalsponsordirectory,Pacifica’s Environmental Family,"Pacifica, CA",https://fiscalsponsordirectory.org/?page_id=5790,CA,name_state,943229680,PACIFICA ENVIRONMENTAL FAMILY,PACIFICA,CA,03,C123,199807,False,0,0
-fiscalsponsordirectory,Pact Donation Collective Inc,"Brooklyn, N.Y.",https://fiscalsponsordirectory.org/?page_id=14013,,unmatched,,,,,,,,,,
+fiscalsponsordirectory,Pacifica’s Environmental Family,"Pacifica, CA",https://fiscalsponsordirectory.org/?page_id=5790,CA,near_name_same_city,943229680,PACIFICA ENVIRONMENTAL FAMILY,PACIFICA,CA,03,C123,199807,False,0,0
+fiscalsponsordirectory,Pact Donation Collective Inc,"Brooklyn, N.Y.",https://fiscalsponsordirectory.org/?page_id=14013,NY,name_state,873808180,PACT DONATION COLLECTIVE INC,BROOKLYN,NY,03,R02,202202,False,0,0
 fiscalsponsordirectory,Palms for Life Fund,"New York, NY",https://fiscalsponsordirectory.org/?page_id=875,NY,name_state,161760622,PALMS FOR LIFE FUND INC,BRONXVILLE,NY,03,M20,200607,False,0,0
 fiscalsponsordirectory,PAM CUT,"Portland, OR",https://fiscalsponsordirectory.org/?page_id=11848,OR,unmatched,,,,,,,,,,
 fiscalsponsordirectory,Pan Left Productions,"Tucson, AZ",https://fiscalsponsordirectory.org/?page_id=993,AZ,unmatched,,,,,,,,,,
@@ -326,7 +326,7 @@ fiscalsponsordirectory,Players Philanthropy Fund,"Towson, MD",https://fiscalspon
 fiscalsponsordirectory,POISE Foundation,"Pittsburgh, PA",https://fiscalsponsordirectory.org/?page_id=11269,PA,name_state,251393426,POISE FOUNDATION,PITTSBURGH,PA,03,T300,198107,False,6,378600
 fiscalsponsordirectory,Praxis Project,"Oakland, CA",https://fiscalsponsordirectory.org/?page_id=3580,CA,name_state,300044814,THE PRAXIS PROJECT INC,SAN FRANCISCO,CA,03,E70,200205,False,12,1586939
 fiscalsponsordirectory,Preservation Alliance of Minnesota,"St. Paul, MN",https://fiscalsponsordirectory.org/?page_id=760,MN,unmatched,,,,,,,,,,
-fiscalsponsordirectory,Producer Hub Inc.,"New York, N.Y.",https://fiscalsponsordirectory.org/producer-hub-inc/,,unmatched,,,,,,,,,,
+fiscalsponsordirectory,Producer Hub Inc.,"New York, N.Y.",https://fiscalsponsordirectory.org/producer-hub-inc/,NY,unmatched,,,,,,,,,,
 fiscalsponsordirectory,"Progressives Educating New Yorkers, Inc.","New York, NY",https://fiscalsponsordirectory.org/?page_id=9759,NY,name_state,823365304,PROGRESSIVES EDUCATING NEW YORKERS,NEW YORK,NY,03,B01,201712,False,0,0
 fiscalsponsordirectory,Project Full Out,"Charlotte, NC",https://fiscalsponsordirectory.org/project-full-out/,NC,name_state,812693848,PROJECT FULL OUT INC,CHARLOTTE,NC,03,A01,201609,False,0,0
 fiscalsponsordirectory,Provincetown Community Compact,"Provincetown, MA",https://fiscalsponsordirectory.org/?page_id=10252,MA,name_state,043208909,PROVINCETOWN COMMUNITY COMPACT INC,PROVINCETOWN,MA,03,,199405,False,4,66650
@@ -393,7 +393,7 @@ fiscalsponsordirectory,Tides Center,"San Francisco, CA",https://fiscalsponsordir
 fiscalsponsordirectory,Tiny Seed Project Inc.,"Greensboro Bend, VT",https://fiscalsponsordirectory.org/?page_id=7247,VT,name_state,842097757,TINY SEED PROJECT INC,VERNON,VT,03,C12,201907,False,5,72600
 fiscalsponsordirectory,TLEEM,"Round Rock, TX",https://fiscalsponsordirectory.org/tleem,TX,name_state,934193643,TLEEM,ROUND ROCK,TX,03,B99,202312,False,0,0
 fiscalsponsordirectory,Together We Can,"Clovis, CA",https://fiscalsponsordirectory.org/together-we-can/,CA,name_state_city,612036250,TOGETHER WE CAN INC,CLOVIS,CA,03,S50,202303,False,0,0
-fiscalsponsordirectory,"Tomorrow’s Education Network, Inc.","Towaco, NJ",https://fiscalsponsordirectory.org/?page_id=6431,NJ,name_state,271436318,TOMORROW S EDUCATION NETWORK INC,TOWACO,NJ,03,B19,201611,False,0,0
+fiscalsponsordirectory,"Tomorrow’s Education Network, Inc.","Towaco, NJ",https://fiscalsponsordirectory.org/?page_id=6431,NJ,near_name_same_city,271436318,TOMORROW S EDUCATION NETWORK INC,TOWACO,NJ,03,B19,201611,False,0,0
 fiscalsponsordirectory,Trailhead Institute,"Denver, CO",https://fiscalsponsordirectory.org/?page_id=6037,CO,name_state,841267213,TRAILHEAD INSTITUTE,DENVER,CO,03,E60Z,199406,False,15,1057253
 fiscalsponsordirectory,Transformative Culture Project,"Roxbury, MA",https://fiscalsponsordirectory.org/?page_id=5956,MA,name_state,800214659,TRANSFORMATIVE CULTURE PROJECT INC,UPHAMS CORNER,MA,03,A31,202001,False,1,20000
 fiscalsponsordirectory,Trees Foundation,"Redway, CA",https://fiscalsponsordirectory.org/?page_id=575,CA,name_state,680259810,TREES FOUNDATION,REDWAY,CA,03,Z99Z,199609,False,0,0
@@ -412,9 +412,9 @@ fiscalsponsordirectory,UI Charitable,"Provo, UT",https://fiscalsponsordirectory.
 fiscalsponsordirectory,Uplift Alliance,"Baltimore, MD",https://fiscalsponsordirectory.org/?page_id=14723,MD,name_state,932244713,UPLIFT ALLIANCE INC,BALTIMORE,MD,03,S50,202308,False,1,5000
 fiscalsponsordirectory,Urban Affairs Coalition,"Philadelphia, PA",https://fiscalsponsordirectory.org/?page_id=932,PA,name_state,237046393,URBAN AFFAIRS COALITION,PHILADELPHIA,PA,03,,197007,False,10,326670
 fiscalsponsordirectory,Urban Mediamakers,"Norcross, GA",https://fiscalsponsordirectory.org/?page_id=662,GA,unmatched,,,,,,,,,,
-fiscalsponsordirectory,Urban Sustainability Directors Network,"Sanford, N.C.",https://fiscalsponsordirectory.org/?page_id=15081,,unmatched,,,,,,,,,,
+fiscalsponsordirectory,Urban Sustainability Directors Network,"Sanford, N.C.",https://fiscalsponsordirectory.org/?page_id=15081,NC,name_state,825015863,URBAN SUSTAINABILITY DIRECTORS NETWORK,SANFORD,NC,03,C35,201902,False,3,4900000
 fiscalsponsordirectory,Use The News Foundation,"San Francisco, CA",https://fiscalsponsordirectory.org/?page_id=579,CA,name_state,943302611,USE THE NEWS FOUNDATION,SAN FRANCISCO,CA,03,A23,202109,False,0,0
-fiscalsponsordirectory,U.S.-Mexico Border Philanthropy Partnership,"San Diego, CA",https://fiscalsponsordirectory.org/?page_id=5655,CA,unmatched,,,,,,,,,,
+fiscalsponsordirectory,U.S.-Mexico Border Philanthropy Partnership,"San Diego, CA",https://fiscalsponsordirectory.org/?page_id=5655,CA,near_name_same_city,262946180,US-MEXICO BORDER PHILANTHROPY PARTNERSHIP,SAN DIEGO,CA,03,Q20,200811,False,5,89500
 fiscalsponsordirectory,Utah Cold Case Coalition,"Salt Lake City, UT",https://fiscalsponsordirectory.org/?page_id=9640,UT,name_state,825071873,UTAH COLD CASE COALITION,LAYTON,UT,03,I01,201805,False,0,0
 fiscalsponsordirectory,Veterans Awareness Transition Corporation,"Beverly, NJ",https://fiscalsponsordirectory.org/?page_id=5822,NJ,name_state,455510503,VETERANS AWARENESS & TRANSITION CORPORATION,DELRAN,NJ,03,W30,201801,False,0,0
 fiscalsponsordirectory,Village Earth,"Fort Collins, CO",https://fiscalsponsordirectory.org/?page_id=618,CO,name_state,841243878,VILLAGE EARTH,FORT COLLINS,CO,03,Q300,199502,False,2,65000

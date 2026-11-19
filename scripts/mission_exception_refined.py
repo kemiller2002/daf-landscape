@@ -84,7 +84,6 @@ from mission_recipient_sectors import WHITELIST, annotate, load_lines  # noqa: E
 
 OUT = os.path.join(DATA, "exception-proxy-refined-2026-11-19.csv")
 FS_LIST_OUT = os.path.join(DATA, "fiscal-sponsor-ein-list-2026-11-19.csv")
-FSD_URL = "https://fiscalsponsordirectory.org/all-fiscal-sponsors-alpha-ordered/"
 SOURCE = (mel.SOURCE + "; fiscal-sponsor hosts from fiscalsponsordirectory.org (all-fiscal-sponsors-alpha-ordered, "
           "fetched 2026-11-19) keyed to EINs via the EO BMF; ruling months as of grant time from archived monthly IRS "
           "EO BMF files (NCCS mirror nccsdata.s3.us-east-1.amazonaws.com/raw/bmf/, 2023-06..2026-07; legacy/bmf 2022-01, "
@@ -113,13 +112,12 @@ EXTRA_SI = (("fs_q19_ein", "fs_fsd_ein", "fs_fsd_only_ein", "fs_name_fallback", 
 
 # ----------------------------------------------------------------------------- names (pure)
 def name_key(s: str) -> str:
-    s = re.sub(r"\([^)]*\)", " ", (s or "").replace("’", "'"))
-    s = re.sub(r"'S\b", "", s.upper())
+    s = re.sub(r"\([^)]*\)", " ", (s or "").replace("’", "").replace("'", ""))
     return " ".join(w for w in mel.upname(s).split() if w not in STOP)
 
 
 def state_of(loc: str) -> str:
-    u = mel.upname(loc.split("–")[-1])
+    u = re.sub(r"\b([A-Z]) ([A-Z])$", r"\1\2", mel.upname(loc.split("–")[-1]))
     if re.search(r"(^|\b)D C$|\bDC$", u):
         return "DC"
     m = re.search(r"\b([A-Z]{2})( \d{5})?$", u)
@@ -144,12 +142,14 @@ def fsd_entries(page: str) -> tuple:
 
 def similar(a: str, b: str) -> bool:
     """Near match for directory vs BMF names in the same city: same token set, one token set contains the other
-    (>= 2 non-generic tokens in the smaller set), or the BMF name is a 40-character-truncated prefix of the directory name."""
-    x, y = set(a.split()), set(b.split())
+    (>= 2 non-generic tokens in the smaller set; plural 'S' ignored), or the BMF name is a 40-character-truncated
+    prefix of the directory name (spaces ignored)."""
+    x, y = {w.rstrip("S") for w in a.split()}, {w.rstrip("S") for w in b.split()}
+    ca, cb = a.replace(" ", ""), b.replace(" ", "")
     small = min((x, y), key=len) - GENERIC
-    return bool(x and y) and (x == y or a.replace(" ", "") == b.replace(" ", "")
+    return bool(x and y) and (x == y or ca == cb
                               or (len(small) >= 2 and (x <= y or y <= x))
-                              or (len(b) >= 25 and a.startswith(b)))
+                              or (len(cb) >= 25 and ca.startswith(cb)))
 
 
 def match_entry(entry: Sequence, exact: Mapping, by_city: Mapping) -> dict:
