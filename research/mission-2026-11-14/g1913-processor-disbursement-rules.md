@@ -27,7 +27,7 @@
    - None of these clauses sets a hold duration or describes a compliance timeout ([terms](https://www.forgood.org/legal-pages/terms-conditions)).
    - The old Network for Good help centre (intercom.help/networkforgood) now returns 404 on every article URL tried.
    - So -037, -040 and -041 are only partly explained.
-   - One written rule cuts the other way. It says ForGood "shall disburse any donations … at least every twelve (12) months", with a minimum disbursement amount of $9.51. A $50 balance unpaid after a year (-039) therefore **contradicts** the written rule.
+   - One written rule cuts the other way. It says ForGood "shall disburse any donations … at least every twelve (12) months", with a minimum disbursement amount of $9.51. A $50 balance unpaid after a year (-039) would breach the current rule, but the record dates from 2024-07-01, before these terms (2026-09-01), and "went to another entity" fits the re-grant clause. It is coded unverified [V wave 33A]
 5. **Processors and sponsors differ in four structural ways** (§4):
    - **Thresholds.** Benevity ($100 check, $20 sweep), For Good ($9.51; Every.org's page says $10.00), Every.org (via ForGood) and Goodstack (amount unstated) hold small balances. None of the 10 sponsor rows records a minimum.
    - **Batching.** Processors pay in monthly batches: Benevity in the month after receipt, For Good on the 15th, PayPal Giving Fund (PPGF) around the 25th. YourCause and CyberGrants follow a schedule each corporate client sets, typically monthly or quarterly. Sponsors pay per grant within days.
@@ -202,7 +202,7 @@ The policy's "$100,000" minimum initial donation conflicts with the FAQ's "no mi
 | CMP-G1913-037 | Compliance documents unreviewed; automated timeout closed the account and blocked disbursement | "as long as You satisfy ForGood's legal requirements"; suspension "for any other reason" (NFG-04). No timeout rule was found | partial |
 
 ### 5.2 Other additions-file records the rules bear on
-- **Fully explained:** -036 (Blackbaud check not reissued after about three months). Reissue eligibility starts at 45 days and the replacement takes 60–90 days (YC-03).
+- **Partly explained:** -036 (Blackbaud check not reissued after about three months). Reissue eligibility starts at 45 days and the replacement takes 60–90 days (YC-03), so the rule permits the wait but does not predict it, and the record's YourCause attribution is inferred [V wave 33A]
 - **Partly explained:**
   - -019: held pending information (Benevity's paused-disbursement rule, BEN-04).
   - -021: registration refused for 3 months, against a typical review of 30 days (BEN-04).
@@ -212,7 +212,7 @@ The policy's "$100,000" minimum initial donation conflicts with the FAQ's "no mi
   - -040: duplicate of -037.
   - -041: $6,400 held since 2024 over a tax issue. The rules allow a re-grant but set no maximum hold (NFG-05).
   - -043: monthly checks four months late. The cadence fits (NFG-02), but the 45-day reissue is not a written For Good rule (NFG-03).
-- **Contradicted:** -039. A $50 balance unpaid after a year should have been paid under the $9.51 minimum and the 12-month backstop (NFG-01).
+- **Unverified:** -039. Under today's $9.51 minimum and 12-month backstop (NFG-01, terms of 2026-09-01) a $50 balance should be paid within a year. The record is from 2024-07-01, the rule then in force was not read, and the re-grant clause (NFG-05) fits "went to another entity" [V wave 33A]
 - **Unverified:** -002 (a 180-day void with no reissue). The Benevity void rule could not be read (BEN-03).
 - **Not explained:** -010, -016 and -020 (Benevity funds shown as due or sent but not received). No rule addresses them.
 
@@ -222,14 +222,14 @@ The policy's "$100,000" minimum initial donation conflicts with the FAQ's "no mi
 | full | -001 | 1 |
 | partial | -006, -009, -018, -019, -037, -040, -041, -043 | 8 |
 | not explained | -010, -016, -020, -027 | 4 |
-| contradicted | -039 | 1 |
+| unverified | -039 | 1 | [V wave 33A]
 
 These are the 9 Benevity and 5 Network for Good grant-delay records; the counts come from the additions CSV's `category` field.
 
 **Implication for "policy (structural) vs operations (fixable)".**
 - The two clearest cases (-001 and -034) are policy. The gap19 note coded -001 as fixable; on this evidence it is a structural threshold rule.
 - The "partial" group is mostly discretion clauses. They make delay permissible without making it predictable.
-- The not-explained and contradicted records (5 of 14) are operational failures measured against the processors' own rules.
+- The not-explained records (4 of 14) are operational failures measured against the processors' current written rules; -039 needs the 2024 rule text [V wave 33A]
 
 ---
 
@@ -239,7 +239,7 @@ These are the 9 Benevity and 5 Network for Good grant-delay records; the counts 
 - **Retired help centre.** Network for Good's help articles return 404. The For Good rows rest on terms, disclosures and an FAQ, which may leave out operating rules such as compliance windows.
 - **Rules can be overridden.** Benevity's schedule says client master agreements supersede it. YourCause and CGDS schedules and redirect targets are set per client. The CSV therefore records defaults, not the terms any given employer programme uses.
 - **No dates on help-centre pages.** YourCause and For Good FAQ pages state no update date, so `http_last_modified` is only a server timestamp. Many YourCause pages share 2026-11-16, which looks like a site rebuild date rather than a content date.
-- **Complaint fit is our judgement.** It rests on single-review paraphrases. A "full" fit means the written rule would produce the reported outcome; it does not mean the account is verified.
+- **Complaint fit is our judgement.** It rests on single-review paraphrases. 11 of the 14 grant-delay records predate the rule versions they are coded against (Benevity terms 2025-12-24, fee schedule 2026-10-01; For Good terms 2026-09-01); only -001, -037 and -040 come after them [V wave 33A] A "full" fit means the written rule would produce the reported outcome; it does not mean the account is verified.
 - **Coverage.** There are no disbursement complaints about Dechomai, PPGF, CGDS, Every.org or Goodstack in the additions file, so their rules are documented here without being linked to any complaint.
 
 ---

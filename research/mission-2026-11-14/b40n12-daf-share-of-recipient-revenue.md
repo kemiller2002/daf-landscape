@@ -11,7 +11,7 @@ Tags: [F] computed from filings by the script · [P] quoted primary/vendor sourc
 
 ## 0. Answer in brief
 
-- **What it measures.** The numerator is DAF grants from the top-50 sponsors. The denominator is each recipient's own Form 990 Part VIII line 1h (total contributions). Recipients that are universities, hospitals, foundations or DAF sponsors are excluded.
+- **What it measures.** The numerator is DAF grants from the top-50 sponsors. The denominator is each recipient's own Form 990 Part VIII line 1h (total contributions), not total revenue: on total revenue the pooled share is 4.2% and the median 4.2%. Recipients that are universities, hospitals, foundations or DAFRC-panel DAF sponsors are excluded [V wave 33A]
   - Across the in-scope recipients, the **median recipient gets 5.9%** of its contributions from top-50 DAF grants (95% CI 5.3–7.4%). P25 is 2.2% and P75 is 16.5%. [F]
   - **Pooled, the share is 6.9%** (95% CI 6.1–7.8%). Pooled means total top-50 DAF dollars divided by total contributions across recipients. [F]
 - **Size gradient.** The share falls steadily with recipient size:
@@ -22,12 +22,12 @@ Tags: [F] computed from filings by the script · [P] quoted primary/vendor sourc
   - ≥$100m: median 1.1%, pooled 3.7%. [F]
 - **Sector spread is modest.** Pooled shares by NTEE major group run from 4.5% (no NTEE code) to 12.9% (public and societal benefit). Medians run from 4.2% (environment and animals) to 13.4% (religion; thin sample). [F]
 - **Top-50 coverage.** The top-50 sponsors' non-DAF-to-DAF Schedule I grants (DAF-weighted) were **$39.29bn in FY2024. That is 67.3% of netted DAFRC FY2024 DAF grants** ($58.41bn) and 60.8% of the raw DAFRC total ($64.60bn). [F]
-- **Scaled to all DAF grants [I].** Dividing by that coverage gives a pooled share of **≈10.2%** and a median of **≈8.8%**. On a private-contributions denominator (1h less line 1e government grants), the scaled pooled share is **≈15.0%**.
+- **Scaled to all DAF grants [I].** Dividing by that coverage gives a pooled share of **≈10.2%**. On a private-contributions denominator (1h less line 1e government grants), the scaled pooled share is **≈15.0%**. Both lean high, because the netted denominator includes Schedule F foreign grants, sub-$5,000 lines and grants to charities outside this frame. A median divided by coverage (≈8.8%) has no estimator behind it and is illustrative only [V wave 33A]
   - This is an inference. It assumes the other 32.7% of DAF grants reach recipients in the same proportions as top-50 grants.
 - **Against Chariot's "nearly 13%".**
   - Unscaled, the independent figure is about half of Chariot's.
   - Scaled, it is in the same range: 10.2% of 1h, or 15.0% of private contributions.
-  - Chariot's 54 participants are "large nonprofits" [P]. For large recipients specifically, the filings give lower shares: ≥$100m pooled 3.7% (scaled 5.5% [I]; 8.4% [I] on the private basis), and $25–100m pooled 6.3% (scaled 9.3% [I]).
+  - Chariot's pages say "54 participating nonprofits" [P]; "large" is the repo's paraphrase, not a Chariot quote. Its $26.1bn of total giving over five years averages about $97m per participant-year [I]. For large recipients the filings give: ≥$100m pooled 3.7% (scaled 5.5% [I]; 8.4% [I] on the private basis), and $25–100m pooled 6.3% (scaled 9.3% [I]; 15.7% [I] on the private basis). The two private-basis figures bracket Chariot's 12.6% [V wave 33A]
 - **Against Chariot's 4–24% sector range.** The filings give a narrower range: 4.5–12.9% pooled, or 6.7–19.1% scaled [I].
   - International, which Chariot puts highest at 23.7% [P], is among the lowest here: pooled 4.9%, scaled 7.2% [I]. Its median (8.9%) is above the all-sector median, however.
 
@@ -84,7 +84,7 @@ Full coverage would have meant about 280,000 returns, so a stratified random sam
 
 - **Weights.** Each respondent's weight is N_h / (n_h − unreadable_h).
   - Some sampled EINs have no FY2023–24 990 or 990-EZ in the index: churches, 990-N filers and government units (169 EINs). Others reported zero contributions (4). Both groups are treated as **out of scope** for a line-1h share, not as missing. The weighted in-scope population is therefore about 96,228 recipients, against a frame of 138,832.
-  - Unreadable returns (9 EINs) are treated as missing at random within their stratum.
+  - Nine EINs are treated as missing at random within their stratum. All 16 of their returns parsed but report no line 1h or EZ line 1, so they belong with the zero-contribution out-of-scope group. The effect on the estimates is negligible [V wave 33A]
 - **Statistics.** Weighted P25, median and P75 of per-recipient shares. The pooled share is a combined ratio estimator: Σw·num / Σw·den.
 - **Intervals.** 95% intervals come from a stratified bootstrap with 500 replicates, resampling within strata with weights held fixed.
 - **Sensitivity variants:**
@@ -188,10 +188,10 @@ All figures are [F]. The coverage ratio also absorbs Schedule I's $5,000 itemisa
 
 **Interpretation [I]**
 - **The two sources are consistent on the order of magnitude.** Once the scaling for non-top-50 sponsors and a private-contributions denominator are applied, the independent figure (≈10–15% pooled) brackets Chariot's 12.6%.
-- **They are not consistent on large organisations.** Filed returns show that DAF grants are a *smaller* share of contributions at ≥$100m charities (3.7% pooled, 1.1% median, unscaled) than at small ones. Chariot's 54 participants are "large nonprofits", so its 12.6% would sit at the high end for that size class.
+- **They are not consistent on large organisations.** Filed returns show that DAF grants are a *smaller* share of contributions at ≥$100m charities (3.7% pooled, 1.1% median, unscaled) than at small ones. Chariot's participants average about $97m of total giving a year [I], between the two largest bands. On the private basis, the scaled figures of 15.7% ($25–100m) and 8.4% (≥$100m) bracket its 12.6%, so the gap is clear only against the ≥$100m band. The comparison is not like-for-like: CRM-coded gifts from all sponsors over 2021–25, against top-50 Schedule I over FY2023–24 [V wave 33A]
   - Several explanations remain open: participant self-selection, the denominator (individual giving against 1h), and the definition of DAF gifts (vendor matching of DAF-originated gifts against Schedule I).
   - The participant list and definitions are gated (P-B40N12-01).
-- **The sector ordering does not replicate.** On filings, international is not the most DAF-dependent sector by dollars. Its large members (IRC 4.7%, MSF 13.1%) carry big denominators.
+- **The sector ordering does not replicate.** On filings, international is not the most DAF-dependent sector by dollars. Its large members (IRC 4.7%, MSF 13.1%) carry big denominators, often government grants: IRC is 13.1% of 1h−1e because line 1e is 64% of its 1h. Chariot's 23.7% for International Relief is stated on total revenue, not individual revenue [V wave 33A]
 
 ## 4. Limits
 
