@@ -7,7 +7,7 @@ The large-scale DAF opportunity is not proven by a claim that '98% of charities 
 ## Source baselines
 - Fidelity Charitable **2026 Giving Report** reports **3.0 million grants in calendar 2025**, $18.3 billion granted. https://www.fidelitycharitable.org/insights/2026-giving-report.html
 - DAFgiving360 **January 27, 2026** report reports **1.5 million grants in calendar 2025**, $9.9 billion granted. https://www.dafgiving360.org/press-release/2025-results
-- DAFgiving360 **FY2025** report reports **1.4 million grants**, 38% scheduled as recurring, and 70%+ unrestricted (sponsor-reported; Schedule I cannot test it, because DAFgiving360's FY2024 return files sector labels only; P-B40N13-01). [V wave 35A] Different fiscal-year window from CY2025. https://www.dafgiving360.org/press-release/fiscal-year-2025-results
+- DAFgiving360 **FY2025** report reports **1.4 million grants**, 38% scheduled as recurring, and 70%+ unrestricted (sponsor-reported; Schedule I cannot test it, because DAFgiving360's FY2024 return files sector labels only; P-B40N13-01). [V wave 35A] Different fiscal-year window from CY2025. The FY2025 “70%+” is still unread at source (robots 403); first-party releases on the Schwab pressroom give 72% (FY2022), 71% (CY2023) and 72% (FY2024) of grants that “did not specify a purpose” [V wave 39A] https://www.dafgiving360.org/press-release/fiscal-year-2025-results
 - Fidelity's 2025 Giving Report (for 2024) records **2,664,446** grants; historical baseline only. https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2025-giving-report.pdf
 - Ren/RCF historical charity verification coverage and Ren 'instant approval' claims are **not exception rates**. See research/ren-instant-grant-approval-rcf-policy-clarity-audit-2026-11-12.md.
 

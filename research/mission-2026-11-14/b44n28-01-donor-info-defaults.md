@@ -128,7 +128,7 @@ These documents do not show a configurable sponsor setting. BofA's 2026-02 guide
   The nonprofit FAQ still says 4% anonymous.
 - **Vanguard's nonprofit page** gives both "Only 4%" and "Only 5% of grants are completely anonymous".
 - **GKCCF** says anonymity is "rare".
-- No sponsor with a fund-name default publishes a disclosure split (P-B4428-03).
+- No sponsor with a fund-name default publishes a disclosure split (P-B4428-03). The sponsor-stats pass confirms it: Vanguard publishes an anonymous share only. Fidelity’s 2022–2024 reports add 82/14/4 (2021), 81/15/4 (2022) and 81/15/4 (2023), so full contact eased from 83% to 80% over 2020–2025 while anonymity stayed at 4–5%. At most 80% of Fidelity’s 2025 grants kept the full-contact default; that is a bound, not a measured retention rate (b4013-b4428) [V wave 39A]
 
 ### 3.4 Email and direct contact
 
