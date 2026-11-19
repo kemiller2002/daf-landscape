@@ -287,50 +287,85 @@ def weights_of(rows: Sequence[Mapping]) -> dict:
     return {k: v[0]["stratum_N"] / len(v) for k, v in resp.items()}
 
 
-def summarise(scope_type: str, scope: str, rows: Sequence[Mapping], w: Mapping, frame_n: int, frame_num: float) -> dict:
+def pooled_of(ok: Sequence[Mapping], w: Mapping, num_key: str, den_fn=None, cap: bool = False):
+    den_fn = den_fn or (lambda r: r["den_contributions_matched"])
+    d = sum(w[r["stratum"]] * den_fn(r) for r in ok)
+    n = sum(w[r["stratum"]] * (min(r[num_key], den_fn(r)) if cap else r[num_key]) for r in ok)
+    return n / d if ok and d > 0 else None
+
+
+def boot_ci(ok: Sequence[Mapping], w: Mapping, reps: int, seed: int) -> dict:
+    """Stratified bootstrap (resample respondents with replacement within stratum, weights fixed at N_h / n_h)."""
+    if len(ok) < 10:
+        return {}
+    by = _group_by_fast(ok, lambda r: r["stratum"])
+    keys = sorted(by)
+    rng = random.Random(seed)
+    draws = tuple(tuple(x for k in keys for x in rng.choices(by[k], k=len(by[k]))) for _ in range(reps))
+    pooled = sorted(p for p in (pooled_of(d, w, "num_daf_weighted_matched") for d in draws) if p is not None)
+    med = sorted(m for m in (wquantile([(r["share_daf_weighted"], w[r["stratum"]]) for r in d], 0.5) for d in draws)
+                 if m is not None)
+    pct = lambda xs, q: xs[min(len(xs) - 1, int(q * len(xs)))] if xs else None  # noqa: E731
+    return {"pooled_ci95_lo": pct(pooled, 0.025), "pooled_ci95_hi": pct(pooled, 0.975),
+            "median_ci95_lo": pct(med, 0.025), "median_ci95_hi": pct(med, 0.975)}
+
+
+def summarise(scope_type: str, scope: str, rows: Sequence[Mapping], w: Mapping, frame_n: int, frame_num: float,
+              reps: int, seed: int) -> dict:
     ok = tuple(r for r in rows if r["status"] == "ok")
     wt = lambda r: w[r["stratum"]]  # noqa: E731
-    pooled = lambda k: (sum(wt(r) * r[k] for r in ok) / sum(wt(r) * r["den_contributions_matched"] for r in ok)  # noqa: E731
-                        if ok and sum(wt(r) * r["den_contributions_matched"] for r in ok) > 0 else None)
-    pooled_priv = (sum(wt(r) * r["num_daf_weighted_matched"] for r in ok)
-                   / sum(wt(r) * (r["den_contributions_matched"] - r["den_gov_grants_1e_matched"]) for r in ok)) \
-        if ok and sum(wt(r) * (r["den_contributions_matched"] - r["den_gov_grants_1e_matched"]) for r in ok) > 0 else None
+    priv = lambda r: r["den_contributions_matched"] - r["den_gov_grants_1e_matched"]  # noqa: E731
     q = lambda k, p: wquantile([(r[k], wt(r)) for r in ok], p)  # noqa: E731
     return {"row_type": "summary", "scope_type": scope_type, "scope": scope, "frame_recipients": frame_n,
             "frame_num_sched_i_fy2023_2024": round(frame_num), "sampled": len(rows), "respondents": len(ok),
             "weighted_recipients": round(sum(wt(r) for r in ok)),
             "p25_share_daf_weighted": q("share_daf_weighted", 0.25), "median_share_daf_weighted": q("share_daf_weighted", 0.5),
             "p75_share_daf_weighted": q("share_daf_weighted", 0.75), "median_share_sched_i": q("share_sched_i", 0.5),
-            "pooled_share_sched_i": pooled("num_sched_i_matched"), "pooled_share_daf_weighted": pooled("num_daf_weighted_matched"),
-            "pooled_share_of_private_contrib": pooled_priv,
+            "pooled_share_sched_i": pooled_of(ok, w, "num_sched_i_matched"),
+            "pooled_share_daf_weighted": pooled_of(ok, w, "num_daf_weighted_matched"),
+            "pooled_share_daf_weighted_capped": pooled_of(ok, w, "num_daf_weighted_matched", cap=True),
+            "pooled_share_of_private_contrib": pooled_of(ok, w, "num_daf_weighted_matched", priv),
             "share_gt_100pct": (sum(wt(r) for r in ok if (r["share_daf_weighted"] or 0) > 1) / sum(wt(r) for r in ok)) if ok else None,
-            "source": SOURCE}
+            "share_ge_20pct": (sum(wt(r) for r in ok if (r["share_daf_weighted"] or 0) >= 0.2) / sum(wt(r) for r in ok)) if ok else None,
+            **boot_ci(ok, w, reps, seed), "source": SOURCE}
 
 
-def build_summaries(rows: Sequence[Mapping], frame: Sequence[Mapping], scale: float | None) -> list:
+INTERMEDIARY_NAME = re.compile(r"\b(FOUNDATION|FUND|TRUST|FDN)\b")
+
+
+def view_of(f: Mapping, cert: frozenset) -> dict:
+    return {"ntee_major_group": f["group"], "revenue_band": f["band"], "name": f["name"], "ntee_cd": f["ntee"],
+            "stratum": "certainty" if f["ein"] in cert else "x"}
+
+
+def build_summaries(rows: Sequence[Mapping], frame: Sequence[Mapping], scale: float | None, reps: int, seed: int) -> list:
     w = weights_of(rows)
-    fr = lambda pred: [f for f in frame if pred(f)]  # noqa: E731
+    cert = frozenset(r["ein"] for r in rows if r["stratum"] == "certainty")
+    not_interm = lambda r: not (r["ntee_cd"].startswith("T") or INTERMEDIARY_NAME.search(r["name"].upper()))  # noqa: E731
     scopes = ([("all", "all_ex_excluded", lambda r: True)]
-              + [("all", "non_certainty_only", lambda r: r["stratum"] != "certainty")]
-              + [("ntee_major_group", g, (lambda r, g=g: r.get("ntee_major_group", r.get("group")) == g)) for g in GROUPS]
-              + [("revenue_band", b, (lambda r, b=b: r.get("revenue_band", r.get("band")) == b)) for _, _, b in BANDS])
+              + [("sensitivity", "non_certainty_only", lambda r: r["stratum"] != "certainty")]
+              + [("sensitivity", "ex_ntee_T_and_fund_foundation_trust_names", not_interm)]
+              + [("ntee_major_group", g, (lambda r, g=g: r["ntee_major_group"] == g)) for g in GROUPS]
+              + [("revenue_band", b, (lambda r, b=b: r["revenue_band"] == b)) for _, _, b in BANDS])
+    views = tuple((f, view_of(f, cert)) for f in frame)
 
-    def one(st, sc, pred):
-        sub_f = fr(lambda f: pred({"ntee_major_group": f["group"], "revenue_band": f["band"],
-                                   "stratum": "certainty" if f["ein"] in cert_eins else "x"}))
-        s = summarise(st, sc, [r for r in rows if pred(r)], w, len(sub_f), sum(f["num_si_total"] for f in sub_f))
-        return {**s, "scaled_pooled_share_inference": (s["pooled_share_daf_weighted"] / scale)
-                if s["pooled_share_daf_weighted"] is not None and scale else None,
-                "scaled_median_share_inference": (s["median_share_daf_weighted"] / scale)
-                if s["median_share_daf_weighted"] is not None and scale else None}
-    cert_eins = frozenset(r["ein"] for r in rows if r["stratum"] == "certainty")
-    return [one(*s) for s in scopes]
+    def one(i, st, sc, pred):
+        sub_f = tuple(f for f, v in views if pred(v))
+        s = summarise(st, sc, [r for r in rows if pred(r)], w, len(sub_f), sum(f["num_si_total"] for f in sub_f),
+                      reps, seed + i)
+        inf = lambda k: (s[k] / scale) if s.get(k) is not None and scale else None  # noqa: E731
+        return {**s, "scaled_pooled_share_inference": inf("pooled_share_daf_weighted"),
+                "scaled_pooled_capped_inference": inf("pooled_share_daf_weighted_capped"),
+                "scaled_median_share_inference": inf("median_share_daf_weighted")}
+    return [one(i, *s) for i, s in enumerate(scopes)]
 
 
 FIELDS = ("row_type", "scope_type", "scope", "frame_recipients", "frame_num_sched_i_fy2023_2024", "sampled", "respondents",
           "weighted_recipients", "p25_share_daf_weighted", "median_share_daf_weighted", "p75_share_daf_weighted",
-          "median_share_sched_i", "pooled_share_sched_i", "pooled_share_daf_weighted", "pooled_share_of_private_contrib",
-          "share_gt_100pct", "scaled_pooled_share_inference", "scaled_median_share_inference",
+          "median_ci95_lo", "median_ci95_hi", "median_share_sched_i", "pooled_share_sched_i", "pooled_share_daf_weighted",
+          "pooled_ci95_lo", "pooled_ci95_hi", "pooled_share_daf_weighted_capped", "pooled_share_of_private_contrib",
+          "share_gt_100pct", "share_ge_20pct", "scaled_pooled_share_inference", "scaled_pooled_capped_inference",
+          "scaled_median_share_inference",
           "ein", "name", "state", "ntee_cd", "ntee_major_group", "revenue_band", "bmf_revenue_amt", "stratum", "stratum_N",
           "top50_grantors", "num_sched_i_fy2023", "num_sched_i_fy2024", "num_sched_i_fy2023_2024_all", "years_matched",
           "forms", "object_ids", "num_sched_i_matched", "num_daf_weighted_matched", "den_contributions_matched",
@@ -352,6 +387,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     ap.add_argument("--per-stratum", type=int, default=40)
     ap.add_argument("--certainty", type=int, default=400)
     ap.add_argument("--workers", type=int, default=12)
+    ap.add_argument("--boot", type=int, default=500)
     ap.add_argument("--out", default=OUT)
     a = ap.parse_args(argv)
 
@@ -390,11 +426,13 @@ def main(argv: Sequence[str] | None = None) -> int:
     rec = [recipient_row(s, filings[s["ein"]], f990) for s in sample]
 
     cov24 = coverage_fy(ann, weights, 2024)
+    cov23 = coverage_fy(ann, weights, 2023)
     mk = market(dafrc)
-    netted = next(num(r["netted_value"]) for r in read_csv(NETTED_CSV)
-                  if r["fiscal_year"] == "2024" and r["metric"] == "daf_grants" and r["tier"] == "central")
+    net = {int(r["fiscal_year"]): num(r["netted_value"]) for r in read_csv(NETTED_CSV)
+           if r["metric"] == "daf_grants" and r["tier"] == "central"}
+    netted = net[2024]
     scale = cov24["daf_weighted_non_d2d"] / netted
-    summ = build_summaries(rec, frame, scale)
+    summ = build_summaries(rec, frame, scale, a.boot, a.seed)
     write_csv(a.out, summ + sorted(rec, key=lambda r: (r["stratum"] != "certainty", r["stratum"], r["ein"])), FIELDS)
 
     excl_mix = {k: {"recipients": len(v), "num_sched_i_fy2023_2024": round(sum(u["num_si_total"] for u in v))}
@@ -420,6 +458,10 @@ def main(argv: Sequence[str] | None = None) -> int:
                             "netted_central_fy2024": round(netted), "top50_share_of_netted": scale,
                             "top50_sched_i_share_of_netted": cov24["sched_i_non_d2d"] / netted,
                             "top50_share_of_dafrc_raw": cov24["daf_weighted_non_d2d"] / mk[2024]["grants"]},
+        "coverage_fy2023": {**{k: round(v) for k, v in cov23.items()}, "netted_central_fy2023": round(net[2023]),
+                            "top50_share_of_netted": cov23["daf_weighted_non_d2d"] / net[2023],
+                            "dafrc_fy2023_total_daf_grants": round(mk[2023]["grants"])},
+        "form_mix_ok": {k: len(v) for k, v in _group_by_fast((r for r in rec if r["status"] == "ok"), lambda r: r["forms"]).items()},
         "summaries": [{k: (round(v, 4) if isinstance(v, float) else v) for k, v in s.items() if k != "source"} for s in summ],
         "top_shares_certainty": sorted(({"name": r["name"][:40], "ntee": r["ntee_cd"], "share": round(r["share_daf_weighted"], 3),
                                          "num": r["num_daf_weighted_matched"], "den": r["den_contributions_matched"]}
