@@ -36,7 +36,8 @@ C variants (all on CAL_CENTRAL calibrated draws)
   HYBRID_A01_M1   route (A01 ranges, m = 1) plus assistance on the low-confidence rest.
 
 Break-even realization: per (draw, process), r_be = C / max(B_v1, D_v1) when C > A and C > 0, else 0: the common
-realization factor below which C ranks first by gross. Sweeps apply a fixed common r to B and D in every process.
+realization factor below which C ranks first by gross. Sweeps apply a fixed common r to B and D (SWEEP_R_BD) or to
+A, B and D (SWEEP_R_ABD) in every process.
 
 Output (new file): data/mission-2026-11-14/ai-bd-recut-2026-11-19.csv (evidence rows are written by
 --evidence-only from the evidence table embedded below; the main run writes model rows and appends them).
@@ -246,10 +247,11 @@ def bd_values(cp: Mapping, spec: Mapping, rB: float, rD: float) -> tuple[float, 
     return B, D0 * (1.0 if has_ev and spec["id"] in ("BD_FIELD", "BD_PROGRAM", "ABD_FIELD") else rD)
 
 
-def eval_draw(d: Mapping, cvals: Mapping, spec: Mapping, ru: Sequence[float], fixed_r: float | None = None) -> dict:
+def eval_draw(d: Mapping, cvals: Mapping, spec: Mapping, ru: Sequence[float], fixed_r: float | None = None,
+              r_on_a: bool = False) -> dict:
     rB = fixed_r if fixed_r is not None else draw_r(ru[0], spec["rB"])
     rD = fixed_r if fixed_r is not None else draw_r(ru[1], spec["rD"])
-    rA = draw_r(ru[2], spec.get("rA")) if fixed_r is None else 1.0
+    rA = draw_r(ru[2], spec.get("rA")) if fixed_r is None else (fixed_r if r_on_a else 1.0)
     out = {}
     for cp in d["procs"]:
         B, D = (cp["others"]["B"] * rB, cp["others"]["D"] * rD) if fixed_r is not None else bd_values(cp, spec, rB, rD)
@@ -396,15 +398,17 @@ def run_archetype(scn, idx, a, procs, anchor, draws, sweeps: bool) -> tuple[list
                        "modal " + "".join(sm["per"][p]["modal_gross"] for p in v2.SPONSOR_PROCS) +
                        f" C={sm['pools']['C']['p50']:,.0f} B={sm['pools']['B']['p50']:,.0f} D={sm['pools']['D']['p50']:,.0f}")
         if sweeps:
-            for r in R_SWEEP:
-                sm = summarise(tuple(eval_draw(d, cvl, BD_SPECS[0], ru, fixed_r=r) for d, cvl, ru in zip(ds, cvals, rus)), avail)
-                rows += summary_rows(scn, cv["id"], "SWEEP_R", aid, f"sweep_r={r:g}", sm, ref_same,
-                                     f"{cv['id']}/V1_PRIORS", detail=False)
-                rows += [row(scn, cv["id"], "SWEEP_R", aid, f"sweep_r={r:g}", "sponsor_gross_value_pool_p50",
-                             sm["pools"][i]["p50"], "usd/yr", intervention=i) for i in ("B", "D")]
-                log.append(f"  sweep r={r:<5g} {cv['id']:<13} P(C1st)={sm['mean_pg']['C']:.4f} nC_modal="
-                           f"{sum(sm['per'][p]['modal_gross'] == 'C' for p in v2.SPONSOR_PROCS)} modal "
-                           + "".join(sm["per"][p]["modal_gross"] for p in v2.SPONSOR_PROCS))
+            for lab, on_a in (("SWEEP_R_BD", False), ("SWEEP_R_ABD", True)):
+                for r in R_SWEEP:
+                    sm = summarise(tuple(eval_draw(d, cvl, BD_SPECS[0], ru, fixed_r=r, r_on_a=on_a)
+                                         for d, cvl, ru in zip(ds, cvals, rus)), avail)
+                    rows += summary_rows(scn, cv["id"], lab, aid, f"sweep_r={r:g}", sm, ref_same,
+                                         f"{cv['id']}/V1_PRIORS", detail=False)
+                    rows += [row(scn, cv["id"], lab, aid, f"sweep_r={r:g}", "sponsor_gross_value_pool_p50",
+                                 sm["pools"][i]["p50"], "usd/yr", intervention=i) for i in ("A", "B", "D")]
+                    log.append(f"  {lab} r={r:<5g} {cv['id']:<13} P(C1st)={sm['mean_pg']['C']:.4f} nC_modal="
+                               f"{sum(sm['per'][p]['modal_gross'] == 'C' for p in v2.SPONSOR_PROCS)} modal "
+                               + "".join(sm["per"][p]["modal_gross"] for p in v2.SPONSOR_PROCS))
     return rows, log
 
 
