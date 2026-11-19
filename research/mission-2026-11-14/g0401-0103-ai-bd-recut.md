@@ -30,7 +30,7 @@ Seven sources were retrieved. Only one of them yields **both** the share of case
 - The triage operating point (alerting 20% of negatives while catching over 90% of true positives) therefore implies:
   - **an auto-closed share of about 0.78 of alerts**;
   - **a miss rate inside the closed band of at most 0.39% per closed alert**, or 0.77% at the baseline model's 80% recall [C].
-- So the routing note's upper error bound, e = 0.10 attributed to E15, overstated E15's per-closed-alert error by more than ten times.
+- So the routing note's upper error bound, e = 0.10 attributed to E15, was a share of true positives missed (1 − recall), a denominator the routing note had already flagged as [I]. Per closed alert, E15 implies at most 0.39% (about 0.77% at the baseline’s ~80% recall), 13–26 times below 0.10. [V wave 37C]
 
 The other evidence gives one side only:
 
@@ -38,7 +38,7 @@ The other evidence gives one side only:
 |---|---|---|---|
 | E15 (Eddin et al. 2021) | AML alerts, one bank, retrospective | 0.78 [C] | ≤ 0.004 (≤ 0.008 at baseline recall) [C] |
 | Gerlings & Constantiou (HICSS 2023) | AML alerts, one bank, in production test | ~0.20 of workload [F] | not reported; **every auto-closed alert re-checked by a dedicated team** (k = 1) [F] |
-| FinCEN consent order, Bank of America (2026) | AML scoring threshold (rules, not ML) | — | **0.38–0.45** SAR yield just *below* the threshold, against 0.33–0.34 just above [F]: a band in which the threshold carried no information |
+| FinCEN consent order, Bank of America (2026) | AML scoring threshold (rules, not ML) | — | **0.38–0.45** SAR yield just *below* the threshold, against 0.33–0.34 just above it in the bank’s earlier 2018–2020 testing [F]. The two yields come from different periods, so they show a threshold that had drifted out of calibration, not a same-period band in which it carried no information [V wave 37C] |
 | OCBC (arXiv 2609.20110, 2026) | Invoice field extraction, public benchmark | 0.28 / 0.49 / 0.67 of fields at ≤ 5% / 10% / 20% error; native VLM confidence 0.001–0.07 at ≤ 10% [F] | bounded by construction (≤ the target) |
 | US State Dept (2024 deck) | Document classification (declassification), production | ~0.80 ("reduced volume for humans to review (by 80%)") [F] | not reported; QC retained [F] |
 | Foreign Service Journal (Oct 2023) | Same, 3-month pilot | > 0.65 [F] | overall agreement > 97% (all documents, not the band) [F] |
@@ -47,7 +47,7 @@ The other evidence gives one side only:
 **For the model [I]:**
 - The evidence moves h **above** the E19 range used in the routing note (0.21–0.49). The new range is **h ~ U(0.20, 0.80)**, and e is narrowed to **U(0.004, 0.10)**. These are the "A01" ranges below.
 - The upper half of the h range rests on a retrospective validation (E15) and an agency self-report (State). No source measures h and e together in production.
-- The BofA order is a warning against assuming any e: a poorly calibrated threshold produced an error rate below the line no lower than above it.
+- The BofA order is a warning against assuming any e: by 2022–Q1 2023 the SAR yield just below the line (38–45%) exceeded the 33–34% the bank had measured just above it in 2018–2020, and was seven to nine times its later 5% false-negative tolerance. [V wave 37C]
 
 ### (B) B and D held to C's standard (P-G0401-03)
 
@@ -71,13 +71,13 @@ The other evidence gives one side only:
 
 1. **Assistance (the calibrated C) still wins no process.** Its rank-first probability rises sevenfold to twentyfold, from 0.2% to 1.5–4.3%, but C is the most likely winner in **no process at any archetype** under any B/D variant on CAL_CENTRAL.
 2. **What replaces B and D is manual improvement (A), not AI.**
-   - When B and D alone are cut to realized savings (BD_FIELD), A becomes the modal gross winner in 6 of 15 processes at a large national (P01, P03, P07, P08, P13, P14).
+   - When B is cut to the RPA-audit realization range and D to the same range by analogy [I] (BD_FIELD), A becomes the modal gross winner in 6 of 15 processes at a large national (P01, P03, P07, P08, P13, P14). [V wave 37C]
    - A's α ~ U(0.05, 0.25) is also an uncalibrated v1 prior.
    - Only when the same realization range is applied to A as well (ABD_FIELD) does C under routing become the modal winner. That happens in P03 and P07 with the routing-note ranges, and in P03, P07, P11, P13 and P14 with the A01 ranges at m = 1.
 3. **Routing with the A01 ranges is the variant that changes the ranking**, and at V1 priors it already flips P03 to C.
    - With B and D recut (BD_FIELD), C is modal in P03, P07 and P11 at a large national, and in 4–5 processes at community-foundation archetypes.
    - Its rank-first probability is 19–31% across BD_FIELD, BD_WIDE and BD_PROGRAM.
-   - This rests on h up to 0.80 and on m = 1. At m = 5 under BD_FIELD, C is modal in no process at a large national.
+   - This rests on h up to 0.80 and on m = 1. At m = 5 under BD_FIELD, C is modal in no process at a large national. The upper half of that h range (E15’s retrospective 0.78, State’s self-reported 80%) has not been cut to realized savings the way B and D were. If one common realization factor applied to A, B, C and D alike, the gross ranking would be the V1-priors one: A01 routing modal in P03 only, and assistance and routing-note routing in none [C]. [V wave 37C]
 
 **Break-even realization [S].** Hold everything else fixed and scale realized B and D by a common factor r:
 - **Assist:** C does not become the modal winner in any process at any r ≥ 0.07 if A keeps its prior. With A scaled too, C becomes modal in its first process at r = 0.33 and in 8 of 15 at r = 0.07.
@@ -98,7 +98,7 @@ The other evidence gives one side only:
 | ABD_FIELD | $827k | $1.06m | as above | $2.18m | $2.46m | $0; $384k |
 
 - **The recut shrinks the non-AI pools.** The best-alternative pool falls by 31% under BD_FIELD and by 42% under ABD_FIELD.
-- **But the AI pool that goes beyond what the alternatives already deliver stays small.** In the median draw it is **$0 for assistance in every variant**. For A01 routing it is **$114k–$384k** at a large national, and $17k–$55k at a $1bn community foundation.
+- **But the AI pool that goes beyond what the alternatives already deliver stays small.** In the median draw it is **$0 for assistance in every variant**. For A01 routing it is **$100k–$384k** at a large national across BD_FIELD, BD_WIDE, BD_PROGRAM and ABD_FIELD ($7.4k under B_FIELD), and $16k–$55k at a $1bn community foundation. [V wave 37C]
 - **Vendor platform break-even depends on C only, so the B/D recut does not move it.** In p50 sponsors needed, with P(≤ 5 large nationals):
   - assist: 17, P = 0.13;
   - routing-note routing, m = 1: 8, P = 0.38;
@@ -155,11 +155,11 @@ The other evidence gives one side only:
 - **D_WIDE** remaps d_p's uniform to triangular(0, d1, min(0.95, d1 + 0.10)) for processes without redesign evidence. It keeps the drawn adoption multiplier.
 - **Specs.** BD and C specs are listed in the script docstring and in the `record_type=spec` rows.
 - **Realization range [I mapping].**
-  - Field: triangular(0.07, 0.33, 1.00). The low end is the HUD program level, the mode is the GSA closeout bot and HUD's billing bots, and the top is a bot that meets its estimate (1 of 10 in the GSA sample).
+  - Field: triangular(0.07, 0.33, 1.00). The low end is the HUD program level, the mode is the GSA closeout bot (the only GSA bot with a numeric ratio, about 30 of 90 minutes), and the top is a bot that meets its estimate (1 of 10 in the GSA sample). HUD’s billing-bot 33% is not used as support: it arises because a 500-hour estimate for all three bots was reported for each bot. [V wave 37C]
   - Program stress: U(0.07, 0.15).
   - Ignorance: U(0.07, 1.00).
 - **A01 routing ranges [I mapping]:** h ~ U(0.20, 0.80) and e ~ U(0.004, 0.10).
-  - h: the lower bound is the production bank's ~20% workload cut (CB-02); the upper bound is E15's computed 0.78 and State's 80%.
+  - h: the lower bound is the ~20% workload cut in the bank’s test set-up (CB-02: “Currently the bank is testing a set-up”); the upper bound is E15’s computed 0.78 (retrospective) and State’s self-reported 80%. [V wave 37C]
   - e: the lower bound is E15's computed in-band miss; the upper bound is the 10% accepted-tier error budget (CB-04).
   - k is drawn from the same uniforms as the routing note, so it is identical draw by draw; ρ = 0.
 - **Break-even realization.** For each draw and process, r_be = C / max(B_v1, D_v1) when C > A and C > 0, and 0 otherwise. Sweeps apply a fixed r to B and D (`SWEEP_R_BD`) or to A, B and D (`SWEEP_R_ABD`).
@@ -181,7 +181,7 @@ The other evidence gives one side only:
   - miss rate inside the closed band = (1 − ρ)π divided by that share.
   - At π = 0.03 and ρ = 0.90: closed share 0.779, in-band miss 0.0039.
   - At ρ = 0.80: closed share 0.782, in-band miss 0.0077.
-  - Because π < 0.03, both miss rates are upper bounds.
+  - Because π < 0.03 and the graph model’s recall is “over 90%”, 0.39% is an upper bound. The 0.77% is approximate, because the baseline reaches “close to 80%” recall, possibly slightly below 0.80. Both count only SAR-label misses on account-days. [V wave 37C]
 - **Caveats:**
   - A retrospective validation, not a deployment.
   - Labels are account-days derived from SAR-linked transactions.
@@ -213,7 +213,7 @@ The other evidence gives one side only:
   - Neither source gives the error inside the auto-decided band.
 - **KYC onboarding.** No 2021+ source with denominators was found. The one sanctions-screening paper retrieved (Frontiers in AI, 2024) uses mock-up data and was excluded.
 - **Miscalibrated thresholds (CB-03).**
-  - The BofA order shows the opposite case. Event groups scoring 16–19 points, just below the investigation threshold, had a 38–45% SAR yield in 2022–Q1 2023, against 33–34% just above it.
+  - The BofA order shows the opposite case. Event groups scoring 16–19 points, just below the investigation threshold, had a 38–45% SAR yield in 2022–Q1 2023, against 33–34% just above it in the bank’s 2018–2020 testing. The order compares the two periods; it gives no same-period yield above the threshold. [V wave 37C]
   - The bank's later false-negative tolerance was 5% (7.5% for Board escalation).
   - Correcting the threshold was expected to add 16,000 investigations a month, "double [the] prior ongoing monthly volume", and 750 staff [F].
 
@@ -227,7 +227,7 @@ The other evidence gives one side only:
   - "only seven distinct bots were in use, and annual labor hour savings totaled approximately 1,015, or 7 percent of the amount HUD estimated" [F].
   - A potential 2,091 hours (15%) if finished bots ran [F].
   - A grants bot "planned to save 2,100 hours annually by sending a survey form to grant recipients" was "expected to save only 24 labor hours annually, or 1 percent" [F].
-  - Three internal-billing bots: 33% of the reported estimate [F].
+  - Three internal-billing bots: 33% of the reported estimate [F]. The 500-hour estimate covered all three bots combined but was reported for each (report p. 5) [F], so this is an over-report, not a realized-against-planned shortfall. [V wave 37C]
 - **GSA OIG, A210057/B/5/F24001 (30 Nov 2023).**
   - "actual results varied from the estimates for 9 of the 10 bots we sampled" [F].
   - The OCFO Project Closeout bot: "estimated savings based on the task taking 90 minutes, whereas users reported time savings only averaged approximately 30 minutes" [F].
@@ -308,9 +308,9 @@ All strings are from the CSV rows `modal_winners_gross_P01_P15`.
 | Earlier conclusion | Status |
 |---|---|
 | Calibrated note: the ranking is robust; C is weak | **Holds for assistance.** C wins no process under any B/D standard tried; its rank-first probability rises at most to 4%. |
-| Routing note: C's last place reflects B and D's uncalibrated priors | **Partly confirmed.** Cutting B and D to audited realization raises C's rank-first probability about sixfold (route m = 1: 0.012 → 0.072). The first beneficiary is A, whose prior is also unsourced. C becomes modal only with routing and either A recut too or the A01 h range. |
+| Routing note: C's last place reflects B and D's uncalibrated priors | **Partly confirmed.** Cutting B to RPA-audit realization and D to the same range by analogy [I] raises C's rank-first probability about sixfold (route m = 1: 0.012 → 0.072). The first beneficiary is A, whose prior is also unsourced. C becomes modal only with routing and either A recut too or the A01 h range, whose upper half is not haircut. [V wave 37C] |
 | Routing note: e up to 0.10 from E15 | **Revised.** E15's per-closed-alert miss rate is ≤ 0.4–0.8%. 0.10 now rests on a benchmark error budget (CB-04). |
-| Routing note: h from one radiology study, 0.21–0.49 | **Widened.** Field-adjacent back-office evidence spans 0.20–0.80 (AML production 0.20; AML retrospective 0.78; document classification 0.65–0.80). In-band error is measured only in the retrospective AML case. |
+| Routing note: h from one radiology study, 0.21–0.49 | **Widened.** Field-adjacent back-office evidence spans 0.20–0.80 (AML in-bank testing 0.20; AML retrospective 0.78; document classification 0.65–0.80, an agency self-report and a pilot). [V wave 37C] In-band error is measured only in the retrospective AML case. |
 
 ---
 

@@ -144,7 +144,7 @@ The model charges re-review at half the handling minutes. v2 defines q as a shar
   - The worker's own checking is already inside the measured s. Only second-line QA sampling remains.
   - No source measures a sampling rate, so v2's range (0.03–0.30) is kept unchanged, applied to AI-handled cases. **This parameter is still unsourced.**
 - **Task framing: r ~ triangular(0.10, 0.20, 0.40).**
-  - 0.10: share of true AML positives missed if triage auto-closes (E15).
+  - 0.10: share of true AML positives missed if triage auto-closes (E15). This is 1 − recall, not a rate per AI-handled output: with E15’s prevalence (under 3% of alerts) it is at most 0.39% of auto-closed alerts [C] ([g0401-0103-ai-bd-recut.md](g0401-0103-ai-bd-recut.md)). [V wave 37C]
   - 0.15: meeting notes not rated good (E06).
   - 0.17–0.33: legal RAG hallucination rate (E13).
   - 0.19: correctness penalty outside the AI frontier (E03).
