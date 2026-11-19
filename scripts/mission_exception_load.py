@@ -329,6 +329,22 @@ def top_by(screened: Mapping, flags: Mapping, cat: str, n: int) -> list:
 
 
 # ----------------------------------------------------------------------------- main (I/O edge)
+def _amt(l: Sequence) -> float:
+    return float(l[4] or 0.0) + float(l[5] or 0.0)
+
+
+def is_totals_row(l: Sequence, lines: Sequence) -> bool:
+    """A Schedule I line with no name and no EIN whose amount equals the sum of the named
+    lines, or the number of lines, is a filer's totals row, not a grant [V wave 32A]."""
+    named = tuple(x for x in lines if x[1].strip())
+    return (not l[0] and not l[1].strip()
+            and (abs(_amt(l) - sum(map(_amt, named))) < 1.0 or abs(_amt(l) - len(named)) < 0.5))
+
+
+def drop_totals_rows(v: Mapping) -> dict:
+    return {**v, "lines": [l for l in v["lines"] if not is_totals_row(l, v["lines"])]}
+
+
 def main(argv: Sequence[str] | None = None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("root", nargs="?", default=".", help="repo root (unused; accepted for the repo's CLI convention)")
@@ -346,7 +362,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     present = {(e, fy): chosen[(e, fy)] for e in rank for fy in FYS if (e, fy) in chosen}
     item = {k: x for k, x in present.items() if itemized(x)}
     loaded = {k: load_lines(x["oid"], x.get("sched_i_lines") or 0, a.lines_cache, [], False) for k, x in item.items()}
-    good = {k: v for k, v in loaded.items() if v["status"] == "ok"}
+    good = {k: drop_totals_rows(v) for k, v in loaded.items() if v["status"] == "ok"}
 
     wl = read_csv(WHITELIST)
     wl_eins = frozenset(ein9(r["recipient_ein"]) for r in wl if r["decision"] == "include")
