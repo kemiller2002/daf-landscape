@@ -25,7 +25,7 @@ Reproduce: download the CRA files listed in §1.2 into a directory `DIR` (named 
 5. **Payout depends on the definition** [C]:
    - Same-year aggregate (line 5864 ÷ line 5862): 11.6% in 2024 and 11.2% in 2025. This is Blumberg's "12%".
    - Median sponsor: 10.6% (2024) and 12.2% (2025). Among sponsors with at least C$10m of DAF assets, the median is 8.4% (2024) and 7.3% (2025). These medians exclude sponsors with positive DAF assets and a blank line 5864 (155 in 2024, 241 in 2025). Counting blanks as zero, the medians are 5.4% and 4.0%, and 7.0% and 7.2% for sponsors with at least C$10m [V wave 37B]
-   - US-comparable (disbursements ÷ prior-year DAF assets, matched sponsors): **13.3% in 2025** (586 sponsors) and 16.4% in 2024 (336 sponsors; the 2023 base is partial). The US figure is 22.8%, net of DAF-to-DAF transfers. The Canadian figure is gross of them, so the gap is if anything understated [I].
+   - US-comparable (disbursements ÷ prior-year DAF assets, matched sponsors): **13.3% in 2025** (586 sponsors) and 16.4% in 2024 (336 sponsors; the 2023 base is partial). The US figure is 22.8%, net of DAF-to-DAF transfers. The Canadian figure is gross of them. Netted against the CRA qualified-donee lists, 2025 payout is 12.8% (tier A, DAF-primary sponsors), 12.0% (tier B, any line-5860 = Y sponsor) or 8.8% (tier C, plus all foundations; an upper bound for itemised sponsors), so the gap widens only modestly under a DAF-to-DAF definition ([b39n3-0406-canada-netting-dq.md](b39n3-0406-canada-netting-dq.md)) [C/I] [V wave 38A]
 6. **WellFunded's figures (C$17.3bn in the August 2026 article; C$18.6bn, 205 sponsors and 82,611 accounts on its page today) fall between our two replicas on assets, grants out and sponsor count; donations in (C$3.62bn) fall below both replicas** [C] [V wave 37B]
    - On its stated rule (latest filing per charity, at least 10 accounts): 232 sponsors and C$19.40bn.
    - On the 2025 release only, with error rows removed: 203 sponsors, C$18.14bn and 69,324 accounts.
@@ -201,8 +201,8 @@ Reproduce: download the CRA files listed in §1.2 into a directory `DIR` (named 
 | 5864 ÷ 5863 | 58.6% | 54.9% | Blumberg "58%" |
 | Share of sponsors with same-year payout ≥ 5% (blank 5864 excluded; 50.5% and 45.6% with blanks as zero) | 63.5% | 66.7% | — [V wave 37B] |
 
-- **Canada vs the US** [I]: the Canadian disbursements line includes DAF-to-DAF and DAF-to-foundation transfers, which Blumberg–Pasha flag [F]. So the Canadian prior-year payout overstates net grants. Canada's ~13% against the US 22.8% is a conservative comparison: Canadian DAF payout is lower.
-- **Not the disbursement quota:** none of these figures is the CRA disbursement quota. The DQ is a charity-level 3.5%/5% of average investment property, and a sponsor can meet it while individual accounts pay nothing [I; P-B39N3-06].
+- **Canada vs the US** [I]: the Canadian disbursements line includes DAF-to-DAF and DAF-to-foundation transfers, which Blumberg–Pasha flag [F]. So the Canadian prior-year payout overstates net grants. Canada's ~13% against the US 22.8% is a conservative comparison: Canadian DAF payout is lower. Netted of gifts to other line-5860 = Y sponsors, it is 12.0% in 2025, against the US FY2024 itemised tier B of 20.8% excluding processors [C] [V wave 38A]
+- **Not the disbursement quota:** none of these figures is the CRA disbursement quota. The DQ is a charity-level 3.5%/5% of average investment property, and a sponsor can meet it while individual accounts pay nothing [I; P-B39N3-06]. Tested in b39n3-0406: in the 2025 release 13 of the top-20 sponsors meet the DQ from DAF disbursements net of sponsor transfers, four community foundations need non-DAF spending, and Hamilton Community Foundation's C$279k shortfall is covered by its C$973k prior-year excess (ITA s.149.1(20): one year back, up to five forward) [V wave 38A]
 
 ### 2.6 Panel continuity 2024 → 2025 [C]
 

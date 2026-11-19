@@ -40,7 +40,7 @@
    | Market | Assets | Grants / gifts | Payout measure | Source |
    |---|---|---|---|---|
    | UK | £3.1bn (2024) | £787.7m | 28.3% (on prior year-end assets) | 10 sponsors [F: S01] |
-   | Canada | C$16.64bn (2024; CRA open data C$16.67bn at 846 charities); C$18.60bn in the incomplete 2025 CRA release | C$1.92bn (2024); C$2.09bn (2025) | 12% of same-year DAF assets (11.2% in 2025; 13.3% on prior-year assets) | 834 charities reporting DAFs on T3010 [F: S13]; 864 in the 2025 release [C: b39n3] [V wave 37B] |
+   | Canada | C$16.64bn (2024; CRA open data C$16.67bn at 846 charities); C$18.60bn in the incomplete 2025 CRA release | C$1.92bn (2024); C$2.09bn (2025) | 12% of same-year DAF assets (11.2% in 2025; 13.3% on prior-year assets); 12.0% on prior-year assets net of gifts to other DAF sponsors [C: b39n3-0406] [V wave 38A] | 834 charities reporting DAFs on T3010 [F: S13]; 864 in the 2025 release [C: b39n3] [V wave 37B] |
    | Australia | A$10.7bn (2023) in private ancillary funds alone | n/a | n/a | 3,707 giving funds at 2025-03-03 [F: S23; S: S24] |
    | Switzerland | CHF 1.2bn (2023) of umbrella-foundation fund capital | n/a | n/a | [F: S35] |
    | US (comparator) | n/a | $58.41bn (FY2024, netted) | 22.8% | [R02] |
@@ -235,7 +235,7 @@
 
 ## 7. Lessons for a US AI-native entrant [I unless cited]
 
-1. **Build payout analytics in from day one.** Every peer market studied has, or is adopting, a sponsor-level floor: Canada 5% above $1m, and Australia 4%/5% today, with 6% and smoothing decided but not yet in any registered instrument at 2026-11-19 [V wave 37B] Smoothing, Commissioner reductions and a charity-level DQ create the same work a US rule would: account-level dormancy tracking and aggregate floor management. An entrant that can show per-account payout and simulate the floor is ready if the US moves.
+1. **Build payout analytics in from day one.** Every peer market studied has, or is adopting, a sponsor-level floor: Canada 5% above $1m, and Australia 4%/5% today, with 6% and smoothing decided but not yet in any registered instrument at 2026-11-19 [V wave 37B]. Canada's quota (3.5% to C$1m, 5% above, on a 24-month average) is charity-level and rarely binds on DAF sponsors: in the 2025 release 13 of the top-20 meet it from DAF disbursements net of sponsor transfers [V wave 38A] Smoothing, Commissioner reductions and a charity-level DQ create the same work a US rule would: account-level dormancy tracking and aggregate floor management. An entrant that can show per-account payout and simulate the floor is ready if the US moves.
 2. **The large consumer models abroad ran their own stacks.**
    - **Own stacks:** CHIMP, Canada Gives, CAF and APS run their own platforms or name no vendor.
    - **Where US vendors appear:** Ren, Foundant and NPact are concentrated at adviser-channel and community-foundation sponsors (NPT UK, ACF, Calgary).
@@ -255,7 +255,7 @@
    - The UK and Australia have no equivalent return field. UK totals come from NPT UK reading annual accounts, and Australian sub-funds are invisible.
    - **Implication:** Canada is the one foreign market where the repo's 990-style sponsor benchmarking can be repeated (P-B39N3-01). Note that the account counts carry known filing errors [F: S13].
 6. **Pass-through vehicles are a feature of corporate giving everywhere.** Examples include Benevity's Canadian Online Giving Foundation (99% gifts-to-donations) and its UK partners. They inflate account counts, as in the US repo finding that processors hold 79.5% of US accounts.
-7. **Do not read across payout rates.** The UK 28.3%, Canadian 12% and US 22.8% figures use different numerators and denominators. Canadian figures also include DAF-to-DAF transfers, which the authors flag [F: S13].
+7. **Do not read across payout rates.** The UK 28.3%, Canadian 12% and US 22.8% figures use different numerators and denominators. Canadian figures also include DAF-to-DAF transfers, which the authors flag [F: S13]. Netting gifts to other line-5860 = Y sponsors lowers Canada's 2025 prior-year-asset payout from 13.3% to 12.0% [C: b39n3-0406] [V wave 38A]
 
 ---
 

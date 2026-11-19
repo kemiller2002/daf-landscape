@@ -8,7 +8,33 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-19, through PR #60) — governing
+## Counts (refresh 2026-11-19, through PR #61) — governing
+
+These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #61 merged, and they supersede the tables below. The PR #61 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#61 (42 PRs) | GitHub |
+| Research documents | 317 documents, 1,178,666 words | `research/**/*.md` |
+| Datasets | 601 CSV files, 345,584 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,925 | regex over `research/**/*.md` |
+| Independent validation | **1,628 register rows** in 54 register files (waves 1–38C): 1,181 confirmed, 360 partially confirmed, 63 contradicted, 17 unverifiable, 7 other | `validation-register*.csv`, classified by the leading word of `validation_result` |
+| Research queue | 762 items: 366 done, 265 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.47 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #61 (validated; report §11.45–§11.47):**
+- **Canada.** Payout net of DAF-to-DAF transfers is 12.0% (12.8% under tier A; 8.8% under tier C, which is an upper bound). The charity-level disbursement quota rarely binds on DAF sponsors.
+- **DAF money abroad through non-Q recipients.** Adds $1.35bn. The measured share of total grants reaching abroad is 5.20% [I-alloc], or 5.10% excluding fundraising and PRI rows.
+- **Escaped-error cost m.** Bank SAR penalties work out at $36k–$471k per SAR, which is 2,600–34,000 handling-times; carrying that to DAF sponsors is analogy only [I]. For DAF sponsors the central m is about 2.2, resting mostly on assumptions. Routing beats assistance up to about m = 10.
+- **Sponsor economics.**
+  - Dechomai is 0.1–3.0% of national sponsors' DAF contributions.
+  - Audited fee economics: Fidelity passes its whole fee to FMR and runs an operating deficit; Renaissance passes 98% to Ren; JCF keeps a small surplus.
+  - The 990 non-DAF net-asset change is not an operating margin.
+- **Filing frames.**
+  - 7 new small DAF sponsors were found that DAFRC missed.
+  - 24 place-based community foundations exited in 2021–2026, 19 of them outside DAFRC. That is about 3× the filed-exit count for overlapping years, not 5×.
+
+## Counts (refresh 2026-11-19, through PR #60) (superseded by the table above)
 
 Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #60 merged. These figures supersede the tables below. The PR #60 description records the head SHA.
 
@@ -24,7 +50,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 
 **Additions in PR #60 (validated; report §11.42–§11.44):**
 - **Payout definitions.** IPS's 9.7% median reproduces from IPS's own file. The 23.9% figure is NPT's FY2023 aggregate. The gap from 23.9% to 9% comes mostly from the move from pooled to median sponsor (−9.4 pts) and from the denominator (−5.9 pts). The remainder is a residual that mixes sample, window and definition, so it is not purely the distribution within sponsors.
-- **DAF money abroad.** The 150 largest international recipients carry $1.87bn of DAF money abroad; this figure depends on an allocation assumption. Including direct foreign grants, measured outflow is 3.82% of total grants. The earlier 7.8% is a share by recipient sector.
+- **DAF money abroad.** The 150 largest international recipients carry $1.87bn of DAF money abroad; this figure depends on an allocation assumption. Including direct foreign grants, measured outflow is 3.82% of total grants. The earlier 7.8% is a share by recipient sector. Adding the 458 largest recipients outside NTEE Q raises measured outflow to 5.20% of total grants (6.44% of net Schedule I plus line 3; 5.10% without program-related-investment and fundraising rows) [I-alloc] [V wave 38A]
 - **Dechomai.** $3.27bn of non-cash intake in 2021–24, 83% of it private business interests, with $1.15bn routed to six national sponsors. Its fee take is not measured, and its fee and administration outflows are 0.39–0.62% of intake.
 - **DAFpay Network TY2025.** "Other fees" are 3.0% of contributions and are booked as an expense. The return is not audited.
 - **Canada.** The CRA T3010 panel reproduces Blumberg & Pasha: C$18.60bn at 864 sponsors in the 2025 release. Counting blank disbursement lines as zero, the median payout is 4–5%.
@@ -50,7 +76,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 - **Corporate DAFs.** 13 of 14 sponsors publish no corporate split. Where the split is measured, corporate DAFs are 3.4–3.9% of DAF grants; 9.1% is a ceiling that applies only to the measured pool.
 - **Unlisted recipients.** About 4% of the $0.82bn of top-50 grants to unlisted EINs is identifiable sponsor EIN misreporting. The roughly 51% that is "unmatched" is an upper bound on grantees the IRS lists do not recognise.
 - **Large single grants.** SVCF's $1.309bn FY2023 line went to Further Future Foundation, now Navigation Charitable Fund. That fund owns Voltage Park and had granted out 3.1% of the money by end-2024.
-- **AI routing.** Confidence-gated routing roughly triples intervention C's value pool, but only when an escaped error costs about one case-handling's worth or less. C still almost never ranks first.
+- **AI routing.** Confidence-gated routing roughly triples intervention C's value pool when an escaped error costs one case-handling's worth. It still beats assistance up to about ten, and the pool falls below assist near m = 20. Wave 38B's central m is 2.4, but bank-style compliance errors that escape would erase the gain. [V wave 38B] C still almost never ranks first.
 - **Exceptions per grant.** Measured by number of grants, about 7–8.5% fall in the core exception categories.
 - **NPT and Ren follow-ups.**
   - The $116.3m that had been called "asset management fees" is in fact program services excluding grants. Five passages were corrected.

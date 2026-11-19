@@ -26,6 +26,7 @@
    |---|---|
    | Among the 12 resolved cases | **12/12 (95% Wilson 75.7–100%)** |
    | Bounds over all 18, depending on how the unknowns resolve | **66.7% (43.7–83.7%) to 100% (82.4–100%)** |
+| With the 7 IRS e-file additions (n=25; gap1915-b4011) | 60.0% (40.7–76.6%) to 100% (86.7–100%); 14/24 = 58.3% (38.8–75.5%) without Uncommon Giving [V wave 38C]
 
    Exposure is 80.9 company-years with no observed shutdown. That still allows an annual shutdown hazard of up to **3.7%** (rule-of-three 95% bound, which assumes the 6 unknowns are still operating) [V wave 32A]. If every unknown turned out to be a closure, the crude annual rate would be 7.4%.
 2. **The filing frame finds no deaths, and with this little exposure it could hardly have found one.** All 10 Frame A sponsors:
@@ -164,6 +165,7 @@ Per-row evidence, URLs and notes are in the CSV.
 | Not shut, among resolved (excludes unknown) | 12/12 = 100.0% (95% Wilson 75.7%–100.0%) |
 | Operating in any form, unknown counted as failed (lower bound) | 12/18 = 66.7% (43.7%–83.7%) |
 | Operating in any form, unknown counted as surviving (upper bound) | 18/18 = 100.0% (82.4%–100.0%) |
+| With the 7 frame-D additions (n=25: active 13, acquired 1, pivoted 1, unknown 10) | 15/25 = 60.0% (40.7%–76.6%) to 25/25 = 100.0% (86.7%–100.0%); strict subset 7/12 = 58.3% (32.0%–80.7%) to 12/12 [V wave 38C]
 | Independent and operating (active + pivoted) | 11/18 = 61.1% (38.6%–79.7%) |
 | Active with dated evidence ≤12 months | 10/18 = 55.6% (33.7%–75.4%) |
 | Exit by acquisition | 1/18 = 5.6% (1.0%–25.8%) |
@@ -241,7 +243,7 @@ There are no shutdowns in the cohort, so the comparison is between the 8 members
 ## 7. Sources of bias and limits
 
 1. **Frame coverage.**
-   - DAFRC misses some in-window DAF holders: Groundswell Charitable Foundation, Goodstack Impact Foundation US and I Maaser Inc all file returns but are absent from the panel. Frame A therefore undercounts entrants that report through 990-EZ/990-N or that DAFRC did not process (P-GAP19-15-01).
+   - DAFRC misses some in-window DAF holders: Groundswell Charitable Foundation, Goodstack Impact Foundation US and I Maaser Inc all file returns but are absent from the panel. An IRS e-file frame of 501(c)(3)s ruled 2021 or later (gap1915-b4011) finds 98 in-window Schedule D Part I holders outside DAFRC; 7 meet this note’s rules (Givmo, Spiral Giving Network, Neta, One Big Gift, DAFshare, Monument, Overflow; $12.39m of DAF assets in all). Groundswell reports DAFs only on its amended TY2024 return (12,808 accounts, e-filed 2026-01-28, Part IV line 6 answered “No”), and that frame finds no Part I DAFs on I Maaser’s Form 990s [V wave 38C] Frame A therefore undercounts entrants that report through 990-EZ/990-N or that DAFRC did not process (P-GAP19-15-01).
    - The panel ends at FY2024, so sponsors ruled in 2024–2026 cannot enter Frame A (for example, Daffodil Charitable).
 2. **Discovery bias (survivorship).**
    - Frames B and C reach entities through search engines and press releases. Funded, surviving companies are over-represented.

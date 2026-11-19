@@ -181,6 +181,7 @@ Source: `non-dafrc-daf-filers-summary.csv` and `non-dafrc-daf-filers-990.csv` (6
    - Excluding SDG Impact Fund, they add **0.06–0.5%** to DAFRC's assets.
    - A further 92–108 report a DAF count without a value.
    - **For sponsor counts the miss is material:** about 27–37% more sponsors than DAFRC's roughly 1,450–1,510.
+   - The same holds for entrants: 136 of the 179 Schedule D Part I holders among 501(c)(3)s ruled 2021 or later (2022–2026 e-file index) are outside DAFRC, but only 7 are DAF startups under the cohort rules ($12.39m in all), and the largest, Bridges Philanthropic Fund ($107.0m), first filed for TY2025, after the panel (gap1915-b4011) [V wave 38C]
 2. **SDG Impact Fund is the one large omission.** It reported $238.0m (FY2020), **$10,098,899,773 (FY2021)** and **$10,103,954,026 (FY2022)** ([FY2021 990](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202242139349301369_public.xml), [FY2022 990](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202342799349301349_public.xml)). No FY2023+ "Yes" row appears in the extracts. This is consistent with the mortality study (P-FAIL-02). Whether DAFRC excluded it by vetting is unknown (proposal P-99F-02).
 3. **Other notable non-DAFRC filers:**
    - Vancouver Foundation: $214.1m, FY2020;
