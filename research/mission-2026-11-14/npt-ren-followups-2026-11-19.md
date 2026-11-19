@@ -6,7 +6,7 @@
   Both are read with their [V wave 35B] corrections from [validation-wave35b-report.md](validation-wave35b-report.md). The governing Schedule R line is **1b** (gift, grant or capital contribution *to* a related organisation), not 1d (V35B-29/-30).
 - **Date:** 2026-11-19. Every page, PDF and API answer was read on that date.
 - **Data:** [`data/mission-2026-11-14/npt-ren-followups-2026-11-19.csv`](../../data/mission-2026-11-14/npt-ren-followups-2026-11-19.csv) (79 rows; data dictionary in §6). The script's `csv` mode rebuilt it byte for byte twice (md5 `70df32fc…`), and the `wayback` mode reran offline from the cache with identical output.
-- **Script:** [`scripts/mission_npt_ren_followups.py`](../../scripts/mission_npt_ren_followups.py). It has two modes:
+- **Script:** [`scripts/mission_npt_ren_followups.py`](../../scripts/mission_npt_ren_followups.py). It has three modes (the third, `csv`, rebuilds the data file from the cached inputs) [V wave 36C]
   - `wayback` enumerates captures through the archive.org availability API, with a cached, repeatable run;
   - `npt990` prints the Schedule R Part V indicators, the Part IX program-column composition, the Schedule F Part II line tests and the H.10 FX tests from NPT's FY2025 XML.
 - **Queue:** [`data/mission-2026-11-14/queue-proposals-npt-ren-followups.csv`](../../data/mission-2026-11-14/queue-proposals-npt-ren-followups.csv) (6 rows).
@@ -21,9 +21,9 @@
 
 | Question | Finding | Confidence |
 |---|---|---|
-| **(1) When did the RCF default switch?** (P-B442802-01) | **The full-contact file reached the RCF portals between 2026-07-22 and 2026-11-19, most likely 2026-10-06 to 2026-11-10.**<br>- The RCF core path was last captured on **2026-07-22**. That capture predates the current file, whose PDF creation date is 2026-10-06 (SHA-1 `93d97b49e84a`).<br>- All seven portal copies share one ETag and the server write time **2026-11-10 19:59:13 GMT**: a single deployment.<br>- The archived "before" files (rcf 2026-03-16 and 2026-07-22; ampf 2024-09-03; mdrt 2025-03-20, 2025-07-24 and 2026-07-10) could not be opened, because web.archive.org was unreachable. So their text and hashes are unknown.<br>- UBS's "Fund Name Only" 2309 guide was captured on 2025-04-21 and is unchanged since 2024-06 (SHA-1 `0025f0fe726a`). The TDA copy has no capture and is unchanged since 2024-07-12 (`789efac9bf3b`) [F/H/I] | High on dates; the text change itself is unobserved |
+| **(1) When did the RCF default switch?** (P-B442802-01) | **The current full-contact file was first served on the RCF portals between 2026-10-06 (its PDF creation time) and 2026-11-10 (its server write time). When the wording itself changed has no lower bound: no file at this path has been read saying “Fund Name Only”.** [V wave 36C]<br>- The RCF core path was last captured on **2026-07-22**. That capture predates the current file, whose PDF creation date is 2026-10-06 (SHA-1 `93d97b49e84a`).<br>- All seven portal copies share one ETag and the server write time **2026-11-10 19:59:13 GMT**: a single deployment.<br>- The archived "before" files (rcf 2026-03-16 and 2026-07-22; ampf 2024-09-03; mdrt 2025-03-20, 2025-07-24 and 2026-07-10) could not be opened, because web.archive.org was unreachable. So their text and hashes are unknown.<br>- UBS's "Fund Name Only" 2309 guide was captured on 2025-04-21 and is unchanged since 2024-06 (SHA-1 `0025f0fe726a`). The TDA copy has no capture and is unchanged since 2024-07-12 (`789efac9bf3b`) [F/H/I] | High on dates; the text change itself is unobserved |
 | **(2) NPT segregated-account assets** (P-G0702-05) | **Not public.**<br>- nptrust.org holds only two-page consolidated summaries for FY2019–FY2025, with no notes and no investment split. nptuk.org holds none.<br>- **Correction:** the "$116.3m asset management fees" is a mislabelled row. It is NPT's **program-services expense excluding grants** ($116.26m FY2025; $94.29m FY2024, captioned "Program services" in the FY2024 PDF).<br>- The 990 proxy for its composition (Part IX column B less grants, $114.17m): **line 11f investment management fees 81.9%** ($93.51m), staff 11.4%, "program fees" 3.8%, IT 1.7%, other 1.1% [F/C].<br>- The published model advisory fee is 0.10–0.15%. Applied to all assets, it would explain only $41.7m–$62.5m of line 11f. The residual of $31.0m–$51.9m is unattributed, and it is not convertible into a segregated share [C/I] | High on absence and on the relabel; the share is still not estimable |
-| **(3) Schedule R line 1b against the £30.939m transfer** (P-G0702-03) | **The filed "No" is not reconciled by the instructions.**<br>- The disregarded-entity exception removes only NPT↔Transatlantic transactions from Part V.<br>- Appendix F makes Transatlantic's activities NPT's own. So Transatlantic's grant to NPT UK, a Part II related organisation, is a line-1b gift or grant, and line 1b should read Yes.<br>- NPT UK's note 14 also reports £30.9m "from National Philanthropic Trust", which would independently require Yes.<br>- No Part V line-2 row names NPT UK, and NPT lists NPT UK as not controlled [F/I] | Medium–high (instruction text [F]; application [I]) |
+| **(3) Schedule R line 1b against the £30.939m transfer** (P-G0702-03) | **The filed "No" is not reconciled by the instructions on this repo's reading [I]. That is an interpretation, not an established filing error.** [V wave 36C]<br>- The disregarded-entity exception removes only NPT↔Transatlantic transactions from Part V.<br>- Appendix F makes Transatlantic's activities NPT's own. So Transatlantic's grant to NPT UK, a Part II related organisation, would, on this reading, be a line-1b gift or grant, so line 1b would read Yes [I] [V wave 36C]<br>- NPT UK's note 14 also reports £30.9m "from National Philanthropic Trust", which would independently require Yes.<br>- No Part V line-2 row names NPT UK, and NPT lists NPT UK as not controlled [F/I] | Medium–high (instruction text [F]; application [I]) |
 | **Is the $39.1m Europe line the transfer?** | **The only candidate; consistent, not proven.**<br>- It is the only FY2025 Part II line above $16.8m.<br>- Its implied rate of 1.2638 USD/GBP lies inside the FY2025 H.10 range (1.2158–1.3754). H.10 was within ±0.0025 of it on 11 days (2024-07-01; mid-November 2024 to February 2025).<br>- Against: the round figure fits a USD wire, although roundness is common here (17 of 57 lines of $1m or more), and the purpose label "ENVIRONMENT, ANIMALS" is odd for a DAF-to-DAF transfer.<br>- If it is the transfer, it is 12.6% of FY2025 line 3 ($310.5m) [C/I] | Low–medium |
 
 ## 1. P-B442802-01: dating the RCF default switch
@@ -62,14 +62,14 @@ All listed captures have status 200.
 | tda …/RCF Donor User Guide.pdf | `789efac9bf3ba248d4bb154184ffb3c16d595013` | 2023-09-06 / 2024-07-12 | 2024-07-12 19:24:56 GMT | `4a9d32d91d4da1:0` | "The default is “Fund Name Only”." |
 | ubs …/UBS/UBS Donor User Guide.pdf | `0025f0fe726a4f2dec6b7df97b2f37dddad1c2b5` | 2023-09-06 / 2024-06-14 | 2024-06-26 13:22:53 GMT | `d73b41f3cbc7da1:0` | "The default is “Fund Name Only”." |
 
-**All seven "Giving Platform" copies carry the same ETag and Last-Modified time.** They are one deployment, written to the servers at 2026-11-10 19:59:13 GMT [F].
+**All seven "Giving Platform" copies carry the same ETag and Last-Modified time.** They are one deployment, written to the servers at 2026-11-10 19:59:13 GMT [F]. On IIS the ETag encodes the file's write time, so the shared ETag restates the shared Last-Modified and is not independent evidence; one physical file served under several host names would look the same [V wave 36C]
 
 ### 1.4 Bracketing the switch
 
 **RCF core portal (rcf.donorfirstx.com, `Donor User Guide.pdf`):**
 - **Before.** The last capture is **2026-07-22 20:08:22**. It predates the current file's own creation date (2026-10-06), so the URL then served a **different, earlier file** [I from dates]. Its text, and so whether it said "Fund Name Only", is unknown (P-NPTREN-01).
 - **After.** The full-contact file cannot have been served before **2026-10-06 20:35:40** (its PDF creation time). It was last written to the server on **2026-11-10**, and it was read on **2026-11-19**.
-- **Bracket:** the switch on this path happened **after 2026-07-22 and by 2026-11-19**. Within that, the file evidence points to 2026-10-06 to 2026-11-10 [F/H/I].
+- **Bracket:** the current file went live on this path between **2026-10-06 and 2026-11-10** (PDF creation time; HTTP Last-Modified). That is a hard bound for the file. The wording switch is bounded only above, by 2026-11-10: the 2026-07-22 capture shows that an earlier file existed, not what it said [F/H/I] [V wave 36C]
 - **Bracketing hashes:**
   - "after": the live file, SHA-1 `93d97b49e84a…`;
   - "before": unavailable, since the 2026-07-22 snapshot could not be opened.
@@ -82,7 +82,7 @@ All listed captures have status 200.
 **UBS portal (the two-guide program):**
 - The 2309 "Fund Name Only" guide was captured on **2025-04-21**. Its live copy has been unchanged on the server since 2024-06-26 (Last-Modified, and the PDF's own 2024-06-14 date). The capture is therefore very probably the same file [I].
 - The Giving Platform path on UBS has no capture.
-- So UBS has served the "Fund Name Only" guide continuously from at least June 2024 [F] / April 2025 [H] to today, and it gained the full-contact guide alongside it in the October–November 2026 deployment.
+- So UBS has served the "Fund Name Only" guide file since at least June 2024 [F] (server write time; captured April 2025 [H]) to today. Continuous linking is not shown [V wave 36C], and it gained the full-contact guide alongside it in the October–November 2026 deployment.
 
 **TDA:** no capture. The live 2309 guide (Fund Name Only) has been unchanged since 2024-07-12 [F].
 
@@ -156,7 +156,7 @@ The 990 covers NPT and its disregarded entities, including NPT Transatlantic. Th
 | Information technology | 1,996,236 | 1.7% | 1,240,891 | 1.3% |
 | Occupancy, office, advertising, conferences, legal, other fees, insurance, all other | 1,302,951 | 1.1% | 1,421,740 | 1.5% |
 | **Program services excluding grants (990)** | **114,171,773** | 100% | **92,939,609** | 100% |
-| Audited consolidated "program services" | 116,260,000 | | 94,289,000 | |
+| Consolidated (summary PDF, no auditor's report) [V wave 36C] "program services" | 116,260,000 | | 94,289,000 | |
 
 **Line 11f in total** (all columns) is $93,771,463 in FY2025 and $74,179,211 in FY2024.
 
@@ -196,7 +196,7 @@ The return is NPT's FY2025 Form 990: object 202601289349302480, EIN 237825575, t
 - NATIONAL PHILANTHROPIC TRUST UK LIMITED, London: exempt-code section blank, direct controlling entity NATIONAL PHILANTHROPIC TRUST, "controlled organization" = **No**;
 - six US supporting organisations, each controlled.
 
-**Part V line 2:** 13 transactions, all with the US supporting organisations (types C, L, Q). None names NPT UK or Transatlantic.
+**Part V line 2:** 12 transactions, all with the US supporting organisations (2 of type C, 5 of type L and 5 of type Q) [V wave 36C] None names NPT UK or Transatlantic.
 
 ### 3.2 What the IRS instructions require [F]
 
@@ -210,7 +210,7 @@ The return is NPT's FY2025 Form 990: object 202601289349302480, EIN 237825575, t
 - It does not remove Transatlantic's transactions **with a third related organisation**. Under Appendix F those are NPT's own activities.
 - NPT UK is a Part II related organisation. So Transatlantic's £30.939m grant to NPT UK is, for the 990, a grant by NPT to a related organisation, and **line 1b should read Yes**. The instructions also count a single transaction on more than one line where it fits.
 - NPT UK's own note 14 also records "£30.9M from National Philanthropic Trust". If that is a second, direct transfer, it independently requires 1b = Yes.
-- **Either way, the filed "No" is inconsistent with the affiliates' audited accounts.** No reading of the disregarded-entity exception reconciles them.
+- **Either way, the filed "No" is, on this repo's reading of Appendix F, inconsistent with the affiliates' audited accounts.** That is an interpretation, not an established filing error. Appendix F itself exempts Schedule R from the report-as-parent rule (“except … on Schedule R (Form 990), in which disregarded entities must be separately reported”), and a preparer could read that as keeping Transatlantic's own grants out of Part V. The IRS has not ruled [V wave 36C]
 
 **Line 2 [I]:**
 - Line 2 covers transactions over $50,000 with **controlled entities** (section 512(b)(13)). For 501(c)(3) filers, it also covers related tax-exempt organisations **not described in section 501(c)(3)**.
@@ -232,7 +232,7 @@ The return is NPT's FY2025 Form 990: object 202601289349302480, EIN 237825575, t
 - Range 1.2158 to 1.3754; mean 1.2948.
 - £30.939m converts to $37.62m at the minimum, $40.06m at the mean and $42.55m at the maximum.
 - The implied rate for $39.1m is **1.26378**. H.10 was within ±0.0025 of it on 11 days: 2024-07-01, 2024-11-15, 2024-11-20, 2024-12-02, 2024-12-13, 2025-02-18, 2025-02-20, 2025-02-21, 2025-02-24, 2025-02-25 and 2025-02-27.
-- So the size is consistent with a wire in mid-November 2024 to February 2025, or on 1 July 2024.
+- So the size is consistent with a wire in mid-November 2024 to February 2025, or on 1 July 2024. The ±0.0025 band is narrower than a typical bank FX spread: at ±1% the matching H.10 days rise to 54 (2024-07-01 to 2025-04-07), so the timing evidence is weak [V wave 36C]
 
 **Round-number test:**
 - $39,100,000 is a round $100k figure. A GBP grant converted at a market rate would rarely be round.
@@ -249,7 +249,7 @@ The return is NPT's FY2025 Form 990: object 202601289349302480, EIN 237825575, t
 - Whichever way it falls, at most one of NPT UK's two £30.9m receipts can sit in Schedule F as a single line (V35B).
 - If both receipts are real and separate, the other one is not in Part II as a single line. It would then sit outside Schedule F or be split into lines under $16.8m [I].
 
-**Effect:** if the line is the transfer, 12.6% of NPT's FY2025 Schedule F line 3 ($39.1m of $310.5m) is affiliate re-granting. That is in line with the g0702 estimate of ≈ 12.9% at the mean rate [C].
+**Effect:** if the line is the transfer, 12.6% of NPT's FY2025 Form 990 Part IX line 3, grants to foreign organisations ($39.1m of $310,506,570; Schedule F Part II totals $310,238,950) [V wave 36C] is affiliate re-granting. That is in line with the g0702 estimate of ≈ 12.9% at the mean rate [C].
 
 ### Repo passages these findings change (proposals only; no existing file was edited)
 

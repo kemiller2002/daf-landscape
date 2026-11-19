@@ -27,7 +27,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 - **Schedule I purpose text cannot measure donor restrictions.** About half of dollars carry generic text, about half carry sector labels, and about 1–2% have a specific purpose.
 - **Ren acknowledgement defaults track guide vintage.** The evidence shows neither a sponsor setting nor a platform limit.
 - **Adviser-managed assets.** The share is 46.9% at Fidelity Charitable and 0% at Vanguard. DAFgiving360 is only bracketed and NPT cannot be estimated.
-- **NPT foreign grants.** None of NPT's FY2023–24 foreign grants went to related organisations as filed, though Schedule R does not cover disregarded entities. In FY2025, £30.9m went from NPT Transatlantic to NPT UK.
+- **NPT foreign grants.** None of NPT's FY2023–24 foreign grants went to related organisations as filed (Schedule R Part V line 1b = No). Part V excludes only NPT's own transactions with its disregarded entities; on the repo's reading of Appendix F, a disregarded entity's grants to a related organisation are NPT's, so the filed No is a weak test [V wave 36C] In FY2025, £30.9m went from NPT Transatlantic to NPT UK.
 - **The $6.18bn "church" block is about half congregations.** Faith sponsors send about 22–26% of it, and none of the 14 congregation giving pages read offers a DAF option.
 
 **Process note.** A correction-applier bug truncated replacement text at inner double quotes. It was found in wave 35B and fixed. The 17 affected passages from waves 34S/34A/34B were repaired and audited against their reports.
