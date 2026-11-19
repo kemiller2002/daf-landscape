@@ -139,6 +139,7 @@ return_flag,Dechomai Foundation Inc,061676688,2022,2022-12-31,202343179349310654
 return_flag,Dechomai Foundation Inc,061676688,2022,2022-12-31,202343179349310654,1,schedules_filed,,,,,,,,,IRS990;IRS990ScheduleA;IRS990ScheduleB;IRS990ScheduleD;IRS990ScheduleI;IRS990ScheduleL;IRS990ScheduleM;IRS990ScheduleO;IRS990ScheduleR,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202343179349310654_public.xml
 form8282,Dechomai Foundation Inc,061676688,2022,2022-12-31,202343179349310654,1,part_v_7c_Form8282PropertyDisposedOfInd,,,,,,,,,0,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202343179349310654_public.xml
 form8282,Dechomai Foundation Inc,061676688,2022,2022-12-31,202343179349310654,1,text_mentions_8282,,0,,,,,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202343179349310654_public.xml
+sched_m,Dechomai Foundation Inc,061676688,2022,2022-12-31,202343179349310654,1,WorksOfArtGrp,Art - works of art,1,998400,,,other non-cash,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202343179349310654_public.xml
 sched_m,Dechomai Foundation Inc,061676688,2022,2022-12-31,202343179349310654,1,SecuritiesCloselyHeldStockGrp,Securities - closely held stock,24,27854264,,,private business interests,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202343179349310654_public.xml
 sched_m,Dechomai Foundation Inc,061676688,2022,2022-12-31,202343179349310654,1,RealEstateCommercialGrp,Real estate - commercial,1,1000000,,,real estate,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202343179349310654_public.xml
 sched_m,Dechomai Foundation Inc,061676688,2022,2022-12-31,202343179349310654,1,OtherNonCashContriTableGrp,Other: Cryptocurrency,4,5275090,,,cryptocurrency,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202343179349310654_public.xml
@@ -275,6 +276,7 @@ return_flag,Dechomai Foundation Inc,061676688,2023,2023-12-31,202403199349315905
 return_flag,Dechomai Foundation Inc,061676688,2023,2023-12-31,202403199349315905,1,schedules_filed,,,,,,,,,IRS990;IRS990ScheduleA;IRS990ScheduleB;IRS990ScheduleD;IRS990ScheduleI;IRS990ScheduleL;IRS990ScheduleM;IRS990ScheduleO;IRS990ScheduleR,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202403199349315905_public.xml
 form8282,Dechomai Foundation Inc,061676688,2023,2023-12-31,202403199349315905,1,part_v_7c_Form8282PropertyDisposedOfInd,,,,,,,,,0,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202403199349315905_public.xml
 form8282,Dechomai Foundation Inc,061676688,2023,2023-12-31,202403199349315905,1,text_mentions_8282,,0,,,,,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202403199349315905_public.xml
+sched_m,Dechomai Foundation Inc,061676688,2023,2023-12-31,202403199349315905,1,WorksOfArtGrp,Art - works of art,1,300000,,,other non-cash,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202403199349315905_public.xml
 sched_m,Dechomai Foundation Inc,061676688,2023,2023-12-31,202403199349315905,1,SecuritiesPubliclyTradedGrp,Securities - publicly traded,1,24200,,,public securities,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202403199349315905_public.xml
 sched_m,Dechomai Foundation Inc,061676688,2023,2023-12-31,202403199349315905,1,SecuritiesCloselyHeldStockGrp,Securities - closely held stock,12,17804302,,,private business interests,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202403199349315905_public.xml
 sched_m,Dechomai Foundation Inc,061676688,2023,2023-12-31,202403199349315905,1,SecurPrtnrshpTrustIntrstsGrp,"Securities - partnership, LLC, trust interests",4,3785000,,,private business interests,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202403199349315905_public.xml
@@ -619,7 +621,7 @@ sched_m,Dechomai Asset Trust,260724604,2022,2022-12-31,202313199349315151,1,Real
 sched_m,Dechomai Asset Trust,260724604,2022,2022-12-31,202313199349315151,1,RealEstateCommercialGrp,Real estate - commercial,2,2290000,,,real estate,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202313199349315151_public.xml
 sched_m,Dechomai Asset Trust,260724604,2022,2022-12-31,202313199349315151,1,RealEstateOtherGrp,Real estate - other,13,9973684,,,real estate,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202313199349315151_public.xml
 sched_m,Dechomai Asset Trust,260724604,2022,2022-12-31,202313199349315151,1,CollectiblesGrp,Collectibles,1,19,,,other non-cash,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202313199349315151_public.xml
-sched_m,Dechomai Asset Trust,260724604,2022,2022-12-31,202313199349315151,1,OtherNonCashContriTableGrp,Other: Cyrptocurrency,2,2092368,,,other non-cash,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202313199349315151_public.xml
+sched_m,Dechomai Asset Trust,260724604,2022,2022-12-31,202313199349315151,1,OtherNonCashContriTableGrp,Other: Cyrptocurrency,2,2092368,,,cryptocurrency,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202313199349315151_public.xml
 sched_m,Dechomai Asset Trust,260724604,2022,2022-12-31,202313199349315151,1,OtherNonCashContriTableGrp,Other: Life Insurance,2,6000000,,,other non-cash,,,,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202313199349315151_public.xml
 sched_m_flag,Dechomai Asset Trust,260724604,2022,2022-12-31,202313199349315151,1,AnyPropertyThatMustBeHeldInd,,,,,,,,,0,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202313199349315151_public.xml
 sched_m_flag,Dechomai Asset Trust,260724604,2022,2022-12-31,202313199349315151,1,ReviewProcessUnusualNCGiftsInd,,,,,,,,,0,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202313199349315151_public.xml
@@ -1069,17 +1071,17 @@ dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,intra_grou
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,intra_group_booked_by_DF,,,0,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,contributions_external,,,564436649,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,noncash_contributions,,,525986808,,,,,,,computed from the selected returns in this file
-dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,schedM_total,,,524988408,,,,,,,computed from the selected returns in this file
-dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,schedM_count,,,153,,,,,,,computed from the selected returns in this file
+dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,schedM_total,,,525986808,,,,,,,computed from the selected returns in this file
+dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,schedM_count,,,154,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,grants_partIX,,,497007034,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,grants_external_schedI,,,507157774,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,grants_to_six_sponsor_groups,,,292402397,,0.576551,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,grants_to_any_dafrc_sponsor,,,423987786,,0.836008,,,,,computed from the selected returns in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,cryptocurrency,,4,5275090,,0.010048,,,,,computed from the selected returns in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,other non-cash,,8,9737597,,0.0185482,,,,,computed from the selected returns in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,private business interests,,98,482596460,,0.919252,,,,,computed from the selected returns in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,public securities,,1,536397,,0.00102173,,,,,computed from the selected returns in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,real estate,,42,26842864,,0.0511304,,,,,computed from the selected returns in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,cryptocurrency,,6,7367458,,0.0140069,,,,,computed from the selected returns in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,other non-cash,,7,8643629,,0.0164332,,,,,computed from the selected returns in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,private business interests,,98,482596460,,0.917507,,,,,computed from the selected returns in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,public securities,,1,536397,,0.00101979,,,,,computed from the selected returns in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,real estate,,42,26842864,,0.0510333,,,,,computed from the selected returns in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,,,1,50844746,,0.100254,,,AEF,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,,,1,119459204,,0.235546,,,DAFgiving360,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,,,1,89233999,,0.175949,,,Fidelity Charitable,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
@@ -1087,32 +1089,32 @@ routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2022,
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,,,1,2091637,,0.00412423,,,Morgan Stanley GIFT,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,,,1,5938077,,0.0117085,,,NPT,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,,,24,131585389,,0.259457,,,other DAFRC-listed sponsors,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,take_charitable_solutions_partVIIB,,,2998459,524988408,0.00571148,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,take_partIX_mgmt_plus_other_fees,,,3770586,524988408,0.00718223,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,take_partIX_all_fees_for_services,,,3920122,524988408,0.00746706,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,take_all_nongrant_expenses,,,10701308,524988408,0.0203839,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,unreconciled_schedR_DAT_admin_reimbursement_to_DF,,,115086877,524988408,0.219218,,,,"DAT Schedule R Part V 'reimbursement for administrative services' to DF; not matched on DF's Schedule R or in either Part IX, so not a confirmed fee",computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,published_fee_1pct_of_schedM,,153,5.24988e+06,524988408,0.01,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,published_fee_3pct_of_schedM,,153,1.57497e+07,524988408,0.03,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,published_avg_fee_1.2pct_of_schedM,,153,6.29986e+06,524988408,0.012,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,published_avg_fee_1.4pct_of_schedM,,153,7.34984e+06,524988408,0.014,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,published_min_fee_x_schedM_count,,153,1530000,524988408,0.00291435,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,take_charitable_solutions_partVIIB,,,2998459,525986808,0.00570064,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,take_partIX_mgmt_plus_other_fees,,,3770586,525986808,0.00716859,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,take_partIX_all_fees_for_services,,,3920122,525986808,0.00745289,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,take_all_nongrant_expenses,,,10701308,525986808,0.0203452,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,unreconciled_schedR_DAT_admin_reimbursement_to_DF,,,115086877,525986808,0.218802,,,,"DAT Schedule R Part V 'reimbursement for administrative services' to DF; not matched on DF's Schedule R or in either Part IX, so not a confirmed fee",computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,published_fee_1pct_of_schedM,,154,5.25987e+06,525986808,0.01,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,published_fee_3pct_of_schedM,,154,1.57796e+07,525986808,0.03,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,published_avg_fee_1.2pct_of_schedM,,154,6.31184e+06,525986808,0.012,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,published_avg_fee_1.4pct_of_schedM,,154,7.36382e+06,525986808,0.014,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2022,,,1,published_min_fee_x_schedM_count,,154,1540000,525986808,0.00292783,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,contributions_gross,,,1311956361,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,intra_group_grants,,,315341522,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,intra_group_booked_by_DF,,,315341522,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,contributions_external,,,996614839,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,noncash_contributions,,,937071345,,,,,,,computed from the selected returns in this file
-dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,schedM_total,,,926452172,,,,,,,computed from the selected returns in this file
-dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,schedM_count,,,152,,,,,,,computed from the selected returns in this file
+dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,schedM_total,,,926752172,,,,,,,computed from the selected returns in this file
+dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,schedM_count,,,153,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,grants_partIX,,,697141693,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,grants_external_schedI,,,381758015,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,grants_to_six_sponsor_groups,,,268178205,,0.702482,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,grants_to_any_dafrc_sponsor,,,339272144,,0.88871,,,,,computed from the selected returns in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,cryptocurrency,,13,14792966,,0.0159673,,,,,computed from the selected returns in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,other non-cash,,1,2000000,,0.00215877,,,,,computed from the selected returns in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,private business interests,,96,750576134,,0.810162,,,,,computed from the selected returns in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,public securities,,1,24200,,2.61212e-05,,,,,computed from the selected returns in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,real estate,,41,159058872,,0.171686,,,,,computed from the selected returns in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,cryptocurrency,,13,14792966,,0.0159622,,,,,computed from the selected returns in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,other non-cash,,2,2300000,,0.00248179,,,,,computed from the selected returns in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,private business interests,,96,750576134,,0.8099,,,,,computed from the selected returns in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,public securities,,1,24200,,2.61127e-05,,,,,computed from the selected returns in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,real estate,,41,159058872,,0.17163,,,,,computed from the selected returns in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,,,1,86191082,,0.225774,,,AEF,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,,,1,76391938,,0.200106,,,DAFgiving360,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,,,1,24419423,,0.0639657,,,Fidelity Charitable,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
@@ -1120,16 +1122,16 @@ routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2023,
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,,,1,33526327,,0.0878209,,,Morgan Stanley GIFT,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,,,1,7376660,,0.0193229,,,NPT,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,,,19,71093939,,0.186228,,,other DAFRC-listed sponsors,share = amount / Dechomai external Schedule I grants,computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,take_charitable_solutions_partVIIB,,,3805114,926452172,0.00410719,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,take_partIX_mgmt_plus_other_fees,,,4436710,926452172,0.00478893,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,take_partIX_all_fees_for_services,,,4488682,926452172,0.00484502,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,take_all_nongrant_expenses,,,9717421,926452172,0.0104889,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,unreconciled_schedR_DAT_admin_reimbursement_to_DF,,,87810488,926452172,0.0947815,,,,"DAT Schedule R Part V 'reimbursement for administrative services' to DF; not matched on DF's Schedule R or in either Part IX, so not a confirmed fee",computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,published_fee_1pct_of_schedM,,152,9.26452e+06,926452172,0.01,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,published_fee_3pct_of_schedM,,152,2.77936e+07,926452172,0.03,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,published_avg_fee_1.2pct_of_schedM,,152,1.11174e+07,926452172,0.012,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,published_avg_fee_1.4pct_of_schedM,,152,1.29703e+07,926452172,0.014,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,published_min_fee_x_schedM_count,,152,1520000,926452172,0.00164067,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,take_charitable_solutions_partVIIB,,,3805114,926752172,0.00410586,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,take_partIX_mgmt_plus_other_fees,,,4436710,926752172,0.00478737,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,take_partIX_all_fees_for_services,,,4488682,926752172,0.00484345,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,take_all_nongrant_expenses,,,9717421,926752172,0.0104855,,,,ratio = amount / combined Schedule M non-cash total (amount2),computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,unreconciled_schedR_DAT_admin_reimbursement_to_DF,,,87810488,926752172,0.0947508,,,,"DAT Schedule R Part V 'reimbursement for administrative services' to DF; not matched on DF's Schedule R or in either Part IX, so not a confirmed fee",computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,published_fee_1pct_of_schedM,,153,9.26752e+06,926752172,0.01,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,published_fee_3pct_of_schedM,,153,2.78026e+07,926752172,0.03,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,published_avg_fee_1.2pct_of_schedM,,153,1.1121e+07,926752172,0.012,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,published_avg_fee_1.4pct_of_schedM,,153,1.29745e+07,926752172,0.014,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2023,,,1,published_min_fee_x_schedM_count,,153,1530000,926752172,0.00165093,,,,benchmark from the published fee one-pager,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2024,,,1,contributions_gross,,,1186349770,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2024,,,1,intra_group_grants,,,448854853,,,,,,,computed from the selected returns in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2024,,,1,intra_group_booked_by_DF,,,448854853,,,,,,,computed from the selected returns in this file
@@ -1189,17 +1191,17 @@ dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,intra
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,intra_group_booked_by_DF,,,764196375,,,,,,,sum of the tax-year rows in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,contributions_external,,,3456727580,,,,,,,sum of the tax-year rows in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,noncash_contributions,,,3733333695,,,,,,,sum of the tax-year rows in this file
-dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,schedM_total,,,3272861269,,,,,,,sum of the tax-year rows in this file
-dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,schedM_count,,,840,,,,,,,sum of the tax-year rows in this file
+dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,schedM_total,,,3274159669,,,,,,,sum of the tax-year rows in this file
+dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,schedM_count,,,842,,,,,,,sum of the tax-year rows in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,grants_partIX,,,2745424845,,,,,,,sum of the tax-year rows in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,grants_external_schedI,,,1923798960,,,,,,,sum of the tax-year rows in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,grants_to_six_sponsor_groups,,,1145879806,,0.595634,,,,,sum of the tax-year rows in this file
 dechomai_year,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,grants_to_any_dafrc_sponsor,,,1580919273,,0.821769,,,,,sum of the tax-year rows in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,cryptocurrency,,128,154893912,,0.0473268,,,,,sum of the tax-year rows in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,other non-cash,,12,12502900,,0.00382017,,,,,sum of the tax-year rows in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,private business interests,,480,2704493907,,0.826339,,,,,sum of the tax-year rows in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,public securities,,9,94284265,,0.0288079,,,,,sum of the tax-year rows in this file
-asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,real estate,,211,306686285,,0.0937059,,,,,sum of the tax-year rows in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,cryptocurrency,,130,156986280,,0.047947,,,,,sum of the tax-year rows in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,other non-cash,,12,11708932,,0.00357616,,,,,sum of the tax-year rows in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,private business interests,,480,2704493907,,0.826012,,,,,sum of the tax-year rows in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,public securities,,9,94284265,,0.0287965,,,,,sum of the tax-year rows in this file
+asset_mix,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,real estate,,211,306686285,,0.0936687,,,,,sum of the tax-year rows in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,,,,200486962,,0.104214,,,AEF,,sum of the tax-year rows in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,,,,443203654,,0.230379,,,DAFgiving360,,sum of the tax-year rows in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,,,,234681517,,0.121989,,,Fidelity Charitable,,sum of the tax-year rows in this file
@@ -1207,16 +1209,16 @@ routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2021-
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,,,,37546927,,0.0195171,,,Morgan Stanley GIFT,,sum of the tax-year rows in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,,,,56763338,,0.0295059,,,NPT,,sum of the tax-year rows in this file
 routing_dechomai_to_sponsor,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,,,,435039467,,0.226136,,,other DAFRC-listed sponsors,,sum of the tax-year rows in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,take_charitable_solutions_partVIIB,,,12613388,3272861269,0.00385393,,,,,sum of the tax-year rows in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,take_partIX_mgmt_plus_other_fees,,,19920332,3272861269,0.00608652,,,,,sum of the tax-year rows in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,take_partIX_all_fees_for_services,,,20267754,3272861269,0.00619267,,,,,sum of the tax-year rows in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,take_all_nongrant_expenses,,,48984620,3272861269,0.0149669,,,,,sum of the tax-year rows in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,unreconciled_schedR_DAT_admin_reimbursement_to_DF,,,344453563,3272861269,0.105245,,,,,sum of the tax-year rows in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,published_fee_1pct_of_schedM,,,32728630,3272861269,0.01,,,,,sum of the tax-year rows in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,published_fee_3pct_of_schedM,,,98185900,3272861269,0.03,,,,,sum of the tax-year rows in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,published_avg_fee_1.2pct_of_schedM,,,39274270,3272861269,0.012,,,,,sum of the tax-year rows in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,published_avg_fee_1.4pct_of_schedM,,,45820040,3272861269,0.014,,,,,sum of the tax-year rows in this file
-effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,published_min_fee_x_schedM_count,,,8400000,3272861269,0.00256656,,,,,sum of the tax-year rows in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,take_charitable_solutions_partVIIB,,,12613388,3274159669,0.0038524,,,,,sum of the tax-year rows in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,take_partIX_mgmt_plus_other_fees,,,19920332,3274159669,0.00608411,,,,,sum of the tax-year rows in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,take_partIX_all_fees_for_services,,,20267754,3274159669,0.00619022,,,,,sum of the tax-year rows in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,take_all_nongrant_expenses,,,48984620,3274159669,0.014961,,,,,sum of the tax-year rows in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,unreconciled_schedR_DAT_admin_reimbursement_to_DF,,,344453563,3274159669,0.105204,,,,,sum of the tax-year rows in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,published_fee_1pct_of_schedM,,,32741620,3274159669,0.01,,,,,sum of the tax-year rows in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,published_fee_3pct_of_schedM,,,98224800,3274159669,0.03,,,,,sum of the tax-year rows in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,published_avg_fee_1.2pct_of_schedM,,,39289850,3274159669,0.012,,,,,sum of the tax-year rows in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,published_avg_fee_1.4pct_of_schedM,,,45838220,3274159669,0.014,,,,,sum of the tax-year rows in this file
+effective_take,Dechomai combined (DAT+DF),260724604;061676688,2021-2024,,,1,published_min_fee_x_schedM_count,,,8420000,3274159669,0.00257165,,,,,sum of the tax-year rows in this file
 routing_sponsor_to_dechomai_total,,,FY2021-FY2025,,,1,,,2,4810231,0,,Dechomai Asset Trust,260724604,AEF,"sum of selected sponsor returns, tax periods 2021-06..2025-06; amount2 = non-cash part",sponsor_to_dechomai rows in this file
 routing_sponsor_to_dechomai_total,,,FY2021-FY2025,,,1,,,2,175190,0,,Dechomai Foundation Inc,061676688,DAFgiving360,"sum of selected sponsor returns, tax periods 2021-06..2025-06; amount2 = non-cash part",sponsor_to_dechomai rows in this file
 routing_sponsor_to_dechomai_total,,,FY2021-FY2025,,,1,,,5,73095551,0,,Dechomai Asset Trust,260724604,DAFgiving360,"sum of selected sponsor returns, tax periods 2021-06..2025-06; amount2 = non-cash part",sponsor_to_dechomai rows in this file

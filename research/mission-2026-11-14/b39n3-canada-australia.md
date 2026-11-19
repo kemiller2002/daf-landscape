@@ -18,15 +18,15 @@ Reproduce: download the CRA files listed in §1.2 into a directory `DIR` (named 
 
 ## Headline findings
 
-1. **The CRA open data reproduce Blumberg & Pasha's 2024 totals almost exactly.** The 2024 release has 846 charities answering line 5860 = Y and C$16.670bn of DAF assets. Blumberg & Pasha report 834 charities and C$16,644,279,820 [F]. 744 of our 755 rows with positive DAF assets carry a line-5862 value that appears verbatim in their PDF. Those rows sum to C$16.644bn, and the 11 unmatched rows (C$26.2m) are returns added after the report (10 Feb 2026) [C].
+1. **The CRA open data reproduce Blumberg & Pasha's 2024 totals almost exactly.** The 2024 release has 846 charities answering line 5860 = Y and C$16.670bn of DAF assets. Blumberg & Pasha report 834 charities and C$16,644,279,820 [F]. 744 of our 755 rows with positive DAF assets carry a line-5862 value that appears verbatim in their PDF. Those rows sum to C$16.644bn [C]. The 11 unmatched rows (C$26.2m) are probably returns added after the report (10 Feb 2026): 9 of the 11 names do not appear in it, and 10 of the 11 have a 2024-12-31 year-end [I] [V wave 37B]
 2. **Most reported Canadian DAF accounts are filing errors.** In the 2024 release, 14 returns with impossible account counts hold 126,002 of 186,421 accounts (68%). Examples: counts equal to dollar amounts on the same return (CCI Scholarship Fund reports 26,451 accounts and C$26,451 on every DAF line), and counts with no DAF dollars at all (38,980 and 25,781 accounts). Without them, 2024 has **60,419 accounts and an average of C$275,905** (Blumberg: 185,506 and C$89,724) [C].
 3. **Latest year (2025 release, still incomplete): 864 sponsors, C$18.60bn of DAF assets, C$3.80bn in, C$2.09bn out, 70,757 clean accounts** [C]. 56 charities that held C$0.84bn of DAFs in 2024 have no 2025 return in the release yet, so the 2025 figures are a lower bound [C].
 4. **Concentration is high and rising.** In 2025 the top 10 sponsors hold 68.1% of DAF assets and the top 5 hold 47.9% (2024: 63.8% and 44.2%). The HHI is 680. Charitable Gift Funds Canada is the largest (C$3.08bn, 16.6%) [C].
 5. **Payout depends on the definition** [C]:
    - Same-year aggregate (line 5864 ÷ line 5862): 11.6% in 2024 and 11.2% in 2025. This is Blumberg's "12%".
-   - Median sponsor: 10.6% (2024) and 12.2% (2025). Among sponsors with at least C$10m of DAF assets, the median is 8.4% (2024) and 7.3% (2025).
+   - Median sponsor: 10.6% (2024) and 12.2% (2025). Among sponsors with at least C$10m of DAF assets, the median is 8.4% (2024) and 7.3% (2025). These medians exclude sponsors with positive DAF assets and a blank line 5864 (155 in 2024, 241 in 2025). Counting blanks as zero, the medians are 5.4% and 4.0%, and 7.0% and 7.2% for sponsors with at least C$10m [V wave 37B]
    - US-comparable (disbursements ÷ prior-year DAF assets, matched sponsors): **13.3% in 2025** (586 sponsors) and 16.4% in 2024 (336 sponsors; the 2023 base is partial). The US figure is 22.8%, net of DAF-to-DAF transfers. The Canadian figure is gross of them, so the gap is if anything understated [I].
-6. **WellFunded's figures (C$17.3bn in the August 2026 article; C$18.6bn, 205 sponsors and 82,611 accounts on its page today) fall between our two replicas** [C]:
+6. **WellFunded's figures (C$17.3bn in the August 2026 article; C$18.6bn, 205 sponsors and 82,611 accounts on its page today) fall between our two replicas on assets, grants out and sponsor count; donations in (C$3.62bn) fall below both replicas** [C] [V wave 37B]
    - On its stated rule (latest filing per charity, at least 10 accounts): 232 sponsors and C$19.40bn.
    - On the 2025 release only, with error rows removed: 203 sponsors, C$18.14bn and 69,324 accounts.
    - Its 82,611 accounts imply that it, too, drops the transposition rows [I].
@@ -161,7 +161,7 @@ Reproduce: download the CRA files listed in §1.2 into a directory `DIR` (named 
 | WellFunded page (Nov 2026) | 205 | 82,611 | C$18.6B | C$3.62B | C$2.18B | 68% |
 
 - **Why the replicas differ from WellFunded** [I]: we cannot apply WellFunded's "active" filter (revoked status is not in these files), and its snapshot date differs.
-- **Bracketing:** the two replicas bracket WellFunded's assets, flows and sponsor count.
+- **Bracketing:** the two replicas bracket WellFunded's assets, grants out, top-10 share and sponsor count. They do not bracket its donations in: C$3.62bn is below both C$3.68bn and C$3.90bn. Nor do they bracket its 82,611 accounts, which are above both clean replicas (69,324 and 72,900) [V wave 37B]
 - **Account counts:** WellFunded's 82,611 accounts are far below the 198,280 filed, so it must exclude or correct the transposition rows.
 - **Repo's earlier check:** the N3 doc's "top five hold 44%" check (Blumberg list) matches our 2024 figure of 44.2%.
 
@@ -199,7 +199,7 @@ Reproduce: download the CRA files listed in §1.2 into a directory `DIR` (named 
 | Median sponsor with ≥ C$10m DAF assets | 8.4% | 7.3% | community-foundation spending policies |
 | Aggregate 5864 ÷ prior-year 5862 (matched BNs) | 16.4% (n=336) | 13.3% (n=586) | US repo 22.8% (FY2024, DAF grants ÷ prior-year corrected assets, net of DAF-to-DAF) |
 | 5864 ÷ 5863 | 58.6% | 54.9% | Blumberg "58%" |
-| Share of sponsors with same-year payout ≥ 5% | 63.5% | 66.7% | — |
+| Share of sponsors with same-year payout ≥ 5% (blank 5864 excluded; 50.5% and 45.6% with blanks as zero) | 63.5% | 66.7% | — [V wave 37B] |
 
 - **Canada vs the US** [I]: the Canadian disbursements line includes DAF-to-DAF and DAF-to-foundation transfers, which Blumberg–Pasha flag [F]. So the Canadian prior-year payout overstates net grants. Canada's ~13% against the US 22.8% is a conservative comparison: Canadian DAF payout is lower.
 - **Not the disbursement quota:** none of these figures is the CRA disbursement quota. The DQ is a charity-level 3.5%/5% of average investment property, and a sponsor can meet it while individual accounts pay nothing [I; P-B39N3-06].
@@ -241,7 +241,7 @@ Reproduce: download the CRA files listed in §1.2 into a directory `DIR` (named 
   - ACF: "sub-fund holders are not required to make a minimum annual distribution"; the 4% is "calculated at the consolidated trust fund level" [F].
   - The 6% decision says nothing about sub-funds, as quoted in the repo [R]. A per-sub-fund floor would need new guideline text [I].
 - **Statistics:**
-  - **Public funds, 2022-23:** 1,445 PuAFs with net assets of A$4.7bn, distributions of A$487m (11.51% of A$4.23bn opening net assets) and donations of A$1.93bn.
+  - **Public funds, 2022-23:** 1,445 PuAFs with net assets of A$4.7bn, distributions of A$487m (11.51% “of net assets” per Philanthropy Australia; the implied opening base of about A$4.23bn is our back-calculation [C], not a published figure) [V wave 37B] and donations of A$1.93bn.
   - **Private funds, 2022-23:** 2,196 PAFs with net assets of A$10,656.86m and distributions of A$799.34m (8.06%).
   - Both are from Philanthropy Australia (2025-07-11), citing ATO Taxation statistics 2022-23 [S].
   - The ATO's 2023-24 edition (published 2026-06-17) has a Table 4 on ancillary funds for 2000-01 to 2023-24, but it was not readable under robots rules (ato.gov.au 403; data.gov.au disallows all) [PS].

@@ -13,7 +13,7 @@
 ## 1. Headlines
 
 1. **Dechomai is a two-entity pipe, not one charity** [F]. Dechomai Asset Trust (DAT, EIN 26-0724604) is a Type I supporting organisation of Dechomai Foundation Inc (DF, EIN 06-1676688). DAT takes in most of the complex assets and pays its cash to DF: $365.2m (2021), $474.8m (2022), $315.3m (2023) and $448.9m (2024). DF then makes the grants to the sponsors (DAT/DF Schedule I and Schedule R).
-2. **Asset mix, 2021–24** [C]. Across both entities' Schedule M there were **840 non-cash contributions worth $3,272.9m**, an average of $3.9m each. The FAQ says individual gifts "have averaged between $3-7 million". By value:
+2. **Asset mix, 2021–24** [C]. Across both entities' Schedule M there were **842 non-cash contributions worth $3,274.2m**, an average of $3.9m each. The script reads 840 and $3,272.9m because it keys works of art as `ArtWorksOfArtGrp`, while DF's 2022 and 2023 returns use `WorksOfArtGrp` ($998,400 and $300,000, one gift each). In the table below, DAT 2022 “Cyrptocurrency” ($2,092,368, 2 gifts) is also misfiled under Other. Corrected: cryptocurrency $157.0m (4.8%, 130 gifts); Other $11.7m (0.4%, 12 gifts, including the two art gifts). Ratios move by at most 0.001 points [V wave 37B] The FAQ says individual gifts "have averaged between $3-7 million". By value:
 
    | Asset class | Value | Share | Gifts |
    |---|---|---|---|
@@ -34,7 +34,7 @@
    - AEF $4.8m, Goldman $2.0m, NPT $0.45m and Morgan Stanley $0.20m.
 
    [I] The visible pattern is that donors give assets to Dechomai directly, and Dechomai grants the sale proceeds to the donor's account at the sponsor. Sponsor-to-Dechomai grants are the exception.
-5. **Effective take is below the published 1–3% on every expense measure** [C]. As a share of Schedule M intake for 2021–24:
+5. **Fee and administrative outflows are below the published 1–3%, but all non-grant expenses (1.50%) fall inside it** [C]. These are expense outflows, not the fee Dechomai charges. The FAQ says at least half of collected fees go to reserves or unrestricted funds, so they never reach Part IX. DAT's unreconciled $344.5m Schedule R “reimbursement” (10.5% of intake) is also excluded. The fee take itself is therefore not measured. As a share of Schedule M intake for 2021–24: [V wave 37B]
    - payments to Charitable Solutions LLC: $12.6m (**0.39%**);
    - Part IX management plus other fees: $19.9m (0.61%);
    - all non-grant expenses: $49.0m (1.50%).
@@ -59,10 +59,10 @@
    - On all eight selected Dechomai returns, Part V line 7c (Form 8282 for tangible personal property) is "No", and no count is given.
    - The text "8282" appears nowhere in any return.
    - Schedule M reports 420 Forms 8283 received (2021–24, both entities), and both entities say they use third parties to sell.
-   - Line 7c covers only *tangible personal* property, while Dechomai's assets are mostly business interests and real estate. Form 8282 dispositions of those assets therefore cannot be seen on a 990 at all.
+   - Line 7c covers only *tangible personal* property, while Dechomai's assets are mostly business interests and real estate. Form 8282 dispositions of those assets therefore cannot be seen on a 990 at all. Line 7c is not empty of scope, though. Schedule M shows tangible personal property received: works of art of $998,400 (DF 2022) and $300,000 (DF 2023), collectibles of $19 (DAT 2022) and gold of $336,200 (DF 2024). For those gifts the “No” answers are a checkable assertion [V wave 37B]
 8. **DAFpay Network TY2025 (filed 2026-05-19) is public in IRS TEOS** [F]. It is batch `2026_TEOS_XML_05B` (the index row says 05A) and is not yet in the GivingTuesday mirror.
    - DPN books **$0 program-service revenue** and **$0 other revenue**.
-   - It books **$88,736 of "Fees for services – other", which is 3.02% of its $2,941,073 contributions** against 2.9% = $85,291. That is consistent with the DAFpay fee being booked as an unnamed DPN expense [I].
+   - It books **$88,736 of "Fees for services – other", which is 3.02% of its $2,941,073 contributions** against 2.9% = $85,291. That is consistent with the DAFpay fee being booked as an unnamed DPN expense [I]. The match rests on one year of arithmetic within a ±0.5-point window, and the payee is not named. DPN's statements are cash-basis and neither audited nor reviewed (`FSAuditedInd` and `AccountantCompileOrReviewInd` false in TY2025; 0 in TY2024) [V wave 37B]
    - Chariot is not named anywhere in the return, and no contractor is listed (Part VII-B lists only payees over $100k).
    - TY2024 does **not** fit: other fees were $18,345 = 1.53% of $1,199,247.
 9. **DPN calls itself a DAF sponsor, but its checkboxes disagree** [F].
@@ -246,7 +246,7 @@ Each cell shows the amount and its share of combined Schedule M intake.
 
 **Reading** [I]:
 - On expense lines the take is 0.4–0.6% of intake for administration and up to 1.5% for all non-grant costs. Non-grant costs also include items that are not fees, such as the CGA programme's annuity death benefits ($361k in 2024) and insurance ($906k).
-- These figures sit at or below the bottom of the published 1–3% band, and below the FAQ's 1.2–1.4% average.
+- The Charitable Solutions and Part IX fee measures (0.39–0.62%) sit below the published 1–3% band and below the FAQ's 1.2–1.4% average. All non-grant expenses (1.50%; 2.04% in 2022 and 1.83% in 2024) sit inside the band and above that average. None of these is the fee charged, because retained fees do not appear in Part IX [V wave 37B]
 - The FAQ says at least half of collected fees go to "operating reserves or unrestricted fund purposes". A retained fee is a transfer from a donor's DAF account to Dechomai's own unrestricted funds, and it would not appear in Part IX. If half the fee is retained and the other half pays Charitable Solutions, the Charitable Solutions payments of 0.39% imply fee income of roughly 0.8% or more.
 - The $10,000 minimum binds only for gifts under about $333k–$1m. With average gifts of $3.9m, it adds little in aggregate: $8.4m, or 0.26%, if every gift paid only the minimum.
 - **Not resolved:** whether DAT's Schedule R reimbursements are fees, pass-through sale costs or misclassified grants. DF's own Schedule R does not show matching receipts.

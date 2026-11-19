@@ -77,7 +77,8 @@ CHARIOT_RX = re.compile(r"chariot", re.I)
 FORM8282_RX = re.compile(r"8282")
 
 SCHED_M_GROUPS = {
-    "ArtWorksOfArtGrp": "Art - works of art", "ArtHistoricalTreasuresGrp": "Art - historical treasures",
+    "ArtWorksOfArtGrp": "Art - works of art", "WorksOfArtGrp": "Art - works of art",  # filings use WorksOfArtGrp [V wave 37B]
+ "ArtHistoricalTreasuresGrp": "Art - historical treasures",
     "ArtFractionalInterestGrp": "Art - fractional interests", "BooksAndPublicationsGrp": "Books and publications",
     "ClothingAndHouseholdGoodsGrp": "Clothing and household goods", "CarsAndOtherVehiclesGrp": "Cars and other vehicles",
     "BoatsAndPlanesGrp": "Boats and planes", "IntellectualPropertyGrp": "Intellectual property",
@@ -93,7 +94,8 @@ SCHED_M_GROUPS = {
 }
 ASSET_CLASS = (("Securities - closely held", "private business interests"), ("Securities - partnership", "private business interests"),
                ("Securities - publicly", "public securities"), ("Securities - misc", "other securities"),
-               ("Real estate", "real estate"), ("crypto", "cryptocurrency"))
+               ("Real estate", "real estate"), ("crypto", "cryptocurrency"),
+               ("cyrpto", "cryptocurrency"))  # filer misspelling, DAT 2022 [V wave 37B]
 PART_VIII = ("TotalContributionsAmt", "NoncashContributionsAmt", "ProgramServiceRevenueAmt", "CYProgramServiceRevenueAmt",
              "CYOtherRevenueAmt", "CYInvestmentIncomeAmt", "CYTotalRevenueAmt", "GrossReceiptsAmt")
 PART_IX = ("FeesForServicesManagementGrp", "FeesForServicesLegalGrp", "FeesForServicesAccountingGrp",
