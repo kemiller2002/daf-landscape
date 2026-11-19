@@ -141,8 +141,10 @@ def raw_get(url: str) -> dict:
     try:
         with _STATE["opener"].open(req, timeout=TIMEOUT) as r:
             body = r.read(MAX_BODY)
+            is_pdf = body[:5] == b"%PDF-"
             out = {"status": r.status, "location": r.headers.get("Location", ""),
-                   "body": body.decode("utf-8", "replace"), "error": "",
+                   "body": body.decode("latin-1") if is_pdf else body.decode("utf-8", "replace"),
+                   "pdf": is_pdf, "error": "",
                    "headers": {k.lower(): v for k, v in r.headers.items()}}
     except urllib.error.HTTPError as e:
         hdrs = {k.lower(): v for k, v in (e.headers.items() if e.headers else [])}
@@ -201,8 +203,11 @@ def fetch(url: str, max_hops: int = 5) -> dict:
             cur = urllib.parse.urljoin(cur, r["location"])
             continue
         oc = "fetched" if r.get("status") else ("error: " + r.get("error", ""))
+        body = r.get("body", "")
+        if r.get("pdf"):
+            body = pdf_text(body)
         return {"outcome": oc, "url": url, "final": cur, "hops": hops, "status": r.get("status"),
-                "body": r.get("body", ""), "headers": r.get("headers", {})}
+                "body": body, "headers": r.get("headers", {}), "pdf": bool(r.get("pdf"))}
     return {"outcome": "redirect loop", "url": url, "final": cur, "hops": hops, "status": None, "body": "",
             "headers": {}}
 
@@ -227,6 +232,30 @@ def text_of(html: str) -> str:
     t = re.sub(r"(?is)<(script|style)[^>]*>.*?</\1>", " ", html)
     t = re.sub(r"(?s)<[^>]+>", " ", t)
     return re.sub(r"\s+", " ", t)
+
+
+def _pdf_strings(chunk: bytes) -> str:
+    out = []
+    for m in re.finditer(rb"\[(.*?)\]\s*TJ|\((.*?)(?<!\\)\)\s*Tj", chunk, re.S):
+        seg = m.group(1) if m.group(1) is not None else b"(" + m.group(2) + b")"
+        parts = re.findall(rb"\(((?:\\.|[^\\)])*)\)", seg)
+        out.append(b"".join(parts).decode("latin-1", "replace"))
+    return " ".join(out)
+
+
+def pdf_text(body_latin1: str) -> str:
+    """Best-effort text from a PDF (FlateDecode streams, Tj/TJ literal strings). Stdlib zlib."""
+    import zlib
+    raw = body_latin1.encode("latin-1", "replace")
+    texts = []
+    for m in re.finditer(rb"stream\r?\n(.*?)\r?\nendstream", raw, re.S):
+        data = m.group(1)
+        try:
+            data = zlib.decompress(data)
+        except Exception:  # noqa: BLE001
+            pass
+        texts.append(_pdf_strings(data))
+    return re.sub(r"\s+", " ", " ".join(texts))
 
 
 def snippet(body: str, rx: str, width: int = 90) -> str:
