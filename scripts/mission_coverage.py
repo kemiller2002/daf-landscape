@@ -311,8 +311,42 @@ def write_csv(path: Path, records):
         w.writerows(records)
 
 
+def summary_of_file(matrix: Path, baseline: Path):
+    """Added 2026-11-19 (P-GAP19-02): summarise an existing matrix CSV without regenerating it,
+    plus before/after shares against a baseline matrix and the cells still NI, by entity."""
+    records, base = read_rows(matrix), read_rows(baseline)
+    s, b = summary(records), summary(base)
+    still_empty = {}
+    for r in records:
+        if r["status_code"] == "NI":
+            still_empty.setdefault(r["entity"], []).append(r["checklist_item"])
+    return {
+        **s,
+        "source_matrix": str(matrix.name),
+        "baseline_matrix": str(baseline.name),
+        "baseline_share_cells_investigated_any": b["share_cells_investigated_any"],
+        "baseline_share_cells_partially_validated_or_better": b["share_cells_partially_validated_or_better"],
+        "baseline_status_counts": b["status_counts"],
+        "baseline_entities_with_majority_not_investigated": b["entities_with_majority_not_investigated"],
+        "cells_still_not_investigated": sum(len(v) for v in still_empty.values()),
+        "cells_still_not_investigated_by_entity": dict(sorted(still_empty.items())),
+    }
+
+
 if __name__ == "__main__":
     root = Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
+    if "--summarize" in sys.argv:
+        # usage: mission_coverage.py <root> --summarize <matrix.csv> <out.json>  (does not touch the baseline files)
+        i = sys.argv.index("--summarize")
+        matrix, target = root / sys.argv[i + 1], root / sys.argv[i + 2]
+        result = summary_of_file(matrix, root / "data" / "mission-2026-11-14" / "coverage-matrix-entities.csv")
+        target.write_text(json.dumps(result, indent=2))
+        print(json.dumps({k: result[k] for k in ("cells", "share_cells_investigated_any",
+                                                 "share_cells_partially_validated_or_better",
+                                                 "baseline_share_cells_investigated_any",
+                                                 "baseline_share_cells_partially_validated_or_better",
+                                                 "cells_still_not_investigated")}, indent=2))
+        sys.exit(0)
     out = root / "data" / "mission-2026-11-14"
     out.mkdir(parents=True, exist_ok=True)
     records = rows(apply_updates(BASELINE, {k: {**MISSION_UPDATES.get(k, {}), **ROUND2_UPDATES.get(k, {})} for k in set(MISSION_UPDATES) | set(ROUND2_UPDATES)}, MISSION_NEW_ENTITIES), load_validated(out))

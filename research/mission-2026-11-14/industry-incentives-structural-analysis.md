@@ -174,7 +174,7 @@ The mission guide gives the test for each persistent behaviour:
 **Documented facts:**
 - **DAF-to-DAF transfers** are excepted from §4966 [[S04](https://www.law.cornell.edu/uscode/text/26/4966)]. They require the releasing sponsor's approval of a closing grant [repo [R02](https://www.fidelitycharitable.org/faqs/all/transfer-to-giving-account.html), [R03](https://renaissancecharitable.org/how-to-open-a-renaissance-charitable-daf/)].
 - **WaterStone litigation (InvestmentNews, February 27, 2026).** A successor advisor alleges that the sponsor stopped honoring grant recommendations and cut off information on a roughly $21m fund after a transfer was raised. Counsel responded: "The plaintiff in this case is not the donor" [[S20](https://www.investmentnews.com/practice-management/multimillion-dollar-donor-advised-fund-lawsuit-puts-spotlight-on-control-risks/265478)]. These are allegations, not findings.
-- **Institutional switching (AEF to Ren).** AEF's DonorCentral was retired on October 31, 2026, and the new portal shows only two years of history [repo [R06](https://engage.aefonline.org/dc-sunset/)].
+- **Institutional switching (AEF to Ren).** AEF's DonorCentral was retired on October 31, 2026, and the new portal shows only two years of history [repo [R06](https://engage.aefonline.org/dc-sunset/) ([archived copy](http://web.archive.org/web/20261003000017/https://engage.aefonline.org/dc-sunset/))].
 - **Contract terms:**
   - Ren's published MSA template has one-year auto-renewals unless notice is given 60 days before, plus quarter-end termination charges [[S35](https://www.reninc.com/wp-content/uploads/2025/08/Online-RAC-MSA_v1.pdf)].
   - TIFIN's group terms default to auto-renewal [[S36](https://tifin.com/terms-conditions/)].
@@ -206,7 +206,7 @@ The mission guide gives the test for each persistent behaviour:
 The repo already documents several sources of lock-in:
 - vendor-retained IP and only a limited licence [[S35](https://www.reninc.com/wp-content/uploads/2025/08/Online-RAC-MSA_v1.pdf), M08];
 - no guaranteed structured export [M07];
-- AEF's two-year history cutoff [repo [R06](https://engage.aefonline.org/dc-sunset/)];
+- AEF's two-year history cutoff [repo [R06](https://engage.aefonline.org/dc-sunset/) ([archived copy](http://web.archive.org/web/20261003000017/https://engage.aefonline.org/dc-sunset/))];
 - loss of Chariot access on termination [repo [R22](https://www.givechariot.com/legal-nonprofit)].
 
 **Inference:** lock-in lengthens contract life and slows adoption of better tools. **Mixed.** Its origins are financial (termination fees) and informational (no schema standard). **Confidence:** Medium.
@@ -246,7 +246,7 @@ The repo already documents several sources of lock-in:
 | EFT/Stripe 1–2 days versus checks; "up to 9x faster" [[S26](https://www.fidelitycharitable.org/nonprofits/faqs.html)] | No sponsor mandate; nonprofit board policies; no penalty for checks | Mixed, leaning habit | Medium |
 | Automated status checks against TEOS/BMF are legally reliable [[S07](https://www.thetaxadviser.com/issues/2018/aug/irs-updates-charitable-contribution-procedures/)] | Liability and reputational aversion (SPLC precedent [[S16](https://oag.ca.gov/node/623769)]); unfinished regulations [[S02](https://cof.org/page/proposed-rule-taxes-taxable-distributions-donor-advised-funds-under-section-4966)] | Mixed | Medium |
 | Faster grant-out and default-grant automation | AUM-linked fees to affiliates and administrators [[S30](https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/audited-financial-statements-2025-2024.pdf),[S34](https://renaissancecharitable.org/wp-content/uploads/2026/01/2024RCFAuditedFinancialStatements.pdf)] | Structural (financial) | Low-Medium on effect |
-| Standard exports and portable history | Vendor IP, termination charges, no schema standard [[S35](https://www.reninc.com/wp-content/uploads/2025/08/Online-RAC-MSA_v1.pdf), [R06](https://engage.aefonline.org/dc-sunset/)] | Mixed | Medium |
+| Standard exports and portable history | Vendor IP, termination charges, no schema standard [[S35](https://www.reninc.com/wp-content/uploads/2025/08/Online-RAC-MSA_v1.pdf), [R06](https://engage.aefonline.org/dc-sunset/) ([archived copy](http://web.archive.org/web/20261003000017/https://engage.aefonline.org/dc-sunset/))] | Mixed | Medium |
 | Shared donor data for nonprofits (opt-in) | Anonymity expectations; sponsor ownership of the relationship; past privacy objections (AB 1712 [[S15](https://ministrywatch.com/california-would-be-first-state-law-to-reach-donor-advised-funds/)]) | Mixed | Medium |
 | Donor-direct low-fee DAFs (DAFgiving360 and Fidelity at the $100 minimum) | Advisor AUM retention favours advisor-managed accounts [repo batch-1a; [S42](https://oneascent.com/wp-content/uploads/sites/25/2025/11/20260811-OAWM-ADV-Part-2A.pdf)] | Structural (financial) | Medium |
 
@@ -503,3 +503,6 @@ The repo already documents several sources of lock-in:
 Source: [validation-wave4-report.md](validation-wave4-report.md). Where these conflict with the text above, these govern.
 
 - **W4-13** (research/mission-2026-11-14/industry-incentives-structural-analysis.md line 143): replace "Sixteen attorneys general asked them on May 22, 2026" → "Sixteen attorneys general, led by Minnesota, asked them in a letter dated May 21, 2026 (California release May 22)"
+
+## Additions (2026-11-19): Outcomes D–G under EDF v0.3 and Clarity
+Four newly observed outcomes were run through the EDF v0.3 nine-step sequence with Clarity posture: the community-foundation cost gap (D), withheld donor contact data by default (E), no open DAF grant-request standard (F), and Fidelity's pool shortfall about equal to its admin fee over five years (G). Full diagnostics, claim states and confidence are in [gap19-clarity-edf-new-findings.md](gap19-clarity-edf-new-findings.md) §§2–5; the four corresponding rows were appended to `data/mission-2026-11-14/incentive-map.csv`. All 33 direction documents now carry a Clarity/EDF tag in `data/mission-2026-11-14/clarity-edf-direction-tags-2026-11-19.csv`.

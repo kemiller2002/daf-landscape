@@ -165,7 +165,7 @@
 **Candid**
 - X1 4 (validated): RCF policy, more than 98% of grants ([RCF](https://renaissancecharitable.org/wp-content/uploads/2026/02/Grantmaking-Due-Diligence-Policy.pdf)).
 - X2 3: Claude connector delivered ([Anthropic](https://www.anthropic.com/news/claude-for-nonprofits)).
-- X4 3: [Charity Check FAQ](https://developer.candid.org/docs/faqs-charity-check), Groundswell, Ren iPhi.
+- X4 3: [Charity Check FAQ](https://developer.candid.org/docs/faqs-charity-check) ([archived copy](http://web.archive.org/web/20250425115007/https://developer.candid.org/docs/faqs-charity-check)), Groundswell, Ren iPhi.
 - X5 2: the Chronicle reports staff cuts ([Chronicle](https://www.philanthropy.com/news/candid-cuts-staff-bets-its-future-on-ai/)); the cut size is unverified.
 - Y1 3: [developer portal](https://developer.candid.org/).
 - Y2 3: weekly IRB updates plus OFAC.

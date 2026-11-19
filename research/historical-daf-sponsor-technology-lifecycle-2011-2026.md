@@ -37,7 +37,7 @@ AEF is a **continuing legal DAF sponsor** that changed donor portals:
 
 1. **2024**: AEF's communications document its DonorCentral migration from Blackbaud to NPact and resetting donor logins; some older unsubmitted shopping-cart drafts were removed [HL09,HL10].
 2. **2026**: AEF's scheduled March–April transition brought a new Ren-powered platform online [HL11].
-3. **October 31, 2026**: AEF's [official sunset notice](https://engage.aefonline.org/dc-sunset/) states that DonorCentral access shut down, that the new Ren portal shows **two years of historical donor activity**, and that donors can request the older histories from AEF staff [HL12].
+3. **October 31, 2026**: AEF's [official sunset notice](https://engage.aefonline.org/dc-sunset/) ([archived copy](http://web.archive.org/web/20261003000017/https://engage.aefonline.org/dc-sunset/)) states that DonorCentral access shut down, that the new Ren portal shows **two years of historical donor activity**, and that donors can request the older histories from AEF staff [HL12].
 
 **Clarity conclusion:** There is verified retirement of a *DAF donor portal* and reduction in immediate **self-service access** to old statements, grants, and receipts. This does **not** mean that the charitable assets were lost, that the old records were permanently deleted, or that either previous vendor failed financially.
 

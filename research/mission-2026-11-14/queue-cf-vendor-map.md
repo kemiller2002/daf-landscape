@@ -31,7 +31,7 @@
 
 **Migration signals.** The data show three Stellar→Foundant switches and five foundations with two live fund-login vendors (§5).
 
-**Give Interactive.** No CF production tenant was found apart from the known CCT tenant. The certificate data show lapsed or staging-only Give tenants at East Bay, Kalamazoo, San Diego, Minneapolis and FFTC (§5).
+**Give Interactive.** No CF production tenant was found apart from the known CCT tenant. The certificate data show lapsed or staging-only Give tenants at East Bay, Kalamazoo, San Diego, Minneapolis and FFTC (§5). On admissible evidence (2026-11-19): East Bay and Kalamazoo by Wayback captures, FFTC by its CY2023 990, and San Diego and Minneapolis by live DNS. All certificate dates are leads [crt19].
 
 **P-GIV-03.**
 - Every automated registry route was blocked: Delaware was CAPTCHA-gated; Kansas, Missouri and OpenCorporates were refused or challenged. **I record P-GIV-03 as blocked.**
@@ -201,7 +201,7 @@ At Flint, a legacy `cfgf.iphiview.com` contact link is still on the site. These 
 
 The direction of each move is open (P-CFV-03). With Kalamazoo (below), Foundation Cloud appears at several former Foundant, Give or iPhi sites [I].
 
-**Give Interactive certificate tenants at CFs** (crt.sh, certificates from 2021 on):
+**Give Interactive certificate tenants at CFs** (crt.sh, certificates from 2021 on; dates are unverified leads under the compliance note, and existence is re-sourced in crtsh-resourcing-2026-11-19.md §2–3):
 
 | Foundation | Give tenants in CT logs | Current portal |
 |---|---|---|
@@ -276,7 +276,7 @@ All checks were made on 2026-11-14 with read-only requests. No search form was s
   - 64 homepages refused scripted reads and were not worked around: no User-Agent spoofing and no browser automation.
   - Small CFs with no website, or with a site on a parent CF, show up as unmapped.
 - **Affiliates and supporting organisations** that share a parent's tenant are each counted. Examples are Dayton Foundation Depository, The Indianapolis Foundation (CICF portal) and Huron County CF (on Erie's `fcsuite` tenant). This inflates counts slightly but not assets much.
-- **Certificate transparency is weak for the big vendors.** Foundant and iPhi mostly use wildcard certificates (only 11 and 7 named `fcsuite` and `iphiview` hosts since 2021). crt.sh intermittently returned 404/502 for `%.domain` queries; bare-domain queries were used as well.
+- **Certificate transparency is weak for the big vendors.** Foundant and iPhi mostly use wildcard certificates (only 11 and 7 named `fcsuite` and `iphiview` hosts since 2021, per crt.sh, an unverified-lead statistic used in no share; 5 of the 7 iPhi names resolve on 2026-11-19). crt.sh intermittently returned 404/502 for `%.domain` queries; bare-domain queries were used as well.
 - **990 lines** cover only the five highest-paid contractors above $100k, and the service text does not name the product (for example, Foundant "grant management" in TY2021 could be GLM).
 - **Point in time.** Everything was live on 2026-11-14. Dual-portal CFs are mid-transition, so their mapped vendor may change.
 - **DAF assets** are the DAFRC FY2024 `eoy_daf_assets` (which include DAFRC corrections), not 990-reported values.

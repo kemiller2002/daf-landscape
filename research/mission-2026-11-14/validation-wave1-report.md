@@ -34,8 +34,8 @@
 - **V1-04:** The claim drops the RCF FAQ phrase "**administrative infrastructure**". The audits also describe "administration services". Ren is an administrator, not only a technology vendor.
 - **V1-05:**
   - The cited Ren PDF returns 404 and I found no archive copy.
-  - The date (2021 vs 2022) is unresolved. ([cited Ren PDF, HTTP 404](https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf))
-  - It is unclear whether the "$2.9bn" subject is Ren or RCF. ([cited Ren PDF, HTTP 404](https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf))
+  - The date (2021 vs 2022) is unresolved. ([cited Ren PDF, HTTP 404](https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf) ([archived copy](http://web.archive.org/web/20250109124657/https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf)))
+  - It is unclear whether the "$2.9bn" subject is Ren or RCF. ([cited Ren PDF, HTTP 404](https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf) ([archived copy](http://web.archive.org/web/20250109124657/https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf)))
 - **V1-06:** Giving Place is software for private foundations and family offices, bought "from Give, a TIFIN Company". It is not TIFIN's DAF platform.
 - **V1-08:**
   - Kump's title in primary sources is "President, DAF Division" (FS team page) or "President of DAFs" (press release), not "DAF Technology President".
@@ -72,7 +72,7 @@
 ## Claims the repo overstates
 1. **V1-20 (bofa-…-relationship):** The title and claim say 10-K/filings show the Ren link. They do not; only the portal does. Lower confidence on any contractual or economic inference.
 2. **V1-13:** This is framed as a contradiction in AEF's assurance claims. It is actually inconsistent **vendor (Ren) boilerplate**, with no SOC report available. It is not evidence about AEF's own controls.
-3. **V1-05:** The $2.9bn Edward Jones figure rests on a document that is no longer available. Mark it unverified or historical, low confidence. ([cited Ren PDF, HTTP 404](https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf))
+3. **V1-05:** The $2.9bn Edward Jones figure rests on a document that is no longer available. Mark it unverified or historical, low confidence. ([cited Ren PDF, HTTP 404](https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf) ([archived copy](http://web.archive.org/web/20250109124657/https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf)))
 4. **V1-08:** "Fee-paid" to Foundation Source is inferred, because the 990 payee is unnamed. However, the conflict is *understated* in another respect: the vendor pays the charity's president.
 5. **V1-16:** The FY2025 figure is presented as current.
 6. **V1-04:** "Technology" framing understates Ren's administrative role.
@@ -83,7 +83,7 @@ Understated (can upgrade): **V1-21**, whose primary source is now verified.
 - `research/bofa-charitable-gift-fund-10k-ren-relationship-2026-11-11.md` and any claim row: replace "Bank of America 10-K or filings evidence a Ren relationship" with: "No BAC SEC filing or BofA Charitable Gift Fund Form 990 (TY2023–24) mentions Ren; the only public evidence is the bofa.donorfirst.org portal (advisor contact charitablegiftfund@reninc.com; 'DFX powered by Ren'). Scope and economics unknown."
 - `research/soc2-assessment-2026-11-11.md`: replace "AEF ... claimed SOC 2 Type II for its Ren-powered platform; April 2026 language said Type I" with: "AEF-hosted joint releases carry Ren's 'About Ren' boilerplate stating Ren 'holds a SOC 2 Type 2 certification' (2025-07-23) and 'SOC 2 Type 1 certification' (2026-04-08); no report seen; these are claims about Ren, not AEF."
 - `research/edward-jones-ren-renaissance-charitable-relationship-2026-11-12.md` line 9:
-  - Add: "Source PDF returned 404 on 2026-11-14 and no archive copy was retrieved; unverified, low confidence." ([cited Ren PDF](https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf))
+  - Add: "Source PDF returned 404 on 2026-11-14 and no archive copy was retrieved; unverified, low confidence." ([cited Ren PDF](https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf) ([archived copy](http://web.archive.org/web/20250109124657/https://www.reninc.com/wp-content/uploads/2022/03/Advisor-Guide-and-FAQ-WH-RCF-2022-1.pdf)))
   - Line 7: change "Ren supplies technology and operational support" to "Ren supplies 'the institutional-grade platform, administrative infrastructure, and operational support'".
 - `research/sponsor-governance-and-fee-transparency-2026-11-11.md` line 8:
   - Add: "Kump is Charityvest's President (990 TY2024, Part VII) and 'President, DAF Division' at Foundation Source; Schedule O states he 'is compensated by Foundation Source' ($163,944 via Vennfi, 2024)." ([Charityvest 990 TY2024](https://projects.propublica.org/nonprofits/organizations/812771871/202513189349315961/full); [Foundation Source team page](https://foundationsource.com/team/stephen-kump/))

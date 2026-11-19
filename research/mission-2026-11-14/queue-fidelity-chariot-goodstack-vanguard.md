@@ -176,7 +176,7 @@ Queue items covered: P-PAY-01 and P-QCAL-03 (Fidelity Charitable), P-NPT-04 (Cha
 
 [I] API Gateway returns `ForbiddenException` on the root when no route matches or when an API key or resource policy is required. Nothing public reveals what the API carries. The name, its CT co-issuance with `api-salesforce` and `auth0`, and the Give Interactive contract (2025-11-04) are still the only basis for reading it as the Give integration endpoint.
 
-### 5.2 Hosts first certified in 2025 or later (from the watchlist snapshot `data/watchlist-snapshots/2026-11-14/ct-vanguardcharitable.json`, crt.sh; root probe 2026-11-14)
+### 5.2 Hosts first certified in 2025 or later (from the watchlist snapshot `data/watchlist-snapshots/2026-11-14/ct-vanguardcharitable.json`, crt.sh; root probe 2026-11-14). First-cert dates are unverified leads; every host except `api-vgi` resolves in public DNS on 2026-11-19 [crt19]
 
 | Host | First cert | Fronted by | Root response |
 |---|---|---|---|
@@ -187,7 +187,7 @@ Queue items covered: P-PAY-01 and P-QCAL-03 (Fidelity Charitable), P-NPT-04 (Cha
 | api-coreservices | 2026-02-24 | API Gateway | 500 Internal server error |
 | **api-give** | 2026-02-25 | API Gateway | 403 Forbidden |
 | api-salesforce | 2026-02-25 | API Gateway | 403 Forbidden |
-| api-vgi | 2026-02-25 | n/a | No DNS answer seen from here; the proxy returned 502 |
+| api-vgi | 2026-02-25 | n/a | No DNS answer seen from here; the proxy returned 502. 2026-11-19: dangling CNAME to `alb-temp-634758386.us-east-1.elb.amazonaws.com` (NXDOMAIN) [crt19] |
 | auth0 | 2026-02-25 | API Gateway | 403 Forbidden |
 | **api-tungsten** | 2026-03-04 | API Gateway | 200: public Swagger UI, see below |
 | client | 2026-07-08 (latest cert run) | Akamai | Salesforce SAML; Issuer parameter `mygiving.vanguardcharitable.org/mygiving/` |

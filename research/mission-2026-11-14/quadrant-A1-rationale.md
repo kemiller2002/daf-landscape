@@ -47,7 +47,7 @@
 **Y: 2.30**
 - **Y4 = 4.** Broadest segment reach: wealth, bank, independent national, community, impact and university.
 - **Y1 = 2.** The public MSAs return only "Customer Materials". The iPhi MSA gives a 15-day export window. API integration is a paid add-on and there are no public docs ([RAC MSA](https://www.reninc.com/wp-content/uploads/2025/08/Online-RAC-MSA_v1.pdf); vendor-data-rights-matrix).
-- **Y5 = 2.** The AEF migration was delivered, but the new portal shows only two years of history ([AEF DC sunset](https://engage.aefonline.org/dc-sunset/)).
+- **Y5 = 2.** The AEF migration was delivered, but the new portal shows only two years of history ([AEF DC sunset](https://engage.aefonline.org/dc-sunset/) ([archived copy](http://web.archive.org/web/20261003000017/https://engage.aefonline.org/dc-sunset/))).
 - **Y3 = 2.** Rules-based "instant" approval sits on RCF's published risk-tiered policy ([RCF due-diligence policy](https://renaissancecharitable.org/wp-content/uploads/2026/02/Grantmaking-Due-Diligence-Policy.pdf)). No AI is evidenced.
 
 **Overlay:** GREEN/none. No AI claims. Automation is deterministic and sits under sponsor policy. Decision logs are not public.

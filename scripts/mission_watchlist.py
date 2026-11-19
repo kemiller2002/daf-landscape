@@ -433,7 +433,7 @@ def observe_irs(c: Check, timeout: float, irs_dir: Path, run_date: str, cache: d
 def observe(c: Check, timeout: float, run_date: str, irs_dir: Path, cache: dict) -> dict:
     table: dict[str, Callable[[], dict]] = {
         "ct_crtsh": lambda: obs_fail("disabled", "crt.sh robots.txt disallows all crawlers (see research/mission-2026-11-14/compliance-note-crtsh-robots.md)"),  # disabled 2026-11-15
-        "ct_certspotter": lambda: observe_certspotter(c, timeout),
+        "ct_certspotter": lambda: obs_fail("disabled", "certspotter disabled 2026-11-19: operator SSLMate's robots.txt disallows /api (see research/mission-2026-11-14/compliance-note-crtsh-robots.md)"),  # disabled 2026-11-19
         "http": lambda: observe_http(c, timeout),
         "rss": lambda: observe_rss(c, timeout),
         "sec_efts": lambda: observe_sec(c, timeout, run_date),
