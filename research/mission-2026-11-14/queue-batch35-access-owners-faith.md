@@ -243,7 +243,7 @@ Expense ratios are the pool values on [vanguardcharitable.org/investments](https
 
 [FY25 consolidated financials](https://www.nptrust.org/wp-content/uploads/2026/09/FY25-AR-Consolidated-Financials-NPT.pdf) (PDF dated 2026-09-01) contains two pages: position and activities, with no notes and no portfolio balances.
 - **Composition:** cash and equivalents $9.24bn and investments at fair value $47.84bn at 2025-06-30.
-- **Fee line:** the expense section carries a line labelled "Asset management fees payable" of **$116,260k**. The label repeats a liability caption and looks like a layout error [I]. If it is NPT's asset-management fee expense, it equals **≈27 bps** of average investments [C: 116.26 / ((47.84 + 36.92) / 2)]. That would be a fee paid by NPT, probably including the 0.10–0.15% advisory fee and adviser-managed accounts. It is not in-fund cost and should not replace N063 without the notes.
+- **Fee line:** the expense section carries a line labelled "Asset management fees payable" of **$116,260k**. The label repeats a liability caption and is a layout error: the FY2024 PDF prints the same FY2024 figure ($94,289k) as “Program services”, so $116,260k is program services expense excluding grants, not an asset-management fee, and the ≈27 bps reading is withdrawn. The nearest public fee measure is FY2025 990 line 11f (program column $93.5m, 22.4 bps of mean Part X investments) [V wave 36C] It is not in-fund cost and should not replace N063 without the notes.
 
 ### 5.3 DAFgiving360: not resolved
 

@@ -113,7 +113,7 @@ Scope: 48 top-50 sponsors (46 DAFRC top-50 plus Stanford and UCLA Foundation, as
   - Where only Part II rows are available, each row is region × purpose, not a recipient, so the count is understated there.
 - **Fiscal-sponsor matches:** 740 lines, $1.212bn, 25 recipient keys. All but about $55k (two generic-marker lines) come from the named list. Two false positives found in testing ("Quoddy Tides Foundation", "Illinois Public Health Institute") were removed by anchoring the patterns.
 - **The largest single lines** that drive sponsor-level dollar shares:
-  - SVCF FY2023 → Further Future Foundation (92-1117448), **$1,309.0m**, BMF ruling 2023-03 (recent ruling);
+  - SVCF FY2023 → Further Future Foundation (92-1117448), **$1,309.0m**, BMF ruling 2023-03 (recent ruling). The recipient renamed itself Navigation Charitable Fund on 2023-11-01. By end-2024 it had granted $41.1m and held $883.5m in its wholly owned for-profit, Voltage Park, Inc. ([b41n17-g0505-unlisted-recipients.md](b41n17-g0505-unlisted-recipients.md) §4.2) [V wave 36B]
   - Greater Horizons FY2024: a line with **no name and no EIN**, $212.2m (blank EIN, so `not_c3_or_not_pub78_unexplained`). It is not a grant. $212,187,406 is exactly the sum of the return's 3,282 named lines, and a second blank line carries $3,282, the line count. Together they are an e-filed totals row, so Greater Horizons' Schedule I dollars are double-counted. No other return among the 94 has this pattern [V wave 32A]
   - SVCF FY2023 → The Just Trust for Education, $131.6m (ruling 2023-02);
   - NPT FY2024 → BM-A Institute, $83.1m (ruling 2024-09, after NPT's year-end);
