@@ -297,7 +297,7 @@ These are hypotheses drawn from the profile above. No sponsor was contacted, and
 ---
 
 ## 6. Limitations
-- **The universe is DAFRC's corrected panel.** Some 413–538 small non-DAFRC filers a year are excluded from the tail figures (§2 gives them as context). Sponsors that answer Part IV "No", file a 990-EZ or file on paper are invisible.
+- **The universe is DAFRC's corrected panel.** Some 413–538 small non-DAFRC filers a year are excluded from the tail figures (§2 gives them as context). Sponsors that answer Part IV "No", file a 990-EZ or file on paper are invisible. Reading Schedule D directly adds 14 plausible line-6 “No” returns outside DAFRC in FY2021–26 ($15.81m, most of it Groundswell’s $10.08m in FY2024), so the asset picture holds, but FY2024 non-DAFRC accounts roughly double (11,992 to about 24,800) [C] [V wave 39B]
 - **Imputation persists in the tail.** 228 tail sponsors carry at least one imputed FY2024 metric. Payout and account statistics exclude those values, so the valid n is given in each table.
 - **Type is DAFRC's classification.** "Single-issue, other" mixes federations, social-finance funds, giving platforms and service charities.
 - **The BMF is a November 2026 snapshot.** Ruling dates can postdate reorganisations, and state is the current mailing address. Seven FY2024 sponsors are not in the BMF.

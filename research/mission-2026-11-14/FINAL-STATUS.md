@@ -8,7 +8,40 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-19, through PR #61) — governing
+## Counts (refresh 2026-11-19, through PR #62) — governing
+
+These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #62 merged. They supersede the tables below. The PR #62 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#62 (43 PRs) | GitHub |
+| Research documents | 325 documents, 1,214,126 words | `research/**/*.md` |
+| Datasets | 616 CSV files, 350,202 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,004 | regex over `research/**/*.md` |
+| Independent validation | **1,724 register rows** in 57 register files (waves 1–39C): 1,243 confirmed, 387 partially confirmed, 69 contradicted, 18 unverifiable, 7 other | `validation-register*.csv`, classified by the leading word of `validation_result` |
+| Research queue | 790 items: 375 done, 284 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.50 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #62 (validated; report §11.48–§11.50):**
+- **Grant remittance and portal features.**
+  - No sponsor states its ACH SEC code on any public page we read. NPT does not send ACH payments.
+  - Several vendor portals already offer export.
+  - NCF is the only top-20 sponsor that documents giving into a donor's fund.
+  - No portal offers a donor-level impact report.
+- **Sponsor-published grant statistics.**
+  - The unrestricted share as sponsors report it is 63–74% by count: Fidelity 63–64% "where needed most", DAFgiving360 72%, NPT 66% (restated), Vanguard 70%.
+  - By dollars, Vanguard's unrestricted share is about 52%.
+  - Fidelity's disclosure split is 80% full / 15% fund name / 5% anonymous.
+- **Detection probability.** An escaped DAF error has roughly a 0.1–1% chance per year of being detected and taxed, measured as average-filer coverage. The composite m is fragile: it is about 1.6 when OFAC penalties are priced per transaction and 14–1,270 when priced per missed alert.
+- **Line 6 versus Schedule D.**
+  - 33 returns that hold DAFs answer "No" on line 6, carrying $265m. SOI extracts keyed on line 6 drop them; DAFRC does not use line 6.
+  - Non-DAFRC FY2024 accounts are about 24,800.
+- **Exception proxy refinements.**
+  - EIN-keyed fiscal sponsors account for 0.44% of lines and 1.94% of dollars; dropping large-programme hosts gives 1.68%.
+  - The time-correct recent-ruling flag counts true new organisations at 3.16% of lines and 4.72% of dollars.
+  - Core is 7.76% / 11.61%.
+
+## Counts (refresh 2026-11-19, through PR #61) (superseded by the table above)
 
 These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #61 merged, and they supersede the tables below. The PR #61 description records the head SHA.
 
@@ -25,7 +58,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 **Additions in PR #61 (validated; report §11.45–§11.47):**
 - **Canada.** Payout net of DAF-to-DAF transfers is 12.0% (12.8% under tier A; 8.8% under tier C, which is an upper bound). The charity-level disbursement quota rarely binds on DAF sponsors.
 - **DAF money abroad through non-Q recipients.** Adds $1.35bn. The measured share of total grants reaching abroad is 5.20% [I-alloc], or 5.10% excluding fundraising and PRI rows.
-- **Escaped-error cost m.** Bank SAR penalties work out at $36k–$471k per SAR, which is 2,600–34,000 handling-times; carrying that to DAF sponsors is analogy only [I]. For DAF sponsors the central m is about 2.2, resting mostly on assumptions. Routing beats assistance up to about m = 10.
+- **Escaped-error cost m.** Bank SAR penalties work out at $36k–$471k per SAR, which is 2,600–34,000 handling-times; carrying that to DAF sponsors is analogy only [I]. For DAF sponsors the central m is about 2.2 (wave 38B). Bounding IRS detection (P ≈ 0.0012–0.0099) lowers it to 1.56–1.77, and it rests mostly on unsourced operational-rework and sanctions-pricing assumptions [V wave 39B] Routing beats assistance up to about m = 10.
 - **Sponsor economics.**
   - Dechomai is 0.1–3.0% of national sponsors' DAF contributions.
   - Audited fee economics: Fidelity passes its whole fee to FMR and runs an operating deficit; Renaissance passes 98% to Ren; JCF keeps a small surplus.
@@ -76,7 +109,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 - **Corporate DAFs.** 13 of 14 sponsors publish no corporate split. Where the split is measured, corporate DAFs are 3.4–3.9% of DAF grants; 9.1% is a ceiling that applies only to the measured pool.
 - **Unlisted recipients.** About 4% of the $0.82bn of top-50 grants to unlisted EINs is identifiable sponsor EIN misreporting. The roughly 51% that is "unmatched" is an upper bound on grantees the IRS lists do not recognise.
 - **Large single grants.** SVCF's $1.309bn FY2023 line went to Further Future Foundation, now Navigation Charitable Fund. That fund owns Voltage Park and had granted out 3.1% of the money by end-2024.
-- **AI routing.** Confidence-gated routing roughly triples intervention C's value pool when an escaped error costs one case-handling's worth. It still beats assistance up to about ten, and the pool falls below assist near m = 20. Wave 38B's central m is 2.4, but bank-style compliance errors that escape would erase the gain. [V wave 38B] C still almost never ranks first.
+- **AI routing.** Confidence-gated routing roughly triples intervention C's value pool when an escaped error costs one case-handling's worth. It still beats assistance up to about ten, and the pool falls below assist near m = 20. The central m is 2.20 after wave 38B’s correction (it was given as 2.4), and IRS-bounded detection lowers it to 1.56–1.77. Bank-style compliance errors that escape, or sanctions misses priced per missed alert, would still erase the gain [V wave 39B] [V wave 38B] C still almost never ranks first.
 - **Exceptions per grant.** Measured by number of grants, about 7–8.5% fall in the core exception categories.
 - **NPT and Ren follow-ups.**
   - The $116.3m that had been called "asset management fees" is in fact program services excluding grants. Five passages were corrected.
@@ -144,7 +177,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 | Strategic synthesis | New §0, "Current A–G and top ten (governing)". Older layers are marked superseded | `strategic-synthesis.md` |
 
 **Additions since PR #53 (all validated; report §11.30–§11.33):**
-- **Exception-load proxy.** Across the top 50 sponsors, 7.4% of recipient lines and 11.0% of dollars need non-routine review.
+- **Exception-load proxy.** Across the top 50 sponsors, 7.4% of recipient lines and 11.0% of dollars need non-routine review. With the EIN-keyed fiscal-sponsor list and time-correct rulings it is 7.76% / 11.61% (6.80% / 11.00% counting only true new organisations as recent), or 7.74% / 11.35% if four hosts with large programmes of their own are not counted as fiscal sponsors [V wave 39C]
 - **Complaints.** Measured against accounts and grants, grant delay is the top complaint category. Processor complaint rates run far above sponsors' rates per grant dollar.
 - **State law.** A 50-state check found no state DAF mandate. New Jersey's hospital-conversion clause is the one reach into DAF money.
 - **Startup cohort.** Survival for the 2021–26 startup cohort is 64.7–100%.
