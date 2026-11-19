@@ -334,7 +334,7 @@ def make_net():
             return False, "not checked (robots: disallowed)"
         return True, rob["note"]
 
-    def check(url):
+    def check(url, get_only=False):
         hops, cur, method_used = [], url, ""
         for _ in range(6):
             if skip_reason(cur):
@@ -343,9 +343,9 @@ def make_net():
             if not ok:
                 return {"outcome": note if not hops else note.replace("not checked", "redirect target not checked"),
                         "http_status": "", "final_url": cur, "hops": hops, "method": method_used}
-            r = raw(cur, "HEAD")
-            method_used = "HEAD"
-            if r.get("status") in HEAD_REFUSED:
+            r = raw(cur, "GET", headers={"Range": "bytes=0-0"}) if get_only else raw(cur, "HEAD")
+            method_used = "GET (confirm)" if get_only else "HEAD"
+            if not get_only and r.get("status") in HEAD_REFUSED:
                 r = raw(cur, "GET", headers={"Range": "bytes=0-0"})
                 method_used = "HEAD->GET"
             st = r.get("status")
@@ -476,7 +476,16 @@ def md_escape(s):
     return s.replace("|", "\\|").replace("\n", " ")
 
 
+SOURCE_LIST = re.compile(r"^[-*]\s.{0,240}:\s*<url>\s*$")
+
+
+def is_source_list(occ) -> bool:
+    return bool(SOURCE_LIST.match(occ["sentence"].strip()))
+
+
 def verdict_for(occ, status_of):
+    if is_source_list(occ):
+        return "source-list entry (not a claim)"
     others = [u for u in dict.fromkeys(str(occ["co_urls"]).split()) if u != occ["key"]]
     other_cats = [status_of.get(u, "not checked") for u in others]
     dead_like = ("dead",)
@@ -559,7 +568,7 @@ Shares below are of URLs **attempted** (robots-blocked counts as attempted: robo
 
 - **Alive:** {cnt['alive']} of {len(att)} attempted ({pct(cnt['alive'], len(att))}); **moved** (redirected to a new location that answers 2xx): {cnt['moved']} ({pct(cnt['moved'], len(att))}). Of the moved URLs, {soft} redirect a deep link to a site homepage, a likely soft 404.
 - **Dead (404/410):** {cnt['dead']} ({pct(cnt['dead'], len(att))}). Archive lookups for dead URLs: {', '.join(f'{k}: {v}' for k, v in arch_cnt.most_common()) or 'none'}.
-- **Other 4xx:** {cnt['4xx other']} ({', '.join(f'{k}: {v}' for k, v in sorted(four.items(), key=lambda x: -x[1])) or 'none'}). Most of these are 401/403 bot or access walls (for example SEC EDGAR, ProPublica and Cloudflare-fronted sites), not missing pages. They are not counted as dead.
+- **Other 4xx:** {cnt['4xx other']} ({', '.join(f'{k}: {v}' for k, v in sorted(four.items(), key=lambda x: -x[1])) or 'none'}). Hosts: {', '.join(f'{h} ({c})' for h, c in Counter(host_of(r['url']) for r in att if r['category'] == '4xx other').most_common(8))}. A 403 usually means a bot or access wall, not a missing page, so these are not counted as dead.
 - **5xx:** {cnt['5xx']}; **timeouts:** {cnt['timeout']}; **connection or proxy errors:** {cnt['connection error']}.
 - **Robots-blocked:** {cnt['robots-blocked']} ({pct(cnt['robots-blocked'], len(att))}). By reason: {'; '.join(f'{k}: {v}' for k, v in robots_notes.most_common(8))}.
 - **Not attempted:** {sum(notc.values())} ({'; '.join(f'{k}: {v}' for k, v in notc.most_common())}).
