@@ -23,10 +23,16 @@ Frame       recipient EINs with a positive numerator that are in the IRS EO BMF,
               non-501(c)(3)  BMF SUBSECTION other than 03
 Sample      certainty stratum: the --certainty largest recipients by numerator (schedule_i, FY2023-24);
             then a simple random sample of up to --per-stratum EINs in each NTEE major group x BMF revenue band,
-            random.Random(--seed). Weights N_h / n_h over respondents (recipients with >= 1 located return and a
-            positive denominator); non-respondents are assumed missing at random within stratum.
+            random.Random(--seed). Weights N_h / n_h (see weights_of): EINs with no FY2023-24 990/990-EZ are
+            out of scope, not missing; unreadable returns are treated as missing at random within stratum.
 Stats       weighted P25 / median / P75 of per-recipient shares; pooled (combined ratio) share = sum(w x num) /
-            sum(w x den); by NTEE major group and by revenue band.
+            sum(w x den); by NTEE major group and by revenue band. Also: a capped pooled share (each recipient's
+            numerator capped at its denominator), the share of private contributions (1h - 1e), 95% intervals from a
+            stratified bootstrap (--boot replicates, seed --seed + scope index), and two sensitivity scopes
+            (non-certainty recipients only; excluding NTEE T and names containing FOUNDATION / FUND / TRUST).
+Scaling     top-50 coverage = FY2024 top-50 non-DAF-to-DAF Schedule I (daf_weighted) / netted DAFRC FY2024 DAF
+            grants (dafrc-market-totals-netted.csv, central). `scaled_*_inference` = share / coverage: an inference
+            that assumes other sponsors' grants reach recipients in the same proportions.
 
 Pure functions; I/O only in fetch/load helpers and `main`. Stdlib only.
 
@@ -252,7 +258,7 @@ def recipient_row(s: Mapping, filings: Mapping, f990: Mapping) -> dict:
               for fy in yrs)
     n_si = sum(nf(fy, "si") for fy in yrs)
     n_dw = sum(nf(fy, "dw") for fy in yrs)
-    status = ("no_990_in_index" if not filings else "no_fy2023_2024_return" if not any(fy in filings for fy in FYS)
+    status = ("no_fy2023_2024_990_or_ez_in_index" if not filings
               else "xml_not_read" if not yrs else "zero_or_negative_contributions" if den <= 0 else "ok")
     ratio = lambda a, b: (a / b) if b and b > 0 else None  # noqa: E731
     return {"row_type": "recipient", "ein": s["ein"], "name": s["name"], "state": s["state"], "ntee_cd": s["ntee"],
@@ -283,8 +289,12 @@ def wquantile(pairs: Sequence[tuple], q: float):
 
 
 def weights_of(rows: Sequence[Mapping]) -> dict:
-    resp = _group_by_fast((r for r in rows if r["status"] == "ok"), lambda r: r["stratum"])
-    return {k: v[0]["stratum_N"] / len(v) for k, v in resp.items()}
+    """N_h / (n_h - missing_h). Sampled EINs with no FY2023-24 990/990-EZ in the IRS index (churches, 990-N filers,
+    government units) or with zero contributions are out of scope for a line-1h share, so they keep their place in
+    n_h (the weight estimates the in-scope population); only returns that exist but could not be read are missing."""
+    by = _group_by_fast(rows, lambda r: r["stratum"])
+    return {k: v[0]["stratum_N"] / (len(v) - sum(1 for r in v if r["status"] == "xml_not_read"))
+            for k, v in by.items() if any(r["status"] == "ok" for r in v)}
 
 
 def pooled_of(ok: Sequence[Mapping], w: Mapping, num_key: str, den_fn=None, cap: bool = False):
@@ -356,7 +366,8 @@ def build_summaries(rows: Sequence[Mapping], frame: Sequence[Mapping], scale: fl
         inf = lambda k: (s[k] / scale) if s.get(k) is not None and scale else None  # noqa: E731
         return {**s, "scaled_pooled_share_inference": inf("pooled_share_daf_weighted"),
                 "scaled_pooled_capped_inference": inf("pooled_share_daf_weighted_capped"),
-                "scaled_median_share_inference": inf("median_share_daf_weighted")}
+                "scaled_median_share_inference": inf("median_share_daf_weighted"),
+                "scaled_pooled_private_inference": inf("pooled_share_of_private_contrib")}
     return [one(i, *s) for i, s in enumerate(scopes)]
 
 
@@ -365,7 +376,7 @@ FIELDS = ("row_type", "scope_type", "scope", "frame_recipients", "frame_num_sche
           "median_ci95_lo", "median_ci95_hi", "median_share_sched_i", "pooled_share_sched_i", "pooled_share_daf_weighted",
           "pooled_ci95_lo", "pooled_ci95_hi", "pooled_share_daf_weighted_capped", "pooled_share_of_private_contrib",
           "share_gt_100pct", "share_ge_20pct", "scaled_pooled_share_inference", "scaled_pooled_capped_inference",
-          "scaled_median_share_inference",
+          "scaled_median_share_inference", "scaled_pooled_private_inference",
           "ein", "name", "state", "ntee_cd", "ntee_major_group", "revenue_band", "bmf_revenue_amt", "stratum", "stratum_N",
           "top50_grantors", "num_sched_i_fy2023", "num_sched_i_fy2024", "num_sched_i_fy2023_2024_all", "years_matched",
           "forms", "object_ids", "num_sched_i_matched", "num_daf_weighted_matched", "den_contributions_matched",
