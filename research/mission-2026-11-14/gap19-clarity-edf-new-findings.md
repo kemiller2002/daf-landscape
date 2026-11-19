@@ -46,7 +46,7 @@ Confidence labels are the policy's five qualitative labels. They are not probabi
 | # | Outcome (factual) | Governing docs | Classification | Claim state (fact / classification) | Confidence (fact / classification) | Entrant response and posture |
 |---|---|---|---|---|---|---|
 | G12-1 | Community-foundation DAF admin fees sit well above the nationals' fees, and CF top-officer pay barely scales with size | direction-cf-consolidation-fees (wave 25A); direction-sponsor-executive-compensation (wave 28) | **Mixed, leaning structural** on the cost level (fixed whole-organisation cost over a small DAF base). **Habit** on fee opacity and on the absence of consolidation. | internal-demonstration / suggestive | High / Low-Medium | Lower-cost back office for one partner CF, on new funds only: **Experimental**. A full system-of-record migration would be **Strategic**. |
-| G12-2 | Most surveyed sponsors do not pass full donor contact data to nonprofits by default | direction-nonprofit-side-experience (wave 29) | **Mixed, leaning habit** | internal-demonstration / suggestive | Medium / Medium | Disclosure by consent per grant, with a "confidential" option: **Guardrail** |
+| G12-2 | Most surveyed sponsors (DAFRC, n=128, 86% CFs) do not pass full donor contact data to nonprofits by default. At the FY2024 top 20, a full-contact default is documented for 33.2% of assets and a withholding default for 17.2%; 44.6% is undocumented (P-B44N28-01) [V wave 34A] | direction-nonprofit-side-experience (wave 29) | **Mixed, leaning habit** | internal-demonstration / suggestive | Medium / Medium | Disclosure by consent per grant, with a "confidential" option: **Guardrail** |
 | G12-3 | No open, multi-sponsor DAF grant-request standard exists | direction-data-standards-interoperability (wave 25B) | **Mixed:** a coordination habit plus a financial origin (vendor-governed rail economics) | internal-demonstration (absence) / suggestive | Medium-High / Low-Medium | Publish and implement a minimal open grant record: **Experimental**. Agent-submitted grants over it: **Guardrail**. |
 | G12-4 | Fidelity's asset-allocation pools trail their composites over 5 years by about its first-tier admin fee (0.58–0.76 pp); its Money Market pool trails by 0.65 pp in every window. Over 1 and 3 years the asset-allocation pools are mostly above their composites [V wave 31B] | direction-investment-menus-performance (wave 27) | The shortfall is **structural** (fee arithmetic under an asset-based fee). The non-comparable reporting basis across sponsors is **habit**. | internal-demonstration / suggestive (attribution) | High / Medium-High | Report returns on a declared gross and net basis: **Fast**. Choose an asset-based or flat pricing model: **Strategic**. |
 
@@ -145,7 +145,7 @@ Confidence labels are the policy's five qualitative labels. They are not probabi
 
 ---
 
-## 3. G12-2. Withheld donor contact data by default
+## 3. G12-2. Donor contact data withheld by default at most surveyed (CF-weighted) sponsors; mixed at the top 20 [V wave 34A]
 
 ### EDF v0.3 sequence
 
@@ -185,7 +185,13 @@ Confidence labels are the policy's five qualitative labels. They are not probabi
 6. **Evidence.**
    - *Direct:* a survey of 128 managers, 86% of them CFs, so it does not represent the nationals. Donor survey; vendor surveys.
    - *Inference:* the default is a choice.
-   - *Not observed:* the defaults at the top-20 national sponsors (open queue item P-B44N28-01).
+   - *Observed (P-B44N28-01, 2026-11-19):* first-party text exists for 15 of the top 20 (76.3% of FY2024 top-20 assets).
+     - Full contact is the stated default at Fidelity, RCF, NCF, ImpactAssets and FFTC (33.2%).
+     - Name or fund name only at Vanguard, MS GIFT, BofA, CCT and GKCCF (17.2%).
+     - A required choice at SVCF and JCF (5.0%).
+     - No stated default at NPT, AEF and CJP (20.9%).
+     - DAFgiving360, GS DAF and Raymond James are blocked by robots, and Greater Horizons and Dechomai publish nothing relevant (23.7%).
+     - No top-20 sponsor defaults to anonymous [V wave 34A]
 7. **Control points.**
    1. The sponsor default setting. High influence, within sponsor control, low cost.
    2. A per-grant consent prompt with a "confidential" option, which the DAFRC authors suggest instead of "anonymous". High influence, within sponsor control.
@@ -194,7 +200,7 @@ Confidence labels are the policy's five qualitative labels. They are not probabi
 8. **Ranking:** 1 ≈ 2 > 3 > 4 by influence and controllability.
 9. **Diagnostic sufficiency.**
    - Enough to justify a consent-first default in an entrant's own product.
-   - Not enough to say the national sponsors behave like the CF-heavy survey sample.
+   - P-B44N28-01 shows that, as a rule, the top 20 do not behave like the CF-heavy survey sample. By count, 5 of 15 determinable sponsors default to full contact, close to DAFRC's 36%. But only 5 of 15 withhold, against DAFRC's 59% for name or fund name only [V wave 34A]
 
 **Unknowns:** national-sponsor defaults; donor opt-in rates when the default changes.
 **Next responsible action:** run P-B44N28-01 (already queued).
@@ -215,7 +221,11 @@ Confidence labels are the policy's five qualitative labels. They are not probabi
   - Impact if wrong is high for the individual: a disclosure cannot be recalled, and the harm lands on the donor.
   - **Guardrail.** Predefined consent boundaries and an audit log of every disclosure. Choosing the default wording within those boundaries is Experimental.
 - **I will reconsider if:**
-  - P-B44N28-01 shows the top-20 nationals already default to full contact. The problem would then be CF-specific and the entrant's edge smaller.
+  - P-B44N28-01 shows the top-20 nationals already default to full contact. The problem would then be CF-specific and the entrant's edge smaller. **Outcome (validated, wave 34A): partly met.**
+    - Fidelity, RCF, NCF, ImpactAssets and FFTC default to full contact (33.2% of top-20 assets).
+    - Vanguard, MS GIFT, BofA, CCT and GKCCF do not (17.2%).
+    - The default is undocumented for 44.6%, including DAFgiving360 (16.3%).
+    - The classification stays mixed, leaning habit [V wave 34A]
   - A regulator, AG or court treats donor-data disclosure by a sponsor as a privacy violation, or as a §4967 benefit. That would move the classification toward structural.
   - Published opt-in rates under consent prompts fall below the current full-contact default share. The default would then reflect donor preference, not habit.
 - **Monitoring plan:** the DAFRC survey's next edition; FreeWill's annual survey; sponsor help pages (owner: the nonprofit-side workstream).
@@ -408,7 +418,7 @@ These use the same columns as `incentive-map.csv`: stakeholder, incentive, mecha
 
 ```
 Community foundations (DAF administration),Cover whole-organisation fixed cost from DAF fees,"Median admin fee 100/100/67 bps at $100k/$1m/$10m (n=34); about 1.7x/2.2x/3.6-4.7x nationals; CF top-officer pay slope 0.23 on total assets (21 CFs)",research/mission-2026-11-14/direction-cf-consolidation-fees.md; research/mission-2026-11-14/direction-sponsor-executive-compensation.md,2021+ schedules; TY2024,discourages,mixed,internal-demonstration; High (fact) / suggestive; Low-Medium (cause),"G12-1. Leaning structural on cost level; habit on fee opacity (41 of 100 no terms) and consolidation. Reconsider if DAF-attributable cost is far below fee (P-G12-01)."
-Sponsors (donor-data defaults),Default donor disclosure setting,"Defaults: full contact 36%, name only 24%, fund name only 35%, anonymous 1% (DAFRC n=128, 86% CFs)",https://www.dafresearchcollaborative.org/s/The-National-Survey-of-Donor-Advised-Fund-Managers.pdf,2025,discourages,mixed,internal-demonstration; Medium / suggestive; Medium,"G12-2. Leaning habit: variation under one federal regime. Reconsider if top-20 national defaults (P-B44N28-01) differ or a privacy/4967 ruling appears."
+Sponsors (donor-data defaults),Default donor disclosure setting,"Defaults: full contact 36%, name only 24%, fund name only 35%, anonymous 1% (DAFRC n=128, 86% CFs)",https://www.dafresearchcollaborative.org/s/The-National-Survey-of-Donor-Advised-Fund-Managers.pdf,2025,discourages,mixed,internal-demonstration; Medium / suggestive; Medium,"G12-2. Leaning habit: variation under one federal regime. Top-20 check (P-B44N28-01; wave 34A): full-contact default 33.2% of FY2024 top-20 assets; withholding default 17.2%; 44.6% undocumented. Reconsider if a privacy/4967 ruling appears. [V wave 34A]
 Rail vendors and sponsors (grant-request spec),Own the integration point; avoid funding a public good,"No open multi-sponsor DAF grant-request standard; DAFpay spec vendor-governed with certification; DAF Direct closed (3 sponsors)",research/mission-2026-11-14/direction-data-standards-interoperability.md,2026,discourages,mixed,internal-demonstration; Medium-High (absence) / suggestive; Low-Medium,"G12-3. Coordination habit plus financial origin; no regulatory blocker found. Reconsider if any open schema or working group is announced."
 Fidelity Charitable (pool reporting),Asset-based admin fee deducted inside pool results,"Asset-allocation pools trail composites 0.58-0.76 pp/yr over 5y; Money Market trails by exactly 0.65 pp at 1/3/5y; first-tier fee 0.60%",https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/monthly-pool-performance-summary.pdf,2026-09-30,neutral,structural constraint (shortfall); historical habit (cross-sponsor basis),internal-demonstration; High / suggestive; Medium-High (attribution),"G12-4. 1y/3y AA gaps are positive, so the fee signature is 5y-only for active pools. Reconsider on P-B42N19-02/-03."
 ```

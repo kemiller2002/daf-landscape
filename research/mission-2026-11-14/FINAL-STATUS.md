@@ -8,7 +8,28 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-19, through PR #56) — governing
+## Counts (refresh 2026-11-19, through PR #57) — governing
+
+Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #57 merged. These figures supersede the tables below. The PR #57 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#57 (38 PRs) | GitHub |
+| Research documents | 285 documents, 1,025,124 words | `research/**/*.md` |
+| Datasets | 542 CSV files, 216,399 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,752 | regex over `research/**/*.md` |
+| Independent validation | **1,249 register rows** in 42 register files (waves 1–34B, including 34S): 932 confirmed, 250 partially confirmed, 43 contradicted, 17 unverifiable, 7 other | `validation-register*.csv`, classified by the leading word of `validation_result` |
+| Research queue | 661 items: 330 done, 200 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.35 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #57 (validated; report §11.34–§11.35, synthesis §0 wave 34S):**
+- **Synthesis §0 validated.** No figures were wrong. 14 wording and scope corrections were applied, including that the review-need proxy is an indicator, not a bound, and that the staff-cost gap is about 3.5–9×.
+- **NPT FY2023 Schedule D is understated.** NPT's consolidated statements give net assets of $28.51bn. The filed value stays in the headline series, and a sensitivity variant shows FY2023 market assets of $261.44bn. All top-50 imputed FY2024 rows had already been replaced, and the headline totals are unchanged.
+- **Donor-information defaults at the top-20 sponsors.** Neither "withheld by default" nor "shared by default" holds as a rule. Full contact is the documented default for 33.2% of assets and withholding for 17.2%; the default is undocumented for 44.6%.
+- **DAF share of recipient giving.** On the private-giving proxy (1h − 1d − 1e), the median is 7.7% and the pooled share 10.3%. 76.5–76.9% of top-50 DAF dollars go to recipients eligible for a Charity Navigator rating.
+- **Long-tail fee census.** 7 of 60 sampled tail sponsors (11.7%) publish a 2021+ admin rate. Tail community foundations that do publish charge a median 150 bps at $100k.
+
+## Counts (refresh 2026-11-19, through PR #56) (superseded by the table above)
 
 These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #56 merged. They supersede the tables below. The PR #56 description records the head SHA.
 
