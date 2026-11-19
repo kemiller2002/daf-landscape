@@ -15,21 +15,21 @@ Tags: **[F]** filed or IRS-published value · **[C]** computed by the script · 
 
 **(A) P-B41N17-01: who the unlisted recipients are**
 
-| Pool (FY2023–24, top-50 Schedule I) | As briefed | Resolved here | Sponsor EIN misreport, or identifiable listed charity | Legitimately absent (church, government, subsidiary) | Recognised before but now revoked | Genuinely unrecognised on 2026-11 lists |
+| Pool (FY2023–24, top-50 Schedule I) | As briefed | Resolved here | Sponsor EIN misreport, or identifiable listed charity | Legitimately absent (church, government, subsidiary) | Recognised before but now revoked | Not found by name and state on 2026-11 lists (an upper bound on unrecognised: matcher recall unmeasured) [V wave 36B] |
 |---|---|---|---|---|---|---|
-| **EIN in neither Pub 78 nor BMF, no explaining label** | 12,265 lines, $818.7m [C] | same | **$28.6–36.5m (3.5–4.5%)**. Tier-A matches are $33.5m. $5.3m of the matches have a filed EIN one or two digits off, or one adjacent swap, from the listed EIN [C/H] | $190.8m (23.3%) by extended religious and public-body name rules [C/I] | $87.4m (10.7%): the filed EIN is on the revocation list, and no listed record has the name [C] | **$419.4m (51.2%)** (no match, $384.2m, plus tier-C matches judged false, $35.2m). Another $74.9m (9.1%) is ambiguous [C/H] |
+| **EIN in neither Pub 78 nor BMF, no explaining label** | 12,265 lines, $818.7m [C] | same | **$28.6–36.5m (3.5–4.5%)**. Tier-A matches are $33.5m. $5.3m of the matches have a filed EIN one or two digits off, or one adjacent swap, from the listed EIN [C/H] | $190.8m (23.3%) by extended religious and public-body name rules [C/I] | $87.4m (10.7%): the filed EIN is on the revocation list, and no listed record has the name [C] | **$419.4m (51.2%)** (no match, $384.2m, plus tier-C matches, mostly false (2 of 28 right in the pooled 75-key hand check), $35.2m) [V wave 36B]. Another $74.9m (9.1%) is ambiguous [C/H] |
 | **Blank or placeholder EIN** | 5,013 lines, $644.0m [C] | **5,011 lines, $431.8m.** Greater Horizons' two FY2024 totals rows ($212,187,406 and 3,282) are dropped (§4.1) | **$36.8m (8.5%)** are identifiable listed charities whose EIN was left blank. That is tier A, with 12 of 12 judged correct [C/H] | **$286.4m (66.3%)**: church-labelled $183.7m (NCF's two church lines alone are $142.0m), government $77.7m, other labels and extended rules $25.0m [C] | n/a | $31.3m (7.2%). Another $56.5m (13.1%) is ambiguous [C/H] |
 
 - **Most of the unlisted-EIN pool is not sponsor EIN error.** A name-and-state match finds a listed charity under another EIN for only about 4% of the dollars. P-NEW-REC-01 had called "most likely EIN error" the main explanation (§2.4 there). The data do not support that [C/H].
-- About half of the pool goes to organisations that **cannot be found on either IRS list under any EIN** by name and state. Examples are Heartland Alliance for Human Needs & Human Rights ($14.6m) and Regis High School ($11.2m), which have no BMF or Pub 78 record under those names [C/F].
+- About half of the pool goes to organisations that **this matcher did not find on either IRS list under any EIN** by name and state. That is an upper bound on unlisted recipients, not a count: the matcher's recall is unmeasured (brand names such as “Fidelity Charitable” are missed), a few tier-C keys counted here are right (The Policy Circle; Social Good Fund; National Abortion Federation filed in DC), and the class includes plausibly legitimate absences such as group-ruling schools and an apparently tribal enterprise (Rosebud Economic Development Corporation, SD, $8.4m) [H/I] [V wave 36B] Examples are Heartland Alliance for Human Needs & Human Rights ($14.6m) and Regis High School ($11.2m), which have no BMF or Pub 78 record under those names [C/F].
 - **Blank-EIN lines are mostly churches and government units.** About two-thirds of the net dollars go to them, and neither needs an EIN-based Pub 78 check under a sponsor's standing rules [I]. About 9% go to listed charities whose EIN was simply omitted.
 - **Matcher precision (40-key hand check, stratified by tier).**
   - 18 of the 35 judged keys are correct (**51%**, Wilson 95% 36–67%). 5 keys were unsure. If unsure keys count as wrong, precision is 18/40 = 45%.
   - Precision splits sharply by tier:
-    - **tier A** (identical name, same state): **17 of 17 judged** (Wilson 82–100%; 17/21 = 81% if unsure counts as wrong);
+    - **tier A** (identical name, same state): **17 of 17 judged** (Wilson 82–100%; 17/21 = 81% if unsure counts as wrong). A validator sample of 14 other tier-A keys found 6 correct, 2 wrong (a word-order collision and a same-name collision) and 6 unsure, so pooled tier A is 23 of 25 judged, or 66% if unsure counts as wrong [H] [V wave 36B]
     - tier B (fuzzy, same state): 1 of 3;
-    - **tier C** (identical name, other state): **0 of 15**.
-  - The misreport estimate therefore rests on tier A, plus a quarter to a half of tier B [H].
+    - **tier C** (identical name, other state): **0 of 15**. The validator's 13 further tier-C keys had 2 correct (national organisations filed with another state), so pooled 2 of 28 [H] [V wave 36B]
+  - The misreport estimate therefore rests on tier A, plus a quarter to a half of tier B [H]. On the pooled 75-key check (tier A 23/35 to 23/25, tier B 6/17 to 10/17, tier C 2/28) it is $26.7–36.9m (3.3–4.5%) [C/H] [V wave 36B]
 
 **(B) P-G05-05: the two largest single-line drivers**
 - **Greater Horizons FY2024, $212.2m, no name and no EIN.** The return confirms this is a totals row, not a grant [F].
@@ -39,7 +39,7 @@ Tags: **[F]** filed or IRS-published value · **[C]** computed by the script · 
   - Neither Schedule I's Part I text nor Schedule O mentions the rows.
 - **SVCF FY2023, $1.309bn, "Further Future Foundation" (EIN 92-1117448).** SVCF filed the line under that name, not as "Navigation Charitable Fund" as the brief says [F].
   - **The recipient renamed itself** Navigation Charitable Fund on 2023-11-01. It operates as "The Navigation Fund": a Delaware nonprofit corporation formed in 2022, recognised under 501(c)(3), and classed as a 170(b)(1)(A)(vi) public charity in its first five years. It holds no DAFs [F].
-  - **Source of the money.** The $1,309,000,000 is exactly its total 2023 contributions, and Schedule B (contributor details) is restricted. The fund's site says it began "with an initial gift from Jed McCaleb" [P]. The SVCF line is cash, purpose "Sciences" [F]. SVCF's Schedule I does not say whether the grant came from a DAF, and SVCF's Schedule R does not list the recipient [F/I].
+  - **Source of the money.** The $1,309,000,000 is exactly its total 2023 contributions, and Schedule B (contributor details) is restricted. The fund's site says it began "with an initial gift from Jed McCaleb" [P]. The SVCF line is cash, purpose "Sciences" [F]. SVCF's Schedule I does not say whether the grant came from a DAF, and SVCF's Schedule R does not list the recipient [F/I]. That this grant is the McCaleb gift is an inference, not a filed fact: no filing names the donor, though the fund's Schedule A counts the full $1,309,000,000 as public support, consistent with a single gift from a publicly supported charity such as SVCF [F/I] [V wave 36B]
   - **Controlling relationship.** NCF owns **100% of Voltage Park, Inc.** (EIN 92-3779527), a for-profit Delaware C corporation in San Mateo whose stated activity is "cloud infrastructure". Its equity is carried at **$883.5m** at end-2023 and end-2024 [F].
   - **What it did with the money (2023–24):**
     - granted $41.1m (3.1% of the gift). Of this, $17.1m went to **Vanguard Charitable** with "non-binding recommendations", which is in effect DAF-to-DAF routing, and $16.6m went to Humane America Animal Foundation;
@@ -122,9 +122,9 @@ Tags: **[F]** filed or IRS-published value · **[C]** computed by the script · 
 **Largest cases:**
 - **Clear misreports, a listed record under another EIN:**
   - Junipero Serra High School (CA, $4.09m; the listed record is "Junipero Serra High School A Corp"; there are two such schools in CA, so this is [I]);
-  - Delbarton School ($1.94m);
+  - Delbarton School ($1.94m; the same filed EIN also carries “Order of St Benedict of NJ Delbarton School”, $0.83m, unmatched, so the filed EIN may be the operating order's rather than a keying error) [I] [V wave 36B]
   - Center for Investigative Reporting ($1.93m);
-  - National Abortion Federation ($1.85m MD, plus $1.56m filed with a DC address);
+  - National Abortion Federation ($1.85m MD, tier A; the further $1.56m filed with a DC address is a tier-C key, so it is counted in the not-found total although the match looks right) [V wave 36B]
   - Blue Ridge Conservancy ($1.62m);
   - Fred Hutchinson ($1.92m, tier B: "Cancer Research Center" against the current "Cancer Center").
 - **Typo-like EINs** include American Endowment Foundation (341947398 filed for 341747398; $1.0m, from Stanford's board of trustees), Million Dollar Women Fund (one digit) and K18N Foundation (two digits) [C].
@@ -177,6 +177,13 @@ Tags: **[F]** filed or IRS-published value · **[C]** computed by the script · 
 
 By pool: unlisted-EIN 5 correct / 11 wrong / 4 unsure; blank-EIN 13 / 6 / 1.
 
+**Validator re-check (wave 36B).** An independent seeded sample of 40 other matched keys (14 tier A, 13 tier B, 13 tier C) gave:
+- **tier A:** 6 correct, 2 wrong, 6 unsure. The wrong keys are “The Wildlife Center of Texas” TX matched to “Texas Wildlife Center”, Amarillo (word order is ignored), and “Gateway Center” GA matched to a Cordele record.
+- **tier B:** 5 correct, 5 wrong, 3 unsure. Two of the wrong keys, YMCA of Stamford and Los Angeles Mission Foundation, have filed EINs on the revocation list but were matched to other organisations; matching runs before the revocation class.
+- **tier C:** 2 correct, 11 wrong. The correct ones are The Policy Circle and Social Good Fund, national organisations filed with a donor-side state.
+
+Pooled over 75 keys: tier A 23 of 25 judged (66% if unsure counts as wrong), tier B 6 of 13, tier C 2 of 28 [H] [V wave 36B]
+
 - **Tier-C errors** are all common Catholic, Baptist or Methodist parish and school names, plus generic names, matched in another state. Examples: St Matthew's Catholic Church AZ→MS; Ursuline Academy MA→DE; St Raymond of Penafort PA→VA.
 - **Tier-B errors:**
   - Zionsville Community High School matched its **PTO**;
@@ -185,10 +192,10 @@ By pool: unlisted-EIN 5 correct / 11 wrong / 4 unsure; blank-EIN 13 / 6 / 1.
 - **Retuning.** The rules were not retuned after the sample, so the precision above is that of the published rules. P-B41N17G0505-01 proposes retuning on a fresh sample.
 
 ### 3.4 Reading [I]
-- Sponsor EIN misreporting that can be shown from public names and states is **$29–37m**, 3.5–4.5% of the $818.7m. A sixth of it ($5.3m) is clear keying error (one or two digits off, or one swap).
+- Sponsor EIN misreporting that can be shown from public names and states is **$27–37m**, 3.3–4.5% of the $818.7m, on the pooled 75-key hand check ($28.6–36.5m on the original 40 keys). Part of it is filing under a parent, religious-order or predecessor EIN rather than keying error (e.g. Delbarton School; Fred Hutchinson's pre-merger EIN) [C/H/I] [V wave 36B] A sixth of it ($5.3m) is clear keying error (one or two digits off, or one swap).
 - An upper bound counts every ambiguous key as misreport and assumes tier C were right: $33.5m + $6.1m + $35.2m + $74.9m = $149.7m (18%). The hand check makes that bound implausible.
 - **Recall is not measured.** Misreports where the sponsor used the grantee's brand name ("Fidelity Charitable", "LISC") rather than its IRS name are missed. The true misreport share is therefore higher than 4% [I]. A plausible ceiling is still well below half the pool, because the largest unmatched names are also absent from the IRS lists under every EIN, not only the filed one.
-- About **half the pool ($419m) goes to organisations with no IRS listing under that name in that state.** The candidate explanations are:
+- About **half the pool ($419m) goes to organisations that the matcher did not find under that name in that state.** This is an upper bound on unlisted recipients, not a count of them: recall is unmeasured, and the class includes some correct tier-C matches [V wave 36B] The candidate explanations are:
   - group-ruling subordinates under unlisted names (e.g. Catholic high schools; Regis High School);
   - organisations that merged or dissolved after the grant (Pub 78 and the BMF are 2026 snapshots);
   - new organisations not yet listed;
@@ -237,7 +244,7 @@ By pool: unlisted-EIN 5 correct / 11 wrong / 4 unsure; blank-EIN 13 / 6 / 1.
 - **Sponsor or controlling relationship.**
   - SVCF is not a related organisation of the fund, and neither return lists the other on Schedule R.
   - The fund in turn **controls a for-profit**, Voltage Park Inc, holding 100% of its equity. Voltage Park holds two-thirds of the fund's assets ($883.5m book). Its Schedule R share of assets rose from $11.8m to $1,063.9m in 2024.
-  - The fund's own text does not explain the investment. "Cloud infrastructure" is the only description filed.
+  - The fund's filings do not explain the investment, but its About page does: “The Navigation Fund’s founding endowment was provided by Jed McCaleb … We've made strategic investments, including in Lightning AI (formerly Voltage Park), with the goal of achieving strong financial returns that enable us to do more through our grantmaking. At this time, we do not do impact investing” (navigation.org/about, read 2026-11-19) [P] [V wave 36B] "Cloud infrastructure" is the only description filed.
 - **What it did with the money.**
   - By end-2024 it had paid $41.1m in grants (3.1%) and held $883.5m in Voltage Park and $405.0m in cash and short-term investments.
   - $17.1m of the grants (42% of grants paid) went to **Vanguard Charitable**, a national DAF sponsor, with "non-binding recommendations". That is a DAF-to-DAF-style movement one step removed.
@@ -251,7 +258,7 @@ By pool: unlisted-EIN 5 correct / 11 wrong / 4 unsure; blank-EIN 13 / 6 / 1.
 - **Hand check.** One reviewer, name and state only, no outside lookups. 40 keys sampled by key, not by dollars. Tier-level precision is the robust result. The pooled 51% depends on the tier mix of the sample.
 - **Extended name rules are inference.** Some public or religious names may be mislabelled (e.g. RONCALLI CATHOLIC SCHOOLS fell into the public-body class because of SCHOOLS). These classes are "plausibly legitimately absent", not verified.
 - **Community-foundation Schedule I includes non-DAF grants.**
-- **Navigation Charitable Fund.** Its two Forms 990 are self-reported and unaudited for 2023; the 2023 audit was planned for November 2024. The fund's Schedule R asset share for Voltage Park ($11.8m) does not match the $883.5m book value of the same holding in TY2023, and the filings do not reconcile them. Nothing here says what Voltage Park does beyond "cloud infrastructure".
+- **Navigation Charitable Fund.** Its two Forms 990 are self-reported and unaudited for 2023; the 2023 audit was planned for November 2024. The fund's Schedule R asset share for Voltage Park ($11.8m) does not match the $883.5m book value of the same holding in TY2023, and the filings do not reconcile them. The fund's About page names the holding “Lightning AI (formerly Voltage Park)” and calls it a strategic investment made “with the goal of achieving strong financial returns” [P]; neither the page nor the filings describe its business further [V wave 36B] Nothing here says what Voltage Park does beyond "cloud infrastructure".
 - **Blocked or missing:**
   - **Voltage Park's own disclosures** were not read. It is a private C corporation with no Form 990.
   - **SVCF fund-level data** is not public.

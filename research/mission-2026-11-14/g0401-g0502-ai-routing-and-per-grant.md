@@ -44,12 +44,12 @@ All figures below are for a large national under CAL_CENTRAL, on the same draws,
 m is the cost of an escaped error, in units of one case's handling time. It has no public source, so it is a sweep [I].
 
 1. **The value pool depends on the formula.**
-   - At the evidence-bounded share of high-confidence cases (h = 0.21–0.49, from E19), routing roughly triples the pool, provided an escaped error costs no more than about five handling-times.
-   - The gain does not depend on s. The routing formula never uses the disputed time-saving parameter, so the field and task framings give the same routing result.
+   - At the evidence-bounded share of high-confidence cases (h = 0.21–0.49, from E19), routing multiplies the pool by 2.7–3.4× when an escaped error costs one handling-time and by 2.1–2.6× at five (CAL_CENTRAL, across archetypes). Both m and ρ = 0 (no residual human time on AI-closed cases) are unsourced [I]; at ρ = 0.25 the large-national pool falls from $1.36m to $938k [S] [V wave 36B]
+   - The routing pool does not depend on s: the routing formula never uses the disputed time-saving parameter, so the field and task framings give the same routing pool. The gain over assistance does depend on s: at a large national (m = 1) the routing pool is 6.8× the assist pool under the field framing, 3.1× under the central one and 1.7× under the task framing [C] [V wave 36B]
    - The 60% calibration cut came mostly from s and q. It is therefore a cut to **assistance**, not to AI as such.
 2. **The ranking does not depend on the formula.**
    - The probability that C ranks first rises from 0.2% to only 1.2% (route) or 3.9% (hybrid). The most likely winner changes in **no process** at any archetype or scenario.
-   - Redesign (D) and conventional automation (B) still win on gross value. C overtakes them only when h ≥ 0.70, which is above the evidence range: then P03 and P07 flip to C, and at h = 0.90 so do P13 and P14.
+   - Redesign (D) and conventional automation (B) still win on gross value. C overtakes them only when h ≥ 0.70, which is above the evidence range: then P03 and P07 flip to C, and at h = 0.90 so do P13 and P14 (and P08 at CF_1BN) [V wave 36B]
    - So C's last place in the ranking reflects the comparison set (uncalibrated B and D priors) and the amenable share a_p ≤ 0.6. It does not reflect how AI is deployed.
 3. **The result turns on two unmeasured numbers.**
    - **The escaped-error cost (m).** At m = 20 the routing pool ($44k) falls below the assist pool. At m = 50 it is $0.
@@ -69,7 +69,7 @@ m is the cost of an escaped error, in units of one case's handling time. It has 
   - If none of the unitemised recipients is flagged, it falls to 2.8–7.9%.
 - **Broad proxy.** **17–31% of grants**, against 28.0% of lines and 17.5% of dollars. Here the grant-size rule decides the answer.
 - **By category, the per-grant shares rank differently from the line shares.**
-  - **Foreign:** 0.05–0.9% of grants. NPT publishes **0.31%** (335 of 106,235 grants in FY2023; 406 of 129,575 in FY2024), against 2.6% of its recipient lines and 7.5% of its dollars [F/C].
+  - **Foreign:** 0.05–0.9% of grants. NPT publishes **0.31%** (335 of 106,235 grants in FY2023; 406 of 129,575 in FY2024), against 2.6% of its recipient lines and 7.5% of its dollars on its whole-entity Form 990. The annual report covers the US DAF program only; on its own figures international grants are 5.9% (FY2023) and 6.4% (FY2024) of grant dollars [F/C] [V wave 36B]
   - **Fiscal sponsors:** 0.01–1.6%.
   - **PF/ER:** 0.4–0.8%.
   - **Recent rulings:** 4.6–5.7%.
@@ -221,7 +221,7 @@ All rows are large national, CAL_CENTRAL. "Break-even h" is the h at which C_rou
 - **Supported for value and break-even.**
   - Under assistance, C's value is capped at s·a_p. With s calibrated to 0–0.30 (field) or 0.10–0.56 (task), that cap was the main source of the 60% cut.
   - Routing replaces s with h·(1 − ρ − QA − error cost) per amenable case. At E19's h range this is 0.2–0.5 of amenable labour.
-  - Hence the threefold pool and the large-national platform break-even rising from 13% to 29–38% of draws (m = 1–5).
+  - Hence a large-national pool 2.4–3.1× the assist pool and a platform break-even rising from 13% to 29–38% of draws (m = 5 to 1). Both depend on the unsourced m and on ρ = 0 [V wave 36B]
 - **Not supported for ranking.**
   - Even with routing, C ranks first in about 1% of process-draws, and no modal winner changes inside the evidence range.
   - C's weakness in ranking is therefore not an artefact of the assist formula. It comes from a_p ≤ 0.6 and from B and D's v1 priors.
@@ -302,7 +302,7 @@ robots.txt was read for each host first (§S2).
 4. **Foreign rule [I].**
    - `model`: Schedule F recipients follow the β rule.
    - `anchored`: each Schedule F recipient gets 528/323 = 1.63 grants, from NPT's FY2025 annual report ("528 international grants worth $310.0 million to 323 organizations"). This transfers one sponsor's ratio to all sponsors.
-5. **Pooling.** Pools are grant-weighted (Σ flagged grants ÷ Σ G). They include only sponsor-years whose source dollars are within 20% of Part IX and whose unitemised mean is ≤ $5,000.
+5. **Pooling.** Pools are grant-weighted (Σ flagged grants ÷ Σ G). They include only sponsor-years whose source dollars are within 20% of Part IX and whose unitemised mean is ≤ $5,000. T. Rowe Price states no dollar figure, so only the unitemised test applies to it [V wave 36B]
 
 ### B4. Results [C under stated assumptions]
 
@@ -366,7 +366,7 @@ All values are percentages. "Dollars" are itemised dollars, i.e. Schedule I plus
   - Published per-grant share: 0.315% (FY2023) and 0.313% (FY2024).
   - The modelled foreign share is 1.2% at β = 0 and 5.6% at β = 1; the anchored rule gives 0.63–0.69%.
   - **No β fits.** NPT's 990 lists more Schedule F foreign recipients (413 and 488) than its report lists international grants (335 and 406, "U.S. donor-advised fund program only"). Schedule F counts therefore cannot be read as grant counts (P-G0502-02).
-  - On NPT's own figures, foreign grants are **0.31% of grants, 2.6% of recipient lines and 7.5% of dollars** (FY2023–24).
+  - Foreign grants are **0.31% of grants** on NPT's annual-report basis (US DAF program only), and **2.6% of recipient lines and 7.5% of dollars** on its whole-entity Form 990 (FY2023–24). The report's own international dollar share is 5.9% and 6.4% ($269.08m of $4.54bn; $352.23m of $5.49bn), so the two bases should not be compared directly [F/C] [V wave 36B]
 - **Reading [I].**
   - The two moments point the same way. Large-ticket exception categories (foreign, fiscal sponsors, private foundations) are a much smaller share of grants than of dollars, and at or below their share of lines.
   - The count-heavy categories (recipients absent from Pub 78, recent rulings) are at least their line share.
@@ -375,7 +375,7 @@ All values are percentages. "Dollars" are itemised dollars, i.e. Schedule I plus
 ### B6. Limits (Part B)
 
 1. **β is not identified.** No public source gives grants per recipient against recipient dollars, so the broad share (17–31%) depends on an assumption that is swept, not estimated (P-G0502-01).
-2. **Period mismatch.** Fidelity and Vanguard publish calendar years, while their 990 years end in June. The FY counts are means of two calendar years [C], and Vanguard's FY2022–23 counts are rounded ("196K", "209K").
+2. **Period mismatch.** Fidelity and Vanguard publish calendar years, while their 990 years end in June. Fidelity's 2023 Giving Report charts 188,777 charities for CY2022 (its text says “189,000” three times and “nearly 200,000” once); the 200,000 used here overstates FY2023 R by about 5,600. With 188,777, the pooled core range is unchanged and broad shares move by at most 0.02 pp [C] [V wave 36B] The FY counts are means of two calendar years [C], and Vanguard's FY2022–23 counts are rounded ("196K", "209K").
 3. **Imputed R.** R is imputed for Goldman Sachs and Ayco. The imputation range (2.1–5.2×) moves Goldman Sachs' core per-grant share from 6.0% to 10.2% (CSV `r_case`).
 4. **Within-recipient heterogeneity is ignored.** The unitemised group uses a mean amount, and every grant on a line is treated as equal in size.
 5. **Narrow coverage.** Only six sponsors are pooled, and Fidelity is 88% of report-sponsor grants. DAFgiving360, the second-largest by count, could not be fetched (robots.txt 403). Community foundations are absent from the pools because their stated counts fail the consistency checks.

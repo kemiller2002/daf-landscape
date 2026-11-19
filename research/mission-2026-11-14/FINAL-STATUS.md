@@ -8,7 +8,33 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-19, through PR #58) — governing
+## Counts (refresh 2026-11-19, through PR #59) — governing
+
+Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #59 merged. These counts supersede the tables below. The PR #59 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#59 (40 PRs) | GitHub |
+| Research documents | 301 documents, 1,107,759 words | `research/**/*.md` |
+| Datasets | 570 CSV files, 258,236 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 3,839 | regex over `research/**/*.md` |
+| Independent validation | **1,439 register rows** in 48 register files (waves 1–36C): 1,054 confirmed, 309 partially confirmed, 52 contradicted, 17 unverifiable, 7 other | `validation-register*.csv`, classified by the leading word of `validation_result` |
+| Research queue | 711 items: 349 done, 231 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.41 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #59 (validated; report §11.39–§11.41):**
+- **Community-foundation locality.** Across 95 of the top-100 community foundations, the median CF keeps 83% of grant dollars in its own state. In-state share falls about 2.5 points for every 10 points of DAF share. This is an association, not a measured effect, and a composition reading fits the data equally well. Omaha's figures rest on a truncated filing, and Armstrong County was ranked on a DAFRC data error.
+- **Corporate DAFs.** 13 of 14 sponsors publish no corporate split. Where the split is measured, corporate DAFs are 3.4–3.9% of DAF grants; 9.1% is a ceiling that applies only to the measured pool.
+- **Unlisted recipients.** About 4% of the $0.82bn of top-50 grants to unlisted EINs is identifiable sponsor EIN misreporting. The roughly 51% that is "unmatched" is an upper bound on grantees the IRS lists do not recognise.
+- **Large single grants.** SVCF's $1.309bn FY2023 line went to Further Future Foundation, now Navigation Charitable Fund. That fund owns Voltage Park and had granted out 3.1% of the money by end-2024.
+- **AI routing.** Confidence-gated routing roughly triples intervention C's value pool, but only when an escaped error costs about one case-handling's worth or less. C still almost never ranks first.
+- **Exceptions per grant.** Measured by number of grants, about 7–8.5% fall in the core exception categories.
+- **NPT and Ren follow-ups.**
+  - The $116.3m that had been called "asset management fees" is in fact program services excluding grants. Five passages were corrected.
+  - The full-contact Ren guide went live between 2026-10-06 and 2026-11-10.
+  - Reading the instructions, NPT's Schedule R line 1b should arguably read Yes. This is an interpretation.
+
+## Counts (refresh 2026-11-19, through PR #58) (superseded by the table above)
 
 These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #58 merged, and supersede the tables below. The PR #58 description records the head SHA.
 
