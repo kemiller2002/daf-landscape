@@ -418,6 +418,15 @@ VALIDATION_CORRECTIONS = (
      "validation-wave26-report.md l.171"),
     ("E086", "set_status", "confirmed", "red-team-wave2b-graph-data-incentives.md l.204"),
     ("E151", "add_note", "scope=donor_checkout", "red-team-wave2b-graph-data-incentives.md l.205"),
+    ("E093", "set_status", "reported", "gap19-edward-jones-wealth-channels.md l.34, l.209-210 (EZ012)"),
+    ("E093", "add_note", "not re-confirmed 2026-11-19: source URL redirects to the Private Wealth hub; live Wells "
+     "Fargo DAF pages name no sponsor (EZ012); search-excerpt evidence only",
+     "gap19-edward-jones-wealth-channels.md l.34, l.209-210 (EZ012)"),
+    ("E094", "set_status", "reported", "gap19-edward-jones-wealth-channels.md l.209-210"),
+    ("E094", "add_note", "not re-confirmed 2026-11-19 (same redirected source as E093); search-excerpt evidence only",
+     "gap19-edward-jones-wealth-channels.md l.209-210"),
+    ("E018", "add_note", "explicit negatives EZ001-EZ003 (10-Ks, ADV 2A, RCF audits): do not assume RCF or Ren",
+     "gap19-edward-jones-wealth-channels.md l.23"),
 )
 
 # Explicit supersession notes inside the edge files (superseded edge, superseding edges).
