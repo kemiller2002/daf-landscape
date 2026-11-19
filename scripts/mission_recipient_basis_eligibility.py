@@ -534,6 +534,11 @@ def main(argv: Sequence[str] | None = None) -> int:
             [(r["l1f_matched"] / r["l1h_matched"], weights_a(rec)[r["stratum"]]) for r in rec
              if r["status"] == "ok" and "IRS990EZ" not in r["forms"]], 0.5),
         "b_all": [rnd(r) for r in summ_b if r["scope_type"] == "all"],
+        "b_not_in_bmf_passing_filing_rules": (lambda xs: {"recipients": len(xs), "usd_daf_weighted": round(sum(u["dw"] for u in xs)),
+                                                           "dollar_share": sum(u["dw"] for u in xs) / sum(u["dw"] for u in units)})(
+            tuple(u for u in units if u["reason"] == "not_in_bmf" and u["n_in_window"] >= 3 and u["latest_form"] != "990PF"
+                  and u["n_full_990_last4"] >= 2)),
+        "b_not_in_bmf_with_any_efiled_return": sum(1 for u in units if u["reason"] == "not_in_bmf" and u["n_periods"] > 0),
         "b_unit_count": len(units), "b_total_dw": round(sum(u["dw"] for u in units)), "b_total_si": round(sum(u["si"] for u in units)),
         "b_bmf_eins_also_on_revocation_list_no_reinstatement": len(revoked),
         "b_expense_rule_sample_check": expense_check(sample, ub, {s["ein"]: tuple(r for r in hist.get(s["ein"], ())
