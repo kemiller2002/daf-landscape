@@ -106,7 +106,7 @@ The audit's `CITATION` regex accepts any of these on the same line: a URL, a mar
 |---|---|---|---|---|
 | §2 graph size | "up to 893 nodes and 1,051 edges" | Already refreshed (wave-31A item 2 applied) | [`gap19-graph-consolidation.md`](gap19-graph-consolidation.md) l.43; consolidated CSV, 1,051 rows with `self_loop=False` | none |
 | §2 status counts | "134 confirmed (one more after red-team), 17 historically confirmed, 11 inferred, 5 unknown" (base-file counts, which sum to 167) | 958 confirmed, 47 inferred, 23 historically confirmed, 11 unknown, 5 reported, 3 probable, 2 unverified lead, 1 pending, 1 rejected (sum 1,051). Red team of 109 weaker edges: 41 confirmed, 16 weakened, 52 unverified, 0 contradicted | Wave-31A governing item 3, **not yet applied**; recomputed here from the CSV | C-R20 |
-| §9 "80 consequential claims" table | 45 / 25 / 7 / 3 (waves 1–2B only) | Through wave 32B: 1,036 register rows (1,012 distinct claim IDs; 10 IDs repeat) in 37 files. 784 confirmed, 195 partially confirmed, 32 contradicted, 15 unable to verify, 10 other (7 wave-13 audit-defect notes, plus "supported", "plausible" and "passed 22 of 24") [C]. The 80-row subset reproduces 45/25/7/3 exactly | 37 `validation-register*.csv` files | C-R21, C-R22 |
+| §9 "80 consequential claims" table | 45 / 25 / 7 / 3 (waves 1–2B only) | Through wave 32B: 1,036 register rows (1,012 distinct claim IDs; 10 IDs repeat) in 37 files. 784 confirmed, 195 partially confirmed, 32 contradicted, 15 unable to verify, 10 other (7 wave-13 audit notes: 5 defects, 1 cosmetic and 1 "passed 22 of 24"; 2 wave-12 "supported" and "weakly supported"; 1 wave-10 "plausible") [V wave 33B] [C]. The 80-row subset reproduces 45/25/7/3 exactly | 37 `validation-register*.csv` files | C-R21, C-R22 |
 | §9 waves pointer | "Validation waves 3–12 are reported per wave" | Waves 3–32B | `research/mission-2026-11-14/validation-wave*-report.md` | C-R23 |
 | §1 vendor footprint | "18 sponsors holding $30.18bn (9.2%) in their latest return" | 19 sponsors and $31.56bn after the FY2025 refresh (the addition is Ayco's final return) | [`validation-wave31a-report.md`](validation-wave31a-report.md) l.55; [`gap19-fy2025-refresh.md`](gap19-fy2025-refresh.md) | C-R25 |
 | §4 / A5 / F "2.5–3%" exception share | FY6/2025 measure | Like-for-like FY2023–24: about 3.6% of dollars at the four largest nationals. The review-need proxy (core) is 10.0% of their dollars and 11.0% across the top 50. It is a proxy for review need, not observed review | [`gap19-exception-load-proxy.md`](gap19-exception-load-proxy.md) l.45, l.286 and the regeneration note [V wave 32A] | C-R06, C-S07, C-S08 |
@@ -142,11 +142,11 @@ The audit's `CITATION` regex accepts any of these on the same line: a URL, a mar
 
 **C-R05** (M-R05; applies the pending wave-22 governing item 1 with a citation in place of the marker)
 - **Find:** "**Vendor economics.** Ren's corporate revenue, margins and customer concentration are not public ((source: repo inference — no primary URL))."
-- **Replace with:** "**Vendor economics.** Ren's corporate revenue, margins and customer concentration are not public: no press, private-equity or registry source gives a figure (repo [`queue-batch37-vendor-economics-owners.md`](mission-2026-11-14/queue-batch37-vendor-economics-owners.md) Q-B06; [V wave 22]). Named Ren receipts in sponsor 990s total $44.98m in TY2024 (18 sponsors). RCF is 42.7% of that and the two Morgan Stanley programs 43.0% (batch 37A §1.2; V wave 22). This is a floor on receipts, not Ren revenue. [gap19-11]"
+- **Replace with:** "**Vendor economics.** Ren's corporate revenue, margins and customer concentration are not public: no press, private-equity or registry source gives a figure (repo [`queue-batch37-vendor-economics-owners.md`](mission-2026-11-14/queue-batch37-vendor-economics-owners.md) Q-B06; [V wave 22]). Named Ren receipts in sponsor 990s total $44.98m in TY2024 (18 sponsors). RCF is 42.7% of that and the two Morgan Stanley programs 43.0% (batch 37A §1.2; V wave 22). This is a floor on receipts, limited to sponsors' top-five contractor lines, not Ren revenue. [V wave 33B] [gap19-11]"
 
 **C-R06** (M-R06, plus the stale "2.5–3%" in §4)
 - **Find:** "This is a floor: new-charity reviews and declines are invisible in filings ((source: repo inference — no primary URL))."
-- **Replace with:** "This is a floor: new-charity reviews and declines are invisible in filings, because no sponsor publishes how it routes grants, how many exceptions it handles or how long review takes (repo [`gap19-exception-load-proxy.md`](mission-2026-11-14/gap19-exception-load-proxy.md) §5). On FY2023–24 Schedule I and F filings the like-for-like measure is about 3.6% of dollars at the four largest nationals. A broader review-need proxy (foreign recipients, recipients outside Pub 78 without an explaining label, rulings within 24 months, named fiscal sponsors and private foundations) is 10.0% of their dollars and 11.0% across the top 50. It measures recipients, not observed review (§11.30; [V wave 32A]). [gap19-11]"
+- **Replace with:** "This is a floor: new-charity reviews and declines are invisible in filings, because no sponsor publishes how it routes grants, how many exceptions it handles or how long review takes (repo [`gap19-exception-load-proxy.md`](mission-2026-11-14/gap19-exception-load-proxy.md) §5). On FY2023–24 Schedule I and F filings the like-for-like measure is about 3.6% of dollars at the four largest nationals. A broader review-need proxy (foreign recipients, recipients outside Pub 78 without an explaining label, rulings within 24 months, named fiscal sponsors, and private foundations or other recipients needing expenditure responsibility: the core proxy) is 10.0% of their dollars and 11.0% across the top 50 (10.96% after the Greater Horizons correction). [V wave 33B] It measures recipients, not observed review (§11.30; [V wave 32A]). [gap19-11]"
 
 **C-R07** (M-R07)
 - **Find:** "No sponsor publishes grant turnaround P50/P90, exception rates or reviewer minutes ((source: repo inference — no primary URL))."
@@ -190,7 +190,7 @@ The audit's `CITATION` regex accepts any of these on the same line: a URL, a mar
 
 **C-R21** (§9 sentence)
 - **Find:** "**Independent validation and red-team review** checked **80 consequential claims**"
-- **Replace with:** "**Independent validation and red-team review** checked **80 consequential claims** in waves 1–2B. Later waves bring the registers to 1,036 rows through wave 32B, in 37 files with 1,012 distinct claim IDs (table below; [C] counted by leading result word over `data/mission-2026-11-14/validation-register*.csv`; method in [gap19-11-consistency-pass.md](mission-2026-11-14/gap19-11-consistency-pass.md) §4) [gap19-11]"
+- **Replace with:** "**Independent validation and red-team review** checked **80 consequential claims** in waves 1–2B. Later waves bring the registers to 1,036 rows through wave 32B, in 37 files with 1,012 distinct claim IDs (table below; [C] counted by leading result word over `data/mission-2026-11-14/validation-register*.csv`; method in [gap19-11-consistency-pass.md](mission-2026-11-14/gap19-11-consistency-pass.md) §1, caveat in §4; [V wave 33B]) [gap19-11]"
 
 **C-R22** (§9 table)
 - **Find:** "| Result | Count |\n|---|---|\n| Confirmed | 45 |\n| Partially confirmed | 25 |\n| Contradicted | 7 |\n| Unable to verify | 3 |"
@@ -206,7 +206,7 @@ The audit's `CITATION` regex accepts any of these on the same line: a URL, a mar
 
 **C-R25** (§1 vendor footprint, FY2025 refresh)
 - **Find:** "or 18 sponsors holding $30.18bn (9.2%) in their latest return [V wave 5]."
-- **Replace with:** "or 18 sponsors holding $30.18bn (9.2%) in their latest return [V wave 5]. After the FY2025 filing refresh the latest-return measure is 19 sponsors and $31.56bn, the addition being Ayco's final return (repo [`validation-wave31a-report.md`](mission-2026-11-14/validation-wave31a-report.md); [`gap19-fy2025-refresh.md`](mission-2026-11-14/gap19-fy2025-refresh.md)). [gap19-11]"
+- **Replace with:** "or 18 sponsors holding $30.18bn (9.2%) in their latest return [V wave 5]. After the FY2025 filing refresh the latest-return measure is 19 sponsors and $31.56bn, the addition being Ayco's final return. Ayco merged into GS DAPF on 2025-07-01, so it is not a live client. The share is 9.6% of DAFRC FY2024 assets (repo [`validation-wave31a-report.md`](mission-2026-11-14/validation-wave31a-report.md); [`gap19-fy2025-refresh.md`](mission-2026-11-14/gap19-fy2025-refresh.md)). [V wave 33B] [gap19-11]"
 
 **C-R26** (pointer to the consolidated section, §6)
 - **Find:** "**Decision-oriented companion:** [strategic synthesis A–G](mission-2026-11-14/strategic-synthesis.md)."
@@ -236,7 +236,7 @@ The audit's `CITATION` regex accepts any of these on the same line: a URL, a mar
 
 **A06** (l.431, number-bearing)
 - **Find:** "- 6 of 57 sponsors left, or 10.5% (Wilson interval 4.9–21.1%)."
-- **Replace with:** "- 6 of 57 sponsors left, or 10.5% (Wilson interval 4.9–21.1%) (repo [`queue-ren-iphi-attrition.md`](mission-2026-11-14/queue-ren-iphi-attrition.md) item 1). The FY2025 filings show no Ren attrition so far: 10 sponsors name a Ren entity ($3.35m), and all 8 comparable FY2024 payers name Ren again (repo [`gap19-fy2025-refresh.md`](mission-2026-11-14/gap19-fy2025-refresh.md); [V wave 31A]). [gap19-11]"
+- **Replace with:** "- 6 of 57 sponsors left, or 10.5% (Wilson interval 4.9–21.1%) (repo [`queue-ren-iphi-attrition.md`](mission-2026-11-14/queue-ren-iphi-attrition.md) item 1). The FY2025 filings show no Ren attrition so far: 10 sponsors name a Ren entity ($3.35m), and all 8 comparable FY2024 payers name Ren again. The largest Ren clients (MS GIFT, RCF, US Charitable Gift Trust, NCF) have not yet filed FY2025 (repo [`gap19-fy2025-refresh.md`](mission-2026-11-14/gap19-fy2025-refresh.md); [V wave 31A]). [V wave 33B] [gap19-11]"
 
 **A07** (l.523, number-bearing)
 - **Find:** "- Sponsors charge nonprofits $0 to receive grants. The exceptions are Benevity (2.99%, cap $500), DAFpay at default terms (2.9%) and ForGood (1.5%)."
@@ -248,7 +248,7 @@ The audit's `CITATION` regex accepts any of these on the same line: a URL, a mar
 
 **A09** (l.559, needs citation)
 - **Find:** "- Edward Jones's 0.70% program fee rests on help pages that now return 404, so it is low confidence."
-- **Replace with:** "- Edward Jones's 0.70% program fee rests on a Ren help page that now returns 404, so it is low confidence (repo [`queue-all-in-cost-dafpay-access.md`](mission-2026-11-14/queue-all-in-cost-dafpay-access.md); [V wave 10]). [gap19-11]"
+- **Replace with:** "- Edward Jones's 0.70% program fee rests on a search-index capture of Ren help pages that now return 404, so it is low confidence [V wave 33B] (repo [`queue-all-in-cost-dafpay-access.md`](mission-2026-11-14/queue-all-in-cost-dafpay-access.md); [V wave 10]). [gap19-11]"
 
 **A10** (l.597, number-bearing)
 - **Find:** "- None of 21 agentic giving products (2024–26) has independent outcome evidence, and no product touches sponsor approval."
@@ -310,11 +310,11 @@ The audit's `CITATION` regex accepts any of these on the same line: a URL, a mar
 
 **C-S08** (F row, revision trigger)
 - **Find:** "or exception rates far above the 2.5–3% observable non-standard share"
-- **Replace with:** "or *measured* exception rates far above the observable non-standard share (2.5–3% in FY2025 990s; 3.6% like-for-like in FY2023–24). The 10.0–11.0% review-need proxy is not a measured exception rate and does not trigger this ([gap19-exception-load-proxy.md](gap19-exception-load-proxy.md); [V wave 32A]) [gap19-11]"
+- **Replace with:** "or *measured* exception rates far above the observable non-standard share (2.5–3% for FY6/2025; 3.6% like-for-like in FY2023–24 [V wave 33B]). The 10.0–11.0% review-need proxy is not a measured exception rate and does not trigger this ([gap19-exception-load-proxy.md](gap19-exception-load-proxy.md); [V wave 32A]) [gap19-11]"
 
 **C-S09** (inserts §0 before §A and marks the original A–G as superseded)
 - **Find:** "## A. What the DAF industry believes that may be wrong"
-- **Note:** insert §6 without its leading "> " quote markers.
+- **Note:** insert §6 without its leading "> " quote markers, after applying the wave-33B corrections to §6. The Replace string below is a placeholder and must be substituted by hand, so the checker's tag test does not cover it [V wave 33B].
 - **Replace with:** "<the full text of §6 of gap19-11-consistency-pass.md, from \"## 0. Current A–G and top ten\" to its last line>\n\n---\n\n## A. What the DAF industry believes that may be wrong (superseded for current figures by §0) [gap19-11]"
 
 **C-S10** (marks the original top ten as superseded)
@@ -361,7 +361,7 @@ The audit's `CITATION` regex accepts any of these on the same line: a URL, a mar
 
 **A22** (l.502, wave 22–30 top ten #7; adds the governing graph floor and latest-return count)
 - **Find:** "Named receipts are a $44.98m floor in TY2024, 85.8% from three customers (wave 22)."
-- **Replace with:** "Named receipts are a $44.98m floor in TY2024, 85.8% from three customers ([queue-batch37-vendor-economics-owners.md](queue-batch37-vendor-economics-owners.md); wave 22). Any confirmed Ren/Stellar link covers 32.2% of FY2024 DAF assets as a floor ([gap19-graph-consolidation.md](gap19-graph-consolidation.md) §4; [V wave 31A]), and 19 sponsors holding $31.56bn name Ren in their latest return ([validation-wave31a-report.md](validation-wave31a-report.md)). [gap19-11]"
+- **Replace with:** "Named receipts are a $44.98m floor in TY2024, 85.8% from three customers ([queue-batch37-vendor-economics-owners.md](queue-batch37-vendor-economics-owners.md); wave 22). Any confirmed Ren/Stellar link covers 32.2% of FY2024 DAF assets as a floor ([gap19-graph-consolidation.md](gap19-graph-consolidation.md) §4; [V wave 31A]), and 19 sponsors holding $31.56bn name Ren in their latest return. One of them is Ayco's final return, which is not a live client ([validation-wave31a-report.md](validation-wave31a-report.md); [gap19-fy2025-refresh.md](gap19-fy2025-refresh.md)). [V wave 33B] [gap19-11]"
 
 **A23** (l.503, wave 22–30 top ten #8)
 - **Find:** "The tail is 2.84% of assets (wave 30)."
@@ -488,10 +488,10 @@ The text below is the proposed new section. Links are relative to `research/miss
 > Where it conflicts with A–G, the wave 14–21 additions or the wave 22–30 additions, this section governs. Those layers are kept for their evidence text and history. **[I]** marks inference; **[S]** marks a scenario figure.
 >
 > **A. Beliefs that may be wrong**
-> - **"Millions of DAF customers."** DAFRC reports 3.59m FY2024 accounts, but 79.5% sit in 22 donation processors holding 0.9% of assets ([regulation-market-structure-portability.md](regulation-market-structure-portability.md)). On the ongoing-advisory basis there are 2.59m, or 0.79m without Givinga and PayPal Giving Fund ([queue-batch36-metrics-rails.md](queue-batch36-metrics-rails.md); wave 21). *Contradicted as stated; High.*
+> - **"Millions of DAF customers."** DAFRC reports 3.59m FY2024 accounts, but 79.5% sit in 22 donation processors holding 0.9% of assets ([regulation-market-structure-portability.md](regulation-market-structure-portability.md)). On corrected FY2024 totals (3.31m accounts, a different basis from DAFRC's 3.59m) the ongoing-advisory basis gives 2.59m, or 0.79m without Givinga and PayPal Giving Fund [V wave 33B] ([queue-batch36-metrics-rails.md](queue-batch36-metrics-rails.md); wave 21). *Contradicted as stated; High.*
 > - **"DAFs pay out about 25%."** FY2024 aggregate payout is 25.9%, 22.8% net of DAF-to-DAF transfers and 12.7% at the median sponsor with at least $1m ([queue-batch38-data-followups.md](queue-batch38-data-followups.md); wave 23). The median account pays about 9% over three years in voluntary samples ([direction-academic-literature.md](direction-academic-literature.md) F1; wave 24B). First FY2025 filings net $3.05–3.80bn on covered filers, a lower bound ([gap19-fy2025-refresh.md](gap19-fy2025-refresh.md); wave 31A). *Suggestive; Medium-High on distribution.*
 > - **"Three giants dominate."** Sponsor-asset CR3 is 45.5%, CR5 55.8% and HHI 830, unchanged after graph consolidation ([gap19-graph-consolidation.md](gap19-graph-consolidation.md); wave 31A). On the league-table basis, asset concentration rose over FY2021–24 (CR5 51.0% → 56.9%) while grant concentration fell ([direction-league-table-concentration.md](direction-league-table-concentration.md); wave 29). *Partially contradicted; Medium.*
-> - **"Ren powers over half of DAF assets."** Any confirmed Ren/Stellar link covers 32.2% of FY2024 DAF assets as a floor ($105.6bn, 54 sponsors; 32.9% with six EIN-unmatched sponsors) ([gap19-graph-consolidation.md](gap19-graph-consolidation.md) §4; wave 31A). NPT, 12.8% of the market, still rests on hosting evidence alone; no second source names Ren as NPT's vendor ([gap19-second-source-pass.md](gap19-second-source-pass.md) C01; wave 31B). 19 sponsors holding $31.56bn name Ren in their latest 990 ([validation-wave31a-report.md](validation-wave31a-report.md)). *Unsupported on public evidence; Medium.*
+> - **"Ren powers over half of DAF assets."** Any confirmed Ren/Stellar link covers 32.2% of FY2024 DAF assets as a floor ($105.6bn, 54 sponsors; 32.9% with six EIN-unmatched sponsors) ([gap19-graph-consolidation.md](gap19-graph-consolidation.md) §4; wave 31A). NPT, 12.8% of FY2024 DAF assets ($42.12bn of $327.87bn, per the wave-31A text), still rests on hosting evidence alone [V wave 33B]; no second source names Ren as NPT's vendor ([gap19-second-source-pass.md](gap19-second-source-pass.md) C01; wave 31B). 19 sponsors holding $31.56bn name Ren in their latest 990. One of them is Ayco's final return, which is not a live client ([validation-wave31a-report.md](validation-wave31a-report.md); [gap19-fy2025-refresh.md](gap19-fy2025-refresh.md)). [V wave 33B] *Unsupported on public evidence; Medium.*
 > - **"Grant approval is the bottleneck."**
 >   - The like-for-like non-standard share is about 3.6% of the four largest nationals' FY2023–24 dollars.
 >   - A broader review-need proxy is 7.4% of top-50 recipient lines and 11.0% of dollars. That proxy measures recipients, not review ([gap19-exception-load-proxy.md](gap19-exception-load-proxy.md); wave 32A).
@@ -502,7 +502,7 @@ The text below is the proposed new section. Links are relative to `research/miss
 > - **"The 2023 regulations are imminent; states will act."** The rules are still proposed, and the docket holds 249 submissions ([direction-policy-lobbying-obbba.md](direction-policy-lobbying-obbba.md); wave 24A). A 51-jurisdiction search found no 2021–2026 state payout, reporting or donor-intent mandate; Connecticut was not checked ([gap19-state-law-50-state-check.md](gap19-state-law-50-state-check.md); wave 32B). *High on federal status; Medium on states.*
 > - **"Challengers are cheaper; adviser fees are capped."**
 >   - All-in cost at $250k runs from 0.26% (Daffy) to 2.13% (San Francisco Foundation) ([queue-all-in-cost-dafpay-access.md](queue-all-in-cost-dafpay-access.md); wave 10).
->   - Only MS GIFT, DAFgiving360 and TIFIN Give cap adviser fees, at 1.00% ([queue-adviser-fees-pools-npact.md](queue-adviser-fees-pools-npact.md); wave 11).
+>   - Only MS GIFT, DAFgiving360 and TIFIN Give/GiveClear publish an adviser-fee cap, at 1.00%. MS GIFT's cap excludes Legacy Pools and Select UMA manager fees, and Fidelity CIAP, NPT, AEF and RCF publish none ([queue-all-in-cost-dafpay-access.md](queue-all-in-cost-dafpay-access.md); [validation-wave10-report.md](validation-wave10-report.md) V10-05; [queue-adviser-fees-pools-npact.md](queue-adviser-fees-pools-npact.md)). [V wave 33B]
 >   - Fidelity's active asset-allocation pools trail benchmarks by about its admin fee over five years [I] ([direction-investment-menus-performance.md](direction-investment-menus-performance.md); waves 27, 31B).
 >
 >   *Suggestive; Medium.*
@@ -514,8 +514,8 @@ The text below is the proposed new section. Links are relative to `research/miss
 > **B. What AI changes.** The flag-only rule (AI may add a flag, never clear one) still governs ([ai-governance-failure-modes.md](ai-governance-failure-modes.md)).
 > - Inference cost is immaterial: about $0.45 per heavy review against about $83 of reviewer time ([ai-economics-replacement-analysis.md](ai-economics-replacement-analysis.md); wave 2A).
 > - Calibrated to 21 published studies, the large-national AI value pool is $445k ($202k–$793k across framings; $110k on the all-touched basis). Shared-platform break-even falls to 16% of draws, and no process changes its most likely winner [S] ([gap19-ai-calibration.md](gap19-ai-calibration.md); wave 31A).
-> - AI work is at vendors: AI appears in 29.1% of vendor job postings against 13.3% of sponsor postings ([direction-news-hiring-signals.md](direction-news-hiring-signals.md); wave 24B).
-> - Re-reading 12 of 20 entities found none documenting AI in grant approval or money movement ([gap19-ai-coverage-20-entities.md](gap19-ai-coverage-20-entities.md); wave 31B).
+> - AI work is at vendors: AI appears in 29.1% of vendor job postings (44 of 151) against 13.3% of sponsor postings (2 of 15, a small sample) [V wave 33B] ([direction-news-hiring-signals.md](direction-news-hiring-signals.md); wave 24B).
+> - First-party reading of 13 of 20 entities (7 were blocked) found none documenting AI in grant approval, eligibility or money movement. This is an absence finding; the wave-31B validator spot-checked 12 [V wave 33B] ([gap19-ai-coverage-20-entities.md](gap19-ai-coverage-20-entities.md); wave 31B).
 >
 > **C. Where incumbents are vulnerable**
 > - **Shared single points of failure.** RCF pays Ren 98% of individual-fundholder admin-fee revenue ($19.23m, FY2024) ([RCF FY2024 audited statements](https://renaissancecharitable.org/wp-content/uploads/2026/01/2024RCFAuditedFinancialStatements.pdf)). Named Ren receipts are a $44.98m floor, 85.8% from three customers ([queue-batch37-vendor-economics-owners.md](queue-batch37-vendor-economics-owners.md); wave 22).
@@ -523,7 +523,7 @@ The text below is the proposed new section. Links are relative to `research/miss
 > - **Legacy attrition.** Ren iPhi lost 6 of 57 sponsors in 2023–Nov 2026 ([queue-ren-iphi-attrition.md](queue-ren-iphi-attrition.md); wave 11). FY2025 filings show no Ren attrition yet ([gap19-fy2025-refresh.md](gap19-fy2025-refresh.md); wave 31A).
 > - **Unproven challenger claims.** Give Interactive's nine known clients hold $36.74bn on DNS evidence, of which only $23.90bn rests on first-party or filing evidence. It lost three community-foundation tenants, not five ([crtsh-resourcing-2026-11-19.md](crtsh-resourcing-2026-11-19.md); wave 31B).
 > - **Assurance and service.** None of 13 vendors publishes a scoped SOC report ([queue-assurance-everyorg-givinga-monitoring.md](queue-assurance-everyorg-givinga-monitoring.md); wave 5). No readable top-20 sponsor publishes a response-time promise ([direction-sponsor-accessibility-service.md](direction-sponsor-accessibility-service.md); wave 25A).
-> - **Not vulnerable.** Fidelity holds 20.5–21.7% of assets every year. Foundant serves 282 of 351 tail community foundations with an identified vendor ([direction-long-tail-sponsors.md](direction-long-tail-sponsors.md); wave 30).
+> - **Not vulnerable.** Fidelity holds 20.5–21.7% of corrected assets every year in FY2021–24 ([direction-league-table-concentration.md](direction-league-table-concentration.md); wave 29). Foundant serves 282 of 351 tail community foundations with an identified vendor ([direction-long-tail-sponsors.md](direction-long-tail-sponsors.md); wave 30). [V wave 33B]
 >
 > **D. What entrants should avoid building**
 > - **Credential-based integrations.** Six of the top 20 sponsors (about $84bn) contractually limit automated or third-party access ([queue-batch34-escheat-terms.md](queue-batch34-escheat-terms.md); wave 19).
@@ -544,12 +544,12 @@ The text below is the proposed new section. Links are relative to `research/miss
 > - One executed sponsor–vendor contract with API or export terms (Q-N04) ([FINAL-STATUS.md](FINAL-STATUS.md)).
 > - The 26 top-50 FY2025 returns not yet indexed: re-run netting, concentration and the Ren footprint ([gap19-fy2025-refresh.md](gap19-fy2025-refresh.md)).
 > - A second source on NPT's Ren relationship (C01) ([gap19-second-source-pass.md](gap19-second-source-pass.md)).
-> - Peterson v. WaterStone ([queue-batch29-regulation-litigation-crypto.md](queue-batch29-regulation-litigation-crypto.md)) and any final §4966 rule ([IRS 2026-2027 Priority Guidance Plan](https://www.irs.gov/pub/irs-counsel/2026-2027-initial-pgp.pdf)).
+> - Peterson v. WaterStone ([queue-batch29-regulation-litigation-crypto.md](queue-batch29-regulation-litigation-crypto.md)) and any final §4966 rule, or guidance under the new 2026–27 item on §§4966 and 6033 DAF arrangements. The §4967 prohibited-benefits project, which would have codified the Notice 2017-73 pledge rule, has left the plan ([IRS 2026-2027 Priority Guidance Plan](https://www.irs.gov/pub/irs-counsel/2026-2027-initial-pgp.pdf); [b41n16-b42n20-daf-tax-guidance.md](b41n16-b42n20-daf-tax-guidance.md)). [V wave 33B]
 > - A Daffy MCP cap or confirmation step ([direction-ai-product-census.md](direction-ai-product-census.md)).
 >
 > **G. Top ten (order carried from the wave 22–30 list; evidence refreshed)**
 > 1. **Donor data and automation are contractually closed, and no open standard fills the gap.** Six of the top 20 limit automated access ([queue-batch34-escheat-terms.md](queue-batch34-escheat-terms.md)). DAF Direct is closed, with 3 sponsors ([direction-data-standards-interoperability.md](direction-data-standards-interoperability.md)). NPT's Excel export is the one top-10 exception ([queue-batch38-vendors-ledgers-portals.md](queue-batch38-vendors-ledgers-portals.md)). Executed contracts remain unseen ([FINAL-STATUS.md](FINAL-STATUS.md) Q-N04).
-> 2. **Most "DAF accounts" are not DAF customers.** The 3.59m reported accounts become 2.59m on the ongoing-advisory basis, or 0.79m without Givinga and PayPal Giving Fund ([queue-batch36-metrics-rails.md](queue-batch36-metrics-rails.md)). The long tail's 46.4% of accounts is 3.49% without Givinga and BNY Mellon CGF ([direction-long-tail-sponsors.md](direction-long-tail-sponsors.md)).
+> 2. **Most "DAF accounts" are not DAF customers.** DAFRC reports 3.59m accounts. On corrected totals (3.31m, a different basis) the ongoing-advisory count is 2.59m [V wave 33B], or 0.79m without Givinga and PayPal Giving Fund ([queue-batch36-metrics-rails.md](queue-batch36-metrics-rails.md)). The long tail's 46.4% of accounts is 3.49% without Givinga and BNY Mellon CGF ([direction-long-tail-sponsors.md](direction-long-tail-sponsors.md)).
 > 3. **Market payout and growth are overstated by transfers between sponsors.** FY2024: 25.9% aggregate, 22.8% net, 12.7% at the median sponsor ([queue-batch38-data-followups.md](queue-batch38-data-followups.md)). Netted grants are $58.41bn ([queue-batch34-netting-filings.md](queue-batch34-netting-filings.md)). FY2025 covered-filer netting is $3.05–3.80bn so far, a lower bound ([gap19-fy2025-refresh.md](gap19-fy2025-refresh.md)).
 > 4. **Nonprofits bear the cost of fragmented rails and thin donor data.** Any DAF option appears on 41.2% of top donate pages (a lower bound), and DAFpay on 13.7% ([direction-nonprofit-donate-pages.md](direction-nonprofit-donate-pages.md)). Processor complaints describe payout rules: paper-check thresholds, lost checks and EFT vetting ([gap19-complaints-with-denominators.md](gap19-complaints-with-denominators.md); wave 32B).
 > 5. **Donor cost sits in fund and adviser layers the 990 does not show.** Program-service revenue is $0 at all 15 affiliated sponsors ([direction-sponsor-financial-resilience.md](direction-sponsor-financial-resilience.md)). Fidelity's fee-sized shortfall holds over five years for its active pools [I] ([direction-investment-menus-performance.md](direction-investment-menus-performance.md); wave 31B).
@@ -575,7 +575,7 @@ The text below is the proposed new section. Links are relative to `research/miss
 **Limits.**
 - **Triage is mechanical.** "Internal pointer only" is generous: a lead-in that cites a whole document counts as support for every sub-bullet. The 30 fixes were checked against the cited files by text search, not by re-validating each claim.
 - **§9 tallies are by register row, not claim.** The leading-word map is coarse (§4 caveat).
-- **The consolidated §0 is drafted, not validated.** Every figure in it is copied from a validated document. It needs an independent validation pass before it governs.
+- **The consolidated §0 is drafted, not validated.** Every figure in it is copied from a validated document. It needs an independent validation pass before it governs. Wave 33B validated it; with the corrections in [validation-wave33b-report.md](validation-wave33b-report.md) applied, it may govern [V wave 33B].
 - **Not checked.** No primary URL other than the IRS Schedule D PDF was re-fetched. The report sections not named in the task (§10, the remainder of §11, the source register) were checked only through the audit.
 
 ## 8. Source register and robots log
