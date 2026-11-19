@@ -762,7 +762,14 @@ def top100_schedule(r: Mapping) -> dict:
             "min_fee": num(r["min_annual_fee_usd"]), "flat_fee": num(r["flat_annual_fee_usd"])}
 
 
-def report(rows: Sequence[Mapping], top100: Sequence[Mapping], frame: Sequence[Mapping]) -> str:
+def share_at_or_below(xs: Sequence[float | None], cut: float) -> str:
+    v = [x for x in xs if x is not None]
+    k = sum(1 for x in v if x <= cut)
+    return f"{k}/{len(v)} = {pct(wilson(k, len(v)))}"
+
+
+def report(rows: Sequence[Mapping], top100: Sequence[Mapping], frame: Sequence[Mapping],
+           cost_all: Sequence[Mapping] = ()) -> str:
     groups = (("All 60", rows),) + tuple((t, tuple(r for r in rows if r["type4"] == t)) for t in TYPES) + \
              tuple((f"band {b}", tuple(r for r in rows if r["size_band_fy2024"] == b)) for b in TAIL_BANDS)
     design = table(("Stratum (type|band)", "Frame N", "Sample n", "Weight N/n"),
@@ -829,6 +836,12 @@ def report(rows: Sequence[Mapping], top100: Sequence[Mapping], frame: Sequence[M
                       for g, rs in (("Sampled CFs, 2021+ rate published", cfpub),
                                     ("Sampled CFs, no 2021+ rate", tuple(r for r in tail_cf if not has_rate(r))),
                                     ("Sampled non-CF", tuple(r for r in rows if r["type4"] != "cf")))))
+    cf_cost = tuple(r for r in cost_all if r.get("group") == "tail_cf" and r.get("usable") == "1")
+    med100 = (quantiles([num(r["admin_bps_100k"]) for r in cfpub]) or (None, None, None))[1]
+    cuts = tuple(dict.fromkeys(c for c in (100.0, med100, 200.0) if c is not None))
+    pop = table(("All usable tail CFs in the cost study", *[f"cost <= {c:g} bps" for c in cuts]),
+                tuple((f"Rule {k}", *[share_at_or_below([num(r[f"daf_cost_bps_daf_assets_alloc_{k}"]) for r in cf_cost], c) for c in cuts])
+                      for k in ("A", "G", "AM")))
     return "\n\n".join((
         "## T1 Sample design", design, "## T2 Fee status by group", status,
         "## T3 How often fees are published (k/n, Wilson 95% interval)", rate,
@@ -836,7 +849,9 @@ def report(rows: Sequence[Mapping], top100: Sequence[Mapping], frame: Sequence[M
         "## T5 Tail CFs vs top-100 CF census (top-100 recomputed at the same balances)", comp,
         "## T6 Sponsors publishing any fee term", perr,
         "## T7 Published fee at the sponsor's own FY2024 average account vs allocated operating cost per account", cov, cov_detail,
-        "## T8 Allocated operating cost of the sampled sponsors (long-tail cost study)", cost_cmp))
+        "## T8 Allocated operating cost of the sampled sponsors (long-tail cost study)", cost_cmp,
+        "## T9 Share of all tail CFs whose allocated cost per DAF dollar is at or below a given fee "
+        "(100 bps = top-100 median; middle cut = this sample's tail-CF median at $100k)", pop))
 
 
 # ----------------------------------------------------------------------------- tasks
@@ -883,7 +898,7 @@ def main(argv: Sequence[str]) -> int:
     cost = {r["ein"]: r for r in read_csv(COST_CSV)}
     rows = tuple(census_row(r, cost.get(r["ein"], {}), a.cache_dir) for r in sample)
     write_csv(OUT_CSV, rows, FIELDS)
-    print(report(rows, read_csv(TOP100_CSV), tail_frame(read_csv(LT_CSV))))
+    print(report(rows, read_csv(TOP100_CSV), tail_frame(read_csv(LT_CSV)), tuple(cost.values())))
     return 0
 
 
