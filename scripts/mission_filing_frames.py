@@ -247,7 +247,7 @@ def head_of(oid: str, cache: str, fetch: bool) -> dict:
         t, n, complete = stream_until(XML_URL.format(oid=oid), STOP_990)
         return save(p, {"_v": EXTRACT_V, "status": "ok", "oid": oid, "bytes_read": n, "read_to_eof": complete, **ex_head(t)})
     out = with_retry(go, oid)
-    return out
+    return save(p, {"_v": EXTRACT_V, **out}) if out.get("status") == "http_404" else out
 
 
 def full_of(oid: str, cache: str, fetch: bool) -> dict:
@@ -260,6 +260,21 @@ def full_of(oid: str, cache: str, fetch: bool) -> dict:
         with urllib.request.urlopen(urllib.request.Request(XML_URL.format(oid=oid), headers=UA), timeout=300) as r:
             t = r.read().decode("utf-8", "replace")
         return save(p, {"_v": EXTRACT_V, "status": "ok", "oid": oid, **ex_full(t)})
+    return with_retry(go, oid)
+
+
+def boy_of(oid: str, cache: str, fetch: bool) -> dict:
+    """Beginning-of-year total assets of a flagged return (size before the exit year; the head pass kept only EOY)."""
+    p = os.path.join(cache, "boy", f"{oid}.json")
+    c = cached(p)
+    if c is not None or not fetch:
+        return c or {"status": "not_fetched", "oid": oid}
+
+    def go():
+        t, _, _ = stream_until(XML_URL.format(oid=oid), ("</IRS990>", "</IRS990EZ>"))
+        boy = num(first_tag(t, "TotalAssetsBOYAmt") or tag(block(t, "Form990TotalAssetsGrp"), "BOYAmt"))
+        ts = tag(block(t, "ReturnHeader"), "ReturnTs")
+        return save(p, {"_v": EXTRACT_V, "status": "ok", "oid": oid, "total_assets_boy": boy, "return_ts": ts})
     return with_retry(go, oid)
 
 
@@ -332,7 +347,8 @@ def frame_a(u: Mapping, bmf: Mapping, sa: Mapping, panel: frozenset, cohort: Map
                 "bmf_foundation": b["FOUNDATION"], "ntee": b["NTEE_CD"], "returns_scanned": len(oids),
                 "returns_ok": sum(h.get("status") == "ok" for h in heads),
                 "returns_daf_ind_yes": sum(yes(h.get("daf_ind", "")) for h in heads),
-                "returns_daf_count_gt0": len(pos), "max_daf_count": int(best.get("daf_count", 0)),
+                "returns_daf_count_gt0": len(pos),
+                "returns_daf_count_gt0_line6_no": sum(not yes(f.get("daf_ind", "")) for f in pos), "max_daf_count": int(best.get("daf_count", 0)),
                 "max_daf_count_tax_period": best.get("tax_period_end", ""),
                 "latest_daf_value_eoy": int(last_pos.get("daf_value_eoy", 0)), "latest_daf_tax_period": last_pos.get("tax_period_end", ""),
                 "first_index_tax_period": u["first_tp"].get(ein, ""), "formation_yr": "" if fy == "9999" else fy,
@@ -345,10 +361,11 @@ def frame_a(u: Mapping, bmf: Mapping, sa: Mapping, panel: frozenset, cohort: Map
     return sorted((row(e, o) for e, o in by_ein.items()), key=lambda r: (-r["max_daf_count"], r["ein"]))
 
 
-def cf_exit_rows(u: Mapping, bmf: Mapping, sb: Mapping, panel: frozenset) -> list:
+def cf_exit_rows(u: Mapping, bmf: Mapping, sb: Mapping, panel: frozenset, boy: Mapping) -> list:
     heads = sb["heads"]
-    max_assets = reduce(lambda acc, h: {**acc, h["filer_ein"]: max(acc.get(h["filer_ein"], 0.0), h["total_assets_eoy"])},
-                        (h for h in heads.values() if h.get("status") == "ok" and h.get("filer_ein")), {})
+    sizes = [(u["b"][o]["EIN"], h["total_assets_eoy"]) for o, h in heads.items() if h.get("status") == "ok"] + \
+            [(u["b"][o]["EIN"], b.get("total_assets_boy", 0.0)) for o, b in boy.items()]
+    max_assets = reduce(lambda acc, kv: {**acc, kv[0]: max(acc.get(kv[0], 0.0), kv[1])}, sizes, {})
     flagged = sorted((o for o, f in sb["fulls"].items() if needs_full_b(heads.get(o, {})) or f.get("has_sched_n")
                       or f.get("status") != "ok"), key=lambda o: (u["b"][o]["EIN"], o))
 
@@ -365,6 +382,7 @@ def cf_exit_rows(u: Mapping, bmf: Mapping, sb: Mapping, panel: frozenset) -> lis
                                            ("ntee_T31", b.get("NTEE_CD", "").startswith("T31"))) if hit)
         flags = {k: f.get(k, "") for k in ("final_return_ind", "part1_line2_ind", "terminate_ops_ind", "partial_liq_ind", "ez_dissolved_ind")}
         lines = f["schedn_lines"]
+        lines = [{**x, "recipient": x["recipient"] or bmf.get(x["recipient_ein"], {}).get("NAME", "")} for x in f["schedn_lines"]]
         groups = reduce(lambda acc, x: {**acc, (x["part"], x["recipient"].upper(), x["recipient_ein"]): acc.get((x["part"], x["recipient"].upper(), x["recipient_ein"]), ()) + (x,)},
                         lines, {})
         sn_daf = DAF_WORDS.search(" ".join(x["desc"] for x in lines) + " " + f["schedn_text"])
@@ -373,13 +391,15 @@ def cf_exit_rows(u: Mapping, bmf: Mapping, sb: Mapping, panel: frozenset) -> lis
         final = yes(flags["final_return_ind"])
         cls = ("exit_liquidation_schedule_n" if has_i else
                "exit_final_return_no_schedule_n_part_i" if final else
-               "disposition_over_25pct" if lines else "flag_only_no_schedule_n")
+               "disposition_over_25pct" if lines else
+               "schedule_n_without_detail_lines" if f.get("has_sched_n") else "flag_only_no_schedule_n")
         base = {"object_id": oid, "filer_ein": ein, "filer_name": f.get("filer_name") or r["TAXPAYER_NAME"], "state": f.get("state") or b.get("STATE", ""),
-                "cf_basis": basis, "ntee": b.get("NTEE_CD", ""), "in_bmf_2026_11": "yes" if b else "no",
+                "cf_basis": basis, "entity_class": EXIT_CLASS.get(ein, "unclassified"), "ntee": b.get("NTEE_CD", ""),
+                "index_name": r["TAXPAYER_NAME"], "return_ts": boy.get(oid, {}).get("return_ts", ""), "in_bmf_2026_11": "yes" if b else "no",
                 "in_dafrc_panel": "yes" if ein in panel else "no", "form": r["RETURN_TYPE"], "tax_period_end": f.get("tax_period_end", ""),
                 **flags, "event_class": cls, "has_schedule_n": "yes" if f.get("has_sched_n") else "no",
                 "sched_d_daf_count": int(f.get("daf_count", 0)), "sched_d_daf_value_eoy": int(f.get("daf_value_eoy", 0)),
-                "max_total_assets_eoy_scanned": int(max_assets.get(ein, 0)),
+                "max_total_assets_scanned": int(max_assets.get(ein, 0)),
                 "small_cf_lt_10m": "yes" if max_assets.get(ein, 0) < SMALL_CF_USD else "no",
                 "xml_url": XML_URL.format(oid=oid)}
         def daf_named(xs) -> tuple:
@@ -390,85 +410,123 @@ def cf_exit_rows(u: Mapping, bmf: Mapping, sb: Mapping, panel: frozenset) -> lis
             return [{**base, "schedn_part": "", "transferee_name": "", "transferee_ein": "", "transferee_is_cf": "",
                      "transfer_date": "", "fmv_usd": "", "n_lines": 0, "asset_desc": "",
                      "daf_named": daf_named([])[0], "daf_named_evidence": daf_named([])[1],
-                     "successor_same_name": "", "event_year": (f.get("tax_period_end") or "")[:4]}]
+                     "transferee_name_overlap": "", "event_year": (f.get("tax_period_end") or "")[:4]}]
         return [{**base, "schedn_part": part, "transferee_name": xs[0]["recipient"], "transferee_ein": rein,
                  "transferee_is_cf": "yes" if is_cf(xs[0]["recipient"], rein) else "no",
                  "transfer_date": min((x["date"] for x in xs if x["date"]), default=""),
                  "fmv_usd": int(sum(x["fmv"] for x in xs)), "n_lines": len(xs),
                  "asset_desc": " ; ".join(sorted({x["desc"] for x in xs if x["desc"]}))[:300],
                  "daf_named": daf_named(xs)[0], "daf_named_evidence": daf_named(xs)[1],
-                 "successor_same_name": "yes" if (rein and rein == ein) or same_entity(base["filer_name"], xs[0]["recipient"]) else "no",
+                 "transferee_name_overlap": "yes" if (rein and rein == ein) or same_entity(base["filer_name"], xs[0]["recipient"]) else "no",
                  "event_year": (min((x["date"] for x in xs if x["date"]), default="") or f.get("tax_period_end", ""))[:4]}
                 for (part, _, rein), xs in sorted(groups.items())]
     rows = [x for o in flagged for x in rows_for(o)]
     return [{"row_id": f"CFX{i + 1:04d}", **x} for i, x in enumerate(rows)]
 
 
-def exits_by_filer(rows: Sequence[Mapping]) -> list:
-    """One exit per filer EIN: the earliest return whose class is an exit class."""
-    ex = [r for r in rows if r.get("event_class", "").startswith("exit_")]
-    first = reduce(lambda acc, r: acc if r["filer_ein"] in acc and acc[r["filer_ein"]]["event_year"] <= r["event_year"]
-                   else {**acc, r["filer_ein"]: r}, ex, {})
-    daf = {e for e in first if any(r["filer_ein"] == e and r["daf_named"] == "yes" for r in ex)}
-    reorg = {e for e in first if any(r["filer_ein"] == e and r.get("successor_same_name") == "yes" for r in ex)}
-    return [{**r, "_daf": e in daf, "_reorg": e in reorg} for e, r in sorted(first.items())]
-
-
-def build(u: Mapping, bmf: Mapping, sa: Mapping, sb: Mapping, irs_dir: str) -> dict:
+def build(u: Mapping, bmf: Mapping, sa: Mapping, sb: Mapping, irs_dir: str, cache: str, fetch: bool) -> dict:
     panel = frozenset(r["ein"].zfill(9) for r in read_csv(PANEL))
     cohort = {e.replace("-", "").strip(): r["cohort_id"] for r in read_csv(COHORT) for e in r["ein"].split(";") if e.strip()}
     idx26 = frozenset(r["EIN"] for r in index_rows(irs_dir, (2026,)))
     fa = frame_a(u, bmf, sa, panel, cohort, idx26)
-    write_csv(OUT_FRAME, [r for r in fa if r["returns_daf_count_gt0"] > 0], FRAME_FIELDS)
     holders = [r for r in fa if r["returns_daf_count_gt0"] > 0]
-    add = additions(holders)
+    write_csv(OUT_FRAME, holders, FRAME_FIELDS)
+    add, add_check = additions(holders)
     write_csv(OUT_ADD, add, read_csv_header(COHORT))
-    rows = cf_exit_rows(u, bmf, sb, panel)
+    flagged = sorted(o for o, f in sb["fulls"].items() if needs_full_b(sb["heads"].get(o, {})) or f.get("has_sched_n"))
+    boy = dict(zip(flagged, pmap(lambda o: boy_of(o, cache, fetch), flagged, 16, "B boy")))
+    rows = cf_exit_rows(u, bmf, sb, panel, boy)
     write_csv(OUT_CFX, rows, CFX_FIELDS)
     exits = exits_by_filer(rows)
+    in_win = [e for e in exits if "2021" <= e["event_year"] <= "2026"]
     yrs = lambda xs: dict(sorted(Counter(x["event_year"] for x in xs).items()))
+    geo = [e for e in in_win if e["entity_class"] == "geographic_cf"]
     hb = sb["heads"].values()
+    win = [r for r in holders if r["in_window"] == "yes"]
     return {
         "A": {"universe_returns": len(u["a"]), "universe_eins": len(fa),
+              "eins_with_no_mirrored_return": sum(r["returns_ok"] == 0 for r in fa),
               "heads": dict(Counter(h.get("status") for h in sa["heads"].values())),
               "fulls": dict(Counter(h.get("status") for h in sa["fulls"].values())),
+              "not_mirrored_by_index_year": dict(sorted(Counter(u["a"][o]["INDEX_YEAR"] for o, h in sa["heads"].items()
+                                                                if h.get("status") != "ok").items())),
               "eins_daf_ind_yes": sum(r["returns_daf_ind_yes"] > 0 for r in fa), "eins_daf_count_gt0": len(holders),
+              "returns_daf_count_gt0": sum(r["returns_daf_count_gt0"] for r in holders),
+              "returns_daf_count_gt0_line6_no": sum(r["returns_daf_count_gt0_line6_no"] for r in holders),
+              "holders_missed_by_line6_filter": sum(r["returns_daf_ind_yes"] == 0 for r in holders),
+              "returns_line6_yes_but_count_0": sum(yes(h.get("daf_ind", "")) and sa["fulls"].get(o, {}).get("daf_count", 0) == 0
+                                                   for o, h in sa["heads"].items()),
               "holders_in_panel": sum(r["in_dafrc_panel"] == "yes" for r in holders),
               "holders_not_in_panel": sum(r["in_dafrc_panel"] == "no" for r in holders),
-              "holders_in_window": sum(r["in_window"] == "yes" for r in holders),
-              "holders_in_window_not_panel": sum(r["in_window"] == "yes" and r["in_dafrc_panel"] == "no" for r in holders),
-              "holders_in_window_not_panel_ge50": sum(r["in_window"] == "yes" and r["in_dafrc_panel"] == "no" and r["max_daf_count"] >= 50 for r in holders),
-              "holders_in_window_in_panel_ge50": sum(r["in_window"] == "yes" and r["in_dafrc_panel"] == "yes" and r["max_daf_count"] >= 50 for r in holders),
-              "cohort_eins_found": sorted(r["in_cohort_file"] for r in holders if r["in_cohort_file"]),
-              "additions_rows": len(add), "additions_in_cohort": sum(r["in_cohort"] == "yes" for r in add)},
+              "holders_in_window": len(win),
+              "holders_in_window_in_panel": sum(r["in_dafrc_panel"] == "yes" for r in win),
+              "holders_in_window_not_panel": sum(r["in_dafrc_panel"] == "no" for r in win),
+              "holders_in_window_not_panel_value_gt0": sum(r["in_dafrc_panel"] == "no" and r["latest_daf_value_eoy"] > 0 for r in win),
+              "holders_in_window_not_panel_ge50": sum(r["in_dafrc_panel"] == "no" and r["max_daf_count"] >= 50 for r in win),
+              "holders_in_window_not_panel_ge50_value_0": sum(r["in_dafrc_panel"] == "no" and r["max_daf_count"] >= 50
+                                                              and r["latest_daf_value_eoy"] == 0 for r in win),
+              "holders_in_window_ntee_T": dict(Counter(r["ntee"][:1] or "-" for r in win)),
+              "cohort_rows_found": sorted(r["in_cohort_file"] for r in holders if r["in_cohort_file"]),
+              "cohort_rows_in_window_found": sorted(r["in_cohort_file"] for r in win if r["in_cohort_file"]),
+              "additions": add_check},
         "B": {"universe_returns": len(u["b"]), "universe_eins": len({r["EIN"] for r in u["b"].values()}),
+              "universe_by_form": dict(Counter(r["RETURN_TYPE"] for r in u["b"].values())),
+              "universe_basis": dict(Counter("+".join(k for k, hit in (("name", bool(CF_NAME.search(r["TAXPAYER_NAME"]))),
+                                                                   ("ntee", bmf.get(r["EIN"], {}).get("NTEE_CD", "").startswith("T31"))) if hit)
+                                             for r in u["b"].values())),
               "heads": dict(Counter(h.get("status") for h in hb)),
               "flag_counts": {k: sum(yes(h.get(k, "")) for h in hb) for k in
                               ("part1_line2_ind", "final_return_ind", "terminate_ops_ind", "partial_liq_ind", "ez_dissolved_ind")},
-              "flagged_returns": len(sb["fulls"]), "rows": len(rows),
-              "event_class_rows": dict(Counter(r.get("event_class") for r in rows)),
-              "exit_filers": len(exits), "exit_filers_small": sum(e["small_cf_lt_10m"] == "yes" for e in exits),
-              "exits_by_year": yrs(exits), "small_exits_by_year": yrs([e for e in exits if e["small_cf_lt_10m"] == "yes"]),
-              "small_exits_by_year_excl_reorg": yrs([e for e in exits if e["small_cf_lt_10m"] == "yes" and not e["_reorg"]]),
-              "exits_daf_named": sum(e["_daf"] for e in exits), "exits_reorg_same_name": sum(e["_reorg"] for e in exits),
-              "exits_in_panel": sum(e["in_dafrc_panel"] == "yes" for e in exits),
-              "exits_ntee_t31": sum("ntee_T31" in e["cf_basis"] for e in exits),
-              "exit_list": [(e["filer_ein"], e["filer_name"], e["event_year"], e["event_class"], e["small_cf_lt_10m"],
-                             e["in_dafrc_panel"], e["_daf"], e["_reorg"], e["cf_basis"]) for e in exits]},
+              "flagged_returns": sum(needs_full_b(h) for h in hb),
+              "returns_with_schedule_n": sum(bool(f.get("has_sched_n")) for f in sb["fulls"].values()),
+              "schedule_n_without_flag": sum(bool(f.get("has_sched_n")) and not needs_full_b(sb["heads"].get(o, {}))
+                                             for o, f in sb["fulls"].items()),
+              "rows": len(rows), "event_class_rows": dict(Counter(r.get("event_class") for r in rows)),
+              "exit_filers_all_years": len(exits), "exit_filers_by_year_all": yrs(exits),
+              "exit_filers_2021_2026": len(in_win),
+              "exit_filers_2021_2026_by_class": dict(Counter(e["entity_class"] for e in in_win)),
+              "geo_cf_exits_by_year": yrs(geo),
+              "geo_cf_small_exits_by_year": yrs([e for e in geo if e["small_cf_lt_10m"] == "yes"]),
+              "geo_cf_exits_to_cf": sum(e["_to_cf"] for e in geo), "geo_cf_exits_daf_named": sum(e["_daf"] for e in geo),
+              "geo_cf_exits_daf_on_final_sched_d": sum(e["_daf_final"] for e in geo),
+              "geo_cf_exits_in_panel": sum(e["in_dafrc_panel"] == "yes" for e in geo),
+              "geo_cf_exits_fmv_total": int(sum(e["_fmv"] for e in geo)),
+              "all_exits_daf_named": sum(e["_daf"] for e in in_win),
+              "cf_supporting_org_exits_by_year": yrs([e for e in in_win if e["entity_class"] == "cf_supporting_org"]),
+              "geo_exit_list": [(e["filer_ein"], e["filer_name"], e["state"], e["event_year"], e["event_class"],
+                                 e["small_cf_lt_10m"], e["in_dafrc_panel"], e["_to_cf"], e["_daf"], e["_daf_final"],
+                                 int(e["_fmv"]), e["_recips"]) for e in geo]},
     }
 
 
+def exits_by_filer(rows: Sequence[Mapping]) -> list:
+    """One exit per filer EIN: the earliest return whose class is an exit class, with all its transfer rows summarised."""
+    ex = [r for r in rows if r.get("event_class", "").startswith("exit_")]
+    first = reduce(lambda acc, r: acc if r["filer_ein"] in acc and acc[r["filer_ein"]]["event_year"] <= r["event_year"]
+                   else {**acc, r["filer_ein"]: r}, ex, {})
+
+    def summary(e: str, r: Mapping) -> dict:
+        mine = [x for x in ex if x["filer_ein"] == e and x["object_id"] == r["object_id"]]
+        return {**r, "_daf": any(x["daf_named"] == "yes" for x in mine),
+                "_daf_final": any(int(x["sched_d_daf_count"] or 0) > 0 for x in mine),
+                "_reorg": any(x.get("transferee_name_overlap") == "yes" for x in mine),
+                "_to_cf": any(x.get("transferee_is_cf") == "yes" for x in mine),
+                "_fmv": sum(float(x["fmv_usd"] or 0) for x in mine),
+                "_recips": "; ".join(sorted({x["transferee_name"] for x in mine if x["transferee_name"]}))[:120]}
+    return [summary(e, r) for e, r in sorted(first.items())]
+
+
 FRAME_FIELDS = ("ein", "name", "state", "bmf_ruling", "bmf_foundation", "ntee", "returns_scanned", "returns_ok",
-                "returns_daf_ind_yes", "returns_daf_count_gt0", "max_daf_count", "max_daf_count_tax_period",
+                "returns_daf_ind_yes", "returns_daf_count_gt0", "returns_daf_count_gt0_line6_no", "max_daf_count", "max_daf_count_tax_period",
                 "latest_daf_value_eoy", "latest_daf_tax_period", "first_index_tax_period", "formation_yr",
                 "pre_window_evidence", "in_window", "in_dafrc_panel", "in_cohort_file", "listed_in_index_2026",
                 "latest_tax_period", "website", "mission", "evidence_url")
-CFX_FIELDS = ("row_id", "filer_ein", "filer_name", "state", "cf_basis", "ntee", "in_bmf_2026_11", "in_dafrc_panel", "form",
+CFX_FIELDS = ("row_id", "filer_ein", "filer_name", "index_name", "state", "cf_basis", "entity_class", "ntee", "in_bmf_2026_11", "in_dafrc_panel", "form",
               "object_id", "tax_period_end", "final_return_ind", "part1_line2_ind", "terminate_ops_ind", "partial_liq_ind",
               "ez_dissolved_ind", "event_class", "event_year", "has_schedule_n", "schedn_part", "transferee_name",
-              "transferee_ein", "transferee_is_cf", "successor_same_name", "transfer_date", "fmv_usd", "n_lines", "asset_desc",
+              "transferee_ein", "transferee_is_cf", "transferee_name_overlap", "transfer_date", "fmv_usd", "n_lines", "asset_desc",
               "daf_named", "daf_named_evidence", "sched_d_daf_count", "sched_d_daf_value_eoy",
-              "max_total_assets_eoy_scanned", "small_cf_lt_10m", "xml_url")
+              "max_total_assets_scanned", "small_cf_lt_10m", "return_ts", "xml_url")
 
 
 def read_csv_header(path: str) -> tuple:
@@ -483,9 +541,157 @@ def write_csv(path: str, rows: Sequence[Mapping], fields: Sequence[str]) -> None
         w.writerows(rows)
 
 
-def additions(holders: Sequence[Mapping]) -> list:
-    """Placeholder until the manual screen table is filled (see SCREEN)."""
-    return []
+# ----------------------------------------------------------------------------- hand-coded screen tables
+# Frame B entity classes for every filer with an exit-class return (Schedule N Part I or final-return box).
+# 'geographic_cf' = a place-based community foundation or community trust; the other classes are kept in the CSV but
+# are not counted as CF exits. Classes marked [I] in the research doc are analyst inference from name and filing.
+_GEO = ("383315675 383341102 260394674 330216692 382051672 273581914 850261515 320196064 311625750 460427565 240796877 "
+        "203153511 812566406 650056930 391392267 824586796 873485646 812943823 237002871 462161591 853378589 474606495 "
+        "341961329 274237687 205440142 275464729 571023842 860767009 460403105 823527581 841709233 "
+        "113729710 311739538 821178194 842084322 161539889 200423761 201110274 208578861 208660184 383223079 "
+        "421411234 460350319 473487091 582348181 841701434")
+_SUPPORT = ("136105057 820915718 860790314 860800012 860846677 860898996 860914248 860941890 860955776 860965287 680544541 "
+            "942597088 270697033 421513946")
+_FAITH = "946098382 911307530 383941057 860465177"
+_CHEST = "430862058 237187608 463115448 454967529 371913339 611558867"
+_CORP = "952311678 916053828 542152547 800728749 451134650 311727591 862945144"
+_CLUB = "680069883 680441952 831973017 860814086 270056566"
+EXIT_CLASS = {**{e: "other_named_cf_like" for e in (
+    "043494861 201038213 201947389 202704690 261595490 300696665 311415073 330804747 333990696 364286309 "
+    "364334358 453160329 475516600 581635306 593733183 832495371 833173390 834674817 852671534 862049916 "
+    "872958413 882955635 931301816 208559313 131919791 204121892 208514659 274272614 275199748 432099497 "
+    "621584777 752857160 823398078 844740090 871682236 876759994 850694623").split()},
+               **{e: "geographic_cf" for e in _GEO.split()}, **{e: "cf_supporting_org" for e in _SUPPORT.split()},
+               **{e: "faith_based_cf" for e in _FAITH.split()}, **{e: "community_chest_or_fund" for e in _CHEST.split()},
+               **{e: "corporate_or_employee_fund" for e in _CORP.split()}, **{e: "service_club_fund" for e in _CLUB.split()}}
+# Disposition-only filers above are classed only for completeness; geographic CFs among them (e.g. Keweenaw, Watertown
+# Area, Virginia CF, CF of East Alabama) are not exits and are not counted.
+
+# Frame A additions: each row applies the cohort's pre-registered rule (gap19-startup-cohort.md §2.1) to an in-window,
+# non-DAFRC Schedule D Part I DAF holder. Evidence: the filer's own 990 (Part III, Part VI, Schedule O; ReturnTs is
+# the e-file timestamp) and, where robots.txt allowed, the homepage fetched 2026-11-19.
+X = "https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/{}_public.xml"
+SCREEN = (
+    {"cohort_id": "SA01", "in_cohort": "yes", "eins": ("992418877",), "entity_name": "Givmo (Givmo Charitable Fund)",
+     "daf_entity_legal_name": "Givmo Charitable Fund", "product_category": "core_daf_sponsor (DAF account inside a mobile giving app)",
+     "channel": "B2C app (+companies)", "entry_event": "sponsor IRS ruling", "entry_date": "2024-09 (ruling)",
+     "parent_founded_pre2021": "unknown (Givmo app company founding date not verified)", "strict_window_subset": "unknown",
+     "funding_evidence": "none found (not searched beyond filing and homepage)", "venture_backed": "unknown",
+     "status": "active", "status_date": "2026-07-27",
+     "status_evidence": "TY2025 Form 990 e-filed 2026-07-27 (ReturnTs): Part III 'operates exclusively as a donor-advised fund (DAF) sponsor ... through the Givmo mobile application'; 31 DAF accounts, $865 EOY; homepage live with (c) 2026",
+     "status_evidence_url": X.format("202602089349300530") + " ; https://www.givmocharitable.org/", "evidence_tier": "1;4", "evidence_strength": "moderate"},
+    {"cohort_id": "SA02", "in_cohort": "yes", "eins": ("872497866",), "entity_name": "Spiral Giving Network",
+     "daf_entity_legal_name": "Spiral Giving Network Inc", "product_category": "daf_like_account (giving embedded in online banking)",
+     "channel": "embedded in fintech/banking (Spiral Financial)", "entry_event": "sponsor IRS ruling", "entry_date": "2022-12 (ruling)",
+     "parent_founded_pre2021": "unknown (sole member Spiral Financial, Inc.; founding date not verified)", "strict_window_subset": "unknown",
+     "funding_evidence": "none found", "venture_backed": "unknown", "status": "active", "status_date": "2026-08-12",
+     "status_evidence": "TY2025 Form 990 e-filed 2026-08-12 (ReturnTs); 990 Part III: 'sponsoring organization ... maintains ... classic donor-advised funds' and grants online-platform contributions; Schedule O: Spiral Financial, Inc. is sole member; 1 classic DAF ($449)",
+     "status_evidence_url": X.format("202612249349301741") + " ; https://www.spiralgivingnetwork.org/", "evidence_tier": "1;4", "evidence_strength": "moderate"},
+    {"cohort_id": "SA03", "in_cohort": "yes", "eins": ("932276661",), "entity_name": "Neta Foundation",
+     "daf_entity_legal_name": "Neta Foundation", "product_category": "core_daf_sponsor (venture-philanthropy DAF, 'GrantVestments')",
+     "channel": "B2C (donors)", "entry_event": "sponsor IRS ruling", "entry_date": "2023-11 (ruling)",
+     "parent_founded_pre2021": "no (formation year 2023 on Form 990)", "strict_window_subset": "yes",
+     "funding_evidence": "none found", "venture_backed": "no", "status": "unknown", "status_date": "",
+     "status_evidence": "TY2024 990 e-filed 2025-10-12 (before the 12-month cutoff): 19 DAF accounts, $7.59m EOY; homepage live ('charitable asset manager', DAF) but latest copyright 2025; no dated item on or after 2025-11-19 found",
+     "status_evidence_url": X.format("202542859349300019") + " ; https://www.netafoundation.org/", "evidence_tier": "1;4", "evidence_strength": "weak"},
+    {"cohort_id": "SA04", "in_cohort": "yes", "eins": ("993997336",), "entity_name": "One Big Gift",
+     "daf_entity_legal_name": "One Big Gift", "product_category": "core_daf_sponsor (endowment-style DAFs benefiting nonprofits)",
+     "channel": "B2B2C (donors via nonprofits)", "entry_event": "sponsor IRS ruling", "entry_date": "2024-12 (ruling)",
+     "parent_founded_pre2021": "no (formation year 2024)", "strict_window_subset": "yes", "funding_evidence": "none found",
+     "venture_backed": "no", "status": "active", "status_date": "2026-08-18",
+     "status_evidence": "TY2025 Form 990 e-filed 2026-08-18 (ReturnTs): 'create a sustainable source of income for nonprofit organizations through Donor Advised Funds'; 6 DAF accounts, $0.93m EOY. Homepage live but carries injected casino links (apparent site compromise, 2026-11-19)",
+     "status_evidence_url": X.format("202632309349302723") + " ; https://www.onebiggift.org/", "evidence_tier": "1;4", "evidence_strength": "moderate"},
+    {"cohort_id": "SA05", "in_cohort": "yes", "eins": ("934052953",), "entity_name": "DAFshare (DAF Gives Charitable)",
+     "daf_entity_legal_name": "DAF Gives Charitable", "product_category": "daf_like_account (group-giving platform on a sponsor)",
+     "channel": "B2C collective (online platform)", "entry_event": "sponsor IRS ruling", "entry_date": "2023-12 (ruling)",
+     "parent_founded_pre2021": "no (formation year 2023)", "strict_window_subset": "yes", "funding_evidence": "none found",
+     "venture_backed": "no", "status": "unknown", "status_date": "",
+     "status_evidence": "TY2024 990 e-filed 2025-11-17, two days before the 12-month cutoff: 'we accept donations from the general public and various groups who have organized on our platform'; 740 grants to 169 charities in 2024; 1 DAF, $106k. dafshare.com shows a login page only (undated)",
+     "status_evidence_url": X.format("202543219349326029") + " ; https://dafshare.com/", "evidence_tier": "1;4", "evidence_strength": "weak"},
+    {"cohort_id": "SA06", "in_cohort": "yes", "eins": ("932565248",), "entity_name": "Monument Charitable",
+     "daf_entity_legal_name": "Monument Charitable", "product_category": "core_daf_sponsor (non-cash / 'atypical' assets)",
+     "channel": "unknown (no website found)", "entry_event": "sponsor IRS ruling", "entry_date": "2024-06 (ruling)",
+     "parent_founded_pre2021": "no (formation year 2023)", "strict_window_subset": "yes", "funding_evidence": "none found",
+     "venture_backed": "no", "status": "unknown", "status_date": "",
+     "status_evidence": "TY2024 990 e-filed 2025-11-14 (before the cutoff); Schedule O: exists to 'provide donors with a method to support ... charities ... through unique and atypical donations'; 12 DAF accounts, $3.76m EOY; no website on the return",
+     "status_evidence_url": X.format("202513189349304316"), "evidence_tier": "1", "evidence_strength": "weak"},
+    {"cohort_id": "SA07", "in_cohort": "yes", "eins": ("883232461",), "entity_name": "Overflow Foundation",
+     "daf_entity_legal_name": "Overflow Foundation", "product_category": "daf_adjacent (stock/crypto gift processing with DAFs; corporate giving vehicle of Overflow)",
+     "channel": "B2B churches and nonprofits", "entry_event": "sponsor IRS ruling", "entry_date": "2023-01 (ruling)",
+     "parent_founded_pre2021": "unknown (Overflow company founding date not verified)", "strict_window_subset": "unknown",
+     "funding_evidence": "none found", "venture_backed": "unknown", "status": "unknown", "status_date": "",
+     "status_evidence": "TY2024 990 e-filed 2025-11-15 (before the cutoff): 'Overflow Foundation maintains donor-advised funds'; 29 DAF accounts (value not reported); homepage: 'the vehicle by which we distribute Overflow's 10% commitment' (undated)",
+     "status_evidence_url": X.format("202533199349300323") + " ; https://www.theoverflowfoundation.org/", "evidence_tier": "1;4", "evidence_strength": "weak"},
+    {"cohort_id": "SAX01", "in_cohort": "no", "eins": ("991674027",), "entity_name": "Bridges Philanthropic Fund",
+     "exclusion_reason": "product of a pre-2021 financial firm (private DAF run by Bridges Investment Management / Bridges Trust Company), treated like bank DAF programs",
+     "daf_entity_legal_name": "Bridges Philanthropic Fund", "product_category": "core_daf_sponsor", "channel": "wealth-management clients",
+     "entry_event": "sponsor IRS ruling", "entry_date": "2025-01 (ruling)",
+     "status_evidence": "TY2025 990 (e-filed 2026-09-11): 42 DAF accounts, $106.98m EOY; Schedule O: operational functions delegated to Bridges Investment Management and Bridges Trust Company; homepage: 'our private donor advised fund'",
+     "status_evidence_url": X.format("202612549349300906") + " ; https://bridgesphilanthropicfund.org/"},
+    {"cohort_id": "SAX02", "in_cohort": "no", "eins": ("872542019",), "entity_name": "Anderson Donor Advised Charitable Fund",
+     "exclusion_reason": "no public-facing DAF product found (31 accounts; return prepared by Anderson Global Business Group LLC; affiliation not established) [I]",
+     "daf_entity_legal_name": "Anderson Donor Advised Charitable Fund", "entry_event": "sponsor IRS ruling", "entry_date": "2022-06 (ruling)",
+     "status_evidence": "TY2024 990: 31 DAF accounts, $2.36m EOY; no website on the return", "status_evidence_url": X.format("202513219349314606")},
+    {"cohort_id": "SAX03", "in_cohort": "no", "eins": ("853759949",), "entity_name": "JustFund",
+     "exclusion_reason": "entry before window (index lists a return for tax period 2020-12; Form 990 formation year 2020)",
+     "daf_entity_legal_name": "JustFundUs", "product_category": "daf_adjacent (common grant application platform)",
+     "status_evidence": "TY2025 990: 8 DAF accounts, $0.72m"},
+    {"cohort_id": "SAX04", "in_cohort": "no", "eins": ("873652885",), "entity_name": "The Alternatives Foundation",
+     "exclusion_reason": "single-issue charity (supports Texas higher-education institutions); one DAF program started",
+     "daf_entity_legal_name": "The Alternatives Foundation", "status_evidence": "TY2024 990: 1 DAF account, $0.11m"},
+    {"cohort_id": "SAX05", "in_cohort": "no", "eins": ("886273927", "922859521"),
+     "entity_name": "Mortarstone Trust; Kindred One Foundation",
+     "exclusion_reason": "single-donor or family vehicles holding one DAF each; no public offering found",
+     "daf_entity_legal_name": "The Mortarstone Trust; Kindred One Foundation"},
+    {"cohort_id": "SAX06", "in_cohort": "no", "eins": ("872487558",), "entity_name": "Fenwick Community Fund",
+     "exclusion_reason": "employer (law-firm) member fund for its own community; not sold to the public",
+     "daf_entity_legal_name": "Fenwick Community Fund"},
+    {"cohort_id": "SAX07", "in_cohort": "no", "eins": ("862589534",), "entity_name": "Richmond Christian Foundation",
+     "exclusion_reason": "local faith-based community foundation (community-foundation exclusion)",
+     "daf_entity_legal_name": "Richmond Christian Foundation"},
+    {"cohort_id": "SAX08", "in_cohort": "no", "eins": ("372007864", "872158877", "871782380", "872043014", "923847849", "854391782",
+                                                     "933345569", "854363773", "931342196", "883613546"),
+     "entity_name": "In-window community foundations holding DAFs",
+     "exclusion_reason": "community foundations (cohort exclusion)",
+     "daf_entity_legal_name": "Jewish Foundation of Greensboro; Tulsa Fiduciary Fund; Three Valleys Community Foundation; Our Community Foundation Inc; Wichita County Community Foundation; Huron County Community Foundation; Greater Cabarrus Foundation; Bird City Century II; Community Foundation of Nevada County; Minnesota Black Collective Foundation"},
+    {"cohort_id": "SAX09", "in_cohort": "no", "eins": "RESIDUAL", "entity_name": "Other in-window Schedule D Part I filers",
+     "exclusion_reason": "single-issue or operating charities (schools, shelters, ministries, clubs); many Part I entries are implausible (dollar amounts in the account-count field, zero value)",
+     "daf_entity_legal_name": "see new-daf-holders-frame-2022-2026.csv (in_window=yes, in_dafrc_panel=no)"},
+)
+
+
+def additions(holders: Sequence[Mapping]) -> tuple:
+    """Rows for daf-startup-cohort-additions (same columns as the cohort file) plus a consistency report."""
+    by = {r["ein"]: r for r in holders}
+    named = frozenset(e for s in SCREEN if s["eins"] != "RESIDUAL" for e in s["eins"])
+    residual = sorted(r["ein"] for r in holders if r["in_window"] == "yes" and r["in_dafrc_panel"] == "no"
+                      and not r["in_cohort_file"] and r["ein"] not in named)
+
+    def row(s: Mapping) -> dict:
+        eins = residual if s["eins"] == "RESIDUAL" else list(s["eins"])
+        hs = [by[e] for e in eins if e in by]
+        facts = "; ".join(f"{fmt_ein(h['ein'])}: max {h['max_daf_count']} DAF accounts ({h['max_daf_count_tax_period']}), "
+                          f"latest DAF value ${h['latest_daf_value_eoy']:,} ({h['latest_daf_tax_period']}), BMF ruling {h['bmf_ruling']}"
+                          for h in hs) if len(hs) <= 3 else f"{len(hs)} EINs; see frame CSV"
+        urls = " ; ".join(h["evidence_url"] for h in hs if h["evidence_url"]) if len(hs) <= 3 else ""
+        return {"status_evidence_url": urls, **{k: v for k, v in s.items() if k != "eins"},
+                "ein": "; ".join(fmt_ein(e) for e in eins) if len(eins) <= 12 else f"{len(eins)} EINs (frame CSV)",
+                "frames": "D", "frame_source": "IRS e-file frame 2022-2026 (this task): Schedule D Part I DAF accounts > 0; BMF ruling >= 2021-01",
+                "last_990_period_propublica": "; ".join(sorted({h["latest_tax_period"] for h in hs}))[:60] if len(hs) <= 3 else "",
+                "in_dafrc_panel": "; ".join(sorted({h["in_dafrc_panel"] for h in hs})) or "n/a",
+                "dafrc_exit_flag": "n/a" if all(h["in_dafrc_panel"] == "no" for h in hs) else "",
+                "notes": ("Frame D facts: " + facts + ". last_990_period_propublica holds the latest tax period in the IRS e-file index "
+                          "(ProPublica not used)."
+                          + (" Account threshold (>=50) not applied: the entity is a dedicated DAF sponsor (DAFRC 'National'-type analogue)."
+                             if s["in_cohort"] == "yes" else ""))}
+    rows = [row(s) for s in SCREEN]
+    check = {"screen_eins_not_in_window_nonpanel_holders": sorted(e for e in named if e not in by or by[e]["in_window"] != "yes"),
+             "residual_count": len(residual), "members": sum(s["in_cohort"] == "yes" for s in SCREEN),
+             "member_eins_in_panel": sorted(e for s in SCREEN if s["in_cohort"] == "yes" for e in s["eins"]
+                                            if by.get(e, {}).get("in_dafrc_panel") == "yes")}
+    return rows, check
+
+
 
 
 # ----------------------------------------------------------------------------- main
@@ -511,7 +717,7 @@ def main(argv: Sequence[str]) -> int:
     sa = scan(cut(u["a"]), a.cache, a.fetch, a.workers, read_ok, "A") if a.task in ("scan-a", "all", "build") else None
     sb = scan(cut(u["b"]), a.cache, a.fetch, a.workers, read_ok, "B") if a.task in ("scan-b", "all", "build") else None
     if a.task in ("build", "all"):
-        print(json.dumps(build(u, bmf, sa, sb, a.irs_dir), indent=1, default=str))
+        print(json.dumps(build(u, bmf, sa, sb, a.irs_dir, a.cache, a.fetch), indent=1, default=str))
     else:
         s = sa or sb
         print(json.dumps({"heads": Counter(h.get("status") for h in s["heads"].values()),
