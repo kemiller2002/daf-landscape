@@ -22,7 +22,7 @@
 4. **PR Newswire: GC-016 and GC-021 are confirmed.** GC-021's release is dated 2025-10-20; the repo row does not record a date. JCF's grant-size figures are now read at source:
    - FY2021: median **$501**, mean **$7,194**
    - FY2022: median **$601**
-5. **NCF: the donate-page count is still not determinable.** NCF's sitemaps hold 0 donate pages among 659 URLs, all on www, and none of the 15 www pages read links to one. Of 35 quoted spans in 20 repo rows, all 35 were found on NCF's pages. Two are on a different page from the one cited, and one more row (PL-S10) is an elided paraphrase. NCF's www pages give no grant-size statistic.
+5. **NCF: the donate-page count is still not determinable.** NCF's sitemaps hold 0 donate pages among 659 URLs, all on www, and none of the 15 www pages read links to one. Of 35 quoted spans in 20 repo rows, 32 are verbatim on the cited page and 2 are verbatim on a different NCF page. The last one (PL-S10) is an elided paraphrase whose substance the guide confirms. NCF's www pages give no grant-size statistic.
 6. **Every.org is still blocked.** Its robots.txt returns 429 with a "Vercel Security Checkpoint" JS challenge. Two attempts got the same result. The four AI-use cells stay "not determinable".
 
 ## 1. Owner decision (2026-11-20)
@@ -165,7 +165,7 @@ Grant dollars were restated too: FY24 is $5.49bn against $5.62bn printed earlier
 | Item | Status | Finding | URL |
 |---|---|---|---|
 | Donate pages (P-B4222-02-02) | n/f | The sitemap index lists 8 child sitemaps with 659 URLs, all on www: page 34, post 0, story 453, event 2, document 56, video 22, podcast 18, book 74. None is a fund donate page. The 15 pages read link off-site only to secure.ncfgiving.com (`/`, `/agreement`, `/legacy`; robots-disallowed) and site.ncfgiving.com (images, PDFs). **Count not determinable**; the queue item stays blocked | https://www.ncfgiving.com/sitemap.xml |
-| Guide and other cited www pages | conf | 35 quoted spans in 20 repo rows. 33 are on the cited page and 2 are on another NCF page; none is missing. Example: "Including a donate button can make it easy for others to give directly to your fund online." | https://www.ncfgiving.com/guide-to-giving-at-NCF |
+| Guide and other cited www pages | conf | 35 quoted spans in 20 repo rows: 32 verbatim on the cited page, 2 verbatim on another NCF page, 1 elided paraphrase (PL-S10, below). Example: "Including a donate button can make it easy for others to give directly to your fund online." | https://www.ncfgiving.com/guide-to-giving-at-NCF |
 | PL-S10 | corr | The repo has an elided paraphrase. The page reads: "Examples of what grants can't be used to provide you or someone related to you include: Event tickets or auction purchases Membership dues School tuition Fulfillment of legally binding pledges …" | guide |
 | donor-info-defaults row 10 | corr | The quote "This name appears alongside your name and address on correspondence, including the letter that accompanies each grant issued by the fund." is on the guide, not on /giving-fund/ | guide |
 | Terms (D07) | conf | "Use automated means, including bots, crawlers, or spiders, to extract data from the Public Website without NCF's permission" | https://www.ncfgiving.com/terms-and-disclosures |
