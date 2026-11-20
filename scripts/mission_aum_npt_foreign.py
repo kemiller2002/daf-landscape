@@ -138,7 +138,7 @@ def parse_aum(root, wl_include: frozenset) -> dict:
         if sr is not None else ()
     return {
         "tax_period_end": first_text(root, "TaxPeriodEndDt"),
-        "filer_name": first_text(child(root, "ReturnHeader"), "BusinessNameLine1Txt"),
+        "filer_name": first_text(child(child(root, "ReturnHeader"), "Filer"), "BusinessNameLine1Txt"),
         "mission": first_text(f990, "ActivityOrMissionDesc"),
         "mission_part3": first_text(f990, "MissionDesc"),
         "program_desc": " || ".join(all_text(f990, "Desc")),
