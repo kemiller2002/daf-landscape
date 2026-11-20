@@ -57,7 +57,8 @@ type Parameters =
       ConvAccountsPerEmployeeEfficient: Param
       ConvAccountsPerEmployeeTypical: Param
       ConvStaffCostPerEmployee: Param
-      ConvNonStaffOpexPerAccount: Param }
+      ConvNonStaffOpexPerAccount: Param
+      FrontierAllInPerAccount: Param }
 
 let efficiencyCsv = "data/mission-2026-11-14/sponsor-operating-efficiency-2026-11-20.csv"
 
@@ -90,7 +91,8 @@ let defaults =
       ConvAccountsPerEmployeeEfficient = p "conventional accounts per employee, efficient (Vanguard Charitable FY2024)" 232.44m (Sourced efficiencyCsv)
       ConvAccountsPerEmployeeTypical = p "conventional accounts per employee, typical (AEF FY2024)" 107.03m (Sourced efficiencyCsv)
       ConvStaffCostPerEmployee = p "conventional staff cost per employee (Vanguard Charitable FY2024: $14,816,404 / 119)" 124507m (Sourced efficiencyCsv)
-      ConvNonStaffOpexPerAccount = p "conventional non-staff opex per account (Vanguard FY2024: 16.41 bps x $21.95bn less staff cost, / 27,660 accounts)" 766m (Sourced $"{efficiencyCsv}; derived") }
+      ConvNonStaffOpexPerAccount = p "conventional non-staff opex per account (Vanguard FY2024: 16.41 bps x $21.95bn less staff cost, / 27,660 accounts)" 766m (Sourced $"{efficiencyCsv}; derived")
+      FrontierAllInPerAccount = p "frontier all-in opex per account (Fidelity Charitable FY2024: 24.41 bps x $66.20bn / 204,614 accounts; affiliate-staffed, so staff sit at FMR and are paid through fees)" 790m (Sourced $"{efficiencyCsv}; derived") }
 
 let register (ps: Parameters) : Param list =
     [ ps.MinutesPerException; ps.HoursPerComplexAsset; ps.ProductiveHoursPerFte; ps.BreakRate; ps.MinutesPerBreak
@@ -98,7 +100,7 @@ let register (ps: Parameters) : Param list =
       ps.AiInteractionsPerAccount; ps.InferencePerInteraction; ps.InfraBase; ps.InfraPerAccount; ps.CustodyBps
       ps.AchShare; ps.AchCost; ps.CheckCost; ps.InsuranceBase; ps.AuditBase; ps.AuditBpsOfAum; ps.LegalBase
       ps.DataProvidersBase; ps.IdentityPerNewAccount; ps.CacPerNewAccount; ps.AgentFamilies
-      ps.ConvAccountsPerEmployeeEfficient; ps.ConvAccountsPerEmployeeTypical; ps.ConvStaffCostPerEmployee; ps.ConvNonStaffOpexPerAccount ]
+      ps.ConvAccountsPerEmployeeEfficient; ps.ConvAccountsPerEmployeeTypical; ps.ConvStaffCostPerEmployee; ps.ConvNonStaffOpexPerAccount; ps.FrontierAllInPerAccount ]
 
 // ---------- revenue: published admin-fee tiers ----------
 /// Fidelity Charitable Giving Account tiers (data/mission-2026-11-14/sponsor-fee-schedules.csv), $100 minimum.
@@ -208,7 +210,9 @@ type Result =
       AiNativeMargin: decimal
       AiNativeCostBps: decimal
       ConvCostBpsEfficient: decimal
-      AccountsPerFte: decimal }
+      AccountsPerFte: decimal
+      AiNativeCostPerAccount: decimal
+      FrontierCostPerAccount: decimal }
 
 let evaluate (ps: Parameters) (s: Scenario) : Result =
     let costs = aiNativeCosts ps s |> total
@@ -228,7 +232,9 @@ let evaluate (ps: Parameters) (s: Scenario) : Result =
       AiNativeMargin = if rev = 0m then 0m else (rev - costs) / rev
       AiNativeCostBps = if a = 0m then 0m else costs / a * 10000m
       ConvCostBpsEfficient = if a = 0m then 0m else conventionalCost ps Efficient s / a * 10000m
-      AccountsPerFte = s.Accounts / fte }
+      AccountsPerFte = s.Accounts / fte
+      AiNativeCostPerAccount = costs / s.Accounts
+      FrontierCostPerAccount = ps.FrontierAllInPerAccount.Value }
 
 /// Base scenario at a given account count. GrantsPerAccount 8 sits inside the FY2024
 /// observed range 6.2 (RCF) to 13.0 (Fidelity) computed from the efficiency dataset.
@@ -295,3 +301,36 @@ let providerCost (ps: Parameters) (p: ProviderScenario) =
     shared + p.SponsorClients * 60000m // [A] per-client implementation, support and contract management
 
 let providerRevenue (p: ProviderScenario) = p.AccountsServed * p.PricePerAccount
+
+// ---------- five-year ramp: time to scale and capital need ----------
+type RampYear = { Year: int; Accounts: decimal; Revenue: decimal; Cost: decimal; Cumulative: decimal }
+
+/// B grows by acquiring donor accounts one at a time (CAC applies); C signs sponsor clients
+/// that bring existing books (no donor CAC, onboarding cost per client). Paths are [A].
+let rampB (ps: Parameters) (avgBalance: decimal) (newAccountsByYear: decimal list) =
+    newAccountsByYear
+    |> List.mapi (fun i n -> i + 1, n)
+    |> List.fold (fun (acc: RampYear list, book, cum) (y, n) ->
+        let book' = book + n
+        let s = { baseScenario book' with AvgBalance = avgBalance; NewAccountShare = (if book' = 0m then 0m else n / book') }
+        let r = evaluate ps s
+        let cum' = cum + r.Revenue - r.AiNativeCost
+        (acc @ [ { Year = y; Accounts = book'; Revenue = r.Revenue; Cost = r.AiNativeCost; Cumulative = cum' } ], book', cum')) ([], 0m, 0m)
+    |> fun (rows, _, _) -> rows
+
+let rampC (ps: Parameters) (pricePerAccount: decimal) (accountsPerClient: decimal) (clientsByYear: decimal list) =
+    clientsByYear
+    |> List.mapi (fun i n -> i + 1, n)
+    |> List.fold (fun (acc: RampYear list, clients, cum) (y, n) ->
+        let clients' = clients + n
+        let accounts = max 1000m (clients' * accountsPerClient)
+        // new clients onboard mid-year: half-year revenue in the signing year
+        let billable = (clients + n / 2m) * accountsPerClient
+        let pr = { SponsorClients = max 1m clients'; AccountsServed = accounts; PricePerAccount = pricePerAccount }
+        let rev = billable * pricePerAccount
+        let cost = providerCost ps pr
+        let cum' = cum + rev - cost
+        (acc @ [ { Year = y; Accounts = clients' * accountsPerClient; Revenue = rev; Cost = cost; Cumulative = cum' } ], clients', cum')) ([], 0m, 0m)
+    |> fun (rows, _, _) -> rows
+
+let peakCapitalNeed (rows: RampYear list) = rows |> List.map (fun r -> r.Cumulative) |> List.fold min 0m |> abs

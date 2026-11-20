@@ -12,6 +12,7 @@
     <Compile Include="Fixtures.fs" />
     <Compile Include="PolicyTests.fs" />
     <Compile Include="JourneyTests.fs" />
+    <Compile Include="AuthorityInvariantTests.fs" />
     <Compile Include="EconomicsTwinCensusTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

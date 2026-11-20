@@ -45,6 +45,7 @@ type FlagCode =
     | PayeeProfileInCoolingOff
     | DiscretionaryPolicyHold
     | UnusualPattern
+    | RecipientStatusChanged
 
 type Flag =
     { Code: FlagCode
@@ -109,6 +110,7 @@ type Decision =
 /// whose actor is a rule or a person (checked in Policy.fs and Journey.fs).
 type GrantState =
     | Submitted
+    | AwaitingDonorConfirmation   // agent-originated request above the delegation's confirm_above (INV-A6)
     | AwaitingHumanDecision of Flag list
     | Approved of Actor
     | Declined of string
@@ -159,6 +161,27 @@ type EvidenceRecord =
       Sources: SourceStamp list
       At: DateTime
       Detail: string }
+
+/// The complete set of tool scopes an agent can ever be granted (INV-A5).
+/// There is no constructor for payment, ledger, approval, policy-publish or flag-clearance tools.
+type AgentToolScope =
+    | ReadScope of resource: string
+    | ProposeScope
+    | RaiseFlagScope
+    | OpenCaseScope
+    | DraftScope
+    | SendTemplatedScope of templateId: string
+
+/// INV-A8: a causation chain deeper than `limit` with no Rule or Person checkpoint is quarantined.
+let mustQuarantine (limit: int) (chain: Actor list) =
+    let longestRun =
+        chain
+        |> List.fold (fun (run, best) a ->
+            match a with
+            | RuleActor _ | PersonActor _ -> (0, best)
+            | AgentActor _ | ExternalActor _ -> (run + 1, max best (run + 1))) (0, 0)
+        |> snd
+    longestRun > limit
 
 /// Helper: is this actor permitted to make an approving decision?
 let canApprove actor =

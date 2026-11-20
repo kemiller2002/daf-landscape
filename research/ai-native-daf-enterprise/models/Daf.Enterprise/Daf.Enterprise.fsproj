@@ -12,6 +12,7 @@
     <Compile Include="Journey.fs" />
     <Compile Include="Economics.fs" />
     <Compile Include="Twin.fs" />
+    <Compile Include="Report.fs" />
   </ItemGroup>
 
 </Project>

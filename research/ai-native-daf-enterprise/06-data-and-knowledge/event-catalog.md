@@ -1,6 +1,6 @@
 # Event catalog and event-driven operating model
 
-**Catalog data:** [`events.csv`](events.csv) has 50 business events. Each row gives the producer, consumers, authoritative state change, required controls, exception handling, audit evidence, and whether the event can lead to money movement. It covers every example in addendum §20, as shown below.
+**Catalog data:** [`events.csv`](events.csv) has 58 business events (50 original plus 8 added after cross-deliverable review: `PaymentGateDenied`, `DonorConfirmationRequested`/`Received`, `ScheduledGrantDue`, `KillSwitchActivated`, `JournalPosted`, `CharityEligibilityHoldApplied`, `PostPaymentReviewOpened`). Each row gives the producer, consumers, authoritative state change, required controls, exception handling, audit evidence, and whether the event can lead to money movement. It covers every example in addendum §20, as shown below.
 
 | Addendum §20 example | Catalog event(s) |
 |---|---|

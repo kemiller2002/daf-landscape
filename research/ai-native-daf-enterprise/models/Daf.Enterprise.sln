@@ -7,6 +7,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Daf.Enterprise", "Daf.Enter
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Daf.Enterprise.Tests", "Daf.Enterprise.Tests\Daf.Enterprise.Tests.fsproj", "{46C98DA9-60F8-4A64-9CA5-FE034FDDC082}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Daf.Enterprise.Cli", "Daf.Enterprise.Cli\Daf.Enterprise.Cli.fsproj", "{62B31645-AB38-4761-8B4F-12BAEF75FA32}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{46C98DA9-60F8-4A64-9CA5-FE034FDDC082}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46C98DA9-60F8-4A64-9CA5-FE034FDDC082}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46C98DA9-60F8-4A64-9CA5-FE034FDDC082}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62B31645-AB38-4761-8B4F-12BAEF75FA32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62B31645-AB38-4761-8B4F-12BAEF75FA32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62B31645-AB38-4761-8B4F-12BAEF75FA32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62B31645-AB38-4761-8B4F-12BAEF75FA32}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -24,6 +24,10 @@ type Event =
     | PaymentInstructed of PaymentInstruction
     | PaymentSettled of PaymentId * settlementRef: string
     | PaymentReturned of PaymentId * returnCode: string
+    | DonorConfirmationRequested of GrantId * agentId: string
+    | DonorConfirmationReceived of GrantId * PartyId
+    | CharityEligibilityChanged of RecipientId * EligibilitySnapshot
+    | PostPaymentReviewOpened of GrantId * reason: string
     | ReconciliationBreakDetected of string
     | EvidenceRecorded of EvidenceRecord
 
@@ -43,7 +47,8 @@ type Rejection =
 type Account =
     { Id: AccountId
       Donor: PartyId
-      Privileged: Set<PartyId> }
+      Privileged: Set<PartyId>
+      AgentDelegations: Map<string, Usd> }   // agent principal -> confirm_above (DD-017)
 
 type State =
     { Accounts: Map<AccountId, Account>
@@ -77,6 +82,10 @@ type Command =
     | ReleasePayment of GrantId * PaymentId * PaymentProfile * PaymentLimits * now: DateTime * secondApprover: string option
     | SettlePayment of PaymentId * settlementRef: string
     | ReturnPayment of PaymentId * returnCode: string
+    | DelegateToAgent of AccountId * grantedBy: PartyId * agentId: string * confirmAbove: Usd
+    | ConfirmRecommendation of GrantId * PartyId
+    | ChangeEligibility of EligibilitySnapshot
+    | HumanDecline of GrantId * Approver * reason: string
 
 let private nextEntry (s: State) = List.length s.Journal + 1
 let private post (s: State) (e: JournalEntry) = { s with Journal = s.Journal @ [ e ] }
@@ -113,7 +122,7 @@ let handle (s: State) (cmd: Command) : Result<State * Event list, Rejection> =
     | OpenAccount(aid, donor, ver) ->
         if not (s.Verified.Contains donor) then Error(IdentityNotVerified donor)
         else
-            let acct = { Id = aid; Donor = donor; Privileged = Set.singleton donor }
+            let acct = { Id = aid; Donor = donor; Privileged = Set.singleton donor; AgentDelegations = Map.empty }
             Ok({ s with Accounts = s.Accounts.Add(aid, acct) }, [ AccountOpened(aid, donor, ver) ])
 
     | DeclareIntent(aid, reference, amt) ->
@@ -139,10 +148,68 @@ let handle (s: State) (cmd: Command) : Result<State * Event list, Rejection> =
         | None -> Error(UnknownAccount r.Account)
         | Some a when not (a.Privileged.Contains r.RequestedBy) -> Error(NotPrivileged(r.RequestedBy, r.Account))
         | Some _ when s.SeenKeys.Contains r.IdempotencyKey -> Error(DuplicateIdempotencyKey r.IdempotencyKey)
-        | Some _ ->
-            let g = { Id = gid; Recommendation = r; State = Submitted; Flags = []; Decisions = [] }
-            Ok({ s with Grants = s.Grants.Add(gid, g); SeenKeys = s.SeenKeys.Add r.IdempotencyKey },
-               [ RecommendationSubmitted(gid, r) ])
+        | Some a ->
+            match r.ViaAgent with
+            | Some agent when not (a.AgentDelegations.ContainsKey agent) -> Error(NotPrivileged(r.RequestedBy, r.Account))
+            | _ ->
+                let needsConfirmation =
+                    match r.ViaAgent with
+                    | Some agent -> r.Amount > a.AgentDelegations.[agent]
+                    | None -> false
+                let state = if needsConfirmation then AwaitingDonorConfirmation else Submitted
+                let g = { Id = gid; Recommendation = r; State = state; Flags = []; Decisions = [] }
+                let evs =
+                    [ yield RecommendationSubmitted(gid, r)
+                      if needsConfirmation then yield DonorConfirmationRequested(gid, r.ViaAgent.Value) ]
+                Ok({ s with Grants = s.Grants.Add(gid, g); SeenKeys = s.SeenKeys.Add r.IdempotencyKey }, evs)
+
+    | DelegateToAgent(aid, by, agent, cap) ->
+        match s.Accounts.TryFind aid with
+        | None -> Error(UnknownAccount aid)
+        | Some a when a.Donor <> by -> Error(NotPrivileged(by, aid))   // only the donor may delegate
+        | Some a -> Ok({ s with Accounts = s.Accounts.Add(aid, { a with AgentDelegations = a.AgentDelegations.Add(agent, cap) }) }, [])
+
+    | ConfirmRecommendation(gid, person) ->
+        match s.Grants.TryFind gid with
+        | None -> Error(UnknownGrant gid)
+        | Some({ State = AwaitingDonorConfirmation } as g) ->
+            // INV-A6: only the delegating person (the account donor) can confirm
+            let donorOf = s.Accounts.[g.Recommendation.Account].Donor
+            if person <> donorOf then Error(NotPrivileged(person, g.Recommendation.Account))
+            else Ok({ s with Grants = s.Grants.Add(gid, { g with State = Submitted }) }, [ DonorConfirmationReceived(gid, person) ])
+        | Some g -> Error(InvalidState(gid, g.State, "confirm"))
+
+    | HumanDecline(gid, approver, reason) ->
+        match s.Grants.TryFind gid with
+        | Some({ State = AwaitingHumanDecision _ } as g) ->
+            let parties = s.Accounts.[g.Recommendation.Account].Privileged
+            if not (Set.isEmpty (Set.intersect approver.RelatedParties parties)) then Error(HumanDecisionFailed ConflictOfInterest)
+            else
+                let actor = PersonActor(approver.PersonId, approver.AuthorityRef)
+                Ok({ s with Grants = s.Grants.Add(gid, { g with State = Declined reason }) }, [ ExceptionCaseResolved(gid, actor); GrantDeclined(gid, reason) ])
+        | Some g -> Error(InvalidState(gid, g.State, "human decline"))
+        | None -> Error(UnknownGrant gid)
+
+    | ChangeEligibility snap ->
+        // Eligibility changes block but never release (event-catalog §4 rule 5).
+        let affected = s.Grants |> Map.filter (fun _ g -> g.Recommendation.Recipient = snap.Recipient)
+        let hold = { Code = RecipientStatusChanged; RaisedBy = RuleActor({ PolicyId = "eligibility-monitor"; Version = 1 }, "R-MON-01")
+                     Detail = $"status changed: revoked={snap.Revoked} ofac={snap.OfacListed} class=%A{snap.Class}"; Clearance = None }
+        let folder (st: State, evs: Event list) (gid: GrantId) (g: Grant) =
+            match g.State with
+            | Approved _ ->
+                // reverse the commitment; a fresh decision will re-post it
+                let rev = { EntryId = nextEntry st; SourceEvent = "GrantHeldOnEligibilityChange"
+                            Postings = [ dr (GrantsPayable g.Recommendation.Account) g.Recommendation.Amount; cr (FundBalance g.Recommendation.Account) g.Recommendation.Amount ] }
+                let st' = post st rev
+                let g' = { g with State = AwaitingHumanDecision [ hold ]; Flags = g.Flags @ [ hold ] }
+                ({ st' with Grants = st'.Grants.Add(gid, g') }, evs @ [ GrantFlagged(gid, hold); ExceptionCaseOpened(gid, [ hold ]) ])
+            | Submitted | AwaitingDonorConfirmation | AwaitingHumanDecision _ ->
+                ({ st with Grants = st.Grants.Add(gid, { g with Flags = g.Flags @ [ hold ] }) }, evs @ [ GrantFlagged(gid, hold) ])
+            | Released _ | Paid _ -> (st, evs @ [ PostPaymentReviewOpened(gid, hold.Detail) ])
+            | Declined _ | Returned _ | Canceled -> (st, evs)
+        let (s', evs) = affected |> Map.fold folder (s, [])
+        Ok(s', CharityEligibilityChanged(snap.Recipient, snap) :: evs)
 
     | ApplyAgentOutput(gid, output, agentId) ->
         match s.Grants.TryFind gid with
