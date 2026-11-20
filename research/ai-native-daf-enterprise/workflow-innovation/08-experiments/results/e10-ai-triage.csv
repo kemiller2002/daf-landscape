@@ -1,0 +1,13 @@
+scenario,policy,threshold,human_hours,auto_closed,escaped_defects,defects
+"base","flag-only (human decides every exception; AI dossier)",,10000,0,0,967
+"base","auto-close below threshold",-1,8438,3124,0,967
+"base","auto-close below threshold",-0.5,7044,5912,6,967
+"base","auto-close below threshold",0,5243,9514,23,967
+"base","auto-close below threshold",0.5,3440.5,13119,66,967
+"base","auto-close below threshold",1,1981,16038,159,967
+"distribution shift: 30% of defects are a new weak-signal pattern","flag-only (human decides every exception; AI dossier)",,10000,0,0,967
+"distribution shift: 30% of defects are a new weak-signal pattern","auto-close below threshold",-1,8430,3140,16,967
+"distribution shift: 30% of defects are a new weak-signal pattern","auto-close below threshold",-0.5,7018.5,5963,57,967
+"distribution shift: 30% of defects are a new weak-signal pattern","auto-close below threshold",0,5195.5,9609,118,967
+"distribution shift: 30% of defects are a new weak-signal pattern","auto-close below threshold",0.5,3370.5,13259,206,967
+"distribution shift: 30% of defects are a new weak-signal pattern","auto-close below threshold",1,1900.5,16199,320,967

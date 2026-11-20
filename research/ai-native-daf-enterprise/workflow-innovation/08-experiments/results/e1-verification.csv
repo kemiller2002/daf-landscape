@@ -1,0 +1,7 @@
+architecture,verification_ops,human_minutes,ineligible_grants,escaped,source_latency_floor,median_latency_seconds
+"ManualPerGrant",100000,300000,491,23,21,86400
+"AutomatedPerGrant",100000,0,491,21,21,2
+"PassportOnPublication",117882.83,0,491,21,21,0.01
+"PassportDiffDriven",9759,0,491,21,21,0.01
+"PassportQuarterly",39294.28,0,491,125,21,0.01
+"NetworkPassport",4752.63,0,491,21,21,0.01

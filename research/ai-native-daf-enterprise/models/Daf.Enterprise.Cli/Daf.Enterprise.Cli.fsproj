@@ -11,6 +11,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Daf.Enterprise\Daf.Enterprise.fsproj" />
+    <ProjectReference Include="..\Daf.Experiments\Daf.Experiments.fsproj" />
   </ItemGroup>
 
 </Project>

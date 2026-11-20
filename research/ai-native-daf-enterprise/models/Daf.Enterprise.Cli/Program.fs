@@ -45,5 +45,17 @@ let main argv =
     write out09 "peak-capital.csv" peaks
     write out11 "twin-100k.csv" (twinTable ps (baseScenario 100000m) 42UL)
     write out11 "twin-10k.csv" (twinTable ps (baseScenario 10000m) 42UL)
-    printfn "wrote outputs to %s and %s" out09 out11
+    let outX = Path.Combine(root, "workflow-innovation", "08-experiments", "results")
+    Directory.CreateDirectory outX |> ignore
+    let seed = 20261120UL
+    write outX "e1-verification.csv" (Daf.Experiments.ExperimentReport.e1 seed)
+    write outX "e2-approval-architectures.csv" (Daf.Experiments.ExperimentReport.e2 seed)
+    write outX "e3-disbursement.csv" (Daf.Experiments.ExperimentReport.e3 seed)
+    write outX "e4-reconciliation.csv" (Daf.Experiments.ExperimentReport.e4 seed)
+    write outX "e5-onboarding.csv" (Daf.Experiments.ExperimentReport.e5 ())
+    write outX "e6-specialist-pooling.csv" (Daf.Experiments.ExperimentReport.e6 seed)
+    write outX "e8-migration.csv" (Daf.Experiments.ExperimentReport.e8 ())
+    write outX "e9-crash-recovery.csv" (Daf.Experiments.ExperimentReport.e9 ())
+    write outX "e10-ai-triage.csv" (Daf.Experiments.ExperimentReport.e10 seed)
+    printfn "wrote outputs to %s, %s and %s" out09 out11 outX
     0
