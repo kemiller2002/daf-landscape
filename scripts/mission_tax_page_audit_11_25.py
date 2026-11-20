@@ -439,6 +439,7 @@ def league_11_25(root: Path) -> List[Dict[str, str]]:
 
 def main(argv: List[str]) -> None:
     root = Path(argv[1] if len(argv) > 1 and not argv[1].startswith("--") else ".").resolve()
+    sys.dont_write_bytecode = True   # do not leave a __pycache__ entry for the imported engine
     eng = load_engine(root)
     rep = repo_rows(root)
     calc = calculator_rows(eng, rep)
