@@ -1,0 +1,238 @@
+{
+  "vector_id": "pos-03-endaoment-async-grant",
+  "description": "Endaoment 'Create async grant' (OpenAPI 4.88.0) request and response, assembled from per-field examples, converted",
+  "expect": "valid",
+  "schema": "../schema-v0.1.json",
+  "status_label": "draft, unendorsed",
+  "sources": [
+    {
+      "url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "retrieved": "2026-11-19",
+      "sha256": "7790bd5227f919ad00541198e56f882f5c66ac5ba6acb06082e0279ae10cf972",
+      "cache": "scratchpad q1303/std/9955741ee77ac16b",
+      "openapi_version": "4.88.0"
+    }
+  ],
+  "field_provenance": [
+    {
+      "record_path": "/grant_id",
+      "conversion": "renamed",
+      "source_field": "GrantTransferDto.id",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "id: type: string description: Unique identifier of the transfer format: uuid example: 123e4567-e89b-12d3-a456-426614174000",
+      "note": "Every uuid example in the OpenAPI is the same placeholder, so grant, fund and org ids coincide here",
+      "source_value": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    {
+      "record_path": "/fund_id",
+      "conversion": "renamed",
+      "source_field": "InitiateAsyncGrantInputDto.originFundId",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "originFundId: type: string description: ID of the fund that is the origin of the grant format: uuid example: 123e4567-e89b-12d3-a456-426614174000",
+      "note": "",
+      "source_value": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    {
+      "record_path": "/recipient/alternative_id/id",
+      "conversion": "renamed",
+      "source_field": "InitiateAsyncGrantInputDto.destinationOrgId",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "destinationOrgId: type: string description: ID of the organization that will receive the grant format: uuid example: 123e4567-e89b-12d3-a456-426614174000",
+      "note": "",
+      "source_value": "123e4567-e89b-12d3-a456-426614174000"
+    },
+    {
+      "record_path": "/recipient/alternative_id/scheme",
+      "conversion": "transformed",
+      "source_field": "(none: scheme label)",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "description: Unique identifier of the organization in Endaoment database",
+      "note": "Scheme label 'x-endaoment-org-uuid' assigned by the converter",
+      "transform": "manual"
+    },
+    {
+      "record_path": "/recipient/ein",
+      "conversion": "renamed",
+      "source_field": "GrantTransferDto.destinationOrg.ein (OrgSimpleListingDto)",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "description: IRS Employer Identification Number (EIN) without hyphen example: '530196605'",
+      "note": "Response-side example; the OpenAPI's per-field examples are independent, so the pairing of this EIN with the uuid is an assembly [I]",
+      "source_value": "530196605"
+    },
+    {
+      "record_path": "/amount/value",
+      "conversion": "transformed",
+      "source_field": "InitiateAsyncGrantInputDto.requestedAmount",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "The amount in USDC to be granted, in the smallest currency unit (1000000 = 1 USD) example: '1000000'",
+      "note": "USDC smallest unit (1000000 = 1 USD) to a two-decimal USD string; non-cent amounts are rejected, not rounded",
+      "source_value": "1000000",
+      "transform": "usdc_micro_to_usd_decimal"
+    },
+    {
+      "record_path": "/amount/currency",
+      "conversion": "transformed",
+      "source_field": "requestedAmount description",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "(1000000 = 1 USD)",
+      "note": "[I] USDC is recorded as USD at the 1:1 rate the OpenAPI states; the record does not model stablecoins",
+      "transform": "manual"
+    },
+    {
+      "record_path": "/purpose/text",
+      "conversion": "renamed",
+      "source_field": "InitiateAsyncGrantInputDto.purpose",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "description: Public declaration of the grant purpose maxLength: 511 example: Supporting educational programs",
+      "note": "",
+      "source_value": "Supporting educational programs"
+    },
+    {
+      "record_path": "/purpose/codes",
+      "conversion": "not_available",
+      "source_field": null,
+      "source_url": null,
+      "source_snippet": null,
+      "note": "Free text only. An education subject code exists in PCS but its code value could not be read first-hand (full code list robots-blocked), so none is assigned"
+    },
+    {
+      "record_path": "/restriction_text",
+      "conversion": "renamed",
+      "source_field": "InitiateAsyncGrantInputDto.specialInstructions",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "example: Funds must be used exclusively for the summer education program",
+      "note": "",
+      "source_value": "Funds must be used exclusively for the summer education program"
+    },
+    {
+      "record_path": "/anonymity",
+      "conversion": "transformed",
+      "source_field": "InitiateAsyncGrantInputDto.shareMyEmail (default) + recommender",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "Set by the user recommending the grant. default: false",
+      "note": "[I] shareMyEmail defaults to false (email withheld) while recommender carries a name ('John Doe'), read as name_only",
+      "source_value": false,
+      "transform": "manual"
+    },
+    {
+      "record_path": "/status",
+      "conversion": "renamed",
+      "source_field": "GrantTransferDto.asyncStatus",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "description: Current status of the async transfer request enum: - PendingLiquidation - Liquidated - Cancelled example: pending",
+      "note": "The OpenAPI's example 'pending' is not in its own enum; the documented value PendingLiquidation would also map to pending",
+      "source_value": "pending"
+    },
+    {
+      "record_path": "/dates/recommended_at",
+      "conversion": "renamed",
+      "source_field": "GrantTransferDto.createdAtUtc",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "description: UTC timestamp when the transfer was created format: date-time example: '2024-03-20T10:30:00Z'",
+      "note": "",
+      "source_value": "2024-03-20T10:30:00Z"
+    },
+    {
+      "record_path": "/dates/updated_at",
+      "conversion": "renamed",
+      "source_field": "GrantTransferDto.updatedAtUtc",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "description: UTC timestamp when the transfer was last updated format: date-time example: '2024-03-20T10:30:00Z'",
+      "note": "",
+      "source_value": "2024-03-20T10:30:00Z"
+    },
+    {
+      "record_path": "/payment_reference/reference",
+      "conversion": "renamed",
+      "source_field": "GrantTransferDto.transactionHash",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "description: Transaction hash of the donation made to the target entity example: '0x1234567890abcdef'",
+      "note": "Nullable in the OpenAPI; kept because the example supplies it",
+      "source_value": "0x1234567890abcdef"
+    },
+    {
+      "record_path": "/payment_reference/rail",
+      "conversion": "transformed",
+      "source_field": "GrantTransferDto.transactionHash (field type)",
+      "source_url": "https://docs.endaoment.org/developers/api/transfers/create-an-async-grant-request.md",
+      "source_snippet": "Transaction hash of the donation made to the target entity",
+      "note": "Rail 'onchain' inferred from the hash field",
+      "transform": "manual"
+    },
+    {
+      "record_path": "/payment_reference/paid_date",
+      "conversion": "not_available",
+      "source_field": null,
+      "source_url": null,
+      "source_snippet": null,
+      "note": "No payment date field"
+    },
+    {
+      "record_path": "/sponsor_id",
+      "conversion": "not_available",
+      "source_field": null,
+      "source_url": null,
+      "source_snippet": null,
+      "note": "Endaoment is the sponsor; its EIN is not in the payload"
+    },
+    {
+      "record_path": "/external_ids",
+      "conversion": "not_available",
+      "source_field": null,
+      "source_url": null,
+      "source_snippet": null,
+      "note": "No intermediary id"
+    },
+    {
+      "record_path": "/dates/approved_at",
+      "conversion": "not_available",
+      "source_field": null,
+      "source_url": null,
+      "source_snippet": null,
+      "note": "Approval status is no longer exposed: status (PendingReview/Approved/Rejected) is deprecated (wave 40A)"
+    }
+  ],
+  "source_fields_not_carried": [
+    "idempotencyKey (transaction-API concern, not part of a published record)",
+    "recommendationIds",
+    "destinationSubprojectId",
+    "recommender (the name itself; only its presence drives anonymity)",
+    "netAmount",
+    "fee",
+    "chainId",
+    "type",
+    "status (deprecated)",
+    "destinationOrg.* other than ein (name, address, nteeCode, ...)",
+    "destinationSubproject"
+  ],
+  "record": {
+    "schema_version": "0.1",
+    "grant_id": "123e4567-e89b-12d3-a456-426614174000",
+    "fund_id": "123e4567-e89b-12d3-a456-426614174000",
+    "recipient": {
+      "ein": "530196605",
+      "alternative_id": {
+        "scheme": "x-endaoment-org-uuid",
+        "id": "123e4567-e89b-12d3-a456-426614174000"
+      }
+    },
+    "amount": {
+      "value": "1.00",
+      "currency": "USD"
+    },
+    "purpose": {
+      "text": "Supporting educational programs"
+    },
+    "restriction_text": "Funds must be used exclusively for the summer education program",
+    "anonymity": "name_only",
+    "status": "pending",
+    "payment_reference": {
+      "rail": "onchain",
+      "reference": "0x1234567890abcdef"
+    },
+    "dates": {
+      "recommended_at": "2024-03-20T10:30:00Z",
+      "updated_at": "2024-03-20T10:30:00Z"
+    }
+  }
+}

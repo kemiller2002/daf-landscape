@@ -1,0 +1,231 @@
+{
+  "vector_id": "pos-02-chariot-grant-status-approved",
+  "description": "Chariot 'Create Grant' request plus 'Get Grant Status' response example (approved), converted",
+  "expect": "valid",
+  "schema": "../schema-v0.1.json",
+  "status_label": "draft, unendorsed",
+  "sources": [
+    {
+      "url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "retrieved": "2026-11-19",
+      "sha256": "8c17df4086c1d89df53e5e05a32df4d0d49455265da2f2a21afce2953b271909",
+      "cache": "scratchpad q1303/std/cfc76e7268828bd5"
+    },
+    {
+      "url": "https://developer.candid.org/docs/candids-taxonomy",
+      "retrieved": "2026-11-20",
+      "cache": "scratchpad q1332/web/531a46f6ec870eec"
+    }
+  ],
+  "field_provenance": [
+    {
+      "record_path": "/grant_id",
+      "conversion": "renamed",
+      "source_field": "Create Grant response: id",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"id\": \"grant_3kd02\"",
+      "note": "Sponsor's own grant id, returned by Create Grant",
+      "source_value": "grant_3kd02"
+    },
+    {
+      "record_path": "/fund_id",
+      "conversion": "exact",
+      "source_field": "Create Grant request: fund_id",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"fund_id\": \"fund_a91x\"",
+      "note": "",
+      "source_value": "fund_a91x"
+    },
+    {
+      "record_path": "/recipient/ein",
+      "conversion": "transformed",
+      "source_field": "Search Organizations response: organizations[0].ein (resolves organization_id org_77fq)",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"ein\": \"13-3441466\"",
+      "note": "Create Grant sends organization_id; the EIN comes from the documented Search Organizations example for the same org_77fq. Chariot also allows 'an ein field here in place of organization_id'.",
+      "source_value": "13-3441466",
+      "transform": "ein_strip_hyphen"
+    },
+    {
+      "record_path": "/recipient/alternative_id/id",
+      "conversion": "renamed",
+      "source_field": "Create Grant request: organization_id",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"organization_id\": \"org_77fq\"",
+      "note": "",
+      "source_value": "org_77fq"
+    },
+    {
+      "record_path": "/recipient/alternative_id/scheme",
+      "conversion": "transformed",
+      "source_field": "(none: scheme label)",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"organization_id\": \"org_77fq\"",
+      "note": "Scheme label 'x-sponsor-org-id' assigned by the converter for the sponsor's internal organization id",
+      "transform": "manual"
+    },
+    {
+      "record_path": "/amount/value",
+      "conversion": "transformed",
+      "source_field": "Create Grant request: amount",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"amount\": 25000",
+      "note": "Chariot: 'integer cents in USD (e.g., 25000 = $250.00)'",
+      "source_value": 25000,
+      "transform": "usd_cents_to_decimal"
+    },
+    {
+      "record_path": "/amount/currency",
+      "conversion": "transformed",
+      "source_field": "Conventions: monetary amounts",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "All monetary amounts are **integer cents in USD**",
+      "note": "Currency is a documented convention ('unless we agree otherwise during onboarding'), not a payload field",
+      "transform": "manual"
+    },
+    {
+      "record_path": "/purpose/text",
+      "conversion": "renamed",
+      "source_field": "Create Grant request: purpose",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"purpose\": \"Wherever needed most\"",
+      "note": "",
+      "source_value": "Wherever needed most"
+    },
+    {
+      "record_path": "/purpose/codes/0/code",
+      "conversion": "transformed",
+      "source_field": "Create Grant request: purpose (coded by converter)",
+      "source_url": "https://developer.candid.org/docs/candids-taxonomy",
+      "source_snippet": "General support UA0000 or UA",
+      "note": "Coded by hand [I]: PCS 'General support' covers 'support which may be applied to any use or to fund any purpose (unrestricted support)'. Chariot sends free text only.",
+      "transform": "manual"
+    },
+    {
+      "record_path": "/anonymity",
+      "conversion": "transformed",
+      "source_field": "Create Grant request: anonymous",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"anonymous\": false",
+      "note": "anonymous:true withholds 'the donor's name and contact details'; false is read as full_contact. Chariot's boolean cannot express name_only.",
+      "source_value": false,
+      "transform": "chariot_anonymous_to_level"
+    },
+    {
+      "record_path": "/dates/recommended_at",
+      "conversion": "renamed",
+      "source_field": "Create Grant response: created_at",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"created_at\": \"2026-06-10T14:30:00Z\"",
+      "note": "",
+      "source_value": "2026-06-10T14:30:00Z"
+    },
+    {
+      "record_path": "/external_ids/0/id",
+      "conversion": "transformed",
+      "source_field": "Create Grant request: note",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"note\": \"DAFpay Grant Request: grant_req_01jpjenf5q6cawy43yxfcrxhct\"",
+      "note": "Chariot Grant Request ID; it 'must appear on the grant letter / remittance advice sent to the nonprofit' and is also the Idempotency-Key",
+      "source_value": "DAFpay Grant Request: grant_req_01jpjenf5q6cawy43yxfcrxhct",
+      "transform": "after_last_colon_space"
+    },
+    {
+      "record_path": "/sponsor_id",
+      "conversion": "not_available",
+      "source_field": null,
+      "source_url": null,
+      "source_snippet": null,
+      "note": "The sponsor hosts the API; its EIN is not in any payload"
+    },
+    {
+      "record_path": "/payment_reference",
+      "conversion": "not_available",
+      "source_field": null,
+      "source_url": null,
+      "source_snippet": null,
+      "note": "Status is pending; Chariot's spec has no rail reference field"
+    },
+    {
+      "record_path": "/restriction_text",
+      "conversion": "not_available",
+      "source_field": null,
+      "source_url": null,
+      "source_snippet": null,
+      "note": "No restriction field in the recommended shape"
+    },
+    {
+      "record_path": "/status",
+      "conversion": "exact",
+      "source_field": "Get Grant Status response: status",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"status\": \"approved\"",
+      "note": "",
+      "source_value": "approved"
+    },
+    {
+      "record_path": "/dates/updated_at",
+      "conversion": "renamed",
+      "source_field": "Get Grant Status response: updated_at",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"updated_at\": \"2026-06-11T09:12:00Z\"",
+      "note": "",
+      "source_value": "2026-06-11T09:12:00Z"
+    },
+    {
+      "record_path": "/dates/approved_at",
+      "conversion": "transformed",
+      "source_field": "Get Grant Status response: updated_at",
+      "source_url": "https://docs.givechariot.com/v2026-04-01/guides/dafpay/oauth/api-endpoints.md",
+      "source_snippet": "\"updated_at\": \"2026-06-11T09:12:00Z\"",
+      "note": "[I] updated_at is taken as the approval time because the same response reports status approved; Chariot has no approved_at field",
+      "source_value": "2026-06-11T09:12:00Z",
+      "transform": "manual"
+    }
+  ],
+  "source_fields_not_carried": [
+    "Idempotency-Key header (same value as the note id; transaction-API concern)",
+    "status_description (null in the example)",
+    "Search Organizations name/address"
+  ],
+  "record": {
+    "schema_version": "0.1",
+    "grant_id": "grant_3kd02",
+    "fund_id": "fund_a91x",
+    "recipient": {
+      "ein": "133441466",
+      "alternative_id": {
+        "scheme": "x-sponsor-org-id",
+        "id": "org_77fq"
+      }
+    },
+    "amount": {
+      "value": "250.00",
+      "currency": "USD"
+    },
+    "purpose": {
+      "codes": [
+        {
+          "vocabulary": "PCS",
+          "facet": "support_strategy",
+          "code": "UA0000",
+          "label": "General support"
+        }
+      ],
+      "text": "Wherever needed most"
+    },
+    "anonymity": "full_contact",
+    "status": "approved",
+    "external_ids": [
+      {
+        "system": "chariot-dafpay",
+        "id": "grant_req_01jpjenf5q6cawy43yxfcrxhct"
+      }
+    ],
+    "dates": {
+      "recommended_at": "2026-06-10T14:30:00Z",
+      "approved_at": "2026-06-11T09:12:00Z",
+      "updated_at": "2026-06-11T09:12:00Z"
+    }
+  }
+}

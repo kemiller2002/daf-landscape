@@ -1,0 +1,215 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:x-draft:daf-grant-record:schema-v0.1",
+  "title": "Minimal open DAF grant record, v0.1 (draft, unendorsed)",
+  "description": "DRAFT, UNENDORSED research output (task P-B4013-03-02, 2026-11-20). One record describes one grant from one donor-advised fund to one recipient. No sponsor, intermediary, standards body or regulator has reviewed or adopted it. Field design follows research/mission-2026-11-14/b40n13-03-g1913-03-schema-and-processor-accounts.md section 3.2 with the wave-40A corrections; rationale in research/mission-2026-11-14/b4013-03-02-daf-grant-record-schema.md. Purpose codes use Candid's Philanthropy Classification System (PCS), licensed CC BY 4.0: 'Philanthropy Classification System (PCS) by Candid, https://taxonomy.candid.org/, CC BY 4.0, https://creativecommons.org/licenses/by/4.0/'. This schema references PCS codes; it does not reproduce or modify the taxonomy.",
+  "$comment": "Status: draft, unendorsed. Validated with the keyword subset implemented in scripts/mission_validate_grant_record.py.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "grant_id",
+    "fund_id",
+    "recipient",
+    "amount",
+    "purpose",
+    "anonymity",
+    "status",
+    "dates"
+  ],
+  "properties": {
+    "schema_version": {
+      "description": "Version of this draft schema.",
+      "const": "0.1"
+    },
+    "grant_id": {
+      "description": "Sponsor-issued identifier of one grant, stable from recommendation to payment. Opaque. Recommended form when shared outside the sponsor: '<sponsor org-id>:<local id>', e.g. 'US-EIN-#########:G-123'.",
+      "$ref": "#/$defs/opaqueId"
+    },
+    "fund_id": {
+      "description": "Sponsor-scoped identifier of the donor-advised fund the grant is drawn from. Opaque: must not contain the donor's name.",
+      "$ref": "#/$defs/opaqueId"
+    },
+    "sponsor_id": {
+      "description": "Supporting field. Org-id of the sponsoring organization that legally makes the grant (US-EIN- plus 9 digits).",
+      "type": "string",
+      "pattern": "^US-EIN-[0-9]{9}$"
+    },
+    "recipient": {
+      "description": "Recipient organization. The IRS EIN (9 digits, no hyphen) is the primary identifier; an alternative scheme (another org-id, or the sponsor's or platform's internal id) is optional, and stands in for the EIN only when the recipient has none.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "ein": {
+          "type": "string",
+          "pattern": "^[0-9]{9}$"
+        },
+        "alternative_id": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["scheme", "id"],
+          "properties": {
+            "scheme": {
+              "description": "An org-id.guide list code (e.g. GB-CHC) or a private scheme prefixed 'x-' (e.g. x-endaoment-org-uuid).",
+              "type": "string",
+              "pattern": "^(x-[a-z0-9-]{1,60}|[A-Z]{2}-[A-Z0-9]{2,10})$"
+            },
+            "id": {
+              "$ref": "#/$defs/opaqueId"
+            }
+          }
+        }
+      },
+      "anyOf": [
+        {"required": ["ein"]},
+        {"required": ["alternative_id"]}
+      ]
+    },
+    "amount": {
+      "description": "Amount recommended or awarded for this grant, as a decimal string with exactly two fractional digits (no floats, no minor units), plus an ISO 4217 alphabetic currency code. Converters must not round: a source amount that is not a whole number of cents is rejected, not coerced.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "currency"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]{0,14})\\.[0-9]{2}$",
+          "not": {"const": "0.00"}
+        },
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        }
+      }
+    },
+    "purpose": {
+      "description": "Coded purpose plus free text. Systems should act on codes; text is untrusted input. At least one of codes or text is required.",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "codes": {
+          "description": "Up to 5 PCS codes, following Candid's rule for grant details ('not required; can have up to 5 codes').",
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/pcsCode"}
+        },
+        "text": {
+          "description": "Free-text purpose as stated by the donor or sponsor. 511 characters, Endaoment's limit for its purpose field.",
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 511
+        }
+      },
+      "anyOf": [
+        {"required": ["codes"]},
+        {"required": ["text"]}
+      ]
+    },
+    "restriction_text": {
+      "description": "Supporting field. Binding use restriction the recipient must accept, kept apart from the purpose. Untrusted input.",
+      "type": "string",
+      "minLength": 1
+    },
+    "anonymity": {
+      "description": "Donor disclosure level chosen for this grant: full_contact (name and contact details shared), name_only (name shared, contact withheld), anonymous (neither).",
+      "enum": ["full_contact", "name_only", "anonymous"]
+    },
+    "status": {
+      "description": "Lifecycle state: Chariot's five values plus returned (payment came back or check voided).",
+      "enum": ["pending", "approved", "paid", "rejected", "canceled", "returned"]
+    },
+    "payment_reference": {
+      "description": "The payment rail and the rail's own reference (ACH trace number, check number, provider transaction id, on-chain transaction hash). Required when status is paid or returned.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rail", "reference"],
+      "properties": {
+        "rail": {
+          "enum": ["ach", "check", "wire", "paypal", "stripe", "onchain", "other"]
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 128
+        },
+        "paid_date": {
+          "$ref": "#/$defs/date"
+        }
+      }
+    },
+    "external_ids": {
+      "description": "Supporting field. Identifiers the grant carries in other systems, e.g. an intermediary's request id that must appear on the remittance advice.",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["system", "id"],
+        "properties": {
+          "system": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,60}$"},
+          "id": {"$ref": "#/$defs/opaqueId"}
+        }
+      }
+    },
+    "dates": {
+      "description": "UTC timestamps. recommended_at is required; approved_at and updated_at are optional. The payment date sits in payment_reference.paid_date.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["recommended_at"],
+      "properties": {
+        "recommended_at": {"$ref": "#/$defs/timestamp"},
+        "approved_at": {"$ref": "#/$defs/timestamp"},
+        "updated_at": {"$ref": "#/$defs/timestamp"}
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "required": ["status"],
+        "properties": {"status": {"enum": ["paid", "returned"]}}
+      },
+      "then": {
+        "required": ["payment_reference"],
+        "properties": {
+          "payment_reference": {"required": ["rail", "reference", "paid_date"]}
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "opaqueId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:~-]{0,199}$"
+    },
+    "timestamp": {
+      "description": "RFC 3339 date-time in UTC with a Z suffix (pattern check only).",
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9](\\.[0-9]{1,6})?Z$"
+    },
+    "date": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])$"
+    },
+    "pcsCode": {
+      "description": "A PCS code. The facet letter follows the four examples on Candid's developer page: S = subject (SC020000), P = population (PA020000), U = support strategy (UA0000), T = transaction (TA00). Codes may be given at any level shown there (e.g. 'UA0000 or UA'). Code existence is not checked: the full code list could not be read under robots.txt.",
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["vocabulary", "facet", "code"],
+      "properties": {
+        "vocabulary": {"const": "PCS"},
+        "facet": {"enum": ["subject", "population", "support_strategy", "transaction"]},
+        "code": {"type": "string"},
+        "label": {"type": "string", "minLength": 1, "maxLength": 200}
+      },
+      "oneOf": [
+        {"properties": {"facet": {"const": "subject"}, "code": {"pattern": "^S[A-Z]([0-9]{2}){0,3}$"}}},
+        {"properties": {"facet": {"const": "population"}, "code": {"pattern": "^P[A-Z]([0-9]{2}){0,3}$"}}},
+        {"properties": {"facet": {"const": "support_strategy"}, "code": {"pattern": "^U[A-Z]([0-9]{2}){0,3}$"}}},
+        {"properties": {"facet": {"const": "transaction"}, "code": {"pattern": "^T[A-Z]([0-9]{2}){0,3}$"}}}
+      ]
+    }
+  }
+}
