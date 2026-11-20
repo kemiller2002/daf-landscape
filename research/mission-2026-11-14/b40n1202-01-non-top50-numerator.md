@@ -11,8 +11,8 @@ Tags: [F] computed from filings by the script · [P] quoted primary source · [I
 
 ## 0. Answer in brief
 
-- **Scope: the full panel, with no sponsor sampling.** Every DAFRC 2025 panel sponsor whose FY2023 or FY2024 return itemises Schedule I was read. That is 1,331 sponsors beyond the top 50, in 2,611 sponsor-years with 487,896 lines, all re-read from the GivingTuesday mirror with the top-50 parser. Together with the top 50's 94 sponsor-years, this covers **84.9%** of netted FY2024 DAF grants (DAF-weighted, net of DAF-to-DAF), against 67.3% for the top 50 alone [F]. The non-top-50 sponsors add 17.6 points, not the 32.7 points the scaling assumed.
-- **The scaled estimate was too high [F].** On the line 1h basis, the committed 1/0.673 inference gives a pooled share of **10.3%** (implied interval 9.0–11.6%). The directly measured all-sponsor share is lower on either frame:
+- **Scope: the full panel, with no sponsor sampling.** Every DAFRC 2025 panel sponsor whose FY2023 or FY2024 return itemises Schedule I was read. That is 1,331 sponsors beyond the top 50, in 2,611 sponsor-years with 487,896 lines, all re-read from the GivingTuesday mirror with the top-50 parser. Together with the top 50's 94 sponsor-years, this covers **84.9%** of netted FY2024 DAF grants (DAF-weighted, net of DAF-to-DAF), against 67.3% for the top 50 alone [F]. The non-top-50 sponsors add 17.6 points. The 32.7 points the scaling filled cover everything outside top-50 itemised lines, including the 15.1-point gap that no itemised line reaches, so they are not a like-for-like target for these sponsors [V wave 40B]
+- **The scaled estimate leaned high, but most of the fall below is not a measured overstatement [F/I].** On the line 1h basis, the committed 1/0.673 inference gives a pooled share of **10.3%** (implied interval 9.0–11.6%). Like for like (committed frame, both sides divided by their coverage) the measured figure is 9.9%, a fall of 0.4 point (14.8% against 15.4% on 1h − 1d − 1e, 0.6 point). Leaving the 15.1% unitemised gap unassigned takes 1h to 8.4% (−1.5 points), so the direct figures are floors. Adding the new-only recipients changes the population and takes it to 7.3% (−1.0 point). The direct shares on each frame: [V wave 40B]
 
   | Frame | Pooled share | 95% CI | Change from 10.3% |
   |---|---|---|---|
@@ -20,7 +20,7 @@ Tags: [F] computed from filings by the script · [P] quoted primary source · [I
   | Committed frame | 8.4% | 7.6–9.2% | −1.9 points |
 
 - **On the headline private basis (1h − 1d − 1e), from b40n1202-b43n26 [F].** The scaled 15.4% becomes **12.1%** (10.9–13.4%) on the expanded frame and 12.6% (11.3–14.0%) on the committed frame. That is −3.3 points.
-- **Why the scaling overshot [F].** Among committed-frame recipients, non-top-50 grants add **21.4%** to the top-50 numerator (weighted, matched years). The 1/0.673 scaling assumed **48.6%**.
+- **Why the scaling overshot [F].** Among committed-frame recipients, non-top-50 grants add **21.4%** to the top-50 numerator (weighted, matched years). The 1/0.673 scaling assumed **48.6%**. Of that, 26.2 points (0.176 ÷ 0.673) is the non-top-50 sponsors’ own measured coverage and 22.4 points is the unitemised gap. Like for like, the measured 21.4% is 0.82 of the 26.2% that proportional allocation would give [V wave 40B]
   - Only 58.9% of non-top-50 DAF-weighted dollars reach committed-frame recipients. A further 13.7% reaches recipients that no top-50 sponsor itemises, and 27.4% goes to excluded types, not-in-BMF EINs or blank-EIN lines. Blank-EIN lines are 5.9% of non-top-50 dollars, against 0.5% for the top 50.
   - The scaling also credited to recipients the 15.1% of netted grants that no itemised line reaches: foreign grants, sub-$5,000 gifts, non-itemising sponsors and the DAF-weighting haircut.
 - **Residual scaling [I].** Dividing the direct figures by the all-panel coverage (0.849) gives 8.7% on 1h and 14.2% on 1h − 1d − 1e. These still lean high, for the same reasons wave 33A gave (V33A-09).
@@ -126,7 +126,7 @@ All figures are [F].
 - On the as-filed basis, the others' FY2024 non-DAF-to-DAF Schedule I is $19.63bn. DAF weighting roughly halves it, because these are mostly community foundations with discretionary grantmaking.
 - **What no itemised line reaches.**
   - Of raw DAFRC FY2024 DAF grants ($64.60bn), sponsors with itemised FY2024 lines account for $62.53bn. Sponsors without them account for $2.07bn [F]. The largest are Bank of America Charitable Gift Fund ($1.04bn) and Renaissance Charitable Foundation ($0.72bn), both of which file Schedule I as an attachment, and Stifel Charitable ($0.05bn).
-  - The rest of the 15.1-point gap ($8.8bn) is foreign grants, sub-$5,000 grants not itemised, timing, and the difference between DAF weighting and netting. The cached data cannot separate these (P-B40N120201-01).
+  - The whole 15.1-point gap is $8.8bn ($58.41bn × 0.151, netted and DAF-weighted); the non-itemising sponsors’ $2.07bn (raw) is part of it, not additional. The remainder is foreign grants, sub-$5,000 grants not itemised, timing, the $1.84bn by which corrected DAFRC grants ($66.44bn) exceed the raw total ($64.60bn) used for that split, and the difference between DAF weighting and netting. [V wave 40B] The cached data cannot separate these (P-B40N120201-01).
 
 ### 2.2 Headline shares, all in-scope recipients
 
@@ -146,7 +146,7 @@ All figures are [F] except the scaled column [I]. Percentages are weighted, with
 | all_new_only | 1h−1d−1e | 1,048 | 43,938 | 5.6 (4.2–6.7) | 6.0 (4.3–8.4) | — | — |
 
 - The top-50 rows reproduce the committed figures exactly: 6.9% and 5.9% on 1h, and 10.3% and 7.7% on 1h − 1d − 1e.
-- The new-only recipients have low pooled shares. The group includes large organisations that simply had no itemised top-50 grant: Hexagon Foundation has a 1h of $600m and received $29.0m. They add denominator faster than numerator, which is why the expanded pooled share (7.3%) sits below the committed-frame all-sponsor share (8.4%).
+- The new-only recipients have low pooled shares. The group includes large organisations that simply had no itemised top-50 grant: Hexagon Foundation has a 1h of $600m over its two matched years ($95.9m and $503.8m) and received $29.0m DAF-weighted ($50.7m as filed) from Christian Community Foundation. Hexagon reports that money on line 1d as related-organisation support (1d: $7.50m and $43.23m, the same $50.73m in total), so on 1h − 1d − 1e its numerator keeps a gift its denominator removes [V wave 40B] They add denominator faster than numerator, which is why the expanded pooled share (7.3%) sits below the committed-frame all-sponsor share (8.4%).
 
 ### 2.3 How much the scaled estimate moves
 
@@ -158,7 +158,7 @@ All figures are [F] except the scaled column [I]. Percentages are weighted, with
 | 1h − 1d − 1e, ≥$100m | 8.7% | 7.0% | 6.8% (5.4–8.9) | −1.9 points | 8.1% |
 | 1h − 1d − 1e, $25–100m | 16.4% | 12.7% | 12.3% (11.1–13.8) | −4.1 points | 14.5% |
 
-- The interval for the inference is the committed pooled interval divided by 0.673. For both main bases it does not overlap the direct expanded-frame interval.
+- The interval for the inference is the committed pooled interval divided by 0.673. For both main bases it does not overlap the direct expanded-frame interval. It does overlap the direct committed-frame interval (1h: 7.6–9.2% against 9.0–11.6%; 1h − 1d − 1e: 11.3–14.0% against 13.6–17.6%), and all figures rest on the same sample, so non-overlap is not a significance test [V wave 40B]
 - **Mechanism [F].**
   - Within the committed frame, Σw·(non-top-50 numerator) ÷ Σw·(top-50 numerator) = **0.214**. The scaling assumes 1/0.673 − 1 = **0.486**.
   - Dollar disposition of FY2023–24 DAF-weighted grants, from the full universe with no sampling:
@@ -177,7 +177,7 @@ All figures are [F] except the scaled column [I]. Percentages are weighted, with
 | **Total** | $74.07bn | $19.76bn |
 
 - The others put a smaller share of their dollars into the committed frame (58.9% against 67.7%). Some of their money goes to recipients outside it, and some to blank-EIN lines that cannot be placed.
-- The larger effect is size. Measured, the others are 17.6% of netted grants, not the 32.7% the scaling attributes to them.
+- The larger effects are the unassigned gap and the frame, not where non-top-50 dollars land. On the committed frame with both sides divided by coverage, the move is 10.3% → 9.9% (1h) and 15.4% → 14.8% (1h − 1d − 1e). The rest of the move to the direct expanded figures comes from leaving the 15.1% gap unassigned (−1.5 and −2.2 points) and from adding new-only recipients (−1.0 and −0.5 point) [V wave 40B]
 
 ### 2.4 By revenue band (BMF REVENUE_AMT), all sponsors, expanded frame
 

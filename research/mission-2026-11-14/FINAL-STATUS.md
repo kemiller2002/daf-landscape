@@ -158,7 +158,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 - **Synthesis §0 validated.** No figures were wrong. 14 wording and scope corrections were applied, including that the review-need proxy is an indicator, not a bound, and that the staff-cost gap is about 3.5–9×.
 - **NPT FY2023 Schedule D is understated.** NPT's consolidated statements give net assets of $28.51bn. The filed value stays in the headline series, and a sensitivity variant shows FY2023 market assets of $261.44bn. All top-50 imputed FY2024 rows had already been replaced, and the headline totals are unchanged.
 - **Donor-information defaults at the top-20 sponsors.** Neither "withheld by default" nor "shared by default" holds as a rule. Full contact is the documented default for 33.2% of assets and withholding for 17.2%; the default is undocumented for 44.6%.
-- **DAF share of recipient giving.** On the private-giving proxy (1h − 1d − 1e), the median is 7.7% and the pooled share 10.3%. 76.5–76.9% of top-50 DAF dollars go to recipients eligible for a Charity Navigator rating.
+- **DAF share of recipient giving.** On the private-giving proxy (1h − 1d − 1e), top-50 DAF grants are a median 7.7% and a pooled 10.3%; with every itemising panel sponsor measured, the pooled share is 12.6% on the same recipients and 12.1% adding recipients with no top-50 grant (floors; the scaled 15.4% is superseded) [V wave 40B] 76.5–76.9% of top-50 DAF dollars go to recipients eligible for a Charity Navigator rating.
 - **Long-tail fee census.** 7 of 60 sampled tail sponsors (11.7%) publish a 2021+ admin rate. Tail community foundations that do publish charge a median 150 bps at $100k.
 
 ## Counts (refresh 2026-11-19, through PR #56) (superseded by the table above)

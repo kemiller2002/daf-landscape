@@ -28,7 +28,7 @@ Reproduce (same inputs as the parent; DIR = panel files, DIR2 = qualified-donee 
 3. **The rebuilt middle tier changes almost nothing.** Tier BP (tier B plus giving platforms) gives a 2025 aggregate payout on prior-year DAF assets of 12.04%, against 12.05% for tier B and 8.82% for tier C. The median is 4.84% (B 4.89%, C 4.18%) [C]. Adding community foundations gives 12.02%; adding federations as well gives 11.54% [C].
    - Of the 3.23-point gap between tier B and tier C in 2025, federations explain about 0.5 point, hospital, education and other public foundations about 2.1 points, and private foundations about 0.6 point [C, differences of §2.2 rows].
    - So tier C stays an upper bound driven by program grants, as the parent study inferred [I].
-4. **Large returns without Schedule 8 almost all answered line 5850 = N.** In the 2025 release, 226 of 6,593 v27 returns with line 5900 above C$1m (3.4%) have no Schedule 8 row under any FPE. In 2024 it is 254 of 6,270 (4.1%) [C]:
+4. **Large returns without Schedule 8 mostly answered line 5850 = N (196 of 226 in 2025, 235 of 254 in 2024; most others left it blank), and almost every large return answering N lacks Schedule 8.** [V wave 40B] In the 2025 release, 226 of 6,593 v27 returns with line 5900 above C$1m (3.4%) have no Schedule 8 row under any FPE. In 2024 it is 254 of 6,270 (4.1%) [C]:
    - by the line 5850 answer (2025): N 196 of 197 have no row; blank 14 of 14; Y 16 of 6,382;
    - by the line 5850 answer (2024): N 235 of 236; blank 17 of 17; Y 2 of 6,017 [C].
    Every return in both releases is form version 27, and the published Schedule 8 file has no filing-date column [C].
@@ -44,12 +44,12 @@ Reproduce (same inputs as the parent; DIR = panel files, DIR2 = qualified-donee 
    - Cause Funds are curated pools that pay out evenly every quarter.
    - "Funds" are purpose designations set up by recipient charities.
    - No giving-fund, donor-account or pooled-portfolio product appears on the pages checked.
-   - Charity gift cards are the only held balances with later direction. They sit inside C$11.0m of "designated cash" at 2025-06-30, against C$467.1m paid to charities in the year [F].
+   - Charity gift cards are the only held balances with later direction. They sit inside C$11.0m of "designated cash" at 2025-06-30, against C$467.1m paid to charities in the year [F]. The statements place only cards unredeemed after 18 months (undisbursable funds) in that balance explicitly; that younger card balances sit there too is an inference [I] [V wave 40B]
 8. **Counting CanadaHelps as a DAF sponsor would distort the panel.** Use its designated cash as DAF assets and line 5050 as disbursements (2025) [C]:
    - It becomes the largest disburser, with 18.3% of panel disbursements, while ranking 76th by assets.
    - Panel same-year payout moves from 11.21% to 13.72%.
    - Payout on prior-year assets moves from 13.30% to 16.32% (12.05% to 14.94% net of tier B).
-   Treating it as a tier-B donee instead moves 2025 netting by 0.01 point. 97% of what sponsors gave CanadaHelps (C$10.16m of C$10.45m) came from a hospital foundation whose line 5864 is blank, so that money is not counted as DAF disbursement [C].
+   Treating it as a tier-B donee instead moves 2025 netting by 0.01 point. 97% of what sponsors gave CanadaHelps (C$10.16m of C$10.45m) came from a hospital foundation whose line 5864 is blank, so that money is not counted as DAF disbursement [C]. That foundation reports one DAF account worth C$0.84m (line 5862), so the gift is about 12 times its DAF assets and cannot be DAF money; the T1236 row may also be misreported [I] [V wave 40B]
 
 ---
 
@@ -271,7 +271,7 @@ Codes split health (0100–0140) and education (0010–0015) charities from foun
 | 2025 | Charities Aid Foundation Canada | C | N | C$20.0m | C$15.8m | C$11.3m | C$1.0m | C$34.2m | DAF_NET_COVERS |
 | 2024 | Jewish Community Foundation of Montreal | A | N | C$1,850.5m | C$2,114.1m | C$213.9m | C$92.5m | C$220.6m | DAF_NET_COVERS |
 
-The others (four in 2025, four in 2024) are small DAF holders (C$0.2m of DAF assets or less): churches, a museum and small charities. All are NEEDS_NON_DAF [C].
+The others (four in 2025, four in 2024) are all NEEDS_NON_DAF [C]. In 2025 they are small DAF holders (C$0.17m of DAF assets or less): a church, a diocese, a museum and a college alumni charity. In 2024 two are small (Parish of St David C$0.23m, the Anglican diocese of British Columbia C$0.02m) and two answered 5860 = Y with line 5862 blank: The Children’s Family House Society of B.C. (line 5900 C$24.0m) and The Ottawa Mission Foundation (C$15.9m) [V wave 40B]
 
 - **Imputed routes for the large no-Schedule-8 sponsors.** In 2025, 2 DAF_NET_COVERS (C$2.53bn of DAF assets) and 5 NEEDS_NON_DAF (C$0.02bn). None is in shortfall [C].
 - **Effect on the parent's DQ table.** About C$2.53bn of the parent's C$2.79bn "NO_SCHEDULE8" DAF assets would sit in DAF_NET_COVERS. The C$2.79bn total is from the parent table; C$2.53bn is from this script, and the comparison is an inference [I]. JCF Montreal (2025 rank 2) joins the top-20 sponsors that meet the DQ from DAF disbursements alone, making 14 of 20 [C/I].
@@ -312,7 +312,7 @@ The others (four in 2025, four in 2024) are small DAF holders (C$0.2m of DAF ass
 | Charity gift cards | Closest: a per-card balance held until redeemed | One later choice by the recipient, not ongoing advice by the donor | Borderline at most |
 
 - **Conclusion** [I]: CanadaHelps' 5860 = N answer is consistent with C18. CanadaHelps owns and controls the gifts, as C18 requires. But its products lack the account structure and ongoing advisory role that define a DAF.
-- **Upper bound on DAF-like balances.** Gift-card balances are not shown separately. They are included in "designated cash … for immediate payment to charities": C$11,019,785 at 2025-06-30, against C$10,028,476 a year earlier and C$8,874,105 at 2023-06-30. C$8,942,124 of the 2025 balance was paid out in July 2025 [F, statements notes 6–7]. Undisbursable funds recognised as revenue were C$348,624 in FY2025 [F].
+- **Upper bound on DAF-like balances.** Gift-card balances are not shown separately, and note 2 names only cards unredeemed after 18 months as included in contributions due to designated charities, so the inclusion stated next is partly inferred; the designated-cash note is note 7 of the FY2025 statements (note 6 of FY2024) [V wave 40B] They are included in "designated cash … for immediate payment to charities": C$11,019,785 at 2025-06-30, against C$10,028,476 a year earlier and C$8,874,105 at 2023-06-30. C$8,942,124 of the 2025 balance was paid out in July 2025 [F, statements notes 6–7]. Undisbursable funds recognised as revenue were C$348,624 in FY2025 [F].
 
 ### 4.3 CanadaHelps in the T3010 open data [C]
 
@@ -351,8 +351,8 @@ Line 5862 proxy = designated cash (proxy b, line 4200, in brackets where it diff
 - **Typing.** Typing rests on names, category codes and the donee's own T1236 recipients; it is not a hand audit.
   - The beneficiary rule can mislabel a multi-purpose foundation whose largest gifts happen to go to a hospital.
   - The residual "other" type holds C$75.4m (2025), and "other_education" includes CanEd Foundation (C$36.0m), whose nature is not established (P-B3946-05).
-  - Disease and research charities (e.g. cancer foundations) count as hospital/health.
-- **Platform detection.** It uses a named list plus one data rule (≥ 1,000 T1236 rows and ≥ 80% pass-through). It found only CanadaHelps and PayPal Giving Fund Canada. Platforms that are charitable organizations (designation C) are outside tier C by construction and so outside this question.
+  - Disease and research charities (e.g. cancer foundations) count as hospital/health only when a name or code rule matches: the Glaucoma Research Society of Canada falls to other. The name rule also types the Senators Community Foundation (an NHL club’s charity; C$0.5m, the largest of the type) as a community foundation. A 20-donee audit found these two mistypes and two debatable residuals (Israel Magen Fund of Canada; a Knights of Columbus charitable trust) [V wave 40B]
+- **Platform detection.** It uses a named list plus one data rule (≥ 1,000 T1236 rows and ≥ 80% pass-through). It found only CanadaHelps and PayPal Giving Fund Canada. It misses CharityEx Foundation (C$2.1m in 2025, typed other; own line 5050 102% of revenue), which fails the 1,000-row test; adding it would move tier BP by about 0.01 point [V wave 40B] Platforms that are charitable organizations (designation C) are outside tier C by construction and so outside this question.
 - **T1236 coverage.** T1236 covers DAF and non-DAF gifts. Transfers stay capped at 5864, which is why a large gift by a sponsor with blank 5864 nets nothing (St Mary's GHF).
 - **Schedule 8 data:**
   - No filing date or filing channel is published, so the paper and lag tests are indirect.
