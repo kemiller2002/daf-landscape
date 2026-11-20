@@ -35,8 +35,8 @@
 
    | Overlay | Rows |
    |---|---|
-   | GREEN (provisional) | 4 |
-   | AMBER | 9 |
+   | GREEN (provisional) | 3 [V wave 42A] |
+   | AMBER | 10 [V wave 42A] |
    | AMBER (low) | 9 |
    | AMBER (RED-boundary) | 1 |
    | AMBER (GREEN-boundary) | 1 |
@@ -54,17 +54,17 @@
    - Fidelity Charitable's Virtual Assistant is an "automated natural language search engine" that asks users not to enter account information ([terms](https://www.fidelitycharitable.org/legal/virtual-assistant.html)).
    - Foundation Source's CEO (2026-10-28) says AI is used internally "as a development tool". He says the firm is "working toward embedding AI into the products", with a roadmap tool that would "surface the strongest candidates for review" among scholarship applicants ([interview](https://pulse2.com/foundation-source-profile-joe-mrak-interview/)). This is the first public sponsor-platform roadmap item that puts AI in **applicant screening**. It is framed as a flag for review.
    - Endaoment has no AI product. Its blog index lists an "AI & Discoverability" release-note section (2026-04) and an "Assistant guide": "A public description of Endaoment is available for assistants to read" (2026-10-28) [R; pages 404].
-4. **Grantmaking software has the best-documented controls. These are the first GREEN-eligible readings in the repo, marked provisional.**
+4. **Grantmaking software has the best-documented controls. These are the first GREEN-eligible readings of vendor AI products in the repo, marked provisional. None is the first GREEN under §7: none is an A1–A5 provider, and v1.0 calibration had already labelled Fidelity Charitable GREEN and Ren/RCF/AEF “GREEN / none” before v1.1 withdrew both [V wave 42A]**
    - **SmartSimple AI Application Analysis.** Results are "inputs to reviewer judgment and not as final determinations". It "does not send grant application data to external AI services", and data "is never used to train AI models". Admins choose which fields are analysed. It is a paid add-on ([help](https://supporthub.smartsimple.com/hc/en-us/articles/40255259635223-AI-Application-Analysis-Overview)).
    - **Fluxx Finn.** It is off by default, with an organisation-level opt-in. Customer data is "never used to train" any AI model. It "keeps humans in the loop". Pricing is "1 credit per dollar" in credit bundles ([Fluxx AI](https://fluxx.io/ai-grants-management-software)).
-   - **YourCause / Blackbaud Grantmaking AI Application Summaries and Form Intelligence.** These are complimentary once the customer opts in. "Final evaluation and decision-making" stays "with the grants team" ([YourCause](https://www.yourcause.com/?p=12324)). Blackbaud's global generative-AI switch is off by default, and the FAQ says Blackbaud does not use customer data "to retrain or improve the underlying model" ([opt-in help](https://webfiles-sc1.blackbaud.com/files/support/helpfiles/admin/content/bb-ai-global-opt-in.html)).
-   - [I] None of these sits in a DAF grant's money path. Under the entity scope rule (§7), they do not change any sponsor's overlay, or the Foundant overlay (AMBER, Fia beta), even though SmartSimple is in the Foundant family.
+   - **YourCause / Blackbaud Grantmaking AI Application Summaries and Form Intelligence.** These are complimentary once the customer opts in. The Blackbaud-wide default is not universal: organisations that “used generative AI before January 7, 2026” stay enabled, and enabling generative AI also enables “external connectors access to your data” unless an admin clears that box. GrantsConnect summaries still have to be switched on by Blackbaud (“Contact your Account Manager or CSM to enable it”). [V wave 42A] "Final evaluation and decision-making" stays "with the grants team" ([YourCause](https://www.yourcause.com/?p=12324)). Blackbaud's global generative-AI switch is off by default, and the FAQ says Blackbaud does not use customer data "to retrain or improve the underlying model" ([opt-in help](https://webfiles-sc1.blackbaud.com/files/support/helpfiles/admin/content/bb-ai-global-opt-in.html)).
+   - [I] None of these sits in a DAF grant's money path. Under the entity scope rule (§7), they do not change any sponsor's overlay. SmartSimple's own FAQ says the Application Analysis service takes data “from within the Foundant application (GLM/SLM, CommunitySuite, GivingData, SmartSimple)”, so it is a Foundant-wide service, but no source shows it in use in a community foundation's DAF workflow. The Foundant overlay stays AMBER because Fia's agents and policy engine have undocumented limits, and §7 has no rule for rating a provider from one GREEN component [V wave 42A]
 5. **Fundraising CRM AI acts on outreach, not on money.**
    - **Blackbaud's Development Agent** "autonomously" runs email and SMS outreach. It claims "human oversight through visibility and escalation" and says "every interaction is logged in real time". Per-message approval is not stated, and pricing is not published ([product](https://www.blackbaud.com/products/blackbaud-development-agent)).
    - **Bloomerang Penny** (beta, 2026-03-31) lets fundraisers "launch campaigns, assign follow-ups, and create donor segments". The only control statement is "built-in guardrails" ([news](https://bloomerang.com/news/bloomerang-penny-ai-fundraising-strategist-nonprofits)).
    - **Bonterra Que.** The first-party principle is "People always make the final decisions" ([blog](https://www.bonterratech.com/blog/meet-bonterra-que)). The per-action rule that it does not send an email, save a record or submit a form without staff approval appears only in a press release this agent could not read [R].
    - **Salesforce Agentforce Nonprofit** (2025-12-02) launched four agents, including Donor Support self-service (beta in spring, GA in summer 2026). The launch post addresses no human-approval, audit or training controls. It offers 10 free licences under Power of Us ([Salesforce](https://www.salesforce.com/news/stories/agentforce-nonprofit-announcement/)).
-   - **Givebutter Magic** (2026-10-01) is the strongest-documented fundraising row. It says "nothing gets sent or published without your approval" and "Givebutter Magic does not process payments", and its connectors "can't create, edit, or delete". Most features are free, and AI custom reports need Givebutter Plus "starts at $29/month" ([recap](https://givebutter.com/blog/the-spread-2026-recap); [Magic](https://givebutter.com/magic)).
+   - **Givebutter Magic** (2026-10-01) is AMBER, not GREEN. Its stretch goals “automatically increase as you raise more” and its suggested amounts are “automatically matched”, so the AI is not flag-only, and its privacy policy says AI tools “review transactions, detect fraud, and assess risk” with undocumented limits. Its AI Addendum (effective 2026-10-01) also says “AI Features are enabled by default”, that AI-assisted fraud detection and Receipt Matching “cannot be disabled”, and that data captured by third-party AI infrastructure services “may be used for AI model training”. [V wave 42A] It says "nothing gets sent or published without your approval" and "Givebutter Magic does not process payments", and its connectors "can't create, edit, or delete". Most features are free, and AI custom reports need Givebutter Plus "starts at $29/month" ([recap](https://givebutter.com/blog/the-spread-2026-recap); [Magic](https://givebutter.com/magic)).
 6. **Charity-data providers ship search and recommendation features with no documented ranking controls.**
    - Charity Navigator's Horizon AI Search (2025-11-24) gives "instant, personalized recommendations" ([release](https://www.charitynavigator.org/about-us/press-release/charity-navigator-launches-ai-horizon-search)).
    - Candid's Claude connector (2025-12) and its 2026 fundraising assistant ("find funders, check eligibility, and draft LOIs") could not be read first-hand because candid.org's robots.txt returned 403 [R].
@@ -98,7 +98,7 @@
 | AIP13 | Fluxx | Finn | 2026-08-04 [R] | Q&A; draft; flag risks | no | no | opt-in, off by default; no training; field control; humans decide | credits | **GREEN (provisional)** |
 | AIP14 | Fluxx | Fluxx MCP | undated | external-agent workflows | not documented | not documented | not documented | included with Finn | AMBER |
 | AIP15 | Submittable | Automated Review | undated | review/score | no evidence | unknown | marketing only | not read | AMBER (unverified) |
-| AIP16 | Blackbaud / YourCause | Application Summaries, Form Intelligence | 2026-07-16 | summarise | no | no | opt-in, off by default; no retraining; humans decide | complimentary | **GREEN (provisional)** |
+| AIP16 | Blackbaud / YourCause | Application Summaries, Form Intelligence | 2026-07-16 | summarise | no | no | opt-in, off by default (organisations using generative AI before 2026-01-07 stay enabled; summaries enabled by Blackbaud on request); no retraining; humans decide [V wave 42A] | complimentary | **GREEN (provisional)** |
 | AIP17 | Blackbaud | Development Agent | 2026-03-17 GA | autonomous outreach | no | no | visibility and escalation; real-time log | no | AMBER |
 | AIP18 | Blackbaud | Chat for Blackbaud AI; M365 Copilot agent; Claude connector | 2025-12-02; 2026-08-10 [R] | chat, draft, insights | no | unclear | opt-in, off by default; AI role; no retraining | Chat included [R] | AMBER |
 | AIP19 | Bonterra | Que | 2025-10-01 | draft; score; agentic | no | prepares only (R) | "People always make the final decisions"; per-action approval [R] | promo only | AMBER (GREEN-boundary) |
@@ -110,7 +110,7 @@
 | AIP25 | Bloomerang | Penny (beta) | 2026-03-31 | recommend; draft; act | no | yes (segments, tasks, campaigns) | "built-in guardrails" only | not stated | AMBER |
 | AIP26 | Bloomerang | Conversational Reporting (alpha); Dataro | 2026-04-27 | reports; lists | no | creates lists | none | not stated | AMBER (low) |
 | AIP27 | DonorSearch (EverTrue) | DonorSearch Ai; Enhanced CORE | not stated | predictive scores | no | no | none | demo only | AMBER (low) |
-| AIP28 | Givebutter | Givebutter Magic | 2026-10-01 | draft; suggest; filter | no ("does not process payments") | limited (auto stretch goals) | approval before send or publish; read-only connectors; training limits | free; Plus $29/month | **GREEN (provisional)** |
+| AIP28 | Givebutter | Givebutter Magic | 2026-10-01 | draft; suggest; filter | no ("does not process payments") | limited (auto stretch goals) | approval before send or publish; read-only connectors; AI on by default; fraud and receipt AI cannot be disabled | free; Plus $29/month | **AMBER** [V wave 42A] |
 | AIP29 | GoFundMe Pro (ex-Classy) | AI ask amounts and nudges | 2025-05-06 | recommend | no | no | not stated | not stated | AMBER (low) |
 | AIP30 | Charity Navigator | Horizon AI Search | 2025-11-24 | search; recommend | not stated | no | not stated | not stated | AMBER (low) |
 
@@ -118,10 +118,10 @@
 - **RED** requires an AI path that completes a money-moving or status-clearing action with no documented sponsor or human approval. None qualifies.
   - The two money-moving paths (AIP01, AIP02) end in sponsor review.
   - Status-changing paths (Chariot, Instrumentl and Bloomerang record writes) act on the customer's own operational records, not on grant eligibility or approval states.
-- **GREEN** requires documented controls, including a flag-only role and authority separation, on a first-party page. All four GREENs are provisional:
+- **GREEN** requires documented controls, including a flag-only role and authority separation, on a first-party page. Three GREENs remain, all provisional; Givebutter Magic moved to AMBER [V wave 42A]:
   - each rests on a single first-party page read once, with no testing;
   - none is a DAF sponsor or rail;
-  - they should be validated before any report text says "first GREEN" (P-B43N25-01).
+  - they should be validated before any report text says "first GREEN" (P-B43N25-01). Validated 2026-11-20: SmartSimple, Fluxx Finn and YourCause hold as GREEN (provisional), and none is the first GREEN under §7 [V wave 42A]
 - **"AMBER (low)"** marks read, search, scoring or drafting features with undocumented controls. **"AMBER (unverified)"** marks a row whose primary pages could not be read.
 - The overlay vocabulary was written for DAF providers. Autonomous **outreach** (Blackbaud Development Agent, Bloomerang Penny) is neither money-moving nor status-clearing in the §7 sense. It is AMBER because limits are undocumented. Its risk is reputational and privacy-related (F09-type), not 4966/4967-type.
 
@@ -135,8 +135,8 @@
 | Sponsor approval downstream of AI | GiveClear 48-h review (AIP01); Daffy approval "at its sole discretion" (AIP02) | — |
 | Audit or activity log | Blackbaud Development Agent ("every interaction is logged"); Daffy (activity in app; CSV statement); Chariot (donation activity log) | TIFIN Louise; Bloomerang; Salesforce; Fluxx MCP |
 | Agent identity on transactions | none | Daffy (no agent field: AGM-10); TIFIN |
-| Opt-in, off by default | Blackbaud (global generative-AI switch); Fluxx Finn; SmartSimple (vendor must enable) | Bloomerang; Salesforce |
-| No training on customer data | Blackbaud; Fluxx; SmartSimple; Instrumentl; Givebutter (third-party models; own models de-identified only) | TIFIN; Daffy; Bloomerang; Salesforce (not in launch source); DonorSearch (models train on the client's own data) |
+| Opt-in, off by default | Blackbaud (global generative-AI switch; organisations that used generative AI before 2026-01-07 stay enabled; GrantsConnect summaries enabled by Blackbaud); Fluxx Finn; SmartSimple (vendor must enable) | Bloomerang; Salesforce; Givebutter (AI on by default; fraud and receipt AI cannot be disabled) [V wave 42A] |
+| No training on customer data | Blackbaud; Fluxx; SmartSimple; Instrumentl; Givebutter (third-party models; own models de-identified only; observability and fraud-tool data “may be used for AI model training”) [V wave 42A] | TIFIN; Daffy; Bloomerang; Salesforce (not in launch source); DonorSearch (models train on the client's own data) |
 | Data stays in vendor environment | SmartSimple (no external AI services; EU data stays in EU); Fluxx (AWS Bedrock; masking) | Givebutter: "Some built-in AI features send relevant personal data to external AI providers" |
 
 ---
@@ -209,7 +209,7 @@
 | S36 | Dataro–Bloomerang | partner blog | 2026 | search index only | https://dataro.io/blog/dataro-bloomerang-predictive-donor-intelligence-2026 |
 | S37 | DonorSearch Ai | vendor page | undated | 2026-11-15 | https://www.donorsearch.net/solutions/donorsearch-ai/ |
 | S38 | EverTrue acquires DonorSearch | vendor news | 2025-10 [R] | search index only | https://www.donorsearch.net/resources/evertrue-acquires-donorsearch-to-give-fundraisers-more-intelligence-more-capacity-and-more-time-for-relationships/ |
-| S39 | Givebutter Spread 2026 recap | vendor blog | 2026-10-01 | 2026-11-15 | https://givebutter.com/blog/the-spread-2026-recap |
+| S39 | Givebutter Spread 2026 recap | vendor blog | 2026-10-02 (event 2026-10-01) [V wave 42A] | 2026-11-15 | https://givebutter.com/blog/the-spread-2026-recap |
 | S40 | Givebutter Magic page | vendor page | undated | 2026-11-15 | https://givebutter.com/magic |
 | S41 | GoFundMe Pro launch | vendor newsroom | 2025-05-06 | 2026-11-15 | https://www.gofundme.com/c/newsroom/40-billion-raised-launches-gofundme-pro |
 | S42 | GoFundMe Pro homepage | vendor page | undated | 2026-11-15 | https://pro.gofundme.com/ |

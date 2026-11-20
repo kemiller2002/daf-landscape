@@ -24,9 +24,9 @@ The pool being replaced is [`b4501-04-tail-fee-pool-revision.md`](b4501-04-tail-
 | **(B) Share of tail CFs that show a fee on the 990** | All 641 tail CFs have at least one FY2022–24 Form 990 read (2,657 returns FY2021–24, none missing from the mirror). **292 (46%) show some administrative or management fee item. 47 (7%) are classed as disclosing an internal fee charged to their own funds.** 245 show only agency-worded (21) or unstated-base (224) lines, and 349 show none [C]. Visible fees become more common with size: 39% under $1m of DAF assets, 45% at $1m–10m, 54% at $10m–50m. The internal share is flat at 7–8% [C]. | High on counts; medium on the internal/other split (wording rules) |
 | **Realised internal-fee rates and size** | Internal fee ÷ average total assets, pooled FY2022–24, median 102 bps (IQR 71–136; n = 47). **Rates fall with size.** By DAF band, the medians of complete-capture CFs are **134 bps (under $1m DAF; n = 10), 112 bps ($1m–10m; n = 18) and 73 bps ($10m–50m; n = 13)**. By total assets: 122, 132, 92, 83 and 53 bps from under $10m to $100m and over. Spearman ρ (total assets vs rate) = −0.43, n = 47 [C]. | Medium (small n per band) |
 | **Publisher vs non-publisher, size-controlled** | The two internal-fee publishers, Hutchinson (83.2 bps) and Licking (69.7 bps), are both in the $10m–50m DAF band, whose median is 72.7 bps. **They charge what their size band charges.** The census-level gap (publishers 76 bps vs non-publishers 103) is a size effect, as wave 41B suspected [C; I on the reading]. | Medium (n = 2 publishers) |
-| **Realised-rate CF pool (replaces the schedule-based pool)** | Method: each CF at its own internal rate where observed with complete capture, otherwise its band median, applied to FY2024 DAF assets. **Central $49.4m (81 bps on $6.10bn).** Range **$38.5m–$61.5m** (band Q1–Q3); seeded bootstrap 90% interval $42.9m–$58.0m [C on that assumption]. Hard floor (only the 47 internal disclosers, at their own rate): $3.2m. The schedule-based CFs-only central ($89.9m, 147 bps) is 1.8× the realised central. | Low–medium: all-fund rates applied to DAF assets (§5) |
+| **Realised-rate CF pool (replaces the schedule-based pool)** | Method: each CF at its own internal rate where observed with complete capture, otherwise its band median, applied to FY2024 DAF assets. **Central $49.4m (81 bps on $6.10bn).** Range **$38.5m–$61.5m** (band Q1–Q3); seeded bootstrap 90% interval $42.9m–$58.0m [C on that assumption]. Hard floor (only the 47 internal disclosers, at their own rate): $3.2m. Own observed rates supply $3.0m of the central; $46.4m (94%) is band-median imputation, $23.8m of it on the 349 CFs that show no fee line [V wave 42A] The schedule-based CFs-only central ($89.9m, 147 bps) is 1.8× the realised central. | Low–medium: all-fund rates applied to DAF assets (§5) |
 | **(A) Do non-CF tail sponsors charge like CFs?** | **Not on the 990 evidence.** 6 of the 29 non-CF census sponsors (21%) show any fee line, against 22 of the 31 census CFs (71%). **None of the six can be classed as an internal fund fee from its wording** [C]. The visible lines are large where they exist: National Boy Scouts of America Foundation "Admin Fees" $5.15m (184 bps of total assets); United Methodist Foundation of Louisiana "Trustee Management Fees" $3.11m (214 bps); United Way of the Mid-Willamette Valley $428k (202 bps). Their bases (trusts, council endowments) are not stated. 23 of 29 show no fee line, including both colleges, the University of Florida Foundation, and Cal Poly Pomona (which publishes a 2% schedule). On Schedule D Part V, 13 non-CFs charge endowments a median 95 bps of administrative expense, against 116 bps at 16 census CFs [C]. | Low–medium (n = 29; $173m of $3.08bn) |
-| **Whole-tail realised pool** | **$49.4m if non-CFs charge nothing, $74.3m if they realise the CF central rate** (81 bps). Adjusting the second figure by the disclosure ratio (21% / 71% = 0.29) gives **$56.7m [I]**. Whole-tail range: $38.5m–$92.5m. The schedule-based whole-tail central ($138m) is not supported: its CF half is about 1.8× the realised CF rate, and its non-CF half has no realised evidence of CF-type charging [C; I]. | Low |
+| **Whole-tail realised pool** | **$49.4m if non-CFs charge nothing, $74.3m if they realise the CF central rate** (81 bps). Adjusting the second figure by the disclosure ratio (21% / 71% = 0.29) gives **$56.7m [I]**. Whole-tail range: $38.5m–$92.5m. The schedule-based whole-tail central ($138m) is not supported: its CF half is about 1.8× the realised CF rate, and its non-CF half has no realised evidence of CF-type charging [C; I]. The realised figures use all-fund rates, a floor-type basis for DAF fees, so the schedule CF figure ($89.9m) stays a list-price ceiling rather than being refuted [V wave 42A] | Low |
 
 ---
 
@@ -69,7 +69,7 @@ First match wins. The quoted wording is in `capture_basis`.
 | 2. Fee item worded as charged to own funds: internal, interfund, component, endowment, nonoperating funds, from funds, fund admin, funds held, designated, donor advised / DAF | internal | 9 |
 | 3. Schedule D Part XI 2d fee item not worded as agency (in audited revenue, not on Part VIII: an eliminated interfund fee) | internal | 11 |
 | 4. A Part VIII fee line matched in the same year by a Part IX line 24 fee expense within 10%, where the expense is not agency-worded (an interfund gross-up) | internal | 19 |
-| 5. Agency, external, charged to others, third party, other organisations, fiscal sponsorship/"sponsored", property, rental | agency | 21 |
+| 5. Agency, external, charged to others, third party, other organisations, fiscal sponsorship/"sponsored", property, rental | agency | 19 (21 with the 2 agency readings under rule 1) [V wave 42A] |
 | 6. A fee line whose base is not stated | unknown | 224 |
 | 7. No fee item FY2022–24 | none visible | 349 |
 
@@ -83,7 +83,7 @@ First match wins. The quoted wording is in `capture_basis`.
 - Keokuk (83.5 vs 185.8);
 - one "Community Foundation of the …" (154.6 vs 979.5).
 
-The pool's central case sets their own rates aside and gives them their band median instead.
+The pool's central case sets their own rates aside and gives them their band median instead. The flag is mechanical: the “Community Foundation of the …” rate (154.6 bps) is above its band median (134.2) and is set aside only because its Part V rate (979.5 bps) is implausible, as is Door County's (429.0) [V wave 42A]
 
 ### 1.4 Rates [C]
 - **Pooling.** Rates are pooled over the FY2022–24 years in which the fee is visible. A blank year at a CF that discloses in other years counts as non-disclosure, not as zero (as in b4427b-b4501).
@@ -101,7 +101,7 @@ The pool's central case sets their own rates aside and gives them their band med
   - Internal disclosers only, at their own rate; everyone else zero.
   - Any visible fee, at the CF's own visible rate.
 - **Proxy.** The band median Part V rate.
-- **Non-CF scenarios** on $3,079.4m:
+- **Non-CF scenarios** on $3,078.8m (the tail CSV total for 599 non-CF sponsors) [V wave 42A]:
   - zero;
   - a non-CF realised rate (not estimable: n = 0 internal);
   - the CF central implied rate (the whole-tail assumption);
@@ -197,7 +197,7 @@ Including the 6 partial captures gives 70.6 / 103.0 / 137.4 bps, with a much low
 | *b4427b-b4501 floor-type figure (8 CFs, flat 103 bps)* | *62.9* | *103.1* |
 
 **[I] Reading.**
-- Size control matters because tail CF DAF assets sit mostly in the $10m–50m band (80%), which realises the lowest rates. The flat 8-CF figure ($62.9m) and the flat 41-CF median ($66.4m) both overstate the size-banded central by about a third.
+- Size control matters because tail CF DAF assets sit mostly in the $10m–50m band (80%), which realises the lowest rates. The flat 8-CF figure ($62.9m) and the flat 41-CF median ($66.4m) overstate the size-banded central by 27% and 34% respectively [V wave 42A]
 - The realised central replaces the schedule-based $89.9m as the evidence-based figure for what tail CFs actually collect at all-fund rates. The schedule figure remains a ceiling-type reference for DAF list prices (§5).
 
 ---
@@ -219,12 +219,12 @@ Including the 6 partial captures gives 70.6 / 103.0 / 137.4 bps, with a much low
 
 | Sponsor | Category | Fee line(s) FY2022–24 | ÷ avg TA | Why not classed internal |
 |---|---|---|---|---|
-| National Boy Scouts of America Foundation | single-issue | "Admin Fees" $1,459,026 / $3,010,049 / $676,349 | 184.5 | Base not stated (council endowments and trusts possible); Part V 162 bps |
-| United Methodist Foundation of Louisiana | religious | "Trustee Management Fees" $1,098,101 / $1,120,165 / $887,808 | 214.4 | Trustee fees on trusts or church funds; base not stated |
-| United Way of the Mid-Willamette Valley | single-issue | "Administrative Fees" $117,062 / $211,824 / $99,325 | 201.8 | Base not stated; holds no DAF assets in FY2024 |
-| Educational Foundation of … | university | "FEE INCOME" $120,145 / $121,681 / $129,852 | 59.2 | Base not stated |
-| The Astraea Foundation | single-issue | "ADMINISTRATIVE FEES" $172,666 / $37,412 / $550 | 25.5 | The matching expense is "SPONSORED ADMIN FEES", i.e. fiscal sponsorship |
-| Jewish Federation Foundation of Greater … | religious | "MANAGEMENT FEE INCOME" $2,797 / $6,549 / $6,843 | 0.7 | Tiny; base not stated |
+| National Boy Scouts of America Foundation | single-issue | "Admin Fees" $676,349 / $1,459,026 / $3,010,049 (FY2022 / FY2023 / FY2024) [V wave 42A] | 184.5 | Base not stated (council endowments and trusts possible); Part V 162 bps |
+| United Methodist Foundation of Louisiana | religious | "Trustee Management Fees" $887,808 / $1,098,101 / $1,120,165 [V wave 42A] | 214.4 | Trustee fees on trusts or church funds; base not stated |
+| United Way of the Mid-Willamette Valley | single-issue | "Administrative Fees" $99,325 / $117,062 / $211,824 [V wave 42A] | 201.8 | Base not stated; holds no DAF assets in FY2024 |
+| Educational Foundation of … | university | "FEE INCOME" $121,681 / $129,852 / $120,145 [V wave 42A] | 59.2 | Base not stated |
+| The Astraea Foundation | single-issue | "ADMINISTRATIVE FEES" $172,666 / $550 / $37,412 [V wave 42A] | 25.5 | The matching expense is "SPONSORED ADMIN FEES", i.e. fiscal sponsorship |
+| Jewish Federation Foundation of Greater … | religious | "MANAGEMENT FEE INCOME" $6,843 / $6,549 / $2,797 [V wave 42A] | 0.7 | Tiny; base not stated |
 
 ### 4.3 What the test shows [I]
 1. **Non-CFs are far less likely to show any fee revenue.** The figures are 21% against 71% for CFs drawn by the same census.
@@ -236,7 +236,7 @@ Including the 6 partial captures gives 70.6 / 103.0 / 137.4 bps, with a much low
 
 ### 4.4 Whole-tail realised pool [C on each assumption]
 
-| Non-CF assumption (non-CF tail DAF assets $3,079.4m) | Central $m | Low $m | High $m |
+| Non-CF assumption (non-CF tail DAF assets $3,078.8m) [V wave 42A] | Central $m | Low $m | High $m |
 |---|---|---|---|
 | Non-CFs charge nothing | 49.4 | 38.5 | 61.5 |
 | Non-CFs at a non-CF realised internal rate | not estimable (n = 0) | | |
@@ -258,9 +258,9 @@ Including the 6 partial captures gives 70.6 / 103.0 / 137.4 bps, with a much low
    - The fee ÷ DAF balance ceiling (CSV) is far higher. The truth lies between the two.
 2. **Classification by wording.**
    - 47 internal CFs is a floor; 94 high-rate "unknown" CFs probably also charge internal fees (§3.4).
-   - The matched-expense rule (19 CFs) treats an equal fee expense as an interfund gross-up. A pass-through, such as Greene's EITC fee, would look the same unless named; only EITC/tax-credit wording is screened.
+   - The matched-expense rule (19 CFs) treats an equal fee expense as an interfund gross-up. A pass-through, such as Greene's EITC fee, would look the same unless named; only EITC/tax-credit wording is screened. Nine of the 19 matches are approximate (the expense is 1.4%–9.2% off the fee), and Beaver County's matched line is “TRUST MANAGEMENT FEES”, which may be a trustee pass-through. Excluding all 19 lowers the central to $32.2m (top-band median 38.9 bps), so rule 4 is the pivot of the central [V wave 42A]
    - Rule 3 treats non-agency Part XI fee items as interfund.
-3. **Partial capture.** The flag needs a Part V figure, and only 32 of the 47 internal CFs report one. Captures that are partial but unflagged remain in the band rates, which biases them down.
+3. **Partial capture.** The flag needs a Part V figure, and only 32 of the 47 internal CFs report one. Captures that are partial but unflagged remain in the band rates, which biases them down. Five unflagged internal CFs with no Part V figure realise under 30 bps (Aspen 2.8; Gulf Coast 16.1; Central Montana 25.6; two others at 8.7 and 21.3); treating them as partial raises the central to $56.8m [V wave 42A]
 4. **Small bands.** n = 13, 18 and 10 complete-capture CFs per band. The bootstrap interval ($42.9m–$58.0m) reflects that sampling only, not classification error.
 5. **Total assets include operating assets**, real estate and split-interest assets, which lowers rates at CFs with large non-fund balances.
 6. **Part A sample.** 29 sponsors, 5.6% of non-CF tail DAF assets, drawn by the census strata. Two (IDACORP, GlobalTrust) are near-zero DAF hosts, and GlobalTrust has only one FY2022–24 return read.

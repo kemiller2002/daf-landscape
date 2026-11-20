@@ -28,7 +28,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 - **Non-cash intake vendors.** Their claims far exceed what the affiliated charities file. FreeWill pays at most about 1,000 organisations against its claim of 55,000. The Giving Block's figures contradict each other.
 - **DPN.** Counted in neither the sponsor nor the processor totals; it appears as a memo line.
 - **Filing-break screen.** Only two breaks above $250m: NPT FY2023 and Dechomai FY2021. As a sensitivity only, FY2023 would be $261.69bn and FY2021 $234.79bn.
-- **Tail fees.** Non-publishing tail community foundations do charge, at about 70–129 bps all-fund, with size a confound. The community-foundation pool is about $63–90m. The non-CF step is untested.
+- **Tail fees.** Non-publishing tail community foundations do charge, at about 70–129 bps all-fund, with size a confound. The community-foundation pool is about $49m on realised all-fund rates across all 641 tail CFs ($38.5m–$61.5m), with $90m as a published-schedule ceiling. Non-CFs rarely show fees (6 of 29 sampled; none worded as an internal fund fee), so the whole tail realises about $49m–$74m, not $138m [V wave 42A]
 - **Recipient DAF share, coverage gap decomposed.** Central estimate 9.2% of line 1h and 13.7% of 1h−1d−1e. The assumption range is 8.8–9.4% and 13.2–14.1%.
 - **Manual improvement (A), calibrated to the NAO casework evidence [I].** Under AI assistance, A is still the modal choice in 6 of 15 processes. Under A01 routing at m ≈ 1.8, AI is modal in 5 processes and A in 1.
 
@@ -182,7 +182,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 | Industry report | §11.1–§11.38 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
 
 **Additions in PR #58 (validated; report §11.36–§11.38):**
-- **Tail admin-fee pool.** CFs-only central estimate is about $90m. The whole-tail figure of about $138m is an upper bracket, with a range of $76m–$184m, replacing the $92m hypothetical. Non-publishing tail CFs do charge (7 of 25 sampled disclose internal fees at 70–129 bps of total assets), giving a floor-type CF pool of about $63m; non-CF charging is untested [V wave 41B]
+- **Tail admin-fee pool.** CFs-only central estimate is about $90m. The whole-tail figure of about $138m is an upper bracket, with a range of $76m–$184m, replacing the $92m hypothetical. Non-publishing tail CFs do charge (7 of 25 sampled disclose internal fees at 70–129 bps of total assets), giving a floor-type CF pool of about $63m; non-CF charging is untested [V wave 41B]. Superseded: size-banded realised all-fund rates across all 641 tail CFs give $49.4m ($38.5m–$61.5m; 94% imputed from band medians), and the whole tail $49.4m–$74.3m central ($38.5m–$92.5m) because only 6 of 29 sampled non-CFs show any fee line (b4427b-0405) [V wave 42A]
 - **Schedule I purpose text cannot measure donor restrictions.** About half of dollars carry generic text, about half carry sector labels, and about 1–2% have a specific purpose.
 - **Ren acknowledgement defaults track guide vintage.** The evidence shows neither a sponsor setting nor a platform limit.
 - **Adviser-managed assets.** The share is 46.9% at Fidelity Charitable and 0% at Vanguard. DAFgiving360 is only bracketed and NPT cannot be estimated.
