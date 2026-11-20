@@ -137,7 +137,7 @@
 
 **Reading [I]**
 - On assets, about four-fifths of AUM's balance sheet sits outside DAFs in both years. That fits a host whose fiscally sponsored projects and pooled funds hold most of the money.
-- On flows, FY2024 looks almost entirely DAF: 95% of contributions and 98% of grants. But the closing DAF balance is $111m below what those flows imply. This is consistent with DAF balances being moved to projects or pooled funds as internal transfers that Schedule D does not report as grants, or with a reclassification. The returns do not say which (P-G05030302-01).
+- On flows, FY2024 looks almost entirely DAF: 95% of contributions and 98% of grants. But the closing DAF balance is $111m below what those flows imply. This is consistent with DAF balances being moved to projects or pooled funds as internal transfers that Schedule D does not report as grants, or with a reclassification. The balance sheet points the same way: FY2024 net assets rose $130.8m while the filed DAF value rose $28.7m, so non-DAF net assets grew about $102.0m, against only $14.6m of non-DAF contributions less grants implied by Schedule D. Most of the gap therefore sits in non-DAF funds, which favours the assets basis. [V wave 44B] The returns do not say which (P-G05030302-01).
 - Staff (40 → 76), program spending beyond grants ($22–27m) and project-consulting contracts show an operating fiscal-sponsorship business, not a pure grant pass-through.
 
 ### 2.2 The $58.0m of top-50 lines [C]
@@ -207,7 +207,7 @@ The full scenario × scope grid is in the CSV (`proxy_scenario` rows).
 2. **Keep it in the de facto fiscal-sponsor set**, now on three kinds of evidence: the filers' FBO lines, the filer's own Part III ("Fiscally sponsored projects"), and the Seattle Foundation purpose text ("… FISCAL SPONSORSHIP.").
 3. **But report the hybrid range.** Under the EIN-keyed rule every AUM line counts as fiscal-sponsor flow, which overstates it. The defensible statement is:
    - de facto addition **$114.6m headline**;
-   - **$67.0m–$102.5m hybrid-adjusted**: AUM's non-DAF remainder on the grants and assets bases. The assets basis is preferred because it is the W2 basis and does not depend on the broken FY2024 Schedule D flows;
+   - **$102.5m on the assets basis**: AUM’s non-DAF remainder at its W2 share. The $67.0m and $70.5m flow-based variants rest on the FY2024 Schedule D that does not roll forward and are sensitivities only. All of these sit inside the validated wave-43B range of $35.1m–$114.6m, whose low end drops all three DAF-sponsor hybrids. The non-DAF remainder also holds AUM’s pooled and unrestricted funds, so it is an upper bound on fiscal-sponsorship flow. [V wave 44B] The assets basis is preferred because it is the W2 basis and does not depend on the broken FY2024 Schedule D flows;
    - **$56.6m floor** without AUM.
    - Every variant leaves the core union at 7.78–7.79% of lines and 11.67–11.73% of dollars.
 4. The choice is **immaterial to the headline proxy**: ≤ 0.07 pp on every pooled share, and ≤ 0.09 pp on any sponsor-type share (the largest move is community foundations' broad ex-DAF-to-DAF dollar share).
@@ -239,7 +239,7 @@ The full scenario × scope grid is in the CSV (`proxy_scenario` rows).
 | Latest available (FY2025 for 21, FY2024 for 29) | 50 | **$1,013,139,699** | **$974,039,699** | 3.86% | $1,011.6m → $972.5m | 1.666% → 1.603% |
 
 - **FY2025 coverage.** 24 of the 50 top-50 sponsors have a FY2025 Form 990 (tax period ending in 2025) in the TEOS index files for 2025–2026. The other 26 are mainly calendar-year filers whose returns for December 2025 are not yet posted.
-- Three of the 24 returned HTTP 404 on the mirror: Boston Foundation, Jewish Community Federation of San Francisco and UCLA Foundation (P-G05030302-04).
+- Three of the 24 returned HTTP 404 on the mirror: Boston Foundation, Jewish Community Federation of San Francisco and UCLA Foundation (P-G05030302-04). All three are in the IRS TEOS bulk file 2026_TEOS_XML_05B. Adding them gives 24 sponsors with $687.8m on line 3 with the NPT line and $648.7m without it (the line is 5.68%); the foreign share of grants is 1.634% with the line and 1.543% without. [V wave 44B]
 - The same 21 sponsors filed $726.0m on line 3 in FY2024. Their FY2025 total is lower, even with the NPT line, mainly because NPT fell from $410.6m to $310.5m.
 - The splice mixes years and is shown only because the task asks for the latest available data. The like-for-like figures are the FY2024 row and the FY2025 subset.
 

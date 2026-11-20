@@ -114,7 +114,7 @@ GOV_NAME = (
                                     r"COUNTY|MUNICIPALITY|CITY COUNCIL|PARKS? (AND|&) REC|RECREATION DEPARTMENT|"
                                     r"PUBLIC LIBRARY|LIBRARY DISTRICT|FIRE DEPARTMENT|FIRE DEPT|FIRE DISTRICT|"
                                     r"POLICE DEPARTMENT|POLICE DEPT|SHERIFF|PARK DISTRICT|HOSPITAL DISTRICT|"
-                                    r"HEALTH DISTRICT|WATER DISTRICT|PORT AUTHORITY|HOUSING AUTHORITY)\b")),
+                                    r"HEALTH DISTRICT|WATER DISTRICT|PORT AUTHORITY|HOUSING AUTHORITY)\b|\bCITY$")),
     ("state_or_federal", re.compile(r"\b(STATE OF|COMMONWEALTH OF|DEPARTMENT OF|DEPT OF|UNITED STATES|U S |"
                                     r"NATIONAL PARK SERVICE|TREASURER|GOVERNMENT|GOVT|TRIBE|TRIBAL|NATION OF|"
                                     r"VETERANS AFFAIRS|STATE PARKS?)\b")),
@@ -391,7 +391,8 @@ def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping, tok_i
         return out("invalid_or_typo", "unassigned_ein_prefix")
     if has_trace and sim_trace is not None and sim_trace < NAME_BAD and tm["best"]:
         return out("invalid_or_typo", "ein_belongs_to_other_org_name_in_bmf")
-    if not has_trace and tm["best"]:
+    religious = any(RELIGIOUS.search(norm(n)) for n in p["names_filed"])
+    if not has_trace and tm["best"] and (not religious or tm["how"] == "neighbour_ein_name_match"):
         return out("invalid_or_typo", ("typo_" if tm["hamming"] is not None and tm["hamming"] <= 2 else "wrong_ein_")
                    + tm["how"])
     if rev_live:
@@ -411,10 +412,10 @@ def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping, tok_i
         return out("unresolved", "revoked_then_reinstated_not_in_bmf")
     if ev["idx"] or ev["epost"] or ev["pub78"]:
         return out("unresolved", "has_irs_filings" if ev["idx"] else "epostcard_only" if ev["epost"] else "pub78_only")
-    if tm["how"] in ("exact_name_ambiguous_in_state", "fuzzy_name_ambiguous_in_state", "exact_name_other_state_only"):
-        return out("unresolved", "no_irs_trace_" + tm["how"])
-    if any(RELIGIOUS.search(norm(n)) for n in p["names_filed"]):
+    if religious:
         return out("unresolved", "no_irs_trace_religious_name")
+    if tm["how"]:
+        return out("unresolved", "no_irs_trace_name_in_bmf_" + tm["how"])
     return out("unresolved", "no_irs_trace_other")
 
 
