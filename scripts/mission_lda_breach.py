@@ -435,13 +435,25 @@ def pdf_text(path: str) -> str:
         return ""
 
 
+def involved_section(text: str) -> str:
+    t = re.sub(r"\s+", " ", text or "")
+    m = re.search(r"what information was involved\??(.{0,700}?)(?:what we are doing|what you can do|$)", t, flags=re.I)
+    return m.group(1).strip() if m else ""
+
+
 def data_types(text: str) -> list[str]:
-    return [k for k, p in DATA_TYPES if re.search(p, text or "", flags=re.I)]
+    sec = involved_section(text)
+    if not sec:
+        return ["(no 'What information was involved' section found)"]
+    merge = ["(data elements are a mail-merge field in the posted sample: " + "; ".join(re.findall(r"<<[^>]+>>", sec)) + ")"] \
+        if "<<" in sec else []
+    return [k for k, p in DATA_TYPES if re.search(p, re.sub(r"<<[^>]+>>", " ", sec), flags=re.I)] + merge
 
 
 def count_snippets(text: str) -> list[str]:
     t = re.sub(r"\s+", " ", text or "")
-    pats = r"[^.]{0,160}\b\d[\d,]*\b[^.]{0,40}(?:Vermont|resident|individual|customer|person|people|participant)s?[^.]{0,120}\."
+    pats = r"[^.]{0,120}\baffected \d[\d,]* (?:Vermont|resident|individual|customer|person|people|participant)s?[^.]{0,80}\.|" \
+           r"[^.]{0,120}\b\d[\d,]* Vermont residents?[^.]{0,80}\."
     return [m.strip() for m in re.findall(pats, t, flags=re.I)][:6]
 
 
@@ -538,7 +550,7 @@ def run_breach(root: str, get: Callable, cache: str, outdir: str, robots: Sequen
                  "evidence": " | ".join(f"{k}: {v}" for k, v in r.items())} for nid, r in tab_hits]
                + [{"notice_id": nid, "register": "Vermont AGO (archived notices, PDF posted)",
                    "register_status": "listed", "register_entry_title": a["title"],
-                   "entity_named": re.sub(r"^\d{4}-\d{2}-\d{2}\s*|\s*-\s*(Data|Date|Security) Breach.*$", "", a["title"]),
+                   "entity_named": re.sub(r"^\d{4}-\d{2}-\d{2}\s*|\s*-?\s*(Data|Date|Security) Breach.*$", "", a["title"]),
                    "date_reported_or_posted": (re.match(r"\d{4}-\d{2}-\d{2}", a["title"]) or [""])[0],
                    "number_affected_state": "", "number_affected_stated_in_notice": " || ".join(count_snippets(docs[a["href"]]["text"])),
                    "data_types_register": "", "data_types_in_notice_text": "; ".join(data_types(docs[a["href"]]["text"])),
