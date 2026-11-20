@@ -266,7 +266,8 @@ def fy2025_returns(index_rows: Iterable[Mapping], eins: frozenset) -> dict:
 # ----------------------------------------------------------------------------- loaders (I/O)
 def xml_index(dirs: Sequence[str]) -> dict:
     found = tuple((os.path.basename(p).replace("_public", "")[:-4], p)
-                  for d in dirs for p in sorted(glob.glob(os.path.join(d, "*.xml"))))
+                  for d in dirs for p in sorted(glob.glob(os.path.join(d, "*.xml")))
+                  if os.path.getsize(p) > 5000)   # skips cached S3 error stubs (a few hundred bytes)
     return dict(reversed(found))   # first directory listed wins
 
 
@@ -423,7 +424,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     ex_npt24 = mfg.load_extract(NPT_FY2024, a.extract_cache, {o: p for o, p in paths.items() if o == NPT_FY2024}, a.fetch)
     npt25 = npt_part2(ex25.get(NPT, {}))
     npt24 = npt_part2(ex_npt24)
-    ok25 = {e: x for e, x in ex25.items() if x.get("status") == "ok"}
+    ok25 = {e: x for e, x in ex25.items() if x.get("status") == "ok" and (x.get("ix") or {}).get("l1") is not None}
     l3_25 = {e: (x.get("ix") or {}).get("l3") or 0.0 for e, x in ok25.items()}
     p2_25 = {e: sum(num(g.get("CashGrantAmt")) or 0.0 for g in x.get("part2", ())) for e, x in ok25.items()}
     tg_25 = {e: sum((x.get("ix") or {}).get(k) or 0.0 for k in ("l1", "l2", "l3")) for e, x in ok25.items()}
@@ -523,7 +524,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     rows += [row("foreign_fy2025_sponsor", "B", e, 2025, "l3|part2|total_grants|fy2024_l3",
                  f"{round(l3_25[e])}|{round(p2_25[e])}|{round(tg_25[e])}|{round(fy24_l3.get(e, 0))}", "usd", f"rank {rank[e]}; tax period {r25[e][0]}; via {ok25[e].get('via', '')}",
                  "F", U(r25[e][1])) for e in sorted(ok25, key=lambda e: rank[e])]
-    rows += [row("foreign_fy2025_sponsor", "B", e, 2025, "status", ex25[e].get("status"), "text", "", "C", U(r25[e][1]))
+    rows += [row("foreign_fy2025_sponsor", "B", e, 2025, "status", ex25[e].get("status") if ex25[e].get("status") != "ok"
+                 else "empty_extract", "text", "", "C", U(r25[e][1]))
              for e in sorted(set(ex25) - set(ok25))]
     write_csv(a.out, rows, FIELDS)
 
