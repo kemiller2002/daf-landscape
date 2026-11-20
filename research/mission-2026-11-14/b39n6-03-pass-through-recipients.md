@@ -196,7 +196,7 @@ Own 990s, tax years 2023 + 2024 pooled:
 - **Hand subtypes and channel notes are judgement** [I]. Each carries its basis in the CSV.
 - **Timing.** Sponsor fiscal years and recipient tax years differ, so ratios are pooled over two years.
 - **Six EINs are timing-flagged**, with DAF $ greater than contributions: Breakthrough Energy Catalyst, Connecticut Project, Homewise, Primary School, Worthington, XQ. Their ratios are not interpreted (P-B39N603-04).
-- **Onward ratios are not DAF-specific.** The 990 does not separate DAF-sourced contributions. The ratio says the organisation as a whole passes money on.
+- **Onward ratios are not DAF-specific.** The 990 does not separate DAF-sourced contributions. The ratio says the organisation as a whole passes money on. It is also an accrual measure. Unconditional pledges are booked as contributions when made, and grants when committed, so multi-year pledges distort two-year ratios. Blue Meridian carried $2.05–2.40bn of net assets over these years (composition not read). Its 1.69 is therefore a draw-down of money booked earlier, not same-period pass-through. Without Blue Meridian the core-10 ratio is 0.78. [V wave 46B]
 - **Raw HTML only.** JS-injected widgets would be missed. The original scan rendered with headless Chrome and also found no donate link for these homepages.
 - **Pages not read:**
   - off-host redirects were not followed into content (UCLA, Bright Funds, the LDS donations sign-in);
@@ -206,7 +206,7 @@ Own 990s, tax years 2023 + 2024 pooled:
 - **Unread data:**
   - Stand Together Trust files its Schedule I as one "SEE ATTACHED" line ($272.2m), so its recipients and intra-set flows are unknown;
   - Bright Funds files Part IX grants with no Schedule I Part II lines.
-- **2021+ only:** all filings are tax years 2023–2024; all pages were read 2026-11-20.
+- **2021+ only:** all filings are tax years 2023–2024; all pages were read 2026-11-20. Here ‘tax year’ means the year in which the return period ends. For fiscal-year filers the IRS TaxYr is one earlier. Blue Meridian’s returns (years to 30 September 2023 and 2024) and Homewise’s (years to 31 March 2023 and 2024) are TaxYr 2022 and 2023. Charter School Growth Fund (Charter Fund Inc) filed a 990-PF for 2023 and a 990 for 2024, so its 2023 inflow is 990-PF Part I line 1. [V wave 46B]
 
 ## 5. Reproduction
 

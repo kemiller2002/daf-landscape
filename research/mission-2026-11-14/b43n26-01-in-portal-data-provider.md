@@ -29,17 +29,17 @@ Labels: **[F]** first-party or vendor text fetched in this run. **[C]** repo rec
 | NCF | not found | — | Own list: "Search from thousands of charities – already researched and approved" |
 | JCF | not found | — | Outbound links only (GuideStar, CN, BBB WGA and others) |
 | Raymond James Charitable | not found | — | Hosts' robots.txt timed out |
-| Chicago Community Trust | not found | — | Portal "Powered by The GiftingNetwork"; free-text "Organization Name" field |
+| Chicago Community Trust | not found | — | (portal-guide evidence withdrawn on robots grounds) |
 | **CF portals generally** | **Candid (GuideStar / Charity Check)** | **embedded** | Vendor-level: Foundant CommunitySuite and Give Interactive [F]. Three of three CF portal guides read (Tampa Bay, Central New York, Santa Cruz County) show an in-portal Candid or GuideStar search |
 
 Script output (`python3 scripts/mission_b43n26_01_in_portal_provider.py .`):
-- 21 rows, 0 errors.
-- Rows by mode: embedded 7, not_found 7, linked 3, eligibility_only 2, announced 1, vendor_claim 1.
-- Rows by evidence scope: sponsor-specific 14, vendor-level 7.
+- 20 rows, 0 errors (IPD-014 withdrawn; CSV recount by wave 46B). [V wave 46B]
+- Rows by mode: embedded 6, not_found 7, linked 3, eligibility_only 2, announced 1, vendor_claim 1. [V wave 46B]
+- Rows by evidence scope: sponsor-specific 14, vendor-level 6. [V wave 46B]
 - Named sponsors by in-portal mode: embedded 1, eligibility_only 1, not_found 7.
 
 **Readings [I].**
-1. **Where a provider is named, it is Candid.** Every in-portal search named, at NPT and on the CF vendors, is Candid/GuideStar, which fits the §3 reading that "Candid is the de facto search and profile layer". Charity Navigator appears only as an outbound link (NPT, JCF, DAFgiving360 [C]). We found no CN data inside a sponsor portal.
+1. **Where a provider is named, it is Candid.** Every in-portal search named, at NPT and on the CF vendors, is Candid/GuideStar, which fits the §3 reading that "Candid is the de facto search and profile layer". Charity Navigator appears only as an outbound link (NPT, JCF, DAFgiving360 [C]). We found no CN data inside a sponsor portal. Giving Compass, the layer announced for Ren, says its tools are “built in collaboration with DAFGiving360, Fidelity Charitable, Vanguard, and Charity Navigator”. CN-linked data could therefore reach a portal through it, though none is shown live. [V wave 46B]
 2. **Ren is the exception.** Ren states it replaced GuideStar with its own IRS-sourced listing. Its next data layer is Giving Compass, not Candid. This matters for AEF and other Ren-run programmes.
 3. **Wealth-firm sponsors say nothing.** Goldman Sachs, Morgan Stanley and Raymond James publish no public statement of their search data. "Not found" here means not disclosed in robots-readable sources. It does not mean no provider.
 4. **Candid's generic claim is not evidence.** Candid tells nonprofits their profiles reach "All major U.S.-based donor-advised funds including Fidelity Charitable". This names no other sponsor, so it is not counted for any sponsor (IPD-021).
@@ -91,7 +91,7 @@ Script output (`python3 scripts/mission_b43n26_01_in_portal_provider.py .`):
 | www.aefonline.org | 200 | allowed | 3 | 2 | 404 |
 | engage.aefonline.org | 200 | allowed | 1 | 1 | |
 | donorwelcome.aefonline.org | 200 | allowed | 1 | 1 | |
-| www.reninc.com | 200 | allowed | 2 | 1 | 404 |
+| www.reninc.com | 200 | allowed | 2 | 1 | 404. Its robots.txt has an `Anthropic-AI` group that allows only /faqs/ and disallows nothing. Read literally, the blog is allowed; wave 46B did not re-fetch it [V wave 46B] |
 | intercom.help | 200 | allowed | 1 | 0 | 404 |
 | www.givingcompass.org | 200 | allowed | 1 | 1 | |
 | givingcompass.org | 200 | allowed | 1 | 1 | |
@@ -100,7 +100,7 @@ Script output (`python3 scripts/mission_b43n26_01_in_portal_provider.py .`):
 | login.jcfny.org | 200 | allowed (landing HTML only) | 1 | 1 | |
 | www.raymondjames.com | **timeout** | disallowed | 2 | 0 | |
 | www.raymondjamescharitable.org | **timeout** | disallowed | 1 | 0 | |
-| donorportal.cct.org | 200 | allowed | 2 | 1 | 404 |
+| donorportal.cct.org | 200 | allowed on a literal parse only | 2 | 1 | 404. The file is a single line, `User-agent: * Allow: /index.html Disallow: /`. Parsers read that as no rules, but it evidently means to disallow everything except /index.html. IPD-013’s quote is robots-doubtful and should be relabelled [C] [V wave 46B] |
 | www.cct.org | 200 | allowed | 1 | 0 | 403 |
 | www.foundant.com | 200 | allowed for `*`, but **disallows ClaudeBot / anthropic-ai / Claude-Web**: content withdrawn | 3 | 3 | |
 | communityfoundations.foundant.com | 200 | allowed | 1 | 1 | |
@@ -144,8 +144,8 @@ See the CSV for the full quotes and URLs. Row IDs are given in brackets.
 | NCF (IPD-010) | own vetted list | not_found | "Search from thousands of charities – already researched and approved – so you can give with confidence." | [ncfgiving.com/support](https://www.ncfgiving.com/support) |
 | JCF (IPD-011) | GuideStar, CN, BBB, ProPublica, IRS | linked | "GuideStar : Searchable database of more than 850,000 not-for-profit organizations" | [jcfny.org](https://jcfny.org/philanthropic-resources/) |
 | Raymond James (IPD-012) | not found | not_found | — | robots timed out |
-| CCT (IPD-013) | not found | not_found | "Powered by The GiftingNetwork, Donor Portal is a full-service platform" | [CCT Donor Portal User Guide](https://donorportal.cct.org/ma/docs/cct/DonorPortalUserGuide.pdf), 2024-02-06 |
-| Foundant (IPD-015; IPD-014 withdrawn) | Candid | embedded (vendor) | (IPD-014, a foundant.com quote, withdrawn: www.foundant.com and dev.foundant.com robots.txt disallow ClaudeBot, anthropic-ai and Claude-Web, which this repo treats as applying) | [Tech Impact 2022](https://techimpact.org/sites/default/files/2024-03/TECH%20IMPACT%20Integrated%20Software%20for%20Community%20Foundations.pdf) |
+| CCT (IPD-013) | not found | not_found | (quote withdrawn 2026-11-20: donorportal.cct.org robots.txt evidently means disallow-all except /index.html, so the guide is treated as off-limits; the not_found coding is unchanged) | — |
+| Foundant (IPD-015; IPD-014 withdrawn) | Candid | embedded (vendor). The quote alone supports only eligibility_only; the embedded reading rests on IPD-016 and IPD-017 [V wave 46B] | (IPD-014, a foundant.com quote, withdrawn: www.foundant.com and dev.foundant.com robots.txt disallow ClaudeBot, anthropic-ai and Claude-Web, which this repo treats as applying) | [Tech Impact 2022](https://techimpact.org/sites/default/files/2024-03/TECH%20IMPACT%20Integrated%20Software%20for%20Community%20Foundations.pdf) |
 | CF Tampa Bay (IPD-016) | Candid (Charity Check) | embedded | "Choose Search Grantee to search Community Foundation Tampa Bay's database and Candid (GuideStar Charity Check)." | [cftampabay.org](https://www.cftampabay.org/portal-guide) |
 | CNYCF (IPD-017) | Candid | embedded | "…from a list of nonprofits in the CNYCF database and in Candid, the world’s largest database of nonprofit organizations." | [cnycf.org](https://cnycf.org/introducing-mygiving), mod. 2026-04-08 |
 | CF Santa Cruz (IPD-018) | Candid (GuideStar) | embedded | "Search for the organization you want to support in GuideStar, the world's largest database of nonprofit organizations." | [2025 portal guide](https://craft-cfscc-prod.s3.amazonaws.com/uploads/2025-CFSCC-Donor-Portal-Guide.pdf), 2025-04-01 |
@@ -169,7 +169,7 @@ See the CSV for the full quotes and URLs. Row IDs are given in brackets.
 
 ### 3.3 Goldman Sachs PF, Morgan Stanley GIFT, Raymond James Charitable
 - **Not found.**
-- **Morgan Stanley.** MS GIFT markets automated vetting with no vendor named.
+- **Morgan Stanley.** MS GIFT markets automated vetting with no data vendor named. But the same How it Works PDF says “Back office administration provided by Ren, an unaffiliated charitable gift administrator”, and the impact report credits its figures to Renaissance Administration LLC. The vendor-level Ren inference used for AEF (§3.5), and the Giving Compass announcement, would apply to MS GIFT on the same footing [I]. [V wave 46B]
 - **Blocked hosts.** These hosts' robots.txt did not answer within 30 s, so they were treated as disallowed: advisor.morganstanley.com (three PDFs, incl. a DAF primer), ayco.com, www.raymondjames.com and raymondjamescharitable.org.
 - **Context only.** Morgan Stanley at Work's workplace programme runs on TIFIN Give (search snippet). That is not evidence for MS GIFT's own portal.
 
@@ -184,13 +184,13 @@ See the CSV for the full quotes and URLs. Row IDs are given in brackets.
 - **Giving Compass.** The partnership (2026-05-13) is "laying the groundwork" in the future tense, so it is coded *announced*, not embedded.
 
 ### 3.6 Chicago Community Trust
-- **Portal.** The 2024 donor-portal guide names GiftingNetwork as the portal.
+- **Portal.** (The 2024 donor-portal guide was read from donorportal.cct.org, whose robots.txt evidently disallows it; that evidence is withdrawn.)
 - **Grant form.** Its screenshot shows a free-text "Organization Name" field with no provider branding.
 - **No GiftingNetwork evidence.** No GiftingNetwork vendor page naming a charity data provider was found.
 - **Give Interactive not used.** The repo's candidate Give Interactive link for CCT rests on certificate-log evidence, which this run does not use. So the Give Interactive GuideStar feature (IPD-019) is **not** applied to CCT.
 
 ### 3.7 CF portals generally
-- **Foundant.** CommunitySuite (700+ community foundation clients per its own page) markets Candid as a built-in integration for the donor portal.
+- **Foundant.** With the foundant.com sources withdrawn, the vendor-level evidence is Tech Impact (July 2022): “Their integration with Candid provides access to Guidestar Charity Check and Guidestar for Grant Applications.” Charity Check is a status product and GuideStar for Grant Applications serves applicants. On its own, this supports eligibility_only, as for akoyaGO (IPD-020). The Candid search in Foundant donor portals rests on the CF guides (IPD-016, IPD-017). [V wave 46B]
 - **Portal guides.** Three of three CF portal guides read show a "Search Grantee" step that covers the foundation's own list plus Candid or GuideStar (Tampa Bay, Central New York, Santa Cruz County). The first two are explicitly on Foundant (fcsuite).
 - **Other vendors.** Give Interactive pulls GuideStar profiles into its charity-discovery pages (2022). akoyaGO integrates Charity Check (2022).
 - **No provider stated.** Vermont CF replaced Blackbaud/NPact DonorCentral with a Salesforce-hosted portal in May 2025. The NC Community Foundation portal is "hosted by Foundant Technologies". Neither page names a data provider.
@@ -271,7 +271,7 @@ See the CSV for the full quotes and URLs. Row IDs are given in brackets.
 - https://jcfny.org/charity-grants/
 
 **Chicago Community Trust**
-- https://donorportal.cct.org/ma/docs/cct/DonorPortalUserGuide.pdf
+- (CCT Donor Portal guide withdrawn on robots grounds.)
 
 **CF portal vendors**
 - (Two foundant.com sources withdrawn 2026-11-20 on robots.txt grounds.)

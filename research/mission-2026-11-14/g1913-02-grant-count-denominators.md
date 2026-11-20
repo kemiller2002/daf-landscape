@@ -20,7 +20,7 @@
    - Not found: BofA Charitable Gift Fund, The Chicago Community Trust and National Christian Foundation. NCF gives only a recipient count (36,000+), which is used as a lower bound.
    - Processors: only lower bounds. These are recipient counts (Blackbaud Giving Fund 123,000+; For Good 22,000+) or Schedule I recipient lines (AOGF 40,985; PPGF 14,871). Dechomai Asset Trust has no meaningful count.
 2. **Fidelity Charitable, per grant:** 27 review-venue complaints over 5.88 years give **0.0172 per 10,000 grants per year [95% CI 0.0114–0.0251]**, or 0.101 per 10,000 grants over the whole window [0.067–0.147]. On all venues (50 records) the figure is 0.0319 [0.0237–0.0421] per 10,000 grants per year.
-3. **Pooled top-15 sponsors with a count (12 sponsors, 4.67 million grants):** 28 distinct review-venue records give **0.0102 per 10,000 grants per year [0.0068–0.0147]**. On all venues, 68 distinct records give 0.0248 [0.0192–0.0314].
+3. **Pooled top-15 sponsors with a count (12 sponsors, 4.67 million grants):** 28 distinct review-venue records give **0.0102 per 10,000 grants per year [0.0068–0.0147]**. Fidelity supplies 27 of the 28 records and 57.0% of the 4.67 million grants, so the pooled figure is close to Fidelity’s own rate. Without the DAFgiving360 reprint count (1.1 million) it is 0.0133. [V wave 46B] On all venues, 68 distinct records give 0.0248 [0.0192–0.0314].
 4. **AOGF (Benevity) has only an upper bound per grant: at most 2.32 per 10,000 grants per year [1.76–3.02] on review venues, and at most 1.95 [1.43–2.59] on the strict scope.**
    - The denominator is 40,985 Schedule I recipient lines, which is a lower bound on grants.
    - For AOGF to have the same per-grant rate as Fidelity, it would need about **5.5 million grants a year** (4.6 million on the strict scope). Its filed account count is 720,545.
@@ -228,7 +228,7 @@ Every robots.txt file was fetched before any other request to its host.
 
 ## 6. Limits
 
-- **Numerator and denominator years differ.** Complaints span 2021-01-01 to 2026-11-19; grant counts cover one year (FY2024 or CY2024). The annual rate divides by 5.881 and assumes a stable grant base. That assumption is optimistic for fast growers: Fidelity went from 2.19m grants (CY2022, repo F1) to 3m (CY2025, repo panel S04) (P-G1913-02-06).
+- **Numerator and denominator years differ.** Complaints span 2021-01-01 to 2026-11-19; grant counts cover one year (FY2024 or CY2024). The annual rate divides by 5.881 and assumes a stable grant base. That assumption is optimistic for fast growers: Fidelity went from 2.19m grants (CY2022, repo F1) to 3m (CY2025, repo panel S04) (P-G1913-02-06). For Fidelity the bias is small. Summing yearly counts over the window gives about 14.99m grant-years against the 15.67m assumed. The inputs are: 2021 set equal to CY2022’s 2,185,516; about 2.3m for 2023; 2,664,446 for CY2024; 3m for 2025; and the 2025 level for the 323 days of 2026. On that basis the review-venue rate is about 0.0180 rather than 0.0172 (+4.5%). [V wave 46B]
 - **Periods are mixed.** Fidelity is on a calendar year against a June fiscal year in DAFRC. AOGF's lower bound is for the year ended 31 March 2024. The other counts match the DAFRC FY2024 period.
 - **Unit and scope differ across sources:**
   - "grants recommended" (NPT, DAFgiving360) versus "grants issued" (Vanguard) versus "grants distributed" (JCF);
@@ -236,7 +236,7 @@ Every robots.txt file was fetched before any other request to its host.
   - AEF covers US grants only and is marked "estimated";
   - SVCF's count is preliminary and unaudited.
 - **Rounded counts.** DAFgiving360 ("more than 1.1 million"), RCF ("over 160,000"), MS GIFT (122,000), SVCF ("over 14,500") and ImpactAssets ("13,500+") are rounded floors. The script uses the stated figure, so these rates are slightly high.
-- **Secondary carriers.** Two counts (DAFgiving360, ImpactAssets) come from verbatim trade-press reprints of sponsor releases, because the first-party copies were blocked (robots 403, Cloudflare challenge, or connection reset). They are marked `first_party = no`.
+- **Secondary carriers.** Two counts (DAFgiving360, ImpactAssets) come from verbatim trade-press reprints of sponsor releases, because the first-party copies were blocked (robots 403, Cloudflare challenge, or connection reset). They are marked `first_party = no`. The NonProfit PRO page ends “Source: DAFgiving360” and “The preceding press release was provided by a company unaffiliated with NonProfit PRO”. So it carries the sponsor’s own release, and its period (FY to 30 June 2024) matches. It is acceptable as a stated count. The FY2024 990 itself states no count. [V wave 46B]
 - **Processor denominators are lower bounds only.**
   - The PPGF 2024 letter found by search (20.4 million donations, 226,000+ charities) is global across PPGF entities, counts inbound donations, and is hosted on a third-party mirror. It was not used.
   - Benevity platform figures cover all its granting foundations and countries.
