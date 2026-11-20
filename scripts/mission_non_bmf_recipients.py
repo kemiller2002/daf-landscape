@@ -94,6 +94,11 @@ VALID_PREFIX = frozenset(f"{p:02d}" for p in (*range(1, 7), *range(10, 17), *ran
                                                *range(50, 69), *range(71, 78), *range(80, 89), *range(90, 96), 98, 99))
 STOP = frozenset({"THE", "INC", "INCORPORATED", "CORP", "CORPORATION", "CO", "LTD", "OF", "AND", "A", "AN", "FOR",
                   "NFP", "NONPROFIT", "NON", "PROFIT"})
+# A name that differs from another only by one of these tokens is usually a separate affiliated body (a school's
+# foundation, a church's school), so such pairs are never scored as the same organisation.
+AFFILIATE = frozenset({"FOUNDATION", "FRIENDS", "ALUMNI", "AUXILIARY", "TRUST", "FUND", "ENDOWMENT", "BOOSTER",
+                       "BOOSTERS", "PTA", "PTO", "PARENT", "PARENTS", "GUILD", "SCHOLARSHIP", "SCHOOL", "ACADEMY",
+                       "OPEB", "RETIREMENT", "PENSION", "EMPLOYEES", "ACTION", "SUPPORTING", "II", "III", "INTERNATIONAL"})
 GOV_IRC = re.compile(r"GOV|170\s*\(?C\)?\s*\(?1\)?|\b115\b|MUNICIPAL|PUBLIC\s+(SCHOOL|ENTITY|AGENCY|INSTITUTION)|STATE\s+(AGENCY|ENTITY|INSTITUTION)")
 FOREIGN_IRC = re.compile(r"FOREIGN|NON[- ]?US|NON[- ]?U\.S")
 STATES = ("ALABAMA|ALASKA|ARIZONA|ARKANSAS|CALIFORNIA|COLORADO|CONNECTICUT|DELAWARE|FLORIDA|GEORGIA|HAWAII|IDAHO|"
@@ -147,8 +152,11 @@ def name_sim(a: str, b: str) -> float:
     if not x or not y:
         return 0.0
     tx, ty = set(x.split()), set(y.split())
+    if (tx ^ ty) & AFFILIATE:
+        return min(0.7, difflib.SequenceMatcher(None, x, y).ratio())
     cont = len(tx & ty) / min(len(tx), len(ty))
-    return max(difflib.SequenceMatcher(None, x, y).ratio(), cont if min(len(tx), len(ty)) >= 2 else 0.0)
+    cover = len(tx & ty) / max(len(tx), len(ty))
+    return max(difflib.SequenceMatcher(None, x, y).ratio(), cont if min(len(tx), len(ty)) >= 2 and cover >= 0.6 else 0.0)
 
 
 def ein_neighbours(e: str) -> tuple[str, ...]:
