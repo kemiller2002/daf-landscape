@@ -46,7 +46,7 @@
    - The route pool is **$1.31m** at the IRS-bounded central m and **$1.32m** with the OFAC analogue. It was $1.27m at m = 2.2.
    - Hybrid routing with process-specific central m reaches **$1.73m–$1.75m**.
    - At process-specific high, route is **$1.11m** (it was $634k with the wave-38B-corrected high).
-   - Assistance is unchanged at $445k. Bounding P strengthens routing at compliance processes and does not change the ranking conclusion: C's mean rank-first probability is ≤ 0.035 in every cell. This is with the v1 priors for A, B and D; under BD_FIELD × A_FIELD (g0403-01), A01 routing at m = 1.56–1.77 reaches 0.200–0.204 and is modal in 5 large-national processes, while assistance stays modal nowhere [S] [V wave 41C]
+   - Assistance is unchanged at $445k. Bounding P strengthens routing at compliance processes and does not change the ranking conclusion: C's mean rank-first probability is ≤ 0.035 in every cell. This is with the v1 priors for A, B and D; under BD_FIELD × A_FIELD (g0403-01), A01 routing at m = 1.56–1.77 reaches 0.200–0.204 and is modal in 5 large-national processes, while assistance stays modal nowhere [S] [V wave 41C] With the upper half of h held to the RPA realization range [I] (g0403-0105-04), routing reaches 0.168–0.172 and is modal in 2–3 [S] [V wave 42C]
 
 ---
 

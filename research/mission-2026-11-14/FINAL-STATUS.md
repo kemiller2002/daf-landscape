@@ -8,7 +8,39 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #64) — governing
+## Counts (refresh 2026-11-20, through PR #65) — governing
+
+These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #65 merged. They supersede the tables below. The PR #65 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#65 (46 PRs) | GitHub |
+| Research documents | 349 documents, 1,337,397 words | `research/**/*.md` |
+| Datasets | 657 CSV files, 440,420 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,105 | regex over `research/**/*.md` |
+| Independent validation | **1,984 register rows** in 66 register files (waves 1–42C): 1,420 confirmed, 458 partially confirmed, 80 contradicted, 19 unverifiable, 7 other | `validation-register*.csv`, classified by the leading word of `validation_result` |
+| Research queue | 865 items: 402 done, 332 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.59 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #65 (validated; report §11.57–§11.59):**
+- **AI GREEN overlays rechecked.**
+  - Givebutter Magic is now AMBER: it is not flag-only, and its AI fraud review has undocumented limits.
+  - SmartSimple, Fluxx Finn and YourCause remain GREEN (provisional). YourCause summaries still have to be enabled on request.
+  - None of these is the first GREEN under §7.
+- **Realised tail fees, all 641 tail community foundations plus 29 non-CF tail sponsors.**
+  - Tail CFs realise about $49.4m ($38.5–61.5m; 94% imputed from size-band medians). The whole tail realises about $49–74m.
+  - The $90m and $138m schedule figures remain as list-price ceilings.
+  - Fee rates fall with size, and publishing a schedule makes no difference once size is controlled.
+- **Faith sponsors outside the top 50.**
+  - They add $1.08bn to the church block. Across all panel sponsors, faith sponsors send about 30% of it (25% without the OJC Fund, a pass-through sponsor), against 22% in the top-50 frame.
+  - Nationals send about 59%, against 74% top-50 only, an understatement because BofA and RCF do not itemise. CCF-LA is Catholic.
+- **Corporate 1% floor.** No company ties a 2025 DAF gift to the floor. Apollo predates the bill and Circle was a scheduled pledge. BlackRock, Unum and URBN fit the timing but state no tax motive.
+- **AI realization for routing and correlated execution.**
+  - With the upper half of h cut by the RPA analogue [I], routing is modal in 2 processes at a large national at m = 1.77 (3 at m = 1.56), against 5 uncut. Hybrid stays at 5.
+  - Correlated execution shifts rank-first from B to A and C.
+  - Assistance is modal nowhere in any cell.
+
+## Counts (refresh 2026-11-20, through PR #64) (superseded by the table above)
 
 These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #64 merged. They supersede the tables below. The PR #64 description records the head SHA.
 
@@ -30,7 +62,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 - **Filing-break screen.** Only two breaks above $250m: NPT FY2023 and Dechomai FY2021. As a sensitivity only, FY2023 would be $261.69bn and FY2021 $234.79bn.
 - **Tail fees.** Non-publishing tail community foundations do charge, at about 70–129 bps all-fund, with size a confound. The community-foundation pool is about $49m on realised all-fund rates across all 641 tail CFs ($38.5m–$61.5m), with $90m as a published-schedule ceiling. Non-CFs rarely show fees (6 of 29 sampled; none worded as an internal fund fee), so the whole tail realises about $49m–$74m, not $138m [V wave 42A]
 - **Recipient DAF share, coverage gap decomposed.** Central estimate 9.2% of line 1h and 13.7% of 1h−1d−1e. The assumption range is 8.8–9.4% and 13.2–14.1%.
-- **Manual improvement (A), calibrated to the NAO casework evidence [I].** Under AI assistance, A is still the modal choice in 6 of 15 processes. Under A01 routing at m ≈ 1.8, AI is modal in 5 processes and A in 1.
+- **Manual improvement (A), calibrated to the NAO casework evidence [I].** Under AI assistance, A is still the modal choice in 6 of 15 processes. Under A01 routing at m ≈ 1.8, AI is modal in 5 processes and A in 1; with the upper half of h held to the RPA realization range [I], 2 and 4 (g0403-0105-04) [S] [V wave 42C]
 
 ## Counts (refresh 2026-11-20, through PR #63) (superseded by the table above)
 
@@ -139,7 +171,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 - **DAFpay Network TY2025.** "Other fees" are 3.0% of contributions and are booked as an expense. The return is not audited.
 - **Canada.** The CRA T3010 panel reproduces Blumberg & Pasha: C$18.60bn at 864 sponsors in the 2025 release. Counting blank disbursement lines as zero, the median payout is 4–5%.
 - **Australia.** The 6% giving-fund minimum has been decided but was not registered as of 2026-11-19. Only the rename to "giving fund" has commenced.
-- **AI economics.** With B and D held to C's evidence standard, AI assistance still wins no process, and the processes B and D lose go to manual improvement, whose α is unsourced. Holding A to NAO manual-casework throughput realization [I] (g0403-01) keeps A modal in 6 of 15 processes with assistance; with A01 routing at m = 1.77, C is modal in 5 and A in 1. No audit of realized labour savings from a manual fix was found [V wave 41C] The bound E15 implies is a miss rate of at most 0.39% per auto-closed alert, not 0.10.
+- **AI economics.** With B and D held to C's evidence standard, AI assistance still wins no process, and the processes B and D lose go to manual improvement, whose α is unsourced. Holding A to NAO manual-casework throughput realization [I] (g0403-01) keeps A modal in 6 of 15 processes with assistance; with A01 routing at m = 1.77, C is modal in 5 and A in 1; with the upper half of h held to the RPA range [I], 2 and 4, and correlated realization moves probability from B to A and C, not back to V1 priors (g0403-0105-04) [S] [V wave 42C] No audit of realized labour savings from a manual fix was found [V wave 41C] The bound E15 implies is a miss rate of at most 0.39% per auto-closed alert, not 0.10.
 
 ## Counts (refresh 2026-11-19, through PR #59) (superseded by the table above)
 
