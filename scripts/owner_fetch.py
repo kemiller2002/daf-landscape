@@ -14,6 +14,9 @@ Modes per task
            REGS_API_KEY). Downloads the attachment files for each comment.
   direct   A known file URL (e.g. a Wayback "id_" snapshot). Fetched once
            through the browser context and saved.
+  lookup   State charity registries (CA, NY). Writes lookup-template.csv listing the
+           top-50 sponsors; you search each one, fill the sheet, and press Enter to
+           save each result page. Type "d" when finished.
   guided   Opens the start page. You navigate, fill any form yourself, and
            click the downloads; every download is saved into the task folder.
            Press Enter in the terminal when done and the script also saves an
@@ -57,7 +60,7 @@ from typing import Iterable, NamedTuple, Optional, Sequence
 class Task(NamedTuple):
     task_id: str
     queue_item: str
-    mode: str          # "api" | "direct" | "guided"
+    mode: str          # "api" | "direct" | "guided" | "lookup"
     url: str
     note: str
 
@@ -104,6 +107,12 @@ TASKS: tuple[Task, ...] = REGS_TASKS + (
          "Press Enter to snapshot; then the script moves on to /charity-api."),
     Task("every-org-charity-api", "P-B43N26-03-02", "guided", "https://www.every.org/charity-api",
          "Press Enter to snapshot."),
+    Task("ca-registry-top50", "P-B5002-01", "lookup", "https://oag.ca.gov/charities",
+         "Open the Registry Search from this page. For each sponsor in lookup-template.csv, search by name or "
+         "EIN, fill status / latest filing year / notes in the CSV, and press Enter to save that result page."),
+    Task("ny-registry-top50", "P-B5002-01", "lookup", "https://charities-search.ag.ny.gov/RegistrySearch",
+         "For each sponsor in lookup-template.csv, search by name or EIN (solve any CAPTCHA yourself), fill the "
+         "CSV, and press Enter to save that result page."),
     Task("wayback-rcf-1", "P-NPTREN-01", "direct",
          WB.format(ts="20260316031245", url="https://rcf.donorfirstx.com/pdf/RCF/Donor%20User%20Guide.pdf"),
          "RCF Donor User Guide, capture 2026-03-16."),
@@ -234,6 +243,58 @@ def run_guided(task: Task, out: Path, context) -> list[dict]:
     return saved + rows
 
 
+REG_CSV = Path("data/mission-2026-11-14/state-registration-2026-11-20.csv")
+LOOKUP_COLS = ("ein", "sponsor_name", "fy2024_rank_assets", "status", "registry_id", "latest_filing_year",
+               "enforcement_notice", "notes", "looked_up_on")
+
+
+def top50_sponsors(rows: Iterable[dict]) -> tuple[dict, ...]:
+    """Unique top-50 sponsors (EIN, name, rank) from the state-registration CSV, rank order."""
+    seen = {r["ein"]: r for r in rows if r.get("size_band_fy2024") == "top50"}
+    key = lambda r: int(float(r.get("fy2024_rank_assets") or 9999))
+    return tuple(sorted(seen.values(), key=key))
+
+
+def template_rows(sponsors: Iterable[dict]) -> tuple[dict, ...]:
+    return tuple({**{c: "" for c in LOOKUP_COLS}, "ein": s["ein"], "sponsor_name": s["sponsor_name"],
+                  "fy2024_rank_assets": s.get("fy2024_rank_assets", "")} for s in sponsors)
+
+
+def write_template(folder: Path) -> Path:
+    path = folder / "lookup-template.csv"
+    if path.exists():  # never overwrite the owner's filled-in sheet
+        return path
+    src = list(csv.DictReader(REG_CSV.open(newline=""))) if REG_CSV.exists() else []
+    with path.open("w", newline="") as fh:
+        w = csv.DictWriter(fh, fieldnames=list(LOOKUP_COLS))
+        w.writeheader()
+        w.writerows(template_rows(top50_sponsors(src)))
+    return path
+
+
+def run_lookup(task: Task, out: Path, context) -> list[dict]:
+    """Manual registry lookups: one template to fill, one saved page per Enter."""
+    folder = out / task.task_id
+    folder.mkdir(parents=True, exist_ok=True)
+    tpl = write_template(folder)
+    print(f"  Template: {tpl}  (fill it in as you go)")
+    page = context.new_page()
+    page.goto(task.url, wait_until="domcontentloaded")
+    print(f"  {task.note}")
+    rows: list[dict] = []
+    n = 0
+    while True:
+        answer = input("  Enter = save this result page, d = done: ").strip().lower()
+        if answer == "d":
+            break
+        n += 1
+        sub = folder / f"result-{n:03d}"
+        sub.mkdir(exist_ok=True)
+        rows += snapshot(page, sub, task)
+    page.close()
+    return rows + ([manifest_row(task, "lookup_template", tpl, task.url)] if tpl.exists() else [])
+
+
 def main(argv: Sequence[str]) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--out", default="owner-files")
@@ -269,7 +330,7 @@ def main(argv: Sequence[str]) -> int:
             context = pw.chromium.launch_persistent_context(args.profile, headless=False, accept_downloads=True)
             for t in browser_tasks:
                 print(f"[{t.mode}] {t.task_id}  ({t.queue_item})")
-                runner = run_direct if t.mode == "direct" else run_guided
+                runner = {"direct": run_direct, "lookup": run_lookup}.get(t.mode, run_guided)
                 append_manifest(out, runner(t, out, context))
             context.close()
     print(f"Done. Manifest: {out / 'manifest.csv'}")

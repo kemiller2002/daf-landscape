@@ -185,7 +185,7 @@ The release says verbatim: "All figures are preliminary and unaudited. Grantmaki
 - The repo's $1,594.0m for the Biohub LLCs is the DAF-weighted value (×0.962) of the same lines.
 - None of this falls in CY2024. CY2024 has **$0** of Biohub lines [F]. The Biohub grants therefore explain why CY2023 DAF grants ($4.89bn) exceed CY2024's, but not the CY2024 release gap.
 - CY2023 audited grants net of DAF transfers are $4,448.92m [C]. No CY2023 SVCF release of total grants was found in the svcf.org sitemaps.
-- Further Future Foundation's status was not checked (P-B39N60302-05).
+- Further Future Foundation's status was not checked here (P-B39N60302-05). Later waves resolved it: the same EIN (92-1117448) renamed itself Navigation Charitable Fund on 2023-11-01; its FY2023 990 is filed as “Navigation Charitable Fund (fka Further Future Foundation)”; BMF ruling 2023-03, NTEE U05, foundation code 15. [V wave 51B]
 
 ### 3.6 Consequence for g1913-02 §4.3
 - The implied average grant of $211,337 should be read as an artefact.

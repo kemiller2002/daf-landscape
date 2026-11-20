@@ -67,7 +67,7 @@ m is the cost of an escaped error, in units of one case's handling time. It has 
 - **Core proxy.** About **7–8.5% of grants** at the three report sponsors, against 7.5% of recipient lines and 10.2% of dollars for the same sponsor-years.
   - The figure is stable across the grant-size rule (β = 0 to 1), provided unitemised small recipients are flagged at the rate of the smallest itemised lines.
   - If none of the unitemised recipients is flagged, it falls to 2.8–7.9%.
-- **Broad proxy.** **17–31% of grants**, against 28.0% of lines and 17.5% of dollars. Here the grant-size rule decides the answer.
+- **Broad proxy.** **17–31% of grants**, against 28.0% of lines and 17.5% of dollars. Here the grant-size rule decides the answer. Size-band evidence from b51-03 (JCF FY2023 bands; Fidelity $1m+ counts) favours β of about 0–0.3, which puts the pooled broad share at about 28–31% (31.2% at β = 0, 29.6% at β = 0.25). [V wave 51A]
 - **By category, the per-grant shares rank differently from the line shares.**
   - **Foreign:** 0.05–0.9% of grants. NPT publishes **0.31%** (335 of 106,235 grants in FY2023; 406 of 129,575 in FY2024), against 2.6% of its recipient lines and 7.5% of its dollars on its whole-entity Form 990. The annual report covers the US DAF program only; on its own figures international grants are 5.9% (FY2023) and 6.4% (FY2024) of grant dollars [F/C] [V wave 36B]
   - **Fiscal sponsors:** 0.01–1.6%.
@@ -374,7 +374,7 @@ All values are percentages. "Dollars" are itemised dollars, i.e. Schedule I plus
 
 ### B6. Limits (Part B)
 
-1. **β is not identified.** No public source gives grants per recipient against recipient dollars, so the broad share (17–31%) depends on an assumption that is swept, not estimated (P-G0502-01).
+1. **β is not identified.** No public source gives grants per recipient against recipient dollars, so the broad share (17–31%) depends on an assumption that is swept, not estimated (P-G0502-01). Later evidence narrows it. Fitted with this rule, JCF’s FY2023 grant-size bands (75,380 / 1,908 / 76 grants under $50k / $50k–$1m / over $1m; b51-03) match best at β = 0–0.2, and β ≥ 0.35 gives no grant over $1m, consistent with the Fidelity moment in §B5. On that reading the pooled broad share is about 28–31%, not the low end of the range; the core share (7–8.5%) is unaffected. The basis is one single-issue sponsor-year and the equal-size-per-line assumption, so treat β ≤ 0.35 as a working range, not an estimate. [V wave 51A]
 2. **Period mismatch.** Fidelity and Vanguard publish calendar years, while their 990 years end in June. Fidelity's 2023 Giving Report charts 188,777 charities for CY2022 (its text says “189,000” three times and “nearly 200,000” once); the 200,000 used here overstates FY2023 R by about 5,600. With 188,777, the pooled core range is unchanged and broad shares move by at most 0.02 pp [C] [V wave 36B] The FY counts are means of two calendar years [C], and Vanguard's FY2022–23 counts are rounded ("196K", "209K").
 3. **Imputed R.** R is imputed for Goldman Sachs and Ayco. The imputation range (2.1–5.2×) moves Goldman Sachs' core per-grant share from 6.0% to 10.2% (CSV `r_case`).
 4. **Within-recipient heterogeneity is ignored.** The unitemised group uses a mean amount, and every grant on a line is treated as equal in size.

@@ -8,7 +8,40 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #72) — governing
+## Counts (refresh 2026-11-20, through PR #73) — governing
+
+These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #73 merged. They supersede the tables below. The PR #73 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#73 (54 PRs) | GitHub |
+| Research documents | 408 documents, 1,593,698 words | `research/**/*.md` |
+| Datasets | 760 CSV files, 556,059 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,548 | regex over `research/**/*.md` |
+| Independent validation | **2,532 register rows** in 85 register files (waves 1–51B): 1,837 confirmed, 561 partially confirmed, 92 contradicted, 31 unverifiable, 11 other | `validation-register*.csv`, classified by the leading words of `validation_result` |
+| Research queue | 1,081 items: 436 done, 511 open, 78 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.78 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #73 (batch 51, validated; report §11.77–§11.78):**
+- **Recipient sector mix, FY2021–24** (all itemising sponsors, t_a, DAF-weighted):
+  - religion +2.5 pts and environment +1.2;
+  - human services −2.4 (an upper bound, because FY2021 was a pandemic-era high base);
+  - education −0.9, which hides a 2.7-pt fall once Johns Hopkins is excluded.
+  - These shifts are robust to the panel used and to one-off grants (CZ LLCs; Navigation Charitable Fund, formerly Further Future Foundation).
+- **Grant sizes.** Lines of $1m or more hold about 65% of Schedule I dollars, with no upward trend. A $1m+ line is about one $1m+ grant. Small recipients receive many grants: about 12.5 grants per recipient at Fidelity and about 8 per small recipient at JCF.
+  - The broad per-grant exception share narrows to about 28–31%.
+  - Published average grants: about $4.5–6k at Fidelity, RCF and DAFgiving360; $11–15k at the mid-size nationals.
+- **Sponsor operating efficiency.**
+  - CF cost scales with whole-foundation size, not with the DAF book.
+  - CF cost is 4.4× the nationals' per DAF dollar. The 23 bps national figure is a floor, because affiliate costs sit off the 990.
+  - The nominal 2021–24 CF cost rise is mostly the market-peak base year. In real terms, opex per employee is flat and cost per DAF dollar is −4% from FY2022.
+- **Recipient concentration.** Gini is flat at about 0.89, and the top-1,000 share fell from 54.3% to 49.1%. The FY2023 top-10 spike comes from a few large gifts.
+  - The 50 largest growers took 72% of growth; 206 new recipients took 46%.
+  - Marin to Dayton Foundation Plus is not a DAF-to-DAF transfer.
+  - GHCF's $170m line to its own supporting organisation is not netted by the self-line rule.
+- **Additional terms-restricted provenance (owner decision).** Earlier rows sourced from vanguardcharitable.org, nptrust.org and prnewswire.com, whose terms ban scripted extraction, are listed in validation-wave51a-report.md. They are flagged, not deleted.
+
+## Counts (refresh 2026-11-20, through PR #72) (superseded by the table above)
 
 These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #72 merged. They supersede the tables below. The PR #72 description records the head SHA.
 
