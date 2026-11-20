@@ -411,8 +411,9 @@ def main(argv: Sequence[str] | None = None) -> int:
 
     # ---------------- B NPT line and top-50 foreign totals
     fcsv = read_csv(os.path.join(DATA, FY_LINES_SOURCE))
-    tot = {int(r["fiscal_year"]): r for r in fcsv if r["row_type"] == "scope_total" and r["scope"] == "all_top50"}
-    sy = {(ein9(r["ein"]), int(r["fiscal_year"])): r for r in fcsv if r["row_type"] == "sponsor_year"}
+    tot = {int(r["fiscal_year"]): r for r in fcsv
+           if r["row_type"] == "scope_total" and r["scope"] == "all_top50" and r["fiscal_year"].isdigit()}
+    sy = {(ein9(r["ein"]), int(r["fiscal_year"])): r for r in fcsv if r["row_type"] == "sponsor_year" and r["fiscal_year"].isdigit()}
     rank = top_n(read_csv(DAFRC_CSV), TOP_N)
     idx = read_index(a.efile_index_dir, (2025, 2026))
     r25 = fy2025_returns(idx, frozenset(rank))
