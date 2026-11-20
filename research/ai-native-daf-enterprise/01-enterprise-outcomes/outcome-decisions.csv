@@ -1,0 +1,82 @@
+decision_id,outcome_id,decision,type,volume_class,authority,moves_money_or_legal_state,notes
+DEC-001,O-01,Asset class acceptable under acceptance policy,D,high,policy engine,yes,policy table versioned
+DEC-002,O-01,Specific complex asset acceptable (liabilities liquidity UBTI excess business holdings environmental),H,low,complex-asset specialist (gift acceptance committee above threshold),yes,P dossier prepared by agent
+DEC-003,O-01,Gift completion and completed-gift date,D,high,policy engine,yes,asset-type delivery rules
+DEC-004,O-01,Book valuation of listed security,D,high,policy engine,yes,market close rule
+DEC-005,O-01,Book valuation of complex asset,H,low,controller,yes,P support from appraisal extraction
+DEC-006,O-01,Acknowledgment content correct (incl. exclusive legal control statement),D,high,policy engine,yes,schema-validated template
+DEC-007,O-01,Contribution sanctions screen,D,high,screening service,yes,list version recorded
+DEC-008,O-01,Contribution sanctions near-match triage,P,medium,screening agent (flag only),no,may add flag never clear
+DEC-009,O-01,Clear potential sanctions true match,H,very_low,BSA/sanctions officer,yes,human only
+DEC-010,O-01,Orphan deposit attribution,P,medium,reconciliation agent proposes,no,D confirmation by donor or H
+DEC-011,O-02,Identity verified to required assurance level,D,high,identity service,yes,IdP result plus rule
+DEC-012,O-02,Document forgery or synthetic identity scoring,P,high,identity risk model,no,score feeds D threshold
+DEC-013,O-02,Privilege structure fits policy,D,high,policy engine,yes,
+DEC-014,O-02,Special account type exception,H,low,program officer,yes,
+DEC-015,O-02,Successor designation valid,D,medium,policy engine,yes,
+DEC-016,O-02,Declared relationship makes party disqualified person,D,medium,policy engine,yes,
+DEC-017,O-02,Undeclared relationship detection,P,medium,relationship agent (flag only),no,
+DEC-018,O-02,Decide disputed relationship status,H,very_low,compliance officer,yes,
+DEC-019,O-03,Every asset movement carries sponsor decision record,D,high,architecture invariant,yes,enforced structurally
+DEC-020,O-03,Exercise variance power,H,very_low,board or delegated committee,yes,
+DEC-021,O-04,Adopt or change investment policy statement,H,very_low,investment committee / board,yes,
+DEC-022,O-04,Select manager or pool,H,very_low,investment committee,yes,P due diligence analysis
+DEC-023,O-04,Rebalance within approved bands,D,medium,rebalancing engine,yes,pre-trade check
+DEC-024,O-04,Donor investment option selection valid,D,high,policy engine,yes,
+DEC-025,O-04,Advisor trade within mandate,D,medium,mandate checker,yes,advisor is external fiduciary
+DEC-026,O-04,Liquidity buffer parameters,H,very_low,investment committee,yes,D model computes
+DEC-027,O-04,Liquidity buffer computation,D,daily,treasury model,no,
+DEC-028,O-04,Market disruption response beyond playbook,H,very_low,CIO / investment committee,yes,
+DEC-029,O-05,Journal posting from event,D,very_high,ledger posting rules,yes,
+DEC-030,O-05,Unit price / NAV,D,daily,valuation engine,yes,
+DEC-031,O-05,Fee calculation,D,high,fee engine,yes,
+DEC-032,O-05,Reconciliation match known pattern,D,very_high,reconciliation engine,no,
+DEC-033,O-05,Reconciliation break triage,P,medium,reconciliation agent proposes,no,
+DEC-034,O-05,Write-off or adjustment above threshold,H,low,controller,yes,
+DEC-035,O-05,Accounting policy adoption,H,very_low,CFO / audit committee,yes,
+DEC-036,O-06,Recipient resolution with exact EIN,D,very_high,charity registry service,no,
+DEC-037,O-06,Recipient resolution from free text,P,high,resolution agent proposes,no,donor confirms
+DEC-038,O-06,Recipient eligibility class,D,very_high,eligibility service,yes,Rev. Proc. 2018-32 reliance rules
+DEC-039,O-06,Grant sanctions screen,D,very_high,screening service,yes,
+DEC-040,O-06,Benefit / private benefit risk flag,P,high,benefit-risk agent (flag only),no,
+DEC-041,O-06,Decide flagged benefit case,H,low,grants compliance specialist,yes,
+DEC-042,O-06,Approve routine grant to listed public charity under threshold with no flags,D,very_high,policy engine,yes,
+DEC-043,O-06,Approve non-routine grant (foreign ER fiscal sponsor new org large),H,low,grants compliance specialist,yes,P dossier
+DEC-044,O-06,Discretionary sponsor policy hold,H,very_low,board policy / CEO,yes,
+DEC-045,O-07,Interpret law into policy,H,very_low,general counsel,yes,
+DEC-046,O-07,Apply policy,D,very_high,policy engine,yes,
+DEC-047,O-07,Filing sign-off,H,very_low,officer,yes,
+DEC-048,O-07,Regulatory inquiry response,H,very_low,general counsel,yes,
+DEC-049,O-08,Step-up authentication on risk band,D,high,auth service,no,
+DEC-050,O-08,Transaction fraud scoring,P,high,fraud model,no,
+DEC-051,O-08,Hold transaction on rule hit or score band,D,medium,policy engine,yes,
+DEC-052,O-08,Release high-risk hold,H,low,fraud analyst,yes,
+DEC-053,O-08,Report to law enforcement or regulator,H,very_low,general counsel,yes,
+DEC-054,O-09,Answer factual account question from authoritative state,D,very_high,service read model,no,
+DEC-055,O-09,Answer policy question from approved corpus,P,high,service agent,no,grounded citations required
+DEC-056,O-09,Goodwill credit or service exception above threshold,H,low,service lead,yes,
+DEC-057,O-10,Strategy policy risk appetite delegations,H,very_low,board,yes,
+DEC-058,O-10,Approve policy parameter change (thresholds model cut-offs),H,low,policy owner + risk,yes,governed object
+DEC-059,O-11,Select or terminate provider,H,very_low,COO / board above threshold,yes,
+DEC-060,O-11,SLA breach detection,D,daily,vendor monitor,no,
+DEC-061,O-11,SOC report exception acceptance,H,very_low,CISO / risk,no,P analysis of report
+DEC-062,O-12,Generate report from ledger,D,periodic,reporting engine,no,
+DEC-063,O-12,Financial statement judgments,H,very_low,CFO,yes,
+DEC-064,O-13,Present recipient information to donor,P,high,discovery agent,no,disclosed ranking criteria
+DEC-065,O-13,Dormant-capital reminder trigger,D,medium,engagement rules,no,policy-approved
+DEC-066,O-14,Fee schedule,H,very_low,board,yes,
+DEC-067,O-15,Payment rail selection,D,very_high,payments service,yes,
+DEC-068,O-15,Recipient bank account verification,D,high,payee verification service,yes,third-party evidence
+DEC-069,O-15,Bank verification exception,H,low,payments operations specialist,yes,
+DEC-070,O-15,Donor information sharing per donor choice,D,very_high,policy engine,no,
+DEC-071,O-16,Successor activation on documentation,D,low,policy engine,yes,
+DEC-072,O-16,Successor dispute,H,very_low,program officer + counsel,yes,
+DEC-073,O-16,Inactivity charitable default distribution,H,very_low,program officer,yes,D trigger
+DEC-074,O-16,Outbound transfer eligibility,D,low,policy engine,yes,
+DEC-075,O-17,Role and attribute access grant,D,medium,authorization service,no,
+DEC-076,O-17,Privileged access grant,H,low,CISO,no,
+DEC-077,O-17,Security incident declaration,H,very_low,CISO,no,
+DEC-078,O-18,Detect improvement opportunity,P,continuous,improvement agent,no,
+DEC-079,O-18,Simulate change,D,low,digital twin,no,
+DEC-080,O-18,Approve change to controls policy agent permissions or material process,H,low,change board,yes,
+DEC-081,O-18,Verify deployed change effect,D,low,evaluation harness,no,
