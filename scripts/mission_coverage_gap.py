@@ -23,6 +23,9 @@ Decomposition B (re-weighted): w2 = min(1, Dc / (L1 + L3)), the DAF share of org
 DAFRC basis as the netted denominator. Then
     Dc - w2*SI_non_d2d = (Dc - w2*(L1+L3))  weight_cap_residual (only where Dc > L1 + L3)
                        + w2*L3 + w2*(L1 - SI) + w2*SI_d2d
+    where w2*(L1 - SI) is reported separately for sponsor-years that itemise at least half of line 1
+    (sub5k_full_itemisers) and for those that itemise less (sub5k_partial_itemisers: suspected partial itemisation,
+    not small gifts).
 Market, both: netted N = sum(Dc, all panel sponsors) - R5 netting (dafrc-market-totals-netted.csv, central), so
     N - covered = sum_itemising(terms) + sum_non_itemising(Dc) - R5 netting,
 and the DAF-to-DAF terms are reported together as d2d_netting_residual = sum(weight*SI_d2d) - R5 netting.
@@ -36,7 +39,8 @@ component is spread over recipient-years by a key, as USD x key_r,fy / total key
 and out-of-frame destinations:
     all     DAF-weighted itemised numerator, all sponsors (the residual-scaling assumption)
     top50   the same, top-50 sponsors only (for BofA CGF and RCF, both top-50 national sponsors)
-    small10 DAF-weighted itemised lines under $10,000 (closest observed analogue of sub-$5,000 gifts)
+    small10 DAF-weighted itemised lines under $10,000 (closest observed analogue of sub-$5,000 gifts); used only for
+            sub5k_full_itemisers; sub5k_partial_itemisers is always spread by `all`
     small5  DAF-weighted lines under $5,000 that some sponsors itemise voluntarily (sensitivity; small base)
 Foreign grants, grants to individuals and the DAF-to-DAF residual reach no domestic recipient in every scenario.
 Non-itemising sponsors' DAF grants are first cut to their domestic-organisation share L1/(L1+L3) (own return, else
@@ -88,8 +92,9 @@ SOURCE = ("Sponsors: IRS Form 990 Part IX lines 1-3, Schedule F Part II and Sche
           "R5 netting (dafrc-market-totals-netted.csv). Recipients: b40n1202-01 samples and Part VIII caches.")
 COMP_A = ("corrections_r1_r4", "daf_weighting_haircut", "individual_grants_l2", "foreign_grants_l3",
           "non_itemised_domestic_l1_minus_sched_i", "non_itemising_sponsors", "d2d_netting_residual")
-COMP_B = ("weight_cap_residual", "foreign_grants_l3", "non_itemised_domestic_l1_minus_sched_i",
+COMP_B = ("weight_cap_residual", "foreign_grants_l3", "sub5k_full_itemisers", "sub5k_partial_itemisers",
           "non_itemising_sponsors", "d2d_netting_residual")
+PARTIAL = 0.5  # sponsor-year itemises less than this share of Part IX line 1: suspected partial itemisation
 
 
 # ----------------------------------------------------------------------------- Part IX / Schedule F extract
@@ -190,7 +195,7 @@ def sponsor_row(k: tuple, p9: Mapping, x: Mapping, w: float, d_raw: float, d_cor
     l2, l3 = ((p9.get("l2") or 0.0), (p9.get("l3") or 0.0)) if ok else (0.0, 0.0)
     w2 = min(1.0, max(0.0, d_corr / (l1 + l3))) if l1 + l3 > 0 else 0.0
     nonitem = l1 - si_non - si_d2d
-    return {"ein": k[0], "fiscal_year": k[1], "w": w, "w2": w2, "d_raw": d_raw, "d_corr": d_corr, "l1": l1, "l2": l2,
+    return {"ein": k[0], "fiscal_year": k[1], "w": w, "w2": w2, "partial": l1 > 0 and si_non + si_d2d < PARTIAL * l1, "d_raw": d_raw, "d_corr": d_corr, "l1": l1, "l2": l2,
             "l3": l3, "si_non_d2d": si_non, "si_d2d": si_d2d, "p9_status": p9.get("status", ""),
             "sf_org_usd": p9.get("sf_org_usd", 0.0) if ok else 0.0,
             "si_lines_lt5k_non_d2d": sum(r["amount"] for r in lines if not r["d2d"] and 0 < r["amount"] < 5000),
@@ -203,9 +208,13 @@ def sponsor_row(k: tuple, p9: Mapping, x: Mapping, w: float, d_raw: float, d_cor
 
 def decompose(rows_item: Sequence[Mapping], non_item: Sequence[Mapping], netted: Mapping, netting: Mapping,
               fy: int, which: str) -> dict:
-    it = tuple(r[which] for r in rows_item if r["fiscal_year"] == fy)
+    full = tuple(r for r in rows_item if r["fiscal_year"] == fy)
+    it = tuple(r[which] for r in full)
     names = COMP_A if which == "A" else COMP_B
     comp = {c: sum(t[c] for t in it) for c in names if c in it[0]}
+    sub = "non_itemised_domestic_l1_minus_sched_i"
+    comp["sub5k_full_itemisers"] = sum(r[which][sub] for r in full if not r["partial"])
+    comp["sub5k_partial_itemisers"] = sum(r[which][sub] for r in full if r["partial"])
     comp["non_itemising_sponsors"] = sum(r["d_corr"] for r in non_item if r["fiscal_year"] == fy)
     comp["d2d_netting_residual"] = sum(t["d2d_lines"] for t in it) - netting[fy]
     covered = sum(t["covered"] for t in it)
@@ -216,7 +225,7 @@ def decompose(rows_item: Sequence[Mapping], non_item: Sequence[Mapping], netted:
 
 def domestic_split(rows_item: Sequence[Mapping], non_item: Sequence[Mapping], fy: int) -> dict:
     """Shares used for non-itemising sponsors (decomposition B weights)."""
-    it = tuple(r for r in rows_item if r["fiscal_year"] == fy)
+    it = tuple(r for r in rows_item if r["fiscal_year"] == fy and not r["partial"])
     wl1 = sum(r["w2"] * r["l1"] for r in it)
     wl13 = sum(r["w2"] * (r["l1"] + r["l3"]) for r in it)
     ni = tuple(r for r in non_item if r["fiscal_year"] == fy)
@@ -252,10 +261,10 @@ def _add(acc: dict, e: str, fy: int, v: float) -> dict:
 def grid() -> dict:
     """Plausible re-weighted allocations: cap residual x sub-$5,000 key x non-itemiser keys."""
     caps = {"cap0": None, "capall": "all"}
-    subs = {"s10": "small10", "sall": "all"}
+    subs = {"s10": ("small10", "all"), "sall": ("all", "all")}
     nis = {"ni50": ("top50", "small10"), "niall": ("all", "all")}
     return {f"rw_{c}_{s}_{n}": {"weights": "w2", "rule": {"weight_cap_residual": cv,
-                                                         "non_itemised_domestic_l1_minus_sched_i": sv,
+                                                         "sub5k_full_itemisers": sv[0], "sub5k_partial_itemisers": sv[1],
                                                          "non_itemising_sponsors": nv}}
             for (c, cv), (s, sv), (n, nv) in product(caps.items(), subs.items(), nis.items())}
 
@@ -266,11 +275,11 @@ SCENARIOS = {
     "residual_scaling_equivalent": {"weights": "w", "rule": {c: "all" for c in COMP_A}},
     "reweighted_only": {"weights": "w2", "rule": {}},
     **grid(),
-    "only_sub5k_small10": {"weights": "w2", "rule": {"non_itemised_domestic_l1_minus_sched_i": "small10"}},
+    "only_sub5k_small10": {"weights": "w2", "rule": {"sub5k_full_itemisers": "small10", "sub5k_partial_itemisers": "all"}},
     "only_non_itemising_top50": {"weights": "w2", "rule": {"non_itemising_sponsors": ("top50", "small10")}},
     "sens_plus_d2d_residual_all": {"weights": "w2", "rule": {**grid()[CENTRAL]["rule"], "d2d_netting_residual": "all"}},
     "sens_small5_key": {"weights": "w2", "rule": {"weight_cap_residual": "all",
-                                                  "non_itemised_domestic_l1_minus_sched_i": "small5",
+                                                  "sub5k_full_itemisers": "small5", "sub5k_partial_itemisers": "all",
                                                   "non_itemising_sponsors": ("top50", "small5")}},
 }
 BOOT_SCEN = frozenset({"measured_floor", "residual_scaling_equivalent", "reweighted_only", *grid()})
@@ -360,7 +369,7 @@ FIELDS = ("row_type", "decomposition", "fiscal_year", "component", "usd", "share
                                "non_itemised_domestic_l1_minus_sched_i", "d2d_lines", "covered")),
           *(f"B_{c}" for c in ("weight_cap_residual", "foreign_grants_l3", "non_itemised_domestic_l1_minus_sched_i",
                                "d2d_lines", "covered")),
-          "dom_share", "p9_status", "source")
+          "partial", "dom_share", "p9_status", "source")
 
 
 def main(argv: Sequence[str] | None = None) -> int:

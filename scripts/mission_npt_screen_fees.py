@@ -65,6 +65,7 @@ INDEX_URL = "https://apps.irs.gov/pub/epostcard/990/xml/{y}/index_{y}.csv"
 XML_URL = "https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/{oid}_public.xml"
 PANEL = "data/mission-2026-11-14/dafrc-sponsor-schedule-d-fy2019-2024.csv"
 ITEMS = "data/mission-2026-11-14/dafrc-corrections-itemized.csv"
+TOTALS = "data/mission-2026-11-14/dafrc-corrected-market-totals.csv"
 CENSUS = "data/mission-2026-11-14/long-tail-fee-census-2026-11-19.csv"
 COST = "data/mission-2026-11-14/long-tail-operating-cost-2026-11-19.csv"
 OUT_SCREEN = "data/mission-2026-11-14/npt-pattern-screen-2026-11-20.csv"
@@ -470,8 +471,219 @@ def screen_report(rows: Sequence[Mapping]) -> str:
 
 
 # ----------------------------------------------------------------------------- (B) realised fee rates: see FEE_EVIDENCE
+FEE_YEARS = (2022, 2023, 2024)
+FEE_REV_GROUPS = ("ProgramServiceRevenueGrp", "OtherRevenueMiscGrp")
+FEE_DESC = re.compile(r"(?i)\b(admin\w*|management|philanthropic|fund)\b.*\bfees?\b|\bfee income\b")
+RECON_FEE = re.compile(r"(?i)\b((?:internal|agency)\s+)?administrative\s+fees?(?:\s+revenue)?(?:\s+received\s+from\s+nonoperating\s+funds)?"
+                       r"[:\s]*\$?\s*([\d,]{3,})")
+
+# Fee income read from posted audited statements (robots-checked; the quote is verified against the cached PDF text).
+FEE_AUDIT = (
+    {"ein": "311760702", "fiscal_year": 2024, "amount": 1058361.0, "text_file": "5eb2b603e5a2e627f1db.txt",
+     "source_url": "https://www.thelcfoundation.org/file_download/inline/9bb96e42-95b4-48f2-8b7a-cd7a4c2a0c28",
+     "quote": "The administrative fee amounted to $1,058,361 and $957,643 during the years ended December 31, 2024 and 2023"},
+    {"ein": "311760702", "fiscal_year": 2023, "amount": 957643.0, "text_file": "5eb2b603e5a2e627f1db.txt",
+     "source_url": "https://www.thelcfoundation.org/file_download/inline/9bb96e42-95b4-48f2-8b7a-cd7a4c2a0c28",
+     "quote": "Because it is an interfund transaction, administrative fee income is net against administrative fee expense"},
+)
+# What the visible fee line measures, from the filer's own wording (reason quoted in the CSV `scope_basis`).
+SCOPE = {
+    "481076910": ("internal", "Sch D Part XI/XII 2d: 'ADMINISTRATIVE FEES RECEIVED FROM NONOPERATING FUNDS'"),
+    "593182886": ("internal", "Sch D Part XI 2d: 'Internal administrative fees'"),
+    "351870979": ("internal", "Sch D Part XI/XII 2d 'ADMINISTRATIVE FEES'; FY2021 amount equals Sch D Part V line 1f"),
+    "311140087": ("internal", "Part VIII 'ADMINISTRATIVE FEE REVENUE' with an equal-size Part IX 11g 'ADMINISTRATIVE FEES' expense"),
+    "510173092": ("internal", "Part VIII 'Administration Fees' with an equal Part IX 11g 'Administrative management fees' expense (FY2021 96,235)"),
+    "382236628": ("internal", "Part VIII 'ADMINISTRATION FEES - ENDOWME[NT]'; FY2022 revenue matched by 'FUND ADMINISTRATIVE FEES' expense"),
+    "251881899": ("internal", "Part VIII 'ADMINISTRATIVE FEE - ENDOWMEN[T]' (plus an EITC grant fee passed through)"),
+    "311760702": ("internal", "audit note: fee charged to funds held at LCF, netted as an interfund transaction"),
+    "841339670": ("external", "audit: 'Management Fee, Charged to Others'; internal fees not disclosed"),
+    "351842404": ("external", "Sch D Part XI 2d: 'AGENCY ADMINISTRATIVE FEES'"),
+}
+
+
+def fee_lines(root) -> tuple[dict, ...]:
+    out = []
+    for g in root.iter():
+        tag = g.tag.replace(NS, "")
+        if tag not in FEE_REV_GROUPS:
+            continue
+        desc = first(g, ("Desc",))
+        if desc and FEE_DESC.search(desc):
+            out.append({"group": tag, "desc": desc, "amt": num(first(g, ("TotalRevenueColumnAmt",))) or 0.0})
+    return tuple(out)
+
+
+def recon_fees(root) -> tuple[dict, ...]:
+    """Administrative-fee items in Schedule D Part XI line 2d (revenue in the audited statements but not on Part VIII)."""
+    sd = root.find(f".//{NS}IRS990ScheduleD")
+    details = [] if sd is None else sd.findall(f".//{NS}SupplementalInformationDetail")
+    items = []
+    for d in details:
+        ref, txt = first(d, ("FormAndLineReferenceDesc",)) or "", first(d, ("ExplanationTxt",)) or ""
+        if re.search(r"(?i)part\s*xi\b(?!i)", ref) and re.search(r"(?i)2\s*d", ref):
+            items += [{"ref": ref.strip(), "label": mm.group(0).strip(), "amt": num(mm.group(2))} for mm in RECON_FEE.finditer(txt)]
+    return tuple(items)
+
+
+def parse_fee_xml(data: bytes) -> dict:
+    root = ET.fromstring(data)
+    form, sd = root.find(f".//{NS}IRS990"), root.find(f".//{NS}IRS990ScheduleD")
+    g = lambda base, *t: num(first(base, t))  # noqa: E731
+    return {"fee_lines": fee_lines(root), "recon": recon_fees(root),
+            "na_boy": g(form, "NetAssetsOrFundBalancesBOYAmt"), "na_eoy": g(form, "NetAssetsOrFundBalancesEOYAmt"),
+            "ta_boy": g(form, "TotalAssetsGrp", "BOYAmt"), "ta_eoy": g(form, "TotalAssetsGrp", "EOYAmt"),
+            "daf_eoy": g(sd, "DonorAdvisedFundsVlEOYAmt"), "endow_boy": g(sd, "CYEndwmtFundGrp", "BeginningYearBalanceAmt"),
+            "endow_eoy": g(sd, "CYEndwmtFundGrp", "EndYearBalanceAmt"), "endow_admin": g(sd, "CYEndwmtFundGrp", "AdministrativeExpensesAmt"),
+            "tax_period_end": first(root.find(f"{NS}ReturnHeader"), ("TaxPeriodEndDt",))}
+
+
+def cf_fee_year(ein: str, fy: int, ret: Mapping | None, px: Mapping | None, prev_px: Mapping | None, audits: Sequence[Mapping]) -> dict:
+    if not px:
+        return {"ein": ein, "fiscal_year": fy, "return_object_id": (ret or {}).get("object_id")}
+    fee_rev = sum(x["amt"] for x in px["fee_lines"])
+    fee_recon = sum(x["amt"] or 0 for x in px["recon"])
+    fee_audit = sum(a["amount"] for a in audits if a["ein"] == ein and a["fiscal_year"] == fy)
+    avg = lambda a, b: (a + b) / 2 if a is not None and b is not None else None  # noqa: E731
+    daf_boy = (prev_px or {}).get("daf_eoy")
+    return {"ein": ein, "fiscal_year": fy, "return_object_id": ret["object_id"], "tax_period_end": px["tax_period_end"],
+            "fee_rev_990": fee_rev, "fee_recon_990": fee_recon, "fee_audit": fee_audit,
+            "fee_total": fee_rev + fee_recon + fee_audit,
+            "fee_lines_desc": "; ".join(f"{x['desc']} {x['amt']:,.0f}" for x in px["fee_lines"]),
+            "recon_desc": "; ".join(f"{x['label']}" for x in px["recon"]),
+            "avg_total_assets": avg(px["ta_boy"], px["ta_eoy"]), "avg_net_assets": avg(px["na_boy"], px["na_eoy"]),
+            "avg_daf": avg(daf_boy, px["daf_eoy"]), "daf_eoy": px["daf_eoy"],
+            "endow_admin": px["endow_admin"], "avg_endow": avg(px["endow_boy"], px["endow_eoy"])}
+
+
+def pooled(rows: Sequence[Mapping], num_key: str, den_key: str) -> float | None:
+    use = [r for r in rows if r.get(num_key) is not None and r.get(den_key)]
+    den = sum(r[den_key] for r in use)
+    return sum(r[num_key] for r in use) / den if use and den > 0 else None
+
+
+def cf_summary(c: Mapping, years: Sequence[Mapping]) -> dict:
+    ys = [y for y in years if y.get("fee_total") is not None and y["fiscal_year"] in FEE_YEARS]
+    with_fee = [y for y in ys if y["fee_total"] > 0]
+    scope, basis = SCOPE.get(c["ein"], ("unknown" if with_fee else "none visible", ""))
+    endow = [y for y in ys if y.get("endow_admin") is not None and y.get("avg_endow")]
+    publisher = c["in_2021plus_distribution"] == "yes"
+    return {"ein": c["ein"], "name": c["name"], "size_band_fy2024": c["size_band_fy2024"], "fee_status": c["fee_status"],
+            "group": "publisher" if publisher else "non_publisher", "published_bps_100k": num(c["admin_bps_100k"]),
+            "daf_assets_fy2024": num(c["daf_assets_fy2024"]), "years_read": len(ys), "years_with_fee": len(with_fee),
+            "fee_total_fy22_24": sum(y["fee_total"] for y in ys), "fee_years": ";".join(str(y["fiscal_year"]) for y in with_fee), "fee_rev_990_fy22_24": sum(y["fee_rev_990"] for y in ys),
+            "fee_recon_990_fy22_24": sum(y["fee_recon_990"] for y in ys), "fee_audit_fy22_24": sum(y["fee_audit"] for y in ys),
+            # pooled over the years in which a fee was visible: a blank year at a CF that disclosed in other years is
+            # non-disclosure, not a zero fee
+            "realised_bps_total_assets": bps(pooled(with_fee, "fee_total", "avg_total_assets")) if with_fee else 0.0,
+            "realised_bps_net_assets": bps(pooled(with_fee, "fee_total", "avg_net_assets")) if with_fee else 0.0,
+            "fee_per_daf_bps_upper": bps(pooled(with_fee, "fee_total", "avg_daf")) if with_fee else None,
+            "endow_admin_bps": bps(pooled(endow, "endow_admin", "avg_endow")), "endow_years": len(endow),
+            "scope": scope, "scope_basis": basis,
+            "fee_lines_seen": " | ".join(sorted({y["fee_lines_desc"] for y in ys if y["fee_lines_desc"]}))[:400],
+            "recon_items_seen": " | ".join(sorted({y["recon_desc"] for y in ys if y["recon_desc"]}))[:300],
+            "return_object_ids": ";".join(y["return_object_id"] for y in ys),
+            "audit_source_url": ";".join(sorted({a["source_url"] for a in FEE_AUDIT if a["ein"] == c["ein"]}))}
+
+
+def bps(x: float | None) -> float | None:
+    return None if x is None else round(x * 1e4, 1)
+
+
+FEE_FIELDS = ("ein", "name", "group", "fee_status", "size_band_fy2024", "published_bps_100k", "daf_assets_fy2024", "years_read",
+              "years_with_fee", "fee_years", "fee_total_fy22_24", "fee_rev_990_fy22_24", "fee_recon_990_fy22_24", "fee_audit_fy22_24",
+              "realised_bps_total_assets", "realised_bps_net_assets", "fee_per_daf_bps_upper", "endow_admin_bps", "endow_years",
+              "scope", "scope_basis", "fee_lines_seen", "recon_items_seen", "return_object_ids", "audit_source_url")
+
+
+def verify_quotes(audits: Sequence[Mapping], text_dir: str) -> dict[str, str]:
+    norm = lambda t: " ".join(t.split()).lower()  # noqa: E731
+    def check(a):
+        p = os.path.join(text_dir, a["text_file"])
+        if not os.path.exists(p):
+            return "text not cached"
+        with open(p, encoding="utf-8", errors="replace") as fh:
+            return "verified" if norm(a["quote"]) in norm(fh.read()) else "NOT FOUND"
+    return {f"{a['ein']}:{a['fiscal_year']}": check(a) for a in audits}
+
+
+def group_stats(rows: Sequence[Mapping], key: str) -> tuple:
+    v = [r[key] for r in rows if r.get(key) is not None and r[key] > 0]
+    q1, q3 = quartiles(v)
+    return (len(v), median(v), q1, q3)
+
+
+def fee_report(summ: Sequence[Mapping], qcheck: Mapping[str, str], cen_cf_daf: float) -> str:
+    fmtq = lambda st: "–" if not st[0] else f"{st[1]:.0f} ({st[2]:.0f}–{st[3]:.0f}; n={st[0]})"  # noqa: E731
+    groups = (("Publishers (6 CFs with a 2021+ rate)", [r for r in summ if r["group"] == "publisher"]),
+              ("Non-publishers (other sampled CFs)", [r for r in summ if r["group"] == "non_publisher"]))
+    t1 = [(lbl, len(rs), sum(1 for r in rs if r["years_with_fee"] > 0), sum(1 for r in rs if r["scope"] == "internal"),
+           fmtq(group_stats(rs, "realised_bps_total_assets")),
+           fmtq(group_stats([r for r in rs if r["scope"] == "internal"], "realised_bps_total_assets")),
+           fmtq(group_stats([r for r in rs if r["scope"] == "internal"], "realised_bps_net_assets")),
+           fmtq(group_stats(rs, "endow_admin_bps"))) for lbl, rs in groups]
+    out = ["## F1 Realised fee rates, FY2022-24 pooled: publishers vs non-publishers (bps; median (IQR; n) over CFs with a positive value)",
+           md_table(("Group", "CFs", "Any fee income visible", "Internal fee disclosed", "Visible fee ÷ avg total assets",
+                     "Internal-fee CFs: ÷ avg total assets", "Internal-fee CFs: ÷ avg net assets", "Sch D Part V admin ÷ avg endowment"), t1),
+           "", "Audit quote check: " + "; ".join(f"{k} {v}" for k, v in qcheck.items()),
+           "", "## F2 Each CF (FY2022-24 pooled; $ and bps)",
+           md_table(("Sponsor", "Group", "Fee status", "Published bps @100k", "Years", "Fee income $", "÷ avg TA", "÷ avg NA",
+                     "Part V admin ÷ endow", "Fee ÷ avg DAF (upper bound)", "Scope"),
+                    ((r["name"], r["group"], r["fee_status"], "–" if r["published_bps_100k"] is None else f"{r['published_bps_100k']:.0f}",
+                      f"{r['years_with_fee']}/{r['years_read']}", f"{r['fee_total_fy22_24']:,.0f}",
+                      "–" if r["realised_bps_total_assets"] is None else r["realised_bps_total_assets"],
+                      "–" if r["realised_bps_net_assets"] is None else r["realised_bps_net_assets"],
+                      "–" if r["endow_admin_bps"] is None else r["endow_admin_bps"],
+                      "–" if r["fee_per_daf_bps_upper"] is None else r["fee_per_daf_bps_upper"], r["scope"])
+                     for r in sorted(summ, key=lambda r: (r["group"] != "publisher", -(r["realised_bps_total_assets"] or 0)))))]
+    np_int = [r for r in summ if r["group"] == "non_publisher" and r["scope"] == "internal"]
+    ex_cff = [r for r in np_int if r["ein"] != "593182886"]
+    out += ["", f"Sensitivity: non-publisher internal-fee CFs excluding Central Florida Foundation (its Part XI item covers "
+                f"{summ_by(summ, '593182886', 'realised_bps_total_assets')} bps of total assets while its Part V endowment admin "
+                f"expense is {summ_by(summ, '593182886', 'endow_admin_bps')} bps, so capture looks partial): median "
+                f"{fmtq(group_stats(ex_cff, 'realised_bps_total_assets'))} of total assets"]
+    internal = [r["realised_bps_total_assets"] for r in summ if r["scope"] == "internal" and r["realised_bps_total_assets"]]
+    lo, md_, hi = (min(internal), median(internal), max(internal)) if internal else (None, None, None)
+    if internal:
+        out += ["", "## F3 Indicative CF-only pool if every tail CF realised the internal-fee rate on its DAF assets "
+                    f"(tail CF DAF assets ${cen_cf_daf / 1e9:,.2f}bn; [C on that assumption])",
+                md_table(("Rate", "bps", "Pool $m"), (("lowest internal-fee CF", lo, m(cen_cf_daf * lo / 1e4)),
+                                                      ("median internal-fee CF", md_, m(cen_cf_daf * md_ / 1e4)),
+                                                      ("highest internal-fee CF", hi, m(cen_cf_daf * hi / 1e4))))]
+    return "\n".join(out)
+
+
+def summ_by(summ: Sequence[Mapping], ein: str, key: str):
+    return next((r[key] for r in summ if r["ein"] == ein), None)
+
+
 def task_fees(root: str, args) -> int:
-    raise SystemExit('fees: not yet implemented')
+    cen = [c for c in read_csv(os.path.join(root, CENSUS)) if c["type4"] == "cf"]
+    eins = frozenset(c["ein"] for c in cen)
+    cache = read_cache(args.cache)
+    sel = selected_returns(load_index(index_paths(args.irs_dir), eins), eins, cache)
+    xml_dir = os.path.join(args.text_dir, "xml")
+    os.makedirs(xml_dir, exist_ok=True)
+    local = cached_xml_paths([xml_dir])
+
+    def load(oid):
+        data, how = get_xml(oid, local, args.fetch)
+        if data and how == "mirror":
+            with open(os.path.join(xml_dir, f"{oid}.xml"), "wb") as fh:
+                fh.write(data)
+        return oid, (parse_fee_xml(data) if data else None)
+    oids = sorted({r["object_id"] for (e, fy), r in sel.items() if fy >= min(FEE_YEARS) - 1})
+    with ThreadPoolExecutor(max_workers=args.workers) as ex:
+        px = dict(ex.map(load, oids))
+    get = lambda e, fy: px.get((sel.get((e, fy)) or {}).get("object_id"))  # noqa: E731
+    years = {c["ein"]: [cf_fee_year(c["ein"], fy, sel.get((c["ein"], fy)), get(c["ein"], fy), get(c["ein"], fy - 1), FEE_AUDIT)
+                        for fy in FEE_YEARS] for c in cen}
+    summ = [cf_summary(c, years[c["ein"]]) for c in cen]
+    write_csv(os.path.join(root, args.out_fees), summ, FEE_FIELDS)
+    tail = read_csv(os.path.join(root, "data/mission-2026-11-14/daf-long-tail-sponsors-fy2021-2024.csv"))
+    cf_daf = sum(num(t["daf_assets_fy2024"]) or 0 for t in tail if t["sponsor_category"] == "community_foundation"
+                 and t["size_band_fy2024"] in ("t10_50", "t1_10", "t0_1", "zero"))
+    print(fee_report(summ, verify_quotes(FEE_AUDIT, os.path.join(args.text_dir, "audit_txt")), cf_daf))
+    return 0
 
 
 # ----------------------------------------------------------------------------- main
@@ -526,7 +738,23 @@ def task_screen(root: str, args) -> int:
     print(f"Selected FY2020-25 returns: {len(sel)}; XML status: {xml_status}; "
           f"fallback to next-newest return (newest not on mirror): {sum(1 for r in sel.values() if r.get('fallback'))}\n")
     print(screen_report(rows))
+    print(market_effect(rows, read_csv(os.path.join(root, TOTALS))))
     return 0
+
+
+def market_effect(rows: Sequence[Mapping], totals: Sequence[Mapping]) -> str:
+    """Corrected market totals and growth with each listed break that fails the roll-forward replaced by the
+    roll-forward midpoint (a sensitivity: the repo keeps filed values)."""
+    base = {int(t["fiscal_year"]): num(t["corrected_value"]) for t in totals if t["metric"] == "daf_assets_eoy"}
+    adj = {fy: sum(r["roll_mid"] - r["line4_t"] for r in rows if r.get("over_250m") == 1 and r["fiscal_year"] == fy
+                   and r.get("roll_verdict") == "filed fails roll-forward") for fy in base}
+    alt = {fy: base[fy] + adj.get(fy, 0) for fy in base}
+    g = lambda d, fy: d[fy] / d[fy - 1] - 1 if fy - 1 in d else None  # noqa: E731
+    return "\n".join(["", "## S6 Corrected market DAF assets: repo vs sensitivity (each listed break failing the roll-forward "
+                            "set to the roll-forward midpoint)",
+                       md_table(("FY", "Repo corrected $bn", "Sensitivity $bn", "Change $m", "Growth repo", "Growth sensitivity"),
+                                ((fy, f"{base[fy] / 1e9:,.2f}", f"{alt[fy] / 1e9:,.2f}", m(alt[fy] - base[fy]),
+                                  pct(g(base, fy)), pct(g(alt, fy))) for fy in sorted(base)))])
 
 
 def main(argv: Sequence[str] | None = None) -> int:
