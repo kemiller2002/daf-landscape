@@ -237,7 +237,7 @@ Positions are bands, not ranks. They are internal-demonstration claims, bounded 
 |---|---|---|---|---|---|---|---|
 | PayPal Grant Payments | 3.13 (2.35–3.35) | 2.42 (1.45–3.05) | 0.75/0.6 | Proven Leaders | Proven Leaders / Proven Leaders | reproduced | None |
 | Fidelity Charitable EFT (Stripe/ACH) | 2.94 (2.50–3.10) | 1.83 (1.10–2.70) | 0.85/0.6 | Scale Operators (boundary) | Scale Operators (boundary) / Scale Operators (boundary) | reproduced | None |
-| Chariot Disbursements | 2.80 (2.80–2.80) | 3.52 (3.52–3.52) | 1.0/1.0 | Proven Leaders | Proven Leaders / Proven Leaders | reproduced | AMBER |
+| Chariot Disbursements | 2.80 (2.80–2.80) | 3.52 (3.52–3.52) | 1.0/1.0 | Proven Leaders | Proven Leaders / Proven Leaders | reproduced | AMBER; pending adjudication (queue P-B430105-01): under proposed methodology §7a and §7b this row would read None (watch: agent-capable API) [adjacent product AMBER: Chariot Gift Processing AI; Chariot MCP], because Chariot’s MCP help page names only Gift Processing and DAFpay as supported products (“built for Chariot's Gift Processing platform. It also surfaces DAFpay components”). Both v1.1 scorers agreed on AMBER, so AMBER stands until adjudicated (b4301-05) [V wave 43A] |
 | Chariot DAFpay | 2.28 (2.28–2.28) | 2.92 (2.92–2.92) | 1.0/1.0 | Proven Leaders | Proven Leaders / Proven Leaders (boundary) | reproduced | AMBER |
 | Every.org | 2.18 (1.20–3.00) | 2.56 (2.17–2.77) | 0.55/0.85 | Proven Leaders (boundary) | Proven Leaders / Proven Leaders (boundary) | reproduced | None |
 | Ren Rapid Disbursement Engine | 2.17 (1.95–2.35) | 1.67 (1.00–2.60) | 0.9/0.6 | Scale Operators (boundary) | insufficient evidence / Scale Operators (boundary) | adjudicated | None |
@@ -278,8 +278,8 @@ Positions are bands, not ranks. They are internal-demonstration claims, bounded 
 |---|---|---|---|---|---|---|---|
 | IRS BMF / Pub 78 / TEOS (public baseline) | 3.53 (3.00–3.60) | 3.06 (2.60–3.20) | 0.85/0.85 | Proven Leaders | Proven Leaders / Proven Leaders | reproduced | None |
 | Candid (GuideStar APIs / Charity Check) | 2.97 (2.68–3.08) | 2.70 (2.70–2.70) | 0.9/1.0 | Proven Leaders | Proven Leaders / Proven Leaders | reproduced | AMBER (low) |
-| Chariot verification | 2.58 (2.58–2.58) | 2.65 (2.65–2.65) | 1.0/1.0 | Proven Leaders | Proven Leaders / insufficient evidence | adjudicated | None |
-| Benevity validation | 2.45 (2.45–2.45) | 2.31 (1.85–2.65) | 1.0/0.8 | Proven Leaders | Proven Leaders / Scale Operators (boundary) | adjudicated | RED (provisional) |
+| Chariot verification | 2.58 (2.58–2.58) | 2.65 (2.65–2.65) | 1.0/1.0 | Proven Leaders | Proven Leaders / insufficient evidence | adjudicated | None [adjacent product AMBER: Chariot Gift Processing AI; Chariot MCP] (annotation under proposed methodology §7a; open question for P-B430105-01: the MCP page also offers lookups of “DAF eligibility, IRS status” from “Chariot's database of verified nonprofits”, which on the Candid precedent could tie it to verification) (b4301-05) [V wave 43A] |
+| Benevity validation | 2.45 (2.45–2.45) | 2.31 (1.85–2.65) | 1.0/0.8 | Proven Leaders | Proven Leaders / Scale Operators (boundary) | adjudicated | RED (provisional); superseded by AMBER (provisional) in wave 21 (quadrant-v11-rescore.md, Validation corrections (wave 21)) [V wave 43A] |
 | Goodstack | 2.00 (1.40–2.60) | 2.12 (1.70–2.50) | 0.7/0.8 | Proven Leaders (boundary) | Proven Leaders (boundary) / insufficient evidence | adjudicated | AMBER |
 
 **Totals:** 22 reproduced, 11 adjudicated, 9 insufficient evidence (42 providers). Under the method's two-scorer rule, the 22 reproduced quadrant assignments are no longer single-scorer. They have been reproduced by an independent scorer, but they remain *internal-demonstration* claims under the EDF claim policy, because both scorers drew on the same evidence base.
@@ -301,7 +301,7 @@ The blind and v11 overlays agreed on TIFIN Give / GiveClear (AMBER, RED-boundary
 | Endaoment | None (watch) | AMBER | **None (watch)** | No AI product. The agent-capable API, and a partner "settled grant" path with no documented review, are automation risks, not AI. |
 | Foundant | AMBER | None | **AMBER** | Fia beta (agents, "policy engine") was not in the blind evidence. |
 
-**No provider earns GREEN.** The only RED is Benevity Match Assurance: AI verifies receipt eligibility and auto-submits, and no approval step is documented. It is adjacent to the validation product, so the flag is provisional. TIFIN Louise is the main RED-boundary case: it "executes real donor requests", but GiveClear's 48-hour review remains.
+**No provider earns GREEN.** The only RED is Benevity Match Assurance: AI verifies receipt eligibility and auto-submits, and no approval step is documented. It is adjacent to the validation product, so the flag is provisional. (Superseded: wave 21 moved Benevity to AMBER (provisional), because first-party pages keep human approval by default; see quadrant-v11-rescore.md, Validation corrections (wave 21).) [V wave 43A] TIFIN Louise is the main RED-boundary case: it "executes real donor requests", but GiveClear's 48-hour review remains.
 
 ## 7. Limits and reconsideration triggers
 

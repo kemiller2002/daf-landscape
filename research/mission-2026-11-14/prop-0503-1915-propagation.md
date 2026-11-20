@@ -88,7 +88,7 @@ FY2024 outside-DAFRC totals [C] (`non-dafrc-daf-filers-summary-with-groundswell-
 | Filers under $1m | 373 | 373 | 0 |
 
 - The arithmetic of wave 39B (11,992 + 12,808 = 24,800) is exact, so "about 24,800" becomes "24,800" in the proposed text.
-- Groundswell's accounts average $787 ($10,084,314 / 12,808) [C]. These low-balance accounts raise the same comparability question as processor accounts (b40n13-03-g1913-03 §4.3), so account totals that include them should say so [V wave 40A] Whether they are DAFs in the DAFRC sense is not settled here (queue P-P0503-1915-02).
+- Groundswell's accounts average $787 ($10,084,314 / 12,808) [C]. These low-balance accounts raise the same comparability question as processor accounts (b40n13-03-g1913-03 §4.3), so account totals that include them should say so [V wave 40A] P-P0503-1915-02 settles the DAF question. The accounts are individual DAFs (one per registered user, mostly employees of client companies), funded by the user’s ACH, card, payroll or DAF-to-DAF deposits and by employer matches or gifts. The Foundation’s terms say it operates all DAFs under IRC 4966 and 4967, and Schedule D lines 5 and 6 answer Yes. They meet DAFRC’s Schedule D Part I(a) selection rule and are processor-like in size, not employer or campaign funds (b4026-0601-01-p0503-ojc-groundswell.md) [V wave 43B]
 - FY2020–2023 and FY2025 rows are unchanged; their `line6_no_additions_returns` is 0.
 
 ---
@@ -98,7 +98,7 @@ FY2024 outside-DAFRC totals [C] (`non-dafrc-daf-filers-summary-with-groundswell-
 - **Only Groundswell is added**, as briefed. g1915b-04 found two further plausible FY2024 outside-panel line-6 "No" returns (together 2 accounts and about $5k) and smaller FY2021–23 ones; they are not in the new CSV (P-P0503-1915-01).
 - **FY2024 stays incomplete.** The SOI selection lacks returns processed in 2026 (`fy_complete_in_soi` = 0). Groundswell came in only by reading Schedule D directly (P-P0503-1915-03).
 - **Status counts are SOI counts.** In the new CSV the status-count columns (`n_reports_daf_value` and so on) still describe SOI line-6 "Yes" returns; the added return sits in `line6_no_additions_*`. A reader summing filers should add `line6_no_additions_returns`.
-- **Groundswell's sponsor status is inference.** Its accounts are low-value and it answers line 6 "No"; g1915b-04 classes it with "possibly Samaritan Bethany" as the only likely sponsor among the outside-panel rows [I].
+- **Groundswell's sponsor status is now documented** (b4026-0601-01-p0503-ojc-groundswell.md): its terms hold contributions “in a Donor Advised Fund account for you”, and its TY2024 Schedule D answers lines 5 and 6 Yes; only Part IV line 6 says No [V wave 43B] Its accounts are low-value and it answers line 6 "No"; g1915b-04 classes it with "possibly Samaritan Bethany" as the only likely sponsor among the outside-panel rows [I]. P-P0503-1915-02 confirms it from the filing and the terms of use [V wave 43B]
 - **Exception proxy items are additive notes.** They do not recompute anything; they carry figures already computed and validated (wave 39C) or read from the refined CSV. The per-grant figure (7–8.5% of grants) is still on base flags.
 - **Grep coverage.** The search was literal on the listed strings and variants. A figure restated in other words (for example "about a tenth of dollars") would be missed.
 - **Nothing was applied.** The 30 items are proposals; the apply step must re-run the uniqueness check, since other agents may edit the same files first.

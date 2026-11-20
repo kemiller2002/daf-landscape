@@ -8,7 +8,45 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #65) — governing
+## Counts (refresh 2026-11-20, through PR #66) — governing
+
+These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #66 merged. They supersede the tables below. The PR #66 description records the head SHA. The validation-result classifier now normalises underscores and "partly", so its split differs slightly from earlier tables; the row total is exact.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#66 (47 PRs) | GitHub |
+| Research documents | 357 documents, 1,378,041 words | `research/**/*.md` |
+| Datasets | 672 CSV files, 463,947 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,132 | regex over `research/**/*.md` |
+| Independent validation | **2,058 register rows** in 69 register files (waves 1–43C): 1,465 confirmed, 480 partially confirmed, 82 contradicted, 20 unverifiable, 11 other | `validation-register*.csv`, classified by the leading words of `validation_result` |
+| Research queue | 890 items: 412 done, 347 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.62 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #66 (validated; report §11.60–§11.62):**
+- **Sector shares across all sponsors (DAF-weighted, $101.0bn):**
+  - education 22.98%, human services 14.60%, religion 14.06%, public-society benefit 13.17%, foreign 3.12%.
+  - Coding DAF-to-DAF grants as society benefit (t_b) matches sponsor-published splits (public-society benefit 23.7%). It double-counts, so it is never a market share.
+  - The Fidelity fit is *consistent with* sponsor-to-sponsor counting; it does not prove it.
+- **AI overlay rules clarified (§7a–§7c, proposed, binding from the next re-score).**
+  - Chariot Disbursements stays AMBER, with an adjudication note.
+  - NCF's AMBER (low) is provisional.
+  - Benevity's stale RED is noted where it still appears.
+- **OJC Fund and Groundswell.**
+  - 0.30% of OJC dollars pass to DAF sponsors, none in the church block. About two-fifths of OJC church-block dollars go to congregations.
+  - The faith share of church DAF dollars stays about 30%, with sensitivities of 23–29%.
+  - Groundswell's 12,808 accounts are per-user DAFs by count. Its Part IV line 6 = 0 contradicts its own Schedule D.
+- **De facto fiscal sponsors.**
+  - 11 hosts are found from FBO / c/o lines, 82% of them via ImpactAssets' filings; 5 are on neither list.
+  - Three of the five are also DAF sponsors, so the addition is $35.1m–$114.6m (0.04–0.12% of proxy dollars).
+  - The governing exception-proxy figures stand; fiscal sponsors 0.47% / 2.06% and core 7.79% / 11.73% are upper bounds.
+- **Lobbying (LDA 2021+) and breach notices.**
+  - Charitable-deduction lobbying that never names DAFs comes from charity-side groups (169 charity-relevant filings, $13.65m whole-filing).
+  - FMR, Vanguard, Goldman Sachs and Morgan Stanley filed 605 lobbying reports and none names DAFs, §4966 or IRA charitable distributions. FMR's 2026 Q3 filing lists H.R. 9173 (digital-asset donations).
+  - Two SIFMA lines do cite §4966 by number; both also name DAFs.
+  - No Vermont or Massachusetts breach notice names a DAF sponsor. Vanguard's 2026 breach affected 1,224 Massachusetts residents and 94 in Vermont.
+  - LD-203 honorary-expense items now withhold individual names.
+
+## Counts (refresh 2026-11-20, through PR #65) (superseded by the table above)
 
 These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #65 merged. They supersede the tables below. The PR #65 description records the head SHA.
 
@@ -32,7 +70,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
   - The $90m and $138m schedule figures remain as list-price ceilings.
   - Fee rates fall with size, and publishing a schedule makes no difference once size is controlled.
 - **Faith sponsors outside the top 50.**
-  - They add $1.08bn to the church block. Across all panel sponsors, faith sponsors send about 30% of it (25% without the OJC Fund, a pass-through sponsor), against 22% in the top-50 frame.
+  - They add $1.08bn to the church block. Across all panel sponsors, faith sponsors send about 30% of it (25% without the OJC Fund, a pass-through sponsor in the asset sense whose Schedule I goes to church-status Orthodox bodies, not to other DAF sponsors; 27–29% if its non-congregation recipients are discounted, 23% if every sponsor is limited to congregation names) [V wave 43B], against 22% in the top-50 frame.
   - Nationals send about 59%, against 74% top-50 only, an understatement because BofA and RCF do not itemise. CCF-LA is Catholic.
 - **Corporate 1% floor.** No company ties a 2025 DAF gift to the floor. Apollo predates the bill and Circle was a scheduled pledge. BlackRock, Unum and URBN fit the timing but state no tax motive.
 - **AI realization for routing and correlated execution.**
@@ -79,7 +117,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 | Industry report | §11.1–§11.53 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
 
 **Additions in PR #63 (validated; report §11.51–§11.53):**
-- **Propagation.** The refined exception proxy now appears in the gap19 note, report §4 and the synthesis. FY2024 non-DAFRC accounts become 24,800 with Groundswell included; its accounts average $787, which raises the same comparability caveat as processor accounts.
+- **Propagation.** The refined exception proxy now appears in the gap19 note, report §4 and the synthesis. FY2024 non-DAFRC accounts become 24,800 with Groundswell included; its accounts average $787, which raises the same comparability caveat as processor accounts. They are DAFs in the legal sense and meet DAFRC’s Schedule D Part I(a) rule: one DAF per user, mostly employees, funded by the user and by employer matches (b4026-0601-01-p0503-ojc-groundswell.md) [V wave 43B]
 - **DAF grant schema and processor accounts.**
   - Chariot and Endaoment carry all 8 core grant-record fields. Form 990 requires only the recipient EIN in full.
   - Processors are 76.7% of corrected FY2024 accounts. With all 22 processors removed, sponsor accounts are about 770,785.
@@ -118,9 +156,9 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 - **Detection probability.** An escaped DAF error has roughly a 0.1–1% chance per year of being detected and taxed, measured as average-filer coverage. The composite m is fragile: it is about 1.6 when OFAC penalties are priced per transaction and 14–1,270 when priced per missed alert.
 - **Line 6 versus Schedule D.**
   - 33 returns that hold DAFs answer "No" on line 6, carrying $265m. SOI extracts keyed on line 6 drop them; DAFRC does not use line 6.
-  - Non-DAFRC FY2024 accounts are 24,800: 11,992 at line-6 “Yes” filers plus Groundswell’s 12,808 (average $787 per account), with $353.9m of DAF assets (`non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv`) [V wave 40A]
+  - Non-DAFRC FY2024 accounts are 24,800: 11,992 at line-6 “Yes” filers plus Groundswell’s 12,808 (average $787 per account; per-employee DAFs funded by employees and employer matches, so DAFs, but processor-like in size) [V wave 43B], with $353.9m of DAF assets (`non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv`) [V wave 40A]
 - **Exception proxy refinements.**
-  - EIN-keyed fiscal sponsors account for 0.44% of lines and 1.94% of dollars; dropping large-programme hosts gives 1.68%.
+  - EIN-keyed fiscal sponsors account for 0.44% of lines and 1.94% of dollars; dropping large-programme hosts gives 1.68%. Five de facto hosts found from filers’ own “FBO” naming (g0503-03-de-facto-fiscal-sponsors.md) would raise this to at most 0.47% / 2.06%, and the core to at most 7.79% / 11.73%. Three of the five are also DAFRC-vetted DAF sponsors and 82% of the detections come from one filer, so these are upper bounds and the headline stands [V wave 43B]
   - The time-correct recent-ruling flag counts true new organisations at 3.16% of lines and 4.72% of dollars.
   - Core is 7.76% / 11.61%.
 
@@ -219,7 +257,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 - **Ren acknowledgement defaults track guide vintage.** The evidence shows neither a sponsor setting nor a platform limit.
 - **Adviser-managed assets.** The share is 46.9% at Fidelity Charitable and 0% at Vanguard. DAFgiving360 is only bracketed and NPT cannot be estimated.
 - **NPT foreign grants.** None of NPT's FY2023–24 foreign grants went to related organisations as filed (Schedule R Part V line 1b = No). Part V excludes only NPT's own transactions with its disregarded entities; on the repo's reading of Appendix F, a disregarded entity's grants to a related organisation are NPT's, so the filed No is a weak test [V wave 36C] In FY2025, £30.9m went from NPT Transatlantic to NPT UK.
-- **The $6.18bn "church" block is about half congregations.** Faith sponsors send about 22–26% of it within the top-50 frame and about 30% across all itemising DAFRC panel sponsors (25% without the OJC Fund), where nationals send about 59% rather than three-quarters; none of the 14 congregation giving pages read offers a DAF option [V wave 42B].
+- **The $6.18bn "church" block is about half congregations.** Faith sponsors send about 22–26% of it within the top-50 frame and about 30% across all itemising DAFRC panel sponsors (25% without the OJC Fund; about 23% if every sponsor is limited to congregation-named recipients) [V wave 43B], where nationals send about 59% rather than three-quarters; none of the 14 congregation giving pages read offers a DAF option [V wave 42B].
 
 **Process note.** A correction-applier bug truncated replacement text at inner double quotes. It was found in wave 35B and fixed. The 17 affected passages from waves 34S/34A/34B were repaired and audited against their reports.
 
@@ -407,7 +445,7 @@ Every number below was recomputed from the repository at merge commit `a17d759` 
 ### Main additions since batch 28 (all validated; see report §11.9–§11.22)
 - **Market totals netted for DAF-to-DAF transfers:** FY2024 grants $58.41bn, payout 22.8% (25.9% gross; median sponsor 12.7%) ([queue-batch34-netting-filings.md](queue-batch34-netting-filings.md)).
 - **Account metric restated:** 2.59m FY2024 accounts on an ongoing-advisory basis (0.79m excluding Givinga and PayPal Giving Fund) ([queue-batch36-metrics-rails.md](queue-batch36-metrics-rails.md)).
-- **Where DAF money goes:** $77.34bn to ~174k recipients net of DAF-to-DAF; education 25.8%, human services 14.3% ([direction-recipients-impact-matching.md](direction-recipients-impact-matching.md)).
+- **Where DAF money goes:** $77.34bn to ~174k recipients net of DAF-to-DAF; education 25.8%, human services 14.3% at the top 50 ([direction-recipients-impact-matching.md](direction-recipients-impact-matching.md)). Across all 1,379 itemising sponsors, DAF-weighted with foreign and sub-$5,000 grants ($101.01bn, FY2023–24): education 23.0%, human services 14.6%, religion 14.1%, public-society benefit 13.2%, foreign grants 3.1%; on the basis comparable with sponsor-published splits (DAF-to-DAF kept), public-society benefit is 23.7% ([b39n4-01](b39n4-01-sector-join-all-sponsors.md)) [V wave 43A]
 - **Agent access:** no top-20 sponsor names software as an appointable agent; Daffy is wrapped by third-party agent tools with unscoped keys ([queue-batch35-agents-analysts-rails.md](queue-batch35-agents-analysts-rails.md), [queue-batch36-agent-terms-controls.md](queue-batch36-agent-terms-controls.md)).
 - **No open DAF data standard;** grant metadata does not travel with payments ([direction-data-standards-interoperability.md](direction-data-standards-interoperability.md)).
 - **Nonprofit side:** 41.2% of top DAF recipients' donate pages show any DAF option, 13.7% DAFpay ([direction-nonprofit-donate-pages.md](direction-nonprofit-donate-pages.md)).

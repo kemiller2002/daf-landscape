@@ -138,7 +138,7 @@ X3 stays U. The audit says "no such opinion is expressed" on internal control, a
 | BofA CGF | none evidenced | No automation or AI statement in the guidelines, guide or portal |
 | Morgan Stanley GIFT | **AMBER (provisional)** | The brochure claims "Automated" charity vetting with "advanced tech", but limits and controls are undocumented. Board approval of each grant remains, per the Aug-2024 circular. It is not labelled AI. If the automation is rule-based only, the flag should drop to none |
 | GS PF | none evidenced | — |
-| NCF (A3 and A1) | none evidenced | — |
+| NCF (A3 and A1) | none evidenced at v1.2; at the next re-score AMBER (low), provisional, under methodology §7a and §7b: NCF’s own “AI-powered search experience” (ncfgiving.com/ai-search, record dated 2026-08-12, record status field “private”; gap19-ai-coverage S18–S20), re-read 2026-11-20; a read-only search with undocumented controls, as Candid’s AMBER (low) (b4301-05) [V wave 43A] | — |
 
 No row is RED. No evidence shows an automated process completing a money-moving or status-clearing action without sponsor or human approval. No row is GREEN, because none documents flag-only design or authority separation.
 

@@ -130,7 +130,7 @@ Run: `python3 scripts/mission_line6_check.py . --irs-dir <index_2019..2026.csv d
 - **What the outside-panel rows are.**
   - 11 of the 23 outside-panel returns are implausible (counts of 7,900 to 2.9m with no value).
   - The plausible outside-panel rows are, by value: Groundswell (12,808, $10.08m); Long Island Children's Museum (2, $2.60m; batch 38 calls it an unexplained Part I entry); Rivet Global (1, $0.50m); Samaritan Bethany Foundation (14, $0.27m); Washington Heights UMC (13, $0.17m); Reston Raiders Hockey Club (3, $84,689); Engelhard VFD, Girl Grom Surf Club, Challenged Athletes, The Queen's Community Workers, Central Sands Amateur Radio Club and Mercy Flights (one account each, $1,000–$68,114).
-  - Except for Groundswell and possibly Samaritan Bethany, these are operating charities using the DAF column [I], as batch 38 found.
+  - Except for Groundswell and possibly Samaritan Bethany, these are operating charities using the DAF column [I], as batch 38 found. Groundswell is a DAF sponsor on its own documents: one DAF per user, mostly employees, funded by the user and by employer matches, with Schedule D lines 5 and 6 answered Yes (b4026-0601-01-p0503-ojc-groundswell.md) [V wave 43B]
 - **Panel sponsors answering "No" while DAFRC uses their filed values:**
   - Legacy Global Foundation, FY2023;
   - Community Foundation of Greater New Britain, FY2022–23;
