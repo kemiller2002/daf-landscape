@@ -23,11 +23,11 @@ Tags: **[F]** computed by the script from filed data · **[P]** quoted primary s
 | 2024 | 40.29 | 143,551 | 8.4% | 22.9% | 49.1% | 0.885 | 14.6 |
 
 - **Trend.** The broad shape of the distribution is stable. Gini stays between 0.885 and 0.891. The **top-1,000 share falls by 5.2 points** (54.3% → 49.1%) as the number of recipients grows by 21%. So the middle and the tail gained share. [F]
-- **The top of the distribution is lumpy, not trending.** Top-10 share and HHI spike in FY2023 and fall back in FY2024. The FY2023 spike comes from a few very large single-sponsor lines:
-  - Johns Hopkins University, $1.56bn;
-  - the Navigation Charitable Fund, $1.31bn (one SVCF line);
+- **The top of the distribution is lumpy, not trending.** Top-10 share and HHI spike in FY2023 and fall back in FY2024. The FY2023 spike comes from three very large recipients, two of them paid by SVCF alone: [V wave 51B]
+  - Johns Hopkins University, $1.56bn from 27 sponsors (largest lines: Fidelity Charitable $831.9m, Schwab Charitable $481.8m); [V wave 51B]
+  - the Navigation Charitable Fund, $1.31bn (one SVCF line, filed as “Further Future Foundation”: the same EIN, 92-1117448, renamed 2023-11-01); [V wave 51B]
   - four Chan Zuckerberg Biohub LLCs, $1.66bn together (SVCF).
-  These are $4.53bn of the $5.64bn top-10 total in FY2023 [F].
+  These are $4.52bn of the $5.64bn top-10 total in FY2023 [F]. [V wave 51B]
 - On the all-itemising scope (44, 44, 46 and 48 sponsor-years), FY2023 and FY2024 **reproduce the repo's sector file exactly**: $36.872bn and $41.416bn; top-10 0.1532 and 0.0827; HHI 42.5 and 14.4 (`daf-grant-recipient-sectors-top50.csv`) [F].
 
 **Fastest growers (balanced panel; P1 = FY2021+22, P2 = FY2023+24; floor P2 ≥ $5m) [F]**
@@ -137,7 +137,7 @@ Largest recipients, balanced panel, filed $m:
 
 ### 3.3 Sensitivities [F]
 - **CZ LLCs merged into CZ Biohub Inc:** FY2023 top-10 rises from 15.44% to 16.64% and HHI from 43.1 to 57.7 (balanced). Biohub becomes the #1 recipient. Other years are unchanged (the LLCs receive only in FY2023).
-- **Also netting non-DAFRC DAF filers** (2,468 EINs): FY2022 total falls by $1.20bn and top-100 from 23.27% to 21.97% (all-itemising). Top-10 shares move by at most 0.6 points in any year, and the top-1,000 decline (54.25% → 48.50%) is unchanged in direction. The single largest item is Marin Community Foundation's FY2022 line of $385.7m to Dayton Foundation Plus Inc (EIN 54-2101090), which is in that file for FY2021–2024. Whether such lines are DAF-to-DAF is queued (P-B5102-01).
+- **Also netting non-DAFRC DAF filers** (2,468 EINs): FY2022 total falls by $1.20bn and top-100 from 23.27% to 21.97% (all-itemising). Top-10 shares move by at most 0.6 points in any year, and the top-1,000 decline (54.25% → 48.50%) is unchanged in direction. The single largest item is Marin Community Foundation's FY2022 line of $385.7m to Dayton Foundation Plus Inc (EIN 54-2101090), which is in that file for FY2021–2024. Marin’s purpose text is “TRANSFER OF ASSETS”, and its Schedule D DAF grants jump from $101.5m (FY2021) to $514.3m (FY2022) before returning to $114.5m, so the money very likely left Marin’s DAF column [I]. The recipient is a 509(a)(3) Type II supporting organisation of The Dayton Foundation (its sole member). It answers Yes to Part IV line 6 but reports its 78 funds ($399.7m) only in Schedule D column (b), “funds and other accounts”, never as DAFs (FY2020–24), and it is outside the DAFRC panel. So the line is a sponsor-family fund transfer, not DAF-to-DAF under the repo’s whitelist, which should not be extended for it. FY2022 also holds GHCF’s $170.0m line (purpose “PUBLIC BENEFIT”) to WoodNext Philanthropies (EIN 88-1330756), which the BMF lists under the name Greater Houston Community Foundation as a Type I supporting organisation; the self-line rule does not catch it. Dropping both lines moves FY2022 top-10 from 7.67% to 7.11% and top-1,000 from 51.95% to 51.16%; FY2021 and FY2024 are unchanged. A repo-wide rule stays queued (P-B5102-01). [V wave 51B]
 
 ### 3.4 Reading the trend [I]
 - Dollars spread more widely: more recipients each year, and the top-1,000 share down 5 points. Gini is flat because it is dominated by the very long tail of small grants, which also grew.
@@ -184,7 +184,7 @@ Counts [F]:
 
 ### 4.2 Percentage growth [F]
 - **`pct` (P1 > 0):** median P1 is $25,000, and 44 of 50 have P1 under $100k. The list measures first large gifts rather than growth. 15 have The Chicago Community Trust as top FY2023–24 grantor; 20 have a single grantor for 100% of P2. Types: 10 schools and other education, 8 human services, 6 blank-NTEE operating charities, 5 public/societal benefit, 3 each NTEE T, religious and health. New organisations 11, fiscal sponsors 0, intermediaries 3.
-- **`pct_p1_1m` (P1 ≥ $1m):** the top five by growth_pct are Edesia (K30; +6,243%), Murmuration Research Institute (W99; +3,947%), Jackson Hole Classical School (+2,889%), BeyGood Foundation (T30; +2,566%) and Ransom Everglades School (+2,325%). Human services lead (14), then schools and other education (7) and NTEE T (5). New organisations 8, fiscal sponsors 2, intermediaries 7.
+- **`pct_p1_1m` (P1 ≥ $1m):** the top five by growth_pct are Edesia (K30; +6,243%), Murmuration Research Institute (W99; +3,948%), Jackson Hole Classical School (+2,890%), BeyGood Foundation (T30; +2,567%) [V wave 51B] and Ransom Everglades School (+2,325%). Human services lead (14), then schools and other education (7) and NTEE T (5). New organisations 8, fiscal sponsors 2, intermediaries 7.
 
 ### 4.3 Entrants [F]
 206 recipients had no top-50 DAF dollars in FY2021–22 and at least $5m in FY2023–24, totalling $5.59bn.
@@ -202,7 +202,7 @@ Counts [F]:
 
 ## 5. Limits
 - **Coverage.** Itemised Schedule I only (grants over $5,000 per recipient). Six of the 50 sponsors do not itemise in FY2021–22, and four itemise only in FY2023–24; the balanced panel removes the coverage effect but omits those four.
-- **Netting.** The repo's whitelist nets only DAFRC panel EINs. Lines to other DAF holders (e.g. Dayton Foundation Plus) stay in; the sensitivity bounds the effect (§3.3). Some kept lines to universities or religious bodies may fund their own DAFs; this cannot be seen in Schedule I.
+- **Netting.** The repo's whitelist nets only DAFRC panel EINs. Lines to other donor-advised or sponsor-family holders (e.g. Dayton Foundation Plus, which reports its donor funds only as “funds and other accounts”, and GHCF’s supporting organisation WoodNext Philanthropies) stay in; [V wave 51B] the sensitivity bounds the effect (§3.3). Some kept lines to universities or religious bodies may fund their own DAFs; this cannot be seen in Schedule I.
 - **No FY2021 DAF weighting.** The filed basis is used for trend and growth (§1.3).
 - **Fiscal-year mixing.** FY = year the tax period ends, so June filers' FY2021 covers July 2020 to June 2021. A single gift can fall in different FYs at different sponsors.
 - **EIN keys.** Recipients are counted by EIN as filed. Affiliates (university foundations and their universities, the CZ LLCs and Biohub) are separate unless merged in a sensitivity. Typo EINs split one organisation into two. Blank-EIN lines are keyed by name.

@@ -57,7 +57,7 @@ Headline basis: all itemising DAFRC panel sponsors excluding university/hospital
 - **Treatments.** t_a (primary), t_b (DAF-to-DAF kept, classed by the receiving sponsor's NTEE; base double counts, so never a market share, per wave 43A), t_c (NTEE T as its own line). **Layers:** `sched_i`, `plus_foreign`, `plus_foreign_sub5k` (headline). **Bases:** `daf_weighted` (headline) and `schedule_i`.
 
 ### 1.2 Reproduction check
-For FY2023 and FY2024, the changing-panel, base-variant rows reproduce b39n4-01's committed CSV: **620 of 620 overlapping rows** (both scopes, both bases, every treatment and layer b39n4-01 reports per FY) **match to the dollar** [F].
+For FY2023 and FY2024, the changing-panel, base-variant rows reproduce b39n4-01's committed CSV: **620 of 620 overlapping rows** (both scopes, both bases, treatments t_a, t_b and t_c, every layer; b39n4-01’s 152 t_d_t_excluded rows for these cells are not carried) [V wave 51A] **match to the dollar** [F].
 
 ### 1.3 Robustness variants
 - **Panels.** `changing`: every itemising sponsor-year in the scope that FY. `fixed`: only sponsors itemising (lines loaded) in all four FYs: 1,161 sponsors (all ex university/hospital) and 42 (top 50).
@@ -136,7 +136,7 @@ Itemised-share change by sector, against the summed contributions of its largest
 | Arts and culture | −0.84 | −0.26 | −0.59 | −0.51 | Museum of Science and Industry 101 → 1 |
 
 - **Religion and human services** move across tens of thousands of recipients; their ten largest movers explain under 0.3 pts. These are **broad shifts**, not single-grant effects [F].
-- **Education's −0.9 pts** headline hides a larger fall: Johns Hopkins alone adds +1.44 pts, so the rest of education lost about 2.7 pts of itemised share [F/I].
+- **Education's −0.9 pts** headline hides a larger fall: Johns Hopkins alone adds +1.44 pts, so the rest of education lost about 2.7 pts of itemised share [F/I]. The Johns Hopkins dollars sit on a few very large lines at four June-year-end nationals (DAF-weighted): FY2023 Fidelity $827.3m, Schwab Charitable $481.8m, JCF $140.7m, NPT $68.8m; FY2024 Schwab $517.2m, Fidelity $272.4m, NPT $188.2m, JCF $28.0m (FY2021: Schwab $116.5m, JCF $32.3m). [V wave 51A]
 - **Arts** loss is partly concentrated: the top five movers explain 0.59 of 0.84 pts (Museum of Science and Industry, Lucas Museum, Crystal Bridges) [F].
 
 ### 3.4 Year-on-year breaks and the single grants behind them [F]
@@ -157,7 +157,7 @@ SVCF's FY2023 return itemises four Chan Zuckerberg LLC recipients: CZ Institute 
 
 ### 4.2 SVCF more broadly
 - **Further Future Foundation.** SVCF's FY2023 $1.309bn line to it is classed public-society benefit.
-- **Unitemised FY2022 line 1.** SVCF's FY2022 Part IX line 1 ($3.63bn) exceeds its Schedule I ($2.06bn) by $1.57bn. It itemises 57%, so the b40n120201-01 rule treats it as a full itemiser and spreads the gap by the small-gift (`small10`) key. The top-50 sub-$5,000 component is therefore $2.31bn in FY2022, against $0.67–1.25bn in other years.
+- **Unitemised FY2022 line 1.** SVCF's FY2022 Part IX line 1 ($3.63bn) exceeds its Schedule I ($2.06bn) by $1.57bn. It itemises 57%, so the b40n120201-01 rule treats it as a full itemiser and spreads the gap by the small-gift (`small10`) key. The top-50 sub-$5,000 component is therefore $2.31bn in FY2022, against $0.67–1.25bn in other years. The raw return (object 202333189349318948) confirms line 1 of $3,626,886,828 against 3,580 Schedule I lines totalling $2,055,660,472, the largest $108.2m. A $1.57bn residual cannot be grants of $5,000 or less, so spreading it by the small-gift key is an artefact. It adds about $1.48bn DAF-weighted to the all-sponsor FY2022 allocation (full-itemiser sub-$5,000 component $2.55bn with SVCF, $1.07bn without), 3.3% of the $44.27bn base. The FY2021 and FY2024 endpoints are untouched. [V wave 51A]
 - **Use the variants.** The `sched_i` layer and the `ex_svcf` variant avoid this; FY2022 full-layer shares should be read with them (P-B5101-02).
 
 ### 4.3 Sponsors entering or leaving itemisation [F]
@@ -170,7 +170,7 @@ SVCF's FY2023 return itemises four Chan Zuckerberg LLC recipients: CZ Institute 
 - **Effect.** It is negligible (§3.2), because the non-itemisers are mostly outside both panels in every year. Their recipients are unobserved in all years, so the trend describes itemising sponsors only.
 
 ## 5. Limits
-- **Start year.** FY2021 is the first year, and human services may be at a pandemic-era high in it (P-B5101-01). "Since FY2021" is not "long-run".
+- **Start year.** FY2021 is the first year, and human services may be at a pandemic-era high in it (P-B5101-01). Fidelity Charitable’s 2022 Giving Report supports this: “In 2020, urgent needs related to the COVID-19 pandemic created a surge of granting activity to the human services sector” and in 2021 grant volumes “remained elevated from pre-pandemic norms”. Its human-services share of grant dollars is 14% (2021), 16% (2022), 14% (2023), 13% (2024) and 12.2% (2025). FY2021 here includes July 2020–June 2021 at June-year-end nationals, so read −2.42 as an upper bound on the structural decline. [V wave 51A] "Since FY2021" is not "long-run".
 - **One 2026 BMF snapshot** for all years.
   - Recipients that lost status before November 2026 fall to the name rule or unclassified; EIN-not-in-BMF dollars are 2.2% in FY2021 against 1.9% in FY2024.
   - Part of unclassified's −0.8 pts is this drift. NTEE codes can also be re-assigned, so a recipient's sector is its 2026 code in every year.
