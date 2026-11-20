@@ -384,17 +384,19 @@ def charity_items(rows: Sequence[Mapping]) -> list[dict]:
 
 
 # --------------------------------------------------------------------------------------------------- breach
-NOTICES = (  # id, label, breach-period hint, name pattern for register matching
-    ("BN-VAN-2026", "Vanguard, 2026-07", r"vanguard"),
-    ("BN-AMP-2026", "Ameriprise, 2026-03", r"ameriprise"),
-    ("BN-FID-2024", "Fidelity Investments, 2024-08", r"fidelity (investments|brokerage|management)|\bfmr\b"),
-    ("BN-SCH-2023", "Schwab / TD Ameritrade (MOVEit), 2023-05", r"schwab|ameritrade"),
-    ("BN-FLI-2023", "Fidelity Life via Infosys McCamish (IMS), 2023-10", r"fidelity (life|security life)|mccamish|infosys"),
-    ("BN-MS-2021", "Morgan Stanley, 2021", r"morgan stanley"),
+NOTICES = (  # id, label, entity pattern, reporting-date window used to pick the candidate register entry
+    ("BN-VAN-2026", "Vanguard, 2026-07", r"vanguard group", ("2026-07-01", "2026-11-20")),
+    ("BN-AMP-2026", "Ameriprise, 2026-03", r"ameriprise", ("2026-03-01", "2026-07-31")),
+    ("BN-FID-2024", "Fidelity Investments, 2024-08", r"fidelity investments(?! life)|fidelity brokerage|fidelity management|\bfmr\b", ("2024-08-01", "2025-01-31")),
+    ("BN-SCH-2023", "Schwab / TD Ameritrade (MOVEit), 2023-05", r"schwab|ameritrade", ("2023-05-15", "2024-03-31")),
+    ("BN-FLI-2023", "Fidelity Investments Life Insurance / Empire Fidelity via Infosys McCamish (IMS), 2023-10", r"fidelity investments life|empire fidelity", ("2024-01-01", "2024-12-31")),
+    ("BN-IMS-2023", "Infosys McCamish Systems own notice (the IMS vendor incident behind BN-FLI-2023), 2023-10/11", r"mccamish", ("2024-01-01", "2024-12-31")),
+    ("BN-MS-2021", "Morgan Stanley, 2021", r"morgan stanley", ("2021-01-01", "2021-12-31")),
 )
-CHARITY = r"fidelity charitable|schwab charitable|vanguard charitable|\bGIFT\b|global impact funding trust|" \
-          r"renaissance charitable|\bRCF\b|donorfirst|donor[\s-]*advised|charitable gift fund|daf ?giving ?360|" \
-          r"charitable endowment program|charitable"
+DAF_ENTITY = r"fidelity charitable|fidelity investments charitable|schwab charitable|vanguard charitable|" \
+             r"global impact funding trust|\bGIFT\b(?! card)|renaissance charitable|\bRCF\b|donor ?first|donor[\s-]*advised|" \
+             r"charitable gift fund|daf ?giving ?360|charitable endowment program|national philanthropic trust"
+BROAD_CHARITY = r"charit|philanthrop|donor|foundation"
 DATA_TYPES = (("name", r"\bnames?\b"), ("address", r"\baddress(es)?\b"), ("SSN", r"social security|\bSSNs?\b"),
               ("date of birth", r"date of birth|\bDOB\b|birth ?date"),
               ("account number", r"account (number|information|numbers)|account no"),
@@ -405,6 +407,20 @@ DATA_TYPES = (("name", r"\bnames?\b"), ("address", r"\baddress(es)?\b"), ("SSN",
               ("health / insurance", r"medical|health|policy number|insurance"),
               ("username / password", r"user ?name|password|login credential"))
 VT_LIST = "https://ago.vermont.gov/categories/security-breach-notices"
+MA_LIST = "https://www.mass.gov/lists/data-breach-reports"
+MA_YEARS = (2021, 2022, 2023, 2024, 2025, 2026)
+MA_DOC = "https://www.mass.gov/doc/data-breach-report-{y}/download"
+MONTHS = {m: i for i, m in enumerate(("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "oct", "nov", "dec"), 1)}
+DATE_RE = re.compile(r"(\d{1,2})-([A-Za-z]{3})-(\d{2})\b|(\d{1,2})/(\d{1,2})/(\d{4})\b|(\d{1,2})-(\d{1,2})-(\d{4})\b")
+
+
+def iso_date(m: re.Match) -> str:
+    g = m.groups()
+    if g[0]:
+        return f"20{g[2]}-{MONTHS.get(g[1].lower(), 0):02d}-{int(g[0]):02d}"
+    if g[3]:
+        return f"{g[5]}-{int(g[3]):02d}-{int(g[4]):02d}"
+    return f"{g[8]}-{int(g[6]):02d}-{int(g[7]):02d}"
 
 
 def strip_html(s: str) -> str:
@@ -457,18 +473,95 @@ def count_snippets(text: str) -> list[str]:
     return [m.strip() for m in re.findall(pats, t, flags=re.I)][:6]
 
 
-def charity_hits(text: str) -> list[str]:
-    return sorted({m.group(0) for m in re.finditer(CHARITY, text or "", flags=re.I)})
+def hits(pat: str, text: str) -> list[str]:
+    return sorted({m.group(0) for m in re.finditer(pat, text or "", flags=re.I)})
 
 
 def match_notice(name: str) -> list[str]:
-    return [nid for nid, _, p in NOTICES if re.search(p, name or "", flags=re.I)]
+    return [n[0] for n in NOTICES if re.search(n[2], name or "", flags=re.I)]
 
 
-BREACH_COLS = ("notice_id", "notice_label", "register", "register_status", "register_entry_title", "entity_named",
-               "date_reported_or_posted", "number_affected_state", "number_affected_stated_in_notice",
-               "data_types_register", "data_types_in_notice_text", "charity_or_daf_entity_named",
-               "charity_terms_found", "source_url", "pdf_url", "evidence")
+def in_window(nid: str, iso: str) -> bool:
+    lo, hi = next(n[3] for n in NOTICES if n[0] == nid)
+    return lo <= (iso or "") <= hi
+
+
+# Massachusetts OCABR annual PDF (pdftotext -layout) -------------------------------------------------------
+MA_HEADER_LABELS = (("SSN", r"SSN"), ("medical records", r"Medical"), ("financial account", r"Financial"),
+                    ("account number", r"Account"), ("driver's licence", r"Drivers"), ("credit/debit card", r"Credit"),
+                    ("credit monitoring provided", r"Provided"), ("data encrypted", r"Encrypted|Data"),
+                    ("mobile device lost/stolen", r"Mobile"))
+
+
+def ma_header_cols(line: str) -> list[tuple[str, float]]:
+    """Column label -> centre position, from the first header line of a page."""
+    found = []
+    for lab, pat in MA_HEADER_LABELS:
+        m = re.search(r"\b" + pat, line[60:])
+        if m and not (lab == "account number" and "Financial" in line) and not (lab == "data encrypted" and "Encrypted" not in line and "Provided" not in line):
+            found.append((lab, 60 + m.start() + 4))
+    return sorted(found, key=lambda x: x[1])
+
+
+def ma_is_header(line: str) -> bool:
+    return bool(re.search(r"Breached|Reported|Organization Name|Residents|COMMONWEALTH|GOVERNOR|Boylston|total number", line))
+
+
+def ma_records(text: str, year: int, url: str) -> list[dict]:
+    lines = text.splitlines()
+    mains = [i for i, l in enumerate(lines) if (m := DATE_RE.search(l)) and m.start() < 45 and not ma_is_header(l)]
+    heads = [i for i, l in enumerate(lines) if re.search(r"SSN", l) and re.search(r"Credit", l)]
+    main_set = frozenset(mains)
+
+    def wraps(i: int) -> list[str]:
+        prev_m = max([k for k in mains if k < i], default=-99)
+        next_m = min([k for k in mains if k > i], default=10 ** 9)
+        lo = i - 1 if i - 1 > prev_m and not ma_is_header(lines[i - 1]) else i
+        hi = i + 1 if i + 1 < next_m and i + 1 < len(lines) and not ma_is_header(lines[i + 1]) else i
+        return [lines[j] for j in range(lo, hi + 1) if j != i and j not in main_set]
+
+    def one(i: int) -> dict:
+        l = lines[i]
+        dm = DATE_RE.search(l)
+        rest = l[dm.end():]
+        toks = list(re.finditer(r"\S+", rest))
+        yn_tail = []
+        while toks and toks[-1].group(0) in ("Yes", "No"):
+            yn_tail.insert(0, toks.pop())
+        cnt = toks.pop() if toks and re.fullmatch(r"\d[\d,]*", toks[-1].group(0)) else None
+        before = rest[:cnt.start()] if cnt else rest
+        segs = [x for x in re.split(r"\s{2,}", before.strip()) if x]
+        name = segs[0] if segs else ""
+        nstart = dm.end() + (before.find(name) if name else 0)
+        nend = nstart + len(name)
+        wrap_txt = [w[max(0, nstart - 6):nend + 6].strip() for w in wraps(i)]
+        hdr = max([h for h in heads if h < i], default=heads[0] if heads else None)
+        cols = ma_header_cols(lines[hdr]) if hdr is not None else []
+        fixed = {5: ("SSN", "medical records", "financial account", "driver's licence", "credit/debit card"),
+                 4: ("SSN", "account number", "driver's licence", "credit/debit card")}
+        if any(t.group(0) == "No" for t in yn_tail) or year >= 2023:
+            labels = fixed.get(len(yn_tail), tuple(f"col{k}" for k in range(len(yn_tail))))
+            flags = {lab: t.group(0) for lab, t in zip(labels, yn_tail)}
+        else:
+            centre = lambda t: dm.end() + (t.start() + t.end()) / 2
+            near = lambda t: min(cols, key=lambda c: abs(c[1] - centre(t)))[0] if cols else "?"
+            flags = {near(t): "Yes" for t in yn_tail}
+        nm = re.sub(r"\s+", " ", " ".join([name] + [w for w in wrap_txt if w])).strip()
+        return {"year_file": year, "date": iso_date(dm), "name": nm, "name_main": name,
+                "count": int(cnt.group(0).replace(",", "")) if cnt else None, "flags": flags,
+                "breach_no": (re.match(r"\s*(\d{4}-\d+|\d{5})", l) or [None, ""])[1], "raw": re.sub(r"\s+", " ", l).strip(),
+                "url": url}
+    return [one(i) for i in mains]
+
+
+def ma_types(flags: Mapping) -> str:
+    return "; ".join(k for k, v in flags.items() if v == "Yes" and k not in ("credit monitoring provided", "data encrypted"))
+
+
+BREACH_COLS = ("notice_id", "notice_label", "register", "register_status", "candidate_for_notice", "entity_named",
+               "date_reported", "number_affected_state", "number_affected_stated_in_notice",
+               "data_types_register", "data_types_in_notice_text", "daf_entity_named", "daf_terms_found",
+               "entries_for_entity_in_window", "matched_on", "source_url", "pdf_url", "evidence")
 
 
 # --------------------------------------------------------------------------------------------------- runners
@@ -508,77 +601,125 @@ def run_lda(root: str, get: Callable, outdir: str) -> dict:
 
 
 def run_breach(root: str, get: Callable, cache: str, outdir: str, robots: Sequence[Mapping]) -> dict:
-    s0, b0 = get(VT_LIST)
-    page0 = b0.decode("utf-8", "replace")
+    page0 = get(VT_LIST)[1].decode("utf-8", "replace")
     table = vt_table(page0)
     last = vt_last_page(page0)
     pages = [page0] + [get(f"{VT_LIST}?page={n}")[1].decode("utf-8", "replace") for n in range(1, last + 1)]
     archive = [a for p in pages for a in vt_archive(p)]
     org_key = next((k for k in (table[0].keys() if table else []) if "Organization Name" in k), "")
-    tab_hits = [(nid, r) for r in table for nid in match_notice(r.get(org_key, ""))]
-    tab_charity = [r for r in table if re.search(CHARITY, r.get(org_key, ""), flags=re.I)]
-    arc_hits = [(nid, a) for a in archive for nid in match_notice(a["title"])]
-    arc_charity = [a for a in archive if re.search(CHARITY, a["title"], flags=re.I)]
+    date_key = next((k for k in (table[0].keys() if table else []) if "Date" in k), "")
+    vt_iso = lambda s: iso_date(DATE_RE.search(s)) if DATE_RE.search(s or "") else ""
+
+    def save_pdf(url: str) -> str:
+        st, pb = get(url)
+        p = cache_path(cache, url, ".pdf")
+        if st == 200 and pb[:4] == b"%PDF" and not os.path.exists(p):
+            with open(p, "wb") as f:
+                f.write(pb)
+        return pdf_text(p) if os.path.exists(p) else ""
 
     def open_doc(a: Mapping) -> dict:
         url = "https://ago.vermont.gov" + a["href"]
-        _, b = get(url)
-        pdfs = re.findall(r'href="([^"]+\.pdf)"', b.decode("utf-8", "replace"))
+        pdfs = re.findall(r'href="([^"]+\.pdf)"', get(url)[1].decode("utf-8", "replace"))
         pdf = urllib.parse.urljoin(url, pdfs[0]) if pdfs else ""
-        txt = ""
-        if pdf:
-            st, pb = get(pdf)
-            p = cache_path(cache, pdf, ".pdf")
-            if st == 200 and not os.path.exists(p):
-                with open(p, "wb") as f:
-                    f.write(pb)
-            txt = pdf_text(p) if os.path.exists(p) else ""
-            with open(os.path.join(outdir, "vt_" + os.path.basename(a["href"]) + ".txt"), "w") as f:
-                f.write(txt)
+        txt = save_pdf(pdf) if pdf else ""
+        with open(os.path.join(outdir, "vt_" + os.path.basename(a["href"]) + ".txt"), "w") as f:
+            f.write(txt)
         return {"url": url, "pdf": pdf, "text": txt}
 
+    # Vermont
+    vt_tab = [(nid, r, vt_iso(r.get(date_key, ""))) for r in table for nid in match_notice(r.get(org_key, ""))]
+    arc_hits = [(nid, a) for a in archive for nid in match_notice(a["title"])]
     docs = {a["href"]: open_doc(a) for _, a in arc_hits}
-    vt_rows = ([{"notice_id": nid, "register": "Vermont AGO (summary table, reports from 2026-04-17)",
-                 "register_status": "listed", "register_entry_title": r.get(org_key, ""),
-                 "entity_named": r.get(org_key, ""),
-                 "date_reported_or_posted": r.get("Date Reported to AGO", ""),
+    vt_rows = ([{"notice_id": nid, "register": "Vermont AGO summary table (reports from 2026-04-17)",
+                 "register_status": "listed", "entity_named": r.get(org_key, ""), "date_reported": d,
                  "number_affected_state": r.get("Number of VT Residents Affected", ""),
-                 "number_affected_stated_in_notice": "",
-                 "data_types_register": r.get("Categories of Data Breached", ""), "data_types_in_notice_text": "",
-                 "charity_or_daf_entity_named": yn(bool(re.search(CHARITY, r.get(org_key, ""), flags=re.I))),
-                 "charity_terms_found": "", "source_url": VT_LIST, "pdf_url": "",
-                 "evidence": " | ".join(f"{k}: {v}" for k, v in r.items())} for nid, r in tab_hits]
-               + [{"notice_id": nid, "register": "Vermont AGO (archived notices, PDF posted)",
-                   "register_status": "listed", "register_entry_title": a["title"],
+                 "data_types_register": r.get("Categories of Data Breached", ""),
+                 "daf_entity_named": yn(bool(hits(DAF_ENTITY, r.get(org_key, "")))),
+                 "daf_terms_found": "; ".join(hits(DAF_ENTITY, r.get(org_key, ""))),
+                 "_in": in_window(nid, d), "source_url": VT_LIST, "matched_on": "organisation name",
+                 "evidence": " | ".join(f"{k}: {v}" for k, v in r.items())} for nid, r, d in vt_tab]
+               + [{"notice_id": nid, "register": "Vermont AGO archived notices (PDF posted, to mid-2026)",
+                   "register_status": "listed",
                    "entity_named": re.sub(r"^\d{4}-\d{2}-\d{2}\s*|\s*-?\s*(Data|Date|Security) Breach.*$", "", a["title"]),
-                   "date_reported_or_posted": (re.match(r"\d{4}-\d{2}-\d{2}", a["title"]) or [""])[0],
-                   "number_affected_state": "", "number_affected_stated_in_notice": " || ".join(count_snippets(docs[a["href"]]["text"])),
-                   "data_types_register": "", "data_types_in_notice_text": "; ".join(data_types(docs[a["href"]]["text"])),
-                   "charity_or_daf_entity_named": yn(bool(charity_hits(docs[a["href"]]["text"]))),
-                   "charity_terms_found": "; ".join(charity_hits(docs[a["href"]]["text"])),
+                   "date_reported": (re.match(r"\d{4}-\d{2}-\d{2}", a["title"]) or [""])[0],
+                   "number_affected_stated_in_notice": " || ".join(count_snippets(docs[a["href"]]["text"])),
+                   "data_types_in_notice_text": "; ".join(data_types(docs[a["href"]]["text"])),
+                   "daf_entity_named": yn(bool(hits(DAF_ENTITY, docs[a["href"]]["text"]))),
+                   "daf_terms_found": "; ".join(hits(DAF_ENTITY, docs[a["href"]]["text"])),
+                   "_in": in_window(nid, a["title"][:10]), "matched_on": "notice title",
                    "source_url": docs[a["href"]]["url"], "pdf_url": docs[a["href"]]["pdf"],
-                   "evidence": f"pdf text chars={len(docs[a['href']]['text'])}"} for nid, a in arc_hits])
-    found = {r["notice_id"] for r in vt_rows}
-    labels = {nid: lab for nid, lab, _ in NOTICES}
+                   "evidence": f"title: {a['title']}; pdf text chars={len(docs[a['href']]['text'])}"} for nid, a in arc_hits])
+
+    # Massachusetts
+    ma_list_ok = get(MA_LIST)[0] == 200
+    ma_texts = {y: save_pdf(MA_DOC.format(y=y)) for y in MA_YEARS} if ma_list_ok else {}
+    ma_all = [r for y, t in ma_texts.items() for r in ma_records(t, y, MA_DOC.format(y=y))]
+    on_main = lambda nid, r: nid in match_notice(r["name_main"])
+    ma_hit0 = [(nid, r) for r in ma_all for nid in match_notice(r["name"])]
+    main_dates = {(nid, r["date"]) for nid, r in ma_hit0 if on_main(nid, r)}
+    ma_hit = [(nid, r) for nid, r in ma_hit0 if on_main(nid, r) or (nid, r["date"]) not in main_dates]
+    ma_rows = [{"notice_id": nid, "register": f"Massachusetts OCABR annual report {r['year_file']}",
+                "register_status": "listed", "entity_named": r["name_main"] if on_main(nid, r) else r["name"], "date_reported": r["date"],
+                "number_affected_state": r["count"] if r["count"] is not None else "",
+                "data_types_register": ma_types(r["flags"]),
+                "daf_entity_named": yn(bool(hits(DAF_ENTITY, r["name"]))), "daf_terms_found": "; ".join(hits(DAF_ENTITY, r["name"])),
+                "_in": in_window(nid, r["date"]), "_main": on_main(nid, r), "source_url": r["url"],
+                "matched_on": "main line" if on_main(nid, r) else "wrapped name line (verify)",
+                "evidence": f"name incl. wrapped lines: {r['name']}; breach no {r['breach_no'] or '(wrapped)'}; flags {json.dumps(r['flags'])}; line: {r['raw'][:220]}"}
+               for nid, r in ma_hit]
+
+    def mark(rows: list[dict]) -> list[dict]:
+        def cnt(r: Mapping) -> int:
+            v = str(r.get("number_affected_state") or "").replace(",", "")
+            return int(v) if v.isdigit() else -1
+        groups = {}
+        for r in rows:
+            groups.setdefault((r["notice_id"], r["register"].split(" annual")[0].split(" summary")[0].split(" archived")[0]), []).append(r)
+        pool = lambda g: [r for r in g if r["_in"] and r.get("_main", True)] or [r for r in g if r["_in"]]
+        best = {k: max(pool(g), key=cnt, default=None) for k, g in groups.items()}
+        n_in = {k: sum(1 for r in g if r["_in"]) for k, g in groups.items()}
+        key = lambda r: (r["notice_id"], r["register"].split(" annual")[0].split(" summary")[0].split(" archived")[0])
+        return [{**r, "candidate_for_notice": yn(best[key(r)] is r), "entries_for_entity_in_window": n_in[key(r)]} for r in rows]
+
+    listed = mark(vt_rows + ma_rows)
+    have = {(r["notice_id"], st) for r in listed if r["candidate_for_notice"] == "Y"
+            for st in (("VT" if r["register"].startswith("Vermont") else "MA"),)}
     status_of = {r["url"]: r for r in robots}
-    me = status_of.get(PROBES[0], {}).get("status")
-    ma = status_of.get(PROBES[2], {}).get("status")
-    blocked = [{"notice_id": nid, "register": reg, "register_status": f"blocked (HTTP {st} to generic client; robots.txt also HTTP {rs})",
-                "source_url": url, "evidence": "not retrieved; no user-agent change attempted"}
-               for nid, _, _ in NOTICES
-               for reg, st, rs, url in (("Maine AG", me, status_of.get("https://www.maine.gov/robots.txt", {}).get("status"), PROBES[0]),
-                                         ("Massachusetts OCABR", ma, status_of.get("https://www.mass.gov/robots.txt", {}).get("status"), PROBES[2]))]
-    missing = [{"notice_id": nid, "register": "Vermont AGO (table + archive)", "register_status": "not found",
-                "source_url": VT_LIST, "evidence": f"no entry matching /{p}/ in {len(table)} table rows or {len(archive)} archived notices"}
-               for nid, _, p in NOTICES if nid not in found]
-    rows = sorted(vt_rows + missing + blocked, key=lambda r: (r["notice_id"], r["register"]))
-    rows = [{**r, "notice_label": labels[r["notice_id"]]} for r in rows]
+    me, mer = status_of.get(PROBES[0], {}).get("status"), status_of.get("https://www.maine.gov/robots.txt", {}).get("status")
+    gaps = ([{"notice_id": n[0], "register": "Maine AG",
+              "register_status": f"blocked: HTTP {me} to a generic client; robots.txt HTTP {mer} (unreadable)",
+              "source_url": PROBES[0], "evidence": "not retrieved; user agent not changed"} for n in NOTICES]
+            + [{"notice_id": n[0], "register": "Vermont AGO (table + archive)", "register_status": "no entry in reporting window",
+                "source_url": VT_LIST,
+                "evidence": f"/{n[2]}/ within {n[3][0]}..{n[3][1]}: none in {len(table)} table rows or {len(archive)} archived notices"}
+               for n in NOTICES if (n[0], "VT") not in have]
+            + [{"notice_id": n[0], "register": "Massachusetts OCABR annual reports 2021-2026",
+                "register_status": "no entry in reporting window",
+                "source_url": MA_LIST, "evidence": f"/{n[2]}/ within {n[3][0]}..{n[3][1]}: none in {len(ma_all)} parsed records"}
+               for n in NOTICES if (n[0], "MA") not in have and ma_list_ok])
+    labels = {n[0]: n[1] for n in NOTICES}
+    rows = sorted(listed + gaps, key=lambda r: (r["notice_id"], r["register"], r.get("date_reported", "")))
+    rows = [{**{k: v for k, v in r.items() if not k.startswith("_")}, "notice_label": labels[r["notice_id"]]} for r in rows]
     write_csv(os.path.join(root, OUT_BREACH), rows, BREACH_COLS)
-    summ = {"vt_table_rows": len(table), "vt_archive_pages": last + 1, "vt_archive_notices": len(archive),
-            "vt_archive_dates": [min((a["title"][:10] for a in archive), default=""), max((a["title"][:10] for a in archive), default="")],
-            "table_hits": [(n, r) for n, r in tab_hits], "archive_hits": [(n, a["title"]) for n, a in arc_hits],
-            "table_charity_names": tab_charity, "archive_charity_titles": [a["title"] for a in arc_charity],
-            "rows": len(rows), "found_ids": sorted(found)}
+    daf_scan = {"vt_table": [r.get(org_key) for r in table if hits(DAF_ENTITY, r.get(org_key, ""))],
+                "vt_archive": [a["title"] for a in archive if hits(DAF_ENTITY, a["title"])],
+                "ma": [(r["date"], r["name"]) for r in ma_all if hits(DAF_ENTITY, r["name"])]}
+    broad_scan = {"vt_table": [r.get(org_key) for r in table if hits(BROAD_CHARITY, r.get(org_key, ""))],
+                  "vt_archive_n": sum(1 for a in archive if hits(BROAD_CHARITY, a["title"])),
+                  "ma_n": sum(1 for r in ma_all if hits(BROAD_CHARITY, r["name"])),
+                  "ma_charit": sorted({r["name"] for r in ma_all if re.search(r"charit", r["name"], re.I)})}
+    summ = {"vt_table_rows": len(table), "vt_table_dates": [min(x for x in (vt_iso(r.get(date_key, "")) for r in table) if x), max(vt_iso(r.get(date_key, "")) for r in table)] if table else [],
+            "vt_archive_pages": last + 1, "vt_archive_notices": len(archive),
+            "vt_archive_dates": [min((a["title"][:10] for a in archive if re.match(r"20\d\d-", a["title"])), default=""),
+                                 max((a["title"][:10] for a in archive if re.match(r"20\d\d-", a["title"])), default="")],
+            "ma_records_by_year": {y: sum(1 for r in ma_all if r["year_file"] == y) for y in MA_YEARS},
+            "ma_records_no_count": sum(1 for r in ma_all if r["count"] is None),
+            "ma_total_lines": {y: (re.search(r"total number of breaches affecting residents:\s*([\d,]+)", t) or [None, ""])[1] for y, t in ma_texts.items()},
+            "candidates": [{k: r.get(k, "") for k in ("notice_id", "register", "entity_named", "date_reported", "number_affected_state",
+                                              "data_types_register", "entries_for_entity_in_window")}
+                           for r in rows if r.get("candidate_for_notice") == "Y"],
+            "daf_entity_scan": daf_scan, "broad_charity_scan": broad_scan, "rows": len(rows)}
     with open(os.path.join(outdir, "breach_summary.json"), "w") as f:
         json.dump(summ, f, indent=1, default=str)
     return summ
@@ -602,7 +743,7 @@ def main(argv: Sequence[str]) -> int:
                                              "filings_adjacent_unnamed", "ld203_items")}))
     if a.step in ("breach", "all"):
         s = run_breach(a.root, fetch(a.cache, a.offline, VT_DELAY), a.cache, outdir, robots)
-        print(json.dumps({k: s[k] for k in ("vt_table_rows", "vt_archive_notices", "archive_hits", "found_ids")}, default=str))
+        print(json.dumps({k: s[k] for k in ("vt_table_rows", "vt_archive_notices", "ma_records_by_year", "candidates")}, default=str, indent=1))
     return 0
 
 

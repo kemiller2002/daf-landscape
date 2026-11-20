@@ -293,9 +293,18 @@ GS_SNIPS = (("faq", r"Groundswell accounts are powered by a donor-advised fund[^
             ("phaas", r"the matching happens preemptively into an employee.s PhaaS-powered donor advised fund\."))
 
 
+def xml_tag(t: str, k: str) -> str:
+    m = re.search(rf"<{k}(?:\s[^>]*)?>(.*?)</{k}>", t, re.S)
+    return m.group(1) if m else ""
+
+
 def xml_tags(t: str) -> dict:
-    return {k: (re.search(rf"<{k}>(.*?)</{k}>", t, re.S).group(1) if re.search(rf"<{k}>(.*?)</{k}>", t, re.S) else "")
-            for k in TAGS}
+    return {k: xml_tag(t, k) for k in TAGS}
+
+
+def cash_eoy(t: str) -> str:
+    m = re.search(r"<CashNonInterestBearingGrp>.*?<EOYAmt>(\d+)</EOYAmt>", t, re.S)
+    return m.group(1) if m else ""
 
 
 def part_iii_desc(t: str) -> str:
@@ -331,6 +340,9 @@ def gs_rows(xml: str, pages: Mapping, robots: Sequence[Mapping]) -> list:
     out = [mk("gs:xml_tag", "TY2024", k, value=val, note=f"oid {GS_OID}", source=SRC_B) for k, val in tg.items()]
     out += [mk("gs:derived", "TY2024", "avg_eoy_value_per_account", value=v / n if n else "", note="DonorAdvisedFundsVlEOYAmt / DonorAdvisedFundsHeldCnt", source=SRC_B),
             mk("gs:derived", "TY2024", "avg_contribution_per_account", value=c / n if n else "", note="DonorAdvisedFundsContriAmt / count (count is year-end)", source=SRC_B),
+            mk("gs:derived", "TY2024", "sched_d_col_a_plus_b_eoy_vs_cash_eoy",
+               value=f"{v + float(tg['FundsAndOtherAccountsVlEOYAmt'] or 0):.0f} vs {cash_eoy(xml)}",
+               note="Schedule D Part I line 4 (a)+(b) against Part X line 1 cash, non-interest-bearing, EOY", source=SRC_B),
             mk("gs:derived", "TY2024", "grants_per_account", value=g / n if n else "", note="Part IX line 1 grants / year-end DAF count", source=SRC_B),
             mk("gs:derived", "TY2024", "avg_grant_size", value=g / gn if gn else "", note="Part IX grants / 'over N individual grants' (Part III); an upper bound", source=SRC_B),
             mk("gs:derived", "TY2024", "grants_count_part_iii", value=gn, note="Part III text: 'OVER N INDIVIDUAL GRANTS'", source=SRC_B),
