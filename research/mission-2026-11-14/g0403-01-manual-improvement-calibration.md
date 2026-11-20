@@ -54,7 +54,7 @@ All figures are for a large national (NAT_LARGE), CAL_CENTRAL, gross, as the mea
 1. **Under A_FIELD, A keeps almost all of its gain.**
    - With assistance as C, A takes **94%** of the rank-first probability that B and D lose. It stays modal in **6 of 15 processes** (P01, P03, P07, P08, P13, P14), the same set as under the unsourced prior.
    - The NAO casework ratios centre on 1.0, against 0.07–0.33 for the RPA audits. Holding A to "audited realization" therefore barely moves it, because the audited realization of manual programmes is close to plan.
-2. **With routing at the A01 ranges, C takes P13 and P14 from A at the current m.** At m = 1.77, C is modal in **5 processes** (P03, P07, P11, P13, P14) and A in **1** (P08). A still takes **58%** of what B and D lose. At m = 9.28 (wave-39B high), C is modal nowhere and A is back to 6 processes.
+2. **With routing at the A01 ranges, C takes P13 and P14 from A at the current m.** At m = 1.77, C is modal in **5 processes** (P03, P07, P11, P13, P14) and A in **1** (P08). A still takes **58%** of what B and D lose. At m = 9.28 (wave-39B high), C is modal nowhere and A is back to 6 processes. With the upper half of h (above 0.50) held to the RPA realization range [I] (g0403-0105-04, C_UPPER_FIELD), A01 routing at m = 1.77 falls to 0.168 and 2 modal processes (P03, P07) with A in 4; at m = 1.56, 0.172 with C and A in 3 each; hybrid stays modal in 5 [S] [V wave 42C]
 3. **A stops absorbing only if manual realization falls below plan, or if α falls to the peer-reviewed level.**
    - In the fixed-r_A sweep under BD_FIELD with assistance, A is modal in 6 processes at r_A = 1.0, in 3 at 0.75, in 1 at 0.5 and in 0 at 0.33.
    - With A01 routing at m = 1.77, A is modal in 5 processes at r_A = 1.0 and in none at 0.75.
@@ -275,7 +275,7 @@ By net value, A or "none" remains the most likely winner in every cell. Under BD
 |---|---|
 | Recut: "What replaces B and D is manual improvement (A), not AI"; α is an uncalibrated prior | **Holds with assistance under A_FIELD, an [I] mapping of audited manual-casework throughput realization (not labour-savings realization) onto r_A** [V wave 41C] A takes 94% of the lost rank-first probability with assistance and stays modal in 6 of 15 processes. It no longer holds if manual improvement realizes well below plan (r_A ≤ 0.5 with assistance; ≤ 0.75 with A01 routing) or if α is at the peer-reviewed level |
 | Recut: ABD_FIELD (RPA range on A) as the "same standard" case | **Revised.** The RPA range is a technology-programme realization. The manual-casework audits (MI-E01/E02) centre on 1.0, not 0.33. ABD_FIELD is now a lower-bound stress test (A_RPA_ANALOGY) |
-| Recut: routing at the A01 ranges modal in P03, P07 and P11 under BD_FIELD (m = 1) | **At the current m = 1.56–1.77 with A_FIELD, C is modal in P03, P07, P11, P13 and P14.** A_FIELD (mean 0.89) loosens A's hold on P13 and P14. At m = 9.28, C is modal nowhere. The h-asymmetry caveat (wave 37C) still applies: routing's h upper half is not haircut |
+| Recut: routing at the A01 ranges modal in P03, P07 and P11 under BD_FIELD (m = 1) | **At the current m = 1.56–1.77 with A_FIELD, C is modal in P03, P07, P11, P13 and P14.** A_FIELD (mean 0.89) loosens A's hold on P13 and P14. At m = 9.28, C is modal nowhere. The h-asymmetry caveat (wave 37C) is tested in g0403-0105-04: with routing’s h upper half held to the RPA range [I], C is modal in P03 and P07 at m = 1.77 and in P03, P07 and P14 at m = 1.56 [S] [V wave 42C] |
 | Assistance wins no process | **Unchanged** in every A × B/D cell. Maximum P(C first) is 0.167 (A_RPA_ANALOGY × BD_PROGRAM); 0.140 excluding the RPA-analogy spec (A_LEVEL_A_FIELD × BD_PROGRAM) [V wave 41C]
 
 ---
@@ -287,7 +287,7 @@ By net value, A or "none" remains the most likely winner in every cell. Under BD
 3. **Domain transfer.** UK benefit and asylum casework and an Italian social-security office stand in for DAF grant, KYC and compliance back offices. No finance or AP study with labour denominators was found.
 4. **α level.** One self-report and one peer-reviewed management study do not calibrate α. A_LEVEL_A is a stress test, not a central case.
 5. **r_A above 1.** A_FIELD allows over-delivery (up to 1.2, as DWP 2024-25 shows). A_FIELD_CAPPED bounds this; it takes A from 6 to 3 modal processes with assistance.
-6. **Independence.** r_A, r_B and r_D are drawn independently (P-G0403-01-04). With a common factor, ranks among A, B and D revert towards V1 priors (wave 37C).
+6. **Independence.** r_A, r_B and r_D are drawn independently (P-G0403-01-04). g0403-0105-04 tested a common factor (Gaussian copula, rank correlation 0.5 and 1): under A_FIELD it does not revert ranks towards V1 priors but moves rank-first probability from B (and slightly D) to A and C, changing at most 2 large-national modal winners [S] [V wave 42C]
 7. **Fixed costs and α's shape are unchanged.** F_A ~ logU($25k, $100k) is untouched.
 8. **m is not pinned down** (wave 39B). Results at m = 9.28 differ materially from those at 1.56–1.77. The Amex-priced composite (128 central) was not run, because at m = 9.28 routing is already modal nowhere.
 9. **Monte Carlo error only** in the Wilson intervals. Assumption ranges are shown by specs and sweeps.

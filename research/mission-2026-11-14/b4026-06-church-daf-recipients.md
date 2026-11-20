@@ -27,7 +27,7 @@ Tags: **[F]** computed from filings or the BMF by the script · **[P]** quoted p
   - per Schedule I line (one sponsor-year's total to one church): $17,479;
   - Schedule I's p10 line is $6,224, close to the $5,000 reporting threshold.
   - Mean per church: $209,629.
-- **Faith sponsors send 22.1% of block dollars.** NCF, Servant Foundation (The Signatry) and Thrivent send 18.0%; four Jewish sponsors send 4.1%. Nationals send 74.2% and community foundations 3.1% [F].
+- **Faith sponsors send 22.1% of block dollars.** NCF, Servant Foundation (The Signatry) and Thrivent send 18.0%; four Jewish sponsors send 4.1%. Nationals send 74.2% and community foundations 3.1% [F]. These shares are within the top-50 frame. Across all itemising DAFRC panel sponsors plus four non-panel faith sponsors the block is $8,104.5m: faith sponsors send 30.2% (25.1% without the OJC Fund) and nationals 58.8% (b4026-06-01-faith-sponsors-outside-top50.md) [V wave 42B].
   - Faith sponsors hold only 10.0% of all top-50 dollars, so they are over-represented about 2.2× [F].
   - For congregations only the faith share is 21.2%; for all church-coded recipients, including filers, it is 25.7% [F].
   - **By sponsor, Fidelity Charitable is the largest source, at $2,157.9m (34.9%).** DAFgiving360 follows with $995.2m (16.1%), then NCF with $722.5m (11.7%) [F].
@@ -235,8 +235,8 @@ Among community foundations, SVCF sends 0.5% and Chicago 1.1%.
 
 **Answer to the faith-versus-other question** [F]:
 - Faith sponsors (Christian and Jewish) send **22.1%** of block dollars, **21.2%** of congregation dollars and **25.7%** of all church-coded dollars.
-- Non-faith sponsors send the rest: nationals about three-quarters and community foundations 3%.
-- Because faith sponsors outside the top-50 frame are missing (WaterStone, NCF affiliates, Catholic and Jewish community foundations), the true faith share of all DAF dollars to churches is likely higher [I]. Proposal P-B4026-06-01 would test this.
+- Non-faith sponsors send the rest: nationals about three-quarters and community foundations 3%, within the top-50 frame; across all itemising panel sponsors nationals send about three-fifths (58.8%; 63.1% without the OJC Fund) [V wave 42B].
+- Because faith sponsors outside the top-50 frame are missing (WaterStone, NCF affiliates, Catholic and Jewish community foundations), the true faith share of all DAF dollars to churches is likely higher [I]. P-B4026-06-01 tested this: 30.2% across all itemising panel sponsors (33.7% adding only faith sponsors outside the top 50). About half of the added $1,080.3m is one Brooklyn pass-through sponsor, the OJC Fund ($545.3m), which ranks 22nd by FY2023 DAF grants but 284th by DAF assets; without it the all-panel share is 25.1% [V wave 42B].
 
 ### 3.6 Megachurches (`megachurch`, `outreach100_match`)
 
@@ -290,9 +290,9 @@ This study tests several of those points directly:
 
 - **E1 confirmed and extended.** Even the "church" block is 48% non-congregational by dollars (§3.1). The congregations themselves were not covered by the earlier scan, and the first direct read of their pages finds no DAF option on any of 14 (§3.7) [F/O].
 - **E2 partly.** Schedule I lines to congregations have a median of $17k and p10 of $6.4k, and 57.5% of churches have one sponsor (§3.3). Small per-grant sizes cannot be seen in Schedule I [F/I].
-- **E3 quantified.** Faith sponsors send 21–26% of church dollars, against 10% of all top-50 dollars. Servant Foundation and Thrivent send about 40% of their own dollars to this block (§3.5).
-  - But **about three-quarters of church DAF dollars come from national sponsors**, led by Fidelity and DAFgiving360. Those are sponsors that are reached through DAFpay or sponsor links.
-  - So "faith sponsors pay without a donate page" explains about a fifth to a quarter of the dollars (22.1% of the block, 25.7% of all church-coded dollars) [I] [V wave 35C].
+- **E3 quantified.** Faith sponsors send 21–26% of church dollars within the top 50, against 10% of all top-50 dollars; across all itemising panel sponsors they send 30.2% of block dollars and 31.8% of church-coded dollars (25.1% of the block without the OJC Fund) [V wave 42B]. Servant Foundation and Thrivent send about 40% of their own dollars to this block (§3.5).
+  - But **about three-quarters of top-50 church DAF dollars come from national sponsors**, led by Fidelity and DAFgiving360; across all itemising panel sponsors the national share is about three-fifths (58.8%) [V wave 42B]. Those are sponsors that are reached through DAFpay or sponsor links.
+  - So "faith sponsors pay without a donate page" explains about a fifth to a quarter of the dollars within the top 50 (22.1% of the block, 25.7% of all church-coded dollars) [I] [V wave 35C], and about three-tenths across all itemising panel sponsors (30.2% and 31.8%; b4026-06-01) [V wave 42B].
   - Most church DAF money arrives from nationals with no visible DAF option on the church's page. That fits portal-initiated grants by donors who already know the church's EIN and address [I].
 - **E4 consistent.** Every platform detected on the scanned pages (Subsplash, Pushpay, Planning Center) is one the faith doc found has no DAF grant rail [O].
 - **E5.** No church in the sample showed its EIN, which national sponsors' grant forms ask for [O].
@@ -300,7 +300,7 @@ This study tests several of those points directly:
 
 ## 5. Limits
 
-1. **Top-50 frame only.** Sponsors outside the 50 largest by DAF assets are absent, including WaterStone, NCF affiliates and most Jewish and Catholic foundations. Renaissance and BofA do not itemise Schedule I. DAF-weighting assumes each sponsor-year's DAF share applies to all its lines.
+1. **Top-50 frame only.** Sponsors outside the 50 largest by DAF assets are absent, including WaterStone, NCF affiliates and most Jewish and Catholic foundations (b4026-06-01 adds them: block $8,104.5m, faith share 30.2%; ranking by assets also omits high-throughput sponsors such as the OJC Fund, 22nd by FY2023 DAF grants and 284th by DAF assets) [V wave 42B]. Renaissance and BofA do not itemise Schedule I. DAF-weighting assumes each sponsor-year's DAF share applies to all its lines.
 2. **Schedule I lines.** They aggregate per recipient-year and omit recipients at or under $5,000. Church grants sit close to that threshold, so the dollar total and the small-church count are understated by an unknown amount (proposal 05).
 3. **Name rules.** Recipient type and denomination family come from keyword rules on BMF names. GEN central names are authoritative for most of the 47.8% of dollars with a GEN; elsewhere names are an [I] classification. Two exceptions: the BMF central name for GEN 2573 (UMC) is truncated, so its subordinates fall back to own-name rules (64 recipients, $12.5m, not labelled Methodist), and GEN 2269 (Converge, the Baptist General Conference; $49.7m) has only $12.0m labelled Baptist. Methodist and Baptist shares are therefore understated by up to about 0.2 and 0.6 points [V wave 35C]. Known mislabels are listed in §1.3.
 4. **"Church" means the IRS code.** FOUNDATION 10 includes auxiliaries, conventions and schools. The BMF is the 2026-11 extract and is applied to FY2023–24 dollars.

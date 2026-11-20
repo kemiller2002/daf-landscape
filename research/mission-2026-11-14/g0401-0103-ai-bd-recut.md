@@ -77,7 +77,7 @@ The other evidence gives one side only:
 3. **Routing with the A01 ranges is the variant that changes the ranking**, and at V1 priors it already flips P03 to C.
    - With B and D recut (BD_FIELD), C is modal in P03, P07 and P11 at a large national, and in 4–5 processes at community-foundation archetypes.
    - Its rank-first probability is 19–31% across BD_FIELD, BD_WIDE and BD_PROGRAM.
-   - This rests on h up to 0.80 and on m = 1. At m = 5 under BD_FIELD, C is modal in no process at a large national. The upper half of that h range (E15’s retrospective 0.78, State’s self-reported 80%) has not been cut to realized savings the way B and D were. If one common realization factor applied to A, B, C and D alike, the gross ranking would be the V1-priors one: A01 routing modal in P03 only, and assistance and routing-note routing in none [C]. [V wave 37C]
+   - This rests on h up to 0.80 and on m = 1. At m = 5 under BD_FIELD, C is modal in no process at a large national. The upper half of that h range (E15’s retrospective 0.78, State’s self-reported 80%) has not been cut to realized savings the way B and D were. If one common realization factor applied to A, B, C and D alike, the gross ranking would be the V1-priors one: A01 routing modal in P03 only, and assistance and routing-note routing in none [C]. [V wave 37C] g0403-0105-04 tested correlated, not identical, factors: with A at A_FIELD the ranking does not revert to V1 (B loses most, A and C gain), and with the upper half of h held to the RPA range [I], A01 routing at m = 1.77 is modal in 2 large-national processes under A_FIELD × BD_FIELD [S] [V wave 42C]
 
 **Break-even realization [S].** Hold everything else fixed and scale realized B and D by a common factor r:
 - **Assist:** C does not become the modal winner in any process at any r ≥ 0.07 if A keeps its prior. With A scaled too, C becomes modal in its first process at r = 0.33 and in 8 of 15 at r = 0.07.
@@ -292,7 +292,7 @@ All strings are from the CSV rows `modal_winners_gross_P01_P15`.
 ### 4.2 Why A matters
 
 - Cutting only B and D hands most processes to A (P(A first) rises from 0.07 to 0.39 under assistance).
-- That outcome tests A's prior, not AI. α ~ U(0.05, 0.25) has no source. g0403-01 holds A to throughput realization from two NAO casework audits [I]: with assistance A still takes 94% of what B and D lose. With A01 routing at m = 1.77, C is modal in 5 processes and A in 1. If α is set to the peer-reviewed level, A is modal in at most 1 process. The r_A evidence is throughput against plan, not realized labour savings [V wave 41C]
+- That outcome tests A's prior, not AI. α ~ U(0.05, 0.25) has no source. g0403-01 holds A to throughput realization from two NAO casework audits [I]: with assistance A still takes 94% of what B and D lose. With A01 routing at m = 1.77, C is modal in 5 processes and A in 1; with the upper half of h held to the RPA range [I], 2 and 4 (g0403-0105-04) [S] [V wave 42C] If α is set to the peer-reviewed level, A is modal in at most 1 process. The r_A evidence is throughput against plan, not realized labour savings [V wave 41C]
 - ABD_FIELD applies the same realization range to A. It is the closest available "same standard for every option" case, and it is also [I] (P-G0403-01). g0403-01 retains it as a lower-bound stress test (A_RPA_ANALOGY) because the RPA range is a technology-programme realization [V wave 41C]
 
 ### 4.3 Value pools and break-even

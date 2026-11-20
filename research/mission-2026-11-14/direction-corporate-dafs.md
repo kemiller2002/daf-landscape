@@ -150,7 +150,7 @@
 
 **Timing [I]:**
 - The OBBBA 1% corporate floor applies to tax years beginning after 2025 (`direction-policy-lobbying-obbba.md`).
-- The large 2025/FY2026 contributions (Apollo $200m, Urban Outfitters $46.0m, Circle $23.1m, Zoom $20.9m) fit a pre-floor pull-forward, but **no filing gives the floor as the reason**. P-B41N18-02 tests this.
+- Of the large 2025/FY2026 contributions, Apollo's $200m (Feb 2025) predates the floor's first bill text (2025-05-12), although its DAF is meant to fund about four years of grants, and Circle's $23.1m is its “first annual share contribution” under Pledge 1%, so neither is a floor pull-forward. Urban Outfitters' $46.0m fell in its last floor-free year (FY2026), and Zoom's $20.9m could not be re-read. No company read ties a DAF gift to the floor. Late-2025 gifts by BlackRock ($109m of appreciated Circle shares, 2025-12-10), Unum ($20.0m “accelerated”, recipient not named) and Live Oak fit the timing; only Community Financial System (about $0.6m, non-DAF, search-index text) names OBBBA as the reason ([b41n18-02](b41n18-02-corporate-floor-pull-forward.md)) [V wave 42B]
 
 ---
 
