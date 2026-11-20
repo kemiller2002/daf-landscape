@@ -192,11 +192,12 @@ def parse_return(oid: str, raw: bytes | None) -> dict:
         return {"oid": oid, "xml": "parse_error"}
     texts = narratives(root)
     hits = tuple({**h, "part": part} for part, t in texts for h in hits_in(t))
-    uniq = tuple({(h["n"], h["cls"], h["snippet"][:120]): h for h in hits}.values())
+    uniq = tuple({(h["part"], h["n"], h["cls"], h["snippet"][:120]): h for h in hits}.values())
     return {"oid": oid, "xml": "ok", "period_end": first_text(root, "TaxPeriodEndDt"),
             "daf_cnt": num(first_text(root, "DonorAdvisedFundsHeldCnt")),
             "other_cnt": num(first_text(root, "FundsAndOtherAccountsHeldCnt")),
-            "n_narr": len(texts), "hits": uniq}
+            "n_narr": sum(1 for p, _ in texts if p in MAIN_PARTS), "n_narr_sd": sum(1 for p, _ in texts if p == "sched_d_xiii"),
+            "hits": uniq}
 
 
 MAIN_PARTS = ("part_iii", "sched_o")
@@ -229,17 +230,16 @@ def returns_index(harvest: Sequence[Mapping], coststruct: Sequence[Mapping], ein
     rows = tuple((r["ein"], r["fiscal_year"], r["return_object_id"], r.get("return_ts", ""))
                  for r in tuple(harvest) + tuple(coststruct)
                  if r["ein"] in eins and r["fiscal_year"] in FYS and r.get("return_object_id"))
-    best = {}
-    for ein, fy, oid, ts in sorted(rows, key=lambda t: (t[3], t[2])):
-        best = {**best, (ein, fy): oid}
-    return best
+    return {(ein, fy): oid for ein, fy, oid, _ in sorted(rows, key=lambda t: (t[3], t[2]))}
 
 
 # ----------------------------------------------------------------------------- hand check
-# Analyst's reading of every CF-level total used for rule F (filled after the first run; key = object id).
-# verdict: ok = states the number of all funds held/administered by the filer; else a short reason.
-HANDCHECK: dict[str, tuple[str, str]] = {}
-# Analyst's reading of a random sample of non-all_funds hits (key = object id + n): 'correct_exclusion' or 'missed_total'.
+# Analyst's reading, in context, of every CF-level total the extraction selects (main and extension), keyed
+# "<object id>|<n>". verdict: ok = states the number of all funds the filer holds/administers; corrected = a total of
+# all funds, but the right figure differs (corrected_total given); reject = not an all-funds total.
+HANDCHECK: dict[str, tuple[str, int | None, str]] = {}
+# Analyst's reading of a random sample of hits classed as NOT all_funds (key "<object id>|<n>"):
+# correct_exclusion or missed_total.
 EXCL_CHECK: dict[str, tuple[str, str]] = {}
 
 
@@ -248,60 +248,75 @@ def band_of(r: Mapping) -> str:
     return next(lbl for lbl, bands in BANDS if r["size_band_fy2024"] in bands)
 
 
+def pick(c: Mapping, loaded: Sequence[tuple[str, Mapping]], parts: Sequence[str], sfx: str = "") -> dict:
+    """Latest FY with an all_funds total in `parts`, the same return's Sched D DAF count, and rule F (pure)."""
+    with_total = tuple((fy, r, return_total(r, parts)) for fy, r in loaded
+                       if r and r.get("xml") == "ok" and return_total(r, parts))
+    fy, rec, tot = with_total[0] if with_total else (None, None, None)
+    hc = HANDCHECK.get(f"{rec['oid']}|{tot['n']}") if tot else None
+    total = (hc[1] if hc and hc[0] == "corrected" else tot["n"]) if tot else None
+    daf = rec.get("daf_cnt") if rec else None
+    share = None if not (total and daf is not None) else min(1.0, daf / total)
+    use_f = bool(share is not None and c["usable"] == "1" and hc is not None and hc[0] in ("ok", "corrected"))
+    opex, accts, dafa = num(c["opex_ex_11f"]), num(c["daf_accounts_fy2024_screened"]), num(c["daf_assets_fy2024"])
+    cost_f = opex * share if use_f and opex is not None else None
+    base = {
+        "total_fy": fy or "", "total_object_id": rec["oid"] if rec else "", "total_period_end": (rec or {}).get("period_end") or "",
+        "total_part": tot["part"] if tot else "", "total_pattern": tot["pattern"] if tot else "",
+        "n_total_funds_extracted": M.fmt(tot["n"], 0) if tot else "", "n_total_funds": M.fmt(total, 0) if total else "",
+        "total_qual": tot["qual"] if tot else "", "multi_total": ("1" if tot["multi_total"] else "0") if tot else "",
+        "fys_with_total": ";".join(f for f, _, _ in with_total),
+        "sched_d_daf_count_same_return": M.fmt(daf, 0) if daf is not None and tot else "",
+        "daf_gt_total": ("1" if daf is not None and total and daf > total else "0") if tot else "",
+        "handcheck": hc[0] if hc else ("not_checked" if tot else ""),
+        "daf_share_F": M.fmt(share, 4) if use_f else "",
+        "daf_cost_alloc_F": M.fmt(cost_f, 0) if cost_f is not None else "",
+        "daf_cost_per_account_alloc_F": M.fmt(M.ratio(cost_f, accts), 0) if cost_f is not None and accts else "",
+        "daf_cost_bps_daf_assets_alloc_F": M.fmt(M.ratio(cost_f, dafa) * 1e4, 1) if cost_f is not None and dafa else "",
+        "opex_per_fund": M.fmt(M.ratio(opex, total), 0) if use_f and opex is not None else "",
+    }
+    return {k + sfx: v for k, v in base.items()} if sfx else base
+
+
+EXT_KEYS = ("total_fy", "total_object_id", "total_part", "n_total_funds", "total_qual", "sched_d_daf_count_same_return",
+            "handcheck", "daf_share_F", "daf_cost_per_account_alloc_F", "daf_cost_bps_daf_assets_alloc_F")
+
+
 def cf_row(c: Mapping, recs: Mapping[str, Mapping], idx: Mapping, prior: Mapping) -> dict:
     fy_oids = tuple((fy, idx.get((c["ein"], fy))) for fy in FYS)
     loaded = tuple((fy, recs.get(o)) for fy, o in fy_oids if o)
-    with_total = tuple((fy, r, return_total(r)) for fy, r in loaded if r and r.get("xml") == "ok" and return_total(r))
-    fy, rec, tot = with_total[0] if with_total else (None, None, None)
-    hc = HANDCHECK.get(rec["oid"]) if rec else None
-    daf = rec.get("daf_cnt") if rec else None
-    total = tot["n"] if tot else None
-    usable_cost = c["usable"] == "1"
-    share = None if not (total and daf is not None) else min(1.0, daf / total)
-    use_f = bool(share is not None and usable_cost and (hc is None or hc[0] == "ok"))
-    opex, accts, dafa = num(c["opex_ex_11f"]), num(c["daf_accounts_fy2024_screened"]), num(c["daf_assets_fy2024"])
-    cost_f = opex * share if use_f and opex is not None else None
-    classes = tuple(h["cls"] for _, r in loaded if r for h in r.get("hits", ()))
+    main = pick(c, loaded, MAIN_PARTS)
+    ext = pick(c, loaded, EXT_PARTS, "_ext")
+    classes = tuple(h["cls"] for _, r in loaded if r for h in r.get("hits", ()) if h["part"] in MAIN_PARTS)
     p = prior.get(c["ein"], {})
     return {
         "ein": c["ein"], "name": c["name"], "band": band_of(c), "size_band_fy2024": c["size_band_fy2024"],
-        "usable_cost": c["usable"], "returns_fy2022_24": len(fy_oids) - sum(1 for _, o in fy_oids if not o),
+        "usable_cost": c["usable"], "returns_fy2022_24": sum(1 for _, o in fy_oids if o),
         "returns_xml_ok": sum(1 for _, r in loaded if r and r.get("xml") == "ok"),
         "narrative_fields": sum(r.get("n_narr", 0) for _, r in loaded if r),
         "hits_all_funds": classes.count("all_funds"), "hits_endowment_only": classes.count("endowment_only"),
         "hits_type_specific": classes.count("type_specific"), "hits_new_funds": classes.count("new_funds"),
         "hits_grantmaking": classes.count("grantmaking"), "hits_other": classes.count("other"),
-        "total_fy": fy or "", "total_object_id": rec["oid"] if rec else "", "total_period_end": (rec or {}).get("period_end", ""),
-        "total_part": tot["part"] if tot else "", "total_pattern": tot["pattern"] if tot else "",
-        "n_total_funds": M.fmt(total, 0) if total else "", "total_qual": tot["qual"] if tot else "",
-        "multi_total": ("1" if tot["multi_total"] else "0") if tot else "",
-        "fys_with_total": ";".join(f for f, _, _ in with_total),
-        "sched_d_daf_count_same_return": M.fmt(daf, 0) if daf is not None else "",
-        "sched_d_other_funds_count_same_return": M.fmt(rec.get("other_cnt"), 0) if rec and rec.get("other_cnt") is not None else "",
-        "daf_gt_total": ("1" if daf is not None and total and daf > total else "0") if tot else "",
-        "handcheck": hc[0] if hc else ("" if not tot else "not_checked"),
-        "daf_share_F": M.fmt(share, 4) if use_f else "",
+        **main,
         "daf_share_A": c["daf_share_assets"], "daf_share_G": c["daf_share_grants"],
         "opex_ex_11f": c["opex_ex_11f"], "daf_accounts_fy2024_screened": c["daf_accounts_fy2024_screened"],
         "daf_assets_fy2024": c["daf_assets_fy2024"],
-        "daf_cost_alloc_F": M.fmt(cost_f, 0) if cost_f is not None else "",
-        "daf_cost_per_account_alloc_F": M.fmt(M.ratio(cost_f, accts), 0) if cost_f is not None and accts else "",
-        "daf_cost_bps_daf_assets_alloc_F": M.fmt(M.ratio(cost_f, dafa) * 1e4, 1) if cost_f is not None and dafa else "",
-        "opex_per_fund": M.fmt(M.ratio(opex, total), 0) if use_f and opex is not None else "",
         "daf_cost_per_account_alloc_A": c["daf_cost_per_account_alloc_A"], "daf_cost_per_account_alloc_G": c["daf_cost_per_account_alloc_G"],
         "daf_cost_bps_daf_assets_alloc_A": c["daf_cost_bps_daf_assets_alloc_A"], "daf_cost_bps_daf_assets_alloc_G": c["daf_cost_bps_daf_assets_alloc_G"],
+        **{k + "_ext": ext[k + "_ext"] for k in EXT_KEYS},
         "prior_02_01_total": p.get("n_total_funds", ""), "prior_02_01_status": p.get("count_status", ""),
     }
 
 
 FIELDS = ("ein", "name", "band", "size_band_fy2024", "usable_cost", "returns_fy2022_24", "returns_xml_ok", "narrative_fields",
           "hits_all_funds", "hits_endowment_only", "hits_type_specific", "hits_new_funds", "hits_grantmaking", "hits_other",
-          "total_fy", "total_object_id", "total_period_end", "total_part", "total_pattern", "n_total_funds", "total_qual",
-          "multi_total", "fys_with_total", "sched_d_daf_count_same_return", "sched_d_other_funds_count_same_return",
+          "total_fy", "total_object_id", "total_period_end", "total_part", "total_pattern", "n_total_funds_extracted",
+          "n_total_funds", "total_qual", "multi_total", "fys_with_total", "sched_d_daf_count_same_return",
           "daf_gt_total", "handcheck", "daf_share_F", "daf_share_A", "daf_share_G", "opex_ex_11f",
           "daf_accounts_fy2024_screened", "daf_assets_fy2024", "daf_cost_alloc_F", "daf_cost_per_account_alloc_F",
           "daf_cost_bps_daf_assets_alloc_F", "opex_per_fund", "daf_cost_per_account_alloc_A", "daf_cost_per_account_alloc_G",
-          "daf_cost_bps_daf_assets_alloc_A", "daf_cost_bps_daf_assets_alloc_G", "prior_02_01_total", "prior_02_01_status")
+          "daf_cost_bps_daf_assets_alloc_A", "daf_cost_bps_daf_assets_alloc_G") + tuple(k + "_ext" for k in EXT_KEYS) + (
+          "prior_02_01_total", "prior_02_01_status")
 
 
 def col(rows: Sequence[Mapping], k: str) -> list:
@@ -435,14 +450,14 @@ def main(argv: Sequence[str]) -> int:
     prior = {r["ein"]: r for r in B.read_csv(PRIOR_CSV)} if os.path.exists(PRIOR_CSV) else {}
     rows = tuple(cf_row(c, recs, idx, prior) for c in sorted(fr, key=lambda r: r["ein"]))
     if a.task == "hits":
-        names = {r["ein"]: r["name"] for r in fr}
-        oid_ein = {o: e for (e, _), o in idx.items()}
         for r in rows:
-            if r["total_object_id"]:
-                t = return_total(recs[r["total_object_id"]])
-                print(f"{r['total_object_id']}\t{r['ein']}\t{names[r['ein']]}\tFY{r['total_fy']}\t{t['n']}\t{t['qual']}\t"
-                      f"multi={t['multi_total']}\tdaf={r['sched_d_daf_count_same_return']}\t{t['snippet']}")
-        return 0 if oid_ein else 1
+            for sfx, parts in (("", MAIN_PARTS), ("_ext", EXT_PARTS)):
+                o = r["total_object_id" + sfx]
+                t = return_total(recs[o], parts) if o else None
+                if t and not (sfx and o == r["total_object_id"] and t["n"] == num(r["n_total_funds_extracted"] or 0)):
+                    print(f"{o}|{t['n']}\t{sfx or 'main'}\t{r['ein']}\t{r['name']}\tFY{r['total_fy' + sfx]}\t{t['qual']}\t"
+                          f"multi={t['multi_total']}\tdaf={r['sched_d_daf_count_same_return' + sfx]}\t{t['part']}\t{t['snippet']}")
+        return 0
     if a.task == "sample":
         for o, h in excluded_sample(recs):
             print(f"{o}|{h['n']}\t{h['cls']}\t{h['snippet']}")
