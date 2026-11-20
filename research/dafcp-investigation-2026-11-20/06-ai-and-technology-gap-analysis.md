@@ -93,3 +93,14 @@ The repository already documents these capabilities in the market. The table sho
    - Module 6 is found to demonstrate platforms;
    - the College extends its RICP AI tools or planning-software integrations to DAFCP;
    - DAF technology vendors become Forum sponsors or speakers.
+
+
+---
+
+## Syllabus corrections (2026-11-20) — governing
+
+Source: [dafcp-syllabus-findings.md](../education/dafcp-syllabus-findings.md); evidence DE074–DE083. The syllabi were read under the [owner decision on robots.txt](../education/owner-decision-robots-2026-11-20.md).
+
+- **Verified at syllabus level (DE079).** The DAFCP syllabus contains no AI learning objective. AI appears only in a student-conduct policy. CLO7 covers "the responsible use of technology tools".
+- **Required reading.** The textbook's publisher description lists "AI, blockchain, and digital platforms" as a theme. So the **required reading mentions AI**, while the **course objectives do not**.
+- **CAP is the same.** The CAP syllabi show the same pattern (DE083).

@@ -148,3 +148,17 @@ These are not exclusive. The evidence fits **E1 + E3 + E4** best, with E2 as a b
 - Run a validation wave on rows DE019–[DE041] (people and relationships) and DE061–[DE064] (adoption) before treating them as governing.
 - Run the interviews in [12](12-open-questions-and-interview-targets.md).
 - Add a quarterly monitor for FINRA, the CFP Board CE search, the College press room and the Forum agenda. Use the indicators in [scenarios.csv](../../data/dafcp-investigation-2026-11-20/scenarios.csv).
+
+
+---
+
+## Syllabus corrections (2026-11-20) — governing
+
+Source: [dafcp-syllabus-findings.md](../education/dafcp-syllabus-findings.md); evidence DE074–DE083. The syllabi were read under the [owner decision on robots.txt](../education/owner-decision-robots-2026-11-20.md).
+
+1. **Required text.** The DAFCP 200 syllabus makes Ted Hart's *The DAF Revolution* (self-published 2025; ISBN 979-8-9997607-7-7) the required text. Hart is a DAFCP contributor. The book's listing carries endorsements from Vanguard Charitable's president and Ren's CEO. Ren therefore moves from "none found" to **informal-professional** (RM20).
+2. **Contributors develop and teach the course.** The syllabus says course materials include lectures "delivered by the subject matter experts who contributed to the development of the course". The sponsor and administrator share among those experts (10 of 22) therefore bears directly on content.
+3. **Charitable Solutions publishes a required CAP text.** CAP 549 requires a noncash-assets book published by Charitable Solutions LLC (DE080). That is a course-level commercial tie between the College and the programme director's firm.
+4. **Topics covered.** The syllabus learning objectives cover sponsor fiduciary standards, impact investing and administrative best practices (DE076). The absence findings in §1 item 4 shrink accordingly. Payout, fees, portability, inactivity and AI remain unnamed.
+5. **Exam.** 100 multiple-choice questions in 150 minutes, closed book, proctored, one attempt, no retakes (DE078).
+6. **AI.** The syllabus addresses AI only as student conduct, and it bars sharing course content with AI platforms (DE079).

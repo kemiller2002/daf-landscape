@@ -55,3 +55,12 @@
 - A study guide.
 - CFP Board CE registration for DAFCP.
 - Archived copies of the pre-launch programme page (Wayback snapshot bodies failed to load).
+
+
+---
+
+## Corrections (2026-11-20) — governing
+
+- **SS04 is now read.** The syllabus names *The DAF Revolution*, ISBN **979-8-9997607-7-7**, as the required text. The ISBN in the brief is correct, and the book's required status is **verified**. The earlier "not found" result was a database gap.
+- **SS07 is now read.** See [dafcp-syllabus-findings.md](dafcp-syllabus-findings.md).
+- **Ren tie.** The "conditional" qualifier on the Ren and Vanguard Charitable endorsement ties is removed.

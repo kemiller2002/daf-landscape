@@ -18,7 +18,7 @@ RM16,Daylight Advisors,consultancy,2025 DAF certificate,guidance; facilitation,c
 RM17,Chariot,DAF payment rail,The College,College accepts DAFpay for its own gifts,confirmed-formal,2026-03-11,DE036,"Vendor use, not a DAFCP tie"
 RM18,Chariot,DAF payment rail,DAFCP,faculty member advises Chariot,informal-professional,undated,DE035,
 RM19,American Endowment Foundation,national DAF sponsor,DAFCP,former AEF adviser on faculty,informal-professional,to 2025,DE033,
-RM20,Ren,DAF technology/administration,College / DAFCP,any,searched-none-found,2026-11-20,DE040,Ren appears at an independent DAF summit instead (DE060)
+RM20,Ren,DAF technology/administration,College / DAFCP,"CEO endorses the DAFCP required text (Hart, The DAF Revolution) on its listing",informal-professional,2025-2026,DE040;DE074,Endorsement of required reading; no institutional role in DAFCP found
 RM21,TIFIN Give / GiveClear,DAF platform and sponsor,College / DAFCP,any,searched-none-found,2026-11-20,DE040,
 RM22,Greater Horizons,community foundation DAF sponsor,College / DAFCP,any,searched-none-found,2026-11-20,DE040,
 RM23,Omaha Community Foundation,community foundation,DAFCP; 2025 certificate,faculty member; staff earned 2025 badge,informal-professional,2025-2026,DE023;DE033,
@@ -27,3 +27,5 @@ RM25,"Insurers (MassMutual, Penn Mutual, Securian, Guardian, Nationwide, Northwe
 RM26,"Wealth firms and broker-dealers (Edward Jones, LPL, Osaic, Cetera, J.P. Morgan)",wealth management,DAFCP,"require, reimburse or endorse",searched-none-found,2026-11-20,DE063,They are College corporate partners generally
 RM27,"Professional bodies (CFP Board, CGP/NAGP, AFP, Council on Foundations, NCFP)",association,DAFCP,"recognition, CE approval, comment",searched-none-found,2026-11-20,DE040;DE070,CFP Board CE value for DAFCP unconfirmed
 RM28,DAF Research Collaborative,research body,DAFCP,programme cites its statistics; co-founder on faculty,informal-professional,2026,DE019;DE033,
+RM29,Charitable Solutions LLC,DAF administrator (noncash),CAP 549,"publisher of a required CAP textbook (Clontz, Charitable Gifts of Noncash Assets, 3rd ed.)",confirmed-formal,2024-2026,DE080,Course-level commercial tie; authors are recognised noncash specialists
+RM30,Vanguard Charitable,national DAF sponsor,DAFCP,president endorses the DAFCP required text on its listing,informal-professional,2025-2026,DE074,Endorsement only

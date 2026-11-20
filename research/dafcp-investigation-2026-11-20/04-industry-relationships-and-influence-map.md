@@ -104,3 +104,15 @@ All three are consistent with the evidence. Explanation 1 is the null hypothesis
 - Who authored each module, and was any module reviewed by a sponsor (OQ01, OQ02)?
 - What are the Forum sponsorship amounts (OQ08)?
 - How does the College manage the programme director's outside role (OQ10)?
+
+
+---
+
+## Syllabus corrections (2026-11-20) — governing
+
+Source: [dafcp-syllabus-findings.md](../education/dafcp-syllabus-findings.md); evidence DE074–DE083. The syllabi were read under the [owner decision on robots.txt](../education/owner-decision-robots-2026-11-20.md).
+
+- **Ren:** informal-professional. Its CEO endorses the required text (RM20).
+- **Vanguard Charitable:** its president also endorses the required text (RM30).
+- **Charitable Solutions LLC** publishes a required CAP 549 text (RM29, confirmed-formal).
+- **The named experts' role is confirmed** as content developers and lecturers (DE075).

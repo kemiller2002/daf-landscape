@@ -72,3 +72,13 @@ The College's *Guidelines for Designation Trademark Use* (PDF dated 2025-08-04, 
 | CFP Board CE approval or a FINRA listing | Moderate upgrade for adviser-facing credibility |
 | College-published holder counts above several hundred | A meaningful network effect; revisit |
 | Prospects in interviews say they prefer certified consultants | Reconsider, and record the evidence in [market-validation](../market-validation/interview-program.md) |
+
+
+---
+
+## Syllabus corrections (2026-11-20) — governing
+
+Source: [dafcp-syllabus-findings.md](../../education/dafcp-syllabus-findings.md).
+
+1. **The research-instrument recommendation has a constraint.** The syllabus states that students may not share course content with people outside the course or with any AI platform. An enrolled principal can bring back their **own analysis and judgement**, but not course materials. Course content also cannot be processed with AI tools. Plan the research use accordingly.
+2. **More is known about the exam.** It is 100 questions in 150 minutes, closed book, with one attempt and no retakes.

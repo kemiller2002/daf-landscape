@@ -46,3 +46,13 @@
 - Education landscape: [professional-education-landscape.md](professional-education-landscape.md).
 - Assumptions tested: [professional-education-assumptions.md](professional-education-assumptions.md).
 - Adversarial review: [adversarial-review.md](adversarial-review.md).
+
+
+---
+
+## Corrections (2026-11-20) — governing
+
+- **Textbook.** Required status is verified, and the ISBN is 979-8-9997607-7-7.
+- **Exam.** 100 questions, 150 minutes, no retakes.
+- **Ren tie.** Verified as informal-professional.
+- **Full findings:** [dafcp-syllabus-findings.md](dafcp-syllabus-findings.md).

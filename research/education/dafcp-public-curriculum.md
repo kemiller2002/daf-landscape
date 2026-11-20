@@ -129,3 +129,15 @@ The verbatim bullets are in [03-curriculum-and-competency-audit.md](../dafcp-inv
 [S] counted from the tables above.
 
 **Reading [I].** Public coverage is densest in fundamentals, tax and estate planning. It thins where the work is operational: administration, payments, custody, adviser-managed assets, privacy and automation. Those are the domains the repository has researched most heavily. The two bodies of knowledge are complementary, not overlapping.
+
+
+---
+
+## Syllabus corrections (2026-11-20) — governing
+
+The DAFCP 200 syllabus (DE076–DE079) moves these rows to **explicit**:
+- D "Compliance and approval workflows" (CLO5: operational policies and administrative best practices);
+- D "Investment management" (already explicit; now also includes impact investing);
+- F "Fiduciary concerns" (CLO4).
+
+The revised tally is 28 explicit, 14 implied, 1 textbook-only and 13 not in public text (56 topics). AI remains outside the curriculum objectives. See [dafcp-syllabus-findings.md](dafcp-syllabus-findings.md).

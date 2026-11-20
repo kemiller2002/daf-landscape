@@ -146,3 +146,18 @@ The repository has documented evidence on most of these omissions; see [10 §3](
 2. Whether the §170(p) DAF exclusion and the §68 mechanism are taught correctly.
 3. Which modules the noncash-administrator and sponsor-employed faculty authored (OQ02).
 4. What the case study requires.
+
+
+---
+
+## Syllabus corrections (2026-11-20) — governing
+
+Source: [dafcp-syllabus-findings.md](../education/dafcp-syllabus-findings.md); evidence DE074–DE083. The syllabi were read under the [owner decision on robots.txt](../education/owner-decision-robots-2026-11-20.md).
+
+- **Units per syllabus (DE077).** Unit 3 is Gift Acceptance and Investment Management. Unit 4 is Grantmaking and Grant Administration.
+- **Learning objectives that change the audit (DE076):**
+  - CLO4 covers impact investing and sponsors' regulatory and fiduciary standards. Fiduciary standards are therefore covered, not absent.
+  - CLO5 covers operational policies and administrative best practices. Operational workflows move from "inferable" to **covered at objective level**.
+  - CLO7 covers the responsible use of technology tools.
+- **Assessment (DE078).** A case study develops across all six units. The final exam is 100 multiple-choice questions in 150 minutes, closed book, with no retakes. Applied competence is assessed through the case study, but only within multiple-choice quizzes and the exam.
+- **Still unnamed in syllabus text:** payout distribution, fees and adviser-managed DAF pay, portability, inactivity, anonymity, and AI as a curriculum topic.
