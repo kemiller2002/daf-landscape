@@ -173,11 +173,9 @@ def pool_before(records: list[dict], target_fpe: str) -> tuple[list[tuple[dict, 
     """Pool states for the prior years and the unexpired pool available at the target year."""
     prior = [r for r in records if r["fpe"] < target_fpe]
     states = fifo_pool(prior)
-    t = d(target_fpe)
-    # recompute the live pool at the target date (expiry check) by re-running with a zero-excess target
+    # live pool at the target date (drops excesses older than five years) via a zero-excess probe year
     probe = fifo_pool(prior + [{"fpe": target_fpe, "excess_or_shortfall": 0.0}])
-    _ = t
-    return states, probe[-1][1] if probe else 0.0
+    return states, probe[-1][1]
 
 
 def sponsor_rows(s: dict, records: list[dict]) -> list[dict]:
