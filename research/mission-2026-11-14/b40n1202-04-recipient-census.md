@@ -26,7 +26,7 @@ Tags: [F] computed from filings by the script · [I] inference or method choice.
 - **Change in standard error [F].**
   - *Repo method* (with-replacement bootstrap within every stratum, as in `rbe.boot`): 1h falls from 0.495 to 0.475 points (−0.020; ratio 0.96). 1h − 1d − 1e falls from 0.761 to 0.726 (−0.036; ratio 0.95).
   - *Census strata held fixed* (every stratum whose whole membership is sampled, including the certainty 400, gets no sampling variance): 1h falls from 0.413 to 0.303 points (ratio 0.73, −27%). 1h − 1d − 1e falls from 0.576 to 0.463 (ratio 0.80, −20%).
-  - The repo method barely registers the census, because it resamples a complete stratum as if it were a sample [I]. The census-fixed figure is the right measure of what the census bought (§2.2).
+  - The repo method barely registers the census, because it resamples a complete stratum as if it were a sample [I]. The census-fixed figure is the right measure of what the census bought (§2.2). Neither variant applies a finite-population correction to the old sample’s partly sampled ≥$25m strata (n/N up to 40/42), so the old census-fixed SE is slightly overstated. An approximate correction puts the 1h reduction near 26% rather than 27%. [V wave 47A]
 - **Expanded frame (adds recipients with only non-top-50 grants) [F].** 1h goes from 8.05% (7.21–9.00%) to 7.81% (6.99–8.69%), with SE 0.453 → 0.429 (census-fixed 0.343 → 0.283). 1h − 1d − 1e goes from 13.23% to 13.12% (11.99–14.45%), with SE 0.727 → 0.659 (census-fixed 0.551 → 0.459).
 - **The thin strata get much tighter, but most of their members are out of scope [F].**
   - no_ntee <$1m: in-scope respondents go from 4 to 33 of 190, and the stratum's pooled 1h share (central) from 15.8% (10.2–38.1%) to 11.9% (9.3–15.4%), SE 6.1 → 1.6 points.
@@ -36,7 +36,7 @@ Tags: [F] computed from filings by the script · [I] inference or method choice.
   - The $25–100m band (central, 1h) goes from 7.83% (7.07–8.79%) to 8.02% (7.65–8.48%), SE 0.46 → 0.22 points (census-fixed 0.13).
   - The ≥$100m band goes from 4.67% (3.84–5.66%) to **4.17%** (3.49–5.12%).
   - On 1h − 1d − 1e, $25–100m goes from 13.75% to 13.71% and ≥$100m from 7.39% to 7.22%.
-- **Recommendation [I].** Report 8.8% (95% CI 7.9–9.7%; census-corrected 8.2–9.4%) on 1h and 13.6% (12.2–15.0%; 12.7–14.5%) on 1h − 1d − 1e for the committed frame. Keep 9.2% / 13.7% as the 2,352-EIN result. The remaining sampling variance is in the <$25m bands, not in the large recipients (§2.3), so a further gain needs more small and mid-size EINs (queue P-B40N120204-02).
+- **Recommendation [I].** Report 8.8% (95% CI 7.9–9.7%; census-corrected 8.2–9.4%) on 1h and 13.6% (12.2–15.0%; 12.7–14.5%) on 1h − 1d − 1e for the committed frame. Keep 9.2% / 13.7% as the 2,352-EIN result. The census-corrected intervals cover sampling only. The allocation envelope (about ±0.3 points on 1h, b40n120201-01) was not re-run on the enlarged sample, so quote it beside them. [V wave 47A] The remaining sampling variance is in the <$25m bands, not in the large recipients (§2.3), so a further gain needs more small and mid-size EINs (queue P-B40N120204-02).
 
 ## 1. Method
 
@@ -129,7 +129,7 @@ Points of share, repo-method bootstrap [F].
 ## 4. Interpretation [I]
 - **The direction.** The enlarged sample lowers the headline a little. The census replaces a 40-EIN sample in each large stratum with the full stratum, and in the ≥$100m band the full strata have lower DAF reliance than the sampled 40, notably in health.
 - **The size.** The move (−0.35 points on 1h) is about 0.7 old SEs, which is consistent with sampling noise in the old estimate.
-- **The 1h − 1d − 1e basis** moves less (−0.14). The script does not decompose why. One candidate is that the census strata whose shares fell most (health ≥$100m) carry large line 1d/1e amounts, so their fall weighs less on the narrower denominator; this is untested.
+- **The 1h − 1d − 1e basis** moves less (−0.14). The script does not decompose why. One candidate was that the census strata whose shares fell most (health ≥$100m) carry large line 1d/1e amounts, so their fall weighs less on the narrower denominator. A validator decomposition supports it. In the non-certainty ≥$100m strata, the census raised the weighted 1h denominator by $26.97bn ($146.96bn → $173.93bn) but the 1a + 1b + 1c + 1f denominator by only $3.37bn ($76.76bn → $80.13bn). Of the 1h rise, $22.7bn is line 1e and $0.9bn line 1d. Health alone adds $20.5bn of 1h, $11.4bn of it on line 1e. Holding that band at its old values gives 9.17% on 1h and 13.68% on 1h − 1d − 1e. [V wave 47A]
 
 ## 5. Data dictionary (`recipient-census-2026-11-20.csv`)
 

@@ -51,7 +51,7 @@
 ### 1.4 Directory counts (script-computed)
 - **Morton** is the only directory counted. Its by-type directory ends each fund entry with the same link text ("CLICK HERE to learn more"). The script counts that marker between the type headings, starting after "Funds Organized by Type". Result: scholarship 30, designated 48, FOI 10, agency 12, unrestricted 4, pass-through 2.
 - The divider count differs by 1 in 4 sections, so each type count is ±1.
-- The DAF sections list holders' names only. They were not counted (and no names were recorded), so Morton's total is 106 directory funds + 17 Schedule D DAFs = **123** (`total_basis = directory_non_daf_plus_sched_d_daf`).
+- The DAF sections list holders' names only. They were not counted (and no names were recorded), so Morton's total is 106 directory funds + 17 Schedule D DAFs = **123** (`total_basis = directory_non_daf_plus_sched_d_daf`). The homepage says ‘more than 150 endowment funds’ (re-read 2026-11-20). That exceeds the 106 non-DAF directory funds plus the 12 entries in the directory’s endowed-DAF section. So 123 is a floor, and Morton’s share F (0.138) is an upper bound (≤ 17/150 = 0.113). The medians are unchanged. [V wave 47A]
 - Other directories (Kansas Rural Communities, Berrien, Oregon Trail, Two Rivers, Randolph) are free text with no reliable per-fund marker and were not counted (P-B45N33-02-01-03).
 
 ### 1.5 Rule F (new), beside rules A and G
@@ -163,6 +163,7 @@ Other scholarship counts (no total): Greater Worcester 150+, Kearney 69, Summit 
 - Bootstrap 95% CI of the unweighted median (10,000 resamples, seed 20201): F per account $1,612–$4,864; F bps 144–352; share F 0.070–0.500.
 - Using the Schedule D DAF count for Loudoun as well (42 ÷ 110) leaves the medians unchanged: share 0.181, $2,108, 276 bps.
 - Adding the 3 endowment-only or cumulative totals (n = 18): share 0.222, $2,016 per account, 257 bps.
+- Disputed totals (validator): using Luzerne’s homepage 700+ instead of the 990’s ‘over 400’ lowers the median share to 0.160. Morton at 167 (150 endowment funds + 17 DAFs) or Dallas at 32 leaves it unchanged. The $2,108 and 276 bps medians are unchanged in every case. [V wave 47A]
 - **Representativeness:** the rule-F set's rule-A medians ($2,607; 194 bps) are close to the whole frame ($2,859; 205 bps; n = 549 / 603) and the full sample of 60 ($2,542; 203 bps). The counted CFs are not cheaper or dearer than the tail on rule A.
 
 **Reading [I]**
@@ -172,7 +173,7 @@ Other scholarship counts (no total): Greater Worcester 150+, Kearney 69, Summit 
 - **Rule F against rule A:**
   - **$10–50m:** both rules give similar cost per DAF dollar (193 vs 175 bps).
   - **Below $10m:** rule F puts more cost on DAFs per dollar than rule A (329 vs 219 bps at $1–10m; 326 vs 202 under $1m).
-  - **Reason:** small CFs' DAFs are a larger share of their funds than of their assets. Examples are Dallas (PA), with 14 of 28 funds but 20% of assets, and Oceana, with 64 of 200+ funds but 21% of assets.
+  - **Reason:** small CFs' DAFs are a larger share of their funds than of their assets. Examples are Dallas (PA), with 14 of 28 funds but 20% of assets, and Oceana, with 64 of 200+ funds but 21% of assets. Dallas’s scholarships page counts 18 scholarship funds, and 14 Schedule D DAFs + 18 = 32 exceeds the stated 28. Either the homepage total is stale or some scholarship funds are filed as DAFs, so its share F (0.500) may be overstated; the medians do not move. [V wave 47A]
   - **What it suggests:** this is the direction the cost note expected if cost is per fund (§2.1, "the true per-account cost at the smallest CFs is above the rule-A figure"). With n = 4–5 per band it is suggestive, not shown.
 - **Recomputed tail figures under rule F (central, [I]):**
   - **About $2.1k per DAF account and about 280 bps of DAF assets** (sample medians; weighted medians identical), against rule A's $2.6k and 194 bps on the same CFs.

@@ -173,7 +173,7 @@ Both exceed both the domain's pooled 10.0% and Chariot's 12.6%. This is consiste
 - **b40n1202-b43n26 §0 and §3, Chariot row.** Replace the BMF-band size match ($25–100m 11.0% / 16.4%; ≥$100m 5.8% / 8.7%) with the contribution-matched central figure: 10.0% (8.2–12.1%) pooled and 5.8% median on 1h − 1d − 1e, 8.1% pooled on 1h.
   - Old conclusion: "Chariot's 12.6% sits inside the unscaled-to-scaled range for the $25–100m band and for all recipients".
   - New conclusion: "Chariot's 12.6% is above the size-matched filing estimate by about 2.6 points (0.6–4.4)".
-- **The all-recipient central figures (9.2% / 13.7%) are unchanged.** They describe the whole frame, whose pooled share is dominated by recipients smaller than Chariot's participants. They should not be set beside Chariot's 12.6% as a like-for-like comparison.
+- **The size match leaves the all-recipient central figures (9.2% / 13.7%) unchanged.** The census-enlarged sample later moved them to 8.8% / 13.6% (b40n1202-04). [V wave 47A] They describe the whole frame, whose pooled share is dominated by recipients smaller than Chariot's participants. They should not be set beside Chariot's 12.6% as a like-for-like comparison.
 - **NPB038 (median 12%, 20 organisations).** The size-matched median of 5.8% (3.4–6.8%) confirms the earlier reading that medians disagree most.
 
 ## 6. Data dictionary: `chariot-size-match-2026-11-20.csv`

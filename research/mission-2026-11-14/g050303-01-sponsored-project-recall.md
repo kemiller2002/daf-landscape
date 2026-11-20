@@ -176,6 +176,7 @@ A token counts as present in the references by `tok_hit`, the FBO rule's own tes
 | *Pooled (unstratified) estimate, for reference* | *55.7%* | *43.7%* |
 
 - The pooled dollar recall is distorted by Myriad: its large alias lines carry the pooled dollar precision.
+- **Judgement bound (validator).** 35 of the 38 true-positive calls are unconfirmed, and 30 of the 34 project_likely notes are the same sentence, so recall is lower-leaning. If only the 4 confirmed or own-EIN calls are projects, the post-stratified true NP lines fall to about 8 and line recall rises to about 92%. At 70% accuracy for the likely calls, line recall is about 64%. Read 56% as the low end of a judgement range, not a point. [V wave 47A]
 - The post-stratified estimate keeps Myriad at its sample precision, which is 0.
 - The unsampled "Winward Fund" line ($1.0m, a misspelt host name) takes the pooled dollar precision of 40.4%. If it is treated as an alias, true NP dollars fall to about $3.27m and dollar recall rises to about 69% [C, arithmetic on the reported figures].
 
@@ -289,11 +290,11 @@ Evidence and criteria are in §1.3. Notes per line are in the CSV `hand_note` co
   - Future Chefs (TSNE directory);
   - Upstart Crow Collective (Northwest Film Forum page);
   - AROC (the filed name says "(TIDES CENTER)").
-  <br>The CNDC and Trailhead pages list 2026 partners, which do not include the 2023–24 projects. The 34 `project_likely` calls rest on name, purpose text and the host being a fiscal sponsor. "Confirmed only" precision is 5%. The 63% figure is an upper-leaning judgement [I].
+  <br>The CNDC and Trailhead pages list 2026 partners, which do not include the 2023–24 projects. The 34 `project_likely` calls rest on name, purpose text and the host being a fiscal sponsor. "Confirmed only" precision is 5%. The 63% figure is an upper-leaning judgement [I]. Two of the likely calls (SOL VIDA, HAPPENSTANCE THEATER) rest on the task brief that named them, which is not independent evidence. [V wave 47A]
 - **Concentration.** 31 of the 60 sampled lines come from two filers (Seattle Foundation and The Denver Foundation), and the 60 lines sit on 21 hosts. 15 sampled lines are one alias (KBFUS) at one host.
 - **Aliases are the main error.** They are former names (KBFUS → Myriad USA; Trust for Conservation Innovation → Multiplier), dbas (The Field; Mother Jones), acronym expansions (RVC → Rainier Valley Corps), current names (Heluna Health) and misspellings (Winward). An archived-name reference list would remove most of them (P-G05030301-02).
 - **Parenthetical host names are stripped** by `name_key` before matching, so "… (TIDES CENTER)" and "… (COMMUNITY INITIATIVES)" land in NP rather than FBO (P-G05030301-04).
-- **Same-name BMF entities.** Arte Noir's own exemption (ruling 2022-12) predates the grant, so this may be a graduated project or a filer EIN error. Skyway Coalition (2025-04) and Rod Dedeaux Foundation (2024-10) were ruled at or after the grant year. SOL VIDA's same-name BMF entity is in CA, while the filed line is in Denver, CO, so it is unrelated.
+- **Same-name BMF entities.** Arte Noir's own exemption (ruling 2022-12) predates the grant, so this may be a graduated project or a filer EIN error. Skyway Coalition (2025-04) and Rod Dedeaux Foundation (2024-10) were ruled at or after the grant year. SOL VIDA's same-name BMF entity is in CA, while the filed line is in Denver, CO, so it is unrelated. Two further leads are not resolved. Shalom Bayit (Tides Center) has same-name BMF entities, including 85-3882884 (NY, ruled 2021-02), already listed in `own_name_bmf_eins`. Detroit Action Commonwealth (MI, ruled 2014-09) may be the exempt arm behind the Detroit Action Education Fund line. Both need a check before they count as projects. [V wave 47A]
 - **DAF-to-DAF.** Nine NP-type lines (FJC under its full name; New Horizons Foundation; Tides Foundation; SouthCoast Community Foundation) are whitelist-marked and set aside, consistent with the parent's treatment.
 - **Sensitivity scope.** The non-keyed sensitivity covers only EINs that already have an FBO detection. Hosts with neither a listing nor an FBO line are not examined (P-G05030301-01).
 - All limits of the parent notes apply: recipient-level Schedule I, attachment-only sponsors, truncated names, and directory self-listing.
