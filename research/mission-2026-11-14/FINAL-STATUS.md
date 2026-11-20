@@ -8,7 +8,48 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #67) — governing
+## Counts (refresh 2026-11-20, through PR #68) — governing
+
+These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #68 merged. They supersede the tables below, and the PR #68 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#68 (49 PRs) | GitHub |
+| Research documents | 378 documents, 1,459,552 words | `research/**/*.md` |
+| Datasets | 707 CSV files, 491,086 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,296 | regex over `research/**/*.md` |
+| Independent validation | **2,227 register rows** in 75 register files (waves 1–46B): 1,591 confirmed, 513 partially confirmed, 86 contradicted, 26 unverifiable, 11 other | `validation-register*.csv`, classified by the leading words of `validation_result` |
+| Research queue | 964 items: 425 done, 405 open, 78 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.68 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #68 (validated; report §11.67–§11.68):**
+- **Non-BMF recipients ($4.18bn, 22,269 EINs).**
+  - $1.59bn sits in four Chan Zuckerberg LLCs, which are disregarded entities of Chan Zuckerberg Biohub Inc, a 501(c)(3).
+  - $1.35bn goes to untraced religious bodies and $0.60bn to government units.
+  - 884 of the 1,213 CN filing-rule passers had filed final or terminating returns, so the eligible upper bound falls from 77.3% to 76.9%.
+  - $5.45m went to EINs revoked before the sponsor's fiscal year (core signal; no sponsors named; reinstatement can be retroactive).
+- **Grant-count denominators.**
+  - 12 of the top-15 sponsors state 2024 grant counts (Fidelity 2,664,446). No processor does.
+  - Review-venue complaints run about 0.017 per 10,000 grants a year at Fidelity. AOGF is at most 2.32; the per-grant ranking between the two is open.
+- **In-portal charity data.**
+  - NPT embeds GuideStar; AEF and MS GIFT run on Ren (IRS-based); CF portals are Candid via vendors.
+  - Seven top-20 sponsors are not found. Charity Navigator is not found inside any portal.
+- **Tax pages, ranks 11–25, and Fidelity calculators.**
+  - Fidelity's tax-savings calculator omits the 2026 floor, cap and non-itemizer path. It overstates savings by 7–69% (H2–H4) and shows no saving for H1 (the non-itemizer path saves $720 over 3 years).
+  - Its securities calculator understates savings by about 3.5–18%, mainly because it omits the 3.8% NIIT.
+  - BofA has a “0.05%” floor footnote error. JCF and Columbus misdescribe the cap and the corporate floor.
+  - All five 2026 law parameters were verified on govinfo and LII.
+- **Pass-through recipients.**
+  - The core 10 intermediaries take 2.3% of top-50 DAF dollars, publish no DAF route, and grant out about 0.86 per dollar in (0.78 without Blue Meridian).
+  - $183.1m moves within the set.
+- **Foundant / NCF.**
+  - Foundant documentation is blocked: its hosts disallow Anthropic agents.
+  - NCF documents a donate button, but its Program Agreement host disallows all agents.
+- **Robots provenance (open owner decision).**
+  - Earlier validated work cites pages from hosts whose robots.txt now disallows Anthropic agents or all agents: secure.ncfgiving.com (74 lines in 37 files; see validation-wave46a-report.md), www.foundant.com and donorportal.cct.org.
+  - New findings from those hosts were withdrawn this round; earlier content is flagged, not deleted.
+
+## Counts (refresh 2026-11-20, through PR #67) (superseded by the table above)
 
 These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #67 merged. They supersede the tables below, and the PR #67 description records the head SHA.
 
