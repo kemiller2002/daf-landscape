@@ -163,7 +163,7 @@ The full sample (titles, URLs and title-level themes) is in the run's `news-head
 | Chariot | vendor | [Ashby posting API `chariot`](https://api.ashbyhq.com/posting-api/job-board/chariot) (descriptions name Chariot's nonprofit payment infrastructure) | 19 |
 | Daffy | vendor | [daffy.org/careers](https://www.daffy.org/careers) and its role pages | 4 |
 | Givinga | vendor | [givinga.com/careers](https://www.givinga.com/careers) and its role page | 1 |
-| Benevity | vendor | [Ashby posting API `benevity`](https://api.ashbyhq.com/posting-api/job-board/benevity) (23 postings, 14 distinct roles) | 14 |
+| Benevity | vendor | [Ashby posting API `benevity`](https://api.ashbyhq.com/posting-api/job-board/benevity) (23 postings, 14 distinct roles on 2026-11-15; 18 postings, 12 roles on 2026-11-20) | 14 |
 | Blackbaud | vendor | [careers.blackbaud.com search results](https://careers.blackbaud.com/us/en/search-results) (Phenom; the embedded JSON carries a teaser and skills, not the full description) | 86 |
 | Bonterra | vendor | [Workday sitemap](https://bonterra.wd1.myworkdayjobs.com/bonterratech/siteMap.xml) plus the public job-detail JSON (GET) | 18 |
 | TIFIN | vendor | [Greenhouse boards-api `tifin`](https://boards-api.greenhouse.io/v1/boards/tifin/jobs) (TIFIN group, not only TIFIN Give) | 3 |
