@@ -88,7 +88,7 @@ Source: govinfo, Public Law 119-21, HTML ([P01](https://www.govinfo.gov/content/
 | PF01 | **Urban Outfitters** | Q4 FY2026 (Nov 2025–Jan 2026); floor starts 2026-02-01 | **$46.0m** [R: repo 10-K row; release text read] | DAF, sponsor not named | Release: adjusted results exclude "a charitable contribution to a donor-advised fund" [F]. Call: "We intend to use this fund to support our charitable initiatives in the coming years" [R] | No | **Timing-consistent:** last floor-free year, and a multi-year prefund in substance |
 | PF02 | **Apollo** | Feb 2025 | **$200m**, 1,213,003 new shares [F] | "Apollo DAF", sponsor not named | "as part of its ongoing commitment to philanthropy" [F] | No (OBBBA cited only for CFC rules) | **Not floor-driven [I]:** about 3 months before the bill text. No issuance in 9M 2026: the cash-flow line "Issuance of common stock to donor-advised fund" shows "—" for 9M 2026 against $200m for 9M 2025 [F] |
 | PF03 | **Zoom** | FY2026 (Feb 2025–Jan 2026) | **$20.9m** in shares [R] | DAF at an "unaffiliated nonprofit organization" [R] | not read (IR robots.txt 403) | unknown | **Unverified:** draws on a reserve set in FY2020 [R] |
-| PF04 | **Circle** | Nov 2025 [R] | **$23.1m** charge [R]; release text: "$23 million charge related to our first annual share contribution to the Circle Foundation" [F] | Circle Foundation, DAF at Fidelity Charitable [R, 2026 proxy] | "Seeded by Circle's Pledge 1% equity commitment" [F] | No | **Scheduled annual pledge, not a pull-forward [I].** Q1–Q3 2026 release narratives name no Foundation charge; the tables are images and were not read [F] |
+| PF04 | **Circle** | Nov 2025 [R] | **$23.1m** charge [R]; release text: "$23 million charge related to our first annual share contribution to the Circle Foundation" [F] | Circle Foundation, DAF at Fidelity Charitable [F: Circle blog 2025-12-02, “a donor-advised fund housed with Fidelity”; R, 2026 proxy] [V wave 42B] | "Seeded by Circle's Pledge 1% equity commitment" [F] | No | **Scheduled annual pledge, not a pull-forward [I].** Q1–Q3 2026 release narratives name no Foundation charge; the tables are images and were not read [F] |
 | PF05 | **BlackRock** | **2025-12-10** (22 days before the floor) [F, C] | **$109m** expense, $29m tax benefit (26.6%) [F, C] | "BlackRock Charitable Fund, which BlackRock established in 2013"; called "existing donor-advised funds" on the call [R] | "will add to the long-term funding for BlackRock's philanthropic grants and programs"; "nonrecurring" [F] | No (OBBBA cited only for the TCJA extension and international rules) | **Timing-consistent:** in-kind Circle shares, in the last floor-free weeks |
 | PF06 | **Unum** | Q4 2025 | **$20.0m** pre-tax, $15.8m after tax ($4.2m benefit, 21.0%) [F, C] | not named | "an expense related to an **accelerated** charitable contribution" [F]. Separately, 2025 giving to causes was "$14.8 million in charitable contributions" [F] | OBBBA: "We do not expect the OBBBA to have a material impact"; not linked to the gift [F] | **Self-described acceleration; motive unstated** |
 | PF07 | **Community Financial System** | Q4 2025 (announced in Q3 release) | **≈$0.6m** [R] | direct prepayment of commitments, **not a DAF** | "As a result of tax law changes enacted under the One Big Beautiful Bill Act that limit the deductibility of charitable contributions beginning in 2026, the Company plans to accelerate…" [R] | **Yes** | **Disclosed floor motive (non-DAF)** |
@@ -136,11 +136,11 @@ Source: govinfo, Public Law 119-21, HTML ([P01](https://www.govinfo.gov/content/
 1. **Disclosed motive.**
    - No public company read this pass says that the 2026 corporate floor or OBBBA caused a **DAF** contribution.
    - One bank (CBU) says OBBBA caused a small **direct** prepayment of commitments [R].
-   - Disclosed-motive evidence for a corporate *DAF* pull-forward is therefore **absent**, not weak.
+   - Disclosed-motive evidence for a corporate *DAF* pull-forward is therefore **absent** in the documents read, not weak; the screen was search-based and not exhaustive (§6) [V wave 42B].
 2. **Timing.**
    - Late 2025 shows several large, one-off corporate gifts in the last floor-free tax year, after enactment: BlackRock $109m (22 days before the floor), Urban Outfitters $46.0m, Unum $20.0m "accelerated", and Live Oak undisclosed.
    - Their timing is what a floor-driven prefund predicts. Each also has an ordinary explanation:
-     - BlackRock: disposing of a marked-down Circle stake;
+     - BlackRock: giving part of an appreciated Circle stake (its 2025 Annual Report records about $100 million of noncash pre-tax gains on its Circle investment in 2025) [V wave 42B];
      - URBN: a record year;
      - Unum: an unexplained "acceleration".
    - [I] Timing alone cannot separate these explanations.
@@ -152,7 +152,7 @@ Source: govinfo, Public Law 119-21, HTML ([P01](https://www.govinfo.gov/content/
    - The repo's earlier framing, "The large 2025/FY2026 contributions (Apollo $200m, Urban Outfitters $46.0m, Circle $23.1m, Zoom $20.9m) fit a pre-floor pull-forward", should be narrowed: **two of the four do not fit** (§8).
 4. **Sponsor side.** Fidelity publishes no corporate contribution series, and its corporate account growth trailed overall growth. **No sponsor-side evidence** of a corporate pull-forward exists yet [F].
 5. **Overall [I].** It is plausible, but not demonstrated, that the floor pulled some corporate giving into late 2025. The amounts identified are small against corporate DAF flows (Fidelity corporate grants alone: $539.8M in 2025).
-   - **The decisive test is 2026:** does each late-2025 giver report little or no new charitable expense in 2026? Apollo already shows none through September 2026, though its gift is not floor-linked.
+   - **A useful test is 2026:** does each late-2025 giver report little or no new charitable expense in 2026? A gap fits a prefund and a one-off gift alike, so the test is not decisive [V wave 42B] Apollo already shows none through September 2026, though its gift is not floor-linked.
    - **The other decisive data are sponsor corporate contributions for 2025 and 2026** (P-B41N1802-01, -03).
 
 ---
@@ -182,8 +182,8 @@ Source: govinfo, Public Law 119-21, HTML ([P01](https://www.govinfo.gov/content/
 | ir.apollo.com | 200 (`Disallow: /form-submit` only) | sitemap; 5 press-release pages; 1Q25 earnings release; 10-K 2024, 10-K 2025; 10-Q Q1–Q3 2026; SEC-filings and financial-results index pages |
 | www.circle.com | 200, allows | Q4 2025 and Q1–Q3 2026 releases; Foundation blog post |
 | www.urbn.com | 404 (treated as allow) | FY26 Q4 release (blog); 3 guessed slugs returned a generic page; sitemap 404 |
-| ir.blackrock.com | 200, `Allow: /`, crawl-delay 10 | annual-reports page, quarterly-results page, 2025 Annual Report PDF (`/files/` mirror) |
-| investors.unum.com | 200, `Allow: /`, crawl-delay 10 | quarterly-results and SEC-filings pages; 2025 annual-report page and PDF; one guessed news URL returned 404 |
+| ir.blackrock.com | 200, `Allow: /`, crawl-delay 10 | annual-reports page, quarterly-results page, 2025 Annual Report PDF (`/files/` mirror; on 2026-11-20 a standard client was redirected to s24.q4cdn.com, whose robots.txt returns 403, so re-reads should use the cached copy) [V wave 42B] |
+| investors.unum.com | 200, `Allow: /`, crawl-delay 10 | quarterly-results and SEC-filings pages; 2025 annual-report page and PDF (on 2026-11-20 the PDF URL redirected a standard client to s201.q4cdn.com, whose robots.txt returns 403) [V wave 42B]; one guessed news URL returned 404 |
 | investor.liveoak.bank | 200, `Allow: /`, crawl-delay 10 | Q4 2025 release |
 | www.fidelitycharitable.org | 200, allows | 2026 and 2025 Giving Reports; corporate-giving page |
 | investor.urbn.com; urbanoutfittersinc.gcs-web.com; investors.zoom.us; s201/s204/s206/s24.q4cdn.com | **403** | not fetched |

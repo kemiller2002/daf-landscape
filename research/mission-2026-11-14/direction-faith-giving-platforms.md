@@ -127,7 +127,7 @@ The evidence below explains why they diverge.
 **E3. Faith sponsors pay churches without a donate-page step** [O/F]
 - NCF, JCF NY and JCF LA all describe the same flow: the sponsor verifies the recipient's status and address, then pays by ACH or check, sending a letter that names the fundholder.
 - Single-issue sponsors send **32.5% of their dollars to religion** [R]. Their grants therefore need no button on the church's site.
-- These sponsors are largely absent from Chariot's partner lists [O]. A DAFpay widget on a church page would serve mainly donors at national sponsors [I]. In the top-50 church block, nationals send 74.2% of DAF-weighted dollars and the seven faith sponsors 22.1%, against the faith sponsors' 10.0% of all top-50 dollars (b4026-06) [V wave 35C].
+- These sponsors are largely absent from Chariot's partner lists [O]. A DAFpay widget on a church page would serve mainly donors at national sponsors [I]. In the top-50 church block, nationals send 74.2% of DAF-weighted dollars and the seven faith sponsors 22.1%, against the faith sponsors' 10.0% of all top-50 dollars (b4026-06) [V wave 35C]. Across all itemising DAFRC panel sponsors plus four non-panel faith sponsors, nationals send 58.8% and faith sponsors 30.2% (25.1% without the OJC Fund, a Brooklyn pass-through sponsor that sends $545.3m) (b4026-06-01) [V wave 42B].
 
 **E4. Church giving platforms have no DAF rail** [O]
 - Of the nine resolved church platforms, only Overflow offers in-checkout DAF grants. Pushpay's is "coming soon".

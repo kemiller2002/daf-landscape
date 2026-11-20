@@ -17,8 +17,8 @@ Tags: **[F]** computed by the script from filings, the BMF or the DAFRC dataset 
   - The added dollars go to 1,934 church-block recipients that no top-50 sponsor paid, as well as to existing block churches. The block becomes 31,403 recipients and $7,257.8m [F].
 - **It is concentrated.** One sponsor, the OJC Fund (Brooklyn; DAFRC "Religiously-Affiliated"), sends $545.3m, half of the addition. 76.4% of its own DAF-weighted dollars go to the block, mostly Orthodox congregations, yeshivas and chesed funds. Next come:
   - The Signatry Charitable Trust, $152.3m (the Servant Foundation's sister trust, added by the name rule);
-  - CCF-LA Supporting Organization, $139.6m (of which $103.7m goes to the Roman Catholic Archbishop of Los Angeles);
-  - Catholic Community Foundation (EIN 383941057), $33.5m;
+  - CCF-LA Supporting Organization, $139.6m (of which $75.9m goes to the Roman Catholic Archbishop of Los Angeles; the Archbishop's $103.7m total from faith sponsors outside the top 50 also includes about $27.8m, mostly from Catholic Community Foundation of Los Angeles) [V wave 42B];
+  - Catholic Community Foundation of Los Angeles (EIN 383941057, the one supported organisation of CCF-LA Supporting Organization), $33.5m [V wave 42B];
   - **WaterStone / Christian Community Foundation, $27.8m**;
   - Knights of Columbus Charitable Fund, $15.5m;
   - Christian Community Foundation of Memphis, $15.4m;
@@ -38,7 +38,7 @@ Tags: **[F]** computed by the script from filings, the BMF or the DAFRC dataset 
 - **"Nationals send about three-quarters" no longer holds outside the top-50 frame.** National sponsors' block dollars barely change ($4,584.9m in S0, $4,767.6m in S3), but the denominator grows, so their share falls:
   - from 74.2% to 63.2% (S2) and 58.8% (S3);
   - for congregations, from 76.1% to 67.8% (S2) and 62.4% (S3).
-  - **"About three-fifths" is the defensible all-panel statement.** It stays about two-thirds even without the OJC Fund (63.1% in S3) [F].
+  - **"About three-fifths" is the defensible all-panel statement.** Without the OJC Fund it is 63.1% in S3, between three-fifths and two-thirds [F]. Two national sponsors that do not itemise Schedule I (BofA Charitable Gift Fund, Renaissance) are absent from every scenario, so all national shares are understated by an unknown amount [V wave 42B].
 
 ## 1. Method
 
@@ -105,7 +105,7 @@ python3 scripts/mission_faith_sponsors_outside.py . --np-cache $S/npcache --line
 | + non-panel faith sponsors (3 with block lines) | +3 new | +0.7 |
 | **Block with all faith sponsors** | **31,403** | **7,257.8** |
 
-**By faith kind (added $m):** Jewish 613.2 (the OJC Fund 545.3); Christian 375.3; Catholic 91.0; Muslim 0.7. The CCF-LA Supporting Organization is labelled Christian by name, but its largest grant is $103.7m to the Roman Catholic Archbishop of Los Angeles. If it is Catholic, the Catholic figure would be about $230m [I]. This changes only the split, not the faith total.
+**By faith kind (added $m):** Jewish 613.2 (the OJC Fund 545.3); Christian 375.3; Catholic 91.0; Muslim 0.7. The CCF-LA Supporting Organization is labelled Christian by name, but it is Catholic on its own Form 990: a Type II supporting organisation of Catholic Community Foundation of Los Angeles (EIN 383941057) whose mission is “donor advised fund granting to charities with Catholic values”. It holds one DAF account. Its largest recipient is the Archdiocese of Los Angeles ($24.0m in FY2023 and $51.9m in FY2024, $75.9m in all). Relabelled Catholic, the Catholic figure is $230.6m and the Christian $235.7m [V wave 42B]. This changes only the split, not the faith total.
 
 **By faith rule:** DAFRC subtype $926.0m; name rule $153.6m (almost all the Signatry Charitable Trust); non-panel BMF name plus Schedule D $0.7m.
 
@@ -121,7 +121,7 @@ python3 scripts/mission_faith_sponsors_outside.py . --np-cache $S/npcache --line
 | NCF Wisconsin (311733328) | not in panel; 990s show no DAFs | 0 | — | — |
 | NCF Real Property (582655939) | not in panel; 990s show no DAFs | 0 | — | — |
 | Other Jewish community foundations and federations in the panel (outside top 50, excluding OJC) | panel, DAFRC religious | 67.3 | — | 3–13% each for the larger ones |
-| UJA-Federation of New York (510172429) | not in panel; Schedule D shows DAFs in column (b) "funds and other accounts" only (18 accounts, $0.9m grants FY2024) | 0 | — | — |
+| UJA-Federation of New York (510172429) | not in panel; Part IV line 6 is Yes, but Schedule D column (a), donor advised funds, is empty and all its accounts sit in column (b) [V wave 42B] "funds and other accounts" only (18 accounts, $0.9m grants FY2024) | 0 | — | — |
 
 **Largest recipients of the added faith dollars:** the Roman Catholic Archbishop of Los Angeles ($103.7m); Come and See Foundation ($53.9m, mostly from the Signatry Trust); World Literature Crusade ($47.0m); YouVersion ($18.0m); the USCCB Phoenix unit ($16.1m); then a run of Brooklyn and Monsey Orthodox bodies from the OJC Fund, such as Keren Mugein Imoisheya ($14.1m) and Congregation Chonen Vnosen ($12.4m). The top 30 are in `block:top_recipient_outside_faith` [F].
 
@@ -155,7 +155,7 @@ python3 scripts/mission_faith_sponsors_outside.py . --np-cache $S/npcache --line
 
 ## 3. Limits
 
-1. **Concentration.** Half the addition is one sponsor (the OJC Fund). Its weight (DAF share of grants, 0.99 in FY2023–24 cost-structure rows) and its line amounts are taken as filed. Any error in its Schedule I moves the faith share by up to about 5 points.
+1. **Concentration.** Half the addition is one sponsor (the OJC Fund). Its weight (DAF share of grants, 0.99 in FY2023–24 cost-structure rows) and its line amounts are taken as filed. Re-read: its FY2023 and FY2024 Form 990s (years ending June) answer Yes to Part IV line 6 and report 4,731 and 5,976 DAFs, DAF grants of $338.3m and $385.7m against total grants of $338.9m and $390.7m (weights 0.998 and 0.987), and year-end DAF assets of only $42.5m and $34.5m. Its Schedule I line counts (3,009 and 3,410) match the cache. It is a pass-through sponsor, 22nd by FY2023 DAF grants in the DAFRC panel but 284th by DAF assets, which is why an assets-ranked top 50 omits it [V wave 42B]. Any error in its Schedule I moves the faith share by up to about 5 points.
 2. **Non-panel coverage.** The non-panel search uses names. A faith DAF sponsor without a faith word in its name (for example "Eder Deferred Gifts" or "Ten Talents") is found only if DAFRC lists it.
    - Candidates are kept only on their own Schedule D. Organisations that run DAFs through a separately incorporated foundation (UJA-Federation, Jewish United Fund Chicago, NCF affiliates) are counted where that foundation files, which is usually NCF or a panel foundation.
    - 815 candidates had no FY2023–24 Form 990 in the index (990-EZ, 990-PF, paper filers or no filing) and were not read.
