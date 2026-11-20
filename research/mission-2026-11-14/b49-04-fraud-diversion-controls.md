@@ -20,9 +20,15 @@
 |---|---|---|
 | **Do the top-20 sponsors publish fraud or security notices?** | **Three do on their own sites: Fidelity Charitable, NPT and Vanguard Charitable, 52.0% of FY2024 top-20 DAF assets** [C]. Two more are covered only by their parents' general pages (Morgan Stanley for MS GIFT, Bank of America Private Bank for BofA CGF), which lifts coverage to **5 sponsors, 57.5%** [C].<br>- **Seven sponsors (10.9% of assets) were searched and publish nothing** relevant: SVCF, RCF, ImpactAssets, JCF, FFTC, CJP and Dechomai [C].<br>- **Four (24.4%) could not be read:** DAFgiving360, GS DAF and Raymond James Charitable (robots), and NCF (site terms) [C/B]. | High on what is published; "nothing found" means not on pages read |
 | **Which risks do the notices name?** | Five families appear in first-party text:<br>1. **Charity impersonation and look-alike charities** (Fidelity, NPT, Vanguard).<br>2. **Payment-detail change requests / business email compromise (BEC)** (Fidelity's donor page; the Morgan Stanley and BofA parent pages). **No top-20 sponsor page warns charities about bank-change fraud** [F].<br>3. **Grant-offer and "deposit and forward" scams using the sponsor's name** (Vanguard's lists, for donors and for grantees) [F].<br>4. **Credential sharing with third-party giving tools** (Fidelity; BofA Private Bank names DAF-credential widgets on charity sites; Vanguard says not to link accounts to donor-tracking apps) [F].<br>5. **Mail and check fraud** (Fidelity's EFT pitch: "1 in 5 organizations reporting mail fraud", unsourced) [F]. | High |
-| **Donor two-factor authentication** | **Published as required or prompted at 4 sponsors (53.8% of assets): Fidelity, NPT, Vanguard and CCT** [C].<br>- **Fidelity** goes furthest: MFA at login and on new devices, a **step-up code for new bank instructions and contact changes**, voice biometrics on the phone, and new advisor-portal MFA (2026) [F].<br>- **Vanguard**: "MFA is now required for all web-registered Vanguard Charitable users" [F].<br>- **NPT**: a verification code at online registration; per-login use is not stated [F].<br>- **GKCCF and Greater Horizons** (2.0%) offer MFA as an **option** only [F]. | High |
+| **Donor two-factor authentication** | **Published as required or prompted at 3 sponsors (52.0% of assets): Fidelity, NPT and Vanguard** [C] (CCT withdrawn: its donor-portal guide sits on a host whose robots.txt evidently disallows it).<br>- **Fidelity** goes furthest: MFA at login and on new devices, a **step-up code for new bank instructions and contact changes**, voice biometrics on the phone, and new advisor-portal MFA (2026) [F].<br>- **Vanguard**: "MFA is now required for all web-registered Vanguard Charitable users" [F].<br>- **NPT**: a verification code at online registration; per-login use is not stated [F].<br>- **GKCCF and Greater Horizons** (2.0%) offer MFA as an **option** only [F]. | High |
 | **Charity bank-change verification** | **Unchanged from batch 37C, now checked across the top 20.** No sponsor publishes a mandatory callback to a known contact before a bank change, which is the Commerce OIG benchmark (FDC-45).<br>- Sponsor-published charity-side checks cover **2 sponsors, 29.8%**: Fidelity (documents plus a *discretionary* callback to a public number) and AEF (ACH "submitted and verified" in a Ren portal before electronic payment) [C/F].<br>- Counting sponsors whose payments run on **Ren for Charities** (MS GIFT, AEF, RCF per `grant-remittance-2026-11-19.csv`), the share is **4 sponsors, 35.8%** [I/C]. Ren publishes claim checks (postcard to the IRS address, call to the 990 phone number, or officer ID check) and rejects bank links it cannot tie to the organisation [F].<br>- **25.6%** (NPT, Vanguard) pay through PayPal Grant Payments and hold no charity bank details [R/C]; PayPal's own change controls were again unreadable (HTTP 403). | High on text; absence of a callback is absence from public pages |
-| **Enforcement and court records** | **See §3.2.** DOJ screen result: DOJ_RESULT_SUMMARY. SEC (excluded by rule), CourtListener (robots 403), the FTC (HTTP 404 to every path) and the Florida AG (robots 403) were not read. State AG warnings found (Hawaii 2025, Nebraska 2024) concern counterfeit-check refund scams against nonprofits, not DAFs. | Medium (federal releases only) |
+| **Enforcement and court records** | **No DOJ or USAO press release from 2021-01-01 to 2026-11-20 describes a DAF grant or DAF account being diverted or misused.** The screen covered **118,050 releases** through DOJ's public API [C]. It returned 12 hit URLs (10 distinct releases):
+- 5 false positives, where "DAF" stands for something else;
+- 5 incidental mentions, such as biographies and grant notices;
+- 1 case that mentions a defendant's own DAF but involves no diversion;
+- 1 adjacent case. A 2026 indictment (N.D. Tex.) alleges that a trustee with account access moved about $133,000 out of a **community foundation's** accounts. The release does not say whether DAFs were involved.
+
+SEC (excluded by rule), CourtListener (robots 403), the FTC (HTTP 404 to every path) and the Florida AG (robots 403) were not read. State AG warnings found (Hawaii 2025, Nebraska 2024) concern counterfeit-check refund scams against nonprofits, not DAFs. | Medium (federal releases only) |
 | **FBI IC3 and FTC** | **IC3 started reporting "Charity" as a crime type only in its 2025 report: 662 complaints and $7,907,609 losses in 2025**; 2023 and 2024 are marked "not captured" [F]. Complainants aged 60+ filed 126 of them, with $3,474,668 of losses [F]. A January 2025 IC3 PSA counts **more than 4,500 complaints and about $96m** of 2024 losses to "fraudulent charities, crowdfunding accounts, and disaster relief campaigns", a broader definition [F]. **Neither mentions DAFs.** FTC pages could not be read. | High for IC3 figures |
 | **Link to the breach work** | The breach registers (b39n1-03) found **no register entry naming a charitable or DAF entity**; every notice is filed by a parent or a vendor [R]. The controls found here are the donor-side answer to that exposure: credential theft at a parent leads to account takeover at the DAF only if login and step-up checks fail, and those checks are published at sponsors holding 53.8% of top-20 assets [I/C]. | Inference |
 
@@ -45,7 +51,7 @@
 
 ## 2. Robots and access log
 
-Requests: 138 page and robots requests, plus the DOJ API screen (§3.2). One line per host.
+Requests: 140 logged page requests (robots.txt fetched once per host), plus the DOJ API screen (§3.2). One line per host.
 
 | Host | robots.txt | Result | Use |
 |---|---|---|---|
@@ -62,7 +68,7 @@ Requests: 138 page and robots requests, plus the DOJ API screen (§3.2). One lin
 | www.ncfgiving.com | not requested | site terms ban automated extraction | FDC-22 |
 | www.privatebank.bankofamerica.com, www.ml.com, www.bankofamerica.com | 200, allowed | 200 | FDC-23 |
 | www.cct.org | 200, allowed | **HTTP 403** to the page | not used |
-| donorportal.cct.org | 200, allowed | 200 | FDC-24 |
+| donorportal.cct.org | 200; a literal parse allows, but the one-line file evidently means disallow-all except /index.html | 200 | FDC-24 (withdrawn) |
 | impactassets.org, jcfny.org, fftc.org / www.fftc.org, www.cjp.org / ma.cjp.org, dechomai.org | 200, allowed | 200 (some sitemap paths 404) | FDC-25 to FDC-27, FDC-30, FDC-32 |
 | www.growyourgiving.org, www.greaterhorizons.org | 200, allowed | 200 | FDC-28, FDC-29 |
 | www.raymondjamescharitable.org | unreachable (connection failed) | blocked | FDC-31 |
@@ -99,7 +105,7 @@ Requests: 138 page and robots requests, plus the DOJ API screen (§3.2). One lin
 | 9 | RCF | 2.4% | none found | not found | Ren rail [I] | FDC-21 |
 | 10 | NCF | 2.3% | not read (site terms) | not read | not read | FDC-22 |
 | 11 | BofA CGF | 1.9% | parent page only (DAF-credential widgets; "changed account" messages) | not found | not found | FDC-23 |
-| 12 | CCT | 1.9% | none read (www.cct.org 403) | **Y**: MFA set up at first login, email or SMS (guide 2024-02) | not found | FDC-24 |
+| 12 | CCT | 1.9% | none read (www.cct.org 403) | not read (donor-portal guide withdrawn on robots grounds) | not found | FDC-24 |
 | 13 | ImpactAssets | 1.2% | none found | not found | not found | FDC-25 |
 | 14 | JCF | 1.1% | none found | not found | not found (wire grants followed by an email to the charity contact) | FDC-26 |
 | 15 | FFTC | 1.0% | none found | not found | not found | FDC-27 |
@@ -115,13 +121,13 @@ Requests: 138 page and robots requests, plus the DOJ API screen (§3.2). One lin
 |---|---|---|
 | Own donor-facing fraud or scam notice | 3 | 52.0% |
 | Any donor-facing notice, including parent-only pages | 5 | 57.5% |
-| Login MFA or one-time code published as required or prompted | 4 | 53.8% |
+| Login MFA or one-time code published as required or prompted | 3 | 52.0% |
 | MFA published as optional only | 2 | 2.0% |
 | Notice names payment-detail changes or BEC (own or parent) | 3 | 31.9% |
 | Charity-side bank-change verification published by the sponsor | 2 | 29.8% |
 | … plus sponsors paying through Ren for Charities [I] | 4 | 35.8% |
 | Charity bank details held by PayPal, not the sponsor | 2 | 25.6% |
-| Blocked or not read | 4 | 24.4% |
+| Blocked or not read | 5 | 26.3% |
 | Searched, nothing found | 7 | 10.9% |
 
 **What the notices say** [F] (quotes in the CSV):
@@ -132,7 +138,24 @@ Requests: 138 page and robots requests, plus the DOJ API screen (§3.2). One lin
 
 ### 3.2 Enforcement and court records
 
-DOJ_SECTION
+**DOJ and USAO press releases, systematic screen** [C]. `scripts/mission_b49_04_doj_scan.py` read DOJ's public press-release API (`/api/v1/press_releases.json`, allowed by robots.txt), newest first. It read 2,362 pages of 50 releases, back to 2021-01-01. Its terms were: donor advised, DAF(s), charitable gift fund, Fidelity Charitable, Schwab Charitable, DAFgiving360, Vanguard Charitable, National Philanthropic Trust, American Endowment Foundation, Renaissance Charitable, National Christian Foundation, Goldman Sachs Philanthropy Fund, Global Impact Funding Trust and community foundation. The API's own keyword and body filters are ignored by the server, which is why the whole 2021+ corpus was read. The HTML release pages answer a generic client with a bot interstitial, and that was not worked around.
+
+| Judgement (read by hand) | Hit URLs | What the releases are |
+|---|---|---|
+| Releases dated 2021-01-01 to 2026-11-20 screened | 118,050 | Sum over API pages; page-boundary overlaps can count a release twice |
+| Any term matched | 12 (10 distinct releases) | — |
+| False positive: "DAF" is another acronym | 5 | A mosque name in two bombing-case releases (each posted twice), and "Department of the Air Force" in a civil settlement |
+| Incidental mention | 5 | Biographies of U.S. Attorneys (one a former National Christian Foundation officer, one a former community foundation board member), and two Project Safe Neighborhoods notices naming a community foundation as fiscal agent |
+| DAF mentioned, no diversion | 1 | 2022 S.D.N.Y. insider-trading charge. The release quotes the defendant's own message saying they had opened a donor-advised fund. No DAF grant or account was misused |
+| Community-foundation accounts allegedly diverted | 1 | [N.D. Tex., 2026-08-14](https://www.justice.gov/usao-ndtx/pr/stamford-mayor-indicted-diverting-more-300000-community-and-estate-funds). An indictment alleges that a local official, who also acted as a trustee and executor, moved money out of accounts he controlled, including "$133,000 from the Community Foundation of Stamford". The release does not say whether DAFs were involved. These are allegations only |
+| **DAF grant or DAF account diverted or misused** | **0** | — |
+
+**Reading [I].** Stolen DAF grant checks, fake charities receiving DAF grants, and DAF account takeovers do not appear as such in federal press releases from 2021 to 2026. This does not show they do not happen:
+- releases often describe donations generically;
+- check-theft cases rarely name the payer;
+- the venues most likely to record DAF-specific cases, state AG actions and civil dockets, were partly blocked (§2).
+
+The evidence that such schemes exist is the sponsors' and vendors' own warnings (§3.1, §3.3), plus the repo's Form 990 fraud-loss lines (§5). The proposal P-B4904-05 extends the screen to state AGs.
 
 **Other venues.**
 - **State attorneys general.** Hawaii (News Release 2025-81, 2025-08-19) and Nebraska (2024-06-25) warn nonprofits about counterfeit donation checks followed by partial-refund requests. Neither mentions DAFs (FDC-43, FDC-44). Names used by the scammers in the Hawaii release are not stored. Florida's release on a charity scam was robots-blocked (FDC-51).
@@ -165,7 +188,7 @@ The rails now carry most of the published charity-side checks [F]:
 ## 5. Link to earlier repo work
 
 1. **Breach notices (b39n1-03).** No 2021–26 Massachusetts or Vermont register entry names a charitable or DAF entity, and every DAF-adjacent notice is filed by a parent (Fidelity Investments, Schwab/TD Ameritrade, Vanguard Group, Ameriprise, Morgan Stanley) or a vendor (Infosys McCamish) [R]. Two consequences [I]:
-   - The **donor-side** controls found here (MFA, step-up codes, voice biometrics, "we never ask for codes") are what stands between a parent-level credential or data exposure and a DAF account takeover. They are published at sponsors with 53.8% of top-20 assets. They are not published at the sponsors whose parents filed the 2023–2026 notices other than Fidelity and Vanguard: DAFgiving360 is blocked and MS GIFT shows only a parent page.
+   - The **donor-side** controls found here (MFA, step-up codes, voice biometrics, "we never ask for codes") are what stands between a parent-level credential or data exposure and a DAF account takeover. They are published at sponsors with 53.8% of top-20 assets. Of the DAF programs tied to the 2021–2026 notices, only Fidelity Charitable and Vanguard Charitable publish them. DAFgiving360 (Schwab) is blocked. MS GIFT shows only a parent page. RCF, whose white-label program Ameriprise distributes, publishes nothing, and BofA CGF (whose parent's vendor was hit, SI-10) shows only a parent article.
    - No public record found links any of those breaches to a DAF grant being redirected. The registers cannot show it, and DOJ releases do not (§3.2).
 2. **Payment redirection (batch 37C, PR01–PR25).** This pass confirms PR07, PR08, PR11 and PR12 live, extends the check to all top-20 sponsors, and adds one discrepancy: Fidelity's FAQ now accepts a bank letter as well as a voided check (FDC-07 vs PR01). The batch-37C conclusion stands: no sponsor publishes a mandatory callback to a known contact for every bank change.
 3. **Remittance (b4013-02).** Every documented electronic route sends grant detail out-of-band, by emailed report, portal or letter, and no top-10 sponsor documents a grant ID in ACH addenda [R]. Those emails and letters are the "grant letters" whose controls this task asked about [I]. The controls published for them are thin:
@@ -178,7 +201,7 @@ The rails now carry most of the published charity-side checks [F]:
 ## 6. Limits
 
 1. **Absence is not proof.** "None found" means no relevant text on the homepage, in the sponsor's sitemaps or in site-restricted search. Logged-in help centres and PDFs not in a sitemap were not read.
-2. **Blocked share.** DAFgiving360, GS DAF, Raymond James Charitable and NCF hold 24.4% of top-20 assets and are unread. Every coverage share would rise if they publish controls.
+2. **Blocked share.** DAFgiving360, GS DAF, Raymond James Charitable, NCF and CCT hold 26.3% of top-20 assets and are unread. Every coverage share would rise if they publish controls.
 3. **Published is not practised.** The CSV records what sponsors say. It cannot show whether a callback, step-up code or review is applied every time.
 4. **DOJ screen scope.** The DOJ API carries DOJ and USAO press releases only. Releases are written for the public and may describe a DAF as "a charitable account" or name no sponsor; the term screen would miss such wording. Court dockets (PACER, CourtListener) and SEC releases were not available.
 5. **FTC unread.** ftc.gov answered 404 to every request, robots.txt included, so FTC figures are absent. The FTC loss figure quoted inside NPT's 2022 article was not used.
@@ -233,7 +256,7 @@ Same header and format as `queue-proposals-gap19-13.csv`; 6 rows (P-B4904-01 to 
 | S11 | Morgan Stanley, Cybersecurity and Fraud Awareness | live page | https://www.morganstanley.com/about-us/cybersecurity-and-fraud-awareness |
 | S12 | AEF, Charities page (Ren-powered portal) | live page | https://www.aefonline.org/charities/ |
 | S13 | Bank of America Private Bank / Merrill, "Donors, beware these digital giving scams" | live page (cites 2025-02-27) | https://www.privatebank.bankofamerica.com/articles/online-charity-scams.html ; https://www.ml.com/articles/online-charity-scams.html |
-| S14 | The Chicago Community Trust, Donor Portal User Guide (PDF) | 2024-02-06 | https://donorportal.cct.org/ma/docs/cct/DonorPortalUserGuide.pdf |
+| S14 | (withdrawn 2026-11-20: CCT donor-portal guide, host robots.txt evidently disallows it) | — | — |
 | S15 | JCF, FAQs | live page | https://jcfny.org/faqs/ |
 | S16 | GKCCF, Access Your Fund Online; Privacy Policy | live pages | https://www.growyourgiving.org/access-fund-online/ ; https://www.growyourgiving.org/privacy-policy/ |
 | S17 | Greater Horizons, Access Your Fund Online | live page | https://www.greaterhorizons.org/access-fund-online/ |

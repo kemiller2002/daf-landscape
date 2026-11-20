@@ -155,10 +155,9 @@ def sponsor_rows():
             "https://www.privatebank.bankofamerica.com/articles/online-charity-scams.html", "article cites IRS release of 2025-02-27; page code expires 2026-11-28", A, "F",
             notes="Same text on https://www.ml.com/articles/online-charity-scams.html (Merrill). Not a BofA CGF program document"),
         rec("FDC-24", "sponsor_control", "The Chicago Community Trust", "12", "sponsor", "account_takeover", "donor",
-            "donor portal: admin-provisioned accounts; MFA set up at first login by email or SMS", "Y",
-            "Once you have logged in for the first time, you will be prompted to establish multi-factor authentication with your email address or with SMS text messaging.",
-            "https://donorportal.cct.org/ma/docs/cct/DonorPortalUserGuide.pdf", "PDF created 2024-02-06", A, "F",
-            notes="www.cct.org returned HTTP 403 to the generic client (robots allowed); no fraud notice read there"),
+            "withdrawn 2026-11-20: donorportal.cct.org robots.txt evidently disallows all paths except /index.html, so the portal guide is off-limits; www.cct.org returned HTTP 403", "not read",
+            "", "https://www.cct.org/", "", "not read (robots)", "B",
+            notes="Earlier draft cited the donor-portal guide; withdrawn on robots grounds per shared rules"),
         rec("FDC-25", "sponsor_notice", "ImpactAssets", "13", "sponsor", "all", "all",
             "no fraud or security notice found (homepage; 369 sitemap URLs incl. FAQ sitemap)", "absent",
             "", "https://impactassets.org/sitemap_index.xml", "sitemap read 2026-11-20", A, "absent"),
@@ -311,23 +310,38 @@ def load_hits(paths):
     return list({r["url"]: r for r in rows}.values())
 
 
-def doj_summary(hits, relevant_urls):
-    """Summarise the DOJ screen. relevant_urls: URLs judged on reading to involve a DAF or DAF sponsor."""
-    if hits is None:
-        return dict(stated="see note", quote="", value="", unit="", notes="DOJ screen not recomputed in this run (pass --doj-hits)")
-    daf = [h for h in hits if any(t.startswith("donor") or t in ("daf", "dafs") or "charitable" in t or "philanthropic" in t
-                                     or "endowment" in t or "christian" in t or "impact funding" in t or "philanthropy fund" in t
-                                     for t in h["terms"])]
-    named = [h for h in hits if any(t.startswith("donor") for t in h["terms"])]
-    rel = [h for h in hits if h["url"] in relevant_urls]
-    return dict(stated="Y" if rel else "N",
-                quote="; ".join(sorted(h["date"] + " " + h["url"] for h in rel)),
-                value=f"{len(hits)}; {len(daf)}; {len(named)}; {len(rel)}",
-                unit="releases matching any screen term; matching a DAF or sponsor term (excl. 'community foundation' only); naming 'donor(-)advised'; judged to describe DAF grant or account diversion/misuse",
-                notes="Terms: donor advised, DAF(s), charitable gift fund, eight sponsor names, community foundation. Judgement list in the research note section 3.2")
+# Judgement made by reading each screen hit (research note section 3.2). Keys are release URLs.
+J = "https://www.justice.gov/"
+JUDGED = {
+    J + "archives/opa/pr/dar-al-farooq-mosque-bomber-sentenced-53-years-prison": "false_positive",
+    J + "usao-mn/pr/dar-al-farooq-mosque-bomber-sentenced-53-years-prison": "false_positive",
+    J + "usao-mn/pr/two-illinois-men-sentenced-prison-their-roles-bombing-dar-al-farooq-islamic-center": "false_positive",
+    J + "archives/opa/pr/two-illinois-men-sentenced-prison-their-roles-bombing-dar-al-farooq-islamic-center-and": "false_positive",
+    J + "usao-sdil/pr/transportation-company-agrees-settle-allegations-impersonating-military-members-obtain": "false_positive",
+    J + "usao-wdmi/pr/2021_0128_PSN": "incidental_mention",
+    J + "Usao-wdmi/pr/2021_1209_PSN": "incidental_mention",
+    J + "usao-ak/pr/s-lane-tucker-appointed-us-attorney-district-alaska": "incidental_mention",
+    J + "usao-ak/pr/s-lane-tucker-confirmed-us-attorney-district-alaska": "incidental_mention",
+    J + "usao-mt/pr/kurt-alme-serve-interim-us-attorney-district-montana": "incidental_mention",
+    J + "usao-sdny/pr/idaho-it-professional-charged-misappropriating-pre-publication-investment": "daf_mentioned_not_diversion",
+    J + "usao-ndtx/pr/stamford-mayor-indicted-diverting-more-300000-community-and-estate-funds": "community_foundation_accounts_diverted_alleged",
+}
+# Recorded output of scripts/mission_b49_04_doj_scan.py run 2026-11-20 (2,362 API pages of 50, newest first, to 2021-01-01).
+DOJ_RECORDED = dict(pages=2362, scanned=118050, hit_urls=12)
 
 
-RELEVANT_DOJ = ()  # filled after reading the screen output; see research note section 3.2
+def doj_summary(hits):
+    """Summarise the DOJ screen from hit records (or the recorded run when hits is None)."""
+    urls = [h["url"] for h in hits] if hits is not None else list(JUDGED)
+    cats = [JUDGED.get(u, "unjudged") for u in urls]
+    count = lambda c: sum(1 for x in cats if x == c)
+    diversion = count("daf_diversion")
+    return dict(stated="Y" if diversion else "N",
+                quote="0 releases describe diversion or misuse of a DAF grant or DAF account. Adjacent: " +
+                      J + "usao-ndtx/pr/stamford-mayor-indicted-diverting-more-300000-community-and-estate-funds (2026-08-14; indictment alleges a trustee with account access moved about $133,000 from a community foundation's accounts; DAF status not stated)",
+                value=f"{DOJ_RECORDED['scanned']}; {len(urls)}; {count('false_positive')}; {count('incidental_mention')}; {count('daf_mentioned_not_diversion')}; {count('community_foundation_accounts_diverted_alleged')}; {diversion}; {count('unjudged')}",
+                unit="releases dated 2021-01-01 to 2026-11-20 screened (sum over API pages); hit URLs; false positives (DAF = other acronym); incidental mentions (biographies, grant notices); DAF mentioned but no diversion; community-foundation accounts allegedly diverted; DAF grant or account diversion; unjudged",
+                notes="Terms: donor advised, DAF(s), charitable gift fund, eight sponsor names, community foundation. The 12 hit URLs are 10 distinct releases (two OPA/USAO duplicates). Defendants are not named here")
 
 
 def coverage(top20, rows, predicate):
@@ -342,7 +356,7 @@ def main(argv):
     root = argv[1] if len(argv) > 1 else "."
     hit_files = argv[argv.index("--doj-hits") + 1:] if "--doj-hits" in argv else None
     hits = load_hits(hit_files) if hit_files else None
-    rows = sponsor_rows() + rail_rows() + regulator_rows(doj_summary(hits, set(RELEVANT_DOJ))) + repo_rows()
+    rows = sponsor_rows() + rail_rows() + regulator_rows(doj_summary(hits)) + repo_rows()
     with open(os.path.join(root, OUT), "w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS)
         w.writeheader()
@@ -375,9 +389,8 @@ def main(argv):
     payee_custody = {"2", "4"}  # NPT and Vanguard pay through PayPal Grant Payments (repo PR10, PR13)
     share_pp = reduce(lambda a, t: a + t["assets"], [t for t in top20 if t["rank"] in payee_custody], 0.0) / total
     print(f"bank details held by PayPal, not the sponsor (repo PR10, PR13): {share_pp:.1%}")
-    if hits is not None:
-        s = doj_summary(hits, set(RELEVANT_DOJ))
-        print("DOJ screen:", s["value"], "|", s["unit"])
+    s = doj_summary(hits)
+    print("DOJ screen:", s["value"], "|", s["unit"])
 
 
 if __name__ == "__main__":
