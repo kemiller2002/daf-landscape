@@ -48,7 +48,7 @@ from mission_990_contractors import DAFRC_CSV, _group_by_fast, ein9, read_csv, w
 from mission_daf_to_daf import TOP_N, load_np, pick_returns, top_n  # noqa: E402
 from mission_exception_load import drop_totals_rows  # noqa: E402
 from mission_net_payout import itemized, norm_name, panel_from  # noqa: E402
-from mission_recipient_sectors import WHITELIST, load_lines  # noqa: E402
+from mission_recipient_sectors import SVCF, WHITELIST, load_lines  # noqa: E402
 
 FYS = (2021, 2022, 2023, 2024)
 OUT_REL = os.path.join("data", "mission-2026-11-14", "grant-size-distribution-2026-11-20.csv")
@@ -73,9 +73,80 @@ STATED_USD = {
     "GC-004": (6.6e9, "more than $6.6B (FY2024; article URL slug; lower bound)"),
 }
 
-# Published grant-size statistics, quoted verbatim (filled from the sponsor reports; see the research doc §2).
-# (stat_id, sponsor, ein, period, metric, value_usd_or_share, unit, quote, url, robots)
-PUBLISHED: tuple = ()
+# Published grant-size statistics, quoted verbatim from files fetched 2026-11-20 (research doc §2 and §8).
+# (stat_id, sponsor, ein, period, metric, value, unit, quote, url, note)
+FC = "https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/{}-giving-report.pdf"
+FCN = "Fidelity Charitable"
+FC_EIN = "110303001"
+MS_URL = "https://www.morganstanley.com/content/dam/msdotcom/what-we-do/wealth-management/gift/ms-gift-impact-report.pdf"
+JCF_URL = "https://jcfny.org/app/uploads/2024/04/2023-JCF-Giving-Report.pdf"
+JCF_EIN = "237174183"
+DAFRC_URL = "https://johnsoncenter.org/wp-content/uploads/2024/02/DAFRC_Report.pdf"
+PUBLISHED = (
+    ("PS-01", FCN, FC_EIN, "CY2021", "average_grant_size", 4407, "USD per grant",
+     "Average grant size [chart] $4,407 2021", FC.format(2022), "2022 Giving Report; chart label; one outlier grant of more than $500 million removed"),
+    ("PS-02", FCN, FC_EIN, "CY2021", "grants_ge_1m", 1180, "grants",
+     "Individual grants of $1 million or more grew to 1,180 last year, an increase of 10%.", FC.format(2022), "2022 Giving Report"),
+    ("PS-03", FCN, FC_EIN, "CY2022", "average_grant_size", 4798, "USD per grant",
+     "Average grant size [chart] $4,018 $4,798 2013 2022", FC.format(2023), "2023 Giving Report; chart label; one outlier grant of more than $500 million removed"),
+    ("PS-04", FCN, FC_EIN, "CY2022", "grants_ge_1m", 1407, "grants",
+     "Individual grants of $1 million or more grew to 1,407 last year, an increase of 19%.", FC.format(2023), "2023 Giving Report"),
+    ("PS-05", FCN, FC_EIN, "CY2023", "average_grant_size", 4625, "USD per grant",
+     "while the average grant size has grown to $4,625.", FC.format(2024),
+     "2024 Giving Report; four outlier grants totaling more than $970 million removed"),
+    ("PS-06", FCN, FC_EIN, "CY2023", "grants_ge_1m", 1345, "grants",
+     "Individual grants of $1 million or more grew to 1,345, a 500% increase over the past decade.", FC.format(2024),
+     "2024 Giving Report; 1,345 is below the 1,407 of the previous report although the text says grew"),
+    ("PS-07", FCN, FC_EIN, "CY2023", "average_corporate_grant", 11000, "USD per grant (nearly)",
+     "Of the more than 23,000 corporate grants, the average granted amount was nearly $11,000.", FC.format(2024),
+     "corporate Giving Accounts only"),
+    ("PS-08", FCN, FC_EIN, "CY2024", "average_grant_size", 5422, "USD per grant",
+     "Since 2015, the average grant size has grown nearly 30%, from $4,180 to $5,422.", FC.format(2025),
+     "2025 Giving Report; One outlier grant of $430 million was removed from calculations for the average grant size"),
+    ("PS-09", FCN, FC_EIN, "CY2024", "grants_ge_1m", 1971, "grants",
+     "Additionally, there were 1,971 grants of $1 million or more", FC.format(2025), "2025 Giving Report"),
+    ("PS-10", FCN, FC_EIN, "CY2025", "average_grant_size", 5801, "USD per grant",
+     "The average grant size rose 7% to $5,801, and donors recommended 2,141 grants of $1 million or more",
+     FC.format(2026), "2026 Giving Report; outlier granting totaling $727 million removed from the average"),
+    ("PS-11", FCN, FC_EIN, "CY2025", "grants_ge_1m", 2141, "grants",
+     "The volume of grants of $1 million or more increased by 9% to 2,141", FC.format(2026), "2026 Giving Report"),
+    ("PS-12", "Morgan Stanley GIFT", "527082731", "CY2024", "average_grant_size", 11000, "USD per grant",
+     "$11,000 Average Grant Size", MS_URL, "Figures provided by Renaissance Administration LLC as of December 31, 2024"),
+    ("PS-13", "Jewish Communal Fund", JCF_EIN, "FY2023 (Jul 2022-Jun 2023)", "median_grant", 750, "USD per grant",
+     "Made an average of 17 grants per fund year, with a median grant amount of $750.", JCF_URL, "2023 Giving Report"),
+    ("PS-14", "Jewish Communal Fund", JCF_EIN, "FY2023 (Jul 2022-Jun 2023)", "average_grant_size", 11639, "USD per grant",
+     "Average Grant Amount Median Grant Amount $11,639 $750", JCF_URL, "2023 Giving Report; layout text"),
+    ("PS-15", "Jewish Communal Fund", JCF_EIN, "FY2023 (Jul 2022-Jun 2023)", "grants_lt_50k", 75380, "grants",
+     "UNDER $50,000 [...] 75,380 GRANTS", JCF_URL, "of 77,364 Grants Distributed in 2023"),
+    ("PS-16", "Jewish Communal Fund", JCF_EIN, "FY2023 (Jul 2022-Jun 2023)", "grants_50k_1m", 1908, "grants",
+     "$50,000 –$1 MILLION [...] 1,908 GRANTS", JCF_URL, "of 77,364 Grants Distributed in 2023"),
+    ("PS-17", "Jewish Communal Fund", JCF_EIN, "FY2023 (Jul 2022-Jun 2023)", "grants_gt_1m", 76, "grants",
+     "OVER $1 MILLION [...] 76 GRANTS", JCF_URL, "of 77,364 Grants Distributed in 2023"),
+    ("PS-18", "Jewish Communal Fund", JCF_EIN, "FY2023 (Jul 2022-Jun 2023)", "grant_count", 77364, "grants",
+     "77,364 Grants Distributed in 2023", JCF_URL, "nearly 80,000 individual grants ranged from $36 to transformative gifts"),
+    ("PS-19", "DAF Research Collaborative (multi-sponsor sample)", "", "2014-2022 transaction data (published 2024)",
+     "median_grant", 1000, "USD per grant",
+     "both anonymous and non-anonymous grants had a median grant amount of $1,000", DAFRC_URL,
+     "2024 National Study on DAFs; dataset spans 2014-2022, so not 2021+ data; context only"),
+)
+
+# Published size-band counts vs Schedule I lines in the same bands and period (JCF report FY = JCF return FY).
+# (check_id, ein, return_fy, [(band, lo, hi, published grant count, stat_id)], note)
+BAND_CHECKS = (
+    ("BC-JCF-FY2023", JCF_EIN, 2023,
+     (("lt_50k", 0.0, 50_000.0, 75380, "PS-15"), ("50k_1m", 50_000.0, 1_000_000.0001, 1908, "PS-16"),
+      ("gt_1m", 1_000_000.0001, float("inf"), 76, "PS-17")),
+     "same period: JCF FY Jul 2022-Jun 2023 report vs return for tax period ending 2023-06-30; JCF bands as printed "
+     "(under $50,000; $50,000-$1 million; over $1 million)"),
+    ("BC-FC-2023", FC_EIN, 2023, (("ge_1m", 1e6, float("inf"), 1345, "PS-06"),),
+     "period mismatch: return FYE 2023-06-30 vs CY2023 count"),
+    ("BC-FC-2024", FC_EIN, 2024, (("ge_1m", 1e6, float("inf"), 1971, "PS-09"),),
+     "period mismatch: return FYE 2024-06-30 vs CY2024 count"),
+    ("BC-FC-2022", FC_EIN, 2022, (("ge_1m", 1e6, float("inf"), 1407, "PS-04"),),
+     "period mismatch: return FYE 2022-06-30 vs CY2022 count"),
+    ("BC-FC-2021", FC_EIN, 2021, (("ge_1m", 1e6, float("inf"), 1180, "PS-02"),),
+     "period mismatch: return FYE 2021-06-30 vs CY2021 count"),
+)
 
 
 # ----------------------------------------------------------------------------- pure helpers
@@ -144,7 +215,8 @@ def scope_rows(ann: Mapping, seg_of: Mapping, fixed: frozenset) -> list[dict]:
     pick = lambda pred: tuple(r for k in keys if pred(k) for r in ann[k])  # noqa: E731
     nsy = lambda pred: sum(1 for k in keys if pred(k))  # noqa: E731
     fys = tuple((str(f), (lambda f: lambda k: k[1] == f)(f)) for f in FYS) + (("2021-2024", lambda k: True),)
-    scopes = (("all_top50", "all", "", lambda k: True), ("fixed_panel", "fixed_panel", "", lambda k: k[0] in fixed)) + \
+    scopes = (("all_top50", "all", "", lambda k: True), ("fixed_panel", "fixed_panel", "", lambda k: k[0] in fixed),
+              ("all_top50_excl_svcf", "sensitivity", "", lambda k: k[0] != SVCF)) + \
         tuple((f"segment:{s}", "segment", s, (lambda s: lambda k: seg_of[k[0]] == s)(s)) for s in SEGMENTS)
     bases = (("all_lines", lambda r: True), ("excl_d2d", lambda r: not r["d2d"]))
     return [row for sc, st, seg, sp in scopes for fy, fp in fys for b, bp in bases
@@ -203,6 +275,45 @@ def published_rows() -> list[dict]:
     return [{"row_type": "published_stat", "scope": f"sponsor:{ein}" if ein else "industry", "scope_type": "published",
              "sponsor": sp, "ein": ein, "fy": per, "basis": metric, "unit": unit, "stat_id": sid, "value": val,
              "quote": q, "source_url": url, "note": rob} for sid, sp, ein, per, metric, val, unit, q, url, rob in PUBLISHED]
+
+
+def band_rows(ann: Mapping) -> list[dict]:
+    def one(cid, ein, fy, bands, note):
+        amts = tuple(r["amount"] for r in ann.get((ein, fy), ()) if r["amount"] > 0)
+        tot = sum(amts)
+
+        def b(band, lo, hi, pub, sid):
+            inb = tuple(a for a in amts if lo <= a < hi)
+            return {"row_type": "band_check", "scope": f"sponsor:{ein}", "scope_type": "sponsor", "ein": ein,
+                    "fy": str(fy), "basis": cid, "bin": band, "unit": "Schedule I line vs published grant count",
+                    "lines": len(inb), "usd": r2(sum(inb)), "usd_share": r6(sum(inb) / tot) if tot else None,
+                    "grant_count": pub, "grants_per_line": r2(pub / len(inb)) if inb else None, "stat_id": sid,
+                    "note": note}
+        return [b(*x) for x in bands] if amts else []
+    return [row for c in BAND_CHECKS for row in one(*c)]
+
+
+def derived_rows() -> list[dict]:
+    """Arithmetic on the published figures (no new inputs); each row names its operands."""
+    pub = {x[0]: x[5] for x in PUBLISHED}
+    fc_usd, fc_n = STATED_USD["GC-001"][0], 2664446  # CY2024: $14.9B and 2,664,446 grants (2025 Giving Report appendix)
+    items = (
+        ("DV-01", FC_EIN, "CY2024", "avg_grant_unadjusted", fc_usd / fc_n, "USD per grant", "GC-001 $14.9B / 2,664,446"),
+        ("DV-02", FC_EIN, "CY2024", "avg_grant_excl_430m_outlier", (fc_usd - 430e6) / fc_n, "USD per grant",
+         "($14.9B - $430m outlier) / 2,664,446; compare PS-08 $5,422"),
+        ("DV-03", FC_EIN, "CY2024", "share_of_grants_ge_1m", pub["PS-09"] / fc_n, "share of grants", "PS-09 / 2,664,446"),
+        ("DV-04", FC_EIN, "CY2024", "usd_share_ge_1m_lower_bound", pub["PS-09"] * 1e6 / fc_usd, "share of dollars (lower bound)",
+         "PS-09 x $1m / $14.9B"),
+        ("DV-05", JCF_EIN, "FY2023", "share_of_grants_lt_50k", pub["PS-15"] / pub["PS-18"], "share of grants", "PS-15 / PS-18"),
+        ("DV-06", JCF_EIN, "FY2023", "share_of_grants_gt_1m", pub["PS-17"] / pub["PS-18"], "share of grants", "PS-17 / PS-18"),
+        ("DV-07", JCF_EIN, "FY2023", "implied_total_usd", pub["PS-14"] * pub["PS-18"], "USD", "PS-14 x PS-18; report text: over $900 million"),
+        ("DV-08", JCF_EIN, "FY2023", "mean_to_median_ratio", pub["PS-14"] / pub["PS-13"], "ratio", "PS-14 / PS-13"),
+        ("DV-09", FC_EIN, "CY2021-CY2025", "avg_grant_growth", pub["PS-10"] / pub["PS-01"] - 1, "growth", "PS-10 / PS-01 - 1"),
+        ("DV-10", FC_EIN, "CY2021-CY2025", "grants_ge_1m_growth", pub["PS-11"] / pub["PS-02"] - 1, "growth", "PS-11 / PS-02 - 1"),
+    )
+    return [{"row_type": "derived_published", "scope": f"sponsor:{e}", "scope_type": "published", "ein": e, "fy": per,
+             "basis": metric, "unit": unit, "stat_id": sid, "value": round(v, 6), "note": how}
+            for sid, e, per, metric, v, unit, how in items]
 
 
 FIELDS = ("row_type", "scope", "scope_type", "segment", "sponsor", "ein", "rank_fy2024", "fy", "basis", "bin", "unit",
@@ -264,7 +375,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     oid_of = {k: item[k]["oid"] for k in ann}
     sp = sponsor_rows(ann, panel, rank, oid_of)
     counts = read_csv(os.path.join(a.root, COUNTS_REL))
-    rows = scope_rows(ann, seg_of, fixed) + sp + combine_rows(counts, dafrc, sp) + published_rows() + \
+    rows = scope_rows(ann, seg_of, fixed) + sp + combine_rows(counts, dafrc, sp) + published_rows() + derived_rows() + band_rows(ann) + \
         excluded_rows(sorted(excl), panel, rank)
     out = os.path.join(a.root, OUT_REL)
     write_csv(out, rows, FIELDS)
