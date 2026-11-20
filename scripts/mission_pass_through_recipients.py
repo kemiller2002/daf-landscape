@@ -119,6 +119,13 @@ def recipient_dollars(ann: Mapping, panel: Mapping, weights: Mapping, eins: froz
 
 # ============================================================================ 990 extraction (pure on bytes)
 FS_RX = re.compile(r"FISCAL(LY)?[\s-]+SPONSOR", re.I)
+F990PF = {"contrib_1h": "ContriRcvdRevAndExpnssAmt", "total_revenue": "TotalRevAndExpnssAmt",
+          "total_expenses": "TotalExpensesRevAndExpnssAmt", "grants_part_i_13": "ContriPaidRevAndExpnssAmt",
+          "net_assets_boy": "TotNetAstOrFundBalancesBOYAmt", "net_assets_eoy": "TotNetAstOrFundBalancesEOYAmt",
+          "website": "WebsiteAddressTxt"}
+F990EZ = {"contrib_1h": "ContributionsGiftsGrantsEtcAmt", "total_revenue": "TotalRevenueAmt", "total_expenses": "TotalExpensesAmt",
+          "grants_part_i_13": "GrantsAndSimilarAmountsPaidAmt", "net_assets_boy": "NetAssetsOrFundBalancesBOYAmt",
+          "net_assets_eoy": "NetAssetsOrFundBalancesEOYAmt", "website": "WebsiteAddressTxt"}
 F990 = {"contrib_1h": "TotalContributionsAmt", "federated_1a": "FederatedCampaignsAmt", "gov_grants_1e": "GovernmentGrantsAmt",
         "total_revenue": "CYTotalRevenueAmt", "total_expenses": "CYTotalExpensesAmt", "grants_part_i_13": "CYGrantsAndSimilarPaidAmt",
         "net_assets_boy": "NetAssetsOrFundBalancesBOYAmt", "net_assets_eoy": "NetAssetsOrFundBalancesEOYAmt",
@@ -133,25 +140,29 @@ def extract_990(data: bytes) -> dict:
         t = local(el.tag)
         if t not in first and el.text and el.text.strip():
             first[t] = el.text.strip()
-    out = {k: first.get(v, "") for k, v in F990.items() if not k.endswith("_none")}
+    rtype = next((local(el.tag) for el in root.iter() if local(el.tag) in ("IRS990", "IRS990EZ", "IRS990PF")), "")
+    fmap = {"IRS990PF": F990PF, "IRS990EZ": F990EZ}.get(rtype, F990)
+    out = {k: first.get(v, "") for k, v in fmap.items() if not k.endswith("_none")}
 
     def group_total(name):
         g = next((el for el in root.iter() if local(el.tag) == name), None)
         if g is None:
             return 0.0
         return num(next((c.text for c in g.iter() if local(c.tag) == "TotalAmt" and c.text), "0")) or 0.0
-    ix = {k: group_total(v) for k, v in IX_GROUPS.items()}
+    # 990-PF / 990-EZ have no Part IX lines 1-3: all grants paid go to grants_ix1 (Part I line 25 / EZ line 10).
+    ix = ({k: group_total(v) for k, v in IX_GROUPS.items()} if rtype == "IRS990" else
+          {"grants_ix1": num(out.get("grants_part_i_13") or "0") or 0.0, "grants_ix2": 0.0, "grants_ix3": 0.0})
 
     def rec(el):
         g = {local(c.tag): (c.text or "").strip() for c in el.iter()}
         name = " ".join((c.text or "").strip() for c in el.iter()
                         if local(c.tag) in ("BusinessNameLine1Txt", "BusinessNameLine2Txt") and c.text)
-        return {"ein": ein9(g["RecipientEIN"]) if g.get("RecipientEIN") else "", "name": name[:90],
-                "amount": (num(g.get("CashGrantAmt", "")) or 0.0) + (num(g.get("NonCashAssistanceAmt", "")) or 0.0)}
-    recs = tuple(rec(el) for el in root.iter() if local(el.tag) == "RecipientTable")
+        amt = ((num(g.get("CashGrantAmt", "")) or 0.0) + (num(g.get("NonCashAssistanceAmt", "")) or 0.0)
+               if local(el.tag) == "RecipientTable" else (num(g.get("Amt", "")) or 0.0))
+        return {"ein": ein9(g["RecipientEIN"]) if g.get("RecipientEIN") else "", "name": name[:90], "amount": amt}
+    recs = tuple(rec(el) for el in root.iter() if local(el.tag) in ("RecipientTable", "GrantOrContributionPdDurYrGrp"))
     fs_texts = tuple(sorted({re.sub(r"\s+", " ", el.text.strip())[:240] for el in root.iter()
                              if el.text and FS_RX.search(el.text)}))
-    rtype = next((local(el.tag) for el in root.iter() if local(el.tag) in ("IRS990", "IRS990EZ", "IRS990PF")), "")
     return {**{k: (num(v) if k not in ("daf_ind", "website") else v) for k, v in out.items()}, **ix,
             "return_type": rtype, "sched_i_lines": len(recs), "sched_i_usd": sum(r["amount"] for r in recs),
             "sched_i_recipients": recs, "fiscal_sponsor_texts": fs_texts}
@@ -159,16 +170,16 @@ def extract_990(data: bytes) -> dict:
 
 # ============================================================================ index (I/O light)
 def filings_for(index_dir: str, eins: frozenset) -> dict:
-    """EIN -> {tax_year: index row} for RETURN_TYPE 990, latest submission (OBJECT_ID) per TAX_PERIOD."""
+    """EIN -> {tax_year: index row} for RETURN_TYPE 990 / 990EZ / 990PF, latest submission (OBJECT_ID) per TAX_PERIOD."""
     def rows():
-        for y in range(2024, 2027):
+        for y in range(2023, 2027):
             p = os.path.join(index_dir, f"index_{y}.csv")
             if not os.path.exists(p):
                 continue
             with open(p, encoding="latin-1", newline="") as fh:
                 for r in csv.DictReader(fh):
-                    if ein9(r.get("EIN") or "") in eins and (r.get("RETURN_TYPE") or "").strip() == "990":
-                        yield {"ein": ein9(r["EIN"]), "tax_period": r["TAX_PERIOD"].strip(),
+                    if ein9(r.get("EIN") or "") in eins and (r.get("RETURN_TYPE") or "").strip() in ("990", "990EZ", "990PF"):
+                        yield {"ein": ein9(r["EIN"]), "tax_period": r["TAX_PERIOD"].strip(), "return_type": r["RETURN_TYPE"].strip(),
                                "oid": r["OBJECT_ID"].strip(), "index_year": y}
     g = _group_by_fast(tuple(rows()), lambda r: (r["ein"], int(r["tax_period"][:4])))
     best = {k: max(v, key=lambda r: r["oid"]) for k, v in g.items() if k[1] in TAX_YEARS}
