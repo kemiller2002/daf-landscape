@@ -8,7 +8,35 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #68) — governing
+## Counts (refresh 2026-11-20, through PR #69) — governing
+
+These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #69 merged. They supersede the tables below, and the PR #69 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#69 (50 PRs) | GitHub |
+| Research documents | 384 documents, 1,485,539 words | `research/**/*.md` |
+| Datasets | 718 CSV files, 495,897 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,345 | regex over `research/**/*.md` |
+| Independent validation | **2,276 register rows** in 77 register files (waves 1–47B): 1,630 confirmed, 523 partially confirmed, 86 contradicted, 26 unverifiable, 11 other | `validation-register*.csv`, classified by the leading words of `validation_result` |
+| Research queue | 984 items: 429 done, 421 open, 78 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.70 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #69 (validated; report §11.69–§11.70):**
+- **Recipient census.** All 4,458 recipients at or above $25m were read, and the thin small strata were enlarged.
+  - The recipient DAF share is now 8.81% on line 1h (census-corrected 95% CI 8.21–9.41%) and 13.58% on 1h−1d−1e (12.69–14.52%), against 9.16% and 13.71% before.
+  - The fall on 1h comes almost entirely from heavily government-funded health organisations at or above $100m.
+  - The sampling SE is about 26% lower. The ±0.3 pt allocation envelope still applies.
+- **Tail CF fund counts and allocation rule F.** Only 15 of 60 CFs publish all-fund counts.
+  - Rule F puts 0.18 of costs on DAFs (A 0.21, G 0.23), giving a median of $2,108 per DAF account and 276 bps. These results are suggestive only.
+- **Sponsored-project recall.** The FBO-name rule catches about 56% of project lines at keyed hosts (the low end of a judgement range of about 56–92%).
+  - The own-name rule adds $0, because all its hosts are already counted, so the fiscal-sponsor range is unchanged.
+  - $18.2m is filed under Myriad USA's former name.
+- **CN eligibility at grant time.** Under current rules on the filings processed by each sponsor's FY end, 72.66% of top-50 DAF dollars went to rating-eligible recipients, against 76.85% on current status.
+  - The publication-lag variants give 71.5–72.6%, and the day-one variant gives 68.83%.
+  - The gap is mostly young organisations that had not yet filed three returns, plus older paper filers.
+
+## Counts (refresh 2026-11-20, through PR #68) (superseded by the table above)
 
 These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #68 merged. They supersede the tables below, and the PR #68 description records the head SHA.
 
