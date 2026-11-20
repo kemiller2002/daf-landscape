@@ -19,10 +19,11 @@ Outputs (one CSV, row_type column):
                  total) and HHI (0-10,000). Scopes: `all_itemising` (every itemising top-50 sponsor-year that FY) and
                  `balanced_panel` (sponsors itemising in all four FYs; the trend basis), plus a sensitivity that
                  merges the four Chan Zuckerberg LLC EINs into CZ Biohub Inc (disregarded entities, per
-                 non-bmf-recipients-2026-11-20.csv and its note).
+                 non-bmf-recipients-2026-11-20.csv and its note), and a sensitivity that also nets lines to any EIN in
+                 non-dafrc-daf-filers-990.csv (DAF-holding filers outside the DAFRC panel; not the repo's netting rule).
   grower         balanced panel, Schedule I (filed) basis: P1 = FY2021+FY2022, P2 = FY2023+FY2024; recipients with
                  P2 >= $5m; top 50 by absolute growth (`abs`), top 50 by percentage growth among P1 > 0 (`pct`), and
-                 every recipient with P1 = 0 (`entrant`). Each row carries IRS EO BMF NTEE, subsection, ruling date
+                 every recipient with P1 = 0 (`entrant`); sensitivity `pct_p1_1m` = top 50 by percentage growth among P1 >= $1m. Each row carries IRS EO BMF NTEE, subsection, ruling date
                  and a rule-based type (org_type; first match wins, see type_of) plus flags.
 
 Stdlib only; functional style (pure transforms, I/O at the edges).
@@ -57,9 +58,11 @@ FS_LIST = os.path.join(DATA, "fiscal-sponsor-ein-list-2026-11-19.csv")
 DE_FACTO = os.path.join(DATA, "de-facto-fiscal-sponsors-2026-11-20.csv")
 PASS_THROUGH = os.path.join(DATA, "pass-through-recipients-2026-11-20.csv")
 NON_BMF = os.path.join(DATA, "non-bmf-recipients-2026-11-20.csv")
+NON_DAFRC_DAF = os.path.join(DATA, "non-dafrc-daf-filers-990.csv")  # DAF-holding filers outside the DAFRC panel (sensitivity netting only)
 FYS = (2021, 2022, 2023, 2024)
 P1, P2 = (2021, 2022), (2023, 2024)
 FLOOR = 5_000_000.0
+P1_MIN_SENS = 1_000_000.0  # sensitivity list: percentage growth among recipients with P1 >= $1m
 N_LIST = 50
 CZ_BIOHUB = "811669175"  # Chan Zuckerberg Biohub Inc (BMF 501(c)(3)); parent of the CZ LLCs per Schedule R (b40n1202-b43n26-03)
 CZ_LLC = re.compile(r"^CZ (BIOHUB|INSTITUTE)")
@@ -119,13 +122,13 @@ def metrics(by: Mapping) -> dict:
             "top1_key": next((k for k, v in sorted(by.items(), key=lambda kv: -kv[1])), "")}
 
 
-def conc_rows(ann: Mapping, scopes: Mapping, weights: Mapping, merge_cz: Mapping) -> tuple[dict, ...]:
-    def one(scope, sy_keys, fy, basis, wt, merge):
+def conc_rows(ann: Mapping, scopes: Mapping, weights: Mapping, merge_cz: Mapping, extra_net: frozenset) -> tuple[dict, ...]:
+    def one(scope, sy_keys, fy, basis, wt, merge, extra=frozenset()):
         keys = tuple(k for k in sy_keys if k[1] == fy)
         if basis == "daf_weighted" and not all(k in wt for k in keys):
             return None
         rows = tuple(r for k in keys for r in ann[k])
-        kept = tuple(r for r in rows if not r["d2d"])
+        kept = tuple(r for r in rows if not r["d2d"] and r["ein"] not in extra)
         w = lambda r: r["amount"] * wt.get(r["_sy"], 1.0)  # noqa: E731
         gross = sum(w(r) for r in rows)
         m = metrics(totals_by_key(kept, wt, merge))
@@ -136,6 +139,7 @@ def conc_rows(ann: Mapping, scopes: Mapping, weights: Mapping, merge_cz: Mapping
     specs = [(s, keys, fy, b, wt, {}) for s, keys in scopes.items() for fy in FYS
              for b, wt in (("schedule_i", {}), ("daf_weighted", weights))]
     specs += [(s + "_cz_merged", keys, fy, "schedule_i", {}, merge_cz) for s, keys in scopes.items() for fy in FYS]
+    specs += [(s + "_net_non_dafrc_daf_filers", keys, fy, "schedule_i", {}, {}, extra_net) for s, keys in scopes.items() for fy in FYS]
     return tuple(r for r in (one(*s) for s in specs) if r)
 
 
@@ -214,10 +218,11 @@ def grower_rows(ann: Mapping, keys: Sequence, bmf: Mapping, fs: Mapping, pt: Map
     elig = tuple(enrich(k, d) for k, d in rp.items() if sum(d["fy"].get(y, 0.0) for y in P2) >= FLOOR)
     by_abs = sorted(elig, key=lambda r: -(r["_p2"] - r["_p1"]))[:N_LIST]
     by_pct = sorted((r for r in elig if r["_p1"] > 0), key=lambda r: -(r["_p2"] / r["_p1"]))[:N_LIST]
+    by_pct1m = sorted((r for r in elig if r["_p1"] >= P1_MIN_SENS), key=lambda r: -(r["_p2"] / r["_p1"]))[:N_LIST]
     entr = sorted((r for r in elig if r["_p1"] <= 0), key=lambda r: -r["_p2"])
     tag = lambda lst, rows: tuple({**r, "row_type": "grower", "scope": "balanced_panel", "basis": "schedule_i",  # noqa: E731
                                    "rank_list": lst, "rank": i + 1, "source": SOURCE} for i, r in enumerate(rows))
-    return tag("abs", by_abs) + tag("pct", by_pct) + tag("entrant", entr)
+    return tag("abs", by_abs) + tag("pct", by_pct) + tag("pct_p1_1m", by_pct1m) + tag("entrant", entr)
 
 
 def grower_summary(gr: Sequence[Mapping], elig_n: int) -> dict:
@@ -232,7 +237,7 @@ def grower_summary(gr: Sequence[Mapping], elig_n: int) -> dict:
                 "by_type": {t: {"n": len(v), "growth_usd": sum(r["growth_usd"] for r in v)}
                             for t, v in sorted(types.items(), key=lambda kv: -len(kv[1]))},
                 "by_ntee_major": {k: len(v) for k, v in sorted(_group_by_fast(rs, lambda r: r["ntee_major"]).items(), key=lambda kv: -len(kv[1]))}}
-    return {"eligible_p2_ge_5m": elig_n, **{lst: s(lst) for lst in ("abs", "pct", "entrant")}}
+    return {"eligible_p2_ge_5m": elig_n, **{lst: s(lst) for lst in ("abs", "pct", "pct_p1_1m", "entrant")}}
 
 
 FIELDS = ("row_type", "scope", "basis", "fiscal_year", "sponsor_years", "gross_sched_i_usd", "d2d_excluded_usd", "total_usd",
@@ -294,7 +299,8 @@ def main(argv: Sequence[str] | None = None) -> int:
     fs = {**fs_df, **fs_dir}
     pt = {ein9(r["ein"]): (r["pass_through_class"], r["hand_subtype"]) for r in read_csv(PASS_THROUGH)}
 
-    conc = conc_rows(ann, scopes, weights, merge_cz)
+    extra_net = frozenset(ein9(r["ein"]) for r in read_csv(NON_DAFRC_DAF)) - frozenset(rank)
+    conc = conc_rows(ann, scopes, weights, merge_cz, extra_net)
     gr = grower_rows(ann, scopes["balanced_panel"], bmf, fs, pt, nonbmf, panel, {e: panel[e]["name"] for e in panel})
     write_csv(OUT, conc + gr, FIELDS)
 
@@ -308,7 +314,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         "load_problems": bad, "balanced_panel_sponsors": len(balanced),
         "not_in_balanced": sorted(panel[e]["name"] for e in set().union(*sponsors_by_fy.values()) - balanced),
         "daf_weight_coverage": {fy: f"{sum(1 for k in weights if k[1] == fy)}/{len(sponsors_by_fy[fy])}" for fy in FYS},
-        "fs_set": len(fs), "cz_llc_eins": sorted(cz_eins), "lines_total": sum(len(v["lines"]) for v in good.values()),
+        "fs_set": len(fs), "extra_net_eins": len(extra_net), "cz_llc_eins": sorted(cz_eins), "lines_total": sum(len(v["lines"]) for v in good.values()),
         "concentration": [{k: r[k] for k in ("scope", "basis", "fiscal_year", "sponsor_years", "total_usd", "d2d_excluded_usd",
                                              "recipients", "top10_share", "top100_share", "top1000_share", "gini", "hhi", "top1_recipient")}
                           for r in conc],
