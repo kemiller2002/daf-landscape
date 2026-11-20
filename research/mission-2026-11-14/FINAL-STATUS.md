@@ -8,7 +8,43 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #69) — governing
+## Counts (refresh 2026-11-20, through PR #70) — governing
+
+These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #70 merged. They supersede the tables below. The PR #70 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#70 (51 PRs) | GitHub |
+| Research documents | 390 documents, 1,508,048 words | `research/**/*.md` |
+| Datasets | 728 CSV files, 496,765 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,374 | regex over `research/**/*.md` |
+| Independent validation | **2,326 register rows** in 79 register files (waves 1–48B): 1,670 confirmed, 529 partially confirmed, 87 contradicted, 29 unverifiable, 11 other | `validation-register*.csv`, classified by the leading words of `validation_result` |
+| Research queue | 1,006 items: 435 done, 437 open, 78 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.72 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #70 (validated; report §11.71–§11.72):**
+- **BofA Charitable Gift Fund.**
+  - Program Guidelines v8.2025, which govern, still say distributions carry the donor or advisor name unless anonymity is requested. The newer portal guide says the default is fund name only.
+  - The repo keeps “fund name only” at medium confidence, and the 17.2% withheld share is unchanged.
+- **Pledge partner MCP.**
+  - 17 tools; `create_donation` creates donations that are billed in batches.
+  - No confirmation, cap or cancel step is documented.
+  - Scored AMBER, provisional. The validator recommends RED (provisional), pending the owner or a second scorer.
+- **Charity Navigator AI channel.** It is partnership-led: Horizon is powered by Giving Compass, and there is no MCP, no AI plan and no AI terms.
+  - Four quotes from scripted reads of www.charitynavigator.org, whose terms ban robots, are flagged pending the owner's manual read. They are kept out of synthesis.
+- **Bright Funds and SVCF.**
+  - Bright Funds is a workplace-giving processor, not a DAF sponsor.
+  - SVCF's $3.06bn of DAF grants against its $1.54bn release is reconciled by $1.667bn of transfers to other DAF sponsors, of which the NPT line is $1.59bn. The average grant is about $106k.
+- **Tail CF fund totals from 990 narratives.**
+  - 36 of 641 tail CFs state an all-funds total.
+  - Rule F on 34 CFs: DAF share 0.245, 258 bps per DAF dollar (rule A 203, rule G 323), and $4,500 per account. The per-account figure leans toward larger-opex CFs; the frame-wide value is about $3.2k [I].
+- **Open owner decisions:**
+  - robots-blocked sources: NCF agreement, foundant.com, CCT portal;
+  - CN terms-restricted quotes;
+  - Pledge AMBER vs RED;
+  - CZ Biohub LLC look-through.
+
+## Counts (refresh 2026-11-20, through PR #69) (superseded by the table above)
 
 These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #69 merged. They supersede the tables below, and the PR #69 description records the head SHA.
 
@@ -29,6 +65,7 @@ These counts were recomputed from the git-tracked files on branch `claude/daf-la
   - The sampling SE is about 26% lower. The ±0.3 pt allocation envelope still applies.
 - **Tail CF fund counts and allocation rule F.** Only 15 of 60 CFs publish all-fund counts.
   - Rule F puts 0.18 of costs on DAFs (A 0.21, G 0.23), giving a median of $2,108 per DAF account and 276 bps. These results are suggestive only.
+  - Superseded by the 990-narrative pass (34 CFs): rule F puts 0.245 of costs on DAFs (A 0.178, G 0.356), giving $4,500 per DAF account and 258 bps. The set leans to larger-opex CFs, so the frame-level value per account is probably lower (about $3.2k [I]). [V wave 48B]
 - **Sponsored-project recall.** The FBO-name rule catches about 56% of project lines at keyed hosts (the low end of a judgement range of about 56–92%).
   - The own-name rule adds $0, because all its hosts are already counted, so the fiscal-sponsor range is unchanged.
   - $18.2m is filed under Myriad USA's former name.
