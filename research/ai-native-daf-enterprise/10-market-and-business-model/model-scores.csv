@@ -1,0 +1,51 @@
+model,criterion,score,rationale
+A,economics,2,Asset-based sponsor fees with conventional staffing; calibrated large-national AI value pool only $445k [S]; AI features already marketed by incumbents
+A,capital,2,Requires sponsor formation plus licensed platform plus distribution build; no capital-light path
+A,time_to_evidence,3,Can launch on a licensed platform (NPT cites 14-16 weeks private-label on its own platform) but proof of advantage needs AUM growth
+A,regulatory,2,Full sponsor obligations (4966/4967/4958; state registration; audit) with no reduction
+A,operational_feasibility,4,Known operating model; buy platform from Ren/Foundation Source/Give Interactive/Foundant
+A,distribution,2,Advisor channels already bundled (RCF+Ren ~11 wealth programs; SEI/TIFIN/GiveClear); consumer-direct CAC unproven (failure pattern P3)
+A,defensibility,1,No structural difference from incumbents; AI speed-ups are copyable (strategic synthesis §B superficial productivity)
+A,philanthropic,2,Same incentives and processes as incumbents
+A,reversibility,2,Contributions are irrevocable; sponsors cannot be sold only merged/affiliated (report §11.6)
+A,technical_feasibility,5,Off-the-shelf
+B,economics,3,Lower cost-to-serve but revenue is bps on assets; 8-10 person structural floor makes small scale uneconomic (organization-model.md §4); must reach AUM scale
+B,capital,2,Sponsor plus own platform ~ S1 ($8.8m/$17.0m/$29.4m to month 24 [S]) plus distribution; Daffy raised $21.9m seed+A
+B,time_to_evidence,2,Needs operating history and AUM before the model is demonstrated; audits and regulators see results only after years
+B,regulatory,1,Full sponsor obligations plus novel automated decisioning under personal manager liability; first-of-kind scrutiny
+B,operational_feasibility,2,Must build ledger + decisioning + servicing + accounting and run them as a charity simultaneously
+B,distribution,2,Same channel problem as A; AI-native differentiation is invisible to advisors who buy bundles
+B,defensibility,3,Operating model and decision data are hard to copy for affiliated incumbents with fee-share incentives; but brand/trust accrue slowly
+B,philanthropic,4,Full control of grant experience recipient service payout nudges and transparency
+B,reversibility,1,Irrevocable charitable assets and donor commitments; exit only by merger into another sponsor
+B,technical_feasibility,3,Whole stack must be production-grade before first donor
+C,economics,3,Thin value pool if scoped to grant review (needs ~76k-369k grants/yr per customer at $120k/yr [S]); viable only on whole operating burden or at network scale; usage pricing needs Fidelity-scale volume (S2 base 3.3m events for $5m ARR [S])
+C,capital,4,S3 $2.3m/$5.0m/$9.7m to month 24 [S]; S2 $3.2m/$6.6m/$12.4m [S]
+C,time_to_evidence,5,Shadow-mode pilot in 4-9 months [S]; produces measured exception and handling data no one publishes (Q-N03)
+C,regulatory,4,No custody and no sponsor status; SOC 2 and vendor-risk review; money-transmission analysis only if it moves funds (avoid by partner rails)
+C,operational_feasibility,4,Narrow scope; sponsor keeps authority
+C,distribution,2,Needs data access controlled by incumbent vendors; six of top 20 sponsors restrict automated access; no executed contract with API rights seen (Q-N04)
+C,defensibility,2,Low switching costs at first; incumbents can match policy-as-code in 12-18 months (entrant simulation condition 5); consolidators are both competitors and likely acquirers
+C,philanthropic,3,Indirect: improves many sponsors and recipient-side service but does not control donor experience
+C,reversibility,5,Pivot or sell is possible; no irrevocable charitable assets
+C,technical_feasibility,4,Integrations are the hard part not the core
+D,economics,4,Combines platform/usage fees with administration revenue on a program slice (full-outsourcing anchor: RCF paid Ren $19.23m FY2024; not ARR); price on whole operating burden
+D,capital,3,More than C (must run a production ledger for a program) but no charity formation; between S3 and S1
+D,time_to_evidence,4,One partner program can produce end-to-end evidence (contribution to reconciliation) within the S1 MVP test (>=500 funds or >=$50m; 90 days clean reconciliation [S proposal])
+D,regulatory,3,Partner sponsor bears sponsor obligations; provider is an administrator under contract; partner-diligence risk (SDG Impact Fund failure pattern); avoid holding funds
+D,operational_feasibility,3,Must operate a system of record for one program with a partner's governance
+D,distribution,3,Matches how banks and wealth firms buy (sponsor + technology bundles e.g. SEI Charitable Fund = GiveClear + TIFIN Give); a partner sponsor brings legal wrapper
+D,defensibility,4,Owning the operating record for programs creates real switching costs and cross-program decision data; still copyable by Ren/Foundation Source over time
+D,philanthropic,4,End-to-end control of the grant and recipient experience in the program slice; reusable by other sponsors
+D,reversibility,4,Program can be migrated back to partner or another administrator; contracts must guarantee export
+D,technical_feasibility,3,Requires production-grade ledger and reconciliation early
+Dc,economics,4,As D plus capture of sponsor fee; mirrors RCF-Ren fee-share structure (98% of individual-fundholder fees)
+Dc,capital,2,Charity formation + platform + reserves
+Dc,time_to_evidence,3,IRS determination and state registrations precede operation
+Dc,regulatory,2,Related-party governance scrutiny (Charityvest president paid by Foundation Source $163,944; RCF-Ren related-party fees); §4958 exposure on vendor arrangements
+Dc,operational_feasibility,3,Must run a charity board independent of the vendor
+Dc,distribution,3,Same as D
+Dc,defensibility,4,As D
+Dc,philanthropic,4,As D
+Dc,reversibility,2,Charitable assets irrevocable; captive charity cannot be sold
+Dc,technical_feasibility,3,As D

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Daf.Enterprise", "Daf.Enterprise\Daf.Enterprise.fsproj", "{F431C4AC-7826-4815-8E78-8678DAE98101}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Daf.Enterprise.Tests", "Daf.Enterprise.Tests\Daf.Enterprise.Tests.fsproj", "{46C98DA9-60F8-4A64-9CA5-FE034FDDC082}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F431C4AC-7826-4815-8E78-8678DAE98101}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F431C4AC-7826-4815-8E78-8678DAE98101}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F431C4AC-7826-4815-8E78-8678DAE98101}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F431C4AC-7826-4815-8E78-8678DAE98101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46C98DA9-60F8-4A64-9CA5-FE034FDDC082}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C98DA9-60F8-4A64-9CA5-FE034FDDC082}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C98DA9-60F8-4A64-9CA5-FE034FDDC082}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C98DA9-60F8-4A64-9CA5-FE034FDDC082}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,271 @@
+openapi: 3.1.0
+info:
+  title: Grant Recommendations and Grants API
+  version: 1.0.0-draft
+  description: |
+    Design contract (research artifact, 2026-11-20). Donors, advisors, embedded partners and
+    delegated AI agent principals submit grant *recommendations* (requests). Only the sponsor's
+    policy engine or an authorized sponsor human converts a recommendation into a grant (DD-003).
+    There is intentionally no endpoint that approves a grant or instructs a payment.
+servers:
+  - url: https://api.example-daf.org/v1
+security:
+  - oauth2: [recommendations:write]
+paths:
+  /recommendations:
+    post:
+      operationId: submitRecommendation
+      summary: Submit a grant recommendation (request, not instruction)
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/RecommendationCreate' }
+      responses:
+        '202':
+          description: Accepted for evaluation; state machine started
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Recommendation' }
+        '400': { $ref: '#/components/responses/Problem' }
+        '403': { $ref: '#/components/responses/Problem' }
+        '409': { $ref: '#/components/responses/Problem' }
+        '422': { $ref: '#/components/responses/Problem' }
+      security:
+        - oauth2: [recommendations:write]
+    get:
+      operationId: listRecommendations
+      parameters:
+        - { name: account_id, in: query, required: true, schema: { type: string } }
+        - { name: 'page[after]', in: query, schema: { type: string } }
+      responses:
+        '200':
+          description: Page of recommendations
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data: { type: array, items: { $ref: '#/components/schemas/Recommendation' } }
+                  next: { type: [string, 'null'] }
+      security:
+        - oauth2: [grants:read]
+  /recommendations/{recommendation_id}/confirmation:
+    post:
+      operationId: confirmRecommendation
+      summary: Donor confirms an agent-originated recommendation above the delegation's confirm_above amount
+      description: Must be called with a *user* token of the delegating party; agent-principal tokens are rejected (403).
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+        - { name: recommendation_id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200':
+          description: Confirmed
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Recommendation' }
+        '403': { $ref: '#/components/responses/Problem' }
+      security:
+        - oauth2: [recommendations:confirm]
+  /grants/{grant_id}:
+    get:
+      operationId: getGrant
+      parameters:
+        - { name: grant_id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200':
+          description: Grant with state history
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Grant' }
+        '404': { $ref: '#/components/responses/Problem' }
+      security:
+        - oauth2: [grants:read]
+  /grants/{grant_id}/open-record:
+    get:
+      operationId: getGrantOpenRecord
+      summary: Projection to the repository's open DAF grant record v0.1 (standards/daf-grant-record)
+      parameters:
+        - { name: grant_id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200':
+          description: Open grant record
+          content:
+            application/json:
+              schema: { type: object, description: 'See standards/daf-grant-record/schema-v0.1.json' }
+      security:
+        - oauth2: [grants:read]
+  /grants/{grant_id}/cancellation:
+    post:
+      operationId: cancelGrant
+      summary: Cancel before payment release; returns 409 /problems/already-released after release
+      parameters:
+        - $ref: '#/components/parameters/IdempotencyKey'
+        - { name: grant_id, in: path, required: true, schema: { type: string } }
+      responses:
+        '200':
+          description: Canceled
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Grant' }
+        '409': { $ref: '#/components/responses/Problem' }
+      security:
+        - oauth2: [grants:cancel]
+webhooks:
+  grantStateChanged:
+    post:
+      summary: Signed webhook (HMAC-SHA256 over timestamp.body; header X-Signature, X-Timestamp)
+      requestBody:
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/GrantEvent' }
+      responses:
+        '2XX': { description: Acknowledged (subscriber dedupes on event_id) }
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      description: User tokens (auth code + PKCE), institution tokens (client credentials, mTLS-bound per RFC 8705), agent-principal tokens (RFC 8693 token exchange with act claim and delegation caps).
+      flows:
+        authorizationCode:
+          authorizationUrl: https://auth.example-daf.org/authorize
+          tokenUrl: https://auth.example-daf.org/token
+          scopes:
+            recommendations:write: Submit recommendations
+            recommendations:confirm: Confirm agent-originated recommendations (user tokens only)
+            grants:read: Read grants
+            grants:cancel: Cancel grants before release
+        clientCredentials:
+          tokenUrl: https://auth.example-daf.org/token
+          scopes:
+            recommendations:write: Submit recommendations
+            grants:read: Read grants
+  parameters:
+    IdempotencyKey:
+      name: Idempotency-Key
+      in: header
+      required: true
+      schema: { type: string, format: uuid }
+      description: Required on every mutating call; retained 7 days; reuse with a different body returns 409 /problems/idempotency-key-reuse.
+  responses:
+    Problem:
+      description: RFC 9457 problem details
+      content:
+        application/problem+json:
+          schema: { $ref: '#/components/schemas/Problem' }
+  schemas:
+    Problem:
+      type: object
+      required: [type, title, status]
+      properties:
+        type: { type: string, format: uri, examples: ['https://api.example-daf.org/problems/insufficient-available-balance'] }
+        title: { type: string }
+        status: { type: integer }
+        detail: { type: string }
+        instance: { type: string }
+        decision_id: { type: [string, 'null'] }
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              pointer: { type: string }
+              code: { type: string }
+              message: { type: string }
+    Money:
+      type: object
+      required: [value, currency]
+      properties:
+        value: { type: string, pattern: '^[0-9]+(\.[0-9]{2})$', description: Decimal string to avoid float error }
+        currency: { type: string, const: USD }
+    RecipientRef:
+      type: object
+      description: Exactly one identifier form. An EIN resolves deterministically; free text requires donor confirmation of the resolved entity.
+      oneOf:
+        - required: [ein]
+          properties: { ein: { type: string, pattern: '^[0-9]{2}-?[0-9]{7}$' } }
+        - required: [recipient_id]
+          properties: { recipient_id: { type: string } }
+        - required: [name_text]
+          properties:
+            name_text: { type: string, maxLength: 300 }
+            city: { type: string }
+            state: { type: string }
+    RecommendationCreate:
+      type: object
+      required: [account_id, recipient, amount, purpose]
+      properties:
+        account_id: { type: string }
+        recipient: { $ref: '#/components/schemas/RecipientRef' }
+        amount: { $ref: '#/components/schemas/Money' }
+        purpose:
+          type: object
+          properties:
+            text: { type: string, maxLength: 1000 }
+            codes: { type: array, items: { type: string } }
+        restriction_text: { type: string, maxLength: 1000 }
+        recognition: { type: string, enum: [full_contact, name_only, anonymous] }
+        attestations:
+          type: object
+          description: Donor attestations under Notice 2017-73 and §4967 (no more-than-incidental benefit, not a pledge payment unless policy permits).
+          properties:
+            no_benefit: { type: boolean }
+            not_pledge_or_policy_compliant: { type: boolean }
+        recurrence:
+          type: object
+          properties:
+            frequency: { type: string, enum: [none, monthly, quarterly, annually] }
+            end_date: { type: string, format: date }
+    Recommendation:
+      allOf:
+        - $ref: '#/components/schemas/RecommendationCreate'
+        - type: object
+          properties:
+            recommendation_id: { type: string }
+            requester:
+              type: object
+              description: The actor chain; agent principals appear with act.delegating_party.
+              properties:
+                kind: { type: string, enum: [person, institution, agent] }
+                id: { type: string }
+                delegating_party: { type: [string, 'null'] }
+                delegation_id: { type: [string, 'null'] }
+            state: { type: string, enum: [submitted, awaiting_donor_confirmation, awaiting_recipient_clarification, in_evaluation, converted_to_grant, declined, withdrawn] }
+            grant_id: { type: [string, 'null'] }
+            event_id: { type: string }
+    Grant:
+      type: object
+      properties:
+        grant_id: { type: string }
+        recommendation_id: { type: string }
+        account_id: { type: string }
+        recipient_id: { type: string }
+        amount: { $ref: '#/components/schemas/Money' }
+        state:
+          type: string
+          description: External projection of the internal state machine; internal routing states (e.g. which specialist) are not disclosed.
+          enum: [in_review, approved, released, paid, returned, declined, canceled]
+        decision_ids: { type: array, items: { type: string } }
+        expected_payment_window: { type: [string, 'null'], description: 'Derived from measured latency for the rail and path, not a promise' }
+        history:
+          type: array
+          items:
+            type: object
+            properties:
+              state: { type: string }
+              at: { type: string, format: date-time }
+              event_id: { type: string }
+    GrantEvent:
+      type: object
+      required: [event_id, event_type, schema_version, subject, effective_at, recorded_at]
+      properties:
+        event_id: { type: string }
+        event_type: { type: string, enum: [grant.approved, grant.declined, grant.canceled, payment.settled, payment.returned] }
+        schema_version: { type: integer }
+        subject: { type: string }
+        effective_at: { type: string, format: date-time }
+        recorded_at: { type: string, format: date-time }
+        correlation_id: { type: string }
+        data: { $ref: '#/components/schemas/Grant' }

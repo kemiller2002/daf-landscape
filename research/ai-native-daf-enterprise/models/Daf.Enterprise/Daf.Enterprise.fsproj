@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Domain.fs" />
+    <Compile Include="Policy.fs" />
+    <Compile Include="Ledger.fs" />
+    <Compile Include="Journey.fs" />
+    <Compile Include="Economics.fs" />
+    <Compile Include="Twin.fs" />
+  </ItemGroup>
+
+</Project>
