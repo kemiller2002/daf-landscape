@@ -75,6 +75,9 @@ DAF_PRIMARY = frozenset({"national", "processor", "community_foundation"})
 
 
 # ----------------------------------------------------------------------------- frame (pure + edge)
+DAF_WORDING = lambda s: bool(__import__('re').search(r'(?i)donor[- ]?advised|\bDAF\b', s or ''))
+
+
 def tax_year_of(period: str) -> int:
     y, m = int(period[:4]), int(period[4:6])
     return y if m == 12 else y - 1
@@ -491,8 +494,11 @@ def matched_rows(h: Sequence[Mapping], keys: Mapping, panel: Mapping, bmf: Mappi
                 "sponsor_segment": seg, "sponsor_tier": tier_of(e, seg, rank) if e else "T0_daf_label_unattributed", "sponsor_rank_fy2024": rank.get(e, ""),
                 "match_method": ";".join(sorted({m for _, _, m in xs})), "lines": len(xs), "amount_usd": amt,
                 "daf_purpose_amount_usd": daf_amt, "largest_line_usd": max(g["amt"] for g, _, _ in xs),
-                "recipient_name_filed": first_segment(xs[0][0]["name"])[:80],
-                "purpose_text": " | ".join(sorted({g["purpose"][:60] for g, _, _ in xs}))[:200],
+                # Privacy: filed recipient names and purposes can carry donors' or account holders'
+                # names (named funds, memorial purposes). Keep only the matched sponsor brand and a
+                # DAF-wording flag; the raw text stays in the source XML.
+                "recipient_name_filed": "[redacted; see sponsor_name]",
+                "purpose_text": "DAF wording" if any(DAF_WORDING(g["purpose"]) for g, _, _ in xs) else "[redacted]",
                 "share_of_pf_grants_paid": amt / grants_paid(r) if grants_paid(r) else None,
                 "xml_url": XML_URL.format(oid=r["object_id"]), "source": SOURCE}
     return tuple(x for r in h if r.get("xml_status") == "ok" for x in per_return(r))

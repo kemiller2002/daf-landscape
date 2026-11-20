@@ -133,7 +133,7 @@ No logins, form submissions or outreach.
 
 **L08 — Gibbons, K. (2022). "Show Me the Money: Addressing the Oversight Gap in Private Foundation Donations to Donor-Advised Funds." *Minnesota Law Review* 106(3):1583 (student note).** [record](https://scholarship.law.umn.edu/minnlrev/vol106/iss3/8/)
 - **Argument:** grants from private foundations to DAFs count toward the foundation's 5% payout but carry no time limit and hide the end recipients. Gibbons proposes a federal fix and a state fix.
-- **Relation to repo:** *extends*. The repo does not measure inflows from foundations. The CA AG audit (L29) puts them at $1.1–1.7bn a year at 57 sponsors.
+- **Relation to repo:** *extends*. The repo now measures inflows from foundations (b49-01): 990-PF grants to the core national sponsors were $2.55bn, $2.96bn and $3.91bn in TY2022–24 (3.3–4.5% of DAF contributions), and $4.88–7.05bn a year including other national sponsors and community foundations; about 7–8% comes from foundations in their final year. [V wave 49B] The CA AG audit (L29) puts them at $1.1–1.7bn a year at 57 sponsors.
 
 **L10 — Brakman Reiser, D. & Dean, S. A. (2023). *For-Profit Philanthropy.* Oxford University Press.** [doi:10.1093/oso/9780190074500.001.0001](https://doi.org/10.1093/oso/9780190074500.001.0001); ch. 3, [doi:10.1093/oso/9780190074500.003.0003](https://doi.org/10.1093/oso/9780190074500.003.0003)
 - **Argument:** commercially affiliated sponsors dominate the field (four of the ten largest US charity recipients) and escape the 1969 rules on timing, targeting and transparency.

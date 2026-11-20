@@ -137,6 +137,8 @@ As a lower-bound check on matching, the script also reports each tier using only
 
 **Itemisation.** Itemised XML lines equal 98.7%, 98.4% and 98.2% of grants paid. Each year about 1,200-1,330 returns report grants paid but itemise none ($1.57bn, $2.06bn and $2.32bn of grants paid). Their sponsor grants, if any, are missed. [F]
 
+**T0 concentration.** One PF’s two lines ($291.6m in TY2024 and $141.1m in TY2023) are 47% of T0, and a few T0 lines do name a panel sponsor (for example Community Foundation of Sarasota County, $9.0m), so T0 is mostly, not wholly, unattributed. [V wave 49B]
+
 ### 3.2 Against the repo's DAF contribution totals [F]
 
 The denominator is DAFRC corrected market DAF contributions ([`dafrc-corrected-market-totals.csv`](../../data/mission-2026-11-14/dafrc-corrected-market-totals.csv), `corrected_value`):
@@ -151,7 +153,7 @@ The denominator is DAFRC corrected market DAF contributions ([`dafrc-corrected-m
 
 **Reading [I].** Private foundations supply roughly **4-5 cents of every DAF contribution dollar** at the core national sponsors' level, and at most about 8 cents under the broadest DAF-relevant definition. Most DAF money comes from other sources: individuals, estates and corporations.
 
-**PF grant to sponsor, then DAF grant out.** A PF grant to a DAF sponsor is a qualifying distribution for the PF. The money then counts again as a DAF contribution, and later as a DAF grant. The repo's netting work (DAF-to-DAF, [`daf-to-daf-flows-top50.csv`](../../data/mission-2026-11-14/daf-to-daf-flows-top50.csv)) does not net PF-to-DAF flows. These are flows into the DAF system from outside it, not double counts within it. [I]
+**PF grant to sponsor, then DAF grant out.** A PF grant to a DAF sponsor is a qualifying distribution for the PF. The money then counts again as a DAF contribution, and later as a DAF grant. The repo's netting work (DAF-to-DAF, [`daf-to-daf-flows-top50.csv`](../../data/mission-2026-11-14/daf-to-daf-flows-top50.csv)) does not net PF-to-DAF flows. These are flows into the DAF system from outside it, not double counts within it. [I] Validator check: the DAF-to-DAF file reads Form 990 Schedule I and this file reads 990-PF Part XV, so no row is in both. Two DAFRC-panel sponsors filed 990-PFs: Jasper Ridge Charitable Fund (final §507(b)(1)(A) return, TY2023, $4.2m to Schwab and Fidelity) and Every.org (TY2024, $0.5m to T2 processors); those $4.7m are sponsor-to-sponsor transfers in substance (0.03% of T1-T3). [V wave 49B]
 
 ### 3.3 Concentration (top PFs) [F]
 
@@ -180,12 +182,12 @@ For T1-T3 over three years: 10,623 PFs; top-1 4.3%, top-10 17.5%, top-50 38.7%, 
 | Aurora Foundation (36-7634806) | $143.6m | no |
 | The Zoom Foundation (06-1600601) | $139.4m | no |
 
-The largest single lines include:
+The largest return-sponsor rows (one PF return to one sponsor, filed lines summed; the largest single filed lines are $275.0m in TY2022 and $242.5m and $235.0m in TY2024, all to NPT) include: [V wave 49B]
 - $276.0m to NPT (TY2022);
 - $257.5m to NPT (TY2024);
 - $236.3m to NPT (TY2024);
 - $218.0m and $220.7m to Schwab Charitable;
-- $161.5m to the J.P. Morgan Charitable Giving Fund (NPT program).
+- $161.5m to the J.P. Morgan Charitable Giving Fund (NPT program; the filed address line reads National Philanthropic Trust, Jenkintown PA). [V wave 49B]
 
 The flow is therefore lumpy: one or two PFs move a year's T1 total by $0.2-0.3bn. [F]
 
@@ -291,14 +293,15 @@ Separately, PFs whose sponsor grants were at least 50% of their grants paid numb
   - "Christian Community Foundation" in TN ($85m; generic name).
 
   Together these come to about 2% of the T1-T3 total ($349m of $17.34bn).
-- **Precision.** A seeded hand audit of 45 random rows (15 each in T1, T2 and T3) and the 20 largest T1 rows found no false matches. The audit ran on the build before the last alias additions (brand plus "DAF" wording, and the generic-name block), which changed T1 by under 1.5%. Rows such as "MCHPP" → AOGF are correct: the full filed name is "MCHPP - AMERICAN ONLINE GIVING FOUNDATION".
+- **Brand-name misses (validator).** Re-running `match_line` over every cached candidate line leaves about 565 lines and $188m over three years ($64m, $56m and $69m) that name a T1 brand in a misspelt or abbreviated form (for example “FIDELITY INV CHARITABLE GIFT FUND”, “GOLDMAN SACHS PHILANTHROPHY FUND”, “SCHWAB FUND FOR CHARITABLE GIVING”, “TROWE PRICE - DONOR ADVISED FUND”). That is about 2.0% of T1, so T1 is a floor. T2-T3 misses include Tides Foundation (state rule), St Louis Community Foundation (two panel EINs share the name) and Community Foundation of Sarasota County. [V wave 49B]
+- **Precision.** A seeded hand audit of 45 random rows (15 each in T1, T2 and T3) and the 20 largest T1 rows found no false matches. The audit ran on the build before the last alias additions (brand plus "DAF" wording, and the generic-name block), which changed T1 by under 1.5%. An independent re-read of 37 matched rows in raw XML (14 T1, 8 T2 and 10 T3 drawn with a new seed, the 4 largest T1 rows and the Cognizant row) found all 37 correct; the 95% lower bound on precision is about 91%. [V wave 49B] Rows such as "MCHPP" → AOGF are correct: the full filed name is "MCHPP - AMERICAN ONLINE GIVING FOUNDATION".
 
 ## 4. Limits
 
 - **Matching is name-based.** 990-PF Part XV has no recipient-EIN field. Of 74,266 return-sponsor rows (all tiers, before the CSV filter), 93% rest on exact or first-segment names, 6% on brand aliases and 0.1% on an EIN written in the text. Recall is incomplete (§3.6), and T0 ($0.92bn) is DAF money whose sponsor is unknown.
 - **T3 and T4 are not DAF-only.** PF grants to community foundations and universities largely fund programmes. Only 11-18% of T1-T3 dollars carry DAF wording, but that wording is optional, so this is not a DAF share. T1 is the defensible "into DAFs" figure.
 - **T1 includes some non-DAF receipts.**
-  - NCF, JCF and DonorsTrust also hold some non-DAF funds.
+  - NCF, JCF and DonorsTrust also hold some non-DAF funds. Without the four judgment additions (NCF, JCF, DonorsTrust, Thrivent), T1 is $2.17bn, $2.61bn and $3.52bn ($8.29bn), or 2.8%, 4.0% and 3.8% of DAF contributions; Thrivent receives nothing in any year. [V wave 49B]
   - NPT, Fidelity Charitable and others receive some PF grants for pooled or sponsor-level funds. A few purpose texts say "general operating"; for a DAF sponsor that usually still means a DAF credit, but this is not verified.
 - **Timing.** PF tax year ≠ sponsor FY for non-calendar filers, and a PF grant may be booked by the sponsor in the next FY. Per-sponsor ratios for single years are therefore noisy, particularly for lumpy recipients (NPT 2024, Atlanta CF).
 - **Missing returns.**
@@ -310,7 +313,7 @@ Separately, PFs whose sponsor grants were at least 50% of their grants paid numb
   - Some final returns are filed by PFs that merge or move rather than wind down.
   - `OrganizationDissolvedEtcInd` (Part VI-A line 5) is reported but not used. It counted 2,899, 3,194 and 3,437 "Yes" answers, more than the final-return counts.
 - **DAFRC denominators.** FY2024 contains many imputed sponsor rows (see `dafrc-corrected-market-totals.csv`).
-- **Privacy.** PF names are organisation names from public filings. Care-of names are stripped. Recipient fund names are truncated at the first separator in the CSV, so "FBO person" tails are dropped. No individual is profiled.
+- **Privacy.** PF names are organisation names from public filings. Care-of names are stripped. Recipient fund names are truncated at the first separator in the CSV, so "FBO person" tails are dropped. No individual is profiled. However, the cut keeps names that lead the string: the validator found individual donor or account-holder names in `recipient_name_filed` (named giving accounts and named funds) and in `purpose_text` (named family DAFs, in-memory purposes), about 176 rows on a tight name heuristic. Before wider use, blank `purpose_text` or replace it with a DAF flag, and cut `recipient_name_filed` to the matched sponsor brand. [V wave 49B] **Done 2026-11-20:** both fields are redacted in the CSV and in the script (1,031 of 29,204 rows carry the DAF-wording flag).
 
 ## 5. Data dictionary: `pf-to-daf-flows-2026-11-20.csv`
 
@@ -346,8 +349,8 @@ Separately, PFs whose sponsor grants were at least 50% of their grants paid numb
 | daf_purpose_amount_usd | Part of amount_usd on lines whose name or purpose says DAF or donor advised |
 | largest_line_usd | Largest single line (USD) |
 | share_of_pf_grants_paid | amount_usd ÷ pf_total_grants_paid |
-| recipient_name_filed | Recipient name as filed, cut at the first separator (first line of the row) |
-| purpose_text | Distinct purpose texts, each cut to 60 characters, joined by " \| " (max 200 characters) |
+| recipient_name_filed | Redacted 2026-11-20 (“[redacted; see sponsor_name]”): filed names can carry donors’ or account holders’ names. The raw text stays in the source XML |
+| purpose_text | Redacted 2026-11-20 to a flag: “DAF wording” if any line's purpose says donor-advised or DAF, else “[redacted]” |
 
 ## 6. Source register (primary URLs)
 

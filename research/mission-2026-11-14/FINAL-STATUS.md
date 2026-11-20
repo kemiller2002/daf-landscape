@@ -8,7 +8,41 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #70) — governing
+## Counts (refresh 2026-11-20, through PR #71) — governing
+
+These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #71 merged. They supersede the tables below. The PR #71 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#71 (52 PRs) | GitHub |
+| Research documents | 396 documents, 1,539,381 words | `research/**/*.md` |
+| Datasets | 739 CSV files, 527,491 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,447 | regex over `research/**/*.md` |
+| Independent validation | **2,402 register rows** in 81 register files (waves 1–49B): 1,735 confirmed, 539 partially confirmed, 88 contradicted, 29 unverifiable, 11 other | `validation-register*.csv`, classified by the leading words of `validation_result` |
+| Research queue | 1,034 items: 436 done, 464 open, 78 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.74 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #71: batch 49, new directions (validated; report §11.73–§11.74):**
+- **Private-foundation flows into DAFs.** Census of 371,359 990-PFs (TY2022–24): $9.43bn went to core national sponsors, about 4% of DAF contributions.
+  - The figure is a floor: about 2% of brand-name lines are missed.
+  - Wind-down foundations supply 7–8%, also a floor.
+  - Foundations supply 4–6% of Fidelity Charitable's contributions and 18–21% of JCF's.
+  - Individual names in the CSV text fields are redacted.
+- **Corporate matching gifts.** In the Fortune 100, 2021+ texts give 5 matching DAF grants, 1 excluding and 4 silent, out of 10. Most programmes publish no rules outside employee portals.
+  - No IRS text addresses matching.
+  - P&G's programme was discontinued in 2016.
+- **Bequests and legacy.** None of the top-20 sponsors defaults to a named charity; 11 of 15 known defaults go to the sponsor's own general fund.
+  - Succession ranges from two generations to perpetuity.
+  - Bequest inflows cannot be measured from the 990.
+- **Fraud and diversion.** No DOJ/USAO release from 2021 to 2026 describes a DAF grant or account diversion.
+  - Notices and MFA are published at sponsors holding 52.0% of top-20 assets (strict login MFA: 35.2%).
+  - Charity bank-change checks are published at 29.8%.
+- **Sponsor governance (150 sponsors, 449 returns).** All top-50 sponsors are audited. Policy gaps sit almost entirely under $10m.
+  - The largest related-party contracts are with founding firms or affiliates.
+  - These are self-reported answers.
+- **Owner download helper.** `scripts/owner_fetch.py` is a visible-browser assistant for the agent-blocked documents. It does no form filling and no bot-check evasion.
+
+## Counts (refresh 2026-11-20, through PR #70) (superseded by the table above)
 
 These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #70 merged. They supersede the tables below. The PR #70 description records the head SHA.
 
@@ -38,7 +72,11 @@ These counts were recomputed from the git-tracked files on branch `claude/daf-la
 - **Tail CF fund totals from 990 narratives.**
   - 36 of 641 tail CFs state an all-funds total.
   - Rule F on 34 CFs: DAF share 0.245, 258 bps per DAF dollar (rule A 203, rule G 323), and $4,500 per account. The per-account figure leans toward larger-opex CFs; the frame-wide value is about $3.2k [I].
-- **Open owner decisions:**
+- **PF-to-DAF flows and fraud controls (validated, wave 49B; report §11.74).**
+  - 990-PF grants to core national sponsors: $2.55bn, $2.96bn and $3.91bn (TY2022–24), or 3.3%, 4.5% and 4.2% of DAF contributions; T1 is a floor (about 2% brand-name misses).
+  - Fraud controls: notices and MFA at 52.0% of top-20 assets (strict login MFA 35.2%), bank-change checks at 29.8%; no DOJ release from 2021 to 2026 describes a DAF diversion.
+  - Individual donor names in the PF-flow CSV’s fund-name and purpose fields were redacted on 2026-11-20 (privacy rule).
+- **Open owner decisions:** [V wave 49B]
   - robots-blocked sources: NCF agreement, foundant.com, CCT portal;
   - CN terms-restricted quotes;
   - Pledge AMBER vs RED;

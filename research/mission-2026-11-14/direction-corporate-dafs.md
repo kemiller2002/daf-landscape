@@ -88,7 +88,7 @@
 | UiPath | 0.3m shares a year: $4.2m / $6.6m / $4.2m (FY2026/25/24) | 2.8m reserved; Pledge 1% | [10-K FY2026](https://www.sec.gov/Archives/edgar/data/1734722/000173472226000012/path-20260131.htm) [F] |
 | Aramark | $8.8m of Vestis shares (FY2024) | spin-off equity used to fund the DAF | [10-K FY2025](https://www.sec.gov/Archives/edgar/data/1584509/000158450925000219/cik0-20251003.htm) [F] |
 | PennyMac Financial | $5.8m (2021), $2.5m (2024), $3.0m (2025) | lumpy, profit-linked | [10-K 2025](https://www.sec.gov/Archives/edgar/data/1745916/000110465926018142/pfsi-20251231x10k.htm) [F] |
-| Cognizant | private foundation **converted to a DAF**, late 2022 | "Our philanthropic focuses, goals and giving remain unchanged" | [Proxy 2023](https://www.sec.gov/Archives/edgar/data/1058290/000130817923000721/lctsh2023_def14a.htm) [F] |
+| Cognizant | private foundation **converted to a DAF**, late 2022; the TY2022 990-PF of Cognizant US Foundation is a final §507(b)(1)(A) return with $35.6m to the BNY Mellon Charitable Gift Fund (b49-01) [V wave 49B] | "Our philanthropic focuses, goals and giving remain unchanged" | [Proxy 2023](https://www.sec.gov/Archives/edgar/data/1058290/000130817923000721/lctsh2023_def14a.htm) [F] |
 | Macerich | "Company-matched donor advised fund" | listed as an employee benefit beside the 401(k), ESPP and 529 | [10-K 2025](https://www.sec.gov/Archives/edgar/data/912242/000091224226000016/mac-20251231.htm) [F] |
 | VICI | personal DAF account for each employee, via Groundswell | matching through the DAF | [Proxy 2023](https://www.sec.gov/Archives/edgar/data/1705696/000119312523070714/d460951ddef14a.htm) [F] |
 | Cullen/Frost | executive-funded DAF; employees choose the charities | "third-party administrator" | [Proxy 2026](https://www.sec.gov/Archives/edgar/data/39263/000003926326000023/cfr-20260320.htm) [F] |
@@ -132,7 +132,7 @@
    The deduction and G&A charge are taken at fair value when the shares are issued: UiPath, Circle, Zoom.
 4. **A "Foundation" brand without a foundation.**
    - Align Foundation, Steve Madden Corporate Foundation, CrowdStrike Foundation, Brilliant Earth Foundation, Payoneer Foundation and Circle Foundation are all DAFs.
-   - Cognizant **converted** its US private foundation into a DAF in late 2022, with "goals and giving … unchanged".
+   - Cognizant **converted** its US private foundation into a DAF in late 2022 (confirmed in filings: Cognizant US Foundation’s TY2022 990-PF is marked final and §507(b)(1)(A), and its one sponsor grant, $35.6m to the BNY Mellon Charitable Gift Fund, is described as a transfer to a newly created DAF; b49-01) [V wave 49B], with "goals and giving … unchanged".
 5. **Employee engagement and brand.**
    - Upwork: the DAF "fosters workforce morale, enhances our community presence, and strengthens our brand".
    - Zuora, Macerich and VICI run employee matching or employee accounts through the DAF.
