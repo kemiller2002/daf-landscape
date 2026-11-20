@@ -115,7 +115,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 - **DAFpay Network TY2025.** "Other fees" are 3.0% of contributions and are booked as an expense. The return is not audited.
 - **Canada.** The CRA T3010 panel reproduces Blumberg & Pasha: C$18.60bn at 864 sponsors in the 2025 release. Counting blank disbursement lines as zero, the median payout is 4–5%.
 - **Australia.** The 6% giving-fund minimum has been decided but was not registered as of 2026-11-19. Only the rename to "giving fund" has commenced.
-- **AI economics.** With B and D held to C's evidence standard, AI assistance still wins no process, and the processes B and D lose go to manual improvement, whose α is unsourced. The bound E15 implies is a miss rate of at most 0.39% per auto-closed alert, not 0.10.
+- **AI economics.** With B and D held to C's evidence standard, AI assistance still wins no process, and the processes B and D lose go to manual improvement, whose α is unsourced. Holding A to NAO manual-casework throughput realization [I] (g0403-01) keeps A modal in 6 of 15 processes with assistance; with A01 routing at m = 1.77, C is modal in 5 and A in 1. No audit of realized labour savings from a manual fix was found [V wave 41C] The bound E15 implies is a miss rate of at most 0.39% per auto-closed alert, not 0.10.
 
 ## Counts (refresh 2026-11-19, through PR #59) (superseded by the table above)
 

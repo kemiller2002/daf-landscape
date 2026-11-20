@@ -49,7 +49,7 @@ All figures are for a large national (NAT_LARGE), CAL_CENTRAL, gross, as the mea
 | Route, A01 ranges, m = 9.28 | A_FIELD | 0.294 | 0.200 | 0.077 | 0.429 | ADABDDAADDDBAAB | 0.81 |
 | Hybrid, A01 ranges, m = 1.77 | A_FIELD | 0.197 | 0.170 | 0.263 | 0.369 | CDCBDDCADDCBCCD | 0.49 |
 
-**Does A still absorb what B and D lose? Yes, under the only audited realization evidence for manual work. The answer turns on r_A.**
+**Does A still absorb what B and D lose? With assistance as C, yes, under an [I] mapping of audited manual-casework throughput realization (not realized labour savings, the standard applied to B) onto r_A. With A01 routing at the current m = 1.56–1.77, A still takes 58% of what B and D lose, but C is modal in 5 processes and A in 1–2. The answer turns on r_A.** [V wave 41C]
 
 1. **Under A_FIELD, A keeps almost all of its gain.**
    - With assistance as C, A takes **94%** of the rank-first probability that B and D lose. It stays modal in **6 of 15 processes** (P01, P03, P07, P08, P13, P14), the same set as under the unsourced prior.
@@ -60,7 +60,7 @@ All figures are for a large national (NAT_LARGE), CAL_CENTRAL, gross, as the mea
    - With A01 routing at m = 1.77, A is modal in 5 processes at r_A = 1.0 and in none at 0.75.
    - Under A_LEVEL_A, A is modal in at most 1 process in any C variant.
    - The only audited manual-programme ratio that low is DWP's 2023-24 productivity, 0.475, and it reversed to 1.20 the next year.
-4. **Assistance remains modal nowhere** in any A × B/D cell at a large national. Its rank-first probability is at most **0.140** (A_LEVEL_A_FIELD × BD_PROGRAM).
+4. **Assistance remains modal nowhere** in any A × B/D cell at a large national. Its rank-first probability is at most **0.167** (A_RPA_ANALOGY × BD_PROGRAM); excluding the RPA-analogy stress spec it is at most 0.140 (A_LEVEL_A_FIELD × BD_PROGRAM) [V wave 41C]
 5. **Archetypes.** Under BD_FIELD × A_FIELD:
    - With assistance, A is modal in **6** processes at every archetype checked (NAT_LARGE, NAT_MID, CF_1BN, CF_250M, CF_SMALL), with absorption 0.92–0.94.
    - With A01 routing at m = 1.77, C is modal in 2–6 processes (NAT_MID 2; the others 5–6).
@@ -102,10 +102,10 @@ All figures are for a large national (NAT_LARGE), CAL_CENTRAL, gross, as the mea
 - The recut held B to *realized against planned* savings from inspector-general audits (RPA: 0.07 program-level, 0.33 for one bot). It borrowed that range for D by analogy [I].
 - For A the equivalent evidence would be an audit of a non-technology improvement (checklist, standard work, triage rule, queue or workload change) that compares realized with estimated labour saving. None was found (§2).
 - The closest substitute is an audit of a manual casework programme that compares **throughput realized against throughput planned**. Two NAO reports provide this (MI-E01, MI-E02).
-- **Mapping [I]:** realized A = r_A·α·L. Here r_A is drawn from triangular(0.475, 1.00, 1.20):
+- **Mapping [I]:** realized A = r_A·α·L. Here r_A is drawn from triangular(0.475, 1.00, 1.20). The DWP bounds are ratios of productivity levels (actual ÷ expected cases per agent per day), not of realized ÷ planned gains or savings, so they compress towards 1: a planned 20% gain realized at 10% gives a level ratio of 1.10/1.20 = 0.92 but a gain ratio of 0.50 [C, illustrative]. The range is therefore likely to favour A relative to the realized-÷-estimated-savings standard applied to B [V wave 41C]
   - low end: DWP TCR 2023-24 productivity, 0.57/1.20;
   - mode: the PACE headline (2.5 of 2.5) and TCR cases completed (1.04);
-  - top: TCR 2024-25 productivity, 1.07/0.89.
+  - top: TCR 2024-25 productivity, 1.07/0.89. The 2024-25 expectation (0.89) is lower than the 2023-24 expectation (1.20), and NAO does not explain the change; against the earlier 1.20 expectation, the 2024-25 actual is 0.89 [C] [V wave 41C]
   - r_A is drawn from the recut stream's third uniform, the one ABD_FIELD used, so the specs are comparable draw by draw.
 - **α level:** MI-E03 (0.25, self-report) and MI-E04 (0.065–0.091, peer-reviewed, management rather than process) bracket v1's U(0.05, 0.25) without narrowing it. α is therefore kept as an [I] sweep. A_LEVEL_A restricts it to the peer-reviewed level as a stress test.
 
@@ -162,7 +162,7 @@ At NAT_LARGE, A_V1 reproduces the recut CSV:
   - productivity 0.475 (2023-24) and 1.202 (2024-25);
   - cases completed 0.833, 0.599 and 1.254 by year, and 1.043 in total;
   - savings 1.107 in total.
-- **Caveats.** This is the throughput of a new programme against its own plan, not the labour saved by fixing an existing process. Case selection uses analytics-built rules. The savings are benefit outcomes, not administrative cost. The agents are outsourced.
+- **Caveats.** This is the throughput of a new programme against its own plan, not the labour saved by fixing an existing process. Case selection uses analytics-built rules. The savings are benefit outcomes, not administrative cost. Agents were DWP staff until 2023-24; DWP contracted TP in June 2024, moved to a hybrid model from September 2024 (TP had about 2,600 FTE agents by January 2025), and outsourced agents hand any entitlement decision to DWP staff (paras 3.22–3.24, footnote 23) [V wave 41C]
 
 ### 2.2 MI-E02: Home Office asylum PACE
 
@@ -170,7 +170,7 @@ At NAT_LARGE, A_V1 reproduces the recut CSV:
 - **The outcome.** "In April 2023, the 640 active caseworkers (those making decisions) achieved the 2.5 decisions weekly" (para 3.9). But "72% of decisions in April 2023 were 'administrative decisions'", which include explicit and implicit withdrawals (para 3.12) [F].
 - **The headline realization** is (2.5 − 1.4) / (2.5 − 1.4) = 1.00 [C].
   - The planned gain is a 1.79-fold rise in decisions per caseworker. As labour per decision that is 1 − 1.4/2.5 = 0.44, outside v1's α range. Much of it came from administrative closures and rule changes (demand removal), not from faster handling.
-  - Only about 50% of caseworkers were deciding claims. The IPA reported "an acknowledgement within the Home Office that publicly stated targets around productivity levels of caseworkers are not realistic" [F].
+  - Only about 50% of caseworkers were deciding claims (about 640 of 1,270 at the end of April 2023, against a business-case assumption of 62% of 1,350; para 3.8, Figure 9). At workforce level, about 1,310 decisions a week in April 2023 (para 3.12) against the 1,350 × 62% × 2.5 ≈ 2,090 the business case implies is a ratio of about 0.63 [C], although that shortfall is headcount, not handling speed [V wave 41C] The IPA reported "an acknowledgement within the Home Office that publicly stated targets around productivity levels of caseworkers are not realistic" [F].
 
 ### 2.3 MI-E03 and MI-E04: level of the saving
 
@@ -213,7 +213,7 @@ All results are CAL_CENTRAL, gross, unless stated. Full rows are in the CSV.
 | Hybrid A01, m = 1.77 | A_FIELD | 0.197 | 0.170 | 0.263 | 0.369 | 1 / 6 |
 
 - **Without any B/D cut (V1_PRIORS), A_FIELD alone takes P03 from A** (assist modal string BDDBDDDDDDDBDBD), because r_A's mean is 0.89.
-- **Under BD_PROGRAM (B and D at 7–15%), A dominates in every A spec with assistance** (12–13 modal processes). With A01 routing, C is modal in 5 (A_FIELD) to 12 (RPA analogy) processes.
+- **Under BD_PROGRAM (B and D at 7–15%), A dominates in every A spec with assistance** (12–13 modal processes). With A01 routing at m = 1.56–1.77, C is modal in 2 (A_V1), 5 (A_FIELD), 6 (A_FIELD_CAPPED), 10 (A_LEVEL_A) and 12 (A_RPA_ANALOGY, A_LEVEL_A_FIELD) processes; at m = 1 it is 3 under A_V1, and at m = 9.28 it is 0–6 [V wave 41C]
 
 ### 3.2 Modal winners (NAT_LARGE, P01–P15)
 
@@ -236,9 +236,9 @@ All strings come from the CSV rows `modal_winners_gross_P01_P15`.
 | Route routing-note ranges, m = 1.77 | 0.84 | 0.78 | 0.66 | 0.33 | 0.20 |
 | Route A01, m = 1.77 | 0.67 | 0.58 | 0.44 | 0.18 | 0.09 |
 | Route A01, m = 9.28 | 0.86 | 0.81 | 0.72 | 0.43 | 0.38 |
-| Hybrid A01, m = 1.77 | 0.58 | 0.49 | 0.34 | 0.13 | 0.04 |
+| Hybrid A01, m = 1.77 | 0.58 | 0.49 | 0.34 | 0.12 | 0.04 |
 
-Each value is A's share of the rank-first probability lost by B and D. C's share is 1 minus it (the rows are `metric=share_C`).
+Each value is A's share of the rank-first probability lost by B and D. The hybrid A_RPA_ANALOGY value is 0.1245 in the CSV, so it rounds to 0.12, not 0.13 [V wave 41C] C's share is 1 minus it (the rows are `metric=share_C`).
 
 ### 3.4 Sweep: fixed r_A under BD_FIELD (NAT_LARGE)
 
@@ -273,10 +273,10 @@ By net value, A or "none" remains the most likely winner in every cell. Under BD
 
 | Earlier conclusion | Status |
 |---|---|
-| Recut: "What replaces B and D is manual improvement (A), not AI"; α is an uncalibrated prior | **Holds under the only audited manual-programme realization (A_FIELD).** A takes 94% of the lost rank-first probability with assistance and stays modal in 6 of 15 processes. It no longer holds if manual improvement realizes well below plan (r_A ≤ 0.5 with assistance; ≤ 0.75 with A01 routing) or if α is at the peer-reviewed level |
+| Recut: "What replaces B and D is manual improvement (A), not AI"; α is an uncalibrated prior | **Holds with assistance under A_FIELD, an [I] mapping of audited manual-casework throughput realization (not labour-savings realization) onto r_A** [V wave 41C] A takes 94% of the lost rank-first probability with assistance and stays modal in 6 of 15 processes. It no longer holds if manual improvement realizes well below plan (r_A ≤ 0.5 with assistance; ≤ 0.75 with A01 routing) or if α is at the peer-reviewed level |
 | Recut: ABD_FIELD (RPA range on A) as the "same standard" case | **Revised.** The RPA range is a technology-programme realization. The manual-casework audits (MI-E01/E02) centre on 1.0, not 0.33. ABD_FIELD is now a lower-bound stress test (A_RPA_ANALOGY) |
 | Recut: routing at the A01 ranges modal in P03, P07 and P11 under BD_FIELD (m = 1) | **At the current m = 1.56–1.77 with A_FIELD, C is modal in P03, P07, P11, P13 and P14.** A_FIELD (mean 0.89) loosens A's hold on P13 and P14. At m = 9.28, C is modal nowhere. The h-asymmetry caveat (wave 37C) still applies: routing's h upper half is not haircut |
-| Assistance wins no process | **Unchanged** in every A × B/D cell. Maximum P(C first) is 0.140 (A_LEVEL_A_FIELD × BD_PROGRAM) |
+| Assistance wins no process | **Unchanged** in every A × B/D cell. Maximum P(C first) is 0.167 (A_RPA_ANALOGY × BD_PROGRAM); 0.140 excluding the RPA-analogy spec (A_LEVEL_A_FIELD × BD_PROGRAM) [V wave 41C]
 
 ---
 
