@@ -4,7 +4,7 @@
 
 **Outputs**
 - [`scripts/mission_ai_realized_correlated.py`](../../scripts/mission_ai_realized_correlated.py). It imports [`mission_ai_a_calibrated.py`](../../scripts/mission_ai_a_calibrated.py) without modifying it; through that module it uses the recut, the routing variant, the calibrated model and v2, none of which is modified. Stdlib only (the copula uses `statistics.NormalDist`), functional style. Run: `python3 scripts/mission_ai_realized_correlated.py . --draws 10000` (about 4–5 minutes per archetype; five archetypes were run).
-- [`data/mission-2026-11-14/ai-ranking-realized-correlated-2026-11-20.csv`](../../data/mission-2026-11-14/ai-ranking-realized-correlated-2026-11-20.csv): __NROWS__ rows. Data dictionary in §D1.
+- [`data/mission-2026-11-14/ai-ranking-realized-correlated-2026-11-20.csv`](../../data/mission-2026-11-14/ai-ranking-realized-correlated-2026-11-20.csv): 29,976 rows. Data dictionary in §D1.
 - [`data/mission-2026-11-14/queue-proposals-g0403-0105-04.csv`](../../data/mission-2026-11-14/queue-proposals-g0403-0105-04.csv): 5 proposals.
 - No existing file was modified. Nothing was committed.
 
@@ -43,11 +43,12 @@
 4. **The cut on the upper half is milder than its mean suggests.** r_C's mean is 0.47, but even r_C = 0 (h capped at 0.50) leaves A01 routing modal in P07 and hybrid modal in 5 processes (§3.2). Most of routing's advantage comes from the lower half of h.
 5. **Cutting the whole of h (C_ALL_FIELD, stress) removes routing and hybrid as modal winners** in every A_V1 and A_FIELD cell (A modal in 6, C in 0). Only A_RPA_ANALOGY × BD_FIELD with hybrid keeps C modal (2 processes). Whether the lower half (bank test set-up 0.20, E19 optimal-policy 0.21–0.49, OCBC benchmark) also needs a realization factor is the larger open question (P-G0403-0105-02).
 6. **Value [S]:** the median value routing adds beyond the best of A, B and D falls from $133k to **$84k** a year at m = 1.77 (hybrid: $313k to $249k).
+7. **The large loss is specific to the large national.** At the other four archetypes C_UPPER_FIELD costs A01 routing at m = 1.77 at most 1 modal process: NAT_MID stays at 2, and CF_1BN, CF_250M and CF_SMALL go from 6 to 5. Hybrid loses at most 1 (CF_SMALL 8 → 7). C_ALL_FIELD takes routing and hybrid to 0 modal processes at every archetype under A_FIELD × BD_FIELD (§3.5).
 
 ### (B) Correlated realization (P-G0403-01-04)
 
 - r_A, r_B and r_D are redrawn through a **Gaussian copula with a common sponsor-execution factor** at rank correlation 0.5 (latent Pearson 0.5176) and 1.0 (comonotone). Empirical Spearman at NAT_LARGE: 0.497–0.518 at 0.5 and 1.000 at 1.0 [C]. Each marginal is unchanged.
-- **Correlation does not revert the ranking to the V1 priors. It moves rank-first probability from B (and to a lesser degree D) to A and C, and changes at most 2 modal winners in any A_FIELD × BD_FIELD cell at NAT_LARGE.**
+- **Correlation does not revert the ranking to the V1 priors. It moves rank-first probability from B (and to a lesser degree D) to A and C, and changes at most 2 modal winners in any A_FIELD cell at NAT_LARGE.** At the other archetypes it changes up to 4, and there A01 routing gains modal processes from A: at NAT_MID (m = 1.77) C goes from 2 to 5 modal processes (P03, P13, P14 from A), and at the community-foundation archetypes from 6 to 7 (P01 from A).
 
 | C variant (A_FIELD × BD_FIELD) | rank corr | A | B | C | D | Modal winners | n modal A / C | share_A |
 |---|---:|---:|---:|---:|---:|---|---|---:|
@@ -63,11 +64,11 @@
 7. **Why B loses.** Under independence, a process that B and D both serve has two chances that one of them realizes well; under a common factor those chances coincide, so max(B, D) is lower in expectation. When the factor is low, A (whose r_A range sits near 1) and C (no factor) win; when it is high, B and D win in their V1 order. The modal changes are in B-modal processes with a narrow margin (P01 B→A, P15 B→D).
 8. **The wave-37C expectation holds only when the marginals are equal.** With A at the RPA analogy (A_RPA_ANALOGY, same marginal as r_B and r_D), rank correlation 1 means one common value on A, B and D. Then the ordering among A, B and D does revert to V1 (A falls to 0.018), and C, which carries no factor, gains: A01 routing at m = 1.77 goes from 0.270 and 5 modal processes to **0.321 and 6** [S].
 9. **Putting r_C on the same factor (set ABCD) offsets the h cut.** Route A01 at m = 1.77 under C_UPPER_FIELD: 0.168 and 2 modal processes at rank correlation 0, 0.183 and 3 at 0.5, **0.200 and 5** at 1.0, the same count as without any cut. Correlation makes C's bad draws coincide with A's, B's and D's bad draws, so the cut matters less to the ranking.
-10. **Assistance remains modal nowhere** in every correlation cell (maximum P(C first) 0.065, A_RPA_ANALOGY × BD_FIELD at rank correlation 1).
+10. **Assistance remains modal nowhere** in every cell of both studies at every archetype (maximum P(C first) 0.065 at NAT_LARGE and 0.080 across archetypes, both A_RPA_ANALOGY × BD_FIELD at rank correlation 1).
 
 ### Replication
 
-- **The A_FIELD/BD_FIELD baseline reproduces `ai-ranking-a-calibrated-2026-11-20.csv`.** All rows with c_real = C_V1 and rank correlation 0 (main and absorption cells) were matched against that CSV on c_variant, bd_variant, a_variant, archetype, process, intervention and metric: __NCMP__ values compared, **__NBAD__ mismatches** (floats within 1e-6 relative; modal strings exact). This covers A_V1 × V1_PRIORS, A_V1 / A_FIELD / A_RPA_ANALOGY × BD_FIELD, the A_FIELD absorption shares, for ASSIST, ROUTE_G04_M1.77, ROUTE_A01_M1.56 / M1.77 / M9.28 and HYBRID_A01_M1.77, at all five archetypes (per-process values at NAT_LARGE).
+- **The A_FIELD/BD_FIELD baseline reproduces `ai-ranking-a-calibrated-2026-11-20.csv`.** All rows with c_real = C_V1 and rank correlation 0 (main and absorption cells) were matched against that CSV on c_variant, bd_variant, a_variant, archetype, process, intervention and metric: 7,150 values compared, **0 mismatches** (floats within 1e-6 relative; modal strings exact). This covers A_V1 × V1_PRIORS, A_V1 / A_FIELD / A_RPA_ANALOGY × BD_FIELD, the A_FIELD absorption shares, for ASSIST, ROUTE_G04_M1.77, ROUTE_A01_M1.56 / M1.77 / M9.28 and HYBRID_A01_M1.77, at all five archetypes (per-process values at NAT_LARGE).
 
 ---
 
@@ -102,7 +103,7 @@
 
 ### 1.5 Archetypes
 
-All five were run (NAT_LARGE, NAT_MID, CF_1BN, CF_250M, CF_SMALL), 10,000 draws each. NAT_LARGE was run first on its own (4 min 19 s) and gave the same values as the five-archetype run. Per-process rows are written for NAT_LARGE only.
+All five were run (NAT_LARGE, NAT_MID, CF_1BN, CF_250M, CF_SMALL), 10,000 draws each. NAT_LARGE was run first on its own (4 min 19 s) and gave the same values as the five-archetype run (all 14,873 NAT_LARGE rows identical; only the replication rows' archetype label differs). Per-process rows are written for NAT_LARGE only.
 
 ---
 
@@ -126,7 +127,72 @@ All five were run (NAT_LARGE, NAT_MID, CF_1BN, CF_250M, CF_SMALL), 10,000 draws 
 
 P(rank first) A / B / C / D, modal string, and n modal A / C. "C beyond best" is the median over draws of Σ max(0, C − max(0, A, B, D)) across P01–P15 (usd/yr).
 
-__T1__
+| C variant | A × B/D | r_C spec | A | B | C | D | Modal winners | n modal A / C | C beyond best (p50) |
+|---|---|---|---:|---:|---:|---:|---|---|---:|
+| Route A01, m = 1.56 | A_FIELD × BD_FIELD | C_V1 | 0.228 | 0.180 | 0.204 | 0.388 | ADCBDDCADDCBCCB | 2 / 5 | $143k |
+| Route A01, m = 1.56 | A_FIELD × BD_FIELD | C_UPPER_FIELD | 0.244 | 0.185 | 0.172 | 0.399 | ADCBDDCADDDBACB | 3 / 3 | $93k |
+| Route A01, m = 1.56 | A_FIELD × BD_FIELD | C_UPPER_WIDE | 0.242 | 0.185 | 0.176 | 0.397 | ADCBDDCADDDBCCB | 2 / 4 | $99k |
+| Route A01, m = 1.56 | A_FIELD × BD_FIELD | C_ALL_FIELD | 0.313 | 0.206 | 0.041 | 0.440 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 1.56 | A_V1 × BD_FIELD | C_V1 | 0.288 | 0.163 | 0.182 | 0.367 | ADABDDCADDCBAAB | 5 / 2 | $89k |
+| Route A01, m = 1.56 | A_V1 × BD_FIELD | C_UPPER_FIELD | 0.309 | 0.168 | 0.147 | 0.376 | ADABDDCADDDBAAB | 5 / 1 | $43k |
+| Route A01, m = 1.56 | A_V1 × BD_FIELD | C_UPPER_WIDE | 0.306 | 0.167 | 0.152 | 0.375 | ADABDDCADDDBAAB | 5 / 1 | $48k |
+| Route A01, m = 1.56 | A_V1 × BD_FIELD | C_ALL_FIELD | 0.375 | 0.183 | 0.033 | 0.408 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 1.56 | A_RPA_ANALOGY × BD_FIELD | C_V1 | 0.048 | 0.226 | 0.274 | 0.452 | BDCBDDCDDDCBCCD | 0 / 5 | $348k |
+| Route A01, m = 1.56 | A_RPA_ANALOGY × BD_FIELD | C_UPPER_FIELD | 0.051 | 0.234 | 0.247 | 0.467 | BDCBDDCDDDCBCCD | 0 / 5 | $283k |
+| Route A01, m = 1.56 | A_RPA_ANALOGY × BD_FIELD | C_UPPER_WIDE | 0.051 | 0.233 | 0.251 | 0.465 | BDCBDDCDDDCBCCD | 0 / 5 | $290k |
+| Route A01, m = 1.56 | A_RPA_ANALOGY × BD_FIELD | C_ALL_FIELD | 0.092 | 0.280 | 0.075 | 0.552 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 1.56 | A_V1 × V1_PRIORS | C_V1 | 0.054 | 0.287 | 0.061 | 0.598 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 1.56 | A_V1 × V1_PRIORS | C_UPPER_FIELD | 0.059 | 0.290 | 0.042 | 0.609 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 1.56 | A_V1 × V1_PRIORS | C_UPPER_WIDE | 0.059 | 0.290 | 0.045 | 0.607 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 1.56 | A_V1 × V1_PRIORS | C_ALL_FIELD | 0.071 | 0.296 | 0.006 | 0.627 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 1.77 | A_FIELD × BD_FIELD | C_V1 | 0.230 | 0.181 | 0.200 | 0.389 | BDCBDDCADDCBCCB | 1 / 5 | $133k |
+| Route A01, m = 1.77 | A_FIELD × BD_FIELD | C_UPPER_FIELD | 0.246 | 0.186 | 0.168 | 0.400 | ADCBDDCADDDBAAB | 4 / 2 | $84k |
+| Route A01, m = 1.77 | A_FIELD × BD_FIELD | C_UPPER_WIDE | 0.244 | 0.185 | 0.172 | 0.399 | ADCBDDCADDDBACB | 3 / 3 | $90k |
+| Route A01, m = 1.77 | A_FIELD × BD_FIELD | C_ALL_FIELD | 0.314 | 0.206 | 0.040 | 0.441 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 1.77 | A_V1 × BD_FIELD | C_V1 | 0.291 | 0.164 | 0.178 | 0.368 | ADABDDCADDCBAAB | 5 / 2 | $80k |
+| Route A01, m = 1.77 | A_V1 × BD_FIELD | C_UPPER_FIELD | 0.311 | 0.168 | 0.144 | 0.377 | ADABDDCADDDBAAB | 5 / 1 | $37k |
+| Route A01, m = 1.77 | A_V1 × BD_FIELD | C_UPPER_WIDE | 0.308 | 0.168 | 0.148 | 0.376 | ADABDDCADDDBAAB | 5 / 1 | $42k |
+| Route A01, m = 1.77 | A_V1 × BD_FIELD | C_ALL_FIELD | 0.376 | 0.184 | 0.032 | 0.409 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | C_V1 | 0.048 | 0.227 | 0.270 | 0.454 | BDCBDDCDDDCBCCB | 0 / 5 | $336k |
+| Route A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | C_UPPER_FIELD | 0.052 | 0.236 | 0.243 | 0.470 | BDCBDDCDDDDBCCD | 0 / 4 | $273k |
+| Route A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | C_UPPER_WIDE | 0.051 | 0.235 | 0.247 | 0.468 | BDCBDDCDDDDBCCD | 0 / 4 | $280k |
+| Route A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | C_ALL_FIELD | 0.093 | 0.281 | 0.074 | 0.553 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 1.77 | A_V1 × V1_PRIORS | C_V1 | 0.054 | 0.287 | 0.059 | 0.599 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 1.77 | A_V1 × V1_PRIORS | C_UPPER_FIELD | 0.060 | 0.290 | 0.040 | 0.609 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 1.77 | A_V1 × V1_PRIORS | C_UPPER_WIDE | 0.059 | 0.290 | 0.043 | 0.608 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 1.77 | A_V1 × V1_PRIORS | C_ALL_FIELD | 0.071 | 0.296 | 0.006 | 0.627 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 9.28 | A_FIELD × BD_FIELD | C_V1 | 0.294 | 0.200 | 0.077 | 0.429 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 9.28 | A_FIELD × BD_FIELD | C_UPPER_FIELD | 0.303 | 0.203 | 0.060 | 0.434 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 9.28 | A_FIELD × BD_FIELD | C_UPPER_WIDE | 0.302 | 0.202 | 0.062 | 0.433 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 9.28 | A_FIELD × BD_FIELD | C_ALL_FIELD | 0.328 | 0.210 | 0.012 | 0.449 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 9.28 | A_V1 × BD_FIELD | C_V1 | 0.357 | 0.179 | 0.065 | 0.399 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 9.28 | A_V1 × BD_FIELD | C_UPPER_FIELD | 0.365 | 0.181 | 0.050 | 0.404 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 9.28 | A_V1 × BD_FIELD | C_UPPER_WIDE | 0.364 | 0.181 | 0.052 | 0.403 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 9.28 | A_V1 × BD_FIELD | C_ALL_FIELD | 0.388 | 0.187 | 0.010 | 0.415 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 9.28 | A_RPA_ANALOGY × BD_FIELD | C_V1 | 0.082 | 0.268 | 0.121 | 0.529 | BDCBDDCDDDDBDBD | 0 / 2 | $4k |
+| Route A01, m = 9.28 | A_RPA_ANALOGY × BD_FIELD | C_UPPER_FIELD | 0.085 | 0.273 | 0.104 | 0.538 | BDCBDDDDDDDBDBD | 0 / 1 | $0k |
+| Route A01, m = 9.28 | A_RPA_ANALOGY × BD_FIELD | C_UPPER_WIDE | 0.085 | 0.272 | 0.107 | 0.537 | BDCBDDDDDDDBDBD | 0 / 1 | $0k |
+| Route A01, m = 9.28 | A_RPA_ANALOGY × BD_FIELD | C_ALL_FIELD | 0.105 | 0.293 | 0.028 | 0.575 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 9.28 | A_V1 × V1_PRIORS | C_V1 | 0.067 | 0.294 | 0.017 | 0.622 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 9.28 | A_V1 × V1_PRIORS | C_UPPER_FIELD | 0.069 | 0.295 | 0.011 | 0.625 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 9.28 | A_V1 × V1_PRIORS | C_UPPER_WIDE | 0.069 | 0.295 | 0.012 | 0.624 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Route A01, m = 9.28 | A_V1 × V1_PRIORS | C_ALL_FIELD | 0.072 | 0.297 | 0.001 | 0.630 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
+| Hybrid A01, m = 1.77 | A_FIELD × BD_FIELD | C_V1 | 0.197 | 0.170 | 0.263 | 0.369 | CDCBDDCADDCBCCD | 1 / 6 | $313k |
+| Hybrid A01, m = 1.77 | A_FIELD × BD_FIELD | C_UPPER_FIELD | 0.210 | 0.175 | 0.237 | 0.378 | BDCBDDCADDCBCCB | 1 / 5 | $249k |
+| Hybrid A01, m = 1.77 | A_FIELD × BD_FIELD | C_UPPER_WIDE | 0.208 | 0.174 | 0.241 | 0.377 | CDCBDDCADDCBCCB | 1 / 6 | $257k |
+| Hybrid A01, m = 1.77 | A_FIELD × BD_FIELD | C_ALL_FIELD | 0.281 | 0.196 | 0.101 | 0.421 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Hybrid A01, m = 1.77 | A_V1 × BD_FIELD | C_V1 | 0.256 | 0.156 | 0.237 | 0.351 | ADCBDDCADDCBCCB | 2 / 5 | $237k |
+| Hybrid A01, m = 1.77 | A_V1 × BD_FIELD | C_UPPER_FIELD | 0.272 | 0.160 | 0.210 | 0.359 | ADCBDDCADDCBCCB | 2 / 5 | $174k |
+| Hybrid A01, m = 1.77 | A_V1 × BD_FIELD | C_UPPER_WIDE | 0.270 | 0.159 | 0.214 | 0.358 | ADCBDDCADDCBCCB | 2 / 5 | $184k |
+| Hybrid A01, m = 1.77 | A_V1 × BD_FIELD | C_ALL_FIELD | 0.345 | 0.176 | 0.085 | 0.394 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Hybrid A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | C_V1 | 0.036 | 0.209 | 0.334 | 0.420 | CDCBDDCDDDCBCCD | 0 / 6 | $562k |
+| Hybrid A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | C_UPPER_FIELD | 0.039 | 0.216 | 0.313 | 0.433 | CDCBDDCDDDCBCCD | 0 / 6 | $486k |
+| Hybrid A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | C_UPPER_WIDE | 0.038 | 0.215 | 0.316 | 0.431 | CDCBDDCDDDCBCCD | 0 / 6 | $495k |
+| Hybrid A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | C_ALL_FIELD | 0.071 | 0.257 | 0.162 | 0.510 | BDCBDDCDDDDBDBD | 0 / 2 | $79k |
+| Hybrid A01, m = 1.77 | A_V1 × V1_PRIORS | C_V1 | 0.047 | 0.283 | 0.085 | 0.585 | BDCBDDDDDDDBDBD | 0 / 1 | $36k |
+| Hybrid A01, m = 1.77 | A_V1 × V1_PRIORS | C_UPPER_FIELD | 0.051 | 0.286 | 0.068 | 0.594 | BDCBDDDDDDDBDBD | 0 / 1 | $18k |
+| Hybrid A01, m = 1.77 | A_V1 × V1_PRIORS | C_UPPER_WIDE | 0.051 | 0.285 | 0.071 | 0.593 | BDCBDDDDDDDBDBD | 0 / 1 | $19k |
+| Hybrid A01, m = 1.77 | A_V1 × V1_PRIORS | C_ALL_FIELD | 0.066 | 0.294 | 0.021 | 0.619 | BDABDDDDDDDBDBD | 1 / 0 | $0k |
 
 - **Under A_V1 × BD_FIELD** (A without a factor), C_UPPER_FIELD leaves A01 routing modal in 1 process (P07) at both m = 1.56 and 1.77, against 2 without the cut.
 - **Under A_RPA_ANALOGY × BD_FIELD** (A, B and D all at the RPA range), A01 routing stays modal in 4–5 processes after the cut and hybrid in 6. The RPA range on A is a lower-bound stress (g0403-01), so this is the most favourable cell for C.
@@ -137,7 +203,12 @@ __T1__
 
 P(C first) and (number of processes where C is modal), modal string.
 
-__T2__
+| C variant | r_C = 1 | 0.75 | 0.5 | 0.33 | 0.2 | 0.07 | 0 |
+|---|---|---|---|---|---|---|---|
+| Route A01, m = 1.56 | 0.204 (5) ADCBDDCADDCBCCB | 0.189 (5) ADCBDDCADDCBCCB | 0.174 (3) ADCBDDCADDDBACB | 0.163 (2) ADCBDDCADDDBAAB | 0.154 (1) ADABDDCADDDBAAB | 0.146 (1) ADABDDCADDDBAAB | 0.141 (1) ADABDDCADDDBAAB |
+| Route A01, m = 1.77 | 0.200 (5) BDCBDDCADDCBCCB | 0.185 (5) ADCBDDCADDCBCCB | 0.170 (3) ADCBDDCADDDBACB | 0.159 (1) ADABDDCADDDBAAB | 0.150 (1) ADABDDCADDDBAAB | 0.142 (1) ADABDDCADDDBAAB | 0.137 (1) ADABDDCADDDBAAB |
+| Route A01, m = 9.28 | 0.077 (0) ADABDDAADDDBAAB | 0.068 (0) ADABDDAADDDBAAB | 0.061 (0) ADABDDAADDDBAAB | 0.056 (0) ADABDDAADDDBAAB | 0.052 (0) ADABDDAADDDBAAB | 0.049 (0) ADABDDAADDDBAAB | 0.047 (0) ADABDDAADDDBAAB |
+| Hybrid A01, m = 1.77 | 0.263 (6) CDCBDDCADDCBCCD | 0.251 (6) CDCBDDCADDCBCCB | 0.239 (6) CDCBDDCADDCBCCB | 0.230 (5) BDCBDDCADDCBCCB | 0.223 (5) BDCBDDCADDCBCCB | 0.216 (5) ADCBDDCADDCBCCB | 0.212 (5) ADCBDDCADDCBCCB |
 
 - **A01 routing at m = 1.77 drops from 5 to 3 modal processes at r_C = 0.5 and to 1 (P07) at r_C ≤ 0.33.** C_UPPER_FIELD's mode (0.33) sits at the second switch point.
 - **Hybrid stays modal in 5–6 processes at every r_C,** including r_C = 0 (h capped at 0.50).
@@ -147,7 +218,62 @@ __T2__
 
 "Changed" is the number of processes whose modal winner differs from the same cell at rank correlation 0.
 
-__T3__
+| C variant | A × B/D | rank corr | A | B | C | D | Modal winners | n modal A / C | changed |
+|---|---|---:|---:|---:|---:|---:|---|---|---:|
+| Assist | A_FIELD × BD_FIELD | 0 | 0.324 | 0.209 | 0.020 | 0.447 | ADABDDAADDDBAAB | 6 / 0 | 0 |
+| Assist | A_FIELD × BD_FIELD | 0.5 | 0.343 | 0.191 | 0.024 | 0.442 | ADABDDAADDDBAAD | 6 / 0 | 1 |
+| Assist | A_FIELD × BD_FIELD | 1 | 0.367 | 0.164 | 0.029 | 0.440 | ADABDDAADDDBAAD | 6 / 0 | 1 |
+| Assist | A_FIELD × BD_WIDE | 0 | 0.313 | 0.295 | 0.018 | 0.373 | BDABDDAADDDBAAB | 5 / 0 | 0 |
+| Assist | A_FIELD × BD_WIDE | 0.5 | 0.343 | 0.270 | 0.025 | 0.362 | BDABDDAADDDBAAB | 5 / 0 | 0 |
+| Assist | A_FIELD × BD_WIDE | 1 | 0.385 | 0.229 | 0.032 | 0.355 | ADABDDAADDDBAAB | 6 / 0 | 1 |
+| Assist | A_RPA_ANALOGY × BD_FIELD | 0 | 0.101 | 0.288 | 0.043 | 0.568 | BDABDDDDDDDBDBD | 1 / 0 | 0 |
+| Assist | A_RPA_ANALOGY × BD_FIELD | 0.5 | 0.084 | 0.278 | 0.053 | 0.586 | BDABDDDDDDDBDBD | 1 / 0 | 0 |
+| Assist | A_RPA_ANALOGY × BD_FIELD | 1 | 0.057 | 0.257 | 0.065 | 0.620 | BDABDDDDDDDBDBD | 1 / 0 | 0 |
+| Route G04, m = 1.77 | A_FIELD × BD_FIELD | 0 | 0.292 | 0.199 | 0.081 | 0.428 | ADABDDAADDDBAAB | 6 / 0 | 0 |
+| Route G04, m = 1.77 | A_FIELD × BD_FIELD | 0.5 | 0.304 | 0.182 | 0.093 | 0.421 | ADABDDAADDDBAAD | 6 / 0 | 1 |
+| Route G04, m = 1.77 | A_FIELD × BD_FIELD | 1 | 0.320 | 0.156 | 0.107 | 0.417 | ADABDDAADDDBAAD | 6 / 0 | 1 |
+| Route G04, m = 1.77 | A_FIELD × BD_WIDE | 0 | 0.282 | 0.283 | 0.077 | 0.358 | BDABDDAADDDBAAB | 5 / 0 | 0 |
+| Route G04, m = 1.77 | A_FIELD × BD_WIDE | 0.5 | 0.301 | 0.259 | 0.094 | 0.346 | BDABDDAADDDBAAB | 5 / 0 | 0 |
+| Route G04, m = 1.77 | A_FIELD × BD_WIDE | 1 | 0.328 | 0.220 | 0.115 | 0.338 | BDABDDAADDDBAAB | 5 / 0 | 0 |
+| Route G04, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | 0 | 0.072 | 0.260 | 0.149 | 0.518 | BDCBDDCDDDDBDBD | 0 / 2 | 0 |
+| Route G04, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | 0.5 | 0.053 | 0.248 | 0.175 | 0.524 | BDCBDDCDDDDBDBD | 0 / 2 | 0 |
+| Route G04, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | 1 | 0.029 | 0.228 | 0.202 | 0.541 | BDCBDDCDDDDBDCD | 0 / 3 | 1 |
+| Route A01, m = 1.56 | A_FIELD × BD_FIELD | 0 | 0.228 | 0.180 | 0.204 | 0.388 | ADCBDDCADDCBCCB | 2 / 5 | 0 |
+| Route A01, m = 1.56 | A_FIELD × BD_FIELD | 0.5 | 0.234 | 0.164 | 0.222 | 0.381 | ADCBDDCADDCBCCB | 2 / 5 | 0 |
+| Route A01, m = 1.56 | A_FIELD × BD_FIELD | 1 | 0.243 | 0.141 | 0.239 | 0.377 | ADCBDDCADDCBCCD | 2 / 5 | 1 |
+| Route A01, m = 1.56 | A_FIELD × BD_WIDE | 0 | 0.220 | 0.259 | 0.196 | 0.324 | BDCBDDCADDCBCCB | 1 / 5 | 0 |
+| Route A01, m = 1.56 | A_FIELD × BD_WIDE | 0.5 | 0.230 | 0.237 | 0.220 | 0.312 | BDCBDDCADDCBCCB | 1 / 5 | 0 |
+| Route A01, m = 1.56 | A_FIELD × BD_WIDE | 1 | 0.246 | 0.201 | 0.248 | 0.304 | BDCBDDCADDCBCCB | 1 / 5 | 0 |
+| Route A01, m = 1.56 | A_RPA_ANALOGY × BD_FIELD | 0 | 0.048 | 0.226 | 0.274 | 0.452 | BDCBDDCDDDCBCCD | 0 / 5 | 0 |
+| Route A01, m = 1.56 | A_RPA_ANALOGY × BD_FIELD | 0.5 | 0.034 | 0.213 | 0.300 | 0.453 | CDCBDDCDDDCBCCD | 0 / 6 | 1 |
+| Route A01, m = 1.56 | A_RPA_ANALOGY × BD_FIELD | 1 | 0.018 | 0.194 | 0.325 | 0.463 | CDCBDDCDDDCBCCD | 0 / 6 | 1 |
+| Route A01, m = 1.77 | A_FIELD × BD_FIELD | 0 | 0.230 | 0.181 | 0.200 | 0.389 | BDCBDDCADDCBCCB | 1 / 5 | 0 |
+| Route A01, m = 1.77 | A_FIELD × BD_FIELD | 0.5 | 0.236 | 0.165 | 0.217 | 0.382 | ADCBDDCADDCBCCD | 2 / 5 | 2 |
+| Route A01, m = 1.77 | A_FIELD × BD_FIELD | 1 | 0.246 | 0.141 | 0.235 | 0.378 | ADCBDDCADDCBCCD | 2 / 5 | 2 |
+| Route A01, m = 1.77 | A_FIELD × BD_WIDE | 0 | 0.222 | 0.260 | 0.192 | 0.325 | BDCBDDCADDCBCCB | 1 / 5 | 0 |
+| Route A01, m = 1.77 | A_FIELD × BD_WIDE | 0.5 | 0.233 | 0.238 | 0.216 | 0.313 | BDCBDDCADDCBCCB | 1 / 5 | 0 |
+| Route A01, m = 1.77 | A_FIELD × BD_WIDE | 1 | 0.249 | 0.202 | 0.244 | 0.306 | BDCBDDCADDCBCCB | 1 / 5 | 0 |
+| Route A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | 0 | 0.048 | 0.227 | 0.270 | 0.454 | BDCBDDCDDDCBCCB | 0 / 5 | 0 |
+| Route A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | 0.5 | 0.034 | 0.215 | 0.295 | 0.456 | CDCBDDCDDDCBCCD | 0 / 6 | 2 |
+| Route A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | 1 | 0.018 | 0.196 | 0.321 | 0.466 | CDCBDDCDDDCBCCD | 0 / 6 | 2 |
+| Route A01, m = 9.28 | A_FIELD × BD_FIELD | 0 | 0.294 | 0.200 | 0.077 | 0.429 | ADABDDAADDDBAAB | 6 / 0 | 0 |
+| Route A01, m = 9.28 | A_FIELD × BD_FIELD | 0.5 | 0.307 | 0.183 | 0.087 | 0.423 | ADABDDAADDDBAAD | 6 / 0 | 1 |
+| Route A01, m = 9.28 | A_FIELD × BD_FIELD | 1 | 0.326 | 0.156 | 0.097 | 0.420 | ADABDDAADDDBAAD | 6 / 0 | 1 |
+| Route A01, m = 9.28 | A_FIELD × BD_WIDE | 0 | 0.284 | 0.285 | 0.073 | 0.358 | BDABDDAADDDBAAB | 5 / 0 | 0 |
+| Route A01, m = 9.28 | A_FIELD × BD_WIDE | 0.5 | 0.306 | 0.260 | 0.087 | 0.347 | BDABDDAADDDBAAB | 5 / 0 | 0 |
+| Route A01, m = 9.28 | A_FIELD × BD_WIDE | 1 | 0.338 | 0.220 | 0.103 | 0.339 | BDABDDAADDDBAAB | 5 / 0 | 0 |
+| Route A01, m = 9.28 | A_RPA_ANALOGY × BD_FIELD | 0 | 0.082 | 0.268 | 0.121 | 0.529 | BDCBDDCDDDDBDBD | 0 / 2 | 0 |
+| Route A01, m = 9.28 | A_RPA_ANALOGY × BD_FIELD | 0.5 | 0.063 | 0.255 | 0.142 | 0.539 | BDCBDDCDDDDBDBD | 0 / 2 | 0 |
+| Route A01, m = 9.28 | A_RPA_ANALOGY × BD_FIELD | 1 | 0.040 | 0.234 | 0.163 | 0.563 | BDCBDDCDDDDBDBD | 0 / 2 | 0 |
+| Hybrid A01, m = 1.77 | A_FIELD × BD_FIELD | 0 | 0.197 | 0.170 | 0.263 | 0.369 | CDCBDDCADDCBCCD | 1 / 6 | 0 |
+| Hybrid A01, m = 1.77 | A_FIELD × BD_FIELD | 0.5 | 0.200 | 0.155 | 0.282 | 0.362 | CDCBDDCADDCBCCD | 1 / 6 | 0 |
+| Hybrid A01, m = 1.77 | A_FIELD × BD_FIELD | 1 | 0.208 | 0.133 | 0.302 | 0.357 | CDCBDDCADDCBCCD | 1 / 6 | 0 |
+| Hybrid A01, m = 1.77 | A_FIELD × BD_WIDE | 0 | 0.190 | 0.247 | 0.255 | 0.308 | BDCBDDCADDCBCCB | 1 / 5 | 0 |
+| Hybrid A01, m = 1.77 | A_FIELD × BD_WIDE | 0.5 | 0.197 | 0.226 | 0.281 | 0.296 | BDCBDDCADDCBCCB | 1 / 5 | 0 |
+| Hybrid A01, m = 1.77 | A_FIELD × BD_WIDE | 1 | 0.208 | 0.193 | 0.312 | 0.287 | CDCBDDCADDCBCCB | 1 / 6 | 1 |
+| Hybrid A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | 0 | 0.036 | 0.209 | 0.334 | 0.420 | CDCBDDCDDDCBCCD | 0 / 6 | 0 |
+| Hybrid A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | 0.5 | 0.024 | 0.196 | 0.360 | 0.419 | CDCBDDCDDDCBCCD | 0 / 6 | 0 |
+| Hybrid A01, m = 1.77 | A_RPA_ANALOGY × BD_FIELD | 1 | 0.011 | 0.178 | 0.386 | 0.425 | CDCBDDCDDDCBCCD | 0 / 6 | 0 |
 
 - **B is the loser in every cell.** Its rank-first probability falls by 0.031–0.066 from rank correlation 0 to 1. D falls by 0.007–0.021 under A_FIELD (D's P09/P10 carry no factor in BD_FIELD) and rises by 0.004–0.052 under A_RPA_ANALOGY.
 - **A gains under A_FIELD and loses under A_RPA_ANALOGY.** With A_FIELD, r_A rarely falls far (range 0.475–1.2), so A wins the draws in which the common factor is low. With A_RPA_ANALOGY, A shares B's and D's marginal and moves with them.
@@ -156,13 +282,47 @@ __T3__
 
 ### 3.4 (B) Set ABCD: r_C on the common factor too (A_FIELD × BD_FIELD × C_UPPER_FIELD, NAT_LARGE)
 
-__T5__
+| C variant | rank corr | A | B | C | D | Modal winners | n modal A / C | C beyond best (p50) |
+|---|---:|---:|---:|---:|---:|---|---|---:|
+| Route A01, m = 1.56 | 0 | 0.244 | 0.185 | 0.172 | 0.399 | ADCBDDCADDDBACB | 3 / 3 | $93k |
+| Route A01, m = 1.56 | 0.5 | 0.252 | 0.169 | 0.187 | 0.392 | ADCBDDCADDCBCCD | 2 / 5 | $102k |
+| Route A01, m = 1.56 | 1 | 0.264 | 0.145 | 0.204 | 0.387 | ADCBDDCADDCBCCD | 2 / 5 | $118k |
+| Route A01, m = 1.77 | 0 | 0.246 | 0.186 | 0.168 | 0.400 | ADCBDDCADDDBAAB | 4 / 2 | $84k |
+| Route A01, m = 1.77 | 0.5 | 0.254 | 0.170 | 0.183 | 0.393 | ADCBDDCADDDBACD | 3 / 3 | $95k |
+| Route A01, m = 1.77 | 1 | 0.266 | 0.145 | 0.200 | 0.388 | ADCBDDCADDCBCCD | 2 / 5 | $108k |
+| Route A01, m = 9.28 | 0 | 0.303 | 0.203 | 0.060 | 0.434 | ADABDDAADDDBAAB | 6 / 0 | $0k |
+| Route A01, m = 9.28 | 0.5 | 0.319 | 0.185 | 0.067 | 0.429 | ADABDDAADDDBAAD | 6 / 0 | $0k |
+| Route A01, m = 9.28 | 1 | 0.340 | 0.159 | 0.076 | 0.426 | ADABDDAADDDBAAD | 6 / 0 | $0k |
+| Hybrid A01, m = 1.77 | 0 | 0.210 | 0.175 | 0.237 | 0.378 | BDCBDDCADDCBCCB | 1 / 5 | $249k |
+| Hybrid A01, m = 1.77 | 0.5 | 0.214 | 0.159 | 0.256 | 0.371 | CDCBDDCADDCBCCD | 1 / 6 | $263k |
+| Hybrid A01, m = 1.77 | 1 | 0.223 | 0.137 | 0.275 | 0.366 | CDCBDDCADDCBCCD | 1 / 6 | $279k |
 
 ### 3.5 Archetypes
 
 A_FIELD × BD_FIELD. For (A): P(C first) and n modal A / C under C_V1, C_UPPER_FIELD and C_ALL_FIELD. For (B): P(C first), n modal A / C and A's absorption share at rank correlation 0 / 0.5 / 1 (set ABD).
 
-__T6__
+| Archetype | C variant | (A) C_V1 | (A) C_UPPER_FIELD | (A) C_ALL_FIELD | (B) rank corr 0 | (B) 0.5 | (B) 1.0 |
+|---|---|---|---|---|---|---|---|
+| NAT_LARGE | Assist | n/a | n/a | n/a | 0.020; 6 / 0; 0.94 | 0.024; 6 / 0; 0.93 | 0.029; 6 / 0; 0.92 |
+| NAT_LARGE | Route A01, m = 1.56 | 0.204; 2 / 5 | 0.172; 3 / 3 | 0.041; 6 / 0 | 0.204; 2 / 5; 0.58 | 0.222; 2 / 5; 0.56 | 0.239; 2 / 5; 0.54 |
+| NAT_LARGE | Route A01, m = 1.77 | 0.200; 1 / 5 | 0.168; 4 / 2 | 0.040; 6 / 0 | 0.200; 1 / 5; 0.58 | 0.217; 2 / 5; 0.56 | 0.235; 2 / 5; 0.55 |
+| NAT_LARGE | Hybrid A01, m = 1.77 | 0.263; 1 / 6 | 0.237; 1 / 5 | 0.101; 6 / 0 | 0.263; 1 / 6; 0.49 | 0.282; 1 / 6; 0.47 | 0.302; 1 / 6; 0.45 |
+| NAT_MID | Assist | n/a | n/a | n/a | 0.021; 6 / 0; 0.93 | 0.026; 7 / 0; 0.92 | 0.031; 7 / 0; 0.91 |
+| NAT_MID | Route A01, m = 1.56 | 0.207; 4 / 3 | 0.176; 5 / 2 | 0.043; 6 / 0 | 0.207; 4 / 3; 0.53 | 0.224; 3 / 5; 0.51 | 0.241; 3 / 5; 0.49 |
+| NAT_MID | Route A01, m = 1.77 | 0.203; 5 / 2 | 0.172; 5 / 2 | 0.041; 6 / 0 | 0.203; 5 / 2; 0.54 | 0.220; 4 / 4; 0.52 | 0.237; 3 / 5; 0.50 |
+| NAT_MID | Hybrid A01, m = 1.77 | 0.265; 1 / 6 | 0.241; 2 / 5 | 0.105; 6 / 0 | 0.265; 1 / 6; 0.44 | 0.283; 1 / 7; 0.42 | 0.303; 1 / 7; 0.40 |
+| CF_1BN | Assist | n/a | n/a | n/a | 0.025; 6 / 0; 0.92 | 0.030; 6 / 0; 0.91 | 0.036; 6 / 0; 0.90 |
+| CF_1BN | Route A01, m = 1.56 | 0.238; 1 / 6 | 0.204; 2 / 5 | 0.050; 6 / 0 | 0.238; 1 / 6; 0.51 | 0.257; 0 / 7; 0.49 | 0.277; 0 / 7; 0.48 |
+| CF_1BN | Route A01, m = 1.77 | 0.233; 0 / 6 | 0.199; 2 / 5 | 0.049; 6 / 0 | 0.233; 0 / 6; 0.52 | 0.252; 1 / 6; 0.50 | 0.272; 0 / 7; 0.48 |
+| CF_1BN | Hybrid A01, m = 1.77 | 0.304; 0 / 7 | 0.278; 0 / 7 | 0.122; 6 / 0 | 0.304; 0 / 7; 0.42 | 0.325; 0 / 8; 0.40 | 0.347; 0 / 8; 0.38 |
+| CF_250M | Assist | n/a | n/a | n/a | 0.024; 6 / 0; 0.92 | 0.030; 6 / 0; 0.91 | 0.036; 6 / 0; 0.90 |
+| CF_250M | Route A01, m = 1.56 | 0.236; 1 / 6 | 0.202; 2 / 5 | 0.049; 6 / 0 | 0.236; 1 / 6; 0.52 | 0.255; 0 / 7; 0.49 | 0.274; 0 / 7; 0.48 |
+| CF_250M | Route A01, m = 1.77 | 0.231; 1 / 6 | 0.198; 2 / 5 | 0.048; 6 / 0 | 0.231; 1 / 6; 0.52 | 0.250; 1 / 6; 0.50 | 0.270; 0 / 7; 0.48 |
+| CF_250M | Hybrid A01, m = 1.77 | 0.301; 0 / 7 | 0.276; 0 / 7 | 0.121; 6 / 0 | 0.301; 0 / 7; 0.42 | 0.322; 0 / 8; 0.40 | 0.344; 0 / 8; 0.39 |
+| CF_SMALL | Assist | n/a | n/a | n/a | 0.025; 6 / 0; 0.92 | 0.030; 6 / 0; 0.91 | 0.036; 6 / 0; 0.90 |
+| CF_SMALL | Route A01, m = 1.56 | 0.238; 1 / 6 | 0.203; 2 / 5 | 0.050; 6 / 0 | 0.238; 1 / 6; 0.51 | 0.256; 0 / 7; 0.49 | 0.276; 0 / 7; 0.48 |
+| CF_SMALL | Route A01, m = 1.77 | 0.233; 1 / 6 | 0.199; 2 / 5 | 0.049; 6 / 0 | 0.233; 1 / 6; 0.52 | 0.251; 1 / 6; 0.50 | 0.271; 0 / 7; 0.48 |
+| CF_SMALL | Hybrid A01, m = 1.77 | 0.303; 0 / 8 | 0.277; 0 / 7 | 0.122; 6 / 0 | 0.303; 0 / 8; 0.42 | 0.324; 0 / 8; 0.40 | 0.345; 0 / 8; 0.39 |
 
 ---
 
@@ -172,7 +332,7 @@ __T6__
 |---|---|
 | g0403-01: with A01 routing at the current m = 1.56–1.77 under A_FIELD × BD_FIELD, C is modal in 5 large-national processes (P03, P07, P11, P13, P14); h-asymmetry caveat (wave 37C) | **Revised [S].** With the upper half of h held to the RPA realization range [I] (C_UPPER_FIELD), A01 routing is modal in **2** processes at m = 1.77 (P03, P07) and **3** at m = 1.56 (P03, P07, P14); A in 4 and 3. Hybrid stays modal in 5. Holding the whole of h to that range removes routing and hybrid as modal winners under A_V1 and A_FIELD |
 | Wave 37C: "If one common realization factor applied to A, B, C and D alike, the gross ranking would be the V1-priors one" | **Holds only for equal marginals.** With A_FIELD's marginal, a rank-correlation-1 factor does not revert A, B and D to V1; it moves probability from B to A and C. With A at the RPA range (equal values), the A–B–D order does revert to V1 and C, carrying no factor, gains (5 → 6 modal processes). With r_C also on the factor (ABCD, ρ_s = 1) routing returns to 5 modal processes |
-| g0403-01 §5 item 6: "With a common factor, ranks among A, B and D revert towards V1 priors (wave 37C)" and "Independence [I] maximises re-ordering" (P-G0403-01-04 rationale) | **Not supported for A_FIELD.** In mean probabilities correlation moves B and D further from their V1 levels, not back. Modal winners change in 0–2 large-national processes per cell (set ABD), every change taking a process away from B: some move away from V1 (P01 B→A or C), one returns to it (P15 B→D, D in V1) |
+| g0403-01 §5 item 6: "With a common factor, ranks among A, B and D revert towards V1 priors (wave 37C)" and "Independence [I] maximises re-ordering" (P-G0403-01-04 rationale) | **Not supported for A_FIELD.** In mean probabilities correlation moves B and D further from their V1 levels, not back. At NAT_LARGE, modal winners change in 0–2 processes per cell (set ABD), every change taking a process away from B: some move away from V1 (P01 B→A or C), one returns to it (P15 B→D, D in V1). At NAT_MID and the community-foundation archetypes up to 4 change, mostly from A to C (e.g. NAT_MID A01 m = 1.77: P03, P13, P14 A→C) |
 | Assistance wins no process | **Unchanged** in every cell of both studies |
 | Routing is modal nowhere at m = 9.28 | **Unchanged** under every r_C and correlation in A_FIELD cells |
 
