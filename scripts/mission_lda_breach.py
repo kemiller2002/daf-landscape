@@ -330,6 +330,12 @@ def summarise_lda(filings: Sequence[Mapping], rows: Sequence[Mapping]) -> dict:
             "filings_adjacent_unnamed": uu(lambda r: r["daf_adjacent_unnamed"] == "Y"),
             "filings_daf_named_not_in_prior": uu(lambda r: r["filing_names_daf"] == "Y" and r["in_prior_daf_csv"] == "N"),
             "tag_filings": {k: uu(lambda r, k=k: r[k] == "Y") for k in ALLTAGS},
+            "filings_adjacent_unnamed_new": uu(lambda r: r["daf_adjacent_unnamed"] == "Y" and r["in_prior_daf_csv"] == "N"),
+            "adjacent_new_by_entity": dict(sorted(reduce(lambda acc, r: {**acc, r["target_entity"]: acc.get(r["target_entity"], set()) | {r["filing_uuid"]}},
+                                                         [r for r in rows if r["daf_adjacent_unnamed"] == "Y" and r["in_prior_daf_csv"] == "N"], {}).items())),
+            "obbba_and_chardeduct_line_filings": uu(lambda r: r["tag_obbba"] == "Y" and r["tag_charitable_deduction"] == "Y"),
+            "obbba_and_chardeduct_by_entity": sorted({r["target_entity"] for r in rows if r["tag_obbba"] == "Y" and r["tag_charitable_deduction"] == "Y"}),
+            "policy_tags_parent7": {k: uu(lambda r, k=k: r[k] == "Y" and r["target_source"] == "parent7") for k in ALLTAGS},
             "obbba_by_entity": sorted({(r["target_entity"]) for r in rows if r["tag_obbba"] == "Y"}),
             "s4966_by_entity": sorted({(r["target_entity"]) for r in rows if r["tag_s4966"] == "Y"}),
             "qcd_by_entity": sorted({(r["target_entity"]) for r in rows if r["tag_qcd"] == "Y"})}
@@ -339,7 +345,19 @@ def summarise_lda(filings: Sequence[Mapping], rows: Sequence[Mapping]) -> dict:
 def ld203_registrants(filings: Sequence[Mapping]) -> tuple[tuple[int, str, str], ...]:
     keep = [f for f in filings if self_filer(f) and (f["_target"]["category"] in SPONSOR_CATS
             or f["_target"]["source"] == "parent7" or f["_target"]["category"] == "financial_firm")]
-    return tuple(sorted({(f["registrant"]["id"], f["registrant"]["name"], f["_target"]["entity"]) for f in keep}))
+    ents = reduce(lambda acc, f: {**acc, (f["registrant"]["id"], f["registrant"]["name"]):
+                                  acc.get((f["registrant"]["id"], f["registrant"]["name"]), frozenset()) | {f["_target"]["entity"]}},
+                  keep, {})
+    return tuple(sorted((i, n, " + ".join(sorted(e))) for (i, n), e in ents.items()))
+
+
+def latest_reports(reports: Iterable[Mapping]) -> tuple[dict, ...]:
+    """One LD-203 per (registrant, filer type, lobbyist, year, half): the latest posted (amendments replace originals)."""
+    key = lambda r: (r["registrant"]["id"], r.get("filer_type"), (r.get("lobbyist") or {}).get("id"),
+                     r["filing_year"], "mid" if (r.get("filing_type") or "").startswith("M") else "year_end")
+    best = reduce(lambda acc, r: {**acc, key(r): r} if key(r) not in acc or (r.get("dt_posted") or "") > (acc[key(r)].get("dt_posted") or "")
+                  else acc, reports, {})
+    return tuple(best.values())
 
 
 def ld203_rows(reports: Sequence[Mapping], entity: str) -> list[dict]:
@@ -518,7 +536,7 @@ def ma_records(text: str, year: int, url: str) -> list[dict]:
         next_m = min([k for k in mains if k > i], default=10 ** 9)
         lo = i - 1 if i - 1 > prev_m and not ma_is_header(lines[i - 1]) else i
         hi = i + 1 if i + 1 < next_m and i + 1 < len(lines) and not ma_is_header(lines[i + 1]) else i
-        return [lines[j] for j in range(lo, hi + 1) if j != i and j not in main_set]
+        return [(j < i, lines[j]) for j in range(lo, hi + 1) if j != i and j not in main_set]
 
     def one(i: int) -> dict:
         l = lines[i]
@@ -534,7 +552,10 @@ def ma_records(text: str, year: int, url: str) -> list[dict]:
         name = segs[0] if segs else ""
         nstart = dm.end() + (before.find(name) if name else 0)
         nend = nstart + len(name)
-        wrap_txt = [w[max(0, nstart - 6):nend + 6].strip() for w in wraps(i)]
+        cut = lambda w: w[max(0, nstart - 6):nend + 6].strip()
+        above = [cut(w) for up, w in wraps(i) if up and cut(w)]
+        below = [cut(w) for up, w in wraps(i) if not up and cut(w)]
+        wrap_txt = above + below
         hdr = max([h for h in heads if h < i], default=heads[0] if heads else None)
         cols = ma_header_cols(lines[hdr]) if hdr is not None else []
         fixed = {5: ("SSN", "medical records", "financial account", "driver's licence", "credit/debit card"),
@@ -546,8 +567,9 @@ def ma_records(text: str, year: int, url: str) -> list[dict]:
             centre = lambda t: dm.end() + (t.start() + t.end()) / 2
             near = lambda t: min(cols, key=lambda c: abs(c[1] - centre(t)))[0] if cols else "?"
             flags = {near(t): "Yes" for t in yn_tail}
-        nm = re.sub(r"\s+", " ", " ".join([name] + [w for w in wrap_txt if w])).strip()
-        return {"year_file": year, "date": iso_date(dm), "name": nm, "name_main": name,
+        nm = re.sub(r"\s+", " ", " ".join(above + [name] + below)).strip()
+        centred = year >= 2024 and above and below
+        return {"year_file": year, "date": iso_date(dm), "name": nm, "name_main": nm if centred else name,
                 "count": int(cnt.group(0).replace(",", "")) if cnt else None, "flags": flags,
                 "breach_no": (re.match(r"\s*(\d{4}-\d+|\d{5})", l) or [None, ""])[1], "raw": re.sub(r"\s+", " ", l).strip(),
                 "url": url}
@@ -584,7 +606,7 @@ def run_lda(root: str, get: Callable, outdir: str) -> dict:
     rows = [r for f in filings for r in line_rows(f, prior_uuids)]
     write_csv(os.path.join(root, OUT_LDA), rows, LDA_COLS)
     regs = ld203_registrants(filings)
-    reps = {(i, n, e): paged(get, api_url("contributions", registrant_id=i, filing_dt_posted_after=POSTED_AFTER))
+    reps = {(i, n, e): latest_reports(paged(get, api_url("contributions", registrant_id=i, filing_dt_posted_after=POSTED_AFTER)))
             for i, n, e in regs}
     c_rows = [r for (i, n, e), rs in sorted(reps.items()) for r in ld203_rows(rs, e)]
     write_csv(os.path.join(root, OUT_203), c_rows, LD203_COLS)
@@ -596,7 +618,7 @@ def run_lda(root: str, get: Callable, outdir: str) -> dict:
             "ld203": ld203_summary(reps), "ld203_items": len(c_rows), "ld203_charity_items": charity_items(c_rows),
             "client_names_accepted": sorted({(f["_target"]["entity"], f["client"]["name"]) for f in filings})}
     with open(os.path.join(outdir, "lda_summary.json"), "w") as f:
-        json.dump(summ, f, indent=1, default=str)
+        json.dump(summ, f, indent=1, default=lambda o: sorted(o) if isinstance(o, set) else str(o))
     return summ
 
 
