@@ -110,7 +110,7 @@ Yes, on every case checked [F]:
 - 248 of 248 blank IPS cells are blank-filed.
 - 49 of 49 explicit IPS zeros that are also in the repo's zero-grant set are zero-filed.
 
-IPS's other 51 explicit zeros were not read (proposal -02). DAFRC does not make the distinction: its panel has 0 for both [F].
+IPS's other 51 explicit zeros were read in validation. All 51 are zero-filed, so 100 of 100 explicit IPS zeros carry a filed 0 (proposal -02 answered). [V wave 45A] DAFRC does not make the distinction: its panel has 0 for both [F].
 
 ### 3.4 Repo panel's FY2023 zero-grant sponsor-years (138)
 
@@ -130,7 +130,7 @@ Schedule D does not say. As a plausibility screen, the roll-forward implied outf
 - 55 have an implied outflow above 10% of prior assets;
 - the median implied outflow is 0.0% of prior assets.
 
-So blank is probably zero for most of these sponsors, but not for all [I]. The 55 could reflect grants, fees, transfers or investment losses; 2022–23 market moves alone cannot be separated with these fields. This is why S4/S5 (7.72%) is a lower bound, not a corrected estimate [I].
+This screen cannot show that blank means zero. It ignores investment return, and most FY2023 periods had positive market returns [I], so a fund whose grants roughly offset its gains also shows an outflow ≤ 0. An outflow ≤ 0 is necessary for zero grants, not sufficient. The 35 exact zeros and 28 identical year-on-year asset values look more like stale entries than evidence of no grants [I]. [V wave 45A] The 55 could reflect grants, fees, transfers or investment losses; 2022–23 market moves alone cannot be separated with these fields. This is why S4/S5 (7.72%) is a lower bound, not a corrected estimate [I].
 
 ## 4. Limits
 
@@ -139,7 +139,8 @@ So blank is probably zero for most of these sponsors, but not for all [I]. The 5
 - **IPS's FY2023 universe only.** FY2020–22 blanks (150, 186 and 212) were not read (proposal -01). IPS's 1,487 rated sponsors were not re-read; their rates are taken as published, and the bridge verified them to within 5e-12 of grants ÷ (assets + grants).
 - **IPS-only screens.** The 501(c)(3), total-grants and submission-date screens cannot be applied from Schedule D. They are irrelevant here because no row was added.
 - **Prior-year assets for `beg`.** They come from IPS's FY2022 sheet where present, which mixes IPS FY2022 rows with filed FY2022 line 4(a) for the rest. Only S4(beg) uses the fallback.
-- **Mirror.** XML was read from the GivingTuesday data-lake mirror of IRS e-file objects, not from the IRS TEOS zips. The four raw checks (§7) match the extracts.
+- **Mirror.** XML was read from the GivingTuesday data-lake mirror of IRS e-file objects, not from the IRS TEOS zips. The four raw checks (§7) match the extracts. Validation re-read all 248 primary returns as raw XML and got the same classification on every one. [V wave 45A]
+- **What blank means in e-file XML.** The 990 e-file format allows both forms. 103 distinct returns read carry an explicit DonorAdvisedFundsGrantsAmt of 0, and MeF accepted 256 without the element, so it is optional. Every one of the 248 blank-filed returns contains other explicit zero-valued elements. An absent element records a preparer or software choice for that line, not a separate fact about grants. The XSD itself was not read. [V wave 45A]
 
 ## 5. Reproduce
 

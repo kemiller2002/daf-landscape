@@ -21,27 +21,34 @@ Evidence joined per EIN (all IRS bulk files, apps.irs.gov/pub/epostcard/ and www
     exempt-organizations-business-master-file-extract-eo-bmf lists only the current files), so none is used.
 
 Categories (first match wins, in this order):
-    revoked                   on the revocation list with no reinstatement date, and the revocation-list name
-                              matches the name as filed (name_sim >= NAME_OK). Sub: `name_now_in_bmf_other_ein`
-                              when the same normalised name is in the BMF under another EIN (re-recognised or
-                              successor), else `no_bmf_successor`.
-    foreign_or_government     line address foreign, IRC-section text naming a government / 170(c)(1) / 115, or a
-                              government-unit name rule (state, county, city, school district, public university
-                              system, ...). Sub says which rule fired.
+    revoked                   on the revocation list with no reinstatement date, and the revocation-list name or DBA
+                              resembles the name as filed (name_sim >= NAME_BAD). Subs, in order:
+                              `government_unit_name`; `name_now_in_bmf_other_ein` (a same-state BMF EIN carries the
+                              name: re-recognised or successor); `no_bmf_successor` (name_sim >= NAME_OK);
+                              `name_partial_match` (NAME_BAD <= name_sim < NAME_OK).
+    invalid_or_typo (a)       on the revocation list with no reinstatement but under an unrelated name
+                              (name_sim < NAME_BAD): `ein_on_revocation_list_unrelated_name`.
+    foreign_or_government     line address foreign, IRC-section text naming a government / 170(c)(1) / 115, a
+                              government-unit name rule (state, county, city, school district, public university,
+                              ...), or, failing those, an EIN whose digits 3-5 are "600" (heuristic: the pattern of
+                              the large state/local-government EINs seen here; no IRS source states it).
     subsidiary_or_disregarded LLC / limited-liability names (disregarded single-member LLCs have no BMF row). This
                               category is an addition to the task's list; folding it into `unresolved` gives the
                               task's six-way split (both are reported).
-    invalid_or_typo           (a) EIN prefix the IRS does not assign; or (b) the EIN has IRS history under a
-                              different name (name_sim < NAME_BAD) while the filed name is in the BMF under another
-                              EIN; or (c) no IRS trace at all and the filed name is in the BMF under another EIN
-                              (exact normalised name, or a BMF EIN one digit / one adjacent transposition away with
-                              name_sim >= NAME_OK).
-    merged_or_terminated      a final-return or terminate-operations indicator on the latest e-filed return, an
-                              e-Postcard "terminated" flag, or IRS history under the filed name with that name now in
-                              the BMF under another EIN (successor / name moved).
+    invalid_or_typo (b)       EIN prefix the IRS does not assign; or IRS history under an unrelated name while the
+                              filed name is in the BMF under another EIN; or no trace in any IRS bulk file read and
+                              the filed name maps to one BMF EIN: an EIN one digit / one adjacent transposition away
+                              with name_sim >= NAME_OK (`typo_`), or exactly one same-state BMF EIN with the same
+                              normalised name or a fuzzy name_sim >= FUZZY_OK (`wrong_ein_`; `typo_` if <= 2 digits
+                              differ). Religious-pattern names need the neighbour test (common church names recur).
+    merged_or_terminated      a final-return / terminate-operations / dissolved indicator on the latest e-filed
+                              return, an e-Postcard "terminated" flag, or IRS history under the filed name with that
+                              name now on a same-state BMF EIN.
     new_ein                   first e-filed or e-Postcard tax period ends 2022 or later, an initial-return indicator
                               on the earliest return, or an application-pending indicator.
-    unresolved                everything else; sub says whether the EIN has any IRS trace.
+    unresolved                everything else; sub says whether the EIN has any IRS trace, has a religious-pattern
+                              name (churches need not apply or file, and group-ruling subordinates may be unlisted),
+                              or has an ambiguous BMF name match.
 
 Revoked at grant time  For revoked EINs, each sponsor-year line is dated only to the sponsor's fiscal year (12
     months ending on the return's tax_period_end). `before_fy` = revocation effective date before the fiscal year
@@ -389,8 +396,13 @@ def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping, tok_i
     def out(cat, sub):
         return {**base, "category": cat, "sub": sub}
 
-    if rev_live and name_sim(nm, rev["name"]) >= NAME_OK:
-        return out("revoked", "name_now_in_bmf_other_ein" if tm["best"] else "no_bmf_successor")
+    rsim = max(name_sim(nm, rev["name"]), name_sim(nm, rev["dba"])) if rev_live else 0.0
+    if rev_live and rsim >= NAME_BAD:
+        return out("revoked", "government_unit_name" if gr.startswith("government") else
+                   "name_now_in_bmf_other_ein" if tm["best"] else
+                   "no_bmf_successor" if rsim >= NAME_OK else "name_partial_match")
+    if rev_live:
+        return out("invalid_or_typo", "ein_on_revocation_list_unrelated_name")
     if gr:
         return out("foreign_or_government", gr)
     if any(LLC_NAME.search(n.upper()) for n in p["names_filed"]):
@@ -403,9 +415,6 @@ def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping, tok_i
     if not has_trace and tm["best"] and (not religious or tm["how"] == "neighbour_ein_name_match"):
         return out("invalid_or_typo", ("typo_" if tm["hamming"] is not None and tm["hamming"] <= 2 else "wrong_ein_")
                    + tm["how"])
-    if rev_live:
-        return out("invalid_or_typo" if tm["best"] else "revoked",
-                   "revoked_ein_other_name_name_in_bmf" if tm["best"] else "revoked_name_mismatch")
     if latest_flags & TERM_FLAGS:
         return out("merged_or_terminated", "final_or_terminate_flag_latest_return")
     if any(r["terminated"] for r in ev["epost"]):
@@ -530,7 +539,8 @@ def main(argv: Sequence[str] | None = None) -> int:
                for l in B["lines"] if l["ein"] in rv)
     timing_summary = {k: {"lines": len(v), "eins": len({l["ein"] for l in v}), "usd_daf_weighted": round(sum(l["dw"] for l in v)),
                           "usd_schedule_i": round(sum(l["si"] for l in v)),
-                          "by_sub": {s: round(sum(l["dw"] for l in w)) for s, w in _group_by_fast(v, lambda l: l["sub"]).items()},
+                          "by_sub": {s: {"eins": len({l["ein"] for l in w}), "usd_daf_weighted": round(sum(l["dw"] for l in w))}
+                                     for s, w in _group_by_fast(v, lambda l: l["sub"]).items()},
                           "sponsors": len({l["sponsor"] for l in v})}
                       for k, v in _group_by_fast(tl, lambda l: l["timing"]).items()}
 
@@ -565,6 +575,24 @@ def main(argv: Sequence[str] | None = None) -> int:
         "revoked_rev_year": {k: {"eins": len(v), "dw": round(sum(u["dw"] for u in v))}
                              for k, v in sorted(_group_by_fast(rv.values(), lambda u: str(u["rev_date"])[:4]).items())},
         "top": {c: top(c) for c in CATS},
+        "revoked_before_fy_eins": [
+            {"ein": e, "name_filed": rv[e]["name_filed"][:45], "rev_name": rv[e]["rev_name"][:45], "sub": rv[e]["sub"],
+             "rev_date": str(rv[e]["rev_date"]), "post_date": str(rv[e]["post_date"]),
+             "fy_ends": sorted({l["tpe"] for l in v}), "dw_before_fy": round(sum(l["dw"] for l in v)),
+             "sponsors": len({l["sponsor"] for l in v})}
+            for e, v in sorted(_group_by_fast((l for l in tl if l["timing"].startswith("before_fy")), lambda l: l["ein"]).items(),
+                               key=lambda kv: -sum(l["dw"] for l in kv[1]))[:30]],
+        "revoked_partial_or_unrelated_name": [{"ein": u["ein"], "name_filed": u["name_filed"][:45], "rev_name": u["rev_name"][:45],
+                                   "sub": u["sub"], "dw": round(u["dw"])} for u in sorted((u for u in units if u["sub"] in ("name_partial_match", "ein_on_revocation_list_unrelated_name")),
+                                                                       key=lambda u: -u["dw"])[:15]],
+        "sensitivity_religious_no_trace_with_bmf_name_match": (lambda xs: {"recipients": len(xs), "usd_dw": round(sum(u["dw"] for u in xs)),
+                                                                          "by_how": {k: len(v) for k, v in _group_by_fast(xs, lambda u: u["typo_how"]).items()}})(
+            tuple(u for u in units if u["sub"] == "no_irs_trace_religious_name" and u["typo_best_ein"])),
+        "flag_counts_by_category": {c: {f: sum(1 for u in units if u["category"] == c and f in u["flags"].split(";"))
+                                        for f in sorted(TERM_FLAGS | {"InitialReturnInd", "ApplicationPendingInd", "NameChangeInd"})}
+                                    for c in CATS},
+        "subsidiary_by_name": [{"ein": u["ein"], "name": u["name_filed"][:45], "dw": round(u["dw"])}
+                               for u in sorted((u for u in units if u["category"] == "subsidiary_or_disregarded"), key=lambda u: -u["dw"])[:4]],
         "top_cn_pass": [{"ein": u["ein"], "name": u["name_filed"][:45], "cat": u["category"], "sub": u["sub"],
                          "dw": round(u["dw"])} for u in sorted((u for u in units if cn_pass(u)), key=lambda u: -u["dw"])[:12]],
     }

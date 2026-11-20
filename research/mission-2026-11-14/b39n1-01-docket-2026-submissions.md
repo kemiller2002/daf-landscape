@@ -130,7 +130,7 @@ Pages are given as the printed number, with the PDF page in brackets.
 |---|---|
 | Overall | "In general, we support the rules set forth in the Proposed Regulations, with an exception for the treatment of investment advisors" (p. 17 [PDF 22]) |
 | Adviser-managed DAFs | "We recommend Treasury modify the Proposed Regulations' treatment of investment advisors … arm's-length fees paid from a DAF for investment advice should in principle and as a policy matter not be considered an excess benefit transaction" (p. 2 [PDF 7]) |
-| Competition argument | "the standard in the Proposed Regulations is both over- and under-inclusive, because it may not entirely limit abuses in the case of sponsor-affiliated advice while precluding the use of independent advisors in situations that present a low-risk of abuse" (p. 18 [PDF 23]) |
+| Competition argument | "the standard in the Proposed Regulations is both over- and under-inclusive, because it may not entirely limit abuses in the case of sponsor-affiliated advice while precluding the use of independent advisors in situations that present a low-risk of abuse" (pp. 18–19 [PDF 23–24]) [V wave 45A] |
 | Fee mechanism proposed | "advisory fees paid by the DAF to a non-sponsor independent advisor could be excepted from presumptive treatment as an excess benefit transaction as long as those fees do no[t] exceed what would have been charged by the sponsor to manage the DAF assets" (p. 20 [PDF 25]). The sponsor polices arm's-length pricing, with §482 and §4958 valuation as the standard (p. 20) |
 | Fees as distributions | "We recommend adding a presumption that reasonable expenses incurred in the ordinary course of the sponsoring organization's operations do not achieve a result inconsistent with the purposes of Section 4966" (p. 31 [PDF 36]) |
 | Form 990 | Not mentioned (text search for "990") |
@@ -148,7 +148,7 @@ Pages are given as the printed number, with the PDF page in brackets.
 
 | Item | Finding |
 |---|---|
-| Unified Agenda, RIN 1545-BI33 (reginfo.gov, requested with `pubId=202510`) | Final Rule Stage; "EO 14192 Designation: Not subject to, not significant"; Timetable "Final Action 07/00/2026". The page shows only "Publication ID: 2026", so **the edition is unverified**. This replaces the "SS only" Unified Agenda row in direction-policy-lobbying-obbba.md §1.5 with a primary read, subject to the edition caveat |
+| Unified Agenda, RIN 1545-BI33 (reginfo.gov, requested with `pubId=202510`) | Final Rule Stage; "EO 14192 Designation: Not subject to, not significant"; Timetable "Final Action 07/00/2026". The page shows only "Publication ID: 2026", so the edition was unverified at drafting. Validation identified it: reginfo’s edition list for this RIN labels pubId 202510 “2026”, the 2026 Regulatory Plan and Unified Agenda (OIRA introduction PDF created 2026-07-01). The Spring 2025 edition (pubId 202504) gave Final Action 05/00/2026 [V wave 45A]. This replaces the "SS only" Unified Agenda row in direction-policy-lobbying-obbba.md §1.5 with a primary read, with the edition identified as the 2026 Unified Agenda [V wave 45A] |
 | EO 12866 meetings for RIN 1545-BI33 (reginfo.gov) | "No records found". This is consistent with a "not significant" rule that OIRA does not review. **It is not evidence about meetings with Treasury or the IRS**, which this log does not cover |
 | PG Calc blog, 2026-06-15 (S) | Says the rules "remain in the proposed phase while the IRS sorts through thousands of public comments". This conflicts with the docket's **249** public submissions; treat it as rhetorical. It also dates OBBBA to "late 2025", which is wrong: it was signed 2025-07-04 |
 
@@ -210,7 +210,7 @@ The queue proposals file follows [`queue-proposals-README.md`](../../data/missio
 | X6 | Adler & Colvin 2024 joint comment (now 404) | 2024-03 | https://www.adlercolvin.com/wp-content/uploads/2024/03/IRS-2023-0053-0132-Comment-from-NVF-and-AC.pdf | dead link |
 | X7 | Ren sitemaps | read 2026-11-20 | https://www.reninc.com/sitemap_index.xml | P |
 | X8 | Madison CF sitemaps | read 2026-11-20 | https://madisongives.org/sitemap_index.xml | P |
-| R1 | reginfo.gov Unified Agenda entry, RIN 1545-BI33 | read 2026-11-20 | https://www.reginfo.gov/public/do/eAgendaViewRule?pubId=202510&RIN=1545-BI33 | P (edition unverified) |
+| R1 | reginfo.gov Unified Agenda entry, RIN 1545-BI33 | read 2026-11-20 | https://www.reginfo.gov/public/do/eAgendaViewRule?pubId=202510&RIN=1545-BI33 | P (2026 edition, pubId 202510) [V wave 45A] |
 | R2 | reginfo.gov EO 12866 meetings search, RIN 1545-BI33 | read 2026-11-20 | https://www.reginfo.gov/public/do/eom12866SearchResults?pubId=&rin=1545-BI33&viewRule=true | P |
 | S1 | PG Calc blog, "The State of Play…" | 2026-06-15 | https://blog.pgcalc.com/the-state-of-play-navigating-the-current-landscape-of-qcd-legislation-and-daf-regulations | S |
 | SS1 | ABA Tax Section, 2026-27 PGP comments (not opened; Cloudflare) | 2026-05-29 | https://www.americanbar.org/content/dam/aba/administrative/taxation/policy/2026/2026-05-29-comments.pdf | SS |
