@@ -8,7 +8,45 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #65) — governing
+## Counts (refresh 2026-11-20, through PR #66) — governing
+
+These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #66 merged. They supersede the tables below. The PR #66 description records the head SHA. The validation-result classifier now normalises underscores and "partly", so its split differs slightly from earlier tables; the row total is exact.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#66 (47 PRs) | GitHub |
+| Research documents | 357 documents, 1,378,041 words | `research/**/*.md` |
+| Datasets | 672 CSV files, 463,947 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,132 | regex over `research/**/*.md` |
+| Independent validation | **2,058 register rows** in 69 register files (waves 1–43C): 1,465 confirmed, 480 partially confirmed, 82 contradicted, 20 unverifiable, 11 other | `validation-register*.csv`, classified by the leading words of `validation_result` |
+| Research queue | 890 items: 412 done, 347 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.62 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #66 (validated; report §11.60–§11.62):**
+- **Sector shares across all sponsors (DAF-weighted, $101.0bn):**
+  - education 22.98%, human services 14.60%, religion 14.06%, public-society benefit 13.17%, foreign 3.12%.
+  - Coding DAF-to-DAF grants as society benefit (t_b) matches sponsor-published splits (public-society benefit 23.7%). It double-counts, so it is never a market share.
+  - The Fidelity fit is *consistent with* sponsor-to-sponsor counting; it does not prove it.
+- **AI overlay rules clarified (§7a–§7c, proposed, binding from the next re-score).**
+  - Chariot Disbursements stays AMBER, with an adjudication note.
+  - NCF's AMBER (low) is provisional.
+  - Benevity's stale RED is noted where it still appears.
+- **OJC Fund and Groundswell.**
+  - 0.30% of OJC dollars pass to DAF sponsors, none in the church block. About two-fifths of OJC church-block dollars go to congregations.
+  - The faith share of church DAF dollars stays about 30%, with sensitivities of 23–29%.
+  - Groundswell's 12,808 accounts are per-user DAFs by count. Its Part IV line 6 = 0 contradicts its own Schedule D.
+- **De facto fiscal sponsors.**
+  - 11 hosts are found from FBO / c/o lines, 82% of them via ImpactAssets' filings; 5 are on neither list.
+  - Three of the five are also DAF sponsors, so the addition is $35.1m–$114.6m (0.04–0.12% of proxy dollars).
+  - The governing exception-proxy figures stand; fiscal sponsors 0.47% / 2.06% and core 7.79% / 11.73% are upper bounds.
+- **Lobbying (LDA 2021+) and breach notices.**
+  - Charitable-deduction lobbying that never names DAFs comes from charity-side groups (169 charity-relevant filings, $13.65m whole-filing).
+  - FMR, Vanguard, Goldman Sachs and Morgan Stanley filed 605 lobbying reports and none names DAFs, §4966 or IRA charitable distributions. FMR's 2026 Q3 filing lists H.R. 9173 (digital-asset donations).
+  - Two SIFMA lines do cite §4966 by number; both also name DAFs.
+  - No Vermont or Massachusetts breach notice names a DAF sponsor. Vanguard's 2026 breach affected 1,224 Massachusetts residents and 94 in Vermont.
+  - LD-203 honorary-expense items now withhold individual names.
+
+## Counts (refresh 2026-11-20, through PR #65) (superseded by the table above)
 
 These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #65 merged. They supersede the tables below. The PR #65 description records the head SHA.
 
