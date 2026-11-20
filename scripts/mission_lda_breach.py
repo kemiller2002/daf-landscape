@@ -360,7 +360,24 @@ def latest_reports(reports: Iterable[Mapping]) -> tuple[dict, ...]:
     return tuple(best.values())
 
 
+PERSON_PAYEE = re.compile(r"(?i)\b(director|staff|senator|congressman|congresswoman)\b")
+
+
+def redact_ld203(row: Mapping) -> dict:
+    """Privacy: honorary-expense and similar non-FECA items name board members and staff; keep the
+    organisation-level payee and withhold individual names. FECA items name candidate committees and
+    officeholders, which stay as filed."""
+    return dict(row) if row["contribution_type"] == "feca" else {
+        **row,
+        "honoree_name": "[individual names withheld]" if row["honoree_name"] else "",
+        "payee_name": "[individual payee withheld]" if PERSON_PAYEE.search(row["payee_name"]) else row["payee_name"]}
+
+
 def ld203_rows(reports: Sequence[Mapping], entity: str) -> list[dict]:
+    return [redact_ld203(r_) for r_ in _ld203_rows_raw(reports, entity)]
+
+
+def _ld203_rows_raw(reports: Sequence[Mapping], entity: str) -> list[dict]:
     return [{"registrant": r["registrant"]["name"], "registrant_id": r["registrant"]["id"], "linked_target": entity,
              "filing_uuid": r["filing_uuid"], "filing_year": r["filing_year"], "filing_period": r["filing_period"],
              "filing_type": r["filing_type"], "contribution_type": i.get("contribution_type") or "",

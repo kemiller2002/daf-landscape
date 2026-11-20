@@ -8,17 +8,17 @@ Evidence tags: [C] computed by the script; [P] read from a primary register page
 
 ## Summary
 
-**(A) Lobbying.** The earlier scan (`daf-lobbying-lda-2021plus.csv`) kept only filings that name DAFs or the DAF bills. This pass pulls **every** 2021+ LD-2 for the 33 clients in that file plus seven sponsor parents and distributors (Charles Schwab, FMR/Fidelity Investments, Vanguard Group, Morgan Stanley, Goldman Sachs, BNY, TIFIN). That is **1,760 filings** (latest version of each) for 35 entities. TIFIN has no LDA filings [C].
+**(A) Lobbying.** The earlier scan (`daf-lobbying-lda-2021plus.csv`) kept only filings that name DAFs or the DAF bills. This pass pulls **every** 2021+ LD-2, plus LD-1 registrations (42 of the 1,760), for the 33 clients [V wave 43C] in that file plus seven sponsor parents and distributors (Charles Schwab, FMR/Fidelity Investments, Vanguard Group, Morgan Stanley, Goldman Sachs, BNY, TIFIN). That is **1,760 filings** (latest version of each) for 35 entities. TIFIN has no LDA filings [C].
 
 - All **359** filings in the earlier file are recovered. **339** name DAFs in their own text; the other 20 were captured by the earlier pass through the QCD-to-DAF bill number [C].
-- **509** filings carry at least one policy tag: charitable deduction, §4966, P.L. 119-21/OBBBA or QCD. **255** of them do not name DAFs and are **not** in the earlier file. These are the "DAF-adjacent, unnamed" filings this item asked for. Their whole-filing amounts total **$43.3m** (not issue-specific) [C].
+- **509** filings carry at least one policy tag: charitable deduction, §4966, P.L. 119-21/OBBBA or QCD. **255** of them do not name DAFs and are **not** in the earlier file. These are the "DAF-adjacent, unnamed" filings this item asked for. Their whole-filing amounts total **$43.3m** (not issue-specific) [C]. Of these, 86 filings ($29.6m) carry only the OBBBA tag once the H.R. 3975 false QCD matches are removed. They are mostly the parents’, AICPA’s, SIFMA’s and KPMG’s retirement or business-tax lines. The charity-relevant core, with a charitable-deduction, QCD or §4966 tag, is 169 filings ($13.65m) [V wave 43C]
 - Charitable-deduction lobbying that does not name DAFs comes from the **charity-side coalition**: 161 new filings. Independent Sector has 45, American Heart Association 29, Philanthropy Roundtable 19, CASE 15, AFP 13, United Philanthropy Forum 12 and Global Generosity 10 [C].
-- **§4966 is never lobbied without naming DAFs.** No 2021–26 line cites "4966" or "taxable distribution". All 73 filings tagged §4966 got the tag from DAF-plus-regulation wording, so they also name DAFs [C].
+- **§4966 is never lobbied without naming DAFs.** Two SIFMA self-filed lines do cite §4966 by number: “Section 4966 Donor Advised Fund Regulations” (2023 Q4) and “IRS proposed rule regarding Section 4966 Donor Advised Funds” (2024 Q1). The matches sit past the CSV’s 1,500-character `line_text` cut, and both lines also name DAFs. No other 2021–26 line cites [V wave 43C]"4966" or "taxable distribution". 71 of the 73 filings tagged §4966 got the tag from DAF-plus-regulation wording, and the two SIFMA filings from the section number. All 73 also name DAFs [V wave 43C]
 - **The sponsor parents lobbied on OBBBA, but not on its charitable provisions.** FMR, Goldman Sachs, Morgan Stanley and Vanguard Group have 42 OBBBA-tagged filings between them. Their lines cover retirement, financial-services, corporate or international tax. None of their 2021–26 lines names DAFs, §4966 or QCDs [C].
   - The one charitable-deduction line among the parents is FMR's 2026 Q3 filing. It lists **H.R. 9173, the "Charitable Deductions for Digital Asset Donations Act"** inside a digital-asset tax list [P].
   - Only the charity-side and professional clients put OBBBA and the charitable deduction on the same line. That happens in **37 filings**, from Independent Sector, Council on Foundations, AHA, AFP, United Philanthropy Forum, AICPA, CFAI, CASE, Global Generosity and KPMG. NPT and Vanguard Charitable tie P.L. 119-21 to DAF or tax-exempt issues on their own lines [C/P].
 - **LD-203.** Eight self-filing registrants among the sponsor parents and DAF-program financial firms filed a total of 6,482 organisation-level contribution items for 2021 to 2026 H1. The largest totals are UBS PAC at $7.42m FECA, Morgan Stanley at $6.52m ($2.19m FECA plus **$4.34m honorary expenses**), Goldman Sachs at $3.58m (including a **$1.0m** presidential inaugural committee item), Fidelity (FMR) PAC at $3.49m, Ameriprise PAC at $0.93m and the Vanguard committee at $0.80m. Schwab Corp. and Thrivent filed "no contributions" organisation reports [C].
-  - No LD-203 item is paid to or honours a DAF sponsor. The six charity-type honorary or meeting items go to unrelated charities and foundations [C].
+  - No LD-203 item is paid to or honours a national DAF sponsor. Most of Morgan Stanley’s 98 honorary items go to nonprofits, such as housing groups, Goodwill and the American Red Cross; six have ‘charity’ or ‘foundation’ in the payee name. One of them, $75,000 to Arlington Community Foundation, goes to a community foundation, a type that usually sponsors DAFs (not checked for this one) [V wave 43C]
   - The DAF sponsors themselves (Vanguard Charitable, NPT, AEF, Ren, NCF, the community foundations) all lobby through outside firms. LD-203 is filed by registrants, not clients, so they have no attributable LD-203.
 
 **(B) Breach registers.** Massachusetts (OCABR annual reports) and Vermont (AGO) were readable. Maine returned HTTP 403 to robots.txt and to the register, so nothing was taken from it.
@@ -85,7 +85,7 @@ Evidence tags: [C] computed by the script; [P] read from a primary register page
 
 Filings by year: 2021: 296, 2022: 295, 2023: 304, 2024: 322, 2025: 319, 2026: 224 (through Q3).
 
-Filings carrying each tag (each filing counted once per tag): daf_named 339; charitable_deduction 335; s4966 73; obbba 140; qcd 132; charity_sector 576.
+Filings carrying each tag (each filing counted once per tag): daf_named 339; charitable_deduction 335; s4966 73; obbba 140; qcd 132; charity_sector 576. The qcd count falls to 126 (2025: 18; 2026: 33) once six AICPA and KPMG filings are removed. They were matched only on H.R. 3975, the Tax Fairness for Disaster Victims Act, not on the QCD bill S. 3975. The 509 and the 255 are unchanged, because all six also carry OBBBA [V wave 43C]
 
 By year:
 
@@ -98,7 +98,7 @@ By year:
 | 2025 | 53 | 66 | 19 | 93 | 20 | 93 |
 | 2026 | 38 | 46 | 13 | 47 | 37 | 64 |
 
-- §4966 / DAF-regulation lines first appear in 2023. Philanthropy Roundtable's earliest is the generic "regulatory issues relating to donor-advised funds" (2023 Q1). The specific lines, such as Fidelity Charitable's "Donor advised funds regulation" and SIFMA's, start in 2023 Q4, after the November 2023 DAF proposed regulations. No line cites "4966" by number, so the tag rests on the DAF-plus-regulation wording.
+- §4966 / DAF-regulation lines first appear in 2023. Philanthropy Roundtable's earliest is the generic "regulatory issues relating to donor-advised funds" (2023 Q1). The specific lines, such as Fidelity Charitable's "Donor advised funds regulation" and SIFMA's, start in 2023 Q4, after the November 2023 DAF proposed regulations. Apart from two SIFMA lines (2023 Q4 and 2024 Q1) that cite “Section 4966” beyond the CSV’s 1,500-character cut, no line cites [V wave 43C]"4966" by number, so the tag rests on the DAF-plus-regulation wording.
 - OBBBA drives the 2025 jump in unnamed adjacent filings [C].
 
 ### A.3 By entity [C]
@@ -139,7 +139,7 @@ Amounts are reported income (outside firms) plus expenses (self-filers) per fili
 | Council on Foundations | philanthropy assn | 50 | 1.90m | 24 | 25 | 2 | QCD 23, OBBBA 6 |
 | CF Awareness Initiative | CF coalition | 23 | 4.02m | 19 | 23 | 4 | chardeduct 23, §4966 6 |
 | JFNA | nonprofit assn | 63 | 6.08m | 27 | 22 | 3 | chardeduct 20, QCD 9 |
-| Melanie Lundquist | individual | 21 | 0 | 1 | 7 | 7 | chardeduct 7 |
+| Individual client (name withheld) [V wave 43C] | individual | 21 | 0 | 1 | 7 | 7 | chardeduct 7 |
 | KPMG | accounting | 46 | 12.56m | 1 | 6 | 5 | OBBBA 6 |
 | Americans for Tax Reform | tax advocacy | 23 | 1.26m | 6 | 3 | 3 | OBBBA 3 |
 | Philanthropy Southwest | philanthropy assn | 5 | 0.03m | 2 | 3 | 1 | chardeduct 3 |
@@ -147,7 +147,7 @@ Amounts are reported income (outside firms) plus expenses (self-filers) per fili
 **Reading [C/P/I].**
 
 - **Charitable deduction.** The 161 new unnamed charitable-deduction filings come mostly from operating-charity and sector associations. Their lines name the Charitable Act (S. 566/H.R. 3435 in the 118th Congress; S. 317/H.R. 801 in the 119th), "universal charitable deduction", and in 2025 "Provisions affecting nonprofits and private foundations in Title VII of H.R. 1 … 1% floor on corporate charitable contributions" (Independent Sector via Ernst & Young, 2025 Q2) [P]. This is the coalition that shaped the non-itemizer deduction and the floors in P.L. 119-21. The DAF sponsors lobbied on the same law but framed it around DAFs [I].
-- **QCD.** The 37 new unnamed QCD filings are mostly Legacy IRA / IRA charitable-rollover lines: AHA 17, Independent Sector 11, AFP 4, AICPA 3. The QCD-to-DAF bill H.R. 2891 also appears in Ameriprise's and Thrivent's own filings (2025–26), which the earlier pass already caught by bill number. Edward Jones' outside firm names "qualified charitable distributions to donor advised funds" outright [P].
+- **QCD.** The 37 new unnamed QCD-tagged filings include 3 AICPA filings tagged only because the bill pattern matches H.R. 3975 (a disaster-relief bill). The 34 genuine ones are mostly Legacy IRA / IRA charitable-rollover lines: AHA 17, Independent Sector 11, AFP 4 [V wave 43C]. The QCD-to-DAF bill H.R. 2891 also appears in Ameriprise's and Thrivent's own filings (2025–26), which the earlier pass already caught by bill number. Edward Jones' outside firm names "qualified charitable distributions to donor advised funds" outright [P].
 - **§4966.** Every filing tagged for §4966 also names DAFs. Lobbying on the DAF regulations is fully visible to a DAF keyword search, and the earlier coverage limit does not apply to it [C].
 - **Parents.** FMR, Vanguard Group, Goldman Sachs and Morgan Stanley together report $89.5m of all-issue lobbying over 2021–26. In 605 filings, none of their lines names DAFs, §4966 or QCDs.
   - Their 42 OBBBA filings concern "Retirement savings tax incentives, including the relevant provisions of H.R.1" (FMR), "Tax issues related to financial services, including P.L. 119-21" (Goldman via Capitol Tax Partners), "General Business and International Tax Provisions" (Morgan Stanley) and similar [P].
@@ -174,7 +174,7 @@ Amounts are reported income (outside firms) plus expenses (self-filers) per fili
 - The six charity-type HE or PLE items paid to charities or foundations go to unrelated recipients:
   - Morgan Stanley: Charity Vision International, Arlington Community Foundation, and two Horton's Kids events;
   - FMR: Congressional Black Caucus Foundation, John F. Kennedy Library Foundation.
-- None goes to a DAF sponsor [C].
+- None goes to a national DAF sponsor. The $75,000 Arlington Community Foundation item goes to a community foundation, a type that usually sponsors DAFs [V wave 43C]
 - BNY, Edward Jones, Vanguard Charitable, NPT, AEF, Ren, NCF, GoFundMe and the community foundations had no self-filed registration matched to the target, so they have no attributable LD-203.
 
 ---
@@ -240,7 +240,7 @@ Amounts are reported income (outside firms) plus expenses (self-filers) per fili
 
 ## Limits
 
-1. **Keyword tags are textual.** A filing can lobby on DAFs or charitable rules under wording the regexes miss, such as "tax-exempt organization issues" alone or "Title VII". `charity_sector` over-captures 403(b) "Retirement Fairness for Charities" bills. `obbba` on parent filings mostly reflects non-charitable titles of the law.
+1. **Keyword tags are textual.** A filing can lobby on DAFs or charitable rules under wording the regexes miss, such as "tax-exempt organization issues" alone or "Title VII". `charity_sector` over-captures 403(b) "Retirement Fairness for Charities" bills. `obbba` on parent filings mostly reflects non-charitable titles of the law. The `qcd_bill` pattern also matches H.R. 3975 (six false positives), and the LD-203 CSV’s `honoree_name` column held individual names; the script now withholds them (and individual payees) on non-FECA items [V wave 43C; redaction applied 2026-11-20]
 2. **Amounts are whole-filing** and cover all issues; they are not DAF- or charity-specific. Summing them across entities double-counts nothing, because each filing belongs to one client. They are still not a DAF lobbying spend.
 3. **Client-bounded universe.** Only the 33 clients and seven parents were pulled. Other organisations lobbying on the charitable provisions of OBBBA are out of scope (P-B3903-03).
 4. **Name matching.** Client records with very different names (for example, a subsidiary under a new brand) can be missed. TIFIN has no client record under that string. BNY matched only "Bank of New York Mellon" records, because no client record starts with "BNY".
@@ -282,7 +282,7 @@ Amounts are reported income (outside firms) plus expenses (self-filers) per fili
 | registrant, registrant_id, linked_target | Self-filing registrant and the target entity or entities it files for |
 | filing_uuid, filing_year, filing_period, filing_type | LD-203 report (latest version per registrant and half-year) |
 | contribution_type | feca, he (honorary), me (meeting), ple (presidential library), pic (presidential inaugural) |
-| contributor_name, payee_name, honoree_name | As filed (contributor is the PAC or the organisation) |
+| contributor_name, payee_name, honoree_name | As filed for FECA items (contributor is the PAC or the organisation; payees are committees, honorees officeholders). For honorary-expense and other non-FECA items, honoree names are replaced by “[individual names withheld]” and payees naming a person by “[individual payee withheld]” (privacy) |
 | amount_usd, contribution_date | As filed |
 | pacs | PACs listed on the report |
 | filing_document_url | LDA print view |

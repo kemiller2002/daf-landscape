@@ -216,7 +216,7 @@ What the proposal said is quoted from the NPRM [P01]. Positions come from second
 
 1. **Comment letters unread.** downloads.regulations.gov is blocked, so positions by named commenter are limited to sponsor pages and summaries. The 13 letters from 2026 are the most decision-relevant unread documents.
 2. **Commenter types are assigned from titles.** "DAF Policy Network", "FAOG", "FPLG" and "Faith & Giving" are unidentified. "CF" and "MCF" in 2026 are inferred.
-3. **LDA keyword coverage.** Filings that do not name DAFs or the specific bills are missed. Amounts are per filing, not per issue.
+3. **LDA keyword coverage.** Filings that do not name DAFs or the specific bills are missed. The full-pull follow-up (b39n1-03-b39n2-02-lobbying-and-breaches.md) found 255 such policy-tagged filings for the same clients plus four sponsor parents. 169 of them carry a charitable-deduction, QCD or §4966 tag, mostly from Independent Sector, AHA and other charity-side clients. None lobbied §4966 without naming DAFs [V wave 43C] Amounts are per filing, not per issue.
 4. **No 2026 behavioural data.**
 5. **Unified Agenda target** not verified on reginfo.gov.
 
