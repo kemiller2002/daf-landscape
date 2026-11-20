@@ -218,7 +218,7 @@ Absence is **not** evidence that a report does not exist (per [quadrant-calibrat
    - **[I]** Treat Givinga's Schedule D lines as low-reliability in any national total.
 
 **Consequence for repo statistics [I]:**
-- Any FY2022-2024 national DAF *account* total or processor-share figure that includes Givinga moves by about 1.0-1.5m accounts on an undefined unit.
+- Any FY2022-2024 national DAF *account* total or processor-share figure that includes Givinga moves by about 1.0-1.5m accounts of a unit Givinga describes only as individual (and optional employee) giving accounts, averaging $1.37 of year-end value in CY2024 [V wave 40A]
 - Report figures with and without Givinga (P-ASR-03).
 - The existing note that "the 1.42m figure enters the record only via the November 2025 amendment" ([queue-infrastructure-nonprofit-costs-emerging.md](queue-infrastructure-nonprofit-costs-emerging.md)) is correct. It should add that **CY2022 reported 1.54m in an original, unamended filing**, so the order of magnitude is not an artefact of the 2025 amendment alone.
 

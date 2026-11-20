@@ -171,9 +171,9 @@ Source: `non-dafrc-daf-filers-summary.csv` and `non-dafrc-daf-filers-990.csv` (6
 | 2021 | 1,322 | 538 | 92 | 36 | 133 | 513 | 10 | $10.58bn | $0.48bn | 4,296 | 4.51% |
 | 2022 | 1,341 | 496 | 102 | 48 | 135 | 555 | 5 | $10.49bn | $0.38bn | 6,721 | 4.57% |
 | 2023 | 1,308 | 424 | 108 | 41 | 141 | 592 | 2 | $0.15bn | $0.15bn | 2,376 | 0.06% |
-| 2024* | 1,235 | 413 | 106 | 42 | 140 | 529 | 4 | $0.34bn | $0.34bn | 11,992 | 0.10% |
+| 2024* | 1,235 | 413 | 106 | 42 | 140 | 529 | 4 | $0.34bn (with Groundswell $0.35bn) | $0.34bn ($0.35bn) | 11,992 (with Groundswell 24,800) | 0.10% (0.11%) [V wave 40A] |
 
-\*FY2024 lacks returns processed in 2026, because no 2026 SOI extract exists yet. FY2025 (172 rows) is partial and not shown. The FY2024 account total (11,992) excludes Groundswell Charitable Foundation’s 12,808 accounts, which appear only on an amended return e-filed 2026-01-28 that answers line 6 “No” [F] [V wave 39B]
+\*FY2024 lacks returns processed in 2026, because no 2026 SOI extract exists yet. FY2025 (172 rows) is partial and not shown. The FY2024 account total (11,992) excludes Groundswell Charitable Foundation’s 12,808 accounts, which appear only on an amended return e-filed 2026-01-28 that answers line 6 “No” [F] [V wave 39B]. Adding that return gives FY2024 totals of 24,800 accounts, $353.9m of DAF assets (0.108% of DAFRC), $161.0m of DAF contributions and unchanged DAF grants of $110.8m (Groundswell leaves Schedule D Part I line 3 blank, although its Part I line 13 grants are $4,463,378); its 12,808 accounts average $787 ([`non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv`](../../data/mission-2026-11-14/non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv)) [V wave 40A]
 
 **Findings**
 1. **DAFRC misses a long tail of small sponsors, not money.**
@@ -258,7 +258,7 @@ R1–R4 columns are in $bn, except accounts.
 - **Part VII-B lists only the five largest contractors paid over $100k.** Only 9.4% of the reported engagements over $100k are itemised. Absence of a vendor is not evidence of no relationship, and asset coverage is a floor.
 - **The FY2025 mirror lags.** 144 FY2025 returns are not mirrored. The FY2025 footprint is partial, and FY2025 corrections are out of scope.
 - **The outside-DAFRC scan sees only filers that answer Part IV line 6 "Yes".**
-  - Sponsors that answer "No", file a 990-EZ (no Schedule D) or file on paper are invisible (proposal P-99F-03). Reading Schedule D directly ([g1915b-04-line6-vs-schedule-d.md](g1915b-04-line6-vs-schedule-d.md)) finds 14 plausible line-6 “No” returns outside the panel in FY2021–26 (12,863 accounts, $15.81m). The FY2021–24 part is 7 returns and $10.83m, 93% of it Groundswell. The asset totals do not move, but FY2024 non-DAFRC accounts roughly double, from 11,992 to about 24,800 [C] [V wave 39B]
+  - Sponsors that answer "No", file a 990-EZ (no Schedule D) or file on paper are invisible (proposal P-99F-03). Reading Schedule D directly ([g1915b-04-line6-vs-schedule-d.md](g1915b-04-line6-vs-schedule-d.md)) finds 14 plausible line-6 “No” returns outside the panel in FY2021–26 (12,863 accounts, $15.81m). The FY2021–24 part is 7 returns and $10.83m, 93% of it Groundswell. The asset totals do not move, but FY2024 non-DAFRC accounts roughly double, from 11,992 to 24,800 (11,992 + Groundswell’s 12,808; `non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv`) [C] [V wave 39B] [V wave 40A]
   - FY2020 has 145 "Yes" rows with no matching OBJECT_ID in the 2020–2026 indexes.
   - The 2026 SOI extract does not exist yet, so FY2024 is short of late filers.
   - Non-DAFRC EINs may include entities DAFRC excluded deliberately by vetting. The scan cannot tell exclusion from omission.
@@ -290,6 +290,9 @@ Same columns as before: `vendor`, `vendor_category`, `vendor_entities`, `sponsor
 
 ### `non-dafrc-daf-filers-summary.csv` (one row per FY 2020–2025)
 Status counts by FY; `non_dafrc_daf_assets` (and `_excl_ge_1bn`), accounts, contributions and grants (`reports_daf_value` rows only); `dafrc_sponsors_fy`; `dafrc_daf_assets_fy`; `non_dafrc_assets_pct_of_dafrc`; `filers_ge_1bn`; `fy_complete_in_soi`.
+
+### `non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv` (one row per FY 2020–2025)
+The same 6 rows and first 20 columns, plus 11 columns (31 in all). In FY2024 the value columns (`non_dafrc_daf_assets`, `_excl_ge_1bn`, accounts, contributions, `non_dafrc_assets_pct_of_dafrc`) add Groundswell Charitable Foundation’s amended TY2024 Schedule D Part I (grants unchanged: its line 3 is blank); the status counts stay SOI line-6 “Yes” counts. `soi_y_only_*` keep the original values; `line6_no_additions_*` give the added return ([prop-0503-1915-propagation.md](prop-0503-1915-propagation.md)) [V wave 40A]
 
 ### `dafrc-corrected-market-totals.csv` (20 rows; FY2020–24 × 4 metrics)
 | Column | Meaning |

@@ -19,7 +19,7 @@
 |---|---|
 | **P-G0503-06**: where the old exception-proxy figures still stand without a governing note | **22 items in 4 files**: 18 in `gap19-exception-load-proxy.md` (§0 core and recent-ruling cells, §3.1 note, table rows and by-year line, §3.2 all-sponsor row, §4 four-national table, per-sponsor rows and reading, regeneration table); 2 in `DAF-INDUSTRY-REPORT-2026-11.md` (§4 exception share; §11.30 pointer); 2 in `strategic-synthesis.md` (claim A5; falsifier B). |
 | … already carrying a governing note | Wave 39C's own items were all applied before this pass: gap19 §0 fiscal-sponsor bullet, four-national and count-side cells, reading note and §3.1 fiscal-sponsor row; strategic-synthesis §0 bullets and item 10; FINAL-STATUS exception bullet; g0401-g0502 limit 6; report §11.50. Nothing further is proposed for them. |
-| **P-G1915B04-02**: FY2024 outside-DAFRC totals with Groundswell's amended TY2024 Schedule D Part I | **Accounts 11,992 → 24,800** (+12,808, +106.8%); **DAF assets $343,808,451 → $353,892,765** (+$10,084,314); contributions $151,316,519 → $161,008,431 (+$9,691,912); grants unchanged at $110,820,269 (Groundswell files no grants amount); share of DAFRC FY2024 assets 0.105% → 0.108% [C]. Filers reporting a DAF value: 413 → 414; median $106,122 → $106,928; 373 under $1m either way [C]. |
+| **P-G1915B04-02**: FY2024 outside-DAFRC totals with Groundswell's amended TY2024 Schedule D Part I | **Accounts 11,992 → 24,800** (+12,808, +106.8%); **DAF assets $343,808,451 → $353,892,765** (+$10,084,314); contributions $151,316,519 → $161,008,431 (+$9,691,912); grants unchanged at $110,820,269 (Groundswell leaves Schedule D Part I line 3 blank; its Part I line 13 grants are $4,463,378) [V wave 40A]; share of DAFRC FY2024 assets 0.105% → 0.108% [C]. Filers reporting a DAF value: 413 → 414; median $106,122 → $106,928; 373 under $1m either way [C]. |
 | … repo figures citing that total | **8 items in 4 files**: full-universe §4 FY2024 table row, footnote, limit and data dictionary; g1915b-04 §4; direction-long-tail-sponsors §2 and limits; FINAL-STATUS line-6 bullet. |
 | Governing figures used (P-G0503-06, as instructed and as in the refinements note) | Core 7.76% of lines / 11.61% of dollars; new organisations only 6.80% / 11.00%; fiscal-sponsor dollar ÷ count ratio 4.4×, or 4.0× without the large-programme hosts; time-correct recent ruling 4.14% / 5.34%; four-national like-for-like about 4.2%, or about 3.9% without the large-programme hosts. |
 
@@ -55,7 +55,7 @@
 | `gap19-exception-load-proxy.md` | §0 core cell (40); recent-ruling bullet (41); §3.1 note (125); recent-ruling row (132); core-union row (136); §3.1 by-year core (166); §3.2 all-sponsor row (185); §4 named-FS row (282), sum row (286), count row (287), per-sponsor rows (293–296), reading 1, 2 and 3 (299, 300, 304); regeneration table (407) | **No governing note → 18 items** |
 | same | fiscal-sponsor bullet (41), four-national cell (45), count-side cell (46), reading (49), fiscal-sponsor row (133) | Already carry [V wave 39C] notes; none proposed |
 | `DAF-INDUSTRY-REPORT-2026-11.md` | §4 exception share (161) | **No note → 1 item** (the brief's named target) |
-| same | §11.30 (992: 7.4% / 11.0%, 3.6%) | Validated batch summary; wave 39C left it and put the refined figure in §11.50. **1 short pointer item** to §11.50, no figures replaced |
+| same | §11.30 (992: 7.4% / 11.0%, 3.6%) | Validated batch summary; wave 39C left it and put the refined figure in §11.50. **1 short pointer item** to §11.50, no figures replaced. Wave 40A rejects this item: §11.30 is a per-wave validated summary (each §11.30–§11.50 paragraph carries only its own wave tag), and wave 39C left it unchanged on purpose [V wave 40A] |
 | same | §11.50 | Is the governing summary; nothing proposed |
 | same | 810, 840, 1326–1327 (13.6% religion / NY) | Unrelated |
 | `strategic-synthesis.md` | A5 row (112), falsifier B row (223) | **No note → 2 items** |
@@ -88,7 +88,7 @@ FY2024 outside-DAFRC totals [C] (`non-dafrc-daf-filers-summary-with-groundswell-
 | Filers under $1m | 373 | 373 | 0 |
 
 - The arithmetic of wave 39B (11,992 + 12,808 = 24,800) is exact, so "about 24,800" becomes "24,800" in the proposed text.
-- Groundswell's accounts average $787 ($10,084,314 / 12,808) [C]. Whether they are DAFs in the DAFRC sense is not settled here (queue P-P0503-1915-02).
+- Groundswell's accounts average $787 ($10,084,314 / 12,808) [C]. These low-balance accounts raise the same comparability question as processor accounts (b40n13-03-g1913-03 §4.3), so account totals that include them should say so [V wave 40A] Whether they are DAFs in the DAFRC sense is not settled here (queue P-P0503-1915-02).
 - FY2020–2023 and FY2025 rows are unchanged; their `line6_no_additions_returns` is 0.
 
 ---

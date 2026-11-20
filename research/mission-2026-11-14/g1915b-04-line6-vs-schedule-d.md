@@ -178,7 +178,7 @@ Run: `python3 scripts/mission_line6_check.py . --irs-dir <index_2019..2026.csv d
   - FY2022: $2,000 against $383.7m;
   - FY2023: $68,114 against $152.7m (0.04%);
   - FY2024: $10.09m against $343.8m (2.9%), almost all Groundswell.
-  - On assets no headline changes. **On accounts it matters for FY2024:** Groundswell's 12,808 accounts exceed P-MOR-01's entire FY2024 non-DAFRC account count (11,992), so the outside-DAFRC account total for FY2024 roughly doubles (to about 24,800).
+  - On assets no headline changes. **On accounts it matters for FY2024:** Groundswell's 12,808 accounts exceed P-MOR-01's entire FY2024 non-DAFRC account count (11,992), so the outside-DAFRC account total for FY2024 roughly doubles, to 24,800 (11,992 + 12,808), and its DAF assets rise from $343.8m to $353.9m (`non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv`). [V wave 40A]
 
 ---
 

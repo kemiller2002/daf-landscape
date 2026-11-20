@@ -35,7 +35,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 - **Detection probability.** An escaped DAF error has roughly a 0.1–1% chance per year of being detected and taxed, measured as average-filer coverage. The composite m is fragile: it is about 1.6 when OFAC penalties are priced per transaction and 14–1,270 when priced per missed alert.
 - **Line 6 versus Schedule D.**
   - 33 returns that hold DAFs answer "No" on line 6, carrying $265m. SOI extracts keyed on line 6 drop them; DAFRC does not use line 6.
-  - Non-DAFRC FY2024 accounts are about 24,800.
+  - Non-DAFRC FY2024 accounts are 24,800: 11,992 at line-6 “Yes” filers plus Groundswell’s 12,808 (average $787 per account), with $353.9m of DAF assets (`non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv`) [V wave 40A]
 - **Exception proxy refinements.**
   - EIN-keyed fiscal sponsors account for 0.44% of lines and 1.94% of dollars; dropping large-programme hosts gives 1.68%.
   - The time-correct recent-ruling flag counts true new organisations at 3.16% of lines and 4.72% of dollars.
