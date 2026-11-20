@@ -117,3 +117,18 @@ Rationale for each cell is in [`model-scores.csv`](model-scores.csv).
 5. **Sensitivity** to exception rate, minutes per exception, complex-asset share and the fee-share percentage in D.
 
 Until those outputs exist, the economics row above is qualitative. If it inverts, the C/D ordering may change; the dominance over A and B is less sensitive to it.
+
+## 8. Reconciliation with the financial model (added 2026-11-20 after 09 outputs existed)
+
+The F# economics model ([`../09-financial-models/financial-and-staffing-models.md`](../09-financial-models/financial-and-staffing-models.md); outputs in `../09-financial-models/outputs/`) now quantifies the economics row. The model rests mostly on assumed parameters (23 of 30 [A]), so these are scenarios [S].
+
+| Question | Model result | Effect on §5 |
+|---|---|---|
+| Steady-state margin at published Fidelity tiers, $300k average balance | B 61% (10k accounts), 85% (100k), 88% (1m). A 30–32%. D 22%, 71%, 77% (50% fee share [A]). C at $150/account loses money until 1m accounts served | **B's steady-state economics are the best in the grid.** "B is dominated" holds on the non-financial criteria and on the calibrated growth path below, not on steady-state margin. §5 item 1 is softened accordingly: B is *dominated on risk-adjusted time-to-evidence*, not on terminal economics |
+| Peak capital to reach scale over 5 years | B calibrated to observed challenger scale (~$2bn by year 5): **$12.8m**, still cumulatively negative at year 5. B optimistic (~$15bn by year 5, no precedent in the 2021–26 cohort): $2.5m. C at $300/account with 20k-account clients: **$6.4m**, positive cumulative by year 4. C at $150/account: $35.8m and never positive. C with 5k-account clients: $15.2m | Supports C-first **only if** C can price near $300/account and win mid-size sponsors. The single observed reference is RCF→Ren at about $745/account (one related-party contract). Below about $200/account, C is a feature, not a business |
+| Small sponsors | A self-built AI-native sponsor at 1k accounts costs $4.37m against $1.8m revenue | The long tail is a C *customer* segment only in aggregate, through a low-touch product. It is not a standalone business (consistent with strategic synthesis §0 D) |
+
+**Net effect:**
+- The staged C→D recommendation survives.
+- Its weakest link is now explicit: **price per account served and the size of the first clients.**
+- B remains an option to revisit at the Phase 6 gate if D's partner sponsor-of-record terms prove unworkable, or if a distribution partner offers low-CAC access. On the optimistic acquisition path, B is the most valuable business in the grid.

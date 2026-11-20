@@ -42,7 +42,7 @@ D,technical_feasibility,3,Requires production-grade ledger and reconciliation ea
 Dc,economics,4,As D plus capture of sponsor fee; mirrors RCF-Ren fee-share structure (98% of individual-fundholder fees)
 Dc,capital,2,Charity formation + platform + reserves
 Dc,time_to_evidence,3,IRS determination and state registrations precede operation
-Dc,regulatory,2,Related-party governance scrutiny (Charityvest president paid by Foundation Source $163,944; RCF-Ren related-party fees); §4958 exposure on vendor arrangements
+Dc,regulatory,2,"Related-party governance scrutiny (Charityvest president paid by Foundation Source $163,944; RCF-Ren related-party fees); §4958 exposure on vendor arrangements"
 Dc,operational_feasibility,3,Must run a charity board independent of the vendor
 Dc,distribution,3,Same as D
 Dc,defensibility,4,As D

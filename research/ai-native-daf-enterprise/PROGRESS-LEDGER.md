@@ -9,28 +9,47 @@
 3. Executable models live in [`models/`](models/) (F#, .NET 8). Run `dotnet test models/Daf.Enterprise.Tests` before committing changes to them.
 4. Never edit files outside `research/ai-native-daf-enterprise/` without recording why here. Existing research is read-only for this workstream; conflicts are recorded, not overwritten.
 
-## Status by deliverable
+## Status by deliverable (2026-11-20)
 
-| # | Directory | Deliverable | Status | Acceptance test |
-|---|---|---|---|---|
-| 00 | `00-research-inventory/` | Inventory, evidence register (EV-), gap register (GAP-) | see table updates | every EV row has a repo source path; counts reproducible |
-| 01 | `01-enterprise-outcomes/` | Outcome model, activity classification | see table updates | every outcome has decisions typed D/P/H, evidence, failure detection |
-| 02 | `02-business-capabilities/` | Capability map, functional-area redesigns A–N, org model, accountability matrix | see table updates | 14 areas × 18 required headings; every capability has one accountable human role |
-| 03 | `03-workflow-redesign/` | ≥20 cross-department workflows, legacy vs redesigned | see table updates | ≥20 workflows, each spans ≥2 legacy departments |
-| 04 | `04-enterprise-apis/` | API catalog and contracts | see table updates | each API has the 12 required attributes |
-| 05 | `05-agent-architecture/` | Agent catalog, category model, authority boundaries | see table updates | no agent can move money, change an authoritative record without a deterministic gate, or approve its own action |
-| 06 | `06-data-and-knowledge/` | Canonical data model, event catalog, knowledge compilation | see table updates | every entity has one authoritative owner; every event has producer, consumers, controls, evidence |
-| 07 | `07-technology-architecture/` | Architecture, Echelon component assessment | see table updates | no dependency on an unverified component for a regulated function |
-| 08 | `08-governance-and-compliance/` | Regulatory applicability map, governance, controls, continuous compliance | see table updates | every legal obligation maps to a control and evidence |
-| 09 | `09-financial-models/` | Staffing and cost models at 1k/10k/100k/1m accounts, sensitivity | see table updates | model code tested; every parameter labeled sourced/assumed |
-| 10 | `10-market-and-business-model/` | Models A/B/C/D comparison, commercialization of capabilities | see table updates | consistent criteria; no winner pre-selected |
-| 11 | `11-scenarios-and-validation/` | 18+ scenarios, digital twin | see table updates | each scenario shows detect/contain/escalate/resolve/document |
-| 12 | `12-implementation-roadmap/` | Six phases with acceptance criteria | see table updates | each phase has measurable exit criteria and dependencies |
-| 13 | `13-clarity-edf-analysis/` | Assumption challenges, failure modes | see table updates | each major conclusion has evidence, counterargument, confidence, falsifier |
-| 14 | `14-executive-conclusions/` | Executive report, final answers | see table updates | answers all 9 strategic questions; traces to evidence |
+| # | Directory | Status | Contents (counts verified by script or tests) |
+|---|---|---|---|
+| 00 | `00-research-inventory/` | done | Inventory (12 sections); 156 evidence rows (EV-001–156); 40 gaps (GAP-001–040; 9 P0) |
+| 01 | `01-enterprise-outcomes/` | done | 18 outcomes; 81 decision types (37 D / 11 P / 33 H); 80 legacy activities classified (tested census) |
+| 02 | `02-business-capabilities/` | done | 29 capabilities; org model; accountability matrix (one A per row, tested); functional areas A–N × 18 headings |
+| 03 | `03-workflow-redesign/` | done | 24 workflows (22 span ≥2 legacy departments; WF-11 and WF-23 are new capabilities, exempted); integration journey; 16 diagrams |
+| 04 | `04-enterprise-apis/` | done | 23 API domains; 5 OpenAPI 3.1 contracts (load-checked) |
+| 05 | `05-agent-architecture/` | done | 19 agents; category model; authority boundaries INV-A1–A8 (tested in models/) |
+| 06 | `06-data-and-knowledge/` | done | 35 entities; 58 events (8 added after cross-deliverable review) |
+| 07 | `07-technology-architecture/` | done | Technology architecture; Echelon component assessment (DD-014) |
+| 08 | `08-governance-and-compliance/` | done | 65 regulatory requirements; 50 controls (CTL-046–050 added from the Clarity review); governance; security; continuous compliance; continuous improvement |
+| 09 | `09-financial-models/` | done ([S]) | F# model outputs at 1k/10k/100k/1m; AUM variants; sensitivity; break-even; models A–D grid; 5-year ramps |
+| 10 | `10-market-and-business-model/` | done | Options; A/B/C/D/Dc matrix (reproducible scoring.py); §8 reconciliation with 09; capability commercialization; competition; validation plan |
+| 11 | `11-scenarios-and-validation/` | done | 22 scenarios; SPOF register; digital twin and outputs |
+| 12 | `12-implementation-roadmap/` | done | Six phases; Gates 1–5; budget $5.5m–$9.5m [A] |
+| 13 | `13-clarity-edf-analysis/` | done | 19 assumption challenges; 5 EDF analyses; 25 failure modes; 9 major conclusions |
+| 14 | `14-executive-conclusions/` | done | Executive report (softened per 13-); traceability matrix (18 rows) |
+| — | `models/` | done | F# .NET 8 solution: domain, policy, ledger, journey, economics, twin, report, CLI; **59 passing tests** |
+
+## Open items (next session)
+
+| Item | Why | Acceptance |
+|---|---|---|
+| CTL→REG mapping table | `controls.csv` refers to obligations generically; the coverage test needs REG ids | Every REG row with obligation_type=legal maps to ≥1 CTL |
+| Agent-name reconciliation | Functional areas and workflows introduced agent names not in the 19-agent catalog (e.g. QA sampler, fairness monitor, foreign-diligence) | Each name maps to a catalog agent or is added |
+| API sub-resources raised by forks | `/v1/recommendations:batch`, `/v1/grants/{id}/verification`, `/v1/parties/{id}/preferences`, `/v1/policies/{id}/evaluate`, shared-determination entity | Added to the API catalog or explicitly rejected |
+| Determination-reuse parameter in 09 model | The largest unmodeled lever | Parameterised; sensitivity rerun |
+| Workflow-local IDs | Functional areas use WF-A1…WF-N5 locally | Mapped to WF-01…WF-24 or listed as sub-workflows |
+| Phase 1 evidence | GAP-001/002/004/005/006/012/014/027 need design partners and counsel | Roadmap Gate 1 |
+
+## Conflicts recorded (not overwritten)
+- **Exception share:** the governing figure is ~4.2% like-for-like; the earlier 2.5–3% is superseded. The 7.76%/11.61% core proxy is used as the per-recipient basis and ~7–8.5% per grant (EV-079–081).
+- **Fidelity grant volume:** 3.0m (CY2025) in the entrant model against 2,664,446 (CY2024) in the efficiency study. This workstream uses CY2024 with FY2024 990s for period alignment.
+- **"B is dominated"** (10- §5) vs B's best steady-state margins (09): reconciled in 10- §8. B is dominated on risk-adjusted time-to-evidence, not on terminal economics.
+- **Echelon F#-first:** the brief assumed a Foundry mandate; the component assessment found none. DD-015 records F# on its own merits.
 
 ## Session log
 
 | Date | Work | Commit |
 |---|---|---|
 | 2026-11-20 | Audited the repository (410 docs, 764 CSVs, 2,557 validation rows; governing texts: industry report §1–§11.79 and strategic synthesis §0). Installed .NET 8 SDK for F# models. Created the workstream structure, ledger, decision log. | (this commit) |
+| 2026-11-20 | Research inventory, regulatory map, Echelon assessment (background agents); outcome model, capability map, org model, data model, events, decision log; functional areas A–N, workflows, APIs, agents, governance, scenarios, market models (parallel forks); F# reference models with 59 tests; economics outputs and ramps; digital twin; technology architecture; roadmap; Clarity/EDF; executive report; traceability | see git log |

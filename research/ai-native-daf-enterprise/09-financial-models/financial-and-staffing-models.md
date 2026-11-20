@@ -50,7 +50,7 @@ From [`outputs/scale-results.csv`](outputs/scale-results.csv):
    | Loaded cost $250k per FTE | about 5,000 |
 
    Balance size matters more than account count.
-3. **Between 10k and 100k accounts the AI-native cost per account falls below the frontier** ($697 → $272, against Fidelity's $790). That is about **2.9× lower at 100k accounts and 3.7× lower at 1m [S]**. Against the *efficient conventional* calibration the gap is 4–6×. Against the frontier it is smaller, and the frontier comparison is the honest one.
+3. **Between 10k and 100k accounts the AI-native cost per account falls below the frontier** ($697 → $272, against Fidelity's $790). That is the modeled crossing point, not a ratio to rely on: the Clarity review rates the cost comparison internal-demonstration, Low confidence, until handling times are measured. Against the *efficient conventional* calibration the gap is 4–6×. Against the frontier it is smaller, and the frontier comparison is the honest one.
 4. **Accounts per FTE:**
 
    | Accounts | AI-native accounts per FTE |
