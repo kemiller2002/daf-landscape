@@ -56,8 +56,8 @@ GS_BASE = "https://www.groundswell.io/"
 
 FINE = (
     ("school_yeshiva", r"SCHOOL|ACADEMY|YESHIV|SEMINARY|KOLLEL|KOLEL|MESIVTA|MESIFTA|TALMUD|BAIS YAAKOV|BETH JACOB|"
-                       r"BNOS|CHEDER|CHEIDER|MOSDOT|MOSDOS|MOSDOS|\bUTA\b|TORAH V ?YIRAH|TORAH VEYIRAH|CHINUCH|"
-                       r"BAIS MEDRASH|BETH MEDRASH|BEIS MEDRASH|PRESCHOOL|DAY CARE"),
+                       r"BNOS|CHEDER|CHEIDER|MOSDOT|MOSDOS|\bUTA\b|TORAH V ?YIRAH|TORAH VEYIRAH|CHINUCH|"
+                       r"BAIS MEDRASH|BETH MEDRASH|BEIS MEDRASH|PRESCHOOL|DAY CARE|INSTITUTIONS"),
     ("chesed_or_relief_fund", r"KEREN|CHESED|CHASDEI|CHASDE\b|CHASODIM|GEMACH|GEMILUS|GEMILUT|TZEDAK|TZDOK|ZTADUK|"
                               r"TZDAK|TZEDOK|EZRA\b|EZRAS|EZRAH|REFUAH|RFUAH|BIKUR|HATZOL|HATZAL|HELPLINE|\bFUND\b|"
                               r"RELIEF|HACHNOSAS|KALLAH|YESOMIM|ALMANOS|MAOS|PIDYON|TOMCHE|ACHIEZER|ACHIAZER|\bYAD |"
@@ -69,8 +69,8 @@ FINE = (
                      r"IGLESIA|MINISTR|WORSHIP|HOUSE OF PRAYER"),
 )
 FINE_RX = tuple((t, re.compile(p)) for t, p in FINE)
-FED_RX = re.compile(r"FEDERATION|\bUJA\b|UNITED JEWISH|JEWISH UNITED FUND|ASSOCIATED JEWISH|JEWISH COMMUNAL FUND|"
-                    r"JEWISH COMMUNITY FOUNDATION|JEWISH FOUNDATION|JEWISH FEDERATION")
+FED_RX = re.compile(r"FEDERATION|\bUJA\b|UNITED JEWISH (APPEAL|FEDERATION|COMMUNIT|ASSOCIATION)|JEWISH UNITED FUND|"
+                    r"ASSOCIATED JEWISH|JEWISH COMMUNAL FUND|JEWISH COMMUNITY FOUNDATION")
 DAF_RX = re.compile(r"DONORS FUND|DONORS' FUND|MATBIA|GIFT FUND|GIFT FND|DONOR ADVISED|ACHISOMOCH|NATIONAL CHRISTIAN|"
                     r"SCHWAB CHARITABLE|VANGUARD CHARITABLE|AMERICA GIVES|PAYPAL CHARITABLE|BENEVITY|NETWORK FOR GOOD|"
                     r"CHARITABLE GIVING FUND|ENDOWMENT FUNDS|\bOJC\b")
@@ -231,8 +231,15 @@ def ojc_rows(frame: Mapping, bmfx: Mapping) -> list:
     return out
 
 
+def inflow_ratio(frame: Mapping) -> float:
+    """Schedule I $ paid INTO the OJC Fund by other panel sponsors / OJC's Schedule D DAF contributions (FY2023+24)."""
+    inflow = sum(r["amount"] for k, rs in frame["ann"].items() if k[0] != OJC for r in rs if r["ein"] == OJC and r["amount"] > 0)
+    return inflow / frame["ojc_contrib"] if frame["ojc_contrib"] else 0.0
+
+
 def share_rows(frame: Mapping) -> list:
     flat, block, faith = frame["flat"], frame["block"], frame["faith"]
+    ratio = inflow_ratio(frame)
     ftype = {e: fine_type(frame["bmf"][e]["name"]) for e in block if e in frame["bmf"]}
     out = []
     for scn, tset, mode in fso.SCENARIOS:
@@ -247,6 +254,11 @@ def share_rows(frame: Mapping) -> list:
                           recipients=len({l["rec"] for l in kept}), lines=len(kept), si=sum(l["si"] for l in kept),
                           dw=tot, share=tot / tot0, value=fs,
                           note=f"value = faith share of block dw; share = block dw kept / central block dw; central faith share {fs0:.5f}"))
+        ojc_bl = sum(l["dw"] for l in bl if l["sponsor"] == OJC)
+        out.append(mk("faith_share:block", scn, "ojc_inflow_reattributed", "move the share of OJC block dw funded by other "
+                      "panel sponsors' grants into OJC (inflow ratio) from faith to non-faith; denominator unchanged",
+                      f"inflow ratio {ratio:.5f}; shifted dw {ojc_bl * ratio:.0f}", lines=len(bl), dw=tot0, share=1.0,
+                      value=(fs0 * tot0 - ojc_bl * ratio) / tot0, note="value = faith share of block dw after reattribution"))
         by_t = _group_by_fast(bl, lambda l: (ftype.get(l["rec"], "unclassified"), l["group"] in fso.FAITH_GROUPS))
         out += [mk("faith_share:block_fine_type", scn, f"{t}|{'faith' if f else 'non_faith'}", category=t,
                    recipients=len({l["rec"] for l in v}), lines=len(v), dw=sum(l["dw"] for l in v),
@@ -338,8 +350,12 @@ def gs_rows(xml: str, pages: Mapping, robots: Sequence[Mapping]) -> list:
 # ----------------------------------------------------------------------------- I/O
 def robots_check(url: str, cache: str, fetch: bool) -> dict:
     host = url.split("/")[2]
-    if not fetch:
-        return {"host": host, "url": f"https://{host}/robots.txt", "result": "not_checked_cache_only", "why": "", "ts": ""}
+    if not fetch:  # cache-only: report the latest logged check for this host
+        logp = os.path.join(cache, "robots-log.tsv")
+        rows = [l.rstrip("\n").split("\t") for l in open(logp, encoding="utf-8")] if os.path.exists(logp) else []
+        last = [r for r in rows if len(r) >= 4 and r[1] == host][-1:]
+        return ({"host": host, "url": f"https://{host}/robots.txt", "result": last[0][3], "why": last[0][2], "ts": last[0][0]}
+                if last else {"host": host, "url": f"https://{host}/robots.txt", "result": "not_checked", "why": "", "ts": ""})
     rp = urllib.robotparser.RobotFileParser()
     ts = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
     try:
