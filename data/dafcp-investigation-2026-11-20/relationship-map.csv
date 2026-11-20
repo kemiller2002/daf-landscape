@@ -1,0 +1,29 @@
+rel_id,organization,org_type,counterpart,relationship_type,status,date,evidence_ids,note
+RM01,Fidelity Charitable,national DAF sponsor,2025 DAF certificate,co-developer ('premier sponsor'),confirmed-formal,2025-01-02,DE020;DE023,Staff spoke at the 2025 event
+RM02,Fidelity Charitable,national DAF sponsor,DAF Forum 2027,Premier Partner,confirmed-formal,2026-11,DE037;DE038,Forum sessions map to DAFCP curriculum
+RM03,Fidelity Charitable,national DAF sponsor,DAFCP,"faculty, funding, endorsement",searched-none-found,2026-11-20,DE034;DE040,"Honor-roll listing ($100,000+) likely donor-recommended grants (DE012)"
+RM04,National Philanthropic Trust,national DAF sponsor,2025 DAF certificate,co-developer,confirmed-formal,2025-01-02,DE020,
+RM05,National Philanthropic Trust,national DAF sponsor,DAF Forum 2027,Premier Partner,confirmed-formal,2026-11,DE037,
+RM06,National Philanthropic Trust,national DAF sponsor,DAFCP,faculty member is a current NPT SVP (Lisa Barr),informal-professional,2026-11-20,DE031;DE073,Individual role; no institutional agreement found
+RM07,Vanguard Charitable,national DAF sponsor,2025 DAF certificate,co-developer,confirmed-formal,2025-01-02,DE020,
+RM08,Vanguard Charitable,national DAF sponsor,DAF Forum 2027,Premier Partner,confirmed-formal,2026-11,DE037,
+RM09,Vanguard Charitable,national DAF sponsor,DAFCP,former COO and former employee on faculty,informal-professional,2026-11-20,DE034,Alumni ties only
+RM10,DAFgiving360 (Schwab Charitable),national DAF sponsor,2025 DAF certificate,co-developer,confirmed-formal,2025-01-02,DE020,
+RM11,DAFgiving360 (Schwab Charitable),national DAF sponsor,DAF Forum 2027,Premier Partner,confirmed-formal,2026-11,DE037,
+RM12,DAFgiving360 (Schwab Charitable),national DAF sponsor,DAFCP,current managing director on faculty; former strategist on faculty; president quoted in launch coverage,informal-professional,2026-11-20,DE032;DE041,
+RM13,Charitable Solutions LLC,DAF administrator (noncash),DAFCP,employs or affiliates 6 of 22 faculty including the programme director,confirmed-formal,2026,DE026;DE027,Formal employment/affiliation of individuals; no College-firm contract found
+RM14,Dechomai Foundation,national DAF sponsor (noncash),DAFCP,administered by Charitable Solutions; founder on faculty,informal-professional,2026,DE028;DE029;DE030,Dechomai paid Charitable Solutions $4.43m in TY2024
+RM15,Charitable Solutions LLC,DAF administrator (noncash),CAP,founder on CAP Advisory Board since 2001,confirmed-formal,2001-2026,DE030,Self-reported on employer page
+RM16,Daylight Advisors,consultancy,2025 DAF certificate,guidance; facilitation,confirmed-formal,2025-01-02,DE020;DE071,Later launched DAFopedia
+RM17,Chariot,DAF payment rail,The College,College accepts DAFpay for its own gifts,confirmed-formal,2026-03-11,DE036,"Vendor use, not a DAFCP tie"
+RM18,Chariot,DAF payment rail,DAFCP,faculty member advises Chariot,informal-professional,undated,DE035,
+RM19,American Endowment Foundation,national DAF sponsor,DAFCP,former AEF adviser on faculty,informal-professional,to 2025,DE033,
+RM20,Ren,DAF technology/administration,College / DAFCP,any,searched-none-found,2026-11-20,DE040,Ren appears at an independent DAF summit instead (DE060)
+RM21,TIFIN Give / GiveClear,DAF platform and sponsor,College / DAFCP,any,searched-none-found,2026-11-20,DE040,
+RM22,Greater Horizons,community foundation DAF sponsor,College / DAFCP,any,searched-none-found,2026-11-20,DE040,
+RM23,Omaha Community Foundation,community foundation,DAFCP; 2025 certificate,faculty member; staff earned 2025 badge,informal-professional,2025-2026,DE023;DE033,
+RM24,Charities Aid Foundation / CAF America,DAF sponsor,DAFCP,self-reported early holders; former CEO on faculty,unverified-possibility,2026,DE062;DE033,Holder claims from search snippets only
+RM25,"Insurers (MassMutual, Penn Mutual, Securian, Guardian, Nationwide, Northwestern Mutual, OneAmerica, Pacific Life Foundation)",insurer / wealth firm,Center for Philanthropy and Social Impact,named partners and funders,confirmed-formal,2026-11,DE011,No DAF-specific earmark found
+RM26,"Wealth firms and broker-dealers (Edward Jones, LPL, Osaic, Cetera, J.P. Morgan)",wealth management,DAFCP,"require, reimburse or endorse",searched-none-found,2026-11-20,DE063,They are College corporate partners generally
+RM27,"Professional bodies (CFP Board, CGP/NAGP, AFP, Council on Foundations, NCFP)",association,DAFCP,"recognition, CE approval, comment",searched-none-found,2026-11-20,DE040;DE070,CFP Board CE value for DAFCP unconfirmed
+RM28,DAF Research Collaborative,research body,DAFCP,programme cites its statistics; co-founder on faculty,informal-professional,2026,DE019;DE033,

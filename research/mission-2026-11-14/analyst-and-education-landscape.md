@@ -317,3 +317,14 @@ Source: [validation-wave22-report.md](validation-wave22-report.md); register `da
 3. **§4.2, after the "Reconciling these" paragraph** (batch 37C proposal 3, validated).
    - **Find:** "following synthesis §A's denominator-substitution warning."
    - **Replace with:** "following synthesis §A's denominator-substitution warning. No probability sample measures DAF holding. The 2022 SCF codebook excludes DAFs from its trust question (X6830 code 10, merged into X6828 in the public file) [batch 37C; V wave 22]."
+
+
+## Pointer: DAFCP investigation (2026-11-20) — not yet validated
+
+The DAFCP rows of §5.1–§5.2 are extended by [research/dafcp-investigation-2026-11-20/](../dafcp-investigation-2026-11-20/00-README.md). Material additions:
+- The 2026 DAFCP succeeds a 2025 certificate that the College developed "in collaboration with four premier sponsors" (Fidelity Charitable, NPT, Vanguard Charitable, DAFgiving360).
+- The 2027 DAF Forum, sponsored by the same four, maps its sessions to the DAFCP curriculum.
+- 10 of the 22 named DAFCP experts currently work at a DAF sponsor or a sponsor's administrator, six of them at Charitable Solutions LLC (Dechomai's administrator), including the programme director.
+- "Legal guardrails" is in Module 1 and OBBBA is in Module 2.
+
+These findings are pending validation. The text above is unchanged.

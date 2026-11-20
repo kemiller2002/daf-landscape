@@ -79,6 +79,18 @@ SPECS = {
         "scenario_id",
         ("scenario", "leading_indicators", "qualitative_confidence"),
         {"qualitative_confidence": CONFIDENCE},
+        "evidence_ids",
+    ),
+    "faculty-affiliations.csv": (
+        "row_id",
+        ("name_as_printed", "current_affiliation", "affiliation_class", "sponsor_tie_status", "tag", "confidence", "evidence_ids"),
+        {"tag": TAGS, "confidence": CONFIDENCE},
+        "evidence_ids",
+    ),
+    "legal-baseline.csv": (
+        "row_id",
+        ("topic", "authority", "status_class", "key_point", "tag"),
+        {"tag": TAGS},
         None,
     ),
     "open-questions.csv": (
