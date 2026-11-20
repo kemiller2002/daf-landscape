@@ -30,7 +30,7 @@ Receiving channel (stage `fetch`, I/O; polite, public pages only)
   Detectors: donor-advised / DAF text; DAFpay/Chariot or DAF Direct widget; sponsor links; wire/ACH; check by
   mail; stock/securities transfer; own EIN shown; grant agreement; fiscal-sponsorship language; giving contact
   e-mail. Channel class (first match): daf_instructions, giving_page_no_daf, giving_contact_only,
-  no_giving_info_found (or robots_* / unreachable).
+  no_giving_info_found (or robots_unreadable / redirects_offsite / unreachable).
 
 Pass-through class (pure; computed from the recipient's own 990s, 2023+2024 pooled)
   fiscal_sponsor        990 text mentions fiscal sponsorship (FISCAL(LY) SPONSOR) at least once
@@ -118,7 +118,7 @@ HAND_SUBTYPE: dict[str, tuple[str, str]] = {
 CHANNEL_NOTES: dict[str, str] = {
     "205806345": "No donate page (/donate etc. 404). Contact page lists general and 'New Project Inquiries' e-mails. FAQ explains fiscal sponsorship; money is raised for projects by funders (newventurefund.org/contact/, /who-we-are/faq/).",
     "473681860": "No donate page. /fiscal-sponsorship: 'Projects raise their own funding, and we ensure those funds are managed responsibly'. Contact page: info@ e-mail for fiscal-sponsorship and general enquiries.",
-    "473522162": "No donate page. Contact form has an 'Partner with Windward' option (not submitted); homepage: 'connect donors ... with projects'.",
+    "473522162": "No donate page. Contact form has a 'Partner with Windward' option (not submitted); homepage: 'connect donors ... with projects'.",
     "815086187": "No donate page. /engage-with-us: partner interest form (General / Impact Partner; not submitted); FAQ: General and Impact Partners commit $50m and $15m over time; 'raised over $4 billion'.",
     "262303250": "No donate page; /support redirects off-site (to an alliancemagazine.org article). /about-us: 'working with over 80 funders'; funder collaboratives (e.g. ARC) by invitation.",
     "831740146": "No donate page. FAQ: 'We partner with individuals and organizations in the U.S. to align on strategy and raise vital resources'. Contact page: web form and media e-mail only.",
@@ -129,7 +129,7 @@ CHANNEL_NOTES: dict[str, str] = {
     "462109112": "brightfunds.org redirects to hello.brightfunds.org (another host; not read): a workplace-giving product site.",
     "850346325": "homewise.org/donate/ exists ('Donate to Homewise ... Contact us to have a conversation'); no payment form or DAF option in the HTML.",
     "870234341": "/donate redirects to a sign-in page on id.churchofjesuschrist.org (not followed: login).",
-    "050620063": "Homepage readable; /work-with-us/, /give and /contact return HTTP 403 to this client (not retried).",
+    "050620063": "robots.txt returned HTTP 200 in a first pass (homepage read; /work-with-us/, /give, /contact gave HTTP 403) and HTTP 403 in the final pass, so the final pass fetched nothing.",
     "821503998": "robots.txt returned HTTP 403: unreadable, so nothing was fetched.",
 }
 
@@ -383,7 +383,20 @@ def scan_site(row: Mapping) -> dict:
             "state": rb["robots_state"]}]
     if rb["robots_state"] == "unreadable":
         return {"ein": ein, "robots_state": "unreadable", "robots_code": rb["robots_code"], "pages": [], "log": log}
-    allowed = lambda u: rb["rp"].can_fetch("*", u)  # noqa: E731
+    hosts = {urllib.parse.urlparse(base).netloc.lower(): rb}
+
+    def rb_of(u):
+        """robots.txt per host actually requested (www and bare hosts are checked separately)."""
+        h = urllib.parse.urlparse(u).netloc.lower()
+        if h not in hosts:
+            hosts[h] = robots_for(f"https://{h}/")
+            log.append({"host": h, "robots_url": hosts[h]["robots_url"], "code": hosts[h]["robots_code"],
+                        "state": hosts[h]["robots_state"]})
+        return hosts[h]
+
+    def allowed(u):
+        r = rb_of(u)
+        return r["robots_state"] != "unreadable" and r["rp"].can_fetch("*", u)
     seen, pages = set(), []
 
     def get(u):
@@ -444,7 +457,7 @@ def stage_fetch(a) -> int:
 
 
 # ============================================================================ report (pure + edges)
-GIVING_PATH = re.compile(r"donat|\bgive\b|giving|ways[-_ ]to|support[-_ ]?us|/support/?$", re.I)
+GIVING_PATH = re.compile(r"donat|\bgive\b|giving|ways[-_ ]to[-_ ]give|support[-_ ]?us|/support/?$", re.I)
 
 
 def channel_class(w: Mapping) -> tuple[str, dict]:
@@ -454,7 +467,8 @@ def channel_class(w: Mapping) -> tuple[str, dict]:
         return ("robots_unreadable" if st == "unreadable" else st), {}
     ok = [p for p in w.get("pages", []) if p.get("code") == 200 and "text_sha" in p]
     if not ok:
-        return "unreachable", {}
+        offsite = [p for p in w.get("pages", []) if p.get("note") == "offsite_redirect_discarded"]
+        return ("redirects_offsite", {"evidence_url": offsite[0]["final"][:200]}) if offsite else ("unreachable", {})
     home = ok[0]
     agg = {k: any(p.get(k) for p in ok) for k in ("daf_text", "daf_widget", "sponsor_link", "wire_ach", "check_mail",
                                                   "stock", "grant_agreement", "fiscal_sponsor", "pooled_fund_terms", "own_ein_shown", "tax_id_label")}
