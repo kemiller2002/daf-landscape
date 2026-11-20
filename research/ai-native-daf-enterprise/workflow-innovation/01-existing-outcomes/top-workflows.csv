@@ -1,0 +1,11 @@
+workflow_id,name,parent_outcomes,parent_workflows,evidence_ids,evidence_strength,inefficiency_type,cost_bearer
+W1,Recipient verification and eligibility,O-06;O-07;O-15,WF-05;WF-09,EV-136;EV-079;EV-135,medium (within sponsor); pending (cross-sponsor overlap harvest),repeated work per transaction and per sponsor,sponsor
+W2,Non-routine grant review,O-06;O-07;O-08,WF-07;WF-08;WF-06,EV-080;EV-079;EV-081,medium-high volume; no minutes data (GAP-001),reusable determinations redone,sponsor
+W3,Disbursement remittance and recipient reconciliation,O-06;O-15;O-05,WF-05;WF-10,EV-086;EV-031;EV-052;EV-053,medium-high,cost shifted to nonprofit,nonprofit
+W4,Complex noncash contribution acceptance and liquidation,O-01;O-04,WF-03;WF-04,b40n14-03 noncash vendors;twin outputs,medium complexity; no volume data,bespoke per-asset diligence,sponsor and donor
+W5,Donor and advisor servicing,O-09;O-16,WF-16,direction-sponsor-accessibility-service;gap19-complaints-with-denominators,low-medium,state not shared,sponsor and donor
+W6,Sponsor-to-sponsor transfers and portability,O-16,WF-15,EV-121;EV-016,medium-high,incentive-protected friction,donor
+W7,Advisor channel integration,O-02;O-09;O-14,WF-13,EV-122;EV-123,medium,bespoke pairwise integration; re-keying,advisor and sponsor
+W8,System-of-record migration,O-05;O-16;O-11,—,EV-037;EV-119,medium,no standard record; one-off projects,sponsor and donor
+W9,Dormant capital and inactivity,O-13;O-16,WF-16,EV-015;EV-014,medium-high outcome; mechanism unknown,asset-fee incentive; no activation mechanism,charitable class
+W10,Compliance evidence audit filings registration,O-07;O-10;O-12,WF-20;WF-21;WF-24,EV-076;b50-02-state-registration,low-medium,after-the-fact reconstruction,sponsor
