@@ -159,7 +159,7 @@ Queue items covered: P-PAY-01 and P-QCAL-03 (Fidelity Charitable), P-NPT-04 (Cha
 - **Scale of the US foundation.**
   - Repo file `data/mission-2026-11-14/non-dafrc-daf-filers-990.csv` already holds EIN 873165286 ("PERCENT IMPACT FOUNDATION", tax period 202412). It shows Schedule D: **7,268 DAFs, $2,945,016 contributions, $1,210,123 grants, $1,812,959 year-end value, total assets $1,984,371** [F, IRS XML via repo].
   - ProPublica now names the same EIN "Goodstack Impact Foundation Us" (ruling 2022-11, NTEE T12). Its CY2023 filing shows revenue of $268,231 ([ProPublica](https://projects.propublica.org/nonprofits/organizations/873165286)) [F].
-- [I] Goodstack is therefore a small US DAF sponsor and an eligibility vendor at once. That is the same dual role as Chariot (DAFpay Network) and Every.org. For the A5 score, the execution evidence is large-scale corporate verification. Its DAF operation is minor in dollar terms.
+- [I] Goodstack is therefore a small US DAF sponsor and an eligibility vendor at once. That is the same dual role as Every.org. Chariot’s DAFpay Network is not a comparable DAF sponsor: its mission text says it sponsors DAFs, but it answers Part IV line 6 “No”, files no Schedule D and regrants DAF grants it receives (b40n14-03-b38c-03 §3) [b38c-03] [V wave 41A] For the A5 score, the execution evidence is large-scale corporate verification. Its DAF operation is minor in dollar terms.
 
 ---
 

@@ -1,0 +1,59 @@
+{
+  "vector_id": "neg-09-paid-without-paid-date",
+  "description": "Status paid with a payment_reference that lacks paid_date",
+  "expect": "invalid",
+  "schema": "../schema-v0.1.json",
+  "status_label": "draft, unendorsed",
+  "derived_from": "pos-04-synthetic-paid-check (record, mutated)",
+  "mutations": [
+    {
+      "record_path": "/payment_reference/paid_date",
+      "value": "<deleted>"
+    }
+  ],
+  "expected_errors": [
+    {
+      "instance_path": "/payment_reference",
+      "keyword": "required"
+    }
+  ],
+  "record": {
+    "schema_version": "0.1",
+    "grant_id": "US-EIN-000000000:G-0001",
+    "sponsor_id": "US-EIN-000000000",
+    "fund_id": "F-0001",
+    "recipient": {
+      "ein": "000000000"
+    },
+    "amount": {
+      "value": "100.00",
+      "currency": "USD"
+    },
+    "purpose": {
+      "codes": [
+        {
+          "vocabulary": "PCS",
+          "facet": "subject",
+          "code": "SC020000",
+          "label": "Climate change"
+        },
+        {
+          "vocabulary": "PCS",
+          "facet": "support_strategy",
+          "code": "UA0000",
+          "label": "General support"
+        }
+      ]
+    },
+    "anonymity": "anonymous",
+    "status": "paid",
+    "payment_reference": {
+      "rail": "check",
+      "reference": "000000"
+    },
+    "dates": {
+      "recommended_at": "2026-01-01T00:00:00Z",
+      "approved_at": "2026-01-01T12:00:00Z"
+    }
+  }
+}

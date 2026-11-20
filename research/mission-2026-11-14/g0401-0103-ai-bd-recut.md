@@ -72,7 +72,7 @@ The other evidence gives one side only:
 1. **Assistance (the calibrated C) still wins no process.** Its rank-first probability rises sevenfold to twentyfold, from 0.2% to 1.5–4.3%, but C is the most likely winner in **no process at any archetype** under any B/D variant on CAL_CENTRAL.
 2. **What replaces B and D is manual improvement (A), not AI.**
    - When B is cut to the RPA-audit realization range and D to the same range by analogy [I] (BD_FIELD), A becomes the modal gross winner in 6 of 15 processes at a large national (P01, P03, P07, P08, P13, P14). [V wave 37C]
-   - A's α ~ U(0.05, 0.25) is also an uncalibrated v1 prior.
+   - A's α ~ U(0.05, 0.25) is also an uncalibrated v1 prior. g0403-01 found no 2021+ audit of realized labour savings from a manual fix. One self-report (IOPC, about 0.25 per unit) and one peer-reviewed management study (Fenizia 2022, 0.065–0.091) bracket α without narrowing it. Mapping NAO manual-casework throughput realization onto A as r_A ~ tri(0.475, 1.0, 1.2) [I] leaves A modal in the same 6 processes with assistance (g0403-01 §3) [V wave 41C]
    - Only when the same realization range is applied to A as well (ABD_FIELD) does C under routing become the modal winner. That happens in P03 and P07 with the routing-note ranges, and in P03, P07, P11, P13 and P14 with the A01 ranges at m = 1.
 3. **Routing with the A01 ranges is the variant that changes the ranking**, and at V1 priors it already flips P03 to C.
    - With B and D recut (BD_FIELD), C is modal in P03, P07 and P11 at a large national, and in 4–5 processes at community-foundation archetypes.
@@ -292,8 +292,8 @@ All strings are from the CSV rows `modal_winners_gross_P01_P15`.
 ### 4.2 Why A matters
 
 - Cutting only B and D hands most processes to A (P(A first) rises from 0.07 to 0.39 under assistance).
-- That outcome tests A's prior, not AI. α ~ U(0.05, 0.25) has no source.
-- ABD_FIELD applies the same realization range to A. It is the closest available "same standard for every option" case, and it is also [I] (P-G0403-01).
+- That outcome tests A's prior, not AI. α ~ U(0.05, 0.25) has no source. g0403-01 holds A to throughput realization from two NAO casework audits [I]: with assistance A still takes 94% of what B and D lose. With A01 routing at m = 1.77, C is modal in 5 processes and A in 1. If α is set to the peer-reviewed level, A is modal in at most 1 process. The r_A evidence is throughput against plan, not realized labour savings [V wave 41C]
+- ABD_FIELD applies the same realization range to A. It is the closest available "same standard for every option" case, and it is also [I] (P-G0403-01). g0403-01 retains it as a lower-bound stress test (A_RPA_ANALOGY) because the RPA range is a technology-programme realization [V wave 41C]
 
 ### 4.3 Value pools and break-even
 

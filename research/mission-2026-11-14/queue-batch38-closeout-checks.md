@@ -149,7 +149,7 @@
 | Filing | 990-N (< $50k receipts) | 990, filed 2025-03-13 ([XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202510729349301206_public.xml)) | 990, ReturnTs 2026-05-18T19:51:48-06:00 (XML public in IRS TEOS `2026_TEOS_XML_05B`; not in the S3 mirror at 2026-11-19) [V wave 37B] |
 | Contributions | — | $1,199,247 | $2,941,073 |
 | Program-service revenue | — | **$0** | $0 |
-| Grants paid | — | $831,404 (largest: Chai Lifeline $372,832; Effective Ventures Foundation $155,818) | n/a in summary |
+| Grants paid | — | $831,404 (largest: Chai Lifeline $372,832; Effective Ventures Foundation $155,818) | $2,178,671 (TY2025 XML, Part IX line 1; 104 Schedule I lines totalling $1,324,158) [b38c-03] [V wave 41A] |
 | Fees for services (other) | — | $18,345 | $88,736 (TY2025 XML, IRS TEOS `2026_TEOS_XML_05B`) [V wave 37B] |
 | Self-description | — | "THE CHARITY OPERATES AS A SPONSOR TO DONOR ADVISED FUNDS…" | — |
 | Location / officers | — | Boone, IA. Unpaid directors: Salomon Serfati (principal officer), Yitzhak Moshe Bengualid Goldstein, Laivi Forta | same |
@@ -161,7 +161,7 @@ Source: [ProPublica organization page](https://projects.propublica.org/nonprofit
 - **The metric is probably dollars, not gifts.** The sentence ties fee-free use to "large nonprofits". Pan-Mass Challenge alone passed $5m of DAFpay in a calendar year (Chariot year-in-review, [R]), so a few large subscribers can dominate dollar volume. This is not confirmed.
 - **DPN's 990 cannot bound the fee-bearing share:**
   - In TY2024 it books no program-service revenue and only $18k of other fees (1.53% of contributions). The TY2025 return revises this. Its XML is public in IRS TEOS `2026_TEOS_XML_05B` and was read in wave 37B. DPN records contributions gross ($2,941,073) and books $88,736 of “fees for services – other” (3.02%). The 2.9% on DPN-routed gifts therefore appears as an unnamed DPN expense, not netted before receipt. TY2024's 1.53% remains unexplained [V wave 37B]
-  - DPN carries only unclaimed-nonprofit and five named Jewish-giving-platform flows, about $1.2m in TY2024 and $2.9m in TY2025.
+  - DPN carries only unclaimed-nonprofit and five named Jewish-giving-platform flows, about $1.2m in TY2024 and $2.9m in TY2025. On DPN’s own description these are DAF grants that it receives and regrants. It answers Part IV line 6 “No” and files no Schedule D, so its flows belong in neither sponsor nor processor totals; adding them would double-count sponsor grants (b40n14-03-b38c-03 §3) [b38c-03] [V wave 41A]
   - Upper bound on fees on that slice, if all of it bore 2.9% grossed on receipt: about $36k (TY2024) and $88k (TY2025) [I].
 - **Change over time:** not traceable. Wayback could not be reached, and GitBook page history is not public. The text is unchanged between batch 36C (2026-11-14/15) and this read.
 
@@ -312,7 +312,7 @@ None of these IDs returned a listing: Vanguard Charitable, DAFgiving360/Schwab, 
   - No platform-wide 2025 DAFpay dollar total is public.
   - Chariot's [DAFpay page](https://givechariot.com/dafpay.md) carries "DAFpay volume grew 46% in 2025 to over $5 million" next to a customer CFO quote. Read as one customer's figure [I], since one nonprofit (PMC) passed $5m on its own [R].
   - No sponsor policy on donor-covered fees was found (unchanged).
-  - The only audited slice is DPN (§4).
+  - DPN is the only slice with a public 990 (§4). That 990 is not audited: `FSAuditedInd` is false or 0 in TY2024 and TY2025 (wave 37B) [b38c-03] [V wave 41A]
 - **P-CON-08:**
   - Public term structures are in [`vendor-data-rights-matrix.csv`](../../data/mission-2026-11-14/vendor-data-rights-matrix.csv). Ren and RCF: 1-year renewals, 60-day notice. Ren iPhi: 12-month auto-renew, notice drafted "thirty (60) days". NPact: 3-year initial term, 1-year renewals, 90-day notice (§8.1). TIFIN, Foundation Source, Foundant, Blackbaud, Chariot, Givinga: not public.
   - Sponsor go-live dates exist for 8 migration events in [`cf-vendor-migrations-2022-2026.csv`](../../data/mission-2026-11-14/cf-vendor-migrations-2022-2026.csv) (Foundant 2023–2026; akoyaGO undated).
@@ -336,7 +336,7 @@ None of these IDs returned a listing: Vanguard Charitable, DAFgiving360/Schwab, 
 
 - **The Google Play sample is Google-selected** (the "most relevant" subset on the details page). Counts describe that subset, not app-wide frequencies.
 - **Faculty employers** come only from College pages. LinkedIn and employer sites were excluded by the item's rule, apart from batch 37C's NPT note.
-- **DPN TY2025** comes from ProPublica's summary only, since its XML is not yet mirrored.
+- **DPN TY2025** was first read from ProPublica’s summary. Its XML is public in IRS TEOS `2026_TEOS_XML_05B` and was read in wave 37B and in b40n14-03-b38c-03; it was still not on the GivingTuesday mirror on 2026-11-20 [b38c-03] [V wave 41A]
 - **Wayback** was unreachable, so no time series of Chariot pages was possible.
 - **AI scenario** values use v2 p50 values. They are illustrations, not new estimates.
 

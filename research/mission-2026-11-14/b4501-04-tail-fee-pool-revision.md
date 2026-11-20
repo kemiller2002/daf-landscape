@@ -238,7 +238,7 @@ Its admin-fee pool is small: about $138m a year if the whole tail charged like t
 ```
    - **Replace with:**
 ```text
-   - The tail's entire admin-fee pool is about **$138m a year** if every tail sponsor applied the median published tail-CF schedule at its own average account, within about **$76m–$184m**. The low end has only CFs charging, at the lowest non-zero published schedule (Hutchinson, 125 bps); the high end has the whole tail at the highest (2%). If only CFs charge, the central figure is about $90m. The earlier $92m applied the top-100 CF median (100 bps). The range rests on 6 CF schedules (7 with Cal Poly Pomona) from a 60-sponsor sample in which 11.7% publish a rate, and one publisher charges no admin fee, so the data do not bound the pool away from zero ([b4501-04-tail-fee-pool-revision.md](b4501-04-tail-fee-pool-revision.md)) [C on those assumptions] [b4501-04]
+   - The tail's entire admin-fee pool is about **$138m a year** if every tail sponsor applied the median published tail-CF schedule at its own average account, within about **$76m–$184m**. The low end has only CFs charging, at the lowest non-zero published schedule (Hutchinson, 125 bps); the high end has the whole tail at the highest (2%). If only CFs charge, the central figure is about $90m. The earlier $92m applied the top-100 CF median (100 bps). The range rests on 6 CF schedules (7 with Cal Poly Pomona) from a 60-sponsor sample in which 11.7% publish a rate, and one publisher charges no admin fee ([b4501-04-tail-fee-pool-revision.md](b4501-04-tail-fee-pool-revision.md)) [C on those assumptions] [b4501-04]. Non-publishing tail CFs do charge: 7 of 25 sampled disclose internal fees at a realised 70–129 bps of total assets (FY2022–24). Those all-fund rates applied to tail CF DAF assets give about $63m ($10.7m–$79.0m), a floor-type figure that bounds the CF pool away from zero. The non-CF part ($3.08bn) is untested (b4427b-b4501 §3) [V wave 41B]
 ```
 
 ### `research/mission-2026-11-14/strategic-synthesis.md`
@@ -250,7 +250,7 @@ At the 100 bps CF median, their whole admin-fee pool would be about $92m a year 
 ```
    - **Replace with:**
 ```text
-Their whole admin-fee pool is about $138m a year if every tail sponsor charged like the median published tail CF (150 bps at $100k), within about $76m–$184m, or about $90m if only CFs charge. That rests on 6–7 published schedules: only 11.7% of 60 sampled tail sponsors publish a rate (wave 30; [b4501-04-tail-fee-pool-revision.md](b4501-04-tail-fee-pool-revision.md)) [C on those assumptions] [b4501-04]
+Their whole admin-fee pool is about $138m a year if every tail sponsor charged like the median published tail CF (150 bps at $100k), within about $76m–$184m, or about $90m if only CFs charge. That rests on 6–7 published schedules: only 11.7% of 60 sampled tail sponsors publish a rate (wave 30; [b4501-04-tail-fee-pool-revision.md](b4501-04-tail-fee-pool-revision.md)) [C on those assumptions] [b4501-04]. Realised internal fees at 8 tail CFs (70–129 bps of total assets, FY2022–24) give about $63m on tail CF DAF assets as a floor-type figure; the whole-tail $138m still rests on untested non-CF charging (b4427b-b4501 §3) [V wave 41B]
 ```
 
 ### `research/mission-2026-11-14/b45n33-long-tail-operating-cost.md`

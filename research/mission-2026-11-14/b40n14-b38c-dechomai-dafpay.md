@@ -317,7 +317,7 @@ Schedule O (TY2025) has three entries: two boilerplate lines (Form 990 and docum
   - Cash-basis accounting, no audit or review.
   - Preparer field: "AT&F International INC" (TY2025), "JK ANF LLC" (TY2024).
 - **Website** ([dafpaynetwork.org](https://www.dafpaynetwork.org/), read 2026-11-19): "DAFpay Network is a 501(c)3 nonprofit organization that facilitates safe, easy and fast charitable donations between Donor Advised Funds (DAFs) and the 1.5 million 501(c)3) nonprofit organizations… We enable nonprofits to easily receive more DAF gifts powering dedicated DAF fundraising solutions from Chariot."
-- **Conclusion** [I]: legally, DPN describes itself as a sponsor that takes title. In practice it acts as a pass-through facilitator for Chariot, and its own Part IV answers say it holds no DAFs.
+- **Conclusion** [I]: legally, DPN describes itself as a sponsor that takes title. In practice it acts as a pass-through facilitator for Chariot, and its own Part IV answers say it holds no DAFs. For market totals DPN belongs in neither sponsor nor processor totals. It files no Schedule D, so DAFRC’s Schedule D Part I selection rule never admits it, and its $1,199,247 (TY2024) and $2,941,073 (TY2025) of contributions are, on DPN’s own description, grants from DAF sponsors that are already counted in those sponsors’ grants out (Schedule B names are redacted, so this is not confirmed donor by donor). It is reported only as an intermediary memo line (b40n14-03-b38c-03 §3) [b38c-03] [V wave 41A]
 
 ---
 

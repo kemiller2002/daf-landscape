@@ -8,7 +8,31 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #63) — governing
+## Counts (refresh 2026-11-20, through PR #64) — governing
+
+These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #64 merged. They supersede the tables below. The PR #64 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#64 (45 PRs) | GitHub |
+| Research documents | 341 documents, 1,295,968 words | `research/**/*.md` |
+| Datasets | 644 CSV files, 406,312 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,066 | regex over `research/**/*.md` |
+| Independent validation | **1,896 register rows** in 63 register files (waves 1–41C): 1,359 confirmed, 435 partially confirmed, 77 contradicted, 18 unverifiable, 7 other | `validation-register*.csv`, classified by the leading word of `validation_result` |
+| Research queue | 841 items: 394 done, 316 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.56 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+| Standards | `standards/daf-grant-record/` schema v0.1 (draft, unendorsed) with 24 test vectors | `scripts/mission_validate_grant_record.py` |
+
+**Additions in PR #64 (validated; report §11.54–§11.56):**
+- **Open DAF grant record.** Published as a draft, unendorsed JSON Schema with 24 test vectors that pass. The purpose vocabulary is Candid PCS, which is CC BY 4.0, capped at 5 codes per facet.
+- **Non-cash intake vendors.** Their claims far exceed what the affiliated charities file. FreeWill pays at most about 1,000 organisations against its claim of 55,000. The Giving Block's figures contradict each other.
+- **DPN.** Counted in neither the sponsor nor the processor totals; it appears as a memo line.
+- **Filing-break screen.** Only two breaks above $250m: NPT FY2023 and Dechomai FY2021. As a sensitivity only, FY2023 would be $261.69bn and FY2021 $234.79bn.
+- **Tail fees.** Non-publishing tail community foundations do charge, at about 70–129 bps all-fund, with size a confound. The community-foundation pool is about $63–90m. The non-CF step is untested.
+- **Recipient DAF share, coverage gap decomposed.** Central estimate 9.2% of line 1h and 13.7% of 1h−1d−1e. The assumption range is 8.8–9.4% and 13.2–14.1%.
+- **Manual improvement (A), calibrated to the NAO casework evidence [I].** Under AI assistance, A is still the modal choice in 6 of 15 processes. Under A01 routing at m ≈ 1.8, AI is modal in 5 processes and A in 1.
+
+## Counts (refresh 2026-11-20, through PR #63) (superseded by the table above)
 
 Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #63 merged. These counts supersede the tables below. The PR #63 description records the head SHA.
 
@@ -27,7 +51,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 - **DAF grant schema and processor accounts.**
   - Chariot and Endaoment carry all 8 core grant-record fields. Form 990 requires only the recipient EIN in full.
   - Processors are 76.7% of corrected FY2024 accounts. With all 22 processors removed, sponsor accounts are about 770,785.
-- **Non-top-50 numerator.** Measured directly, the all-sponsor DAF share of recipient contributions is 8.4–9.9% on line 1h and 12.6–14.8% on 1h−1d−1e. The like-for-like overstatement from the earlier scaling is only about 0.4 percentage points.
+- **Non-top-50 numerator.** Measured directly, the all-sponsor DAF share of recipient contributions is 8.4–9.9% on line 1h and 12.6–14.8% on 1h−1d−1e. Allocating the coverage gap by component replaces the ÷ 0.849 upper figures with a central 9.2% and 13.7%. The assumption envelope is about 8.8–9.4% and 13.2–14.1%, and the sampling CI 8.3–10.2% and 12.3–15.2%. The 8.4% and 12.6% floors stand as measured-only figures (b40n120201-01) [V wave 41B] The like-for-like overstatement from the earlier scaling is only about 0.4 percentage points.
 - **Canada follow-ups.**
   - Sponsors' gifts to public foundations go mostly to hospitals and federations; the middle netting tier is about 12.0%.
   - The Schedule 8 gap follows the answer to line 5850. JCF Montreal meets the quota.
@@ -115,7 +139,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 - **DAFpay Network TY2025.** "Other fees" are 3.0% of contributions and are booked as an expense. The return is not audited.
 - **Canada.** The CRA T3010 panel reproduces Blumberg & Pasha: C$18.60bn at 864 sponsors in the 2025 release. Counting blank disbursement lines as zero, the median payout is 4–5%.
 - **Australia.** The 6% giving-fund minimum has been decided but was not registered as of 2026-11-19. Only the rename to "giving fund" has commenced.
-- **AI economics.** With B and D held to C's evidence standard, AI assistance still wins no process, and the processes B and D lose go to manual improvement, whose α is unsourced. The bound E15 implies is a miss rate of at most 0.39% per auto-closed alert, not 0.10.
+- **AI economics.** With B and D held to C's evidence standard, AI assistance still wins no process, and the processes B and D lose go to manual improvement, whose α is unsourced. Holding A to NAO manual-casework throughput realization [I] (g0403-01) keeps A modal in 6 of 15 processes with assistance; with A01 routing at m = 1.77, C is modal in 5 and A in 1. No audit of realized labour savings from a manual fix was found [V wave 41C] The bound E15 implies is a miss rate of at most 0.39% per auto-closed alert, not 0.10.
 
 ## Counts (refresh 2026-11-19, through PR #59) (superseded by the table above)
 
@@ -158,7 +182,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 | Industry report | §11.1–§11.38 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
 
 **Additions in PR #58 (validated; report §11.36–§11.38):**
-- **Tail admin-fee pool.** CFs-only central estimate is about $90m. The whole-tail figure of about $138m is an upper bracket, with a range of $76m–$184m, replacing the $92m hypothetical.
+- **Tail admin-fee pool.** CFs-only central estimate is about $90m. The whole-tail figure of about $138m is an upper bracket, with a range of $76m–$184m, replacing the $92m hypothetical. Non-publishing tail CFs do charge (7 of 25 sampled disclose internal fees at 70–129 bps of total assets), giving a floor-type CF pool of about $63m; non-CF charging is untested [V wave 41B]
 - **Schedule I purpose text cannot measure donor restrictions.** About half of dollars carry generic text, about half carry sector labels, and about 1–2% have a specific purpose.
 - **Ren acknowledgement defaults track guide vintage.** The evidence shows neither a sponsor setting nor a platform limit.
 - **Adviser-managed assets.** The share is 46.9% at Fidelity Charitable and 0% at Vanguard. DAFgiving360 is only bracketed and NPT cannot be estimated.
@@ -183,9 +207,9 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 
 **Additions in PR #57 (validated; report §11.34–§11.35, synthesis §0 wave 34S):**
 - **Synthesis §0 validated.** No figures were wrong. 14 wording and scope corrections were applied, including that the review-need proxy is an indicator, not a bound, and that the staff-cost gap is about 3.5–9×.
-- **NPT FY2023 Schedule D is understated.** NPT's consolidated statements give net assets of $28.51bn. The filed value stays in the headline series, and a sensitivity variant shows FY2023 market assets of $261.44bn. All top-50 imputed FY2024 rows had already been replaced, and the headline totals are unchanged.
+- **NPT FY2023 Schedule D is understated.** NPT's consolidated statements give net assets of $28.51bn. The filed value stays in the headline series, and a sensitivity variant shows FY2023 market assets of $261.44bn ($261.69bn at the DAF roll-forward midpoint; FY2023→24 growth 23.5% rather than 26.1%). A screen of all 4,633 testable sponsor-years FY2021–24 finds one other filed break above $250m: Dechomai Asset Trust FY2021 ($267.7m filed against $1,148.1m of net assets). Its roll-forward midpoint would add $774.0m, giving an FY2021 market of $234.79bn rather than $234.01bn. Its overlap with Dechomai Foundation is untested, and the headline keeps filed values (b4427b-b4501 §2) [V wave 41B] All top-50 imputed FY2024 rows had already been replaced, and the headline totals are unchanged.
 - **Donor-information defaults at the top-20 sponsors.** Neither "withheld by default" nor "shared by default" holds as a rule. Full contact is the documented default for 33.2% of assets and withholding for 17.2%; the default is undocumented for 44.6%.
-- **DAF share of recipient giving.** On the private-giving proxy (1h − 1d − 1e), top-50 DAF grants are a median 7.7% and a pooled 10.3%; with every itemising panel sponsor measured, the pooled share is 12.6% on the same recipients and 12.1% adding recipients with no top-50 grant (floors; the scaled 15.4% is superseded) [V wave 40B] 76.5–76.9% of top-50 DAF dollars go to recipients eligible for a Charity Navigator rating.
+- **DAF share of recipient giving.** On the private-giving proxy (1h − 1d − 1e), top-50 DAF grants are a median 7.7% and a pooled 10.3%; with every itemising panel sponsor measured, the pooled share is 12.6% on the same recipients and 12.1% adding recipients with no top-50 grant (floors; the scaled 15.4% is superseded) [V wave 40B]. With the coverage gap allocated by component, the committed-frame central figure is 13.7% (assumption envelope about 13.2–14.1%; CI 12.3–15.2%) [V wave 41B] 76.5–76.9% of top-50 DAF dollars go to recipients eligible for a Charity Navigator rating.
 - **Long-tail fee census.** 7 of 60 sampled tail sponsors (11.7%) publish a 2021+ admin rate. Tail community foundations that do publish charge a median 150 bps at $100k.
 
 ## Counts (refresh 2026-11-19, through PR #56) (superseded by the table above)

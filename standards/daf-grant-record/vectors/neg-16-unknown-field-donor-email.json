@@ -1,0 +1,59 @@
+{
+  "vector_id": "neg-16-unknown-field-donor-email",
+  "description": "Unknown top-level field carrying donor contact data",
+  "expect": "invalid",
+  "schema": "../schema-v0.1.json",
+  "status_label": "draft, unendorsed",
+  "derived_from": "pos-01-chariot-create-grant (record, mutated)",
+  "mutations": [
+    {
+      "record_path": "/donor_email",
+      "value": "dana@example.com"
+    }
+  ],
+  "expected_errors": [
+    {
+      "instance_path": "",
+      "keyword": "additionalProperties"
+    }
+  ],
+  "record": {
+    "schema_version": "0.1",
+    "grant_id": "grant_3kd02",
+    "fund_id": "fund_a91x",
+    "recipient": {
+      "ein": "133441466",
+      "alternative_id": {
+        "scheme": "x-sponsor-org-id",
+        "id": "org_77fq"
+      }
+    },
+    "amount": {
+      "value": "250.00",
+      "currency": "USD"
+    },
+    "purpose": {
+      "codes": [
+        {
+          "vocabulary": "PCS",
+          "facet": "support_strategy",
+          "code": "UA0000",
+          "label": "General support"
+        }
+      ],
+      "text": "Wherever needed most"
+    },
+    "anonymity": "full_contact",
+    "status": "pending",
+    "external_ids": [
+      {
+        "system": "chariot-dafpay",
+        "id": "grant_req_01jpjenf5q6cawy43yxfcrxhct"
+      }
+    ],
+    "dates": {
+      "recommended_at": "2026-06-10T14:30:00Z"
+    },
+    "donor_email": "dana@example.com"
+  }
+}
