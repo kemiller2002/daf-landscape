@@ -204,10 +204,7 @@ def apportion(lines: Sequence[Mapping], shares: Mapping, basis: str) -> float:
 def tally_ext(keys: Sequence, screened: Mapping, fl: Mapping, d2d: Mapping, fpart: Mapping) -> dict:
     t = reduce(mel.add, ({**mel.tally((r["amount"], f, dd) for r, f, dd in zip(screened[k], fl[k], d2d[k])), **fpart[k]}
                          for k in keys), {})
-    s = mel.shares({**t, "d2d_usd": sum(r["amount"] for k in keys for r, dd in zip(screened[k], d2d[k]) if dd),
-                    **{c: t.get(c, 0) for c in ("recent_ruling_after_period_end_lines", "recent_ruling_after_period_end_usd",
-                                                "fiscal_sponsor_listed_usd", "irc_text_not_c3_usd", "er_required_lines",
-                                                "er_required_usd", "pof_only_lines", "pof_only_usd")}})
+    s = mel.shares(t)
     return {k: s[k] for k in ("denom_lines", "denom_usd", "fiscal_sponsor_name_lines", "fiscal_sponsor_name_usd",
                               "fiscal_sponsor_name_count_share", "fiscal_sponsor_name_usd_share", "any_core_lines",
                               "any_core_usd", "any_core_count_share", "any_core_usd_share", "any_lines", "any_usd",
@@ -267,8 +264,9 @@ def fy2025_returns(index_rows: Iterable[Mapping], eins: frozenset) -> dict:
 
 # ----------------------------------------------------------------------------- loaders (I/O)
 def xml_index(dirs: Sequence[str]) -> dict:
-    return reduce(lambda acc, p: {**{os.path.basename(p).replace("_public", "")[:-4]: p}, **acc},
-                  (p for d in dirs for p in sorted(glob.glob(os.path.join(d, "*.xml")))), {})
+    found = tuple((os.path.basename(p).replace("_public", "")[:-4], p)
+                  for d in dirs for p in sorted(glob.glob(os.path.join(d, "*.xml"))))
+    return dict(reversed(found))   # first directory listed wins
 
 
 def open_xml(oid: str, paths: Mapping, fetch: bool):

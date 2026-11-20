@@ -56,7 +56,7 @@ Script output for the 24 commercial cells: permitted 1, prohibited 5, requires-l
    - *Silent* means no clause addresses the use. The CSV adds `express_clause` (yes/no), so a requires-licence cell that rests on a general clause, such as Candid (c), stays distinguishable.
 4. **Quote check.** Every [F] quote in the CSV and the notes was matched verbatim, after whitespace and quote-mark normalisation, against the fetched text. All matched. The two [C] quotes come from the repo.
 5. **Computation.** `python3 scripts/mission_b43n26_03_terms_matrix.py .` checks the schema, vocabulary and a complete 7 × 4 grid (0 errors) and prints the tallies used here.
-6. **Repo links.** We searched research/ for "MCP", "Candid" and "Charity Navigator" (MCP: 30+ files; Candid: 128 files; Charity Navigator: 19 files). §5 uses the relevant ones.
+6. **Repo links.** We searched research/ for "MCP", "Candid" and "Charity Navigator" (files matching: MCP 49, Candid 128, Charity Navigator 19). §5 uses the relevant ones.
 
 ### 1.1 Robots log (per host, 2026-11-20 UTC)
 
