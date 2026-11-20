@@ -57,12 +57,12 @@
 4. **Excess-benefit transactions are rare and disclosed [F].**
    - Two of 150 sponsors answer "Yes" to Part IV 25a: National Philanthropic Trust (TY2022–2024) and Servant Foundation (TY2022).
    - **NPT's** Schedule L describes de minimis compensation that a third-party investment manager paid to financial advisers connected to DAFs. In TY2024 it was $131.58 for one adviser. NPT reports it as corrected, with repayment plus interest. The section 4958 tax reported on Schedule L line 2 is $439, $473 and $34 for TY2022–2024.
-   - **Servant Foundation** reports two donor-advisor transactions "subject to the tax pursuant to IRC section 4958(c)(2)", with $6,494 of tax reported.
+   - **Servant Foundation** reports two donor-advisor transactions "subject to the tax pursuant to IRC section 4958(c)(2)", with $6,494 of tax reported. Both Part I rows are filed with “transaction corrected” = No. [V wave 49A]
 5. **Schedule L [F].**
    - 20 of 150 sponsors (11 top-50, 9 sampled) filed Schedule L in at least one year, giving 138 rows.
    - **At commercially affiliated nationals, the large items are the founder's administration contracts:**
      - DAFgiving360 with Charles Schwab & Co: $11.4m in TY2024;
-     - Renaissance: $19.2m;
+     - Renaissance: $19.2m, paid to Renaissance Administration LLC; the filed relationship is a shared officer (“An officer of RCF is also an officer of Renaissance Administration LLC”), not the founder; [V wave 49A]
      - Raymond James: $14.5m;
      - Vanguard Charitable: $4.0m;
      - US Charitable Gift Trust with three Eaton Vance entities: $7.7m in TY2022.
@@ -409,7 +409,7 @@ The `comparison` rows cover the top 50 and use TY2024.
    - Text is truncated to 700 characters in extracts and 900 in the CSV.
 6. **Schedule L categories:**
    - Relationship and transaction categories come from keyword rules [I] and can misclassify. For example, the US Charitable Gift Trust rows say only "See Part V below" and are `other_or_unstated`.
-   - Names are masked unless the filer typed an organisation name (an org word such as INC, LLC, CO or GROUP appears and no person cue appears). A few business names, such as a law firm named after its partners, are therefore masked.
+   - Names are masked unless the filer typed an organisation name (an org word such as INC, LLC, CO or GROUP appears and no person cue appears). A few business names, such as a law firm named after its partners, are therefore masked. Organisation names that filers typed into Schedule L’s person-name field are also masked and labelled `individual`: the validator found 18 such Part I–IV rows (for example The Vanguard Group Inc, Renaissance Administration LLC and Raymond James Trust NA), so `sl_name_type = individual` overstates rows about natural persons. No natural person’s name appears in the CSV or this note. [V wave 49A]
    - Loan amounts are original principal and repeat across years. Do not sum them across years.
 7. **University and federation filers:** Stanford and UCLA Foundation answer for the whole institution, not a DAF programme.
 8. **Index vintage:** the index_2026 copy is from 2026-11-15. Late-filed or amended TY2024 returns after that date are not included.
@@ -476,7 +476,7 @@ The `record_type` column separates five row kinds.
 | Column | Meaning |
 |---|---|
 | `sl_part` | I_excess_benefit / II_loans / III_grants_assistance / IV_business_tr |
-| `sl_name`, `sl_name_type` | Organisation name as filed, or `[individual]` (also when a person's name was typed in the business-name field) |
+| `sl_name`, `sl_name_type` | Organisation name as filed, or `[individual]` (also when a person's name was typed in the business-name field, and when an organisation was typed in the person-name field; see §5 item 6) | [V wave 49A]
 | `sl_relationship` | Category: family_member, donor_or_donor_advisor, substantial_contributor, founder_or_creator, controlled_or_affiliated_entity, board_member_trustee_director, officer_or_key_employee, employee, other_or_unstated |
 | `sl_description` | Category. Parts I–III are fixed (excess_benefit_4958 / loan / grant_or_assistance). Part IV is keyword-coded: compensation, admin_or_management_services, investment_brokerage_custody, professional_services, sale_or_donation_of_assets, grant_or_fiscal_sponsorship, sponsorship_or_event, interest_or_loan, other_or_unstated |
 | `sl_amount`, `sl_amount_field` | First amount in the row and its XML element (e.g. TransactionAmt, OriginalPrincipalAmt, CashGrantAmt) |

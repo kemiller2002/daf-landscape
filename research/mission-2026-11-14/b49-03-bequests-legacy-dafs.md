@@ -18,7 +18,7 @@ Evidence labels:
 
 ## 1. Summary
 
-1. **Every sponsor with a readable estate-gift document accepts bequests: 13 of 13 [P].** Of the top 20:
+1. **Every sponsor with a readable estate-gift document accepts bequests: 13 of 13 [P].** That is 13 of the 16 sponsors whose documents were read; the ImpactAssets, Dechomai and CJP documents are silent on inflows, and four sponsors are blocked. [V wave 49A] Of the top 20:
    - 13 state that they accept bequests;
    - 12 state that they accept retirement-plan or IRA beneficiary designations;
    - 11 state that they accept life insurance;
@@ -48,9 +48,9 @@ Evidence labels:
    The other sponsors split as follows:
    - **Perpetual in so many words:** NPT ("continue in perpetuity"), Vanguard ("in perpetuity", "under present guidelines") and JCF ("no limit to succession").
    - **Reserves the right to cap without publishing a cap:** MS GIFT ("specific number of generations and/or years").
-   - **Open-ended by structure:** Fidelity, RCF and BofA. A successor may name further successors.
-4. **Fixed-term legacy programmes exist at two sponsors and endowment options at two more [P]:**
-   - **Fixed-term:**
+   - **Open-ended by structure:** Fidelity, RCF, BofA and AEF (AEF: no stated limit, “generationally” in its fact sheet), matching the four in the §3.2 comparison. A successor may name further successors. [V wave 49A]
+4. **Minimum-term legacy programmes exist at two sponsors and endowment options at two more [P]:** [V wave 49A]
+   - **Minimum term (grants run for at least five years; not a fixed term):** [V wave 49A]
      - Fidelity Endowed Giving Program: at least five years after death, $100,000 minimum.
      - Vanguard Endowed Grant Plan: minimum term of five years, at least 5% a year.
    - **Spend-down endowment:** NPT's Endowment Program pays annual grants until the account is spent down. It needs $100,000 at activation and pays a lump sum once the balance reaches $25,000.
