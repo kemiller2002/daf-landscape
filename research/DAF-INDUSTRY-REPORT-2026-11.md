@@ -311,7 +311,7 @@ This is the repository's own evidence-scored positioning method. It is **not** a
 New evidence: GiveClear's audited CY2024 statements (Capin Crouse), which carry an unmodified opinion dated 2025-11-06 (repo [`quadrant-v11-rescore.md`](mission-2026-11-14/quadrant-v11-rescore.md)). [gap19-11]
 
 The v1.1 AI overlay has no GREEN providers:
-- **RED (provisional):** Benevity Match Assurance.
+- **RED (provisional):** Benevity Match Assurance. Superseded: wave 21 moved it to AMBER (provisional), so no provider is RED (repo [`quadrant-v11-rescore.md`](mission-2026-11-14/quadrant-v11-rescore.md), Validation corrections (wave 21)) [V wave 43A]
 - **AMBER (near red):** TIFIN Give/GiveClear Louise.
 - **AMBER:** Daffy MCP, Chariot, Foundant, Blackbaud, Goodstack, and Candid (low).
 
@@ -328,7 +328,7 @@ A blind second scorer under v1.1 matched the fresh scorer exactly on 74% of comm
 | A5 Eligibility data | IRS baseline; Candid; Chariot verification; Benevity; Goodstack (b) | — | — | — | — |
 
 **v1.1 AI overlay.** No provider is GREEN.
-- **RED (provisional):** Benevity. Its AI auto-submits match requests with no documented approval step.
+- **RED (provisional):** Benevity. Its AI auto-submits match requests with no documented approval step. Superseded: wave 21 moved it to AMBER (provisional), because first-party pages keep human approval by default [V wave 43A]
 - **AMBER, near red:** TIFIN Give/GiveClear.
 - **AMBER:** Chariot, Daffy, Blackbaud, Foundant, Goodstack.
 - **AMBER (low):** Candid.
@@ -1107,6 +1107,10 @@ Related customer-facing frictions are covered by theme: data export and credenti
 ### 11.59 AI economics: realization for routing and correlated execution (validated, wave 42C)
 
 **AI economics: realization for routing and correlated execution** (validated, wave 42C). A new study holds the upper half of A01 routing’s auto-close share h (above 0.50, resting on E15’s retrospective 0.78 and State’s self-reported 80%) to the HUD and GSA RPA realization range, r_C ~ tri(0.07, 0.33, 1.00), an [I] mapping. The validator re-ran the large national (14,873 identical rows) and confirmed the replication of the calibrated model (7,150 values, 0 mismatches). At m = 1.77, with A, B, C and D all carrying a realization factor, routing’s P(rank first) falls from 0.200 to 0.168 and its modal processes from 5 to 2 (A 4); hybrid keeps 5; cutting all of h removes both. Correlating realization (Gaussian copula, latent ρ 0.5176 for rank correlation 0.5) does not revert the ranking to V1 priors: it moves probability from B to A and C. Assistance is modal nowhere (maximum 0.080). The cut acts about as its mean implies: the lower half of h keeps 1 of routing’s 5 modal processes and $43k of $133k in median value [S]. [V wave 42C]
+
+### 11.60 Sector shares across all sponsors; AI overlay rules clarified (validated, wave 43A)
+
+**Sector shares across all sponsors; AI overlay rules clarified** (validated, wave 43A). Extending the recipient-sector join to all 1,379 itemising DAFRC sponsors (FY2023–24) re-runs byte for byte. DAF-weighted, with foreign and sub-$5,000 grants ($101.01bn), education takes 23.0%, human services 14.6%, religion 14.1%, public-society benefit 13.2% and foreign grants 3.1%. Outside the top 50, education falls to 16.7% and unclassified rises to 11.4%. Filed foreign dollars (6.9%) are dominated by operating charities with tiny DAF books, such as World Vision (DAF weight 0.003–0.005). Keeping DAF-to-DAF grants matches Fidelity’s published split best (sum of differences 0.12–0.13, against 0.21–0.24), and the validator confirmed every Fidelity share. But a pure society-benefit mass of the same size fits as well, and the CY2025 comparison shares no months with the filing, so that basis is for sponsor comparisons only. Proposed methodology §7a–§7c confine the AI overlay to A1–A5 provider rows, never let a GREEN component offset an AMBER, and define “first GREEN”; none of 137 ratings qualifies. Chariot Disbursements stays AMBER pending adjudication, NCF moves to AMBER (low) provisionally, and Benevity’s stale RED labels are annotated (repo [`validation-wave43a-report.md`](mission-2026-11-14/validation-wave43a-report.md)) [V wave 43A]
 
 ---
 

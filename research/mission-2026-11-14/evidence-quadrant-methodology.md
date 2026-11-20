@@ -19,7 +19,7 @@
 | A4 | Consumer and digital-first DAF sponsors | Daffy, Charityvest (direct), Endaoment, Fidelity Charitable (direct), DAFgiving360 (direct), Every.org, Givinga (consumer accounts) | Adviser-only programs |
 | A5 | Charity eligibility and verification data | Candid (GuideStar APIs / Charity Check), IRS BMF/Pub 78/TEOS (public baseline), Goodstack, Chariot verification, Benevity validation, CharityCheck-type services | General KYC vendors |
 
-An **AI-governance overlay** is reported for every area as a flag, not an axis. It records evidenced AI capabilities and whether they respect "AI may add a flag, never clear one" ([ai-governance-failure-modes.md](ai-governance-failure-modes.md)).
+An **AI-governance overlay** is reported for every area as a flag, not an axis. It is a flag on provider rows scored in A1–A5 only; vendor products outside those areas get product-level readings (see §7, “AI overlay scope”) (b4301-05). [V wave 43A] It records evidenced AI capabilities and whether they respect "AI may add a flag, never clear one" ([ai-governance-failure-modes.md](ai-governance-failure-modes.md)).
 
 ## 2. Axes and criteria
 
@@ -120,6 +120,30 @@ The calibration ([quadrant-calibration.md](quadrant-calibration.md)) showed that
 - **GREEN:** controls documented, including flag-only and authority separation.
 - **AMBER:** capability live with undocumented limits, but sponsor approval remains.
 - **RED:** AI can complete a money-moving or status-clearing action without documented sponsor or human approval.
+- **None:** no AI capability is evidenced. This is not evidence of absence (as used in the v1.1 consensus, quadrant-v11-blind-and-calibration.md §6).
+
+**AI overlay scope (§7a; proposed 2026-11-20 in b4301-05, binding from the next re-score, like the other §7 notes).**
+1. The overlay is a flag on provider rows scored in an area A1–A5. Only those rows carry an area overlay, and only they count in area totals.
+2. A vendor product outside A1–A5 may be read with the same GREEN, AMBER and RED tests. The result is a product-level reading, written against the product (for example in the AI product census). It is not an area overlay.
+3. A product-level reading enters a provider row only as a component under §7b, and only on a documented tie: T1, the capability is documented in the scored offering; T2, it runs on a vendor-wide AI platform or agent channel that its source does not confine to another product, or that a source says reaches the scored offering; T3, it performs the scored offering’s own function (moves its grants or sets its eligibility status); T4, a source ties a vendor capability to the sponsor’s program (entity scope rule).
+4. Ties are asymmetric, so the overlay can add a flag but never clear one. An AMBER or RED component counts on any of T1–T4. A GREEN component counts only on T1: it must be live in the scored offering, with its controls documented there. Evidence that would lower a flag must meet the same T1 test.
+5. A capability that its source confines to another product is not counted unless it also meets T1, T3 or T4. If it is AMBER or RED, the provider row shows it as “adjacent product AMBER/RED: <product>”, so the flag stays visible.
+6. The entity scope rule applies unchanged: a vendor’s, parent’s or owner’s capability is not a sponsor’s capability, and the reverse also holds, unless T4 is met.
+7. A flag that both scorers agreed is not removed on a confinement reading alone: it stands, with a pending note, until adjudicated (§5).
+
+**AI overlay components (§7b).**
+1. Count each live AI component tied under §7a. Live means GA, beta, or a preview open to customers. Announced or roadmap items are WATCH and do not count. Automation or navigation that its source does not describe as AI is not an AI component.
+2. The provider’s flag is its most severe counted component: RED, then AMBER, then GREEN. A component whose controls could not be read counts as AMBER (unverified).
+3. A provider is GREEN only if every counted component is GREEN. A GREEN component never offsets, lowers or clears another component’s AMBER or RED.
+4. When counted components differ, write the flag and then the split: “AMBER (mixed: GREEN <component>; AMBER <component>)”. Product rows keep their own readings.
+5. With no counted component, the flag is None, with its existing qualifier.
+
+**“First GREEN” (§7c).** “First GREEN”, “only GREEN” and “no provider earns GREEN” refer to area overlays only. A first GREEN needs all four of the following:
+1. A provider row scored in A1–A5 under v1.1 or later. v1.0 had no written GREEN test. Its labels (GREEN for Fidelity Charitable; “GREEN / none” for Ren, Ren RDE, RCF and AEF) were withdrawn by the v1.1 consensus and are history, not precedent.
+2. At least one counted AI component. “None” can never be GREEN, and neither can rule-based or navigation-only automation.
+3. Every counted component GREEN under §7b, on admissible first-party evidence (§3, §8) for the scored offering.
+4. The two-scorer rule (§5): the GREEN must be reproduced by the blind scorer or upheld in an adjudication. A single-scorer or provisional label is written “GREEN (provisional)” and is not a first GREEN.
+The claim names the version and date (“first GREEN area overlay under §7, v1.x, <date>”). A product-level reading outside A1–A5 is a “GREEN-eligible product reading”, never a first GREEN. If a first GREEN is withdrawn, later claims must say so (b4301-05) [V wave 43A]
 
 ## 8. Recency rule (owner direction, 2026-11-14) — binding from v1.2
 

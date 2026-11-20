@@ -162,7 +162,7 @@ The supportable claim is narrower. SmartSimple AI Application Analysis, Fluxx Fi
 - Fluxx publishes no help-centre or terms page that this reader could find. Finn's rating rests on one product page.
 - Several Blackbaud and Givebutter pages are undated. They were treated as 2026 because they were current at access and describe 2026 features or cut-offs (2026-01-07; release 2.148.0).
 - Absence of a log or audit statement (Fluxx S6) is not evidence that no log exists.
-- §7 has no rules for scope (vendor products) or for combining components. §3 and §4 depend on inferences marked [I], proposed for clarification as P-B4301-05.
+- §7 has no rules for scope (vendor products) or for combining components. §3 and §4 depend on inferences marked [I], proposed for clarification as P-B4301-05. The proposed rules (b4301-05-methodology-s7-clarification.md, §7a–§7c) confirm both inferences: a GREEN component cannot lift a provider that also has an AMBER component, and no vendor product outside A1–A5 can be a first GREEN (b4301-05) [V wave 43A]
 - The Givebutter downgrade relies on terms and privacy text. Those are legal documents and may describe the product more broadly than it behaves.
 - Not re-rated: the other 26 census rows, including AIP14 Fluxx MCP and AIP18 Blackbaud Chat.
 

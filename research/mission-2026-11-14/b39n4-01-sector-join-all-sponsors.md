@@ -20,7 +20,7 @@
 | **(a) All itemising sponsors** | **Coverage.** 2,705 itemising sponsor-years from 1,379 sponsors, 1,092,809 Schedule I lines and 264,127 distinct recipient EINs (224,264 in the BMF) [F].<br><br>**Size.** The non-university/hospital scope has $122.34bn of filed Schedule I. That falls to $107.92bn after DAF-weighting, and to **$93.41bn net of DAF-to-DAF** ($14.51bn, 13.4%) [F].<br><br>**Headline shares** (DAF-weighted, base treatment, with foreign and sub-$5,000 grants added, $101.01bn):<br>- education **23.0%**;<br>- human services **14.6%**;<br>- religion **14.1%**;<br>- public-society benefit **13.2%** (NTEE T 5.7 pts of it);<br>- health 9.2%;<br>- environment/animals 5.6%; arts 5.5%; international (NTEE Q) 5.3%;<br>- **foreign grants (Schedule F) 3.1%**;<br>- unclassified 5.9%; unknown (Z) 0.5% [F/I].<br><br>**Against the top 50 alone.** Adding the other 1,331 sponsors changes no sector by more than 3 points. Education is lower (23.0% against 25.1% on the same layer for the top 50) and human services is slightly higher. |
 | **Non-top-50 sponsors differ** | **Size.** $19.26bn DAF-weighted net Schedule I [F].<br><br>**Shares:**<br>- education 16.7%, against 26.1% at the top 50;<br>- human services 17.5% (14.2%);<br>- religion 15.4% (13.8%);<br>- public benefit 13.1% (14.1%);<br>- unclassified 11.4% (4.5%).<br><br>**Concentration** is lower: top 100 recipients 14.1%, HHI 4.4 (filed basis) [F].<br><br>**Non-top-50 community foundations** ($6.59bn): human services 19.4%, education 18.9%, religion 8.6%, arts 8.5%, against 4.6% religion for all CFs [F]. |
 | **(b) Foreign grants as a sector** | **DAF-weighted.** Part IX line 3 adds **$3.15bn** over FY2023–24: **3.1%** of the extended base, or 3.3% before sub-$5,000 grants. That is 2.4% at the top 50 and **5.7% at non-top-50 sponsors** [F].<br><br>**Filed basis.** The same bucket is $8.34bn (6.9%). It is dominated by panel sponsors that are operating charities with small DAF books: World Vision files $1.14bn and $1.10bn of line 3 with a DAF weight of 0.003–0.005, and the Rotary Foundation, JDC and PEF Israel follow. So **the filed-basis foreign share is not DAF money**, and the DAF-weighted basis is the headline [F/I].<br><br>**International + foreign** = 8.4% of the extended base. That is a recipient-sector share, not money leaving the US (wave 37A gloss) [I]. |
-| **(c) Reconciliation: DAF-to-DAF and NTEE T** | **Fidelity's published dollar split** (2025 and 2026 Giving Reports) is matched far better when **DAF-to-DAF grants are kept and classified by the receiving sponsor's NTEE code** (treatment t_b), with NTEE T left inside society benefit [P vs F]. Sum of absolute differences across 9 sectors, Fidelity FY2024 lines:<br>- t_b **0.12–0.13**;<br>- base treatment (DAF-to-DAF dropped) 0.21–0.24;<br>- T also dropped 0.31–0.34.<br><br>**Society benefit** moves from 13.1% to 21.0% under t_b, against Fidelity's 25% (CY2024) and 23.4% (CY2025).<br><br>**DAFgiving360** (search snippet only; robots blocked) says the "highest percent" of grant recommendations goes to the public and education sectors. Our FY2024 lines put public benefit 2nd only under t_b, in dollars [S/F].<br><br>**Vanguard Charitable** publishes grant counts only. Counts do not discriminate between treatments [P/F]. |
+| **(c) Reconciliation: DAF-to-DAF and NTEE T** | **Fidelity's published dollar split** (2025 and 2026 Giving Reports) is matched far better when **DAF-to-DAF grants are kept and classified by the receiving sponsor's NTEE code** (treatment t_b), with NTEE T left inside society benefit [P vs F]. This is a one-parameter fit: adding a pure society-benefit mass equal to Fidelity’s FY2024 DAF-to-DAF lines (10.5% of its net) to t_a fits as well (0.122 against CY2024, 0.117 against CY2025), so the test measures the size of the society-benefit gap, not Fidelity’s mechanism. Across all three layers t_b is 0.11–0.13 [V wave 43A] Sum of absolute differences across 9 sectors, Fidelity FY2024 lines:<br>- t_b **0.12–0.13**;<br>- base treatment (DAF-to-DAF dropped) 0.21–0.24;<br>- T also dropped 0.31–0.34.<br><br>**Society benefit** moves from 13.1% to 21.0% under t_b, against Fidelity's 25% (CY2024) and 23.4% (CY2025).<br><br>**DAFgiving360** (search snippet only; robots blocked) says the "highest percent" of grant recommendations goes to the public and education sectors. Our FY2024 lines put public benefit 2nd only under t_b, in dollars [S/F].<br><br>**Vanguard Charitable** publishes grant counts only. Counts do not discriminate between treatments [P/F]. |
 | **Which treatment to use** | **Two views, used for different purposes [I]:**<br>- **To compare with sponsor-published splits or Giving USA-style "society benefit", use t_b.** It gives public-society benefit **23.7%** of the DAF-weighted extended base (education 20.2%, human services 12.8%, religion 12.5%).<br>- **For where DAF money ends up, keep the base treatment.** DAF-to-DAF dropped, so nothing is counted twice; public benefit 13.2%. Report NTEE T as its own 5.7-point line (t_c) rather than dropping it: the Fidelity test rejects dropping T (t_d). |
 | **Sub-$5,000 grants** | **Handled as in b40n120201-01 / wave 41B.** Line 1 minus Schedule I is allocated by the `small10` key for full itemisers ($3.47bn DAF-weighted) and pro rata for the partial itemisers ($0.98bn) [F/I].<br><br>**Effect:** it moves religion +0.4 pts and human services +0.2, and lowers public benefit by 0.2 and education by 0.3 (DAF-weighted, base treatment). The layer without it (`sched_i` / `plus_foreign`) is the low end of the wave-41B envelope [F/I]. |
 
@@ -141,7 +141,7 @@ Each cell is a % of the row base.
 
 | Group | Top 50, sched_i | Non-top-50, sched_i | Top 50, full layer | Non-top-50, full layer |
 |---|---|---|---|---|
-| Base | $74.15bn | $19.26bn | $77.91bn (plus_foreign) | $23.11bn |
+| Base | $74.15bn | $19.26bn | $77.91bn (plus_foreign_sub5k; plus_foreign $75.99bn) [V wave 43A] | $23.11bn |
 | Education | 26.1 | 16.7 | 25.1 | 15.6 |
 | Human services | 14.2 | 17.5 | 14.0 | 16.8 |
 | Religion | 13.8 | 15.4 | 13.9 | 14.5 |
@@ -153,7 +153,7 @@ Each cell is a % of the row base.
 | Foreign (Sch. F) | — | — | 2.4 | 5.7 |
 | Unclassified | 4.5 | 11.4 | 4.5 | 10.9 |
 
-For the top 50, the full layer and plus_foreign are within 0.1 pt of each other: top-50 sub-$5,000 dollars are $1.92bn DAF-weighted, against a $77.9bn base.
+For the top 50, the full layer and plus_foreign differ by at most 0.4 pt (education 25.1 against 25.4, religion 13.9 against 13.5): top-50 sub-$5,000 dollars are $1.92bn DAF-weighted, against a $77.9bn base. [V wave 43A]
 
 **By segment** (all panel sponsors, DAF-weighted, t_a, sched_i):
 
@@ -199,7 +199,7 @@ For the top 50, the full layer and plus_foreign are within 0.1 pt of each other:
 ## 4. Reconciliation against sponsors' own published splits
 
 ### 4.1 Fidelity Charitable (dollars) [P vs F]
-- **Published splits.** The 2025 Giving Report (CY2024; p.20 and the appendix) and the 2026 Giving Report (CY2025; p.9, with $727m of "significant outlier granting" removed from the sector chart per its methodology) give grant-dollar shares by "charitable sector".
+- **Published splits.** The 2025 Giving Report (CY2024; chart on p.12, appendix table on p.21) [V wave 43A] and the 2026 Giving Report (CY2025; p.9, with $727m of "significant outlier granting" removed from the sector chart per its methodology) give grant-dollar shares by "charitable sector".
 - **Our comparison base.** Fidelity's FY2024 return (FYE 2024-06-30, so half a year earlier than CY2024): $11.33bn net Schedule I, plus $1.19bn of DAF-to-DAF lines.
 
 Share of grant dollars:
@@ -225,7 +225,7 @@ Share of grant dollars:
   - "Other" +2.7 to +3.2 pts. That is our unclassified, which Fidelity's internal system presumably assigns to sectors.
   - health +1.4 to +2.0 pts;
   - religion +1.2 to +1.4 pts.
-- **Why Fidelity's society benefit is larger [I].** Its sector chart evidently counts grants to other DAF sponsors and grantmaking intermediaries as "society benefit". That is consistent with the NTEE T and community-foundation codes those recipients carry. Dropping NTEE T as well (t_d) moves away from the published split, so Fidelity does not treat T as pass-through.
+- **Why Fidelity's society benefit is larger [I].** Its sector chart evidently counts grants to other DAF sponsors and grantmaking intermediaries as "society benefit". That is consistent with the NTEE T and community-foundation codes those recipients carry. Dropping NTEE T as well (t_d) moves away from the published split, so Fidelity does not treat T as pass-through. “Evidently” is too strong: a pure society-benefit mass of the same size (10.5% of Fidelity’s net) fits as well as t_b (0.122 / 0.117), and the best-fitting mass is 13–16%, so DAF-to-DAF is a sufficient size match, not an identified mechanism [V wave 43A]
 - **Volumes do not discriminate.** Against Fidelity's grant-volume split (27% religion, 20% human services …), Schedule I line counts give sums of absolute differences of 0.27–0.32 under every treatment. Schedule I has one line per recipient over $5,000, not one per grant, so counts are not like-for-like [F/I].
 
 ### 4.2 Vanguard Charitable (counts only) [P vs F]
@@ -262,7 +262,7 @@ Share of grant dollars:
   - one sponsor publishes a dollar split (Fidelity);
   - one publishes counts (Vanguard);
   - one is a snippet (DAFgiving360);
-  - periods are offset by six months (FYE June against calendar year);
+  - periods differ: Fidelity’s FY2024 return (July 2023–June 2024) overlaps CY2024 by six months and CY2025 not at all, and the CY2024 split includes a $430m outlier grant that Fidelity removed only from its average grant size [V wave 43A];
   - Fidelity removes outliers ($727m in CY2025) and does not publish its taxonomy;
   - our Fidelity FY2024 $11.33bn net differs from its $14.9bn CY2024 grants, which may include DAF-to-DAF, grants abroad and period differences.
 - **Taxonomies differ.** NTEE "public-society benefit" (R–W) is not guaranteed to match Fidelity's "society benefit" or DAFgiving360's "public" sector. The mapping is inference.
@@ -324,7 +324,7 @@ python3 scripts/mission_sector_join_all.py . --np-cache $S/npcache --lines-cache
 ## 8. Source register
 - **IRS Form 990 e-file XML** (Schedule I Part II, Part IX), GivingTuesday mirror of IRS TEOS: `https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/{OBJECT_ID}_public.xml`. It was read through the existing caches `rcp/lines`, `q120201/lines` and `q12011/p9`.
 - **IRS SOI Exempt Organizations Business Master File:** https://www.irs.gov/pub/irs-soi/eo1.csv (and eo2–eo4, eo_pr, eo_xx; the 2026-11 snapshot in `rcp/bmf`).
-- **Fidelity Charitable, 2025 Giving Report** (CY2024): https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2025-giving-report.pdf. See p.20, "Distribution of grant dollars and volumes, by charitable sector", and the appendix; the methodology is on p.19.
+- **Fidelity Charitable, 2025 Giving Report** (CY2024): https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2025-giving-report.pdf. See p.20, "Distribution of grant dollars and volumes, by charitable sector", and the appendix; the methodology is on p.19. The chart is on p.12 and the appendix table on p.21, not p.20; the 2025 methodology removes a $430m outlier grant from average grant size only, so the CY2024 sector split includes it [V wave 43A]
 - **Fidelity Charitable, 2026 Giving Report** (CY2025): https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2026-giving-report.pdf. See p.9, "Granting by charitable sector in 2025". The methodology on p.12 states the $727m outlier removal.
 - **Vanguard Charitable, 2024 annual report:** https://www.vanguardcharitable.org/2024annualreport ("Top cause areas"; 240,064 total grants issued; calendar year, footnote 1).
 - **Vanguard Charitable, 2025 annual report:** https://www.vanguardcharitable.org/2025annualreport ("Top cause areas"; 267,838 total grants issued).

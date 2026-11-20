@@ -299,8 +299,8 @@ The rule tested is "AI may add a flag, never clear one" ([ai-governance-failure-
 | A1 | Give Interactive | "AI tools" marketing, and AI grantmaking modules described as "stay tuned" | **AMBER-unverified** |
 | A1 | Foundation Source | New CTO and Head of Product with an "increased focus on AI"; intent only | **WATCH** |
 | A5 | Goodstack | "AI-powered automation/reviews" claims (class U). The partner sets eligibility. | **Unverified; consistent in design** |
-| A1 / A3 / A4 | Fidelity Charitable | Navigation-only virtual assistant with disclaimers. No decision authority. | **GREEN** |
-| A1 / A2 / A3 | Ren, Ren RDE, RCF, AEF | Rule-based "instant" approval under RCF's published, risk-tiered policy. No AI. | **GREEN / none.** The decision logs are not public. |
+| A1 / A3 / A4 | Fidelity Charitable | Navigation-only virtual assistant with disclaimers. No decision authority. | **GREEN** (v1.0 label; withdrawn by the v1.1 consensus to None (inform-only); not a first GREEN or precedent under methodology §7c; b4301-05) [V wave 43A] |
+| A1 / A2 / A3 | Ren, Ren RDE, RCF, AEF | Rule-based "instant" approval under RCF's published, risk-tiered policy. No AI. | **GREEN / none.** The decision logs are not public. (v1.0 label; withdrawn by the v1.1 consensus to None; “none” cannot be GREEN under methodology §7c; b4301-05) [V wave 43A] |
 | A2 / A5 | Chariot (Disbursements, DAFpay, verification) | No AI in the payment or eligibility decision. Records `approved_by`. LLM gift coding is a separate product (class D). | **Consistent**: the sponsor keeps final authority by contract |
 | A4 | Endaoment | No AI. API grants are held for Endaoment review, with idempotency and a cancel window. | **Consistent**: a reference design |
 | A5 | Candid | AI assistant and a read-only MCP connector | **Consistent (read-only)** |
