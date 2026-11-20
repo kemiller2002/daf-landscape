@@ -77,7 +77,7 @@ from mission_990_contractors import DATA, XML_URL, _group_by_fast, ein9, local  
 from mission_daf_share_recipient_revenue import load_bmf  # noqa: E402
 from mission_daf_to_daf import load_np, pick_returns  # noqa: E402
 from mission_recipient_basis_eligibility import (HIST_YEARS, build_numerator, cn_filing_test,  # noqa: E402
-                                                 load_history)
+                                                 load_history, no_ein_lines)
 from mission_exception_load import drop_totals_rows  # noqa: E402
 from mission_recipient_sectors import BMF_FILES, load_lines  # noqa: E402
 
@@ -86,6 +86,7 @@ UA = "research-script/1.0"
 XML_V = 1
 NAME_OK = 0.80
 NAME_BAD = 0.45
+FUZZY_OK = 0.90
 NEW_FROM = 2022
 # IRS "How EINs are assigned and valid EIN prefixes" (www.irs.gov/businesses/small-businesses-self-employed/
 # how-eins-are-assigned-and-valid-ein-prefixes): prefixes not in this set are not assigned.
@@ -122,10 +123,14 @@ FOREIGN_NAME = re.compile(r"\b(CANADA|CANADIAN|UK|ENGLAND|LONDON|AUSTRALIA|ISRAE
                           r"FONDATION|FUNDACION|FONDAZIONE|ASBL|VZW|TRUST UK|LIMITED|LTD|CIC|SOCIETE|ASOCIACION|"
                           r"ASSOCIACAO|AMUTA|MEXICO|INDIA|KENYA|UGANDA|HAITI)\b")
 LLC_NAME = re.compile(r"\b(L\s?L\s?C|L\.L\.C\.?|LIMITED LIABILITY|BIOHUB)\b")
-TERM_TAG = re.compile(r"Terminat|Liquidat|Dissol|FinalReturn")
+TERM_FLAGS = frozenset({"FinalReturnInd", "TerminateOperationsInd", "OrganizationDissolvedEtcInd"})
+RELIGIOUS = re.compile(r"\b(CHURCH|CATHOLIC|PARISH|DIOCESE|ARCHDIOCESE|SYNAGOGUE|CONGREGATION|CONG|YESHIVA|TEMPLE|"
+                       r"MOSQUE|MASJID|MINISTRY|MINISTRIES|CHAPEL|BAPTIST|METHODIST|PRESBYTERIAN|LUTHERAN|EPISCOPAL|"
+                       r"JESUIT|SOCIETY OF JESUS|PROVINCE|SISTERS|FRIARS|ABBEY|MONASTERY|KOLLEL|TORAH|CHABAD|"
+                       r"FELLOWSHIP|ASSEMBLY OF GOD|BIBLE|GOSPEL|SAINT|ST)\b")
 HDR_TAGS = frozenset({"InitialReturnInd", "FinalReturnInd", "ApplicationPendingInd", "NameChangeInd",
                       "AmendedReturnInd", "TerminateOperationsInd", "GroupReturnForAffiliatesInd",
-                      "Organization501c3Ind", "DisregardedEntityInd"})
+                      "Organization501c3Ind", "DisregardedEntityInd", "OrganizationDissolvedEtcInd"})
 CATS = ("revoked", "foreign_or_government", "subsidiary_or_disregarded", "invalid_or_typo", "merged_or_terminated",
         "new_ein", "unresolved")
 
@@ -210,12 +215,18 @@ def load_bmf_names(bmf_dir: str) -> tuple[dict, dict]:
         if not os.path.exists(p):
             return ()
         with open(p, encoding="latin-1", newline="") as fh:
-            return tuple((ein9(r["EIN"]), (r.get("NAME") or "").strip(), (r.get("RULING") or "").strip())
+            return tuple((ein9(r["EIN"]), (r.get("NAME") or "").strip(), (r.get("STATE") or "").strip())
                          for r in csv.DictReader(fh))
     allr = tuple(x for f in BMF_FILES for x in rows(f))
-    by_ein = {e: {"name": n, "ruling": rl} for e, n, rl in allr}
+    by_ein = {e: {"name": n, "state": st} for e, n, st in allr}
     by_name = {k: tuple(e for e, _, _ in v) for k, v in _group_by_fast(allr, lambda t: norm(t[1])).items() if k}
     return by_ein, by_name
+
+
+def token_index(by_ein: Mapping) -> dict:
+    """(state, token) -> EINs, over normalised BMF names, for the same-state fuzzy name search."""
+    pairs = ((st_tok, e) for e, v in by_ein.items() for st_tok in {(v["state"], t) for t in norm(v["name"]).split()})
+    return {k: tuple(e for _, e in v) for k, v in _group_by_fast(pairs, lambda t: t[0]).items()}
 
 
 def parse_header(stream) -> dict:
@@ -223,7 +234,7 @@ def parse_header(stream) -> dict:
     for _, el in ET.iterparse(stream, events=("end",)):
         tag = local(el.tag)
         txt = (el.text or "").strip()
-        if (tag in HDR_TAGS or TERM_TAG.search(tag)) and txt.lower() in ("true", "x", "1"):
+        if (tag in HDR_TAGS or tag in TERM_FLAGS) and txt.lower() in ("true", "x", "1"):
             flags.add(tag)
         elif tag == "BusinessNameLine1Txt" and not name:
             name = txt
@@ -282,7 +293,8 @@ def build_base(a) -> dict:
                   if r["ein"] in nb and not r["d2d"] and r["amount"] > 0)
     hist = load_history(a.index_dir, nb)
     tests = {e: cn_filing_test(hist.get(e, ()), "tax_year") for e in nb}
-    return {"nb": nb, "lines": lines, "tests": tests, "hist": hist,
+    blank = no_ein_lines(N["ann"], N["weights"])
+    return {"nb": nb, "lines": lines, "tests": tests, "hist": hist, "total_dw_blank_ein": sum(v["dw"] for v in blank.values()),
             "total_dw_all": sum(sum(v["dw"] for v in n["fy"].values()) for n in nums.values()),
             "n_recipient_eins": len(nums)}
 
@@ -292,7 +304,9 @@ def ein_profile(e: str, ls: Sequence[Mapping]) -> dict:
     by_name = _group_by_fast(ls, lambda l: l["name"])
     top = max(by_name.items(), key=lambda kv: sum(l["dw"] for l in kv[1]))[0]
     return {"ein": e, "name_filed": top, "names_filed": sorted(by_name), "dw": sum(l["dw"] for l in ls),
-            "si": sum(l["si"] for l in ls), "foreign_addr": any(l["where"].startswith("F:") for l in ls),
+            "si": sum(l["si"] for l in ls),
+            "state": max(_group_by_fast(ls, lambda l: l["where"]).items(), key=lambda kv: sum(l["dw"] for l in kv[1]))[0],
+            "foreign_addr": any(l["where"].startswith("F:") for l in ls),
             "irc": sorted({l["irc"].upper() for l in ls if l["irc"]}), "sponsors": len({l["sponsor"] for l in ls}),
             "dw_fy": {fy: sum(l["dw"] for l in v) for fy, v in _group_by_fast(ls, lambda l: l["fy"]).items()}}
 
@@ -305,20 +319,44 @@ def gov_rule(p: Mapping) -> str:
     if any(GOV_IRC.search(i) for i in p["irc"]):
         return "government_irc_text"
     nm = " ".join(norm(n) for n in p["names_filed"]) + " " + " ".join(n.upper() for n in p["names_filed"])
-    return next((f"government_name_{k}" for k, rx in GOV_NAME if rx.search(nm)), "")
+    by_name = next((f"government_name_{k}" for k, rx in GOV_NAME if rx.search(nm)), "")
+    return by_name or ("government_ein_600_series_heuristic" if p["ein"][2:5] == "600" else "")
 
 
-def typo_match(e: str, name: str, bmf_ein: Mapping, bmf_name: Mapping) -> dict:
+def fuzzy_same_state(name: str, state: str, bmf_ein: Mapping, tok_idx: Mapping, cap: int = 4000) -> tuple:
+    """BMF EINs in `state` whose name_sim with `name` >= FUZZY_OK, searched via the rarest name token."""
+    toks = sorted({t for t in norm(name).split()}, key=lambda t: len(tok_idx.get((state, t), ())))
+    cand = tok_idx.get((state, toks[0]), ()) if toks and state else ()
+    if not cand or len(cand) > cap:
+        return ()
+    return tuple(sorted(((x, s) for x in cand for s in (name_sim(name, bmf_ein[x]["name"]),) if s >= FUZZY_OK),
+                        key=lambda t: -t[1]))
+
+
+def hamming(a: str, b: str) -> int:
+    return sum(x != y for x, y in zip(a, b))
+
+
+def typo_match(e: str, name: str, state: str, bmf_ein: Mapping, bmf_name: Mapping, tok_idx: Mapping) -> dict:
+    """Candidate 'intended' BMF EINs for a filed (EIN, name, state). `unique_state` = exactly one BMF EIN in the line's
+    state carries the same normalised name, or (failing that) exactly one same-state fuzzy match."""
     exact = tuple(x for x in bmf_name.get(norm(name), ()) if x != e)
+    exact_st = tuple(x for x in exact if state and bmf_ein[x]["state"] == state)
     near = tuple(sorted(((x, name_sim(name, bmf_ein[x]["name"])) for x in ein_neighbours(e) if x in bmf_ein),
                         key=lambda t: -t[1]))
     good_near = tuple(t for t in near if t[1] >= NAME_OK)
-    return {"exact_other_eins": exact, "near": good_near,
-            "best": (good_near[0][0] if good_near else exact[0] if exact else ""),
-            "how": "neighbour_ein_name_match" if good_near else "exact_name_other_ein" if exact else ""}
+    fz = () if (good_near or exact_st) else tuple(t for t in fuzzy_same_state(name, state, bmf_ein, tok_idx) if t[0] != e)
+    best, how = ((good_near[0][0], "neighbour_ein_name_match") if good_near
+                 else (exact_st[0], "exact_name_unique_in_state") if len(exact_st) == 1
+                 else ("", "exact_name_ambiguous_in_state") if len(exact_st) > 1
+                 else (fz[0][0], "fuzzy_name_unique_in_state") if len(fz) == 1
+                 else ("", "fuzzy_name_ambiguous_in_state") if len(fz) > 1
+                 else ("", "exact_name_other_state_only") if exact else ("", ""))
+    return {"exact_other_eins": exact, "best": best, "how": how,
+            "hamming": hamming(e, best) if best else None}
 
 
-def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping) -> dict:
+def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping, tok_idx: Mapping) -> dict:
     e, nm = p["ein"], p["name_filed"]
     rev = ev["rev"][-1] if ev["rev"] else None
     rev_live = rev is not None and rev["reinst_date"] is None
@@ -326,7 +364,7 @@ def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping) -> di
                                     *(r["name"] for r in ev["idx"]), *(r["name"] for r in ev["epost"])) if x)
     sim_trace = max((name_sim(nm, t) for t in trace_names), default=None)
     has_trace = bool(trace_names)
-    tm = typo_match(e, nm, bmf_ein, bmf_name)
+    tm = typo_match(e, nm, p["state"], bmf_ein, bmf_name, tok_idx)
     hdr_flags = frozenset(f for h in ev["hdr"] for f in h.get("flags", ()))
     latest_flags = frozenset(ev["hdr"][-1].get("flags", ())) if ev["hdr"] else frozenset()
     periods = sorted({r["tax_period"][:4] for r in ev["idx"] if r["tax_period"][:4].isdigit()} |
@@ -335,7 +373,7 @@ def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping) -> di
     gr = gov_rule(p)
     base = {"has_irs_trace": has_trace, "name_sim_irs": None if sim_trace is None else round(sim_trace, 3),
             "first_year": first_year, "last_year": int(periods[-1]) if periods else None,
-            "typo_best_ein": tm["best"], "typo_how": tm["how"], "flags": ";".join(sorted(hdr_flags)),
+            "typo_best_ein": tm["best"], "typo_how": tm["how"], "typo_hamming": tm["hamming"], "flags": ";".join(sorted(hdr_flags)),
             "rev_date": rev["rev_date"] if rev else None, "post_date": rev["post_date"] if rev else None,
             "reinst_date": rev["reinst_date"] if rev else None, "rev_name": rev["name"] if rev else "",
             "in_pub78": ev["pub78"] is not None, "valid_prefix": e[:2] in VALID_PREFIX}
@@ -344,7 +382,7 @@ def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping) -> di
         return {**base, "category": cat, "sub": sub}
 
     if rev_live and name_sim(nm, rev["name"]) >= NAME_OK:
-        return out("revoked", "name_now_in_bmf_other_ein" if tm["exact_other_eins"] else "no_bmf_successor")
+        return out("revoked", "name_now_in_bmf_other_ein" if tm["best"] else "no_bmf_successor")
     if gr:
         return out("foreign_or_government", gr)
     if any(LLC_NAME.search(n.upper()) for n in p["names_filed"]):
@@ -354,15 +392,16 @@ def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping) -> di
     if has_trace and sim_trace is not None and sim_trace < NAME_BAD and tm["best"]:
         return out("invalid_or_typo", "ein_belongs_to_other_org_name_in_bmf")
     if not has_trace and tm["best"]:
-        return out("invalid_or_typo", "no_irs_trace_" + tm["how"])
+        return out("invalid_or_typo", ("typo_" if tm["hamming"] is not None and tm["hamming"] <= 2 else "wrong_ein_")
+                   + tm["how"])
     if rev_live:
         return out("invalid_or_typo" if tm["best"] else "revoked",
                    "revoked_ein_other_name_name_in_bmf" if tm["best"] else "revoked_name_mismatch")
-    if latest_flags & {"FinalReturnInd", "TerminateOperationsInd"} or any(TERM_TAG.search(f) for f in latest_flags):
+    if latest_flags & TERM_FLAGS:
         return out("merged_or_terminated", "final_or_terminate_flag_latest_return")
     if any(r["terminated"] for r in ev["epost"]):
         return out("merged_or_terminated", "epostcard_terminated")
-    if has_trace and tm["exact_other_eins"]:
+    if has_trace and tm["best"] and (sim_trace or 0) >= NAME_OK:
         return out("merged_or_terminated", "name_now_in_bmf_other_ein")
     if (first_year is not None and first_year >= NEW_FROM) or "ApplicationPendingInd" in hdr_flags \
             or (ev["hdr"] and "InitialReturnInd" in ev["hdr"][0].get("flags", ()) and (first_year or 0) >= 2019):
@@ -370,8 +409,13 @@ def classify(p: Mapping, ev: Mapping, bmf_ein: Mapping, bmf_name: Mapping) -> di
                    else f"first_period_{NEW_FROM}_plus" if first_year and first_year >= NEW_FROM else "initial_return_flag")
     if rev is not None:
         return out("unresolved", "revoked_then_reinstated_not_in_bmf")
-    return out("unresolved", "has_irs_filings" if ev["idx"] else "epostcard_only" if ev["epost"]
-               else "pub78_only" if ev["pub78"] else "no_irs_trace")
+    if ev["idx"] or ev["epost"] or ev["pub78"]:
+        return out("unresolved", "has_irs_filings" if ev["idx"] else "epostcard_only" if ev["epost"] else "pub78_only")
+    if tm["how"] in ("exact_name_ambiguous_in_state", "fuzzy_name_ambiguous_in_state", "exact_name_other_state_only"):
+        return out("unresolved", "no_irs_trace_" + tm["how"])
+    if any(RELIGIOUS.search(norm(n)) for n in p["names_filed"]):
+        return out("unresolved", "no_irs_trace_religious_name")
+    return out("unresolved", "no_irs_trace_other")
 
 
 def fy_bounds(tpe: str) -> tuple[dt.date, dt.date] | None:
@@ -454,6 +498,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     epost = load_epostcard(a.epostcard, nb)
     idx = load_index_any(a.index_dir, nb)
     bmf_ein, bmf_name = load_bmf_names(a.bmf_dir)
+    tok_idx = token_index(bmf_ein)
 
     def pick_oids(rs):
         efile = sorted((r for r in rs if r["dln"][:5] in ("93493", "93492", "93491")), key=lambda r: (r["tax_period"], r["oid"]))
@@ -466,7 +511,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     ev = {e: {"rev": rev.get(e, ()), "pub78": pub.get(e), "epost": epost.get(e, ()),
               "idx": tuple(sorted(idx.get(e, ()), key=lambda r: (r["tax_period"], r["oid"]))),
               "hdr": tuple(hdr[o] for o in want.get(e, ()) if hdr[o].get("status") == "ok")} for e in nb}
-    units = tuple({**p, **classify(p, ev[e], bmf_ein, bmf_name), **{"cn_" + k: v for k, v in B["tests"][e].items()}}
+    units = tuple({**p, **classify(p, ev[e], bmf_ein, bmf_name, tok_idx), **{"cn_" + k: v for k, v in B["tests"][e].items()}}
                   for e, p in profiles.items())
     cn_pass = lambda u: u["cn_n_in_window"] >= 3 and u["cn_latest_form"] != "990PF" and u["cn_n_full_990_last4"] >= 2  # noqa: E731
 
@@ -480,11 +525,12 @@ def main(argv: Sequence[str] | None = None) -> int:
                           "sponsors": len({l["sponsor"] for l in v})}
                       for k, v in _group_by_fast(tl, lambda l: l["timing"]).items()}
 
-    rows = (agg_rows(units, lambda u: u["category"], "category", B["total_dw_all"])
-            + agg_rows(units, lambda u: six_way(u["category"]), "category_six_way", B["total_dw_all"])
-            + agg_rows(units, lambda u: u["category"] + "/" + u["sub"], "category_sub", B["total_dw_all"])
-            + agg_rows(tuple(u for u in units if cn_pass(u)), lambda u: u["category"], "cn_filing_rule_pass_1213", B["total_dw_all"])
-            + agg_rows(units, lambda u: "all", "all", B["total_dw_all"])
+    TOT = B["total_dw_all"] + B["total_dw_blank_ein"]
+    rows = (agg_rows(units, lambda u: u["category"], "category", TOT)
+            + agg_rows(units, lambda u: six_way(u["category"]), "category_six_way", TOT)
+            + agg_rows(units, lambda u: u["category"] + "/" + u["sub"], "category_sub", TOT)
+            + agg_rows(tuple(u for u in units if cn_pass(u)), lambda u: u["category"], "cn_filing_rule_pass_1213", TOT)
+            + agg_rows(units, lambda u: "all", "all", TOT)
             + [{"row_type": "recipient", "ein": u["ein"], "name_as_filed": u["name_filed"], "category": u["category"],
                 "sub_category": u["sub"], "usd_daf_weighted": round(u["dw"])}
                for u in sorted(units, key=lambda u: (-u["dw"], u["ein"]))])
@@ -496,7 +542,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                           for u in sorted((u for u in units if u["category"] == c), key=lambda u: -u["dw"])[:n]]
     summary = {
         "non_bmf_eins": len(nb), "non_bmf_with_lines": len(units), "usd_dw": round(sum(u["dw"] for u in units)),
-        "recipient_eins_all": B["n_recipient_eins"], "total_dw_all": round(B["total_dw_all"]),
+        "recipient_eins_all": B["n_recipient_eins"], "total_dw_all": round(B["total_dw_all"]), "total_dw_incl_blank_ein": round(TOT),
         "evidence_counts": {"revocation_any_row": sum(1 for e in nb if rev.get(e)),
                             "revocation_no_reinstatement": sum(1 for e in nb if rev.get(e) and rev[e][-1]["reinst_date"] is None),
                             "pub78": len(pub), "epostcard": len(epost), "teos_index_any": len(idx),

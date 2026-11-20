@@ -12,6 +12,9 @@ Yearly excess (+) or shortfall (-), by regime:
   * NEW (fiscal periods beginning on or after 2023-01-01; T3010 v27; Schedule 8 published in the 2023, 2024 and
     2025 releases): filed line 865 (= 860 - 840); if 865 is blank, spending (860, else 845+850+855) minus the DQ
     (840, else the formula on 815 or 805 - 810).
+  * NIL_DQ_5850N (v27 returns with no Schedule 8 row whose Section C line 5850 = N, i.e. average property not
+    used in charitable activities did not exceed C$100k / C$25k, so the DQ is nil): the whole of Schedule 6
+    lines 5000 + 5045 + 5050 is a disbursement excess under s.149.1(21) read literally.
   * OLD_PROXY (earlier fiscal periods; no Schedule 8 exists: the 2019-2022 Schedule 8 files are header-only):
     Schedule 6 line 5000 (charitable programs) + line 5050 (gifts to qualified donees) minus the pre-2023 DQ,
     3.5% of line 5900 if line 5900 exceeds C$100k (charitable organization, designation C) or C$25k (foundations,
@@ -19,19 +22,23 @@ Yearly excess (+) or shortfall (-), by regime:
 
 Coverage tests for the 2025 shortfall S (each a separate column):
   1. prior_release_865   the previous release's latest line 865 >= S (reproduces the 10 of 22 in the parent doc)
-  2. filed_gross         sum of positive NEW-regime excesses in the five preceding taxation years >= S
-  3. filed_net           FIFO pool over NEW-regime years only: each excess enters the pool and expires after five
+  2. filed_gross         sum of positive NEW and NIL_DQ_5850N excesses in the five preceding taxation years >= S
+  3. filed_net           FIFO pool over NEW and NIL_DQ_5850N years only: each excess enters the pool and expires after five
                          subsequent years; each intermediate shortfall first takes the next year's excess
                          (carry-back) and then the oldest pool excess; S is covered if the pool left at the 2025
                          year is >= S
   4. proxy_net           as 3, adding OLD_PROXY years (fiscal periods ending 2020-2023 releases)
+  5. proxy_screened      as 4, but an OLD_PROXY year counts as unknown when its line 5900 is below
+                         SCREEN_RATIO x the sponsor's first Schedule 8 line 805 (an implausible base, e.g. a
+                         return that reports 3% of the later base); the headline verdict uses this test
 
 Usage:
-  python3 scripts/mission_canada_carry_forward.py . --dq-dirs DIR_A DIR_B --fin-dirs DIR_C DIR_D
+  python3 scripts/mission_canada_carry_forward.py . --dq-dirs DIR_A DIR_B --fin-dirs DIR_C DIR_D --abc-dirs DIR_D
       [--netting data/mission-2026-11-14/canada-daf-netting-dq-2026-11-19.csv]
       [--out data/mission-2026-11-14/canada-carry-forward-2026-11-20.csv] [--summary FILE.json]
   --dq-dirs   holds {Y}_dq_schedule_8_dq_{Y}*.csv for Y = 2023, 2024, 2025 (2019-2022 optional, header-only)
-  --fin-dirs  holds {Y}_fin_financial_d_and_schedule_6_{Y}_updated.csv for Y = 2020 ... 2023
+  --fin-dirs  holds {Y}_fin_financial_d_and_schedule_6_{Y}_updated.csv for Y = 2020 ... 2024
+  --abc-dirs  holds {Y}_abc_financial_section_a_b_and_c_{Y}_updated.csv for Y = 2023, 2024 (line 5850)
 Stdlib only; functional (pure functions, no mutable global state). Imports the parent scripts unchanged.
 """
 from __future__ import annotations
@@ -50,21 +57,26 @@ import mission_canada_daf_panel as panel  # noqa: E402  (imported, not modified)
 import mission_canada_netting_dq as ndq  # noqa: E402  (imported, not modified)
 
 DQ_YEARS = (2019, 2020, 2021, 2022, 2023, 2024, 2025)
-FIN_YEARS = (2020, 2021, 2022, 2023)
+FIN_YEARS = (2020, 2021, 2022, 2023, 2024)
+ABC_YEARS = (2023, 2024)
 TARGET_YEAR = 2025
 LOOKBACK_YEARS = 5
 SLACK_DAYS = 31  # tolerance for a changed fiscal year end when counting "five preceding years"
 OLD_RATE = 0.035
 OLD_THRESHOLD = {"C": 100_000.0, "A": 25_000.0, "B": 25_000.0}
+SCREEN_RATIO = 0.25
 
 FIELDS = [
     "bn", "legal_name", "designation", "target_fpe", "target_dq", "target_spending", "target_shortfall",
     "fpe", "release", "regime", "form_id", "in_lookback_window", "years_before_target",
     "dq_840_or_proxy", "spending_or_proxy", "line_865_filed", "excess_or_shortfall", "excess_source",
-    "pool_after_year_filed_net", "pool_after_year_proxy_net",
+    "line_5900", "proxy_base_check", "pool_after_year_filed_net", "pool_after_year_proxy_net",
+    "pool_after_year_proxy_screened",
     "prior_release_865", "covered_prior_release_865", "lookback_excess_filed_gross", "covered_filed_gross",
     "pool_at_target_filed_net", "covered_filed_net", "pool_at_target_proxy_net", "covered_proxy_net",
-    "uncovered_filed_net", "uncovered_proxy_net", "n_new_regime_prior_years", "n_old_proxy_prior_years",
+    "pool_at_target_proxy_screened", "covered_proxy_screened",
+    "uncovered_filed_net", "uncovered_proxy_net", "uncovered_proxy_screened",
+    "n_new_regime_prior_years", "n_old_proxy_prior_years",
     "verdict",
 ]
 
@@ -113,28 +125,49 @@ def old_regime_excess(r: dict, designation: str) -> tuple[float | None, str | No
     return spend - dq, "proxy_5000+5050-3.5%x5900", dq, spend
 
 
-def chain_records(bn: str, designation: str, dq_rows: list[dict], fin_rows: list[dict]) -> list[dict]:
-    """One record per FPE: Schedule 8 (NEW) wins; else a pre-v27 Schedule 6 return gives OLD_PROXY.
-    Later releases override earlier ones for the same FPE."""
+def chain_records(bn: str, designation: str, dq_rows: list[dict], fin_rows: list[dict],
+                  abc_5850: dict | None = None) -> list[dict]:
+    """One record per FPE: Schedule 8 (NEW) wins; else a v27 return with line 5850 = N gives NIL_DQ_5850N;
+    else a pre-v27 Schedule 6 return gives OLD_PROXY. Later releases override earlier ones for the same FPE."""
+    abc_5850 = abc_5850 or {}
     new = reduce(lambda acc, r: {**acc, r["FPE"]: r}, sorted(dq_rows, key=lambda r: r["_release"]), {})
+    nil_cands = [r for r in sorted(fin_rows, key=lambda r: r["_release"])
+                 if r["FPE"] not in new and (panel.num(r.get("Form ID")) or 0) >= 27
+                 and abc_5850.get((bn, r["FPE"]), "").strip().upper() == "N"]
+    nil = reduce(lambda acc, r: {**acc, r["FPE"]: r}, nil_cands, {})
     old_cands = [r for r in sorted(fin_rows, key=lambda r: r["_release"])
                  if r["FPE"] not in new and (panel.num(r.get("Form ID")) or 0) < 27]
     old = reduce(lambda acc, r: {**acc, r["FPE"]: r}, old_cands, {})
+    first_805 = next((panel.num(new[f].get("805")) for f in sorted(new) if panel.num(new[f].get("805"))), None)
+
+    def base_check(r: dict) -> str:
+        b = panel.num(r.get("5900"))
+        return ("no_5900" if b is None else "no_schedule8_805" if not first_805 else
+                "suspect_low_5900" if b < SCREEN_RATIO * first_805 else "ok")
 
     def rec_new(fpe: str, r: dict) -> dict:
         ex, src, dq, sp = new_regime_excess(r)
         return {"bn": bn, "fpe": fpe, "release": r["_release"], "regime": "NEW", "form_id": r.get("Form ID", ""),
                 "dq_840_or_proxy": dq, "spending_or_proxy": sp, "line_865_filed": panel.num(r.get("865")),
-                "excess_or_shortfall": ex, "excess_source": src}
+                "excess_or_shortfall": ex, "excess_source": src, "line_5900": None, "proxy_base_check": None}
 
     def rec_old(fpe: str, r: dict) -> dict:
         ex, src, dq, sp = old_regime_excess(r, designation)
         return {"bn": bn, "fpe": fpe, "release": r["_release"], "regime": "OLD_PROXY",
                 "form_id": r.get("Form ID", ""), "dq_840_or_proxy": dq, "spending_or_proxy": sp,
-                "line_865_filed": None, "excess_or_shortfall": ex, "excess_source": src}
+                "line_865_filed": None, "excess_or_shortfall": ex, "excess_source": src,
+                "line_5900": panel.num(r.get("5900")), "proxy_base_check": base_check(r)}
 
-    return sorted([rec_new(f, r) for f, r in new.items()] + [rec_old(f, r) for f, r in old.items()],
-                  key=lambda x: x["fpe"])
+    def rec_nil(fpe: str, r: dict) -> dict:
+        g = lambda k: panel.num(r.get(k))
+        sp = ndq.sum_present([g("5000"), g("5045"), g("5050")])
+        return {"bn": bn, "fpe": fpe, "release": r["_release"], "regime": "NIL_DQ_5850N",
+                "form_id": r.get("Form ID", ""), "dq_840_or_proxy": 0.0, "spending_or_proxy": sp,
+                "line_865_filed": None, "excess_or_shortfall": sp, "excess_source": "5850=N: 5000+5045+5050",
+                "line_5900": g("5900"), "proxy_base_check": None}
+
+    return sorted([rec_new(f, r) for f, r in new.items()] + [rec_nil(f, r) for f, r in nil.items()]
+                  + [rec_old(f, r) for f, r in old.items()], key=lambda x: x["fpe"])
 
 
 def fifo_pool(records: list[dict]) -> list[tuple[dict, float]]:
@@ -185,45 +218,55 @@ def sponsor_rows(s: dict, records: list[dict]) -> list[dict]:
     window = [r for r in prior if in_window(t_fpe, r["fpe"])]
     window5 = sorted(window, key=lambda r: r["fpe"])[-LOOKBACK_YEARS:]
     w_fpes = {r["fpe"] for r in window5}
-    new_prior = [r for r in prior if r["regime"] == "NEW"]
+    new_prior = [r for r in prior if r["regime"] != "OLD_PROXY"]
     states_f, pool_f = pool_before(new_prior, t_fpe)
     states_p, pool_p = pool_before(prior, t_fpe)
-    gross = sum(max(r["excess_or_shortfall"] or 0.0, 0.0) for r in window5 if r["regime"] == "NEW")
+    screened = [r if r["proxy_base_check"] != "suspect_low_5900" else {**r, "excess_or_shortfall": None}
+                for r in prior]
+    states_s, pool_s = pool_before(screened, t_fpe)
+    gross = sum(max(r["excess_or_shortfall"] or 0.0, 0.0) for r in window5 if r["regime"] != "OLD_PROXY")
     pr865 = panel.num(s["prior_release_dq_865"])
     after_f = {r["fpe"]: p for r, p in states_f}
     after_p = {r["fpe"]: p for r, p in states_p}
+    after_s = {r["fpe"]: p for r, p in states_s}
     cov = {
         "covered_prior_release_865": pr865 is not None and pr865 >= shortfall,
         "covered_filed_gross": gross >= shortfall,
         "covered_filed_net": pool_f >= shortfall,
         "covered_proxy_net": pool_p >= shortfall,
+        "covered_proxy_screened": pool_s >= shortfall,
     }
     verdict = ("COVERED_FILED" if cov["covered_filed_net"] else
-               "COVERED_ONLY_WITH_PRE2023_PROXY" if cov["covered_proxy_net"] else
-               "PARTLY_COVERED" if pool_p > 0 else "UNCOVERED")
+               "COVERED_ONLY_WITH_PRE2023_PROXY" if cov["covered_proxy_screened"] else
+               "PARTLY_COVERED" if pool_s > 0 else "UNCOVERED")
     common = {
         "bn": s["bn"], "legal_name": s["legal_name"], "designation": s["designation"], "target_fpe": t_fpe,
         "target_dq": panel.num(s["dq_requirement_used"]), "target_spending": panel.num(s["dq_spending_used"]),
         "target_shortfall": shortfall, "prior_release_865": pr865, "lookback_excess_filed_gross": gross,
         "pool_at_target_filed_net": pool_f, "pool_at_target_proxy_net": pool_p,
+        "pool_at_target_proxy_screened": pool_s,
         "uncovered_filed_net": max(shortfall - pool_f, 0.0), "uncovered_proxy_net": max(shortfall - pool_p, 0.0),
-        "n_new_regime_prior_years": sum(1 for r in window5 if r["regime"] == "NEW"),
+        "uncovered_proxy_screened": max(shortfall - pool_s, 0.0),
+        "n_new_regime_prior_years": sum(1 for r in window5 if r["regime"] != "OLD_PROXY"),
         "n_old_proxy_prior_years": sum(1 for r in window5 if r["regime"] == "OLD_PROXY"),
         "verdict": verdict, **cov,
     }
     target = {"fpe": t_fpe, "release": TARGET_YEAR, "regime": "NEW", "form_id": "27",
               "dq_840_or_proxy": common["target_dq"], "spending_or_proxy": common["target_spending"],
               "line_865_filed": panel.num(s["dq_865"]), "excess_or_shortfall": -shortfall,
-              "excess_source": "target_year (netting CSV dq_excess_used)"}
+              "excess_source": "target_year (netting CSV dq_excess_used)", "line_5900": None,
+              "proxy_base_check": None}
     rows = [{**common, **{k: r[k] for k in ("fpe", "release", "regime", "form_id", "dq_840_or_proxy",
                                               "spending_or_proxy", "line_865_filed", "excess_or_shortfall",
-                                              "excess_source")},
+                                              "excess_source", "line_5900", "proxy_base_check")},
              "in_lookback_window": r["fpe"] in w_fpes,
              "years_before_target": round((d(t_fpe) - d(r["fpe"])).days / 365.25, 2),
              "pool_after_year_filed_net": after_f.get(r["fpe"]),
-             "pool_after_year_proxy_net": after_p.get(r["fpe"])} for r in prior]
+             "pool_after_year_proxy_net": after_p.get(r["fpe"]),
+             "pool_after_year_proxy_screened": after_s.get(r["fpe"])} for r in prior]
     return rows + [{**common, **target, "in_lookback_window": None, "years_before_target": 0.0,
-                    "pool_after_year_filed_net": None, "pool_after_year_proxy_net": None}]
+                    "pool_after_year_filed_net": None, "pool_after_year_proxy_net": None,
+                    "pool_after_year_proxy_screened": None}]
 
 
 # ---------- payout effect ----------
@@ -237,7 +280,7 @@ def payout_effect(net_rows: list[dict], sponsors: list[dict]) -> dict:
     bns = {s["bn"] for s in sponsors}
     unc = {s["bn"] for s in sponsors if s["verdict"] in ("UNCOVERED", "PARTLY_COVERED")}
     shortfall_in_base = [r for r in yr if r["bn"] in bns]
-    unc_dollars = sum(s["uncovered_proxy_net"] for s in sponsors if s["bn"] in {r["bn"] for r in shortfall_in_base})
+    unc_dollars = sum(s["uncovered_proxy_screened"] for s in sponsors if s["bn"] in {r["bn"] for r in shortfall_in_base})
     return {
         "n_matched": len(yr), "base_prior_daf_assets": sum(map(den_, yr)),
         "payout_net_tier_b": agg(yr),
@@ -270,6 +313,7 @@ def main(argv: list[str] | None = None) -> None:
     ap.add_argument("root", help="repo root ('.')")
     ap.add_argument("--dq-dirs", nargs="+", required=True)
     ap.add_argument("--fin-dirs", nargs="+", required=True)
+    ap.add_argument("--abc-dirs", nargs="+", required=True)
     ap.add_argument("--netting", default="data/mission-2026-11-14/canada-daf-netting-dq-2026-11-19.csv")
     ap.add_argument("--out", default="data/mission-2026-11-14/canada-carry-forward-2026-11-20.csv")
     ap.add_argument("--summary", default=None)
@@ -280,10 +324,12 @@ def main(argv: list[str] | None = None) -> None:
     bns = {r["bn"] for r in targets}
     dq_rows, dq_counts = load(a.dq_dirs, DQ_YEARS, "dq", bns)
     fin_rows, fin_counts = load(a.fin_dirs, FIN_YEARS, "fin", bns)
+    abc_rows, _ = load(a.abc_dirs, ABC_YEARS, "abc", bns)
+    abc_5850 = {(r["BN"], r["FPE"]): r.get("5850", "") for r in abc_rows}
 
     per = [sponsor_rows(s, chain_records(s["bn"], s["designation"],
                                          [r for r in dq_rows if r["BN"] == s["bn"]],
-                                         [r for r in fin_rows if r["BN"] == s["bn"]]))
+                                         [r for r in fin_rows if r["BN"] == s["bn"]], abc_5850))
            for s in sorted(targets, key=lambda r: -(panel.num(r["dq_requirement_used"]) or 0))]
     rows = [r for p in per for r in p]
     sponsors = [p[-1] for p in per]
@@ -303,19 +349,22 @@ def main(argv: list[str] | None = None) -> None:
         "covered": {k: {"n": sum(1 for s in sponsors if s[k]),
                         "shortfall_dollars": sum(s["target_shortfall"] for s in sponsors if s[k])}
                     for k in ("covered_prior_release_865", "covered_filed_gross", "covered_filed_net",
-                              "covered_proxy_net")},
+                              "covered_proxy_net", "covered_proxy_screened")},
         "uncovered_dollars": {"filed_net": tot(sponsors, "uncovered_filed_net"),
-                              "proxy_net": tot(sponsors, "uncovered_proxy_net")},
+                              "proxy_net": tot(sponsors, "uncovered_proxy_net"),
+                              "proxy_screened": tot(sponsors, "uncovered_proxy_screened")},
         "verdicts": by_verdict,
         "verdict_dollars": ndq.fold_sum((s["verdict"], s["target_shortfall"]) for s in sponsors),
-        "prior_years_available": ndq.fold_sum(((s["n_new_regime_prior_years"], s["n_old_proxy_prior_years"]), 1)
+        "prior_years_available": ndq.fold_sum((f'new={s["n_new_regime_prior_years"]};old_proxy={s["n_old_proxy_prior_years"]}', 1)
                                               for s in sponsors),
         "sponsors": [{k: s[k] for k in ("bn", "legal_name", "designation", "target_fpe", "target_dq",
                                          "target_spending", "target_shortfall", "prior_release_865",
                                          "lookback_excess_filed_gross", "pool_at_target_filed_net",
-                                         "pool_at_target_proxy_net", "uncovered_proxy_net",
+                                         "pool_at_target_proxy_net", "pool_at_target_proxy_screened",
+                                         "uncovered_filed_net", "uncovered_proxy_screened",
                                          "n_new_regime_prior_years", "n_old_proxy_prior_years",
                                          "covered_prior_release_865", "covered_filed_net", "covered_proxy_net",
+                                         "covered_proxy_screened",
                                          "verdict")} for s in sponsors],
         "payout_effect": payout_effect(net_rows, sponsors),
     }
