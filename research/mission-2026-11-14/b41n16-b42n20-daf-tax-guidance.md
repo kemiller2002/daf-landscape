@@ -149,6 +149,8 @@
 | Not stated in documents read | 4 | SVCF (Advised Fund Agreement), BofA (DAF guide), CCT (portal FAQ), JCF (Aug 2024 Policy Guide) [F] |
 | Not read | 4 | Goldman Sachs PF [R]; Renaissance [U: site terms; search found no rule]; ImpactAssets [U: circular 403, FAQ 404]; FFTC [U: site terms] |
 
+**NCF quote (wave 52A note).** The NCF guide reads “Examples of what grants can’t be used to provide you or someone related to you include: … Fulfillment of legally binding pledges” (https://www.ncfgiving.com/guide-to-giving-at-NCF, re-read 2026-11-20). PL-S10 in `daf-pledge-policy-2026-11-19.csv` holds an elided paraphrase of this sentence; the substance is confirmed. [V wave 52A]
+
 **Product implication [I].** The two top-15 sponsors that follow the notice are AEF [F] and NPT [S, not page-verified]. A pledge-matching feature could rest on AEF now, and on NPT only after a direct page read [V wave 33B]. At Fidelity, DAFgiving360, Vanguard, MS GIFT and NCF, a feature that pays pledges would need recipients to record the pledge as non-binding.
 
 ---

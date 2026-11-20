@@ -148,7 +148,7 @@ All page dates in the table match the repo's `source_date` values (from `<time d
 | FY23 | 106,235 | 107,385 | −1.1% |
 | FY24 | 129,575 | 130,875 | −1.0% |
 
-Grant dollars were restated too: FY24 is $5.49bn against $5.62bn printed earlier. NPT gives no explanation. Both series are first-party. The repo mixes them (queue P-B5201-01).
+Grant dollars were restated too: FY24 is $5.49bn against $5.62bn printed earlier. NPT gives no explanation. Both series are first-party. The repo mixes them (queue P-B5201-01). Validator note: wave 39A had already recorded this restatement (b4013-b4428 §2.2). The count revisions are −0.9% to −1.1%; the dollar revisions run both ways (FY21 $6.41bn → $6.46bn, FY22 $5.57bn → $5.53bn, FY23 $4.50bn → $4.54bn, FY24 $5.62bn → $5.49bn). The repo keeps 129,575 as the governing FY2024 count. The mean-grant chart’s subtitle reads “Mean value per grant recommended ($ in thousands)”, but its values are dollars. [V wave 52A]
 
 ### 3.4 PR Newswire (www.prnewswire.com)
 

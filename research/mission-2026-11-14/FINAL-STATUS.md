@@ -8,7 +8,34 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #73) — governing
+## Counts (refresh 2026-11-20, through PR #74) — governing
+
+These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #74 merged. They supersede the tables below, and the PR #74 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#74 (55 PRs) | GitHub |
+| Research documents | 410 documents, 1,605,537 words | `research/**/*.md` |
+| Datasets | 764 CSV files, 556,695 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,559 | regex over `research/**/*.md` |
+| Independent validation | **2,557 register rows** in 86 register files (waves 1–52A): 1,861 confirmed, 562 partially confirmed, 92 contradicted, 31 unverifiable, 11 other | `validation-register*.csv`, classified by the leading words of `validation_result` |
+| Research queue | 1,087 items: 436 done, 517 open, 78 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.79 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #74 (validated; report §11.79):**
+- **Owner decision, 2026-11-20.** The site-terms restriction on automated reads is lifted. robots.txt and the rule against bypassing CAPTCHAs, bot challenges, logins or forms still apply.
+- **Terms-restricted sources re-read.** The Charity Navigator press releases and API terms (no AI wording), the Vanguard Charitable, NPT and PR Newswire grant figures, and the NCF guide quotes are confirmed verbatim, with minor fixes. The earlier terms-provenance flags are resolved.
+  - New grant-size statistics:
+    - Vanguard average grant: $9,500 → $14,808 (CY2022–25).
+    - NPT mean grant: $73,866 → $40,381 (FY21–25).
+    - JCF median grant: $501 (FY2021) and $601 (FY2022).
+  - NPT FY2024 grant count: the governing figure is 129,575, from the FY25-report series.
+- **Every.org is still blocked.** Its robots.txt is behind a Vercel bot challenge.
+- **Owner download list.** `data/mission-2026-11-14/owner-fetch-targets-2026-11-20.csv` lists 519 blocked sources (36 high, 62 medium, 421 low). `scripts/owner_fetch.py` reads it (`--targets-only --priority high`).
+  - crt.sh and certspotter rows are excluded under the mission rule.
+  - The script also has manual California and New York registry lookups.
+
+## Counts (refresh 2026-11-20, through PR #73) (superseded by the table above)
 
 These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #73 merged. They supersede the tables below. The PR #73 description records the head SHA.
 
@@ -39,7 +66,7 @@ These counts were recomputed from the git-tracked files on branch `claude/daf-la
   - The 50 largest growers took 72% of growth; 206 new recipients took 46%.
   - Marin to Dayton Foundation Plus is not a DAF-to-DAF transfer.
   - GHCF's $170m line to its own supporting organisation is not netted by the self-line rule.
-- **Additional terms-restricted provenance (owner decision).** Earlier rows sourced from vanguardcharitable.org, nptrust.org and prnewswire.com, whose terms ban scripted extraction, are listed in validation-wave51a-report.md. They are flagged, not deleted.
+- **Additional terms-restricted provenance (owner decision).** Earlier rows sourced from vanguardcharitable.org, nptrust.org and prnewswire.com, whose terms ban scripted extraction, are listed in validation-wave51a-report.md. They are flagged, not deleted. Resolved 2026-11-20: the owner lifted the site-terms rule; b52-01 re-read these values at source and wave 52A re-fetched a sample (Vanguard, NPT, PR Newswire): all match, so the flag becomes “re-fetched 2026-11-20 under the owner decision lifting the site-terms rule (b52-01; live re-check, wave 52A)”. NPT’s FY25 report restates FY21–FY24 grant counts about 1% lower; 129,575 governs FY2024 (validation-wave52a-report.md). [V wave 52A]
 
 ## Counts (refresh 2026-11-20, through PR #72) (superseded by the table above)
 
@@ -128,7 +155,7 @@ These counts were recomputed from the git-tracked files on branch `claude/daf-la
   - No confirmation, cap or cancel step is documented.
   - Scored AMBER, provisional. The validator recommends RED (provisional), pending the owner or a second scorer.
 - **Charity Navigator AI channel.** It is partnership-led: Horizon is powered by Giving Compass, and there is no MCP, no AI plan and no AI terms.
-  - Four quotes from scripted reads of www.charitynavigator.org, whose terms ban robots, are flagged pending the owner's manual read. They are kept out of synthesis.
+  - Four quotes from scripted reads of www.charitynavigator.org, whose terms ban robots, were flagged pending the owner's manual read. Resolved 2026-11-20: the owner lifted the site-terms rule, and b52-01 and wave 52A re-fetched them; CNAI-01, -02, -03 and -05 match verbatim, so they may enter synthesis. [V wave 52A]
 - **Bright Funds and SVCF.**
   - Bright Funds is a workplace-giving processor, not a DAF sponsor.
   - SVCF's $3.06bn of DAF grants against its $1.54bn release is reconciled by $1.667bn of transfers to other DAF sponsors, of which the NPT line is $1.59bn. The average grant is about $106k.
@@ -141,7 +168,7 @@ These counts were recomputed from the git-tracked files on branch `claude/daf-la
   - Individual donor names in the PF-flow CSV’s fund-name and purpose fields were redacted on 2026-11-20 (privacy rule).
 - **Open owner decisions:** [V wave 49B]
   - robots-blocked sources: NCF agreement, foundant.com, CCT portal;
-  - CN terms-restricted quotes;
+  - CN terms-restricted quotes: resolved 2026-11-20 (owner lifted the site-terms rule; re-read verbatim by b52-01 and wave 52A); [V wave 52A]
   - Pledge AMBER vs RED;
   - CZ Biohub LLC look-through.
 

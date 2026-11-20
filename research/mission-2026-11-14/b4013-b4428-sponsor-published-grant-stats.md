@@ -51,6 +51,8 @@
 | Unrestricted | 13% | 63% | 70% [R] | >50% | **47%** | **66%** |
 | Grants (denominator) | | | 88,289 [R] | | 130,875 | 159,543 |
 
+- **Terms-restricted provenance resolved (2026-11-20).** The NPT and Vanguard rows of `sponsor-published-grant-stats-2026-11-19.csv` were re-read at source by b52-01 under the owner decision lifting the site-terms rule, and wave 52A re-fetched the NPT FY23, FY24 and FY25 reports. The 130,875 above is the FY24 report’s own base for its 47% statement; the repo’s governing FY2024 count is the FY25 report’s restated 129,575 (GC-002). A-NPT-FY21 and B-NPT-FY21 remain unverified (the cited page returns 404). [V wave 52A]
+
 - FY15, FY20 and FY25 come from the 2025 report's chart "UNRESTRICTED GRANTS | SHARE OF VOLUME" (`data-data="13,63,66"`) and its text: "In FY25, 105,909 grants, or 66% of the total, were unrestricted". 105,909 / 159,543 = **66.4%** [C].
 - FY24: "47% of grants were unrestricted" and "Nearly half of all grants were unrestricted" (2024 report). That implies about 61,511 grants on the 2024 report’s count, or about 60,900 on the 2025 report’s restated FY24 count of 129,575 [C] [V wave 39A]
 - FY23: "more than half of all grant recommendations were unrestricted"; the same page says "the majority of grants were unrestricted or designated toward general operating support". So FY23 may fold general-operating designations into the majority claim.

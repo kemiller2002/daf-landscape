@@ -123,6 +123,8 @@ The frame is the same as [gap19-complaints-with-denominators.md](gap19-complaint
 
 So Schedule I lines understate grants by about 4 to 33 times. Processor upper bounds built on them (AOGF, PPGF) are correspondingly loose.
 
+**Terms-restricted rows re-read (2026-11-20).** Under the owner decision lifting the site-terms rule, b52-01 re-read rows 2 (NPT 129,575), 4 (Vanguard CY2024 240,064), 14 (JCF 89,485) and P3 (Blackbaud Giving Fund, more than 123,000 nonprofits; release dated 2025-10-20) at source, and wave 52A re-fetched them: all match. NPT’s FY25 report restates its earlier counts about 1% lower without a note; its FY24 report printed 130,875 grants and 41,879 recipients for FY2024. Row 2 keeps 129,575: it is NPT’s latest first-party figure and belongs to the same FY21–FY25 series as the dollars ($5.49bn) and international grants (406) the repo uses with it. [V wave 52A]
+
 ---
 
 ## 4. Results: complaint rates per 10,000 grants
