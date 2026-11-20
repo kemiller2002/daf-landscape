@@ -451,42 +451,36 @@ def trend_rows(rows: Sequence[Mapping]) -> list:
         return [r for r in use if r["fy"] == fy and r["sponsor_type"] == t
                 and ((r["staffing_model"] == "own_staff") == (model == "own_staff"))
                 and (panel_lab == "all_usable" or r["ein"] in full)]
-    out = []
-    for panel_lab, model, t in cells:
-        for fy in FYS:
-            rs = sel(panel_lab, model, t, fy)
-            if not rs:
-                continue
-            pooled_opex = sum(r["operating_cost_ex_invest_mgmt"] for r in rs)
-            pooled_assets = sum(r["daf_assets_used"] for r in rs)
-            pooled_accts = sum(r["daf_accounts_used"] for r in rs)
-            out += [{"record_type": "trend", "trend_panel": panel_lab, "staffing_model": model, "sponsor_type": t,
-                     "fy": fy, "metric": mt, "n_obs": sum(1 for r in rs if r.get(mt) is not None),
-                     "p25": rnd(q((r.get(mt) for r in rs), .25), 2), "median": rnd(med(r.get(mt) for r in rs), 2),
-                     "p75": rnd(q((r.get(mt) for r in rs), .75), 2)} for mt in TREND_METRICS
-                    if any(r.get(mt) is not None for r in rs)]
-            out += [{"record_type": "trend", "trend_panel": panel_lab, "staffing_model": model, "sponsor_type": t,
-                     "fy": fy, "metric": "pooled_opex_bps_daf_assets", "n_obs": len(rs),
-                     "median": rnd(pooled_opex / pooled_assets * 1e4, 2)},
-                    {"record_type": "trend", "trend_panel": panel_lab, "staffing_model": model, "sponsor_type": t,
-                     "fy": fy, "metric": "pooled_opex_per_daf_account", "n_obs": len(rs),
-                     "median": rnd(pooled_opex / pooled_accts, 1)}]
-    # within-sponsor log change FY2021 -> FY2024 (balanced panel)
+    def cell_rows(panel_lab, model, t, fy, rs):
+        base = {"record_type": "trend", "trend_panel": panel_lab, "staffing_model": model, "sponsor_type": t, "fy": fy}
+        opex = sum(r["operating_cost_ex_invest_mgmt"] for r in rs)
+        return [{**base, "metric": mt, "n_obs": sum(1 for r in rs if r.get(mt) is not None),
+                 "p25": rnd(q((r.get(mt) for r in rs), .25), 2), "median": rnd(med(r.get(mt) for r in rs), 2),
+                 "p75": rnd(q((r.get(mt) for r in rs), .75), 2)}
+                for mt in TREND_METRICS if any(r.get(mt) is not None for r in rs)] + [
+            {**base, "metric": "pooled_opex_bps_daf_assets", "n_obs": len(rs),
+             "median": rnd(opex / sum(r["daf_assets_used"] for r in rs) * 1e4, 2)},
+            {**base, "metric": "pooled_opex_per_daf_account", "n_obs": len(rs),
+             "median": rnd(opex / sum(r["daf_accounts_used"] for r in rs), 1)}]
+    levels = [x for panel_lab, model, t in cells for fy in FYS for rs in [sel(panel_lab, model, t, fy)] if rs
+              for x in cell_rows(panel_lab, model, t, fy, rs)]
+    # within-sponsor log change FY2021 -> FY2024 (balanced panel), grouped by FY2024 staffing model
     by = group_by([r for r in use if r["ein"] in full], lambda r: r["ein"])
-    for model in ("own_staff", "affiliate_or_zero_staff"):
-        for t in REG_TYPES:
-            ss = [v for v in by.values() if v[0]["sponsor_type"] == t and
-                  ((next(r for r in v if r["fy"] == 2024)["staffing_model"] == "own_staff") == (model == "own_staff"))]
-            if not ss:
-                continue
-            ch = lambda f: [math.log(next(r for r in v if r["fy"] == 2024)[f] / next(r for r in v if r["fy"] == 2021)[f])  # noqa: E731
-                            for v in ss if all((r.get(f) or 0) > 0 for r in v)]
-            out += [{"record_type": "trend", "trend_panel": "balanced_fy2021_24", "staffing_model": model,
-                     "sponsor_type": t, "fy": "2021->2024", "metric": f"median_log_change:{f}", "n_obs": len(ch(f)),
-                     "p25": rnd(q(ch(f), .25)), "median": rnd(med(ch(f))), "p75": rnd(q(ch(f), .75))}
-                    for f in ("operating_cost_ex_invest_mgmt", "daf_assets_used", "daf_accounts_used",
-                              "opex_bps_daf_assets", "opex_per_daf_account", "employees")]
-    return out
+    at = lambda v, fy: next(r for r in v if r["fy"] == fy)  # noqa: E731
+
+    def changes(ss, f):
+        return [math.log(at(v, 2024)[f] / at(v, 2021)[f]) for v in ss if all((r.get(f) or 0) > 0 for r in v)]
+    groups = [(model, t, [v for v in by.values() if v[0]["sponsor_type"] == t
+                          and ((at(v, 2024)["staffing_model"] == "own_staff") == (model == "own_staff"))])
+              for model in ("own_staff", "affiliate_or_zero_staff") for t in REG_TYPES]
+    deltas = [{"record_type": "trend", "trend_panel": "balanced_fy2021_24", "staffing_model": model,
+               "sponsor_type": t, "fy": "2021->2024", "metric": f"median_log_change:{f}", "n_obs": len(ch),
+               "p25": rnd(q(ch, .25)), "median": rnd(med(ch)), "p75": rnd(q(ch, .75))}
+              for model, t, ss in groups if ss
+              for f in ("operating_cost_ex_invest_mgmt", "daf_assets_used", "daf_accounts_used",
+                        "opex_bps_daf_assets", "opex_per_daf_account", "employees")
+              for ch in [changes(ss, f)]]
+    return levels + deltas
 
 
 CF_BANDS = ((1e9, "A_ge_1bn"), (1e8, "B_100m_1bn"), (1e7, "C_10m_100m"), (0, "D_lt_10m"))
