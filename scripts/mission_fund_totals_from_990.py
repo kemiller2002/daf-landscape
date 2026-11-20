@@ -65,6 +65,7 @@ import re
 import statistics
 import sys
 import xml.etree.ElementTree as ET
+from functools import reduce
 from typing import Mapping, Sequence
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -115,6 +116,8 @@ ENDOW_CTX = re.compile(r"(?i)endowment (net assets )?consists? of|deemed as endo
                        r"held on donor'?s behalf|beneficiaries were designated")
 TYPE_TOTAL_BEFORE = re.compile(r"(?i)\b(donor[- ]?advised|designated|scholarships?|agency|field[- ]of[- ]interest|endow\w*|"
                                r"custodial|fiscal|partner)\s+funds\b[^.;]{0,70}\(\s*(?:a\s+)?total\s+of\s*$")
+ITEM = re.compile(r"(?i)(?<![\d$,.])(?P<n>\d{1,3}(?:,\d{3})*)\s+(?:[a-z][a-z'-]*\s+){1,3}?funds?\b")
+SEP = re.compile(r"(?i)\s*,?\s*(?:and|&)?\s*")
 NEW_CTX = re.compile(r"(?i)\b(new|newly)\b")
 GRANT_BEFORE = re.compile(r"(?i)(grant\w*|award\w*|distribution\w*)\b[^.;]{0,80}\b(from|through|to)\s*$")
 GRANT_AFTER = re.compile(r"(?i)^\s*(that|which)\s+(award|hosted|made grants|provided grants|paid)")
@@ -147,17 +150,28 @@ def classify(text: str, m: re.Match, pattern: str) -> dict:
            or re.search(r"(?i)\$\s*$|\bmillion\b", before[-12:])
            else "new_funds" if any(NEW_CTX.fullmatch(w) for w in mods) or "established" in mods
            else "endowment_only" if any(ENDOW_WORDS.fullmatch(w) for w in mods) or ENDOW_CTX.search(sentence)
-           else "type_specific" if any(TYPE_WORDS.fullmatch(w) for w in mods) or TYPE_TOTAL_BEFORE.search(text[max(0, m.start() - 110):m.start()])
+           else "type_specific" if TYPE_WORDS.search(" ".join(mods)) or TYPE_TOTAL_BEFORE.search(text[max(0, m.start() - 110):m.start()])
            else "grantmaking" if GRANT_BEFORE.search(before) or GRANT_AFTER.search(after)
            else "all_funds")
     return {"n": n, "qual": qual_class(m.group("qual"), m.group("plus")), "cls": cls, "pattern": pattern,
             "snippet": re.sub(r"\s+", " ", text[max(0, m.start() - 100):m.end() + 100]).strip()}
 
 
+def type_list_sums(text: str) -> tuple[dict, ...]:
+    """P3: a run of >= 4 'N <type> fund(s)' items joined only by commas / 'and' / '&' is summed (sum of types)."""
+    items = tuple(ITEM.finditer(text))
+    runs = reduce(lambda acc, m: (acc[:-1] + ((acc[-1] + (m,)),) if acc and SEP.fullmatch(text[acc[-1][-1].end():m.start()])
+                                  else acc + ((m,),)), items, ())
+    return tuple({"n": sum(int(m.group("n").replace(",", "")) for m in run), "qual": "sum_of_types", "cls": "all_funds",
+                  "pattern": "P3", "snippet": re.sub(r"\s+", " ", text[max(0, run[0].start() - 100):run[-1].end() + 60]).strip()}
+                 for run in runs if len(run) >= 4)
+
+
 def hits_in(text: str) -> tuple[dict, ...]:
+    p3 = type_list_sums(text)
     p2 = tuple(classify(text, m, "P2") for rx in P2 for m in rx.finditer(text))
     p1 = tuple(classify(text, m, "P1") for m in P1.finditer(text))
-    return p2 + p1
+    return p3 + p2 + p1
 
 
 def local(tag: str) -> str:
@@ -165,10 +179,11 @@ def local(tag: str) -> str:
 
 
 def narratives(root) -> tuple[tuple[str, str], ...]:
-    """(part, text) for Part III fields, Schedule O explanations and (extension only) Schedule D Part XIII explanations."""
+    """(part, text) for Part III fields, Schedule O explanations and (extension only) Schedule D Part XIII and Schedule A Part VI explanations."""
     irs990 = next((e for e in root.iter() if local(e.tag) == "IRS990"), None)
     sched_o = next((e for e in root.iter() if local(e.tag) == SCHED_O), None)
     sched_d = next((e for e in root.iter() if local(e.tag) == "IRS990ScheduleD"), None)
+    sched_a = next((e for e in root.iter() if local(e.tag) == "IRS990ScheduleA"), None)
     p3 = () if irs990 is None else tuple(
         ("part_iii", (e.text or "").strip()) for e in irs990.iter()
         if local(e.tag) in PART_III_TAGS and (e.text or "").strip())
@@ -176,7 +191,9 @@ def narratives(root) -> tuple[tuple[str, str], ...]:
         ("sched_o", (e.text or "").strip()) for e in sched_o.iter() if local(e.tag) == "ExplanationTxt" and (e.text or "").strip())
     sd = () if sched_d is None else tuple(
         ("sched_d_xiii", (e.text or "").strip()) for e in sched_d.iter() if local(e.tag) == "ExplanationTxt" and (e.text or "").strip())
-    return p3 + so + sd
+    sa = () if sched_a is None else tuple(
+        ("sched_a_vi", (e.text or "").strip()) for e in sched_a.iter() if local(e.tag) == "ExplanationTxt" and (e.text or "").strip())
+    return p3 + so + sd + sa
 
 
 def first_text(root, tag: str) -> str | None:
@@ -196,12 +213,12 @@ def parse_return(oid: str, raw: bytes | None) -> dict:
     return {"oid": oid, "xml": "ok", "period_end": first_text(root, "TaxPeriodEndDt"),
             "daf_cnt": num(first_text(root, "DonorAdvisedFundsHeldCnt")),
             "other_cnt": num(first_text(root, "FundsAndOtherAccountsHeldCnt")),
-            "n_narr": sum(1 for p, _ in texts if p in MAIN_PARTS), "n_narr_sd": sum(1 for p, _ in texts if p == "sched_d_xiii"),
+            "n_narr": sum(1 for p, _ in texts if p in MAIN_PARTS), "n_narr_ext": sum(1 for p, _ in texts if p not in MAIN_PARTS),
             "hits": uniq}
 
 
 MAIN_PARTS = ("part_iii", "sched_o")
-EXT_PARTS = MAIN_PARTS + ("sched_d_xiii",)
+EXT_PARTS = MAIN_PARTS + ("sched_d_xiii", "sched_a_vi")
 
 
 def return_total(rec: Mapping, parts: Sequence[str] = MAIN_PARTS) -> dict | None:
