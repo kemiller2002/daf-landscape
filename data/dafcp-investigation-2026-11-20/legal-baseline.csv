@@ -1,0 +1,21 @@
+row_id,topic,authority,status_class,key_point,url,tag
+LB01,DAF definition; taxable distributions; expenditure responsibility,IRC 4966,statute,"20% sponsor tax; grants to 170(b)(1)(A) organisations (other than disqualified supporting organisations), the sponsor or another DAF are excepted; others need expenditure responsibility",https://www.law.cornell.edu/uscode/text/26/4966,F
+LB02,Prohibited benefits,IRC 4967,statute,125% tax on more-than-incidental benefit to donor/advisor/related person; 10% on knowing manager,https://www.law.cornell.edu/uscode/text/26/4967,F
+LB03,Excess benefit,IRC 4958(c)(2),statute,"Any grant, loan, compensation or similar payment from a DAF to donor/advisor/related person is automatically an excess benefit transaction",https://www.law.cornell.edu/uscode/text/26/4958,F
+LB04,Excess business holdings,IRC 4943(e),statute,DAFs treated as private foundations for 4943,https://www.law.cornell.edu/uscode/text/26/4943,F
+LB05,Deduction substantiation,IRC 170(f)(18),statute,Contemporaneous written acknowledgment of sponsor control required,https://www.law.cornell.edu/uscode/text/26/170,F
+LB06,0.5% floor,IRC 170(b)(1)(I),statute,Itemized charitable deductions only above 0.5% of contribution base (tax years after 2025),https://www.law.cornell.edu/uscode/text/26/170,F
+LB07,Non-itemizer deduction excludes DAFs,IRC 170(p),statute,"$1,000/$2,000 cash deduction excludes gifts to establish or maintain a DAF",https://www.law.cornell.edu/uscode/text/26/170,F
+LB08,Itemized deduction reduction,IRC 68,statute,2/37 reduction across all itemized deductions for top-bracket taxpayers (the '35% cap'),https://www.law.cornell.edu/uscode/text/26/68,F
+LB09,Qualified appraisal,"IRC 170(f)(11); Treas. Reg. 1.170A-13, -16, -17",statute and final regulations,"Noncash gifts over $5,000 need a qualified appraisal; Form 8283 Section B signed by donee",https://www.law.cornell.edu/uscode/text/26/170,I
+LB10,Cryptocurrency,CCA 202302012,chief counsel advice (non-precedential),"Crypto gifts over $5,000 need a qualified appraisal",https://www.irs.gov/pub/irs-wd/202302012.pdf,R
+LB11,Pledges and event tickets,Notice 2017-73,notice,Pledge relief may be relied on until further guidance; bifurcation previewed only,https://www.irs.gov/pub/irs-drop/n-17-73.pdf,F
+LB12,Equivalency determination,Rev. Proc. 2017-53; Notice 2006-109,revenue procedure / notice,Good-faith determination standards for foreign grantees,https://www.irs.gov/irb/2017-40_IRB,I
+LB13,2023 proposed DAF regulations,REG-142338-07 (88 FR 77922),proposed regulation,Not finalized or withdrawn; would treat certain personal investment advisers as donor-advisors,https://www.federalregister.gov/d/2023-24982,F
+LB14,Priority Guidance Plan,2026-2027 PGP,administrative plan,Item reframed as guidance under 4966 and 6033 on 'certain' DAF arrangements; no deadline,https://www.irs.gov/pub/irs-counsel/2026-2027-initial-pgp.pdf,F
+LB15,Donor standing,Pinkert v. Schwab Charitable Fund (9th Cir. 2022),case,Donor lacked standing to challenge fees and investment management,https://cdn.ca9.uscourts.gov/datastore/opinions/2022/09/14/21-16299.pdf,R
+LB16,Sponsor liquidation,Fairbairn v. Fidelity Charitable (N.D. Cal. 2021),case,Sponsor prevailed at bench trial,https://law.justia.com/cases/federal/district-courts/california/candce/3:2018cv04881/330509/257/,R
+LB17,Prearranged sale / assignment of income,Humacid; Palmer; Rauenhorst; Hoensheid (T.C. Memo. 2023-34),case law,Gift after sale is practically certain is taxed to donor,,I
+LB18,Investment standard,UPMIFA (state law),state statute,Prudence standard for institutional funds; application to DAF accounts depends on state and entity form,,I
+LB19,Inactivity and minimum-grant rules,sponsor programme circulars,industry practice,"Voluntary, not legal mandates",https://www.wealthmanagement.com/philanthropy/five-core-truths-about-donor-advised-funds,R
+LB20,State DAF reporting,California AB 2936 (2020),bill not enacted,No enacted state DAF payout or reporting law found,https://www.legiscan.com/CA/text/AB2936/2019,R

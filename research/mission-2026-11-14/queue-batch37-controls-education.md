@@ -320,3 +320,10 @@ Source: [validation-wave22-report.md](validation-wave22-report.md); register `da
    - **Find:** "These defeat a pure email request but not an attacker who holds stolen grant letters. No callback is published."
    - **Replace with:** "These defeat a pure email request but not an attacker who holds stolen grant letters. Fidelity's FAQ adds a discretionary callback to the charity's publicly available number; whether it is applied to every bank change is not stated [V wave 22]."
 7. **§7, status line (append after item 5).** "Validation wave 22: proposals 1, 3, 4 and 5 are verified and applied (V22-27 to V22-30). Proposal 2 is applied as batch 37C's reading; the 11 outlines were not re-read item by item."
+
+
+## Pointer: DAFCP investigation (2026-11-20) — not yet validated
+
+P-ANL-06 and P-ANL-09 (DAFCP rows) are extended in [research/dafcp-investigation-2026-11-20/](../dafcp-investigation-2026-11-20/00-README.md):
+- The NPT instructor is confirmed: Lisa Barr, Senior Vice President, Advisor Development.
+- The 2025 certificate's sponsors are documented as co-developers of the 2025 certificate. They are not documented as DAFCP sponsors.

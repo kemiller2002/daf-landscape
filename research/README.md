@@ -214,3 +214,23 @@ No confidential or client-specific material is included.
   - `scripts/mission_prioritize.py`
   - `scripts/mission_daf_metrics.py`
   - `scripts/mission_build_source_extracts.py`
+
+## DAFCP™ designation investigation (2026-11-20)
+
+[`dafcp-investigation-2026-11-20/`](dafcp-investigation-2026-11-20/00-README.md) is an evidence-based investigation of the Donor-Advised Fund Certified Professional designation from The American College of Financial Services. It has 12 reports, 10 datasets (73-row evidence register) and a validator, `scripts/dafcp_validate.py`.
+
+- **Executive report:** [01-executive-investigation-report.md](dafcp-investigation-2026-11-20/01-executive-investigation-report.md).
+- **Lineage.** DAFCP succeeds a 2025 certificate that the College developed with Fidelity Charitable, NPT, Vanguard Charitable and DAFgiving360. The same four fund the inaugural 2027 DAF Forum, whose sessions map to the DAFCP curriculum. The DAFCP names no partner.
+- **Named experts.** 10 of the 22 work at a DAF sponsor or a sponsor's administrator. Six are at Charitable Solutions LLC, Dechomai's administrator, including the programme director.
+- **Curriculum.** The public curriculum is strong on law, tax and complex assets. It omits fees, payout distribution, portability and inactivity, and mentions technology only generically. It does not mention AI.
+- **Adoption.** No published adoption data, no job postings, and no FINRA listing.
+- **Recommendation.** Enrol one person as a research instrument. Interview the curriculum owners. Publish complementary operations and technology education and an evidence-based platform comparison. Do not build a competing certification.
+
+Pending validation.
+
+## Commercial opportunity: Echelon Foundry (2026-11-20)
+
+[`commercial-opportunity/`](commercial-opportunity/README.md) asks who might pay for independent DAF expertise, and for what. Its 78 prospect hypotheses come from public sources only, with no interviews and no outreach. The package also contains a buyer-segment analysis, competition and price benchmarks, ten scored offerings with a sensitivity analysis, Clarity/EDF tests of commercial assumptions, an interview programme with rejection criteria, and a 30-60-90-day plan. Start with the [executive report](commercial-opportunity/executive-report.md).
+
+- **Recommendation.** Build an independent, evidence-led advisory and intelligence practice. Its first offers would be platform assessment and vendor selection plus migration assurance for mid-size sponsors, then a market-intelligence subscription. Defer software.
+- **Status.** Willingness to pay is untested.

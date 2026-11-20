@@ -1,0 +1,10 @@
+row_id,measure,finding,status,evidence_ids
+AD01,enrollment,No figure published by the College,unknown,DE061
+AD02,completion / designation holders,"Two public self-claims (LinkedIn snippets, both CAF-family sponsors); 'inaugural cohort of 70' unverified",unverified,DE062
+AD03,employer requirement,No job posting naming DAFCP found,none-found,DE063
+AD04,tuition reimbursement,No mention found,none-found,DE063
+AD05,regulator listing,Not in FINRA Professional Designations database,not-listed,DE064
+AD06,trade reception,"Thin, release-driven coverage; mild scepticism; omitted from a 261-designation roundup",low-attention,DE069;DE070
+AD07,sponsor endorsement,"No sponsor announced staff completion, requirement or endorsement of DAFCP; sponsor ties run through the 2025 certificate and the 2027 Forum",none-found,DE037;DE040
+AD08,predecessor badge holders,2025 'DAF Certified Professional' badge holders exist (e.g. Omaha Community Foundation staff) and are easily confused with DAFCP designees,documented (different credential),DE021;DE023
+AD09,comparator: CAP penetration,"About 1,900-2,500 designees after 20+ years; preferred, never required, in postings",documented,DE015;DE063

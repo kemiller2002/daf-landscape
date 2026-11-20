@@ -1,0 +1,11 @@
+opportunity_id,opportunity,base_rank,scenario_best,scenario_worst,weight_perturb_best,weight_perturb_worst,score_perturb_best,score_perturb_worst,score_perturbations_in_top3,score_perturbations_total
+OF1,Independent DAF technology assessment and vendor selection (mid-size sponsors),1,1,2,1,1,1,1,240,240
+OF6,Platform migration assurance and data-continuity testing,2,2,4,2,3,2,3,240,240
+OF3,"DAF market-intelligence subscription (vendors, investors, wealth platforms)",3,1,3,2,5,2,3,240,240
+OF5,Wealth-manager DAF programme strategy and integration (adviser-controlled design),4,4,6,3,5,4,5,0,240
+OF4,Investor DAF commercial and technical diligence module,5,4,5,4,6,4,5,0,240
+OF2,DAF operating-model and AI-readiness review (sponsors >= $250m),6,6,7,6,7,6,8,0,240
+OF10,"Operations and technology education partnership (CE, case studies, guest modules)",7,4,8,5,8,6,8,0,240
+OF7,Sponsor operating benchmark (data cooperative),8,3,9,6,9,6,8,0,240
+OF8,Buyer-side second opinion for national sponsors alongside large consultancies,9,8,10,7,10,9,9,0,240
+OF9,Complex-asset intake decision-support software,10,9,10,9,10,10,10,0,240
