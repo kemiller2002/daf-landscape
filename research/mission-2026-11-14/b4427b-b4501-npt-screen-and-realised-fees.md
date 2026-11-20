@@ -207,12 +207,12 @@ Fee lines are taken as filed [F]. The line descriptions and Part XI items for ea
 
 ### 3.3 What the test shows [I]
 1. **Non-publishers charge.**
-   - Every one of the 8 sampled CFs whose filings disclose internal fees charges a realised **70–141 bps of total assets a year**, with one exception: Central Florida, whose disclosed item is partial.
+   - Every one of the 8 sampled CFs whose filings disclose internal fees charges a realised **70–129 bps of total assets a year**, with one exception: Central Florida, whose disclosed item is partial.
    - 7 of those 8 publish no rate. Their median (104 bps; 112 bps without Central Florida) is above the one publisher measured the same way (Hutchinson, 83 bps).
    - On Schedule D Part V, 14 non-publishers charge their endowment funds a median 116 bps in administrative expenses, against 91 bps at the two publishers that report it.
    - Not publishing a rate is not evidence of not charging one.
 2. **Realised all-fund rates sit below published DAF rates.**
-   - Hutchinson realises 83 bps on all funds against a published DAF rate of 125 bps on the first $2m. It also charges agency endowments, and its schedule falls to 0.25% above $15m.
+   - Hutchinson realises 83 bps on all funds against a published DAF rate of 125 bps on the first $2m. Its fee base includes the agency endowments it administers, and its schedule falls to 0.25% above $15m.
    - All-fund rates blend endowed, agency and designated funds, which are often priced lower than non-endowed DAFs, so a realised all-fund rate is a floor for the DAF rate rather than an estimate of it.
    - The fee ÷ DAF balance column is a ceiling: 312 bps at Hutchinson and 534–1,540 bps at the non-publishers with small DAF books. The true DAF rate lies between the two, and is unobserved (P-B4427B4501-06).
 3. **For the pool.**
