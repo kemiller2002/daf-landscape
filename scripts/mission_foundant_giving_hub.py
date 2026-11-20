@@ -211,10 +211,18 @@ def fund_type_shown(page):
 DAF_EXPLICIT = re.compile(r"donor[- ]advised|\bDAF\b|recommended by the (?:grant |fund )?(?:advisor|donor)s?", re.I)
 
 
+GIFT_FROM_DAF = re.compile(r"from\s+(?:your\s+|a\s+|an\s+)?$", re.I)
+
+
+def says_daf(text):
+    """True if text calls the fund a DAF; 'give from your donor-advised fund' (a payment source) does not count."""
+    return any(not GIFT_FROM_DAF.search(text[max(0, m.start() - 20):m.start()]) for m in DAF_EXPLICIT.finditer(text))
+
+
 def daf_class(fund):
     text = fund["name"] + " " + fund["desc"]
     name = fund["name"].lower()
-    if DAF_EXPLICIT.search(text):
+    if says_daf(text):
         return "daf_explicit"
     if "advised" in name and "agency" in name:
         return "advised_agency"
