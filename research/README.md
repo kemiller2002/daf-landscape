@@ -227,3 +227,10 @@ No confidential or client-specific material is included.
 - **Recommendation.** Enrol one person as a research instrument. Interview the curriculum owners. Publish complementary operations and technology education and an evidence-based platform comparison. Do not build a competing certification.
 
 Pending validation.
+
+## Commercial opportunity: Echelon Foundry (2026-11-20)
+
+[`commercial-opportunity/`](commercial-opportunity/README.md) asks who might pay for independent DAF expertise, and for what. Its 78 prospect hypotheses come from public sources only, with no interviews and no outreach. The package also contains a buyer-segment analysis, competition and price benchmarks, ten scored offerings with a sensitivity analysis, Clarity/EDF tests of commercial assumptions, an interview programme with rejection criteria, and a 30-60-90-day plan. Start with the [executive report](commercial-opportunity/executive-report.md).
+
+- **Recommendation.** Build an independent, evidence-led advisory and intelligence practice. Its first offers would be platform assessment and vendor selection plus migration assurance for mid-size sponsors, then a market-intelligence subscription. Defer software.
+- **Status.** Willingness to pay is untested.
