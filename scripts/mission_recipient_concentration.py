@@ -64,6 +64,7 @@ N_LIST = 50
 CZ_BIOHUB = "811669175"  # Chan Zuckerberg Biohub Inc (BMF 501(c)(3)); parent of the CZ LLCs per Schedule R (b40n1202-b43n26-03)
 CZ_LLC = re.compile(r"^CZ (BIOHUB|INSTITUTE)")
 NEW_RULING = 202001  # ruling year 2020 or later = "new organisation"
+POLICY_W = frozenset({"W01", "W02", "W03", "W05", "W20", "W22", "W24"})
 SOURCE = ("IRS Form 990 Schedule I Part II (e-file XML, GivingTuesday mirror of IRS TEOS), top-50 DAFRC sponsors, "
           "itemising returns FY2021-FY2024; DAF-to-DAF netted via daf-to-daf-recipient-whitelist.csv; recipients joined "
           "to IRS EO BMF (eo1-4, eo_pr, eo_xx; cached 2026-11-14) NTEE_CD/SUBSECTION/RULING/FOUNDATION")
@@ -158,6 +159,7 @@ def type_of(ein: str, name: str, b: Mapping, fs: Mapping, pt: Mapping, nonbmf: M
     ntee, fnd, up = (b or {}).get("ntee", ""), (b or {}).get("foundation", ""), (name or "").upper()
     nb = nonbmf.get(ein, "")
     rules: tuple[tuple[str, Callable[[], bool], str], ...] = (
+        ("blank_ein_name_keyed", lambda: not ein, "Schedule I line has no recipient EIN; keyed by normalised name"),
         ("disregarded_entity_llc", lambda: nb == "subsidiary_or_disregarded", "non-bmf-recipients category"),
         ("not_in_bmf_" + (nb or "other"), lambda: not b and bool(ein), "absent from EO BMF"),
         ("fiscal_sponsor", lambda: ein in fs, "fiscal-sponsor list / de-facto file: " + fs.get(ein, "")),
@@ -169,11 +171,13 @@ def type_of(ein: str, name: str, b: Mapping, fs: Mapping, pt: Mapping, nonbmf: M
          or (not ntee and re.search(r"\b(UNIVERSITY|COLLEGE)\b", up) is not None), "NTEE B4x/B5x or name"),
         ("hospital_health_system", lambda: ntee[:2] in ("E2",) or fnd == "12" or (not ntee and "HOSPITAL" in up), "NTEE E2x / foundation 12"),
         ("grantmaking_intermediary_ntee_t", lambda: ntee[:1] == "T" and ntee[:3] not in ("T40",), "NTEE T (philanthropy, grantmaking)"),
-        ("school_k12_or_other_education", lambda: ntee[:1] == "B", "NTEE B (not B4x/B5x)"),
+        ("policy_or_advocacy_ntee", lambda: ntee[:1] == "R" or ntee[:3] in POLICY_W or ntee[1:3] == "01",
+         "NTEE R (civil rights, social action, advocacy), W01-W05/W20-W24 (public policy, government, civic "
+         "participation) or common code 01 (alliances & advocacy)"),
+        ("research_institute_ntee_u_v", lambda: ntee[:1] in ("U", "V"), "NTEE U (science & technology) / V (social science)"),
+        ("school_or_other_education", lambda: ntee[:1] == "B", "NTEE B (not B4x/B5x)"),
         ("religious", lambda: ntee[:1] == "X" or fnd == "10", "NTEE X / foundation 10"),
         ("medical_research_or_health", lambda: ntee[:1] in "EFGH" and ntee != "", "NTEE E-H"),
-        ("policy_research_advocacy", lambda: ntee[:1] in ("R", "W", "V") or ntee[1:3] in ("01", "05"),
-         "NTEE R/W/V or common code 01 (alliances & advocacy) / 05 (research institutes & policy analysis)"),
         ("international", lambda: ntee[:1] == "Q", "NTEE Q"),
         ("operating_" + MAJOR.get(ntee[:1], "unclassified"), lambda: True, "NTEE major group"),
     )
