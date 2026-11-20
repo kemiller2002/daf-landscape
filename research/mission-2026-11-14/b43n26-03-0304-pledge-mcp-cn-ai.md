@@ -85,7 +85,7 @@ No host named a Claude or Anthropic agent, and no known off-limits host was cont
 
 ### 2.4 Reading under §7a.2 [I]
 
-**Product-level reading: AMBER (RED-boundary, provisional).** This is not an area overlay and not a first GREEN or first RED under §7c.
+**Product-level reading: AMBER (RED-boundary, provisional).** Validator note: wave 48A recommends RED (provisional), for owner or second-scorer adjudication under §5. The §7 AMBER test needs sponsor approval to remain, and none is documented; §7b.2’s AMBER (unverified) rule sets how a counted component with unreadable controls enters a provider flag, and does not cap a product whose public docs were read and document no approval. Unread endpoint metadata could lower the reading later only if it shows a confirmation step [V wave 48A] This is not an area overlay and not a first GREEN or first RED under §7c.
 
 - **What points to RED.** The RED test is "AI can complete a money-moving or status-clearing action without documented sponsor or human approval". On the public docs this is met:
   - `create_donation` moves the partner's money through automatic billing;
@@ -101,7 +101,7 @@ No host named a Claude or Anthropic agent, and no known off-limits host was cont
   |---|---|---|---|---|
   | AIP02 Daffy MCP | `make_donation` ("Moves real money") | OAuth or key; activity in app; no caps | sponsor "sole discretion" | AMBER |
   | AIP07 Chariot MCP | not documented | client confirmation; destructiveHint; log | n/a | AMBER |
-  | **AIP31 Pledge MCP (proposed)** | `create_donation` | REST API key; no MCP auth, confirmation, cap or annotation documented | none documented | **AMBER (RED-boundary, provisional)** |
+  | **AIP31 Pledge MCP (proposed)** | `create_donation` | REST API key; no MCP auth, confirmation, cap or annotation documented | none documented | **AMBER (RED-boundary, provisional)**; validator recommends RED (provisional) [V wave 48A] |
 
 - **Intended user and scope.** It is aimed at partner developers in coding assistants, not donors. The person giving is the partner (marketplaces, reward platforms, memorial sites), and donors are named in the data. [I] So an assistant's mistake while coding, such as a test call sent to production, would create a real billed donation and possibly a tax receipt to a real email address. The docs offer a sandbox for REST, but none for MCP.
 - **Entity scope.** Pledge is not a DAF sponsor scored in A1–A5. Under §7a.3 this reading enters no provider row unless a T1–T4 tie is shown, and none was found.
@@ -170,7 +170,7 @@ No host named a Claude or Anthropic agent, and no known off-limits host was cont
 3. **Pledge's legal terms not read.** Pledge's API terms are private (b43n26-03 §2.4). Its charitable entity and any variance power were not read.
 4. **Undated Pledge docs.** No launch date for the MCP server was found.
 5. **Script-rendered CN pages.** The pricing page and the press-room news list are rendered by script and their content was not read.
-6. **CN site terms (compliance note).** CN's website Terms of Use (2022-11-01, quoted in b43n26-03 §2.1) bar "data mining, robots, or similar data gathering and extraction methods". This run made 27 scripted requests to www.charitynavigator.org: robots, sitemaps, the 18 press releases and 4 pages. They were read as documentation, as earlier batches did, but the shared rule says to stop fetching where terms forbid automated extraction. No further requests were made, and the caller should decide whether these reads are acceptable. developer.charitynavigator.org is governed by the API terms, which have no such clause on reading docs.
+6. **CN site terms (compliance note).** CN's website Terms of Use (2022-11-01, quoted in b43n26-03 §2.1) bar "data mining, robots, or similar data gathering and extraction methods". This run made 27 scripted requests to www.charitynavigator.org: robots, sitemaps, the 18 press releases and 4 pages. They were read as documentation, as earlier batches did, but the shared rule says to stop fetching where terms forbid automated extraction. No further requests were made, and the caller should decide whether these reads are acceptable. developer.charitynavigator.org is governed by the API terms, which have no such clause on reading docs. Provenance note: CNAI-02, CNAI-03 and CNAI-05, the API Terms keyword count and the release screen rest only on these scripted www.charitynavigator.org reads, which the shared site-terms rule does not allow; they are flagged pending the owner’s manual read. CNAI-01’s date and substance are corroborated by Giving Compass’s own 2025-11-24 page; CNAI-04 (developer portal) and CNAI-06 (Giving Compass) were re-read and match. Keeping, flagging or withdrawing the www quotes is the owner’s decision (validation-wave48a-report.md) [V wave 48A]
 7. **Single scorer, no second read.** The Pledge reading needs a blind re-score (§5).
 8. **Window.** Only 2025–2026 statements were collected for CN. Earlier items are excluded or labelled as context.
 

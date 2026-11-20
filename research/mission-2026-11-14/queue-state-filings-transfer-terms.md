@@ -147,7 +147,7 @@ This confirms a search-summary report from a Ren help article (now 404) that BNY
 
 | Grantor → recipient | Year | Amount | Note |
 |---|---|---|---|
-| Silicon Valley CF → NPT | CY2024 | 1,591.3 | One line, "General Nonprofit Support"; prior years $0.01m and $7.2m. 55% of SVCF's Schedule I |
+| Silicon Valley CF → NPT | CY2024 | 1,591.3 | One line, "General Nonprofit Support"; prior years $0.01m and $7.2m. 50.4% of SVCF's CY2024 Schedule I Part II total ($3,158.2m over 3,576 lines) and 95.5% of the $1,667m that SVCF’s 2024 audit counts as transfers to other DAF sponsors [V wave 48A] |
 | DAFgiving360 → Fidelity | FY2025 | 976.6 | §5.2 |
 | BNY Mellon CGF → RCF | CY2024 | 619.8 | Sponsor termination |
 | Fidelity → Schwab Charitable | FY2022 | 506.8 | $271.4m in kind |

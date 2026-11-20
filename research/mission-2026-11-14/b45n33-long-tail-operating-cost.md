@@ -92,7 +92,7 @@ Sub-bands for CFs and single-issue: $10–50m, $1–10m, and under $1m (which in
 **Reading**
 - **[C] The whole-org cost per account is about the same at tail and top-50 CFs ($18k–$31k against $20k).** The difference is in what the money buys: top-50 CFs hold 65% of their assets in DAFs; the smallest tail CFs hold 3.7%.
 - **[C] Per dollar, cost rises as the CF shrinks** (rule A 178 → 220 → 248 bps down the tail, against 102 bps at top-50 CFs). **Per account, it falls** ($4,689 → $2,523 → $1,012), because the accounts shrink faster ($242k → $130k → $44k).
-- **[I] Rules A and G both scale cost with dollars, so they assume a $44k DAF costs about a sixth of a $242k DAF to run.** If DAF administration is mostly a fixed cost per fund (statements, grant checks, donor contact), the true per-account cost at the smallest CFs is above the rule-A figure, and the per-dollar cost well above 248 bps. The repo has no non-DAF fund counts to test this (P-B45N33-02-01).
+- **[I] Rules A and G both scale cost with dollars, so they assume a $44k DAF costs about a sixth of a $242k DAF to run.** If DAF administration is mostly a fixed cost per fund (statements, grant checks, donor contact), the true per-account cost at the smallest CFs is above the rule-A figure, and the per-dollar cost well above 248 bps. Fund counts now test this. On 34 tail CFs whose 990 narratives state an all-funds total, the fund-count rule F gives a median of $4,500 per DAF account and 258 bps, against rule A’s $3,518 and 203 bps on the same CFs. F exceeds A at 24 of 34 CFs, the expected direction. The set leans to larger-opex CFs, so the frame-level value is probably nearer $3.2k [I] (b45n33-02-01-01). The earlier 15-CF web sample gave $2,108 and 276 bps (b45n33-02-01). [V wave 48B]
 - **[C] IT is small:** median line 14 is $26.9k at tail CFs (3.2% of opex; n = 403 reporting the line), and rule-A IT per DAF account is **$99** ($37–$212), against $362 at top-50 CFs. Staff (lines 5–10) are 53.3% of opex; 11a + 11g outside services are 3.5%.
 - **[I] Staffing:** rule-A DAF FTE is 0.9 (0.2–1.9) per tail CF, serving a median 42 accounts per DAF FTE (24–76), against 16 at top-50 CFs (whose accounts are eight times larger).
 
@@ -167,7 +167,7 @@ Same sponsors (FY2024 band membership), each year's return, DAF assets and accou
 ---
 
 ## 4. Limits
-- **Every DAF cost is an allocation [I].** Part IX reports cost by line and function, not by fund type. A, G and AM bracket a plausible range; none is observed. A fund-count rule (P-B45N33-02-01) or audited notes by fund type (P-B45N33-02-02) would test them.
+- **Every DAF cost is an allocation [I].** Part IX reports cost by line and function, not by fund type. A, G and AM bracket a plausible range; none is observed. A fund-count rule has since been tested: rule F puts 0.245 of cost on DAFs, or $4,500 per account and 258 bps, on 34 CFs (b45n33-02-01-01). Audited notes by fund type (P-B45N33-02-02) have not yet been used as a test. [V wave 48B]
 - **Rule A's per-dollar figure is not independent evidence**: it equals the whole-org cost ratio by construction (except for the 15 clipped sponsors).
 - **Costs outside Part IX** (affiliated administrators, fund expense ratios, investment fees netted in returns) are invisible. This mainly affects top-50 nationals; three sponsors under 1 bp were excluded.
 - **Account counts:** 201 usable tail sponsors have no screened count; 314 report zero employees (volunteer-run or staffed by an affiliate), so accounts-per-employee figures cover 781 tail sponsors.

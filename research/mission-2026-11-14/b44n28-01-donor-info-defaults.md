@@ -62,7 +62,7 @@ The G12-2 reconsider-trigger was "P-B44N28-01 shows the top-20 nationals already
 | 8 | AEF | 8.38 | **Donor chooses:** "donor or account name (per your instructions)" | Unknown (form not public) | Not stated | None found |
 | 9 | RCF | 5.91 | **Full contact including email:** ‘By default … name, email, and address’ (Ren ‘Giving Platform’ guide on RCF's portal, 2026-10-06). The RCF Program Circular (PDF modified 2026-07-23) lists options with no default, RCF's own 2023–24 guide says ‘The default is Fund Name Only’, and private-label programs such as TSA's carry their own defaults, so this is an upper bound for RCF's $5.91bn. Coded by the 2023–24 guide, top-20 full contact would be 30.9% and withholding 19.5% [V wave 34A] | No [V wave 35B] | **Email and address by default** | "Ren (Pinkaloo)" as Chariot managed source (not RCF-specific) |
 | 10 | NCF | 5.68 | **Full contact:** fund name "alongside your name and address" | No | Address yes | None found |
-| 11 | BofA CGF | 4.73 | **Fund name only:** "The default is Fund Name Only" | No | Only via custom acknowledgement | None found |
+| 11 | BofA CGF | 4.73 | **Fund name only** (medium confidence: the governing Program Guidelines, Version 8.2025 of 2025-09-08, still say distributions carry ‘the account name and the name of the Donor or Advisor, unless anonymity is requested’; the portal guide’s screen default is coded, b4428-04) [V wave 48A] "The default is Fund Name Only" | No | Only via custom acknowledgement | None found |
 | 12 | Chicago Community Trust | 4.65 | **Name only:** letter names the DAF advisor unless anonymous | No | Not stated | None found |
 | 13 | ImpactAssets | 2.90 | **Full contact:** donor and joint advisor name and address | No online; paper form says "select one" | Address yes | None found |
 | 14 | Jewish Communal Fund | 2.87 | **Donor must choose:** fund name plus signers' or named names and addresses, or anonymous | Yes (no preselected box) | Address unless anonymous | None found |
@@ -148,7 +148,7 @@ These documents do not show a configurable sponsor setting. BofA's 2026-02 guide
   - Replace the outcome sentence with the asset-weighted range above.
   - Change "Not observed: the defaults at the top-20 national sponsors" to "observed for 15 of 20 (76% of assets); DAFgiving360, GS DAF and Raymond James blocked".
 - **For an entrant.** The consent-first design proposed in G12-2 still differs from:
-  - fund-name defaults (Vanguard, MS GIFT, BofA), which hold 14.3% of top-20 assets (15.3% with GKCCF; BofA's 2024 Program Guidelines would make it name only) [V wave 34A];
+  - fund-name defaults (Vanguard, MS GIFT, BofA), which hold 14.3% of top-20 assets (15.3% with GKCCF; BofA's governing Program Guidelines, Versions 3.2024 and 8.2025 alike, would make it name only, with the withheld share unchanged [V wave 48A]) [V wave 34A];
   - option lists with no default (NPT, AEF, JCF, CJP).
   It does not differ from Fidelity, RCF, NCF, ImpactAssets or FFTC, which already preselect contact sharing.
 - **For nonprofits.** At the five full-contact sponsors the remaining gap is email, not identity: only RCF sends email by default.
@@ -166,7 +166,7 @@ These documents do not show a configurable sponsor setting. BofA's 2026-02 guide
   - MS GIFT's Aug 2024 Donor Circular could not be read: its PDF text is font-encoded.
 - **Category judgement.**
   - SVCF is coded "set at opening", and GKCCF is coded "fund name only" even though it encourages contact.
-  - BofA's two documents conflict; the newer portal guide was used.
+  - BofA's governing Program Guidelines (Version 8.2025, September 2025) name the account and the donor or advisor; its portal guide (February 2026) defaults the check acknowledgement to the fund name only. The screen default is used at medium confidence; both withhold address and email, so the 17.2% withheld share is unchanged (b4428-04) [V wave 48A]
 - **Ranks.** The league table and the terms census order ranks 5–20 slightly differently. Shares use the league table only.
 - **Absence of APIs** means no public documentation was found. It does not mean no integration exists.
 
@@ -256,6 +256,7 @@ The fetcher made 76 requests in all:
 | S20 | NCF, Giving Fund | live | https://www.ncfgiving.com/giving-fund |
 | S21 | BofA CGF, Guide to Navigating Your Donor Advised Fund | 2025-11-14 / 2026-02-23 | https://bofa.donorfirst.org/pdf/bofa/Guide%20to%20Navigating%20Your%20Donor%20Advised%20Fund.pdf |
 | S22 | BofA CGF, Program Guidelines 2024 (Version 3.2024) | 2024-06-05 (PDF modified 2024-09-18) [V wave 34A] | https://www.bankofamerica.com/philanthropic/Program_Guidelines_2024.pdf |
+| S22a | BofA CGF, Program Guidelines Version 8.2025 (DonorFirst portal copy; grant-distribution text unchanged from Version 3.2024) | PDF 2025-09-08 | https://bofa.donorfirst.org/pdf/bofa/CGF%20Program%20Guidelines.pdf [V wave 48A]
 | S23 | CCT, DAF Application | 2024-04-08 | https://donorportal.cct.org/ma/docs/cct/CCT-DAF-Application.pdf |
 | S24 | CCT, DAF 101 for Nonprofits (repo-carried; blocked today) | Aug 2024 | https://www.cct.org/wp-content/uploads/2024/08/Donor-Advised-Fund-101-for-Nonprofits_August-2024.pdf |
 | S25 | ImpactAssets, support article on anonymity and recognition | 2021-05-27 | https://impactassets.freshdesk.com/support/solutions/articles/62000217339-are-grants-from-my-impactassets-donor-advised-fund-account-anonymous-or-can-i-be-recognized-for-my-g |

@@ -90,7 +90,7 @@ Under Clarity/EDF this fits "platform/organizational origin" better than donor c
 | RCF-14–17 | Edward Jones CGF; First Citizens DAF; Janney; Fisher and Pershing channels | not determinable | – | No guide or text on any public page |
 | RCF-18 | Azzad (rcf.iphiview.com) | not determinable | – | iPhi robots `Disallow: /` [B] |
 | MSG-01 | MS GIFT (msgift) | fund name only | N | Grantee Guidelines 2022-09. The live FAQ says "name of the Account, or Donor as specified" (V34A-26) |
-| BOA-01 | BofA CGF (bofa.donorfirst.org) | fund name only | N | portal guide 2026-02-23. The 2024 guidelines say account + donor/advisor name (V34A-30) |
+| BOA-01 | BofA CGF (bofa.donorfirst.org) | fund name only | N | portal guide 2026-02-23. The governing guidelines, Version 3.2024 and Version 8.2025 (portal copy, 2025-09-08) alike, say account + donor/advisor name (V34A-30; b4428-04), so this coding is medium confidence [V wave 48A] |
 | AEF-01 | AEF (now Ren portal) | no default stated | N | FAQ modified 2026-02-19: "donor or account name (per your instructions)" |
 | CJP-01 | CJP (cjp.donorfirstx.com) | fund name only | elected | Policies 2026-04-29 §4.5: identify "by the name of the Donor Advised Fund ... unless otherwise requested"; other details "each at your direction" |
 | TRP-01 | T. Rowe Price PCG (pcg.donorfirstx.com) | no default stated | N | FAQ (live) and brochure 2026-11-10: name, account name and address on request, or anonymous |

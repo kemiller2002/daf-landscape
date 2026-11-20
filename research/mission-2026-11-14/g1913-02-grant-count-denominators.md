@@ -34,7 +34,7 @@
    - DAFgiving360 0.0057, Vanguard 0.028, NPT 0.048, Morgan Stanley GIFT 0.051, AEF 0.057, JCF 0.070;
    - ImpactAssets 0.46, SVCF 0.43, FFTC 0.38.
    As in P-GAP19-13, these bounds hold only if complainants used the venues checked, and most sponsors have no venue presence.
-7. **Dollar and count denominators disagree for SVCF.** DAFRC/R1 FY2024 DAF grants ($3.06bn) divided by SVCF's 14,500 grants implies an average grant of $211,337. SVCF's own $1.54bn implies $106,207. One of the dollar figures has a scope or period problem (P-G1913-02-03).
+7. **Dollar and count denominators disagree for SVCF.** DAFRC/R1 FY2024 DAF grants ($3.06bn) divided by SVCF's 14,500 grants implies an average grant of $211,337. SVCF's own $1.54bn implies $106,207. Resolved (b39n603-02-g191302-03): the release excludes distributions into DAFs at other institutions, and the 2024 audit counts $1,667m of grants expense as transfers to other DAF sponsors, $1,591.3m of it one Schedule I line to NPT. Use $106,207 (release dollars and count from the same document); audited grants net of those transfers ($1,520.08m) give $104,833. $211,337 is an artefact [V wave 48A]
 
 ---
 
@@ -173,7 +173,7 @@ All rates are from [`complaint-rates-per-grant-2026-11-20.csv`](../../data/missi
 | NCF | ≥36,000 (recipients) | ≤0.1742 (loose) | — |
 | GS Philanthropy Fund | 29,254 (stated) | 0.2144 | $105,005 |
 | FFTC | 16,531 (stated) | 0.3794 | $43,661 (count covers all FFTC funds; DAFRC $ is DAF-only) |
-| SVCF | 14,500 (stated) | 0.4326 | **$211,337** (SVCF's own $1.54bn gives $106,207) |
+| SVCF | 14,500 (stated) | 0.4326 | **$106,207** on SVCF’s own $1.54bn (release basis; $104,833 on audited grants net of $1,667m of DAF transfers). The DAFRC-dollar figure, $211,337, is an artefact of the $1,591.3m SVCF→NPT transfer (b39n603-02-g191302-03) [V wave 48A] |
 | ImpactAssets | 13,500 (stated) | 0.4646 | $32,035 (release: "close to $400 million", which gives about $29,600) |
 | PPGF | ≥14,871 (Schedule I lines) | ≤0.4218 (loose) | — |
 | Chicago Community Trust | ≥3,976 (Schedule I lines) | ≤1.58 (loose) | — |

@@ -16,13 +16,13 @@
 | Question | Answer | Confidence |
 |---|---|---|
 | **Coverage** | Of 641 tail CFs, **36 (5.6%)** state an all-funds total in Part III or Schedule O of a FY2022–24 990. By band: 18 of 207 ($10–50m, 8.7%), 15 of 272 ($1–10m, 5.5%), 3 of 162 (under $1m, 1.9%). Adding Schedule A Part VI and Schedule D Part XIII text gives 40 [C]. | High [C] |
-| **Search size** | 1,913 returns (one per EIN-FY), all XML read. 24,831 Part III and Schedule O text fields. 284 regex hits, of which 102 were classed as all-funds totals, in 95 returns [C]. | High [C] |
+| **Search size** | 1,913 returns (one per EIN-FY), all XML read. 24,831 text fields: 5,514 Part III, 10,801 Schedule O, and 8,516 Part VIII/IX line descriptions that the `Desc` tag also matches (none of these yields a hit). [V wave 48B] 284 regex hits, of which 102 were classed as all-funds totals, in 95 returns [C]. | High [C] |
 | **Precision (hand check of every CF-level total)** | **35 of 36** are statements of the filer's total fund count (0.972; Wilson 95% 0.858–0.995). 34 of 36 were right as extracted. One was corrected: Northern Alleghenies reports two affiliates, 257 + 81 = 338. One is ambiguous: Billings, "over 50 funds for charities". A random 40 of the hits classed as *not* totals were all correct exclusions (0 of 40 missed). None of the 17 spelled-out number phrases is a total [C]. | High [C] |
 | **DAF share of all funds (rule-F share)** | Median **0.245** (IQR 0.130–0.352; n = 34; bootstrap 95% CI 0.170–0.290). The DAF count comes from Schedule D of the *same* return. The same CFs have rule A **0.178** and rule G **0.356**. Band-weighted: F 0.195, A 0.133, G 0.272 [C]. | Medium [C]; 16 of 34 totals are lower bounds |
-| **Rule F cost per DAF account** | **[I] $4,500** median (IQR $2,832–$6,776; n = 31; CI $3,536–$5,215). The same CFs have rule A **$3,518** and rule G **$6,707**. Band-weighted: F $4,035, A $1,940, G $3,825. | Low–medium [I] |
+| **Rule F cost per DAF account** | **[I] $4,500** median (IQR $2,832–$6,776; n = 31; CI $3,536–$5,215). The same CFs have rule A **$3,518** and rule G **$6,707**. Band-weighted: F $4,035, A $1,940, G $3,825. The repo carries $4,500 as the rule-F cost per account in place of 02-01’s $2,108 (n = 13, one CF at the median). Because this set’s median opex is about twice the frame’s, a frame-level value is probably lower: the per-CF F ÷ A median (1.13) on the frame’s rule-A median ($2,859) gives about $3.2k [I]. [V wave 48B] | Low–medium [I] |
 | **Rule F cost per DAF dollar** | **[I] 258 bps** median (151–490; n = 34; CI 204–371). The same CFs have rule A **203 bps** and rule G **323 bps**. Band-weighted: F 307, A 181, G 338 bps. | Low–medium [I] |
 | **F against A and G per CF** | F ÷ A has a median of **1.13** (0.88–1.59), and **F > A at 24 of 34**. F ÷ G has a median of **0.70** (0.47–0.98). Rule F sits between the asset rule and the grant rule [C]. | Medium [C] |
-| **Does the larger n change the 02-01 reading?** | **[I] It firms up the direction and moves the level.** DAFs are a larger share of funds than of assets at most tail CFs; on 15 web totals the per-CF F ÷ A was 1.03 and F > A at 8 of 15. The 990 set leans toward the $10–50m band (17 of 34), so its per-account costs are higher than the 02-01 sample's ($4,500 vs $2,108). Per DAF dollar the two sets agree (258 vs 276 bps). The under-$1m band is thin (n = 3) and dominated by CFs with many tiny DAFs. | Low–medium [I] |
+| **Does the larger n change the 02-01 reading?** | **[I] It firms up the direction and moves the level.** DAFs are a larger share of funds than of assets at most tail CFs; on 15 web totals the per-CF F ÷ A was 1.03 and F > A at 8 of 15. The 990 set leans toward the $10–50m band (17 of 34) and, within every band, toward CFs with above-frame opex (median opex $1.32m, against $0.63m for the frame and $0.43m for the 02-01 set), so its per-account costs are higher than the 02-01 sample's ($4,500 vs $2,108); band weighting alone still leaves $4,035, and the 02-01 median is a single CF. [V wave 48B] Per DAF dollar the two sets agree (258 vs 276 bps). The under-$1m band is thin (n = 3) and dominated by CFs with many tiny DAFs. | Low–medium [I] |
 | **Whole-org opex per fund** | **$4,398** median ($2,768–$6,074; n = 34) [C]. The 15 web-sourced CFs had $2,108. | Medium [C] |
 
 ---
@@ -38,7 +38,7 @@
 - **Main (as specified):**
   - Part III: `IRS990/MissionDesc` (line 1), `IRS990/Desc` (line 4a), and `ProgSrvcAccomActy2Grp`, `…3Grp` and `…OtherGrp/Desc` (4b–4d).
   - Schedule O: `SupplementalInformationDetail/ExplanationTxt`.
-  - In all, 24,831 fields.
+  - In all, 24,831 fields, of which 8,516 are Part VIII/IX line descriptions (`OtherExpensesGrp`, `OtherRevenueMiscGrp`, `ProgramServiceRevenueGrp`) caught by the bare `Desc` tag; none yields a hit, so the results are unaffected. [V wave 48B]
 - **Extension (reported separately):**
   - Schedule D Part XIII and Schedule A Part VI explanations, 5,153 fields.
   - Exploration showed that some CFs state their total only there. Examples are Weld ("over 175 separately identifiable funds", Schedule A Part VI) and Ventura ("fiduciary over more than 600 individual funds", Schedule D Part XIII).
@@ -160,7 +160,7 @@ Coastal Georgia is a case where DAFs hold a larger share of assets than of funds
 | Variant | n | Share F | Share A | F $/acct | A $/acct | F bps | A bps |
 |---|---|---|---|---|---|---|---|
 | Main (above) | 34 | 0.245 | 0.178 | $4,500 | $3,518 | 258 | 203 |
-| Stated or approx totals only (drop lower bounds) | 17 | 0.162 | 0.125 | $4,036 | $2,944 | 280 | 212 |
+| Stated or approx totals only (drop lower bounds and the one sum-of-types total) [V wave 48B] | 17 | 0.162 | 0.125 | $4,036 | $2,944 | 280 | 212 |
 | FY2024 totals only (same FY as opex) | 31 | 0.256 | 0.187 | $4,577 | $3,453 | 261 | 205 |
 | Drop the multi-total return (Northern Alleghenies) | 33 | 0.249 | 0.170 | $4,577 | $3,778 | 261 | 205 |
 | Extension (+ Sch D XIII / Sch A VI), n = 38 | 38 | 0.223 | 0.171 | $4,577 | $4,270 | 241 | 198 |
@@ -189,9 +189,9 @@ Coastal Georgia is a case where DAFs hold a larger share of assets than of funds
 
 ## 3. Limits
 - **Low coverage and selection.** Only 5.6% of tail CFs state a total in Part III or Schedule O, falling to 1.9% under $1m. CFs that write fuller narratives may be larger or better staffed, so the F set leans to the $10–50m band. Band weighting helps but leans on 3 CFs under $1m.
-- **Lower bounds.** 16 of 34 rule-F totals (17 of the 36 CFs with a total) are "over / more than / +" figures, so their shares and rule-F costs are upper bounds. Several repeat unchanged across years (Luzerne "over 400" in FY2022–24), which suggests stale round numbers (P-B45N33-02-01-01-02).
+- **Lower bounds.** 16 of 34 rule-F totals (17 of the 36 CFs with a total) are "over / more than / +" figures, so their shares and rule-F costs are upper bounds. Several repeat unchanged across years (Luzerne "over 400" in FY2022–24), which suggests stale round numbers (P-B45N33-02-01-01-02). Phelps County’s ‘approximately 100’ is also unchanged in FY2022–24 while its DAF assets fell from $348k to $162k. Stateline’s FY2024 narrative repeats its FY2022 text word for word (166 funds, 10 new, $880,028 from 385 donors), and its FY2023 return says 169; using 169 moves only the band-weighted per-account median ($4,035 to $3,963). [V wave 48B]
 - **Recall is not measured.** The precision checks test the classifier. A total phrased in a way the regex does not match (for example "the number of funds we hold grew to …") would be missed. The extension shows that some totals sit in other 990 parts.
-- **Definitions vary.** "Funds" may include affiliates' funds (Northern Alleghenies; Capital Region "more than 472"), agency, pass-through or fiscal-sponsorship funds. Schedule D column (a) may count dormant or tiny DAFs, as Phelps County's 38 DAFs at 0.5% of assets suggest (P-B45N33-02-01-01-03).
+- **Definitions vary.** "Funds" may include affiliates' funds (Northern Alleghenies; Capital Region "more than 472"), agency, pass-through or fiscal-sponsorship funds. Schedule D column (a) may count dormant or tiny DAFs, as Phelps County's 38 DAFs at 0.5% of assets suggest (P-B45N33-02-01-01-03). The sum-of-types CF lists 42 DAFs and 7 corporate advised funds against 54 on Schedule D, so its share (0.397) may be high by 0.04–0.09; it has no account count and does not move the medians. [V wave 48B]
 - **Period.** Totals and DAF counts come from one return. 31 of 34 are FY2024, matching opex; 3 are FY2022 or FY2023 and are applied to FY2024 opex and accounts.
 - **Rule F's assumption.** Equal cost per fund is strong. Rule G's higher shares show that DAFs are more transaction-heavy than the average fund.
 - **One correction and one exclusion are judgment calls.** Northern Alleghenies was summed and Billings was excluded. Neither moves the medians beyond the robustness rows.

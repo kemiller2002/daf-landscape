@@ -29,6 +29,7 @@ These counts were recomputed from the git-tracked files on branch `claude/daf-la
   - The sampling SE is about 26% lower. The ±0.3 pt allocation envelope still applies.
 - **Tail CF fund counts and allocation rule F.** Only 15 of 60 CFs publish all-fund counts.
   - Rule F puts 0.18 of costs on DAFs (A 0.21, G 0.23), giving a median of $2,108 per DAF account and 276 bps. These results are suggestive only.
+  - Superseded by the 990-narrative pass (34 CFs): rule F puts 0.245 of costs on DAFs (A 0.178, G 0.356), giving $4,500 per DAF account and 258 bps. The set leans to larger-opex CFs, so the frame-level value per account is probably lower (about $3.2k [I]). [V wave 48B]
 - **Sponsored-project recall.** The FBO-name rule catches about 56% of project lines at keyed hosts (the low end of a judgement range of about 56–92%).
   - The own-name rule adds $0, because all its hosts are already counted, so the fiscal-sponsor range is unchanged.
   - $18.2m is filed under Myriad USA's former name.
