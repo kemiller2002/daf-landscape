@@ -33,10 +33,10 @@ Tags: [F] computed by the script · [P] quoted primary source · [I] inference o
 
   - On the task's six-way split, the LLC category folds into unresolved: 16,391 EINs, $3,189.7m (76.4%).
   - Four Chan Zuckerberg LLCs hold $1,594.0m of the subsidiary bucket, almost all of it in FY2023 [F].
-  - The subsidiary category's label (LLC, disregarded) rests on name rules [I].
+  - The subsidiary category's label (LLC, disregarded) rests on name rules [I]. For the four CZ EINs (99% of the bucket's dollars) validation confirmed it from Schedule R: they are disregarded entities of Chan Zuckerberg Biohub Inc (EIN 81-1669175), a BMF-listed 501(c)(3), and not for-profit entities (§3.2). [V wave 46A]
 - **Reconciling the 1,213 ($0.29bn) that pass CN's filing rules.** 884 of them ($220.4m, 75%) filed a final return or reported terminating or dissolving on their latest e-filed return. They had three or more recent returns because they were established organisations that then closed or merged.
   - The rest: 136 revoked ($15.5m), 15 new ($9.1m), 46 foreign or government ($4.0m), 2 LLC ($0.3m), 4 invalid ($0.06m) and 126 unresolved ($43.4m) [F].
-  - So the "upper bound of about 77.3%" in the parent note §4.1 is too generous. At most about $43m of the $293m (0.06 points of top-50 dollars) looks like live organisations that CN might list [I].
+  - So the "upper bound of about 77.3%" in the parent note §4.1 is too generous. At most about $43m of the $293m (0.06 points of top-50 dollars) looks like live organisations that CN might list [I]. In numbers: the parent’s bound, ($56.93bn + $292.8m) ÷ $74.07bn, is 77.25%, which rounds to 77.2%, not 77.3%. Counting only the 126 unresolved passers ($43.4m) and the 15 new EINs ($9.1m) gives 76.92%, so the bound falls to about 76.9%, the central figure. [V wave 46A]
 - **Revoked at the time of the grant.** These are EINs in the revoked category whose automatic revocation took effect before the granting sponsor's fiscal year began. They received **$7.24m DAF-weighted across 141 EINs from 32 of the 50 sponsors** in FY2023–24. That is 0.010% of top-50 DAF-weighted dollars [F].
   - **$6.33m** ($7.01m Schedule I; 30 sponsors) went to EINs whose revocation the IRS had also posted publicly before that fiscal year began [F].
   - Of that $6.33m:
@@ -47,7 +47,7 @@ Tags: [F] computed by the script · [P] quoted primary source · [I] inference o
   - A further $11.30m (272 EINs) went to EINs revoked during the sponsor's fiscal year, so the grant may have come before or after the revocation.
   - $65.04m (1,092 EINs) went to EINs revoked only after the fiscal year ended [F].
   - Most revoked dollars therefore went to organisations that were exempt when paid and lost their status later. 866 of the 1,405 revoked EINs have 2025 or 2026 revocation dates [F].
-  - **This is a public-data screen of sponsor due diligence, not evidence of improper grants.** Revocations can be reinstated retroactively (§3.6). Grant dates within the fiscal year are unknown. A grant to a revoked organisation can still serve a charitable purpose under a sponsor's expenditure-responsibility process.
+  - **This is a public-data screen, not evidence of improper grants or of any lapse in a sponsor’s diligence.** [V wave 46A] Revocations can be reinstated retroactively (§3.6). Grant dates within the fiscal year are unknown. A grant to a revoked organisation can still serve a charitable purpose under a sponsor's expenditure-responsibility process.
 
 ## 1. Method
 
@@ -104,7 +104,7 @@ Name similarity (`name_sim`):
    - Or the IRC-section text names a government, 170(c)(1) or 115.
    - Or a government-unit name rule matches: school district, public school by level, state university, local government, state, federal or tribal.
    - Weak name rules (public school by level; state, federal or tribal) are skipped for religious-pattern names, which catch church schools and national religious orders.
-   - Failing those, a heuristic: a non-religious name whose EIN has digits 3–5 equal to "600". This is the pattern of the large public-university and school-district EINs seen here. No IRS source documents it, and about 4 of 20 sampled cases look non-governmental [I].
+   - Failing those, a heuristic: a non-religious name whose EIN has digits 3–5 equal to "600". This is the pattern of the large public-university and school-district EINs seen here. No IRS source documents it, and about 4 of 20 sampled cases look non-governmental [I]. Validation drew another random 20 of the 111. Two are clearly not governmental: a co-cathedral and a synagogue, whose names escape the religious filter. Two more are doubtful. The digit pattern is not a government marker: 5,678 EINs in the current BMF share it, 3,614 of them under 501(c)(3), mostly churches, trusts and unions. The rule moves only $13.5m (2.3% of the government bucket), and one university is $7.24m of that. [V wave 46A]
 4. **subsidiary_or_disregarded.** An LLC or "limited liability" name. This category is added to the task's list because it holds 39% of the dollars.
 5. **invalid_or_typo (b).** One of:
    - an EIN prefix the IRS does not assign (IRS valid-prefix table [P]);
@@ -207,7 +207,7 @@ Two features of the law make this expected [I]:
 
 This bucket overlaps the parent note's church finding (8.3% of top-50 dollars to BMF church-code organisations with no e-filed 990). It is the part with no BMF row at all.
 
-Sensitivity: 2,360 of these EINs ($0.24bn) carry a name that matches exactly one same-state BMF EIN (902 exact, 1,458 fuzzy). If all were sponsor-entered wrong EINs, the invalid/typo bucket would grow to about $0.28bn. Because common church names recur, the central run does not count them (P-B40N1202-B43N2603-01).
+Sensitivity: 2,360–2,361 of these EINs ($0.24bn) carry a name that matches exactly one same-state BMF EIN (902 exact, 1,458–1,459 fuzzy). The count varies by one EIN between runs (two validation reruns gave 2,361, with $238.33m and $238.35m), while the CSV stays byte-identical, because the capped fuzzy search is order-dependent. [V wave 46A] If all were sponsor-entered wrong EINs, the invalid/typo bucket would grow to about $0.28bn. Because common church names recur, the central run does not count them (P-B40N1202-B43N2603-01).
 
 ### 3.2 Subsidiary LLCs carry 39% of the dollars
 
@@ -217,7 +217,7 @@ Four Chan Zuckerberg LLCs hold $1,594.0m:
 - CZ Biohub New York LLC, $238.6m;
 - CZ Biohub Chicago LLC, $237.2m.
 
-$1,603.2m of the LLC bucket's $1,610.7m falls in FY2023 [F]. A single-member LLC owned by a 501(c)(3) is normally disregarded for tax purposes and has no BMF row of its own [I]. The parent's Schedule R would confirm this (P-B40N1202-B43N2603-02). The other 55 LLC-named EINs total $16.8m.
+$1,603.2m of the LLC bucket's $1,610.7m falls in FY2023 [F]. A single-member LLC owned by a 501(c)(3) is normally disregarded for tax purposes and has no BMF row of its own [I]. Validation read the parent’s Schedule R (P-B40N1202-B43N2603-02 answered). Chan Zuckerberg Biohub Inc (EIN 81-1669175) lists all four EINs in Schedule R Part I (disregarded entities) on its FY2023 and FY2024 Forms 990 (returns 202423199349303562 and 202513219349324416), with Delaware domicile and ‘MEDICAL RESEARCH’ as the activity. Biohub Inc is a BMF-listed 501(c)(3) (foundation code 12, medical research organisation; Pub 78 PC). The sponsor’s FY2023 Schedule I lines give IRC section ‘501(c)(3)’ and purpose ‘Health’. The LLCs are not the for-profit CZI LLC. The Chan Zuckerberg Initiative Foundation (45-5002209, a private foundation) appears on the same Schedule R only as a related exempt organisation. IRS Notice 2012-52 treats a contribution to a domestic disregarded SMLLC wholly owned by a US charity ‘as a charitable contribution to a branch or division of the U.S. charity’. By analogy [I], these DAF grants went to a charity, not to a non-charity. If CN credited them to Biohub Inc, the parent’s central eligible share would be about 79.0% rather than 76.9% [I]. [V wave 46A] The other 55 LLC-named EINs total $16.8m.
 
 ### 3.3 Government units are about one dollar in seven
 
@@ -291,8 +291,8 @@ Notes on the table [F]:
 Composition of the $6.33m posted before the fiscal year began [F]:
 - $2.02m (15 EINs): the same name is now on another same-state BMF EIN. This is likely a stale EIN for an organisation re-recognised or succeeded under a new number, for example a Lutheran high school and a community church whose revoked EINs date from 2011 and 2018 while their names are listed under current EINs. Separately, an old University of California San Francisco EIN, revoked in 2022, falls in the posted-later row.
 - $0.37m (17 EINs): government-unit names, such as a public library and a tribal nation. Deductibility there rests on §170(c)(1), not on exemption.
-- $1.32m (11 EINs): partial name match.
-- $2.62m (67 EINs): matching name and no BMF successor. This is the core of the signal.
+- $1.32m (11 EINs): partial name match. $0.88m of it is a single line naming a national DAF sponsor as recipient under an EIN that the revocation list gives to a different, similarly named entity revoked in 2019; the sponsor’s own EIN is in the BMF. That is a mis-keyed DAF-to-DAF transfer that the parent’s filter missed, not a grant to a revoked charity. Net of it, the posted-before signal is $5.45m. [V wave 46A]
+- $2.62m (67 EINs): matching name and no BMF successor. This is the residual that a public-data screen would flag. ‘No BMF successor’ is an upper bound, because a successor that files under a changed name is not matched. [V wave 46A]
 
 **How to read this.**
 1. The IRS says an automatically revoked organisation "is not eligible to receive tax-deductible contributions and will be removed from … Publication 78" [P]. A DAF grant is not itself a deductible gift (the donor's deduction arose on contribution to the fund), but sponsors generally confirm public-charity status before granting [I].
