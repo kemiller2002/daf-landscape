@@ -13,7 +13,7 @@
 | contradicted | 1 (V40C-22) |
 | unverifiable | 0 |
 
-**Proposed corrections (15):** 7 accept, 8 modify, 0 reject. All 15 Finds occur exactly once. None ended with `[V wave 40C]`, and four table-row items dropped the row's closing pipe; both problems are fixed in the final forms below. The study itself gets 8 corrections, and the industry report gets a new §11.53.
+**Proposed corrections (15):** 7 accept, 8 modify, 0 reject. All 15 Finds occur exactly once. None ended with `[V wave 40C]`, and four table-row items dropped the row's closing pipe; both problems are fixed in the final forms below. The study itself gets 9 corrections, and the industry report gets a new §11.53.
 
 ## 2. Method
 

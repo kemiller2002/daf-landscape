@@ -27,14 +27,14 @@
    |---|---|
    | Fidelity | 100% growth of Schedule D column (b) "other funds" (both years) |
    | JCF | 104% and 96% growth of the board-designated endowment, which *is* column (b) |
-   | CJP | 106% endowment returns less PP&E in FY2023. In FY2024, 34% endowment returns less PP&E, and most of the rest is the Israel Emergency Fund campaign ($56.0m of receipts) |
-   | RCF | 0% from any of the four named items. It is entirely the gap between Schedule D DAF value, total assets and liabilities |
+   | CJP | 106% endowment returns less PP&E in FY2023. In FY2024, 34% endowment returns less PP&E, and about half of the rest is the Israel Emergency Fund campaign: $56.0m of receipts, of which $30.8m was granted out in FY2024 (audit Note 14), leaving $25.2m against a $49.8m residual [V wave 40C] |
+   | RCF | 0% from c1–c3. The audited fee surplus (c4: +$0.28m and +$0.15m) is 4.3% and 0.3% of ΔR1; the rest is the gap between Schedule D DAF value, total assets and liabilities [V wave 40C] |
    | NCF | Funds that the audit counts as donor-advised or charitable but that sit outside Schedule D columns (a) and (b): +$112.2m in 2024 |
 
 2. **The one "close match" (JCF) is a coincidence [C/F].**
    - JCF's R1 equals its audited "functioning as endowment" fund ($21,302,379 and $24,202,416) plus its audited "reserve fund" ($2,558,752 and $2,681,442), to the dollar.
    - The operating fund that receives the fee sits inside "Undesignated – available for operations". That line plus "designated and semi-designated" equals the Schedule D DAF value to the dollar in both years.
-   - So JCF's fee surplus is reported inside column (a) and never reaches R1.
+   - So JCF’s fee surplus is reported inside column (a) and did not reach R1 in FY2023–24. Note C (audit p. 15) allows surplus above the $2,000,000 UJA grant to go to the Special Gifts Fund (the column (b) endowment) or a capital reserve, but the Note G roll-forward shows only investment return less appropriations ($21,302,379 + $4,507,348 − $1,607,311 = $24,202,416 in FY2024), and the reserve fund rose only $122,690 [F/C]. [V wave 40C]
 
 3. **At Fidelity no fee surplus can reach R1 [F/C].**
    - Fidelity pays FMR an amount "equal to the administrative fee the Gift Fund charged its donors" (Note 7, FY2022–FY2025).
@@ -69,7 +69,7 @@
    | Vanguard | The charity books its own fundraising expense (audit: $3.83m in FY2024 and $4.09m in FY2025). It also receives in-kind professional services from Vanguard ($0.79m and $1.00m) and has an undrawn interest-free facility of up to $6.5m |
    | Goldman Sachs (both funds), Morgan Stanley GIFT, BofA | **Not disclosed.** No Schedule O, R or L text addresses marketing, and no statement is posted |
 
-8. **No parent pays charity marketing on the record [F/I].** None of the eight filers states that the parent bears brand or adviser marketing for the charity. Where the filing speaks, the charity pays: through the fee (Fidelity, Raymond James), by reimbursement (Schwab staff), or on its own lines (Schwab and Vanguard advertising and fundraising). Brand-level advertising that the parent runs for its own business is outside every filing read.
+8. **No filing shows a parent paying for charity marketing beyond what the charity pays it [F/I].** None of the eight filers states that the parent bears brand or adviser marketing for the charity on its own account. Where the filing speaks, the charity pays the parent or pays directly: through the fee (Fidelity, Raymond James), by reimbursement (Schwab staff), or on its own lines (Schwab and Vanguard advertising and fundraising). Two qualifications. Fidelity’s Schedule O says the “SEPARATE COSTS BORNE BY FMR IN PROVIDING SERVICES UNDER THE SA … ARE NOT SEPARATELY STATED”, and Fidelity books $0 to its Part IX fundraising column, so whether the fee covers FMR’s full cost of fundraising is undisclosed. Vanguard Charitable receives $788,129 and $1,000,342 of in-kind professional services from Vanguard (FY2024–25), of unstated type. Brand-level advertising that the parent runs for its own business is outside every filing read. [V wave 40C]
 
 ---
 
@@ -106,7 +106,7 @@
 | JCF | 2023 | +1.80 | +1.87 | 0 (memo: 3.39 inside c1) | −0.06 | +0.24 | −0.25 | R1 − col (b) = audit reserve fund ($2,558,752). Schedule D DAF value = undesignated + designated (exact) |
 | JCF | 2024 | +3.02 | +2.90 | 0 (memo: 4.51 inside c1) | 0 | +1.85 | −1.72 | R1 − col (b) = audit reserve fund ($2,681,442), exact |
 | CJP | 2023 | +15.64 | 0 | +18.00 | −1.37 | n/a | −0.99 | Audit non-DAF areas +20.09: operations +1.85, endowment and reserves +18.16, JCEP +0.08 |
-| CJP | 2024 | +75.81 | 0 | +26.71 | −0.72 | n/a | +49.82 | Audit non-DAF areas +74.77: operations +47.10, of which Israel Emergency Fund receipts 56.00; endowment and reserves +27.41 |
+| CJP | 2024 | +75.81 | 0 | +26.71 | −0.72 | n/a | +49.82 | Audit non-DAF areas +74.77: operations +47.10 (Israel Emergency Fund receipts 56.00 less 30.81 granted in FY2024 = 25.19 retained); endowment and reserves +27.41 [V wave 40C] |
 
 **Share of ΔR1 explained by c1 + c2 + c3 (non-fee balance-sheet items) [C]**
 
@@ -159,7 +159,7 @@
 
 | Sponsor (FY) | Line 11a: amount and what it covers | Parent or administrator payments | Line 12 advertising | Marketing: filed statement | Audit |
 |---|---|---|---|---|---|
-| **Fidelity** (FY6/22–25) | $124.6m, $121.2m, $139.7m, $179.9m, all in the program column. Equals the audited "Administrative fees" paid to FMR each year [C] | FMR LLC "ADMIN & INV MGMT SVC" $121.6m–$159.9m (Part VII B) | $0 | Schedule O: FMR provides "RECORD-KEEPING, SYSTEMS, ADMINISTRATION, FUNDRAISING, INVESTMENT ADVISORY SERVICES AND SERVICES OF OFFICERS…"; "SEPARATE COSTS BORNE BY FMR IN PROVIDING SERVICES UNDER THE SA… ARE NOT SEPARATELY STATED." Fundraising is **recharged inside the fee**; the amount is not disclosed. Schedule R lists a disregarded "02210 LLC" whose activity is "FUNDRAISING", with $0 income and assets in all four years | Note 7: paid FMR "at amounts equal to the administrative fee the Gift Fund charged its donors" (FY2025: "net of any tier price credits"). No marketing term |
+| **Fidelity** (FY6/22–25) | $124.6m, $121.2m, $139.7m, $179.9m, all in the program column (FY2022 from amended return 202430459349302913; Fidelity books every Part IX expense to the program column, $0 to fundraising) [V wave 40C] Equals the audited "Administrative fees" paid to FMR each year [C] | FMR LLC "ADMIN & INV MGMT SVC" $121.6m–$159.9m (Part VII B) | $0 | Schedule O: FMR provides "RECORD-KEEPING, SYSTEMS, ADMINISTRATION, FUNDRAISING, INVESTMENT ADVISORY SERVICES AND SERVICES OF OFFICERS…"; "SEPARATE COSTS BORNE BY FMR IN PROVIDING SERVICES UNDER THE SA… ARE NOT SEPARATELY STATED." Fundraising is **recharged inside the fee**; the amount is not disclosed. Schedule R lists a disregarded "02210 LLC" whose activity is "FUNDRAISING", with $0 income and assets in all four years | Note 7: paid FMR "at amounts equal to the administrative fee the Gift Fund charged its donors" (FY2025: "net of any tier price credits"). No marketing term |
 | **DAFgiving360** (FY6/22–25) | $1.04m → $2.76m, of which fundraising column $0.12–0.39m. Payee not named | Charles Schwab & Co "BROKERAGE & ADMIN SERVICES": Part VII B $5.0–9.8m; Schedule L $6.9–11.4m. "ADMINISTRATIVE FEE EXP" $6.3–10.9m on other expenses | **$2.65m → $6.88m, 100% fundraising column** | Schedule O: "THE WORKFORCE… ARE EMPLOYEES OF CHARLES SCHWAB & CO. … PAYROLL… FULFILLED BY CHARLES SCHWAB & CO. AND REIMBURSED BY" the charity. Advertising is **borne by the charity**. Parent brand marketing is not disclosed | Blocked (HTTP 403) |
 | **Vanguard** (FY6/22–25) | $0.54–1.74m, of which fundraising column $0.33–0.43m | The Vanguard Group "OCCUPANCY/ADMIN. SVCS." on Schedule L: $3.07m, $3.64m, $3.92m, $4.01m. The FY2024–25 figures equal the audit's related-party fees | $0.28–0.39m, half in the fundraising column | Schedule O: none on marketing. Audit: fundraising expenses $3,833,010 (FY2024) and $4,091,664 (FY2025), **borne by the charity**. In-kind professional services from Vanguard: $788,129 and $1,000,342. Interest-free facility of up to $6.5m, undrawn | Read FY2024–25. No marketing term |
 | **GS DAF** (CY2021–24) | $0 | Ayco "ADMIN/INVST ADVISORY" $0.89m (2021) and "ADMIN. SERVICES" $3.23m (2023) and $1.03m (2024). GS Trust Co and GS & Co investment, advisory and tech: $11.6–14.6m and $3.9–8.1m. "AGENCY FEE" $7.1–8.5m (payee not named) | $0 | **Not disclosed** | Not posted |
@@ -168,7 +168,7 @@
 | **BofA Charitable Gift Fund** (CY2021–24) | blank | No admin or administrator line. Line 11f $17.7–24.1m. "BANK OF AMERICA, TRUSTEE" (Part VII) | blank | Schedule O: "TRUST HAS CORPORATE TRUSTEE". Marketing **not disclosed** | Not posted. Schedule O says audited statements are filed with the Massachusetts Attorney General |
 | **Raymond James** (FY3/22–25) | $9.26m, $9.79m, $5.70m, $7.10m, of which fundraising column $0.19m, $0.29m, $0.17m, $0.21m | Raymond James Trust N.A. "ADMIN SVC & INV MGMT": Schedule L $9.26m, $9.79m, $11.45m, $14.50m. From FY3/24, part of it moves to line 11f ($6.28m and $8.33m) | $0 | Schedule O: RJTNA services include "ADMINISTRATIVE AND INVESTMENT ADVISORY SERVICES, RECORD-KEEPING, ACCOUNTING SERVICES, FUNDRAISING, SYSTEMS, OCCUPANCY AND EQUIPMENT, AND SERVICES OF OFFICERS". Fundraising is **recharged under the service agreement** | Blocked (robots.txt unreachable) |
 
-- **Schedule R.** No filer lists its parent firm as a related organization, and none lists a Schedule R Part V transaction with it.
+- **Schedule R.** Six of the eight filers file Schedule R (DAFgiving360 and BofA do not). None lists its parent firm as a related organization or in a Part V transaction; the Goldman Sachs Charitable Gift Fund names The Goldman Sachs Group Inc only as the direct controlling entity of The Goldman Sachs Foundation. [V wave 40C]
 - **Schedule L.** This is where the parent appears, as an "interested person" business transaction, at Schwab, Vanguard and Raymond James. At Fidelity the parent appears in Part VII Section B.
 
 ### 3.3 Reading [I]
@@ -176,7 +176,7 @@
   - Parents do supply the operating machinery.
   - The filings that speak say the charity pays for it, fundraising included. At Fidelity and Raymond James the payment is through the administrator fee. At Schwab it is by reimbursing parent-employed staff and buying its own advertising.
   - What remains invisible is the parent's *own-account* brand and adviser marketing, such as Fidelity Investments or Schwab advertising that features the DAF, or adviser incentives. No filing or audit read here quantifies it.
-- **Morgan Stanley's "FA commissions" is the only line that may be adviser compensation borne by a charity.** It is $1.9–2.8m a year. The payee is not named, so this is not established (proposal P-B43N23-04).
+- **Morgan Stanley's "FA commissions" may be adviser compensation borne by a charity, but it is not the only adviser-related line.** It is $1.9–2.8m a year (TY2022–24; TY2021 has no such line). The payee is not named, so this is not established (proposal P-B43N23-04). Fidelity Charitable reports an other expense described as “OTH CHARITABL INV ADVISOR PRGM” of $8.18m, $9.98m, $20.67m and $15.62m (FY2022–25, program column), and DAFgiving360 reports “COMMISSIONS” of $0.60m, $0.48m, $0.47m and $0.55m. Neither names a payee, and the keyword screen in §3.1 did not capture the Fidelity line. [V wave 40C]
 - **For an entrant's cost comparison:**
   - Fidelity's whole fee ($121–180m) is the price of a bundle that includes fundraising.
   - Schwab's line 12 ($6.9m in FY2025) is a floor on the charity-borne marketing cost, not a ceiling. Staff marketing time is in reimbursed salaries.
@@ -198,7 +198,7 @@
   - Vanguard FY2022–FY2023 statements were not found (guessed paths returned 404).
   - A FY2026 Vanguard statement was fetched (the about-us page links it). It repeats the same related-party wording, but its FY2026 figures are outside scope and are not used.
 - **Schedule O keyword screen.** It could miss marketing language phrased otherwise. As a check, every Schedule O entry of all eight Morgan Stanley and BofA returns was read in full, and a wider keyword screen (agreement, fee, employ, reimburs, fundrais) was read for the latest return of every other filer; neither found further marketing language.
-- **Massachusetts Attorney General filings (BofA) were not consulted.** The public-charity search is a form interface, which the rules exclude.
+- **Massachusetts Attorney General filings (BofA) were not consulted.** The public-charity search is a form interface, which the rules exclude. The Goldman Sachs Charitable Gift Fund’s Schedule O likewise says its financial statements are “AVAILABLE THROUGH PUBLICLY ACCESSIBLE STATE FILINGS”; those were not consulted either. [V wave 40C]
 
 ## 5. Source register and access log
 
