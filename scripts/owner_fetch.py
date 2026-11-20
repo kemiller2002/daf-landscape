@@ -153,7 +153,7 @@ def task_from_target(row: dict) -> Task:
 
 
 def targets_from_csv(rows: Iterable[dict], priorities: Optional[Sequence[str]]) -> tuple[Task, ...]:
-    keep = lambda r: (r.get("already_in_owner_fetch", "").strip().upper() not in ("Y", "YES", "TRUE")
+    keep = lambda r: (not r.get("already_in_owner_fetch", "").strip().lower().startswith(("y", "true"))
                       and r.get("url", "").startswith("http")
                       and (not priorities or r.get("priority", "") in priorities))
     order = lambda r: (PRIORITY_ORDER.get(r.get("priority", ""), 9), r.get("target_id", ""))
