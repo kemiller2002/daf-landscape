@@ -26,7 +26,7 @@
 | **The Giving Block** (Shift4; Giving Block Foundation, EIN 92-3363254) | “approximately 2,400 charities” (Shift4 FY2025 10-K); “over $100 million” of 2025 crypto (own report) [F] | **No filing**: the foundation was ruled exempt in 2024-12 and has no indexed 990 [F]. Shift4 never gives a Giving Block figure [F] | Shift4 folds “stock donations” into total volume ($209bn in FY2025), so $100m would be 0.048% of it [C]. On the report page, 22,343 donations × $11,019 average = $246.2m, 2.46× the headline [C] |
 
 **Bottom line (A) [C/I].**
-- The three charities that file show **$24.7m of combined FY2024 intake** (FreeWill Impact Fund $11.9m, DonateStock Charitable $12.8m) and **$37.0m** once DonateStock’s FY2025 ($25.1m) replaces its FY2024. That is small next to one complex-asset intermediary (Dechomai Asset Trust took in $649.8m of Schedule M gifts in 2024 [R]).
+- The two vendor-affiliated charities with non-cash intake show **$24.7m of combined FY2024 intake** (FreeWill Impact Fund $11.9m, DonateStock Charitable $12.8m; GVNGorg’s $2.4m of cash contributions is not included) [V wave 41A] and **$37.0m** once DonateStock’s FY2025 ($25.1m) replaces its FY2024. That is small next to one complex-asset intermediary (Dechomai Asset Trust took in $649.8m of Schedule M gifts in 2024 [R]).
 - **Vendor organisation counts measure sign-ups, not recipients.** In the latest year, each charity paid hundreds of organisations, not tens of thousands.
 - **Intake vendors also feed DAF sponsors.** FreeWill Impact Fund sent 49.6% of its TY2024 Schedule I dollars to DAFRC-listed sponsors, and DonateStock Charitable sent 3.3% in FY2025 [C]. If vendor intake is added to sponsor intake, these dollars are counted twice.
 - **DonateStock’s FY2023 “zero” is a blank coded as 0** (§2.2). DAFRC’s FY2023 and FY2024 rows carry $0 of contributions and grants. The returns leave Schedule D lines 2–3 blank while Part VIII reports $5,078,851 and $12,778,129 [F]. In FY2025 DonateStock answered Part IV line 6 “No” and dropped Schedule D.
@@ -129,7 +129,7 @@ No logins, forms or outreach. sec.gov, crt.sh and certspotter were not used.
 
 - **This is the item’s “CY2024+ Schedule M crypto lines”**: $7.63m in 648 crypto gifts (average $11,772) [C]. No TY2025 return is indexed yet.
 - **Concentration.** $5,430,494 went to The Oregon Community Foundation (EIN 23-7315673): 45.7% of TY2024 intake and 49.4% of Schedule I [C]. The TY2023 top line was AI4ALL ($1,005,179).
-- **Not a DAF on its checkboxes.** Every year’s Part III says “FREEWILL IMPACT FUND OPERATES A DONOR ADVISED FUND”, yet Part IV line 6 is 0 and no Schedule D is filed [F]. This is the same pattern as DPN (§3).
+- **Not a DAF on its checkboxes.** Every year’s Part III says “FREEWILL IMPACT FUND OPERATES A DONOR ADVISED FUND”, yet Part IV line 6 is 0 and no Schedule D Part I is filed [F]. The TY2023 and TY2024 returns do attach a Schedule D, but only with its financial-statement reconciliation parts (the study’s own CSV flags `sched_d_present` True for both years); TY2024 is also the first year with `FSAuditedInd` 1 [V wave 41A]. This is the same pattern as DPN (§3).
 - **“Zero-fee”.** The only fee lines are “PROCESSING FEES” of 0.35–3.1% of intake [F]. No payment to FreeWill Co. is listed (no contractor over $100k).
 - **55,000 test.** In TY2024 the fund paid at least 263 organisations. At one charity per gift, at most about 986 received anything: **0.48% to 1.79% of 55,000**, or 1.18% on crypto gifts alone. That is $216 of filed intake per claimed nonprofit [C]. The claim describes organisations that can be selected in the tool, not organisations that receive money.
 
@@ -162,11 +162,11 @@ No logins, forms or outreach. sec.gov, crt.sh and certspotter were not used.
 **“Thousands of organizations”:**
 - Recipients number at least 588 in FY2025 and at most 2,630 at one per gift [C].
 - The charity itself says “over 350 organizations” [F].
-- The FY2022–FY2024 narrative repeats “more than 300 charitable organizations in our first full year” word for word, so it is not a yearly count [F].
+- The FY2022–FY2024 narrative repeats “more than 300 charitable organizations in our first full year” almost word for word (FY2024 says “in our second fiscal year”), and the FY2023 and FY2024 versions both claim “more than 800+ stock donations” while Schedule M counts 203 and 1,565, so it is not a yearly count [F] [V wave 41A]
 
 ### 2.3 GVNGorg and Engiven [F/C]
 
-| TY | Contributions | Non-cash (VIII 1g) | Grants (IX 1) | Line 6 | From DonateStock Charitable (Sch I) |
+| TY | Contributions | Non-cash (VIII 1g) | Grants (Part I line 13; Part IX line 1 is $627,900, $641,686, $224,039 and $502,675) [V wave 41A] | Line 6 | From DonateStock Charitable (Sch I) |
 |---|---|---|---|---|---|
 | 2021 (amended) | $999,268 | none | $1,234,395 | No | — (DSC’s first full year is 2022) |
 | 2022 | $1,597,944 | none | $648,641 | No | $42,631 |
@@ -188,7 +188,7 @@ No logins, forms or outreach. sec.gov, crt.sh and certspotter were not used.
   - FY2023 and FY2024 10-Ks: “including cryptocurrency and stock donations”.
   - FY2025 10-K and Q3 2026 10-Q: “including cryptocurrency, stored value, gift cards and stock donations”.
   - **None gives a Giving Block or stock-donation figure.** FY2025 volume was $209bn (FY2024 $165bn).
-- **Earnings releases.** 26 releases (2020-Q2 to 2026-Q3) contain 0 mentions of “Giving Block”, “stock donation” or “crypto” [C].
+- **Earnings releases.** 26 releases (2020-Q2 to 2026-Q3) contain 0 mentions of “Giving Block”, “stock donation” or “crypto” [C]. Each release is only a short notice that the results were posted in a shareholder letter or on the Financials page, and the letters were not read [B], so this zero is weak evidence [V wave 41A]
 - **What is disclosed:**
   - crypto settlement assets held for Giving Block users: $1.8m, $3.5m and $5.7m at year-ends 2022–24, no longer recognised from 2025 under SAB 122;
   - an earnout “calculated as a multiple of revenue earned by The Giving Block from March 1, 2022 to February 28, 2023”, settled at $10.4m;
@@ -196,6 +196,7 @@ No logins, forms or outreach. sec.gov, crt.sh and certspotter were not used.
 - **Self-reported 2025 figures** ([annual report](https://thegivingblock.com/annual-report/)):
   - “over $100 million” of crypto, “22,343 donations”, “average gift of $11,019”, and “One in five nonprofits on The Giving Block raised over $100,000”.
   - Count × average = **$246,197,517**, 2.46× the headline [C].
+  - The same page says The Giving Block has processed “over $300 million since our founding in 2018” and reports “66% year-over-year growth from 2024 to 2025”. If 2025 were $246.2m, 2024 would be about $148m and the two years alone would exceed $300m, so the product cannot be the 2025 crypto total. “Over $100 million” is a floor, so the 2.46× ratio by itself is not a contradiction [V wave 41A]
   - The one-in-five line implies at least $48m at about 2,400 charities [C].
   - The figures cannot all describe the same base. They are not resolved here (P-B40N14-03-04).
 - **Affiliated charity.** Giving Block Foundation (EIN 92-3363254, Miami, care of “THE GIVING BLOCK - DAVID JOHNSON”) was ruled exempt in 2024-12 under foundation code 15. It has no indexed 990 [F: BMF, index], so no Giving Block dollars are filed anywhere yet.
@@ -233,7 +234,7 @@ The Schedule A line shows that a few contributors, each giving more than about $
 2. **The processor series is not a home for non-filers.** In b40n13-03-g1913-03, “processor” means a DAFRC panel member of type Donation Processor (AOGF, PPGF, Givinga, Blackbaud Giving Fund, For Good and 17 others). Their Schedule D dollars stay in contribution, grant and asset totals, and only their account counts are split off (§4.3 items 1 and 4, as corrected by wave 40A). DPN is upstream of none of this. It receives grants that donors recommend from accounts at sponsors, then regrants them to nonprofits that have not claimed a Chariot account.
 3. **Double count.** DPN’s contributions are sponsor grants out. Counting them as inflows anywhere in the DAF totals would count the same dollars twice, once leaving the sponsor and once arriving at DPN.
 4. **Self-description is not a test.** The repo already rejects the DAFRC type label alone as a unit test (wave 40A C08). Mission wording is weaker still, and FreeWill Impact Fund uses the same words with the same checkboxes.
-5. **Treatment.** Report DPN, FreeWill Impact Fund and DonateStock FY2025 in an **intermediary memo line** of self-described DAF charities with no Schedule D. Show their contributions and grants with the note that they add no DAF dollars, and that DPN’s are already counted as sponsor grants.
+5. **Treatment.** Report DPN, FreeWill Impact Fund and DonateStock FY2025 in an **intermediary memo line** of self-described DAF or fiscal-sponsor charities with no Schedule D Part I. [V wave 41A] Show their contributions and grants with the note that they add no DAF dollars, and that DPN’s are already counted as sponsor grants.
 
 ---
 

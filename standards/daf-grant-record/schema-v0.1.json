@@ -88,7 +88,7 @@
       "additionalProperties": false,
       "properties": {
         "codes": {
-          "description": "Up to 5 PCS codes, following Candid's rule for grant details ('not required; can have up to 5 codes').",
+          "description": "Up to 5 PCS codes in total. Candid's rule for grant details ('not required; can have up to 5 codes') is stated per facet on its Subjects and Support Strategies pages, so this total cap is stricter than Candid's practice [V wave 41A]",
           "type": "array",
           "minItems": 1,
           "maxItems": 5,

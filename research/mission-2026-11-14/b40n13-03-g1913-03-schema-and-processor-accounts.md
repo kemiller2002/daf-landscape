@@ -216,7 +216,8 @@ Recommended treatment [I]:
 1. **Market account totals:** report sponsors and processors separately. The comparable FY2024 sponsor series is **786,822** (corrected total less the five processors), or **787,517** with AOGF's 695 corporate DAFs [C]. The other 17 DAFRC processors (15,912 FY2024 accounts as published; 16,037 after the R1 corrections, mainly Dechomai Asset Trust 181 → 314) are not yet classified (P-G1913-03-02). Removing all 22 processors (2,538,698 accounts, 76.7%) leaves 770,785 [V wave 40A]
 2. **Averages and growth:** compute them on the sponsor series only. Processor counts swing with reporting choices (Givinga 42,307 → 1,543,203 → 955,569 → 1,421,011 for CY2021–24; PPGF 483,095 → 275,052 → 665,764 → 380,644) [R/C].
 3. **Complaint rates:** use per-$ granted, or per grant where a count exists, for processors. Do not use per-account rates.
-4. **Dollars:** keep processors in contribution, grant and asset totals. Flag AOGF's FYE 2026 and BBGF's CY2025 basis changes as breaks in the series (P-G1913-03-03).
+4. **Dollars:** keep processors in contribution, grant and asset totals. Flag AOGF’s FYE 2026 and BBGF’s CY2025 basis changes as breaks in the series (P-G1913-03-03).
+5. **Outside both series:** charities that describe themselves as DAF sponsors or fiscal sponsors but answer Part IV line 6 “No” and file no Schedule D Part I (DAFpay Network TY2024–25, FreeWill Impact Fund TY2021–24, DonateStock Charitable FY2025) report no DAF accounts and add no DAF dollars. FreeWill’s TY2023–24 returns attach a Schedule D, but only its financial-statement reconciliation parts. DPN’s receipts are, on its own description, grants from DAF sponsors, and the other two pass gifts straight through, so they are shown only as an intermediary memo line, never in sponsor or processor totals (b40n14-03-b38c-03 §3) [b38c-03] [V wave 41A]
 
 ---
 

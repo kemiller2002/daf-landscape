@@ -49,7 +49,7 @@
    - **transformed**: value changed, either by a named transform the validator recomputes or by a "manual" mapping explained in a note;
    - **not available**: the source has no value for that record field.
    - `schema_version` is a constant and is not classed.
-   - The vector files were written by a one-off generator (scratchpad `q1332/make_vectors.py`). Each vector is self-contained.
+   - The vector files were written by a one-off generator, kept in the repo as `standards/daf-grant-record/tools/make_vectors.py`. Each vector is self-contained [V wave 41A]
 5. **Negative vectors.** Each is a single mutation of a positive record, mostly copying a raw source value that a converter must not pass through. The vector states the expected `(instance_path, keyword)` errors.
 6. **Validation.** Run as `python3 -I scripts/mission_validate_grant_record.py . <scratchpad>/q1303/std/log.jsonl <scratchpad>/q1332/web/log.jsonl`. Without the logs it skips only the snippet check. The script:
    - checks the schema's keywords against the implemented subset;
@@ -114,9 +114,10 @@ Every object sets `additionalProperties: false`, so a record cannot carry stray 
   - The draft's single `purpose_code` became `purpose.codes` (up to 5) plus `purpose.text`, with at least one required.
   - The limit of five follows Candid's own rule for grant-level coding ("not required; can have up to 5 codes") [F].
   - Text alone is allowed because both DAF APIs carry only free text. A schema that required a code would reject every converted Endaoment record unless the converter guessed a code.
+  - Candid states the up-to-5 rule separately for each facet: the Subjects and the Support Strategies pages each say grant details “can have up to 5 codes”. A cap of five codes across all facets is therefore stricter than Candid’s practice; v0.2 should cap codes per facet [V wave 41A]
 - **Anonymity.** Three levels, as in the draft. The conversions show why a boolean is not enough:
   - Chariot `anonymous: false` maps to `full_contact`.
-  - Endaoment `shareMyEmail` (default false) together with a `recommender` name maps to `name_only`.
+  - Endaoment `shareMyEmail` (default false) together with a `recommender` name maps to `name_only`. This is an inference: the OpenAPI says `shareMyEmail` controls only whether to share “the fund's donor-of-record email”, and describes `recommender` as the “Name of the person recommending the grant” without saying that the name reaches the recipient or that the recommender is the donor of record [V wave 41A]
 - **Status.** Chariot's five values plus `returned`, as in the draft. An `if`/`then` rule requires a `payment_reference` with `paid_date` once status is `paid` or `returned`.
 - **Dropped from the published record:** `idempotency_key`. The schema map already classed it as a "transaction-API concern; not part of a published record".
 - **Added: `external_ids`.** Chariot's request id must travel with the grant ("must appear on the grant letter / remittance advice sent to the nonprofit"), so the record needs a place for an intermediary's id that is neither the grant id nor the payment reference.
@@ -275,10 +276,11 @@ Every negative vector fails only on the intended keyword. The one exception is n
   - The Endaoment vector is assembled from per-field OpenAPI `example` values that were never meant to describe one coherent grant: the uuids coincide, the EIN comes from a response DTO, and the example status is outside its enum.
   - Chariot's EIN comes from a separate endpoint's example, linked by `org_77fq`.
 - **Hand mappings.** 11 of the 20 transformed entries use `manual` transforms [C]: pos-01 has 3, pos-02 has 4 and pos-03 has 4. They cover PCS coding of "Wherever needed most", the scheme labels, currency, Endaoment anonymity, the onchain rail, and Chariot's approval time taken from `updated_at` [I]. The other 9 are recomputed by the validator. Manual entries cannot be recomputed, only reviewed.
+- **Regex anchors.** The validator and jsonschema 4.26.0 both use Python’s `re.search`, where `$` also matches before a final newline, so an EIN or currency code followed by one trailing newline character passes; an ECMA-262 validator would reject it. Implementations should reject control characters or match the whole string [V wave 41A]
 - **PCS codes are checked for shape only.** The code list was robots-blocked, so a well-formed but non-existent code passes (§4.3). Only the S, P, U and T facets are accepted.
 - **Amount.** Only two-decimal currencies fit. Currencies with zero or three minor digits (JPY, BHD) would need a rule keyed to the ISO 4217 minor unit. The currency code is checked for shape, not against the ISO list. Recording USDC as USD is [I].
-- **Validator subset.** Timestamp and date checks are regex only (2026-02-31 would pass). `format` is not used. Only local `$ref` is resolved. The schema itself was not validated against the 2020-12 metaschema, because no package could be installed (P-B4013-03-02-04).
-- **The vector generator is in the scratchpad** (`q1332/make_vectors.py`), which may be cleared. The vector files themselves are self-contained.
+- **Validator subset.** Timestamp and date checks are regex only (2026-02-31 would pass). `format` is not used. Only local `$ref` is resolved. The schema was later checked against the 2020-12 metaschema with the jsonschema 4.26.0 package already present in the environment (Draft202012Validator.check_schema): it passes, and the same package reproduces the expected (instance path, keyword) errors for all 20 negative vectors and accepts the 4 positive ones (P-B4013-03-02-04 can close) [V wave 41A]
+- **The vector generator is in the repo** at `standards/daf-grant-record/tools/make_vectors.py`, identical to the scratchpad copy; re-running it rebuilds all 24 vector files byte for byte. The vector files themselves are self-contained [V wave 41A]
 
 ## 8. Data dictionaries
 

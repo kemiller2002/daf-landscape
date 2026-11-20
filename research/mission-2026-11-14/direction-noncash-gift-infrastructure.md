@@ -18,7 +18,7 @@
 3. **Direct sponsor–vendor links are few and specific.** [F/R]
    - Ren/RCF has used The Giving Block for crypto DAFs since 2022, with a $100k minimum.
    - DonateStock had an exclusive stock partnership with GVNG (2021-12-21).
-   - Engiven is GVNG's crypto partner.
+   - Engiven is GVNG’s crypto partner, but GVNGorg (EIN 81-2446261) reports no non-cash contributions in TY2021–TY2024. The DonateStock partnership is visible only as DonateStock Charitable’s grants to GVNG: $42,631 (FY2022), $113,657 (FY2023), $29,945 (FY2024) and $47,086 (FY2025) (b40n14-03-b38c-03 §2.3) [b38c-03] [V wave 41A]
    - GivingIQ's advisory board includes a former Fidelity Charitable president. That is a people link, not a contract.
 4. **The big complex-asset flows go through Dechomai.** [F] Dechomai Asset Trust took in $986m (CY2021), $525m (CY2022) and $961m (CY2023). Each year it receives grants from national sponsors: DAFgiving360 gave $12.3m–$25.5m a year in FY6/22–FY6/25, and Fidelity gave $56.7m in non-cash in FY6/22. AEF says outright that it is "partnered with Dechomai Foundation" for illiquid gifts. Dechomai Foundation paid Charitable Solutions LLC $3.00m, $3.81m and $4.43m in 2022–24. The only fee schedule found is "1–3% with minimum fee of $10,000", in an undated one-pager.
 5. **Published fees, from free to 3.9%.**
@@ -29,7 +29,7 @@
 6. **Volume disclosure is thin outside Fidelity and The Giving Block.** [F/C]
    - Fidelity received $2.6bn of non-publicly traded assets in 2025 ($2.3bn in 2024; 8% of contributions). Its lifetime total is $18.1bn, of which $1.7bn is crypto. It handles about 500 complex contributions a year and averages 65 days from acceptance to liquidity.
    - The Giving Block processed more than $100m of crypto in 2025, across 22,343 donations. Its stock volume rose 127% and its DAF volume "more than" doubled.
-   - Everything else is company claims, or small 990 figures such as FreeWill Impact Fund's $5.68m (CY2023).
+   - Everything else is company claims, or small 990 figures. FreeWill Impact Fund took in $5.68m (CY2023) and $11.89m (CY2024, of which $7.63m was crypto in 648 gifts), and DonateStock Charitable $12.78m (FY2024) and $25.12m (FY2025). In the latest year FreeWill Impact Fund paid at least 263 organisations, against FreeWill’s “over 55,000”, and DonateStock Charitable at least 588, against GivingIQ’s “thousands” (its own return says “over 350 organizations”) (b40n14-03-b38c-03 §2) [b38c-03] [V wave 41A]
 7. **2021+ events:**
    - Shift4 acquired The Giving Block (2022-02), cut the earnout by $(47.1)m and settled it at $10.4m. In 2025 Shift4 stopped carrying crypto settlement assets after adopting SAB 122.
    - FreeWill acquired Cocatalyst (2021-12-06) and Grant Assistant (2024-10-22).
@@ -45,7 +45,7 @@
 
 ### 2.1 The Giving Block (Shift4) — NCG-01
 - **Ownership** [F]: Shift4 subsidiary. The FY2025 10-K (filed 2026-02-27) describes it as "Our cryptocurrency donation marketplace allows donors to easily gift a variety of cryptocurrencies to approximately 2,400 charities", against "over 2,000" in the FY2023 and FY2024 10-Ks ([FY2025 10-K](https://www.sec.gov/Archives/edgar/data/1794669/000179466926000010/four-20251231.htm); [FY2024 10-K](https://www.sec.gov/Archives/edgar/data/1794669/000179466925000011/four-20241231.htm)).
-  - Shift4 counts "alternative payments methods, including cryptocurrency and stock donations" in payments-based revenue and volume. It does not disclose a figure for The Giving Block alone.
+  - Shift4 counts "alternative payments methods, including cryptocurrency and stock donations" in payments-based revenue and volume. It does not disclose a figure for The Giving Block alone. Its FY2025 10-K and Q3 2026 10-Q fold “stock donations” into total volume ($209bn in FY2025), of which The Giving Block’s self-reported “over $100 million” of 2025 crypto would be about 0.048%. Its 26 results press releases from 2020-Q2 to 2026-Q3 never name The Giving Block, but each is a short notice pointing to a shareholder letter, and the letters were not read (their host’s robots.txt returned 403), so that silence is weak evidence. Giving Block Foundation (EIN 92-3363254, ruled 2024-12) has filed no Form 990 yet (b40n14-03-b38c-03 §2.4) [b38c-03] [V wave 41A]
   - From 2025, under SAB 122, "the Company no longer recognizes crypto settlement assets and liabilities". That ends the $1.8m/$3.5m/$5.7m year-end series in repo batch 29 §5.1.
 - **Deal terms** (governing W4-9, [R]): $53.3m non-contingent plus $57.8m contingent consideration, with a maximum earnout of $246m. FY2022 brought a $(47.1)m earnout cut, and the earnout settled at $10.4m.
 - **Products and fees** [F]: "Simplify" and "Accelerate" packages; "The Giving Block has an annual subscription for fundraising packages and transaction fees for donations". No rates are published ([packages](https://thegivingblock.com/?p=118084)).
@@ -93,7 +93,7 @@
   - DonateStock Charitable (EIN 87-1569770) files Schedule D as a DAF sponsor [R]:
     - FY2022: 10 DAFs, $9.37m in, $8.85m out;
     - FY2024: 33 DAFs, $2.16m at year-end;
-    - FY2023: contributions and grants recorded as 0, probably missing data ([990 XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202542229349300304_public.xml)).
+    - FY2023 and FY2024: DAFRC records contributions and grants as 0 (source “IRS 990”), but both returns leave Schedule D Part I lines 2–3 blank. Part VIII reports $5,078,851 (FY2023) and $12,778,129 (FY2024) of contributions, all publicly traded securities, and Part IX line 1 reports $5,334,774 and $10,585,357 of grants, so the zero is a blank coded as 0. In FY2025 (return 202632859349300138, filed 2026-10-12) it answered Part IV line 6 “No”, filed no Schedule D, took in $25,121,004 in 2,630 gifts and paid DonateStock Inc $709,796 (2.83%) ([FY2023 990 XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413209349328306_public.xml); [FY2024 990 XML](https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202542229349300304_public.xml); b40n14-03-b38c-03 §2.2) [b38c-03] [V wave 41A]
   - Partners include GoFundMe Pro and Bonterra ([partners](https://givingiq.com/partners)).
 
 ### 2.5 FreeWill and Crypto for Charity — NCG-05, NCG-06
@@ -103,7 +103,7 @@
   - **Grant Assistant**, 2024-10-22, terms undisclosed ([PR Newswire](https://prnewswire.com/news-releases/freewill-acquires-grantassistant-an-ai-based-platform-to-speed-and-simplify-grant-proposals-for-nonprofits-and-international-development-organizations-302282203.html)).
 - **Crypto for Charity** [F/C]: launched 2021-12-06. Gifts go to **FreeWill Impact Fund**, "our affiliated 501(c)(3)" (EIN 86-1218871). They are converted "usually within 10 minutes" and the net proceeds are granted on. FreeWill calls it "zero-fee" and says it reaches more than 55,000 nonprofits ([FreeWill](https://www.freewill.com/learn/how-to-donate-crypto-to-charity)).
   - It is **not a DAF**; it is an intermediary-charity model.
-  - FreeWill Impact Fund's total contributions, all channels: CY2021 $1.19m, CY2022 $2.50m, CY2023 $5.68m ([ProPublica API](https://projects.propublica.org/nonprofits/api/v2/organizations/861218871.json)) [F].
+  - FreeWill Impact Fund’s total contributions, all non-cash: CY2021 $1.19m, CY2022 $2.50m, CY2023 $5.68m, CY2024 $11.89m. Schedule M for CY2024 shows crypto $7,628,569 in 648 gifts and securities $4,262,656 in 338. $5,430,494 (45.7% of contributions) went in one grant to The Oregon Community Foundation. Part IV line 6 is “No” and no Schedule D Part I is filed (the CY2023–24 returns attach a Schedule D for the financial-statement reconciliation only), although Part III says it “OPERATES A DONOR ADVISED FUND” ([ProPublica API](https://projects.propublica.org/nonprofits/api/v2/organizations/861218871.json); TY2024 XML 202503189349308315; b40n14-03-b38c-03 §2.1) [b38c-03] [V wave 41A]
 - **DAF tool** [F]: "FreeWill integrates with DAFpay, created by Chariot" ([product page](https://nonprofits.freewill.com/products/donor-advised-funds)). Recurring DAF grants were added in 2025 [S].
 - **Volume claims** [C], on bases that change and should not be added together:
   - committed gifts >$4bn (2021-12), ~$5bn (2022-03), >$10bn (2024-10) and >$15.2bn (undated [llm-info](https://www.nonprofits.freewill.com/llm-info));
