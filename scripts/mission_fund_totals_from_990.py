@@ -118,6 +118,8 @@ TYPE_TOTAL_BEFORE = re.compile(r"(?i)\b(donor[- ]?advised|designated|scholarship
                                r"custodial|fiscal|partner)\s+funds\b[^.;]{0,70}\(\s*(?:a\s+)?total\s+of\s*$")
 ITEM = re.compile(r"(?i)(?<![\d$,.])(?P<n>\d{1,3}(?:,\d{3})*)\s+(?:[a-z][a-z'-]*\s+){1,3}?funds?\b")
 SEP = re.compile(r"(?i)\s*,?\s*(?:and|&)?\s*")
+SPELLED = re.compile(r"(?i)\b(?:two|three|four|five|six|seven|eight|nine|ten|twenty|thirty|forty|fifty|sixty|seventy|"
+                     r"eighty|ninety|hundred|thousand)\b[\w\s,-]{0,40}?\bfunds\b")
 NEW_CTX = re.compile(r"(?i)\b(new|newly)\b")
 GRANT_BEFORE = re.compile(r"(?i)(grant\w*|award\w*|distribution\w*)\b[^.;]{0,80}\b(from|through|to)\s*$")
 GRANT_AFTER = re.compile(r"(?i)^\s*(that|which)\s+(award|hosted|made grants|provided grants|paid)")
@@ -210,7 +212,9 @@ def parse_return(oid: str, raw: bytes | None) -> dict:
     texts = narratives(root)
     hits = tuple({**h, "part": part} for part, t in texts for h in hits_in(t))
     uniq = tuple({(h["part"], h["n"], h["cls"], h["snippet"][:120]): h for h in hits}.values())
-    return {"oid": oid, "xml": "ok", "period_end": first_text(root, "TaxPeriodEndDt"),
+    spelled = tuple(re.sub(r"\s+", " ", t[max(0, m.start() - 80):m.end() + 60]) for part, t in texts if part in MAIN_PARTS
+                    for m in SPELLED.finditer(t))
+    return {"oid": oid, "xml": "ok", "period_end": first_text(root, "TaxPeriodEndDt"), "spelled": spelled,
             "daf_cnt": num(first_text(root, "DonorAdvisedFundsHeldCnt")),
             "other_cnt": num(first_text(root, "FundsAndOtherAccountsHeldCnt")),
             "n_narr": sum(1 for p, _ in texts if p in MAIN_PARTS), "n_narr_ext": sum(1 for p, _ in texts if p not in MAIN_PARTS),
@@ -254,10 +258,92 @@ def returns_index(harvest: Sequence[Mapping], coststruct: Sequence[Mapping], ein
 # Analyst's reading, in context, of every CF-level total the extraction selects (main and extension), keyed
 # "<object id>|<n>". verdict: ok = states the number of all funds the filer holds/administers; corrected = a total of
 # all funds, but the right figure differs (corrected_total given); reject = not an all-funds total.
-HANDCHECK: dict[str, tuple[str, int | None, str]] = {}
+HANDCHECK: dict[str, tuple[str, int | None, str]] = {
+    '202540839349300504|950': ('ok', None, "'TFEC HAS 950 FUNDS' (Sched O)"),
+    '202512729349300936|472': ('ok', None, "'ADMINISTERS MORE THAN 472 CHARITABLE FUNDS'"),
+    '202433169349300703|300': ('ok', None, "'STEWARDS MORE THAN 300 CHARITABLE FUNDS'"),
+    '202533109349300818|160': ('ok', None, "'WE CURRENTLY HOLD 160 FUNDS, THE MAJORITY BEING DONOR ADVISED FUNDS'"),
+    '202501789349300425|300': ('ok', None, "'MANAGES OVER 300 FUNDS ESTABLISHED FOR CHARITABLE PURPOSES'"),
+    '202501919349300600|50': ('ambiguous', None, "'HAS OVER 50 FUNDS FOR CHARITIES': may mean funds held for charities (agency) rather than all funds"),
+    '202511339349301401|300': ('ok', None, "'MANAGES 300 CHARITABLE FUNDS AND MADE 873 GRANTS FROM THOSE FUNDS'"),
+    '202512799349300406|400': ('ok', None, "'MANAGES OVER 400 FUNDS' (site figures conflict, see b45n33-02-01 sec 1.3)"),
+    '202520569349301027|370': ('ok', None, "'MANAGES OVER 370 DIFFERENT FUNDS'"),
+    '202512879349302101|370': ('ok', None, "'BRINGING THE TOTAL NUMBER OF FUNDS TO 370'"),
+    '202503189349311980|100': ('ok', None, "'WE MANAGE MORE THAN 100 FUNDS'"),
+    '202501719349300820|257': ('corrected', 338, "Filer (CF of the Northern Alleghenies) reports two affiliates: Elk County CF 'TOTAL OF 257 CHARITABLE FUNDS' and McKean County CF 'TOTAL OF 81 FUNDS'; Sched D covers the filer, so total = 257 + 81"),
+    '202523179349300617|136': ('ok', None, 'Sum of a complete by-type list: 59 agency, 17 endowment, 42 DAF, 7 corporate advised, 3 scholarship, 1 annuity, 7 pass-through'),
+    '202502619349300910|80': ('ok', None, "'SUPPORT TO MORE THAN 80 COMPONENT FUNDS'"),
+    '202531289349304033|418': ('ok', None, "'WE CURRENTLY HAVE 418 FUNDS THAT WE MANAGE'"),
+    '202513149349300616|75': ('ok', None, "'MANAGES MORE THAN 75 FUNDS ESTABLISHED BY INDIVIDUALS, CORPORATIONS, AND ORGANIZATIONS'"),
+    '202543189349303749|300': ('ok', None, "'WITHIN THE FOUNDATION ARE MORE THAN 300 INDIVIDUAL CHARITABLE FUNDS'"),
+    '202523149349303412|394': ('ok', None, "'ADMINISTERS 394 FUNDS ... ORGANIZATION-SPECIFIC, DONOR DIRECTED, FIELD OF INTEREST'"),
+    '202501359349307550|200': ('ok', None, "'ADMINISTERS OVER 200 FUNDS, PRIMARILY PERMANENT ENDOWMENTS, INCLUDING AGENCY OR DESIGNATED, SCHOLARSHIP, DONOR-ADVISED'"),
+    '202413199349305696|350': ('ok', None, "Sched A Part VI: 'HOLDS OVER 350 INDIVIDUAL FUNDS REPRESENTING NEW GIFTS, BEQUESTS, ... PASS-THROUGH FUNDS' (extension)"),
+    '202542879349301469|150': ('ok', None, "Sched A Part VI: 'HOLDS OVER 150 INDIVIDUAL FUNDS' (extension)"),
+    '202543089349302574|486': ('ok', None, "'managed 486 funds established for charitable purposes during 2024' (no Sched D DAF count in that return)"),
+    '202502329349301405|166': ('ok', None, "'MANAGED 166 FUNDS IN 2024 INCLUDING 10 NEW FUNDS'"),
+    '202501299349302430|871': ('ok', None, "'CURRENTLY HAS 871 COMPONENT FUNDS'"),
+    '202542819349300709|330': ('ok', None, "'HAS OVER 330 ACTIVE FUNDS'"),
+    '202442819349300614|293': ('ok', None, "'BRINGING THE TOTAL NUMBER OF ACTIVE FUNDS TO 293'"),
+    '202340239349301409|372': ('ok', None, "'WE ADMINISTER 372 ACTIVE COMPONENT FUNDS' (FY2022)"),
+    '202500379349300640|500': ('ok', None, "'MANAGES OVER 500 FUNDS'"),
+    '202543169349300219|169': ('ok', None, "'WE SERVICED 169 FUNDS AND ISSUED 1,622 GRANTS'"),
+    '202503099349301115|158': ('ok', None, "'ADMINISTERS DONATED FUNDS FOR APPROXIMATELY 158 DIFFERENT FUNDS'"),
+    '202323129349302842|431': ('ok', None, "'MANAGES 431 CHARITABLE FUNDS' (FY2022)"),
+    '202402769349301430|235': ('ok', None, "'HAS 235 FUNDS AS OF YEAR END' (FY2023)"),
+    '202532759349300223|225': ('ok', None, "'currently administers over 225 charitable funds'"),
+    '202422689349300037|100': ('ok', None, "'ADMINISTERS DONATED FUNDS FOR APPROXIMATELY 100 DIFFERENT FUNDS'"),
+    '202523019349300037|200': ('ok', None, "'MANAGES OVER 200 CHARITABLE FUNDS FOR INDIVIDUALS, FAMILIES, AND NONPROFIT ORGANIZATIONS'"),
+    '202532979349301558|200': ('ok', None, "'MANAGES OVER 200 FUNDS'"),
+    '202413109349303851|180': ('ok', None, "'HAS MORE THAN 180 PHILANTHROPIC FUNDS'"),
+    '202502249349300445|600': ('ok', None, "Sched D Part XIII: 'FIDUCIARY OVER MORE THAN 600 INDIVIDUAL FUNDS' (extension)"),
+    '202501409349301380|175': ('ok', None, "Sched A Part VI: 'HAS OVER 175 SEPARATELY IDENTIFIABLE FUNDS THAT PROVIDE GRANTS' (extension)"),
+    '202512069349301001|211': ('ok', None, "'12 NEW FUNDS WERE OPENED, BRINGING THE TOTAL UNDER MANAGEMENT TO 211'"),
+}
 # Analyst's reading of a random sample of hits classed as NOT all_funds (key "<object id>|<n>"):
 # correct_exclusion or missed_total.
-EXCL_CHECK: dict[str, tuple[str, str]] = {}
+EXCL_CHECK: dict[str, tuple[str, str]] = {
+    '202313119349304186|35': ('correct_exclusion', 'fund-type count, not a total'),
+    '202322879349301007|388603': ('correct_exclusion', 'money, financial line or non-count'),
+    '202402439349301500|262435': ('correct_exclusion', 'money, financial line or non-count'),
+    '202323199349306867|19': ('correct_exclusion', 'fund-type count, not a total'),
+    '202312939349301031|17': ('correct_exclusion', 'funds added this year'),
+    '202532769349301103|533': ('correct_exclusion', 'endowment / endowed funds only'),
+    '202442609349300959|19': ('correct_exclusion', 'funds that made grants / hosted rounds'),
+    '202523159349300227|100': ('correct_exclusion', 'fund-type count, not a total'),
+    '202442989349300349|5': ('correct_exclusion', 'money, financial line or non-count'),
+    '202322659349301602|39': ('correct_exclusion', 'endowment / endowed funds only'),
+    '202403549349300335|16': ('correct_exclusion', 'funds added this year'),
+    '202233559349300233|45': ('correct_exclusion', 'fund-type count, not a total'),
+    '202311319349305021|90': ('correct_exclusion', 'fund-type count, not a total'),
+    '202323119349303022|14': ('correct_exclusion', 'endowment / endowed funds only'),
+    '202523079349302892|4': ('correct_exclusion', 'fund-type count, not a total'),
+    '202332499349301958|468469': ('correct_exclusion', 'money, financial line or non-count'),
+    '202502759349300825|27': ('correct_exclusion', 'funds added this year'),
+    '202412129349301756|39': ('correct_exclusion', 'endowment / endowed funds only'),
+    '202412849349300201|15': ('correct_exclusion', 'endowment / endowed funds only'),
+    '202543189349301989|139': ('correct_exclusion', 'endowment / endowed funds only'),
+    '202322229349301957|96': ('correct_exclusion', 'fund-type count, not a total'),
+    '202303149349301690|14': ('correct_exclusion', 'funds added this year'),
+    '202323199349306867|30': ('correct_exclusion', 'fund-type count, not a total'),
+    '202523179349300617|17': ('correct_exclusion', 'endowment / endowed funds only'),
+    '202542659349300709|200': ('correct_exclusion', 'endowment / endowed funds only'),
+    '202501349349310815|1283': ('correct_exclusion', 'funds that made grants / hosted rounds'),
+    '202543189349301689|39': ('correct_exclusion', 'fund-type count, not a total'),
+    '202313199349316406|15': ('correct_exclusion', 'fund-type count, not a total'),
+    '202333139349303673|99': ('correct_exclusion', 'fund-type count, not a total'),
+    '202312969349301711|10': ('correct_exclusion', 'funds added this year'),
+    '202323199349311637|0': ('correct_exclusion', 'money, financial line or non-count'),
+    '202303199349307615|100': ('correct_exclusion', 'fund-type count, not a total'),
+    '202313039349301591|2022': ('correct_exclusion', 'money, financial line or non-count'),
+    '202433189349307648|147': ('correct_exclusion', 'fund-type count, not a total'),
+    '202342549349301504|6': ('correct_exclusion', 'funds that made grants / hosted rounds'),
+    '202412849349300201|37': ('correct_exclusion', 'fund-type count, not a total'),
+    '202423189349302002|735584': ('correct_exclusion', 'money, financial line or non-count'),
+    '202303129349301850|304': ('correct_exclusion', 'endowment / endowed funds only'),
+    '202502249349300445|96': ('correct_exclusion', 'fund-type count, not a total'),
+    '202402979349300330|6': ('correct_exclusion', 'funds added this year'),
+}
 
 
 # ----------------------------------------------------------------------------- build
@@ -345,34 +431,56 @@ def ci(xs, nd=0, pre=""):
     return "–" if c is None else f"{pre}{c[0]:,.{nd}f}–{pre}{c[1]:,.{nd}f}"
 
 
-def summary_row(label: str, rs: Sequence[Mapping]) -> list:
-    return [label, len(rs), M.qfmt(col(rs, "daf_share_F"), 3), M.qfmt(col(rs, "daf_share_A"), 3), M.qfmt(col(rs, "daf_share_G"), 3),
-            M.qfmt(col(rs, "daf_cost_per_account_alloc_F"), 0, "$"), M.qfmt(col(rs, "daf_cost_per_account_alloc_A"), 0, "$"),
+def summary_row(label: str, rs: Sequence[Mapping], sfx: str = "") -> list:
+    return [label, len(rs), M.qfmt(col(rs, "daf_share_F" + sfx), 3), M.qfmt(col(rs, "daf_share_A"), 3), M.qfmt(col(rs, "daf_share_G"), 3),
+            M.qfmt(col(rs, "daf_cost_per_account_alloc_F" + sfx), 0, "$"), M.qfmt(col(rs, "daf_cost_per_account_alloc_A"), 0, "$"),
             M.qfmt(col(rs, "daf_cost_per_account_alloc_G"), 0, "$"),
-            M.qfmt(col(rs, "daf_cost_bps_daf_assets_alloc_F"), 0), M.qfmt(col(rs, "daf_cost_bps_daf_assets_alloc_A"), 0),
+            M.qfmt(col(rs, "daf_cost_bps_daf_assets_alloc_F" + sfx), 0), M.qfmt(col(rs, "daf_cost_bps_daf_assets_alloc_A"), 0),
             M.qfmt(col(rs, "daf_cost_bps_daf_assets_alloc_G"), 0)]
+
+
+def weighted_row(fset: Sequence[Mapping], rows: Sequence[Mapping], sfx: str = "") -> list:
+    """Band-weighted (post-stratified) medians: weight = frame N of the band / F-set n of the band."""
+    w = {lbl: M.ratio(sum(1 for r in rows if r["band"] == lbl), sum(1 for r in fset if r["band"] == lbl) or None) for lbl, _ in BANDS}
+    def wm(k, nd=0, pre=""):
+        v = M.wmedian([(num(r[k]), w[r["band"]]) for r in fset if num(r[k]) is not None])
+        return "–" if v is None else f"{pre}{v:,.{nd}f}"
+    return ["All, band-weighted", len(fset), wm("daf_share_F" + sfx, 3), wm("daf_share_A", 3), wm("daf_share_G", 3),
+            wm("daf_cost_per_account_alloc_F" + sfx, 0, "$"), wm("daf_cost_per_account_alloc_A", 0, "$"),
+            wm("daf_cost_per_account_alloc_G", 0, "$"), wm("daf_cost_bps_daf_assets_alloc_F" + sfx), wm("daf_cost_bps_daf_assets_alloc_A"),
+            wm("daf_cost_bps_daf_assets_alloc_G")]
 
 
 def report(rows: Sequence[Mapping], recs: Mapping, idx: Mapping) -> str:
     fset = tuple(r for r in rows if r["daf_share_F"])
     with_tot = tuple(r for r in rows if r["n_total_funds"])
-    all_hits = tuple(h for r in recs.values() for h in r.get("hits", ()))
+    all_hits = tuple(h for r in recs.values() for h in r.get("hits", ()) if h["part"] in MAIN_PARTS)
+    ext_hits = tuple(h for r in recs.values() for h in r.get("hits", ()) if h["part"] not in MAIN_PARTS)
+    spelled = tuple(x for r in recs.values() for x in r.get("spelled", ()))
     by_cls = {k: sum(1 for h in all_hits if h["cls"] == k) for k in
               ("all_funds", "endowment_only", "type_specific", "new_funds", "grantmaking", "other")}
     xml_status = {k: sum(1 for r in recs.values() if r.get("xml") == k) for k in ("ok", "missing", "parse_error")}
     checked = tuple(r for r in with_tot if r["handcheck"] and r["handcheck"] != "not_checked")
-    ok = sum(1 for r in checked if r["handcheck"] == "ok")
+    ok = sum(1 for r in checked if r["handcheck"] in ("ok", "corrected"))
+    ok_strict = sum(1 for r in checked if r["handcheck"] == "ok")
     out = []
     out.append("## Coverage\n")
     out.append(M.table(["Item", "Value"], [
         ["Tail CFs in frame", len(rows)], ["EIN-FY returns FY2022–24 indexed", len(idx)],
         ["XML ok / missing / parse error", f"{xml_status['ok']} / {xml_status['missing']} / {xml_status['parse_error']}"],
         ["Narrative fields searched (Part III + Sched O)", sum(r.get("n_narr", 0) for r in recs.values())],
-        ["Regex hits (deduplicated within return)", len(all_hits)],
+        ["Regex hits, Part III + Sched O (deduplicated within return and part)", len(all_hits)],
         *[[f"  class {k}", v] for k, v in by_cls.items()],
         ["Returns with an all_funds total", sum(1 for r in recs.values() if return_total(r))],
+        ["Extension: Sched D Part XIII + Sched A Part VI fields searched", sum(r.get("n_narr_ext", 0) for r in recs.values())],
+        ["Extension: regex hits / all_funds hits", f"{len(ext_hits)} / {sum(1 for h in ext_hits if h['cls'] == 'all_funds')}"],
+        ["Extension: CFs with a total (any part)", sum(1 for r in rows if r["n_total_funds_ext"])],
+        ["Spelled-out number + 'funds' phrases in Part III + Sched O (read by hand)", len(spelled)],
         ["CFs with an all_funds total (any FY)", len(with_tot)],
-        ["  of which hand-check ok", f"{ok} of {len(checked)}"],
+        ["  of which hand-check ok / corrected / ambiguous / reject", " / ".join(
+            str(sum(1 for r in checked if r["handcheck"] == v)) for v in ("ok", "corrected", "ambiguous", "reject"))],
+        ["  missing a same-return Sched D DAF count", sum(1 for r in with_tot if not r["sched_d_daf_count_same_return"])],
+        ["  cost row not usable", sum(1 for r in with_tot if r["usable_cost"] != "1")],
         ["CFs in the rule-F set (hand-check ok, usable cost row, Sched D count present)", len(fset)],
     ]))
     out.append("\n\n## CFs with a total, by band\n")
@@ -384,9 +492,17 @@ def report(rows: Sequence[Mapping], recs: Mapping, idx: Mapping) -> str:
     out.append("\n\n## Rule F against A and G (same CFs) [I]\n")
     head = ["Band", "n", "Share F", "Share A", "Share G", "F $/acct", "A $/acct", "G $/acct", "F bps", "A bps", "G bps"]
     out.append(M.table(head, [summary_row(lbl, tuple(r for r in fset if r["band"] == lbl)) for lbl, _ in BANDS]
-                       + [summary_row("All", fset)]))
+                       + [summary_row("All", fset), weighted_row(fset, rows)]))
     fa = [M.ratio(num(r["daf_share_F"]), num(r["daf_share_A"])) for r in fset if num(r["daf_share_A"])]
     fg = [M.ratio(num(r["daf_share_F"]), num(r["daf_share_G"])) for r in fset if num(r["daf_share_G"])]
+    fext = tuple(r for r in rows if r["daf_share_F_ext"])
+    out.append("\n\n## Extension: adding Sched D Part XIII and Sched A Part VI text [I]\n")
+    out.append(M.table(head, [summary_row(lbl, tuple(r for r in fext if r["band"] == lbl), "_ext") for lbl, _ in BANDS]
+                       + [summary_row("All", fext, "_ext")]))
+    amb = tuple(r for r in rows if r["handcheck"] == "ambiguous")
+    out.append("\n\nAmbiguous totals (excluded from the F set): " + "; ".join(
+        f"{r['ein']} total {r['n_total_funds']}, DAFs {r['sched_d_daf_count_same_return']}, share "
+        f"{M.fmt(min(1.0, num(r['sched_d_daf_count_same_return']) / num(r['n_total_funds'])), 3)}" for r in amb))
     out.append("\n\n## Robustness [C]\n")
     sens = (("Exact or approx totals only (drop lower/upper bounds)", tuple(r for r in fset if r["total_qual"] in ("stated", "approx"))),
             ("FY2024 totals only (same period as opex)", tuple(r for r in fset if r["total_fy"] == "2024")),
@@ -421,14 +537,21 @@ def report(rows: Sequence[Mapping], recs: Mapping, idx: Mapping) -> str:
     out.append("\n\n## Hand check (every CF-level total)\n")
     out.append(M.table(["Verdict", "n"], [[v, sum(1 for r in with_tot if r["handcheck"] == v)]
                                           for v in sorted({r["handcheck"] for r in with_tot})]))
-    out.append(f"\n\nPrecision (CF-level totals): {ok}/{len(checked)}" + (f" = {ok / len(checked):.3f}" if checked else ""))
+    out.append(f"\n\nPrecision (CF-level totals; ok or corrected = an all-funds statement): {ok}/{len(checked)}"
+               + (f" = {ok / len(checked):.3f}" if checked else "")
+               + f"; figure right as extracted (ok only): {ok_strict}/{len(checked)}")
     if checked:
         lo, hi = wilson(ok, len(checked))
-        out.append(f" (Wilson 95% {lo:.3f}–{hi:.3f})")
+        out[-1] = out[-1] + f" (Wilson 95% for the first ratio {lo:.3f}–{hi:.3f})"
     ex = tuple(EXCL_CHECK.values())
     if ex:
         miss = sum(1 for v, _ in ex if v == "missed_total")
         out.append(f"\n\nExcluded-hit sample: {miss} missed totals of {len(ex)} read.")
+    out.append("\n\n## Spelled-out phrases read by hand (Part III + Sched O)\n")
+    out.append("\n".join(f"- {x[:200]}" for x in sorted(set(spelled))))
+    ext_checked = tuple(r for r in rows if r["handcheck_ext"] and r["handcheck_ext"] != "not_checked")
+    out.append(f"\n\nExtension totals hand-checked: {sum(1 for r in ext_checked if r['handcheck_ext'] in ('ok', 'corrected'))}"
+               f"/{len(ext_checked)} ok or corrected.")
     return "\n".join(out)
 
 
