@@ -38,10 +38,10 @@
 | Assist | (no h) | 0.324 | 0.209 | 0.020 | 0.447 | ADABDDAADDDBAAB | 6 / 0 |
 
 1. **Routing at m = 1.77 loses 3 of its 5 modal processes.** C keeps P03 and P07; P11 goes to D, P13 and P14 go back to A. Its rank-first probability falls from 0.200 to 0.168, and A becomes modal in 4 processes (P01, P08, P13, P14). At m = 1.56, C keeps 3 (P03, P07, P14).
-2. **Hybrid routing is robust to the cut:** it stays modal in 5 processes (loses P01 to B) with P(C first) 0.237.
-3. **D remains the most likely winner overall** (0.378–0.400) in every routing cell; B is never above 0.21.
+2. **Hybrid routing is robust to the cut:** it stays modal in 5 processes (P01 goes from C to B; P15 from D to B) with P(C first) 0.237.
+3. **D has the highest mean rank-first probability in every cell of the table** (0.369–0.434); B is never above 0.21.
 4. **The cut on the upper half is milder than its mean suggests.** r_C's mean is 0.47, but even r_C = 0 (h capped at 0.50) leaves A01 routing modal in P07 and hybrid modal in 5 processes (§3.2). Most of routing's advantage comes from the lower half of h.
-5. **Cutting the whole of h (C_ALL_FIELD, stress) removes routing as a modal winner** in every routing cell at m ≥ 1.56 (A modal in 6, C in 0); hybrid keeps 0 too. Whether the lower half (bank test set-up 0.20, E19 optimal-policy 0.21–0.49, OCBC benchmark) also needs a realization factor is the larger open question (P-G0403-0105-02).
+5. **Cutting the whole of h (C_ALL_FIELD, stress) removes routing and hybrid as modal winners** in every A_V1 and A_FIELD cell (A modal in 6, C in 0). Only A_RPA_ANALOGY × BD_FIELD with hybrid keeps C modal (2 processes). Whether the lower half (bank test set-up 0.20, E19 optimal-policy 0.21–0.49, OCBC benchmark) also needs a realization factor is the larger open question (P-G0403-0105-02).
 6. **Value [S]:** the median value routing adds beyond the best of A, B and D falls from $133k to **$84k** a year at m = 1.77 (hybrid: $313k to $249k).
 
 ### (B) Correlated realization (P-G0403-01-04)
@@ -149,9 +149,9 @@ __T2__
 
 __T3__
 
-- **B is the loser in every cell.** Its rank-first probability falls by 0.04–0.08 from rank correlation 0 to 1. D falls by at most 0.02 under A_FIELD (D's P09/P10 carry no factor in BD_FIELD) and rises under A_RPA_ANALOGY.
+- **B is the loser in every cell.** Its rank-first probability falls by 0.031–0.066 from rank correlation 0 to 1. D falls by 0.007–0.021 under A_FIELD (D's P09/P10 carry no factor in BD_FIELD) and rises by 0.004–0.052 under A_RPA_ANALOGY.
 - **A gains under A_FIELD and loses under A_RPA_ANALOGY.** With A_FIELD, r_A rarely falls far (range 0.475–1.2), so A wins the draws in which the common factor is low. With A_RPA_ANALOGY, A shares B's and D's marginal and moves with them.
-- **C gains in every cell**, by 0.009–0.052. Under A_RPA_ANALOGY with A01 routing, C becomes modal in 6 processes (adds P01).
+- **C gains in every cell**, by 0.009–0.057. A changes by +0.010 to +0.071 (A_FIELD) and −0.025 to −0.044 (A_RPA_ANALOGY). Under A_RPA_ANALOGY with A01 routing, C becomes modal in 6 processes (adds P01).
 - **Absorption.** A's share of what B and D lose (BD_FIELD − V1_PRIORS, A_FIELD) falls slightly with correlation: assist 0.94 → 0.92; routing A01 m = 1.77 0.58 → 0.55; hybrid 0.49 → 0.45. B and D lose more in total (routing m = 1.77: 0.327 → 0.378), and C takes a larger share of it.
 
 ### 3.4 (B) Set ABCD: r_C on the common factor too (A_FIELD × BD_FIELD × C_UPPER_FIELD, NAT_LARGE)
@@ -170,9 +170,9 @@ __T6__
 
 | Earlier conclusion | Status |
 |---|---|
-| g0403-01: with A01 routing at the current m = 1.56–1.77 under A_FIELD × BD_FIELD, C is modal in 5 large-national processes (P03, P07, P11, P13, P14); h-asymmetry caveat (wave 37C) | **Revised [S].** With the upper half of h held to the RPA realization range [I] (C_UPPER_FIELD), A01 routing is modal in **2** processes at m = 1.77 (P03, P07) and **3** at m = 1.56 (P03, P07, P14); A in 4 and 3. Hybrid stays modal in 5. Holding the whole of h to that range removes routing and hybrid as modal winners |
+| g0403-01: with A01 routing at the current m = 1.56–1.77 under A_FIELD × BD_FIELD, C is modal in 5 large-national processes (P03, P07, P11, P13, P14); h-asymmetry caveat (wave 37C) | **Revised [S].** With the upper half of h held to the RPA realization range [I] (C_UPPER_FIELD), A01 routing is modal in **2** processes at m = 1.77 (P03, P07) and **3** at m = 1.56 (P03, P07, P14); A in 4 and 3. Hybrid stays modal in 5. Holding the whole of h to that range removes routing and hybrid as modal winners under A_V1 and A_FIELD |
 | Wave 37C: "If one common realization factor applied to A, B, C and D alike, the gross ranking would be the V1-priors one" | **Holds only for equal marginals.** With A_FIELD's marginal, a rank-correlation-1 factor does not revert A, B and D to V1; it moves probability from B to A and C. With A at the RPA range (equal values), the A–B–D order does revert to V1 and C, carrying no factor, gains (5 → 6 modal processes). With r_C also on the factor (ABCD, ρ_s = 1) routing returns to 5 modal processes |
-| g0403-01 §5 item 6: "With a common factor, ranks among A, B and D revert towards V1 priors (wave 37C)" and "Independence [I] maximises re-ordering" (P-G0403-01-04 rationale) | **Not supported for A_FIELD.** Independence does not maximise re-ordering: correlated draws change 0–2 large-national modal winners, all away from B |
+| g0403-01 §5 item 6: "With a common factor, ranks among A, B and D revert towards V1 priors (wave 37C)" and "Independence [I] maximises re-ordering" (P-G0403-01-04 rationale) | **Not supported for A_FIELD.** In mean probabilities correlation moves B and D further from their V1 levels, not back. Modal winners change in 0–2 large-national processes per cell (set ABD), every change taking a process away from B: some move away from V1 (P01 B→A or C), one returns to it (P15 B→D, D in V1) |
 | Assistance wins no process | **Unchanged** in every cell of both studies |
 | Routing is modal nowhere at m = 9.28 | **Unchanged** under every r_C and correlation in A_FIELD cells |
 
