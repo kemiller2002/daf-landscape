@@ -33,7 +33,7 @@ Tags: [F] computed from filings by the script · [P] quoted primary source · [I
   | 1h | 8.4% | **9.2%** | 9.1–9.2% | 8.3–10.2% | 9.8% | 9.9% |
   | 1h − 1d − 1e | 12.6% | **13.7%** | 13.7–13.8% | 12.3–15.2% | 14.6% | 14.8% |
 
-- **The range tightens [F/I].** Wave 40B gave 8.4–9.9% on 1h and 12.6–14.8% on 1h − 1d − 1e. The bounded allocation narrows that to **9.1–9.2%** and **13.7–13.8%** (point ranges over allocation choices). The sampling interval (about ±1 point) now dominates. The effective scale factor is **1.09**, against 1/0.849 = 1.18; the gap adds about half of what the scaling assumed.
+- **The range tightens [F/I].** Wave 40B gave 8.4–9.9% on 1h and 12.6–14.8% on 1h − 1d − 1e. The bounded allocation narrows that to **9.1–9.2%** and **13.7–13.8%** (point ranges over allocation choices). That grid varies only the keys, whose frame shares are all 0.68–0.69. The assumption envelope, from dropping the sub-$5,000 component (about 8.8% / 13.2%) to allocating the DAF-to-DAF residual (9.39% / 14.05%), is about 8.8–9.4% and 13.2–14.1%. That envelope, not 0.1 point, is the comparison with wave 40B's range [V wave 41B] The sampling interval (about ±1 point) now dominates. The effective scale factor is **1.09**, against 1/0.849 = 1.18; the gap adds about half of what the scaling assumed.
 - **Expanded frame [F/I].** With the 70,008 recipients that get only non-top-50 grants, the central share is **8.0%** on 1h (8.0–8.1%; CI 7.3–9.1%), up from 7.3%, and **13.2%** on 1h − 1d − 1e (13.2–13.3%; CI 12.0–14.6%), up from 12.1%.
 - **What the allocation choice does move: medians and small bands [F/I].** Pooled shares hardly depend on the key, because the small-gift key and the pro rata key send almost the same share of dollars to frame recipients (0.69 against 0.68 in FY2024). Medians do depend on it. The committed-frame median on 1h is **11.9%** with the small-gift key (CI 10.4–13.5%) and 10.2% pro rata, against the 9.3% floor. Pooled by revenue band (1h, committed): <$1m 23.3% (range 22.1–23.3%), $1–5m 14.3%, $5–25m 11.5%, $25–100m 7.8%, ≥$100m **4.7%** (4.7–4.8%). The floors are 20.5%, 12.7%, 10.7%, 7.3% and 4.4%.
 - **Recommendation [I].** Report 9.2% (allocation range 9.1–9.2%, sampling CI 8.3–10.2%) on 1h and 13.7% (13.7–13.8%; 12.3–15.2%) on 1h − 1d − 1e for the committed frame, instead of the residual-scaled 9.9% / 14.8% or the 8.4–9.9% / 12.6–14.8% ranges. Keep the floor (8.4% / 12.6%) as the measured-only figure.
@@ -77,7 +77,7 @@ Dc − w·SI_other = (Dc − D) + (D − w·(L1+L2+L3)) + w·L2 + w·L3 + w·(L1
 - **The new weight.** w2 = min(1, Dc ÷ (L1 + L3)) puts numerator and denominator on the same DAFRC basis and leaves out line 2.
 - **What it does.**
   - It removes the weighting haircut except for a cap residual: 63 sponsor-years where Dc > L1 + L3, $0.08bn in FY2024 [F].
-  - It zeroes 129 FY2024 default-weight sponsor-years that DAFRC records with no DAF grants, such as Campanile Foundation and Give2Asia.
+  - It zeroes FY2024 sponsor-years that DAFRC records with no DAF grants, such as Campanile Foundation and Give2Asia. 129 sponsor-years carry the default weight; 122 itemising sponsor-years have zero corrected DAF grants, 99 of them at w = 1 [V wave 41B]
   - It raises sponsors whose cost-structure weight was near zero: UCLA Foundation (w 0 → 0.38, corrected DAF grants $170m), Stanford (0.105 → 0.947) and CF for Southeast Michigan (0 → 0.67).
 - **Coverage on w2.** Itemised coverage becomes 85.3% (FY2024) and 87.2% (FY2023) [F].
 - **This addresses P-B40N120201-02** (default weight of 1) with a filing-based rule.
@@ -145,7 +145,7 @@ Points of netted DAF grants (central tier):
   - The Donors Fund: raw $0, corrected $0.55bn (R1); line 1 $0.55bn.
   - Stifel Charitable: $0.05bn.
   - The task's $1.04bn and $0.72bn are the raw figures. The gap uses the corrected ones because the netted denominator does.
-- **DAF-to-DAF residual [F/I].** The numerator drops $9.45bn of DAF-weighted DAF-to-DAF lines in FY2024. R5 (central) nets $8.03bn from the denominator. The $1.42bn difference is money that went to other panel sponsors and is not netted, for example grants into sponsors' non-DAF funds. It is the largest component that is neither foreign nor unitemised (P-B40N12020101-02).
+- **DAF-to-DAF residual [F/I].** The numerator drops $9.45bn of DAF-weighted DAF-to-DAF lines in FY2024. R5 (central) nets $8.03bn from the denominator. The $1.42bn difference is money that went to other panel sponsors and is not netted, for example grants into sponsors' non-DAF funds. R5 central weights each line by the recipient's DAF share of assets, while the numerator drops whole lines. Against the upper tier (weight 1, $9.42bn) the residual is about $0.03bn, so the 2.4 points is a netting-tier choice. It does not affect recipient shares, because it is never allocated [V wave 41B] It is the largest component that is neither foreign nor unitemised (P-B40N12020101-02).
 
 ### 2.2 Recipient DAF share: bounded allocation, all in-scope recipients
 

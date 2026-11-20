@@ -123,6 +123,7 @@ Most of the FY2024 gap is FY2025 returns not yet filed or not yet on the mirror 
 - **The neighbours.** FY2022 line 4 ($1,123.5m) equals FY2022 net assets ($1,123.3m). The FY2020 ratio (60.3%: $329.2m on $546.0m) is itself low.
 - **[I]** The FY2021 line 4 is very likely a filer error, understated by about $0.65–0.88bn. FY2020 may be understated too; it is outside the FY2021–24 window and was not screened.
 - **Status in the repo.** The value is DAFRC "IRS 990" and enters the repo's FY2021 total unchanged. No first-party Dechomai statements were read (P-B4427B4501-01).
+- **Overlap caveat [I].** The return describes the Trust as a Type I supporting organisation that liquidates non-cash gifts to DAFs “benefiting Dechomai Foundation, Inc.” (EIN 06-1676688). Its Schedule I shows a single $365,169,132 cash grant to the Foundation, which DAFRC also lists as a sponsor ($163.5m of FY2021 DAF assets). Whether the two entities' DAF books overlap is untested, so the +$774.0m sensitivity may partly double-count [V wave 41B]
 
 ### 2.3 Below the listing threshold (S2b) and the sensitivity (S6) [C]
 
@@ -207,7 +208,7 @@ Fee lines are taken as filed [F]. The line descriptions and Part XI items for ea
 
 ### 3.3 What the test shows [I]
 1. **Non-publishers charge.**
-   - Every one of the 8 sampled CFs whose filings disclose internal fees charges a realised **70–129 bps of total assets a year**, with one exception: Central Florida, whose disclosed item is partial.
+   - Every one of the 8 sampled CFs whose filings disclose internal fees charges a realised **70–129 bps of total assets a year**, with one exception: Central Florida, whose disclosed item is partial. Greene County's 124.2 bps includes $68,310 of EITC grant fees passed straight through (each matched by an equal expense). Its own-fund fee is $250,766, or 97.6 bps, and the non-publisher median becomes 101.6 bps. Licking County's posted audit (note 1N) states its schedule ($250 minimum, graduated from 1% down to 0.1%), so it is not strictly a non-publisher [V wave 41B]
    - 7 of those 8 publish no rate. Their median (104 bps; 112 bps without Central Florida) is above the one publisher measured the same way (Hutchinson, 83 bps).
    - On Schedule D Part V, 14 non-publishers charge their endowment funds a median 116 bps in administrative expenses, against 91 bps at the two publishers that report it.
    - Not publishing a rate is not evidence of not charging one.
@@ -216,7 +217,7 @@ Fee lines are taken as filed [F]. The line descriptions and Part XI items for ea
    - All-fund rates blend endowed, agency and designated funds, which are often priced lower than non-endowed DAFs, so a realised all-fund rate is a floor for the DAF rate rather than an estimate of it.
    - The fee ÷ DAF balance column is a ceiling: 312 bps at Hutchinson and 534–1,540 bps at the non-publishers with small DAF books. The true DAF rate lies between the two, and is unobserved (P-B4427B4501-06).
 3. **For the pool.**
-   - The wave-35A note's CFs-only central ($89.9m at the median published schedule on tail CF DAF assets) is supported in kind: tail CFs that do not publish do charge, at rates similar to those that do.
+   - The wave-35A note's CFs-only central ($89.9m at the median published schedule on tail CF DAF assets) is supported in kind: tail CFs that do not publish do charge. The comparison with publishers rests on one publisher (Hutchinson) on an all-fund basis, and rates fall with size. The two largest internal-fee CFs, Licking ($145m of average total assets) and Hutchinson ($103m), realise 70 and 83 bps; every CF under $32m realises 102–129 bps. Size explains the gap as well as publication status does, so “at rates similar to those that do” is not established [V wave 41B]
    - Applied to tail CF DAF assets ($6.10bn), the realised all-fund rates give $10.7m–$79.0m, median **$62.9m** [C on that assumption]. Read this as a floor-type figure, because DAF rates likely exceed all-fund rates.
    - Together, the two bracket the CF pool at roughly **$63m–$90m**.
    - **The step from the CFs-only to the whole-tail pool ($138m), which adds CF-type fees on $3.08bn of non-CF DAF assets, is not tested here and remains the unevidenced part** (P-B4427B4501-05).
