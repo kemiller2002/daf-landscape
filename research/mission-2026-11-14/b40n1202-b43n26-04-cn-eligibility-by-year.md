@@ -21,7 +21,7 @@ Tags: [F] computed by the script · [P] quoted primary source · [I] inference o
 | Both | 74.07 | 76.85% | **72.66%** | 68.83% | −4.19 |
 
 - **Why it falls.** $3.50bn (30,541 recipient × sponsor-year grant units, 15,294 recipients) went to recipients that are eligible now but were not at the end of the grant year. $0.39bn moves the other way [F].
-  - Most of the drop is young organisations that had not yet filed three e-filed returns: $2.91bn fails the three-return rule at grant time. A further $0.34bn went to recipients with no e-filed return processed by the cut-off, and $0.22bn to recipients whose latest four returns then held fewer than two full 990s [F].
+  - Most of the drop is organisations that had not yet filed three e-filed returns: $2.91bn fails the three-return rule at grant time. About two-thirds of the $3.50bn ($2.35bn) went to recipients with a BMF ruling in 2020 or later. $0.76bn (1.02 points) went to recipients ruled by 2018 whose first e-filed return has a tax period ending July 2020 or later. That pattern fits paper filing until the e-file mandate (Pub. L. 116-25 §3101) [I]; The 85 Fund (formed 2004, ruling 2011) is one. [V wave 47B] A further $0.34bn went to recipients with no e-filed return processed by the cut-off, and $0.22bn to recipients whose latest four returns then held fewer than two full 990s [F].
   - The largest are The 85 Fund ($144.9m; its third e-filed return, for tax year 2022, was processed in November 2023, after the sponsor's 30 June 2023 year end), Just Trust for Education ($126.7m), Our American Future Foundation ($116.5m), City Fund ($50.6m) and the Deitch Family Charitable Support Trust ($49.7m) [F].
   - The gains are $0.20bn to 1,148 EINs that have since left the BMF but are presumed to have been listed 501(c)(3) filers at the time (§1.4, [I]), and $0.17bn to organisations that filed 990s then but have stopped since. Examples are Compassion International ($35.7m; full 990s for tax years 2016–2019, then only 990-T), Biblica ($27.5m), Convoy of Hope ($26.1m) and InterVarsity Christian Fellowship ($15.3m) [F]. All four carry BMF foundation code 10 (church) today, and their last full 990s in the index are for tax periods ending in 2019 (Compassion), 2020 (InterVarsity) and 2021 (Convoy of Hope, Biblica); Compassion, InterVarsity and Convoy of Hope file only 990-T after that [F, TEOS index]. Why they stopped filing 990s is not stated in these files [I].
 - **Range.** If grants were made on the first day of the fiscal year, the share is 68.83% (§3.2). Variants of the status reconstruction, the window and the index coverage give 72.36–72.66% (§3.1); a deliberately loose upper bound for missing early index rows gives 74.67%. The gap from current status is robust: no grant-time variant without CZ look-through comes within 2 points of 76.85% [F].
@@ -49,14 +49,14 @@ Tags: [F] computed by the script · [P] quoted primary source · [I] inference o
 - **Processing date.** The e-file DLN carries the IRS processing date as a Julian day; the TEOS `OBJECT_ID` repeats it (`OBJECT_ID[:4]` = year, `OBJECT_ID[5:8]` = Julian day).
   - The two agree on every 990, 990-EZ and 990-PF row of the 2017–2026 index files (0 mismatches in 5.5m rows; checked separately before the run).
 - A return counts at a cut-off if it was processed on or before it. When CN actually received each return is not public (§5).
-- **Release batches do not measure a lag.** The 2024–2026 index files carry `XML_BATCH_ID` (e.g. `2024_TEOS_XML_05A`). The batch month is the processing month itself: the median gap from processing date to the first day of the batch month is −11 days in each year [F]. The batch IDs therefore give no evidence of a publication lag, and none is assumed beyond the FY-start variant.
+- **Release batches do not measure a lag.** The 2024–2026 index files carry `XML_BATCH_ID` (e.g. `2024_TEOS_XML_05A`). The batch month is the processing month itself: the median gap from processing date to the first day of the batch month is −11 days in each year [F]. The batch IDs therefore give no evidence of a publication lag, and none is assumed beyond the FY-start variant. The batch files do show one: their 2025–26 Last-Modified dates put each month’s batch on TEOS in mid-to-late month M+1. Dating each return from that posting gives 72.58% (FY2023 67.99%, FY2024 76.65%). Adding 63 days for CN’s data-refresh cycle gives 71.50%. [V wave 47B]
 - **Index coverage.** The parent cached TEOS index files for 2019–2026. The 2019 file holds only part of processing year 2018 (88,373 rows) and nothing earlier [F]. At a 2023 cut-off, CN's six-year window reaches back to tax year 2017.
   - For this reason the as-of tests also read the **2017 and 2018 index files**, 146,340 matching rows (§8, S3b).
-  - These are pre-2021 files, used only as filing history for windows that CN's own rule defines, as the parent used the 2019–2020 files. The owner may prefer the 2019-on-only variant (72.36%) under the 2021+ evidence rule (§3.1).
+  - These are pre-2021 files, used only as filing history for windows that CN's own rule defines, as the parent used the 2019–2020 files. The 2019-on-only variant (72.36%) is not a 2021+-only figure, since it still reads the 2019–2020 files. Reading only the 2021–2026 files gives 61.60% (FY2023 45.31%), because CN’s window at a 2023 cut-off needs tax years 2017–2022. 72.66% stays the headline, and 72.36% is a disclosed variant. [V wave 47B]
 
 ### 1.3 Filing rules at the cut-off
 
-These are the parent's `cn_filing_test` and `cn_reason`, re-dated. The rules come from CN's help article (S6) [P]:
+These are the parent's `cn_filing_test` and `cn_reason`, re-dated. The rules come from CN's help article (S8) [P]: [V wave 47B]
 - **Three returns.** At least three distinct e-filed 990-series tax periods with a tax period ending in years Y−6 to Y−1, where Y is the cut-off year.
   - The parent's November 2026 window, 2020–2025, is the same formula with Y = 2026.
   - Amendments are collapsed to the latest object id per tax period, among returns processed by the cut-off.
@@ -121,7 +121,7 @@ These are the largest flows by DAF-weighted dollars [F]. All flows are in the CS
 | fewer than 2 full 990s → latest is 990-PF | 137 | 31 | 151.2 | 0.20 |
 
 **Reading [I].**
-- **The gap is organisational age.** Recipients that are rateable today but were one or two returns short at grant time account for 4.4 of the 4.7 points lost.
+- **The gap is mostly organisational age, partly the e-file mandate.** Recipients that are rateable today but had fewer than three e-filed returns at grant time (including none) account for 4.4 of the 4.7 points lost. About 1.0 point of the 4.7 is older organisations whose e-filed history starts with tax periods ending in July 2020 or later [I]. [V wave 47B]
 - **They are disproportionately recent, large intermediary or advocacy vehicles.** The 85 Fund, Just Trust, Our American Future Foundation, City Fund, Murmuration Research Institute, Convergent Research, Arc Research Institute and UATX each received $29–145m, and none had three e-filed returns at the relevant year end [F for the amounts and tests; I for the characterisation].
 - **Navigation Charitable Fund ($1.26bn; EIN 92-1117448, BMF ruling 202303)** is ineligible on both dates. Its first e-filed return (tax year 2023) was processed on 2024-11-15, so at earlier cut-offs it had none (part of the $1.83bn "fewer than 3 → no return yet" flow) and at later ones it had one [F].
 - **FY2023 falls more than FY2024 (−5.6 against −2.9 points).** The FY2023 cut-offs come a year earlier, so more of today's young recipients were short of three returns. FY2023 also carries the CZ LLC dollars, which are ineligible on both dates [F].
@@ -133,6 +133,7 @@ Each sponsor-year's grant-time share is in the CSV (`row_type = sponsor_year_cut
 - National Christian Charitable Foundation: 61.9% of $1.72bn (FY2023) and 62.7% of $2.21bn (FY2024). Churches with no e-filed 990 are ineligible on both dates [I].
 - DAFgiving360 (Donor Advised Charitable Giving Inc): 69.7% (FY2023) and 72.8% (FY2024).
 - Fidelity Charitable: 73.3% (FY2023) and 75.7% (FY2024).
+- Morgan Stanley Global Impact Funding Trust: 70.9% of $1.19bn (FY2024). [V wave 47B]
 
 ## 3. Sensitivities
 
@@ -180,7 +181,7 @@ Each sponsor-year's grant-time share is in the CSV (`row_type = sponsor_year_cut
   - Current status: 76.85% → 79.00% (+2.15 points).
   - Grant time: 72.66% → 74.81% (+2.15).
   - SVCF FY2023 alone: 26.2% → 62.6% [F, computed from the sponsor-year row plus $1.594bn].
-- **The legal reading.** Validation wave 46A found the LLCs listed as disregarded entities on Biohub Inc's FY2023–24 Schedule R. IRS Notice 2012-52 treats gifts to a domestic single-member LLC wholly owned by a charity "as a charitable contribution to a branch or division of the U.S. charity" [P, as quoted in wave 46A]. Whether CN would credit those dollars to Biohub Inc is not stated. Its rules exclude "nonprofit subsidiaries" without defining them [P, S6].
+- **The legal reading.** Validation wave 46A found the LLCs listed as disregarded entities on Biohub Inc's FY2023–24 Schedule R. IRS Notice 2012-52 treats gifts to a domestic single-member LLC wholly owned by a charity "as a charitable contribution to a branch or division of the U.S. charity" [P, as quoted in wave 46A]. Whether CN would credit those dollars to Biohub Inc is not stated. Its rules exclude "nonprofit subsidiaries" without defining them [P, S8]. [V wave 47B]
 - **Recommendation [I].** Report the central figure (72.66%) as the headline and the look-through figure (74.81%) beside it. The timing question and the CZ question are independent: each moves the share by roughly 2–4 points, and they add.
 
 ## 5. Limits
