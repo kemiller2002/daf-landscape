@@ -8,7 +8,37 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #71) — governing
+## Counts (refresh 2026-11-20, through PR #72) — governing
+
+These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #72 merged. They supersede the tables below. The PR #72 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#72 (53 PRs) | GitHub |
+| Research documents | 402 documents, 1,565,868 words | `research/**/*.md` |
+| Datasets | 751 CSV files, 529,021 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,542 | regex over `research/**/*.md` |
+| Independent validation | **2,471 register rows** in 83 register files (waves 1–50B): 1,790 confirmed, 551 partially confirmed, 90 contradicted, 29 unverifiable, 11 other | `validation-register*.csv`, classified by the leading words of `validation_result` |
+| Research queue | 1,058 items: 436 done, 488 open, 78 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.76 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #72 (batch 50, new directions; validated; report §11.75–§11.76):**
+- **DAF litigation, 2021 onward.** No private donor suit against a sponsor has succeeded.
+  - Pinkert (9th Cir., 2022-09-14): no standing on the facts pleaded.
+  - Fairbairn: judgment for Fidelity.
+  - Keefer (N.D. Tex.): the written acknowledgment must state exclusive legal control. Strict compliance is required, and a second, independent ground also supports the ruling.
+  - Georgia's AG suit against SDG Impact Fund is pending.
+- **State charity registration.** Only Colorado and Connecticut publish open registry data. California, New York, Pennsylvania, Massachusetts and Washington are manual-only, and nothing was bypassed.
+  - The top 50 are current at 17/50 in CO and 28/50 in CT. Sponsors not found in a registry count as not current.
+  - In Colorado, 14 sponsors hold recent expiration notices, most of them recurring late filers, and 5 have lapsed.
+- **Institutional DAF programmes** (universities, health systems and other single-issue charities). 171 sponsors hold $3.59bn, 1.11% of the market and falling. 12 of 18 programme pages state a host minimum, usually 50%.
+  - SUNY Binghamton's $84.2m transfer to Greater Horizons is netted in the market totals but not in the segment table.
+- **Giving circles.** 42% are hosted by community foundations and 24% by platforms (Johnson Center). About 4,000 groups and $3.1bn over 2017–23.
+  - Explicit giving-circle fund terms are rare.
+  - Grapevine charges a 3% fee that includes DAF grants.
+  - Personal-name URL slugs in the robots log are redacted.
+
+## Counts (refresh 2026-11-20, through PR #71) (superseded by the table above)
 
 These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #71 merged. They supersede the tables below. The PR #71 description records the head SHA.
 

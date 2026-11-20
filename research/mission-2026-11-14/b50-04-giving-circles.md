@@ -1,6 +1,6 @@
 # b50-04: Giving circles and collective giving on DAF and fund infrastructure
 
-TASKID b50-04. Retrieved 2026-11-20. Evidence is from 2021 onwards unless a row is flagged. Only organisations and products are recorded. No circle member is named, even where a source page names one.
+TASKID b50-04. Retrieved 2026-11-20. Evidence is from 2021 onwards unless a row is flagged. Only organisations and products are recorded. No circle member is named, even where a source page names one. The companion robots log does carry URL slugs that contain individuals’ names: a 2021 Maine CF donor story (file line 56) and a CNY CF fund named after a person (file lines 62–64). Whether to truncate those URLs is an owner decision. [V wave 50B]
 
 **Outputs**
 - `data/mission-2026-11-14/giving-circles-2026-11-20.csv` has 72 rows: 41 provider rows and 31 sizing rows.
@@ -21,7 +21,7 @@ TASKID b50-04. Retrieved 2026-11-20. Evidence is from 2021 onwards unless a row 
    | Nonprofit organisation | 7% |
    | Women's fund | 3% |
 
-   The same data say 45% were "hosted by either a community foundation or women's fund, which managed donations and disbursements" (GS-006 to GS-011). Roughly three-quarters of circles therefore keep their money inside someone else's 501(c)(3), and community foundations are the largest single host.
+   The same data say 45% were "hosted by either a community foundation or women's fund, which managed donations and disbursements" (GS-006 to GS-011). Roughly three-quarters of circles (42 + 24 + 7 + 3 = 76%) therefore use a third-party host or platform, and community foundations are the largest single host. For the 24% platform share, the money sits in a 501(c)(3) only where the platform pools through one, as Grapevine does; the survey option also named GoFundMe. [V wave 50B]
 2. **Own 501(c)(3) is not separately quantified.** The 24% "don't use a third party" bucket mixes incorporated circles with informal groups that pool money through a member. The reports describe incorporation only qualitatively, so no share is given for circles that hold their own 501(c)(3).
 3. **The legal vehicle varies, and pages rarely state it.**
    - Two sources say the circle fund is a DAF: Thrivent Charitable's giving-circle fund (GC-036) and the African American Legacy Fund at The Indianapolis Foundation / CICF (GC-032).
@@ -41,7 +41,7 @@ TASKID b50-04. Retrieved 2026-11-20. Evidence is from 2021 onwards unless a row 
    - Groundswell offers employer campaigns only.
    - Thrivent Charitable is the one national sponsor found selling a giving circle "in the form of a donor-advised fund". It allows $200 per person, but it does not state the fund-level minimum or the fee.
 6. **Platforms.** Grapevine pools circle money through its own 501(c)(3), Grapevine Giving Foundation (EIN 87-2389502). It reports "$60 million+" granted since 2020 and "100,000+" members. It charges no platform fee on online card or bank gifts, but "a 3% platform fee" on off-platform gifts, which explicitly include "Donor Advised Fund grants". Its 990 Schedule D reports **one** DAF in each of FY2022 to FY2025, with DAF contributions of $4.78m, $10.13m, $9.92m and $9.16m (GS-016 to GS-031).
-7. **Sizing.** Between 2017 and 2023, nearly 4,000 collective giving groups and about 370,000 participants gave more than $3.1bn (In Abundance, 2024). No 2021+ source splits the dollars by host type. Group counts by host are therefore only illustrative: about 1,680 CF-hosted and about 960 platform-hosted groups, computed as 42% and 24% of 4,000 on the assumption that survey shares generalise.
+7. **Sizing.** Between 2017 and 2023, nearly 4,000 collective giving groups and about 370,000 participants gave more than $3.1bn (In Abundance, 2024). No 2021+ source splits the dollars by host type. Group counts by host are therefore only illustrative: about 1,680 CF-hosted and about 960 platform-hosted groups, computed as 42% and 24% of 4,000 on the assumption that survey shares generalise. The 4,000 is a cumulative 2017–2023 count of groups, not the number active at one date, so these figures are cumulative too. [V wave 50B]
 
 ## 1. Method
 
@@ -121,6 +121,8 @@ Results for the systematic sample of 33 CFs, computed by the build script:
 
 Supplement: Triangle CF is coded explicit_gc_fund_product (GC-034); Sacramento is blocked (GC-035).
 
+Validator note: the counts reproduce, but three of the 12 hosted_named_circles rows rest on thin evidence. Buffalo (GC-018) has no readable page text, and its row says the search snippets were not used as evidence, so its class is unverified. GNOF (GC-015) is a tag-page listing only. North Texas (GC-013) is an undated narrative citing 2015 and 2018. [V wave 50B]
+
 **Verbatim terms where published.**
 
 | Sponsor | Minimum | Fee | Who advises / how grants are recommended |
@@ -154,7 +156,7 @@ Grapevine Giving Foundation's Schedule D Part I, from the repo harvest:
 | 2024 | 1 | $9,924,817 | $8,102,321 | blank (DAFRC imputed $4,508,877) |
 | 2025 | 1 | $9,156,802 | $8,484,172 | $672,630 |
 
-Whatever the legal reading, circle money held by the platform flows through lines that DAF market statistics count, while the account count stays at 1. Proposal P-B5004-03 asks for this to be reconciled.
+Whatever the legal reading, circle money held by the platform flows through lines that DAF market statistics count, while the account count stays at 1. The corrected DAFRC panel uses the filed FY2023 grants ($8,766,981, rule R1, replacing an imputed $2,656,657). For FY2024 it keeps DAFRC’s imputed values: contributions $14,111,183 and grants $3,356,869, against filed $9,924,817 and $8,102,321. DAFRC classes the foundation as National, Donation Processor. [V wave 50B] Proposal P-B5004-03 asks for this to be reconciled.
 
 ## 4. Sizing (Q3)
 

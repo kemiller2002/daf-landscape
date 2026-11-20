@@ -24,9 +24,9 @@
 
 | Question | Answer | Confidence |
 |---|---|---|
-| **How many, how big (Q1)** | **Institutional sponsors (universities, schools, their foundations, hospitals, health systems): 165–174 with positive DAF assets each year FY2021–24** [C].<br>- **Assets:** $3.22bn → $3.41bn → $3.58bn → **$3.59bn** (+11% over FY2021–24, against +38% for the market).<br>- **Contributions:** $0.28bn, $0.85bn, $0.56bn, **$0.25bn**. These are erratic and driven by the UCLA Foundation.<br>- **Grants:** $0.29bn, $0.41bn, $0.43bn, **$0.52bn**.<br>- **Accounts:** about 4,000 throughout (4,148 → 3,959), averaging roughly $0.9m each.<br>- **Concentration:** the top 10 hold 81–83% of segment assets.<br>**All T4 (institutions plus faith, issue and intermediary sponsors outside the four T1 core sponsors):** 547–580 sponsors, $13.9bn → **$15.1bn**. | High [C] on the arithmetic. Medium on segment size, because two rows look mis-measured (§2.3). |
-| **Market share and trend (Q4)** | **Institutional share is small and falling** [C]:<br>- assets 1.37% → 1.49% → 1.39% → **1.10%**;<br>- grants 0.59% → 0.73% → 0.78% → 0.78%;<br>- contributions 0.35% → 1.11% → 0.85% → **0.27%**.<br>**All T4:** assets 5.94% → 6.15% → 5.68% → **4.66%**; contributions 4.3% → 3.7%; grants 5.6% → 6.0%.<br>The fall is relative: segment assets grew slowly while the T1 national sponsors grew 55%. | High [C] |
-| **Where the grants go (Q2)** | **Schedule I cannot pin the host share for most universities, because a university that is its own sponsor pays DAF grants to itself internally.** Those payments never appear on Schedule I. For the 18 FY2024 institutional returns with positive DAF grants ($308m), the dollar-weighted bound on the share kept by the host is **6%–69%** (FY2023: 39%–91%) [C]. Where filings are explicit, the range is wide:<br>- **Mostly external:** Harvard (≥57% of FY2024 DAF grants are labelled DAF lines to non-affiliates), Yale (≥68%), EY Foundation (≥78%), Rotary Foundation (≥90%). SUNY Binghamton Foundation's FY2024 DAF grants went entirely to **Greater Horizons**, a community-foundation DAF sponsor ($84.18m).<br>- **Mostly host:** Cornell University Foundation, 42% (FY2023) and **68%** (FY2024) to Cornell. University of Arizona Foundation ≥78%. Rochester and Penn Presbyterian report no grants to any outside organisation, which is consistent with 100% host. | Medium on the bounds; low on any single segment-wide figure |
+| **How many, how big (Q1)** | **Institutional sponsors (universities, schools, their foundations, hospitals, health systems): 165–174 with positive DAF assets each year FY2021–24** [C].<br>- **Assets:** $3.22bn → $3.41bn → $3.58bn → **$3.59bn** (+11% over FY2021–24, against +38% for the market).<br>- **Contributions:** $0.28bn, $0.85bn, $0.56bn, **$0.25bn**. These are erratic and driven by the UCLA Foundation.<br>- **Grants:** $0.29bn, $0.41bn, $0.43bn, **$0.52bn**. FY2024 includes UCLA’s imputed +$169.9m (filed −$120.3m) and SUNY Binghamton’s $84.2m transfer to Greater Horizons, which R5 nets from market totals but not from this segment ($0.437bn without it). [V wave 50B]<br>- **Accounts:** about 4,000 throughout (4,148 → 3,959), averaging roughly $0.9m each.<br>- **Concentration:** the top 10 hold 81–83% of segment assets.<br>**All T4 (institutions plus faith, issue and intermediary sponsors outside the four T1 core sponsors):** 547–580 sponsors, $13.9bn → **$15.1bn**. | High [C] on the arithmetic. Medium on segment size, because two rows look mis-measured (§2.3). |
+| **Market share and trend (Q4)** | **Institutional share is small and falling** [C]:<br>- assets 1.38% → 1.50% → 1.40% → **1.11%**;<br>- grants 0.60% → 0.74% → 0.79% → 0.78%;<br>- contributions 0.36% → 1.11% → 0.86% → **0.27%**.<br>**All T4:** assets 5.95% → 6.16% → 5.69% → **4.67%**; contributions 4.3% → 3.7%; grants 5.6% → 6.0% (shares rounded half-up from the CSV; earlier figures were truncated). [V wave 50B]<br>The fall is relative: segment assets grew slowly while the T1 national sponsors grew 55%. | High [C] |
+| **Where the grants go (Q2)** | **Schedule I cannot pin the host share for most universities, because a university that is its own sponsor pays DAF grants to itself internally.** Those payments never appear on Schedule I. For the 18 FY2024 institutional returns with positive DAF grants ($308m), the dollar-weighted bound on the share kept by the host is **6%–69%** (FY2023: 39%–91%) [C]. Where filings are explicit, the range is wide:<br>- **Mostly external:** Harvard (≥57% of FY2024 DAF grants are labelled DAF lines to non-affiliates), Yale (≥68%), EY Foundation (≥78%), Rotary Foundation (≥90%). SUNY Binghamton Foundation's FY2024 DAF grants went entirely to **Greater Horizons** ($84.18m). DAFRC classes Greater Horizons as a National (Standard) sponsor, rank 17 by FY2024 DAF assets; repo notes tie it to the Greater Kansas City Community Foundation. R5 netting already removes the line from market totals. [V wave 50B]<br>- **Mostly host:** Cornell University Foundation, 42% (FY2023) and **68%** (FY2024) to Cornell. University of Arizona Foundation ≥78%. Rochester and Penn Presbyterian report no grants to any outside organisation, which is consistent with 100% host. | Medium on the bounds; low on any single segment-wide figure |
 | **Published host rules (Q3)** | **Yes. 12 of the 18 programme pages read state a host minimum, usually 50%** [F]:<br>- **50%:** Stanford (falling to 40% for gifts of $10m+ and 30% for $20m+), Columbia, Yale, UCLA, Penn Medicine, Harvard ("at least half of your distributions") and MSU (a 50% "MSU Only" account).<br>- **Other levels:** UND 51% of annual distributions; Mayo Clinic 60%; Brown 25%.<br>- **Tiered by size:** Cornell (50% under $500k, 25% over, none over $1m) and Rochester (100% / 50% / 25% / 0%).<br>The rule is usually set on contributions or over the fund's life, not per year. That is why single-year Schedule I flows (Harvard, Yale) can exceed 50% external without breaching it. | High [F] on the quoted rules; four pages were blocked (§4.1) |
 
 ## 1. Method
@@ -76,20 +76,20 @@ $bn; share is of the corrected market total. "n" = sponsors with positive DAF as
 
 | FY | Segment | n | Assets | Share | Contributions | Share | Grants | Share | Grants ÷ prior-year assets |
 |---|---|---|---|---|---|---|---|---|---|
-| 2021 | Institutions (edu/health) | 165 | 3.223 | 1.37% | 0.278 | 0.35% | 0.287 | 0.59% | 12.4% |
-| 2022 | Institutions | 168 | 3.413 | 1.49% | 0.849 | 1.11% | 0.409 | 0.73% | 12.7% |
-| 2023 | Institutions | 174 | 3.579 | 1.39% | 0.561 | 0.85% | 0.432 | 0.78% | 12.7% |
-| 2024 | Institutions | 171 | 3.586 | 1.10% | 0.253 | 0.27% | 0.521 | 0.78% | 14.6% |
+| 2021 | Institutions (edu/health) | 165 | 3.223 | 1.38% | 0.278 | 0.36% | 0.287 | 0.60% | 12.4% [V wave 50B]
+| 2022 | Institutions | 168 | 3.413 | 1.50% | 0.849 | 1.11% | 0.409 | 0.74% | 12.7% [V wave 50B]
+| 2023 | Institutions | 174 | 3.579 | 1.40% | 0.561 | 0.86% | 0.432 | 0.79% | 12.7% [V wave 50B]
+| 2024 | Institutions | 171 | 3.586 | 1.11% | 0.253 | 0.27% | 0.521 | 0.78% | 14.6% [V wave 50B]
 | 2021 | Mission charities (`mission_other`) | 88 | 0.378 | 0.16% | 0.218 | 0.28% | 0.197 | 0.41% | 67.6% |
-| 2024 | Mission charities | 108 | 0.471 | 0.14% | 0.241 | 0.25% | 0.267 | 0.40% | 57.0% |
-| 2021 | Religious (T4 only) | 178 | 8.508 | 3.63% | 1.791 | 2.30% | 1.369 | 2.85% | 20.0% |
+| 2024 | Mission charities | 108 | 0.471 | 0.15% | 0.241 | 0.26% | 0.267 | 0.40% | 57.0% [V wave 50B]
+| 2021 | Religious (T4 only) | 178 | 8.508 | 3.64% | 1.791 | 2.31% | 1.369 | 2.85% | 20.0% [V wave 50B]
 | 2024 | Religious (T4 only) | 178 | 9.674 | 2.99% | 2.249 | 2.42% | 2.441 | 3.67% | 27.1% |
-| 2021 | Intermediaries (NTEE T) | 78 | 1.693 | 0.72% | 1.005 | 1.29% | 0.823 | 1.71% | 57.5% |
-| 2024 | Intermediaries (NTEE T) | 84 | 1.238 | 0.38% | 0.634 | 0.68% | 0.710 | 1.06% | 49.9% |
-| 2021 | **All T4** | 547 | 13.921 | 5.94% | 3.338 | 4.30% | 2.701 | 5.62% | 24.6% |
-| 2022 | All T4 | 555 | 14.053 | 6.15% | 4.265 | 5.57% | 3.045 | 5.47% | 21.9% |
-| 2023 | All T4 | 579 | 14.586 | 5.68% | 3.464 | 5.30% | 3.570 | 6.51% | 25.4% |
-| 2024 | **All T4** | 580 | 15.087 | 4.66% | 3.390 | 3.65% | 3.968 | 5.97% | 27.2% |
+| 2021 | Intermediaries (NTEE T) | 78 | 1.693 | 0.72% | 1.005 | 1.30% | 0.823 | 1.71% | 57.5% [V wave 50B]
+| 2024 | Intermediaries (NTEE T) | 84 | 1.238 | 0.38% | 0.634 | 0.68% | 0.710 | 1.07% | 49.9% [V wave 50B]
+| 2021 | **All T4** | 547 | 13.921 | 5.95% | 3.338 | 4.31% | 2.701 | 5.62% | 24.6% [V wave 50B]
+| 2022 | All T4 | 555 | 14.053 | 6.16% | 4.265 | 5.58% | 3.045 | 5.48% | 21.9% [V wave 50B]
+| 2023 | All T4 | 579 | 14.586 | 5.69% | 3.464 | 5.30% | 3.570 | 6.51% | 25.4% [V wave 50B]
+| 2024 | **All T4** | 580 | 15.087 | 4.67% | 3.390 | 3.65% | 3.968 | 5.97% | 27.2% [V wave 50B]
 | 2024 | Market (corrected) | 1,479 | 323.270 | — | 92.774 | — | 66.442 | — | 25.9% |
 
 The CSV has every FY × segment, including T1–T3, `unclassified`, accounts and median sponsor size.
@@ -114,7 +114,7 @@ The top 10 hold 81.5% of segment assets. The median institutional sponsor held $
   - Filed Schedule D DAF grants are **negative**: −$109.7m for FY2023 and −$120.3m for FY2024 (XML 202411309349304501, 202521349349311822).
   - DAFRC carries FY2023 as +$109.7m. The corrections file keeps an imputed +$169.9m for FY2024 grants.
   - Its contributions ($79m, $286m, $357m, $90m over FY2021–24) cause most of the segment's contribution swings.
-  - It has 10–11 accounts.
+  - It has 10–12 accounts (corrected panel: 12, 10, 10 and 10 for FY2021–24; the filed FY2024 count of 10 replaces DAFRC’s imputed 11). [V wave 50B]
 - **Université de Montréal (12% of FY2024 segment assets).**
   - 657–714 "DAFs" holding $390–429m, with **$0 contributions and $0 grants** for FY2021–23.
   - The filed FY2024 return reports $0, but the corrections file keeps the imputed $427.1m (`applied = 0`).
@@ -195,7 +195,7 @@ Vanderbilt FY2023 has a blank Schedule D DAF grants field. The CSV keeps the row
 |---|---|---|---|---|
 | FY2023 | Institutions | 17 | $260.2m | 39%–91% |
 | FY2023 | Mission charities | 7 | $126.9m | 0.3%–95% |
-| FY2024 | Institutions | 18 | $308.2m | **6%–69%** |
+| FY2024 | Institutions | 18 | $308.2m | **6%–69%** (8%–88% over 17 returns, $224.0m, without SUNY Binghamton’s $84.2m transfer) [V wave 50B]
 | FY2024 | Mission charities | 7 | $146.8m | 1%–94% |
 
 ### 3.2 Reading the sample [F/I]
@@ -208,8 +208,9 @@ Vanderbilt FY2023 has a blank Schedule D DAF grants field. The CSV keeps the row
 2. **DAF-only foundations give clean figures.**
    - **Cornell University Foundation** describes itself as "A DONOR ADVISED FUND PROVIDING A SERVICE FOR CORNELL ALUMNI AND FRIENDS" [F]. Its Part IX line 1 equals its DAF grants exactly in FY2024 ($13,553,754). Cornell University received **42% (FY2023) and 68% (FY2024)** [C].
 3. **One large flow was a DAF-to-DAF transfer, not donor-advised grantmaking at the host.**
-   - SUNY Binghamton Foundation's FY2024 DAF grants ($84,184,036) equal a single "UNRESTRICTED SUPPORT" line to **Greater Horizons** (EIN 200849590), which the repo does not profile; it is understood to be an affiliate of the Greater Kansas City Community Foundation [I].
+   - SUNY Binghamton Foundation's FY2024 DAF grants ($84,184,036) equal a single "UNRESTRICTED SUPPORT" line to **Greater Horizons** (EIN 200849590), which DAFRC classes as a National (Standard) sponsor, rank 17 by FY2024 DAF assets. The repo already profiles it (capabilities and SOC 2 notes, the top-50 league table, and the DAF-to-DAF whitelist), and repo notes tie it to the Greater Kansas City Community Foundation [I]. [V wave 50B]
    - Its DAF assets fell from $236.1m to $158.2m [F]. See P-B5003-06.
+  - **P-B5003-06 answer (validator).** In the market totals, yes. Greater Horizons (EIN 200849590) is on `daf-to-daf-recipient-whitelist.csv` as include, rule W2 (DAF share of assets 0.87). A read-only re-run of `scripts/mission_market_netting.py` reproduces `dafrc-market-totals-netted.csv` exactly and nets this FY2024 line at $65,147,879 (lower tier, weight 0.774), $56,514,286 (central, weight 0.671) and $84,184,036 (upper), with no cap binding. In this note’s segment table, no: §2.1 uses un-netted corrected values, and the line is 16% of FY2024 institutional DAF grants ($0.521bn, or $0.437bn without it). Schedule D line 1a reports one DAF in both years, so the programme is a single fund. [V wave 50B]
 4. **Some filers report no grants to outside organisations, which is consistent with keeping everything at the host.**
    - Rochester and Penn Presbyterian report Part IX line 1 = $0 and no Schedule I organisation lines, while reporting DAF grants of $2.1–3.5m and $0.7–1.9m [F].
    - Rochester's Schedule D note says the advisor "MAKES GRANT RECOMMENDATIONS TO THE UNIVERSITY" [F].
