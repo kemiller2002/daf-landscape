@@ -1,5 +1,5 @@
 design,fte_at_25pct_headroom,sponsor_days_over_sla,max_backlog_days,min_fte_meeting_sla_every_day
-"SeparatePools",15,144,40.37,35
-"SharedPool",15,145,39.82,33
-"SeparateWithSmoothing",15,284,34.99,25
-"SharedWithSmoothing",15,285,32.73,23
+"SeparatePools",15,293,41.19,35
+"SharedPool",15,295,40.5,34
+"SeparateWithSmoothing",15,284,35.7,25
+"SharedWithSmoothing",15,285,33.75,23

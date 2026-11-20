@@ -35,7 +35,6 @@ let ``E1: automated designs share the same source-latency floor; passport cuts v
     Assert.Equal(auto.Escaped, diff.Escaped)
     Assert.True((get E1.PassportQuarterly).Escaped >= passport.Escaped)  // slower refresh never helps
     Assert.True((get E1.ManualPerGrant).Escaped >= auto.Escaped)          // human misses add to the floor
-    Assert.True((get E1.NetworkPassport).VerificationOps < diff.VerificationOps)
 
 // E2
 let e2 a = E2.run E2.defaults seed a
@@ -139,12 +138,14 @@ let ``E9: outbox plus idempotency key is exactly-once at every crash point; naiv
 
 // E10
 [<Fact>]
-let ``E10: any auto-close threshold escapes defects; distribution shift makes it worse; flag-only escapes none`` () =
+let ``E10: auto-close adds escapes beyond human misses, more so after shift; flag-only escapes only human misses`` () =
     let p = E10.defaults
-    Assert.Equal(0, (E10.flagOnly p seed).EscapedDefects)
+    let fo = E10.flagOnly p seed
+    Assert.InRange(float fo.EscapedDefects, 0.0, 0.1 * float fo.Defects)
+    Assert.True((E10.autoClose { p with ShiftedShare = 0.3 } seed -1.0).EscapedDefects > (E10.flagOnly { p with ShiftedShare = 0.3 } seed).EscapedDefects)
     let baseEsc = (E10.autoClose p seed 0.5).EscapedDefects
+    Assert.True(baseEsc > fo.EscapedDefects)
     let shiftedEsc = (E10.autoClose { p with ShiftedShare = 0.3 } seed 0.5).EscapedDefects
-    Assert.True(baseEsc > 0)
     Assert.True(shiftedEsc > baseEsc)
     Assert.True((E10.autoClose p seed 0.5).Minutes < (E10.flagOnly p seed).Minutes)
 

@@ -25,7 +25,9 @@ let e2 seed =
     let baseRows = e2Rows E2.defaults "base" seed
     let misconfig = e2Rows { E2.defaults with MisconfigWindow = Some(100, 200) } "adversarial: revocation rule silently disabled days 100-199" seed
     let injection = e2Rows { E2.defaults with AiRecall = (function E2.PledgeOrTicketBenefit -> 0.2 | d -> E2.defaults.AiRecall d) } "adversarial: prompt injection lowers AI recall on benefit text to 0.2" seed
-    csv "scenario,architecture,human_hours,human_cases,defects,escaped_total,escaped_revoked,escaped_sanctions,escaped_related_party,escaped_benefit,escaped_account_takeover,misconfig_detected_day,routine_latency" (baseRows @ misconfig @ injection)
+    let parity = e2Rows { E2.defaults with AiRecall = E2.defaults.HumanRoutineCatch } "sensitivity: AI recall set equal to human routine catch rates" seed
+    let quickReview = e2Rows { E2.defaults with MinutesRoutineReview = 1.0 } "sensitivity: routine manual review takes 1 minute" seed
+    csv "scenario,architecture,human_hours,human_cases,defects,escaped_total,escaped_revoked,escaped_sanctions,escaped_related_party,escaped_benefit,escaped_account_takeover,misconfig_detected_day,routine_latency" (baseRows @ misconfig @ injection @ parity @ quickReview)
 
 let e3 seed =
     E3.run E3.defaults seed
@@ -34,11 +36,13 @@ let e3 seed =
 
 let e4 seed =
     [ E4.defaults, E4.Continuous; E4.defaults, E4.MonthEnd
+      { E4.defaults with MinutesPerAgeDay = 0.0 }, E4.Continuous; { E4.defaults with MinutesPerAgeDay = 0.0 }, E4.MonthEnd
       { E4.defaults with FeedOutage = Some(100, 110) }, E4.Continuous
       { E4.defaults with FeedOutage = Some(100, 110); MissingFeedAlarm = false }, E4.Continuous ]
     |> List.map (fun (p, m) ->
         let r = E4.run p seed m
-        String.Join(",", [ q (sprintf "%A" r.Mode); q r.Label; string r.Breaks; f2 r.MeanAgeAtDetection; string r.MaxAgeAtDetection; f2 (r.Minutes / 60.0) ]))
+        let label = if p.MinutesPerAgeDay = 0.0 then r.Label + "; sensitivity: no age penalty" else r.Label
+        String.Join(",", [ q (sprintf "%A" r.Mode); q label; string r.Breaks; f2 r.MeanAgeAtDetection; string r.MaxAgeAtDetection; f2 (r.Minutes / 60.0) ]))
     |> csv "mode,scenario,breaks,mean_age_days,max_age_days,human_hours"
 
 let e5 () =

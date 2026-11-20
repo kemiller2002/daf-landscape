@@ -22,7 +22,7 @@ module E1 =
           NetworkOverlap: float }         // E7 measured: a shared record avoids 51.3% of sponsor-recipient checks across 48 top-50 sponsors (FY2023 Schedule I)
 
     let defaults =
-        { Grants = 100000; Recipients = 12000; ZipfS = 1.0; AnnualIneligibleRate = 0.005
+        { Grants = 100000; Recipients = 12000; ZipfS = 1.0; AnnualIneligibleRate = 0.001
           IrsPublicationDays = 30; HumanLookupMinutes = 3.0; HumanMissRate = 0.01
           NetworkSponsors = 48; NetworkOverlap = 0.513 }
 
@@ -32,7 +32,6 @@ module E1 =
         | PassportOnPublication     // naive: re-verify every known recipient at each publication
         | PassportDiffDriven        // verify each recipient once, then process only source changes (INN-34)
         | PassportQuarterly
-        | NetworkPassport
 
     type Result =
         { Arch: Arch
@@ -85,9 +84,9 @@ module E1 =
             HumanMinutes = 0.0; IneligibleGrants = nInel; Escaped = nInel - count caughtIrs; SourceLatencyFloor = floor; MedianLatencySeconds = 0.01 }
           { Arch = PassportQuarterly; VerificationOps = refreshes 90; HumanMinutes = 0.0
             IneligibleGrants = nInel; Escaped = nInel - count caughtQuarterly; SourceLatencyFloor = floor; MedianLatencySeconds = 0.01 }
-          { Arch = NetworkPassport
-            VerificationOps = (distinctRecipients + float (changes |> List.filter Option.isSome |> List.length)) * (1.0 - p.NetworkOverlap)
-            HumanMinutes = 0.0; IneligibleGrants = nInel; Escaped = nInel - count caughtIrs; SourceLatencyFloor = floor; MedianLatencySeconds = 0.01 } ]
+        // NetworkPassport removed after adversarial review: a constant overlap misrepresents the
+        // order-dependent measured curve; network value is computed from the curve in NetworkEconomics.
+        ]
 
 // ======================================================================================
 // E2 — Approval architectures with seeded defects (W1/W2; INN-05, INN-06, INN-35; DD-005)
@@ -224,8 +223,8 @@ module E2 =
                             match arch with
                             | PayFirstPreverified when not needsHuman -> false
                             | _ -> caughtPre && (flagged || (needsHuman && (p.HumanRoutineCatch g.Defect > u3)))
-                        let sampled = (arch = PayFirstPreverified) && not needsHuman && u4 < p.SampleRate && isDefect
-                        (if toHuman then reviewMinutes else 0.0) + (if sampled then p.MinutesRoutineReview else 0.0), toHuman, caught, sampled && g.Defect = Revoked
+                        let sampled = (arch = PayFirstPreverified) && not needsHuman && u4 < p.SampleRate
+                        (if toHuman then reviewMinutes else 0.0) + (if sampled then p.MinutesRoutineReview else 0.0), toHuman, caught, sampled && isDefect && g.Defect = Revoked
                     | RulesSamplingNoAi ->
                         let toHuman = ruleCatch || needsHuman
                         let caught = isDefect && toHuman && u3 < (if ruleCatch then p.HumanExceptionCatch else p.HumanRoutineCatch g.Defect)
@@ -314,7 +313,7 @@ module E3 =
         let returns payments perPayment = float payments * p.ReturnRate * perPayment
         [ { Design = PerGrantBaseline; Payments = p.Grants; PaymentCost = cost p.Grants p.CheckShareBaseline
             RecipientMinutes = float p.Grants * p.RecipientMinutesNoKey
-            ExpectedFraudulentChangesUncaught = fraudAttempts * p.SponsorsPerRecipient * (1.0 - p.CallbackCatchPerSponsor) / p.SponsorsPerRecipient
+            ExpectedFraudulentChangesUncaught = fraudAttempts * (1.0 - p.CallbackCatchPerSponsor)
             GrantsAffectedByReturns = returns p.Grants 1.0 }
           { Design = PerGrantWithKey; Payments = p.Grants; PaymentCost = cost p.Grants p.CheckShareBaseline
             RecipientMinutes = float p.Grants * p.RecipientMinutesWithKey
@@ -347,11 +346,14 @@ module E4 =
     type Result = { Mode: Mode; Breaks: int; MeanAgeAtDetection: float; MaxAgeAtDetection: int; Minutes: float; Label: string }
 
     let run (p: Params) (seed: uint64) (mode: Mode) : Result =
-        let (counts, _) =
-            draws 365 (fun r ->
-                let (u, r1) = uniform r
-                // approximately Poisson via rounding of a uniform-scaled mean (simple, deterministic)
-                int (Math.Round(p.BreaksPerDay * 2.0 * u)), r1) (Rng seed)
+        let poisson lambda rng =
+            let l = Math.Exp(-lambda)
+            let rec go k prod r =
+                let (u, r') = uniform r
+                let prod' = prod * u
+                if prod' <= l then k, r' else go (k + 1) prod' r'
+            go 0 1.0 rng
+        let (counts, _) = draws 365 (poisson p.BreaksPerDay) (Rng seed)
         let detectDay day =
             let outageDelay =
                 match p.FeedOutage with
@@ -418,17 +420,20 @@ module E6 =
         // per-sponsor daily demand with noise; December (day 335–364) surge; smoothing moves half of the
         // December excess into November (day 305–334) via execution windows
         draws p.Sponsors (fun r ->
-            draws 365 (fun r2 ->
+            draws 395 (fun r2 ->
                 let (u, r3) = uniform r2
                 (0.7 + 0.6 * u), r3) r
             |> fun (noise, r') ->
                 let series =
                     noise |> List.mapi (fun day k ->
-                        let surge = if day >= 335 then p.SurgeMultiplier else 1.0
+                        // days 335-364 = December; 365-394 = January. With execution windows, donors accept
+                        // that half of the December excess executes in January (deferral, never earlier).
                         let base' = p.MeanCasesPerDayPerSponsor * k
-                        if not smoothing then base' * surge
-                        elif day >= 335 then base' * (1.0 + (p.SurgeMultiplier - 1.0) / 2.0)
-                        elif day >= 305 then base' * (1.0 + (p.SurgeMultiplier - 1.0) / 2.0)
+                        let dec = day >= 335 && day < 365
+                        let jan = day >= 365
+                        if not smoothing then (if dec then base' * p.SurgeMultiplier else base')
+                        elif dec then base' * (1.0 + (p.SurgeMultiplier - 1.0) / 2.0)
+                        elif jan then base' * (1.0 + (p.SurgeMultiplier - 1.0) / 2.0)
                         else base')
                 series, r') (Rng seed)
         |> fst
@@ -539,9 +544,10 @@ module E10 =
           ShiftedSignal: float        // a new pattern the model was not trained on [A]
           ShiftedShare: float         // share of defects that are the new pattern [A]
           MinutesHuman: float         // [A]
-          MinutesHumanWithDossier: float } // [A]
+          MinutesHumanWithDossier: float  // [A]
+          HumanCatch: float }             // consistent with E2 HumanExceptionCatch [A]
 
-    let defaults = { Exceptions = 20000; TrueDefectShare = 0.05; SignalStrength = 2.0; ShiftedSignal = 0.3; ShiftedShare = 0.0; MinutesHuman = 45.0; MinutesHumanWithDossier = 30.0 }
+    let defaults = { Exceptions = 20000; TrueDefectShare = 0.05; SignalStrength = 2.0; ShiftedSignal = 0.3; ShiftedShare = 0.0; MinutesHuman = 45.0; MinutesHumanWithDossier = 30.0; HumanCatch = 0.95 }
 
     type Result = { Policy: string; Threshold: float; Minutes: float; EscapedDefects: int; Defects: int; AutoClosed: int }
 
@@ -560,18 +566,24 @@ module E10 =
         |> fst
 
     /// Flag-only: every exception goes to a human; AI only prepares a dossier (minutes fall).
+    let private humanMisses (p: Params) seed (reviewed: (bool * float) list) =
+        let defects = reviewed |> List.filter fst |> List.length
+        let (misses, _) = draws defects (bernoulli (1.0 - p.HumanCatch)) (Rng(seed + 99UL))
+        misses |> List.filter id |> List.length
+
     let flagOnly (p: Params) seed =
         let s = scores p seed
         { Policy = "flag-only (human decides every exception; AI dossier)"; Threshold = nan
-          Minutes = float s.Length * p.MinutesHumanWithDossier; EscapedDefects = 0
+          Minutes = float s.Length * p.MinutesHumanWithDossier; EscapedDefects = humanMisses p seed s
           Defects = s |> List.filter fst |> List.length; AutoClosed = 0 }
 
     /// Auto-close: exceptions scoring below threshold are closed without human review.
     let autoClose (p: Params) seed (threshold: float) =
         let s = scores p seed
         let closed = s |> List.filter (fun (_, sc) -> sc < threshold)
+        let reviewed = s |> List.filter (fun (_, sc) -> sc >= threshold)
         { Policy = "auto-close below threshold"; Threshold = threshold
           Minutes = float (s.Length - closed.Length) * p.MinutesHumanWithDossier
-          EscapedDefects = closed |> List.filter fst |> List.length
+          EscapedDefects = (closed |> List.filter fst |> List.length) + humanMisses p seed reviewed
           Defects = s |> List.filter fst |> List.length
           AutoClosed = closed.Length }

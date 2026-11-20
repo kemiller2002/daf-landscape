@@ -32,11 +32,17 @@
 |---|---|---|---|---|---|
 | Manual review of all (baseline) | 31,972 | $3.29m | $16.47 | 704 | Comparator |
 | Rules + manual all | 31,972 | $3.29m | $16.47 | 646 | Same cost, better control |
-| **AI-native flag-only + canaries** | 15,389 | $1.59m | $7.93 | **404** | **Superior on both criteria [X]** |
+| **AI-native flag-only + canaries** | 15,389 | $1.59m | $7.93 | **404** | Better on cost and control *under base assumptions*; **not robust** (see note) |
 | Radical: sampling, no AI | 12,532 | $1.29m | $6.45 | 1,069 | Cheaper but **worse control: not superior** |
-| **Ecosystem: shared determinations** | 10,219 | $1.05m | **$5.26** | 404 | **Superior on both [X]**, given determination reuse of 50% [A] |
+| **Ecosystem: shared determinations** | 10,219 | $1.05m | **$5.26** | 404 | Cheaper at equal escapes *by construction*, given reuse of 50% [A] |
 | AI auto-clear (unsafe) | 13,789 | $1.42m | $7.10 | 729 | Rejected (control) |
 | Pay-first | 15,385 | $1.58m | $7.92 | 1,277 | Rejected (control and law) |
+
+**Robustness note (adversarial audit, 07-).** The base-case dominance depends on parameters:
+- With AI recall equal to human catch rates, flag-only has the same control as rules plus manual review of everything (651 against 646 escapes), at about half the hours.
+- With a 1-minute routine manual review, hours are equal and control is better.
+
+So the AI-native design is superior on **one** criterion under each sensitivity, never independently on both. Which one depends on GAP-001 and GAP-004, which only a design-partner shadow study can measure.
 
 **Context.** Observed whole-organization opex per grant in FY2024 runs from $61 (Fidelity) to $2,487 (SVCF) (EV-136). The approval-labor component modeled here is a fraction of that. **Approval is not where most cost sits.** This matches the parent finding that the AI value pool in operations is thin ($445k calibrated at a large national, EV-107).
 
@@ -55,13 +61,13 @@ The largest economic effect in disbursement falls **on recipients, not the spons
 
 ### Reconciliation (E4)
 
-Continuous: 367 hours. Month-end: 1,117 hours. That is a −67% [X], *entirely from the age-cost assumption*. The robust part is detection age: 0 days against 15.3.
+Continuous: 370 hours. Month-end: 1,137 hours with a 2-minute-per-day age penalty [A]. **With no age penalty both modes cost 370 hours** (audit rerun). The labor saving is unevidenced; only earlier detection (0 against 15.5 days) is supported.
 
 ### Specialist capacity (E6)
 
-**Smoothing saves about 29% of specialist FTE**; pooling across sponsors saves about 6%.
+**Deferral windows save about 29% of specialist FTE in the model** (35 → 25, corrected to defer December work into January). This holds *only if donors accept* that December recommendations may execute in January, which is untested. Pooling across sponsors saves about 3–6%, mostly through integer-FTE granularity.
 
-At the parent model's 100k-account scale (30 grants-compliance FTE), smoothing alone is worth about 8–9 FTE, roughly $1.4m a year [S]. This is the largest single human-cost lever found, and it needs no AI.
+At the parent model's 100k-account scale (30 grants-compliance FTE), smoothing alone is worth about 8–9 FTE, roughly $1.4m a year [S]. If donors accept the windows, this is the largest single human-cost lever found, and it needs no AI. Its evidence class is a model plus an untested behavioral premise.
 
 ## 3. Business models: does a different model make workflows unnecessary?
 

@@ -17,235 +17,222 @@ The fixed seed is `20261120`, and results are written to [`results/`](results/).
 
 An experiment can raise an innovation to **L3 (tested prototype)**. It cannot show that anything works in a real DAF (L4).
 
-**Independent audit:** the experiments were audited in [`../07-adversarial-reviews/adversarial-review.md`](../07-adversarial-reviews/adversarial-review.md) by an agent that did not write them. Its findings are reflected in §12.
+**Independent audit (governing).** An agent that did not write the experiments audited them in [`../07-adversarial-reviews/adversarial-review.md`](../07-adversarial-reviews/adversarial-review.md) §5. Its central finding stands: **most results follow from the chosen parameters rather than from the mechanism tested.** This document was revised in response (2026-11-20). Fixes were applied where the audit found modeling errors. Where a result is parameter-driven, it is labeled as such, and the sensitivity run that removes it is shown.
+
+| Exp. | Audit status after revision | What it can support |
+|---|---|---|
+| E1 | internal-demonstration; network arm removed | Source-latency floor and diff-driven work count (arithmetic); no accuracy advantage |
+| E2 | internal-demonstration; ranking parameter-driven | Flag-only bounds AI downside; canaries detect a silent rule failure; sampling-only is worse. *Not* that AI-native beats manual on both cost and control |
+| E3 | netting count mechanistic; registry arm = parameters | Netting reduces payment count by recipient-day concentration; grant-ID value depends on assumed minutes |
+| E4 | hours = one assumption; detection age mechanical | Continuous detection is earlier; the hours saving is not evidenced |
+| E5 | **not an experiment** (assumption table) | Nothing beyond L1 |
+| E6 | smoothing arm fixed (deferral to January) | Correlated surges limit pooling; deferral reduces peak FTE, *if* donors accept execution windows |
+| E7 | public data; the one external evidence | Overlap of recipient pairs (mostly cheap-to-check large charities); costly-work overlap unmeasured |
+| E8 | specification plus illustration | Replay preserves history *by construction*; shows the loss from balance-forward |
+| E9 | specification of required semantics | Exactly-once needs outbox *and* counterparty dedupe; ACH has no end-to-end key, so dedupe depends on the originating bank's API |
+| E10 | flag-only arm fixed (human misses modeled) | Auto-close adds escapes beyond human misses, more after distribution shift |
+
 
 **Baseline principle:** every experiment includes the conventional baseline as a deterministic comparator. It also includes at least one adversarial or negative case.
 
 ---
 
-## E1: Recipient verification architectures (W1; INN-01, INN-03, INN-34, INN-02)
-
-**Question.** Does a reusable recipient record ("passport") beat per-grant verification, and on which metric?
+## E1: Recipient verification architectures (W1; INN-01, INN-03, INN-34)
 
 **Design.**
 - 100,000 grants over 12,000 recipients with Zipf(1.0) popularity.
-- 0.5% of recipients become ineligible during the year [A].
-- IRS data visible at monthly publication [A].
-- Manual lookups take 3 minutes with a 1% miss rate [A].
-
-**Metrics:** verification operations, human minutes, escaped ineligible grants, latency.
+- 0.1% of recipients become ineligible per year [A], revised from 0.5% after the audit. The revocation-share evidence is 0.082% of dollars.
+- IRS data visible at monthly publication [A]; manual lookups take 3 minutes with a 1% miss rate [A].
 
 **Results** ([`results/e1-verification.csv`](results/e1-verification.csv)):
 
-| Architecture | Verification ops | Human min | Escaped (of 491 ineligible grants) | Median latency |
-|---|---|---|---|---|
-| Manual per grant (baseline) | 100,000 | 300,000 | 23 | 1 day |
-| Automated per grant (automation-first) | 100,000 | 0 | 21 | 2 s |
-| Passport, naive full refresh each publication | **117,883** | 0 | 21 | ~0 |
-| **Passport, diff-driven** (verify once, then process source changes) | **9,759** | 0 | 21 | ~0 |
-| Passport refreshed quarterly | 39,294 | 0 | **125** | ~0 |
-| Network passport (diff-driven, measured 51.3% overlap) | 4,753 | 0 | 21 | ~0 |
+| Architecture | Verification ops | Human min | Escaped / ineligible grants |
+|---|---|---|---|
+| Manual per grant (baseline) | 100,000 | 300,000 | 2 / 23 |
+| Automated per grant | 100,000 | 0 | 2 / 23 |
+| Passport, naive full refresh | 117,883 | 0 | 2 / 23 |
+| Passport, diff-driven | 9,701 | 0 | 2 / 23 |
+| Passport refreshed quarterly | 39,294 | 0 | 8 / 23 |
 
-**Findings:**
-1. **Accuracy is bounded by the source, not the architecture.** All monthly-refreshed automated designs escape the same 21 grants. These are the *source-latency floor*: changes not yet published by the IRS. No verification design can beat the floor. Only a faster source can.
-2. **A naive passport does more work than per-grant lookups.** Most recipients receive less than one grant per refresh period. *The passport idea survives only in its diff-driven form*, which cuts operations by about 90%. INN-01 is amended accordingly.
-3. **Slower refresh multiplies escapes.** Quarterly refresh escapes 6× as many grants. Refresh cadence is a governed control parameter.
-4. **The passport's value is latency, consistency of evidence and human minutes.** It is not compute; automated lookups are already cheap.
-
-**Maturity:** INN-01/03/34 → **L3** for the work and latency claims. There is no accuracy claim beyond automated lookup.
+**What this supports (audit-adjusted):**
+- Automated designs share the same escapes *by construction*, so the "source-latency floor" is a definitional point. It is still an important design point: accuracy depends on the source's publication cadence, and refresh cadence is a governed parameter.
+- "Ops" are machine reads, so diff-driven versus per-grant is a pricing artifact. Automated lookups are already cheap.
+- **The passport's value lies in latency, consistent dated evidence and fewer human lookups, not in compute.**
+- The planned adversarial cases (poisoned refresh, name collision) were **not built**.
+- **The network arm was removed.** It applied the measured 51.3% as a constant, while reuse per joiner is order-dependent (4–81%). Network value is computed from the measured curve in [`../09-economic-validation/`](../09-economic-validation/).
 
 ## E2: Approval architectures with seeded defects (W1/W2; INN-05, INN-06, INN-35; DD-005)
 
 **Design.**
-- 200,000 grants; 8% need review (foreign, fiscal sponsor, new organization), per the core proxy (EV-081).
-- Seeded defects [A]:
+- 200,000 grants; 8% need review (EV-081). Seeded defects [A]:
 
   | Defect | Rate |
   |---|---|
   | Revoked recipient | 0.1% |
   | Sanctions | 0.005% |
   | Undeclared related party | 0.2% |
-  | Pledge or ticket benefit | 0.3% |
+  | Benefit | 0.3% |
   | Account takeover | 0.05% |
 
-- Detection probabilities per component (rules, AI flagger, human with and without a dossier) are assumptions shown in code.
-- **Adversarial runs:** (a) the revocation rule is silently disabled on days 100–199; (b) prompt injection lowers AI recall on benefit text from 0.7 to 0.2.
+- Detection probabilities are assumptions in code.
+- Adversarial runs: a silently disabled revocation rule (days 100–199), and prompt injection (AI recall on benefit text falls to 0.2).
+- Sensitivity runs added after the audit: AI recall set equal to human catch rates, and a 1-minute routine manual review.
+- A cost bug in the pay-first arm was fixed: sampling is now charged on every sampled grant.
 
 **Results** ([`results/e2-approval-architectures.csv`](results/e2-approval-architectures.csv); 1,359 seeded defects):
 
-| Architecture | Human hours | Human cases | Escaped (base) | Escaped (rule disabled) | Escaped (injection) | Rule failure detected |
+| Architecture | Hours (base) | Escaped (base) | Escaped (AI recall = human) | Hours (1-min manual review) | Escaped (rule disabled) | Escaped (injection) |
 |---|---|---|---|---|---|---|
-| Manual review of all grants (baseline) | 31,972 | 200,000 | 704 | 704 | 704 | day 105 |
-| Rules + manual review of all (automation-first) | 31,972 | 200,000 | 646 | 651 | 646 | day 105 |
-| **Rules + AI flags → exceptions only (AI-native, flag-only)** | **15,383** | 20,511 | **404** | 450 | **696** | **never** |
-| **AI-native + daily canary test cases** | 15,389 | 20,511 | 404 | **404** | 696 | **day 100** |
-| Rules only + 2% acceptance sampling, no AI (radical) | 12,532 | 16,221 | 1,069 | 1,115 | 1,069 | never (no sample hit in window) |
-| AI-native + shared determinations (ecosystem) | **10,219** | 20,511 | 404 | 450 | 696 | never |
-| AI auto-clears 50% of AI-only flags (violates DD-005) | 13,789 | 18,385 | 729 | 775 | 870 | never |
-| Pay-first for routine tier, sample after (INN-35) | 15,385 | 20,511 | **1,277** | 1,277 | 1,286 | — |
+| Manual review all | 31,972 | 704 | 704 | 15,306 | 704 | 704 |
+| Rules + manual all | 31,972 | 646 | 646 | 15,306 | 651 | 646 |
+| Rules + AI flags → exceptions (flag-only) | 15,383 | 404 | **651** | **15,383** | 450 | 696 |
+| Flag-only + daily canaries | 15,389 | 404 | 651 | 15,389 | **404** | 696 |
+| Rules + 2% sampling, no AI | 12,532 | **1,069** | 1,069 | 12,227 | 1,115 | 1,069 |
+| Flag-only + shared determinations | 10,219 | 404 | 651 | 10,219 | 450 | 696 |
+| AI auto-clear (violates DD-005) | 13,789 | 729 | 866 | 13,789 | 775 | 870 |
+| Pay-first (INN-35) | 15,750 | 1,277 | 1,293 | 15,444 | 1,277 | 1,286 |
 
-**Findings:**
-1. **Under these assumptions, flag-only AI-native escapes fewer defects than manual review of everything, with half the human hours.** The reason is that per-item human review has low catch rates on related-party and benefit defects [A]. *This depends on assumed human catch rates (0.3, 0.5), which no public data measure (GAP-004).*
-2. **Removing per-item review without an AI flagger (radical sampling) is the worst safe design on control effectiveness.** Acceptance sampling at 2% had **no statistical power** against a rare-defect rule failure in a 100-day window. *Contrarian hypothesis INN-06 is weakened:* sampling complements; it does not replace.
-3. **A silently broken rule is invisible to flag-only AI.** AI watches the patterns it was given, not rule health. **Daily canaries** (known-bad synthetic grants pushed through the live rules; CTL-046) detect it on the first day and restore escapes to baseline. *New required control:* canary test cases for every deterministic rule.
-4. **Prompt injection against the AI flagger raises escapes to manual-review levels** (696 against 704). Flag-only *bounds* AI's downside at "as if the AI were absent". It cannot do worse, because the AI never clears.
-5. **Pay-first and AI auto-clear are rejected.** Pay-first escapes 3× more; auto-clear adds about 325 escapes for a 10% saving in hours.
-6. **Shared determinations save another 34% of human hours** with no change in escapes.
+**What this supports (audit-adjusted):**
+1. **The AI-native advantage is parameter-driven.**
+   - When AI recall equals human catch, control is the same as rules plus manual review of everything (651 against 646), at about half the hours.
+   - When manual review takes only 1 minute, hours are the same and control is better.
+
+   It wins on *one* criterion in each sensitivity, but **does not dominate on both independently of assumptions**. Which side holds depends on unmeasured human catch rates and review minutes (GAP-001, GAP-004).
+2. **Flag-only bounds the AI's downside.** Under prompt injection, escapes rise to 696, about the level of manual review of everything (704). Auto-clear goes beyond that, to 870.
+3. **Sampling-only is the worst safe design** (1,069 against 704 for manual review of everything). INN-06 does not survive as stated (audit verdict).
+4. **A silently disabled rule is invisible to flag-only AI. Daily canary test cases detect it on day 1** and restore escapes. The detection day is set by construction, and the fix lag of 1 day is assumed. The *control requirement* is the finding: every deterministic rule needs known-answer canaries.
+5. **Shared determinations save hours at unchanged escapes** *by construction*, because reuse is applied only to clean reviews. The 50% reuse share is assumed.
+6. **Pay-first and auto-clear are rejected.** Pay-first is a partial straw man: it ignores the passport lookup INN-35 assumed. It is rejected primarily on law, because a sponsor decision must precede payment, not because of E2.
+7. **Not modeled:** an adaptive fraudster, correlated AI misses, and reviewer automation bias.
 
 ## E3: Disbursement: netting, remittance key, payee registry (W3; INN-07/08/09)
 
-**Design.**
-- 100,000 grants to 12,000 recipients over 250 business days.
-- Check share: 33% (from Fidelity's 67% EFT, industry report §2.5) versus 10% with a registry [A].
-- ACH $0.30, check $4 [A].
-- Recipient matching: 5 minutes without a grant ID, 0.5 minutes with one [A].
-- Payee-change fraud: 0.2 changes per recipient per year, of which 2% are fraudulent [A].
-- Catch rate: 0.7 for a per-sponsor callback against 0.95 for registry out-of-band checks [A].
-- Return rate: 0.5% [A].
+**Results** ([`results/e3-disbursement.csv`](results/e3-disbursement.csv)): see the CSV.
 
-**Results** ([`results/e3-disbursement.csv`](results/e3-disbursement.csv)):
-
-| Design | Payments | Payment cost | Recipient hours | Uncaught fraudulent payee changes | Grants per return incident |
-|---|---|---|---|---|---|
-| Per grant, no key (baseline) | 100,000 | $152,100 | 8,333 | 14.4 | 1.0 |
-| Per grant + grant ID in remittance | 100,000 | $152,100 | **833** | 14.4 | 1.0 |
-| Daily netting + key | 61,367 | $93,339 | 833 | 14.4 | **1.63** |
-| Registry + netting + key | 61,367 | **$41,116** | 833 | **2.4** | 1.63 |
-
-**Findings:**
-1. The **grant ID in remittance** cuts recipient-side reconciliation by about 90% [A]. It is the cheapest high-value change, and it moves cost *off* the nonprofit.
-2. **Netting cuts payments by 39%** at this concentration. In exchange, each return or failure affects 1.63 grants on average, and more for popular recipients. The total number of grants affected by returns is unchanged.
-3. **The payee registry dominates on fraud** (2.4 against 14.4 uncaught changes). It requires two-sided adoption and a neutral operator (see 09), and it must never hold funds (money transmission, regulatory map §14).
+**What this supports (audit-adjusted):**
+- **Netting** cuts payments from 100,000 to 61,367 at this concentration. That is mechanistic (distinct recipient-days) and the one robust result.
+- **Grant ID in remittance** cuts recipient matching from 8,333 to 833 hours *by assumption* (5 against 0.5 minutes).
+- **Registry fraud and check-share gains are pure parameters.** They vanish at parity, so they are **not evidence**.
+- The total number of grants affected by returns is identical across designs, so "netting widens impact" is definitional. Only the grants per incident change, from 1 to 1.63.
+- **Not built:** a registry-compromise blast-radius model, and the case where a bank strips addenda.
 
 ## E4: Reconciliation, continuous versus month-end (W11; INN-22)
 
-**Design.** About 4 breaks per day [A]. Investigation takes 15 minutes plus 2 minutes per day of age (evidence decays [A], a stated assumption). A 10-day custodian feed outage is run with and without a missing-feed alarm.
+The rounded-uniform break generator was replaced by a Poisson generator.
 
-**Results** ([`results/e4-reconciliation.csv`](results/e4-reconciliation.csv)):
-
-| Mode | Mean age at detection | Max age | Human hours |
+| Mode | Mean age at detection | Hours (2 min/day age penalty [A]) | Hours (no age penalty) |
 |---|---|---|---|
-| Continuous | 0 days | 0 | 367 |
-| Month-end | 15.3 days | 30 | 1,117 |
-| Continuous, outage, with missing-feed alarm | 0.03 | 1 | 369 |
-| Continuous, outage, no alarm (masked) | 0.2 | **10** | 377 |
+| Continuous | 0 | 370.5 | 370.5 |
+| Month-end | 15.5 | 1,136.8 | **370.5** |
 
-**Findings:**
-- **Continuous reconciliation cuts break age to zero** and cuts hours by about two-thirds. *The hours effect is entirely driven by the age-cost assumption*; the detection-age effect is mechanical.
-- **A silent feed outage silently turns continuous reconciliation back into periodic reconciliation.** A missing-feed alarm is a mandatory companion control.
+**What this supports (audit-adjusted):**
+- **The entire hours saving comes from one unsourced assumption.** Without it the two modes cost the same.
+- Earlier detection (0 against 15.5 days) is mechanical and is the only supported claim.
+- The missing-feed alarm arm assumes a manual fallback within a day, which is not modeled explicitly.
+- **E4 is not evidence for INN-22's cost benefit.**
 
-## E5: Onboarding designs (W12; INN-24, INN-25)
+## E5: Onboarding design table (W12; INN-24, INN-25): not an experiment
 
-**Assumption-dominated; low confidence.** There are no public abandonment or fraud data.
+The audit is correct: `(1 − abandonment)^steps` over a hand-entered table returns its inputs. [`results/e5-onboarding.csv`](results/e5-onboarding.csv) is retained only as a **scenario table** documenting the assumptions a field test would need to measure. It supports nothing beyond L1.
 
-| Design | Completion [A-derived] | Donor minutes [A] | Synthetic identities reaching first grant per 10k [A] | Data complete when needed [A] |
-|---|---|---|---|---|
-| Upfront application | 0.69 | 35 | 2.0 | 0.95 |
-| Automation-first form with prefill | 0.83 | 15 | 2.0 | 0.95 |
-| AI conversational progressive intake | 0.90 | 8 | 2.4 | 0.90 |
-| Account at first intent + step-up before first grant | **0.96** | 3 | 2.0 | 0.85 |
-| Upstream KYC attestation reuse | **0.96** | **2** | 3.0 | 0.92 |
+## E6: Specialist pooling and surge smoothing (W2/W4; INN-28, INN-37)
 
-**Finding.** The radical designs win on completion only because fewer steps compound into fewer drop-offs. Step-up before the first grant keeps fraud exposure at the baseline, because money only moves at the grant. Attestation reuse trades a little fraud detection for speed. **This needs field data; no claim beyond L1.**
+The smoothing arm was corrected. It previously moved December demand into November, which is a causality error. **Execution windows now defer half of the December excess into January**, which is the only direction a donor-accepted window allows. Pre-clearing known recipients in November (the INN-37 narrative) is not modeled.
 
-## E6: Specialist pooling across sponsors and surge smoothing (W2/W4; INN-28, INN-37)
-
-**Design.** Five sponsors at 20 exception cases per day each, with a December surge of ×3 [A]. Each FTE handles about 8.5 cases per day [A]. The SLA is 2 days.
-
-**Results** ([`results/e6-specialist-pooling.csv`](results/e6-specialist-pooling.csv)):
-
-| Design | Minimum FTE meeting the SLA every day |
+| Design | Minimum FTE meeting a 2-day SLA every day |
 |---|---|
-| Separate pools per sponsor (baseline) | 35 |
-| Shared pool across sponsors (ecosystem) | 33 |
-| Separate pools + execution-window smoothing | 25 |
-| Shared pool + smoothing | **23** |
+| Separate pools | 35 |
+| Shared pool | 34 |
+| Separate pools + deferral windows | 25 |
+| Shared pool + deferral windows | 23 |
 
-**Finding.**
-- **Pooling across sponsors barely helps (−6%)** because the surge is *correlated*: everyone's December. Pooling diversifies only noise.
-- **Time-shifting demand helps far more (−29%).** Execution windows spread December grants over November and December, and known recipients are pre-cleared in November.
-- *INN-28's rationale is weakened; INN-37 is strengthened.* This is a counter-intuitive result worth keeping.
+**What this supports (audit-adjusted):**
+- Pooling across sponsors gains little when surges are correlated. The audit notes the remaining gain is mostly integer-FTE granularity, so pooling matters mainly for *small* sponsors that cannot staff even one specialist.
+- **Deferral windows cut peak FTE by about 29% *if* donors accept that December recommendations may execute in January.** Grant timing has no donor tax effect (the deduction occurred at contribution), but acceptance is untested. INN-37 remains **insufficient evidence** pending donor research.
 
 ## E7: Cross-sponsor recipient overlap from public filings (W1/W2; INN-02)
 
-Full method in [recipient-overlap-evidence.md](recipient-overlap-evidence.md).
-
-**Coverage:**
-- 48 of the top-50 sponsors (Renaissance and BofA file Schedule I as attachments only).
-- 279,337 lines and $37.27bn; 133,763 recipients.
-- Schedule I lists only domestic recipients over $5,000.
+See the [evidence note](recipient-overlap-evidence.md).
 
 **Results:**
-- **71.3% of lines (77.2% of dollars)** go to recipients that another top-50 sponsor also funds.
-- A shared record would avoid **51.3%** of sponsor-recipient verifications.
-- **Reuse is order-dependent.** The second joiner's reuse is 69.4% if large sponsors join first, 4.3% if small sponsors join first, and 10.0% in random order.
+- 71.3% of lines (77.2% of dollars) go to recipients another top-50 sponsor also funds.
+- A shared record would avoid 51.3% of sponsor-recipient verifications.
+- The second joiner's reuse is 69.4% if large sponsors join first, 4.3% if small sponsors join first, and 10.0% in random order.
 
-**Finding:** the *mechanism* for network reuse is real (INN-02 → **L2**). Its *cold start* requires the largest sponsors to join first, and those are the sponsors with the least need. Economic value is evaluated in [`../09-economic-validation/`](../09-economic-validation/).
+**Audit-adjusted reading:**
+- **The overlap is concentrated in large, well-documented charities.** These are exactly the recipients that are cheapest to verify from free IRS and OFAC files.
+- **The costly work is not in the data:** bank verification, foreign equivalency (Schedule F), and fiscal-sponsor review.
+- So E7 shows that *pairs* recur. It **does not show that costly verification recurs**. INN-02 is **insufficient evidence** (audit), kept at L1 with the overlap premise documented.
 
-## E8: System-of-record migration, replay versus balance-forward (W8; INN-18, INN-17)
+## E7b: Does costly verification recur? (run after the audit; tests its central objection to INN-02)
 
-**Design.** Five years of activity in the parent journey model (quarterly contributions, monthly grants). The source system is migrated (a) by replaying the full command/event log and (b) by an opening balance plus the last two years of activity, the pattern AEF's donors experienced (EV-037).
+**Data:** the same FY2023 edges, restricted to recipients needing human work rather than a free lookup. Script: [`scripts/workflow_innovation_costly_overlap.py`](../../../../scripts/workflow_innovation_costly_overlap.py). Output: [`data/workflow-innovation/costly-recipient-overlap.csv`](../../../../data/workflow-innovation/costly-recipient-overlap.csv).
 
-**Results** ([`results/e8-migration.csv`](results/e8-migration.csv)):
+Foreign recipients **cannot be tested**: Schedule F Part II reports regions, not recipient names.
 
-| Method | Grants visible | Fund balance | Grants paid visible | History completeness |
+| Recipient class | Recipients | Sponsor-recipient pairs | Funded by ≥2 top-50 sponsors | Pair verifications a shared record would avoid |
 |---|---|---|---|---|
-| Source | 60 | $300,000 | $300,000 | 1.00 |
-| **Replay** | 60 | $300,000 | $300,000 | **1.00** |
-| Balance-forward (2 years) | 23 | $300,000 | $115,000 | **0.38** |
+| All recipients | 133,763 | 274,929 | 40.1% | 51.3% |
+| **Fiscal sponsors** (repository 433-EIN list) | 183 | 1,024 | **73.8%** | **82.1%** |
+| **Recipients absent from the IRS EO BMF** (identity or status needs a person) | 17,114 | 24,377 | 24.7% | **29.8%** |
 
-**Finding.**
-- Replay reproduces every projection exactly (tested).
-- Balance-forward preserves the balance but **loses 62% of grant history and $185k of reportable grant history**.
-- **INN-18 → L3** within the model. Real systems add schema-semantics risk, which is not tested here.
+**Finding:**
+- **Host-level fiscal-sponsor diligence recurs heavily** across sponsors. That is costly work, and it is reusable.
+- **Unlisted-recipient resolution recurs much less** (30%).
+- **Project-level review of a fiscal-sponsor grant** (what the hosted project is; whether it is earmarked to a non-charity) varies per grant, so it is not reusable by this measure.
+- **INN-02 is supported narrowly:** a shared network has evidence for *fiscal-sponsor host diligence* and partial evidence for *unlisted-recipient resolution*. It has no evidence for foreign equivalency.
+- The overlap premise for those classes moves to **L2**. Value per reuse remains assumed.
 
-## E9: Failure recovery after interrupted payment transactions (event catalog §2)
+## E8: Migration, replay versus balance-forward (W8; INN-18): specification plus illustration
 
-**Design.** Exhaustive: 4 designs × 6 crash points (none; before commit; after commit before send; after send, lost in transit; after the bank executes, acknowledgment lost; duplicate delivery).
+Replay equality is determinism of one engine: a specification, not a test of migration across heterogeneous systems. The balance-forward comparison illustrates history loss (0.38 completeness, $185k of grant history not visible) against the pattern AEF donors experienced (EV-037). The baseline omits "history delivered as documents", a fairer comparator. INN-18 stays at **L2**: premise evidenced, prototype only by construction.
 
-**Results** ([`results/e9-crash-recovery.csv`](results/e9-crash-recovery.csv)):
+## E9: Failure recovery after interrupted payments: specification
 
-| Design | Correct of 6 | Failures |
-|---|---|---|
-| Send to bank, then commit | 3 | paid-but-unrecorded ×2; double payment ×1 |
-| Commit, then send (no durable outbox) | 3 | lost payment ×2; double payment ×1 |
-| Durable outbox, bank does not deduplicate | 4 | double payment ×2 |
-| **Outbox + idempotency key at the bank** | **6** | none |
+The result is the hand-coded table. It is valid as a **specification of required semantics**: exactly-once needs a durable outbox *and* counterparty deduplication.
 
-**Finding.** Exactly-once payment needs **both** a durable outbox *and* rail-level idempotency. This makes bank-side idempotency support a **counterparty selection criterion**: banks or rails without it need a reconciliation-based duplicate check before release. *The model is a logical enumeration, not a concurrency test (Phase 2).*
+**Load-bearing caveat (audit):** ACH has no end-to-end idempotency key, so deduplication depends on the originating bank's API. Banks without it need a pre-release duplicate check, which makes this a counterparty-selection criterion. Key expiry, netted-batch recomposition and partial acceptance are not modeled.
 
-## E10: AI exception triage, flag-only versus auto-close, with distribution shift (DD-005)
+## E10: AI exception triage, flag-only versus auto-close (DD-005)
 
-**Design.**
-- 20,000 exceptions, 5% true defects [A].
-- Model score separation is 2 noise units [A].
-- Shift case: 30% of defects are a new pattern with weak signal (0.3).
-- Human review takes 30 minutes with an AI dossier [A].
+Flag-only previously hard-coded zero escapes. Human reviewers now miss 5%, consistent with E2.
 
-**Results** ([`results/e10-ai-triage.csv`](results/e10-ai-triage.csv)):
-
-| Policy | Hours | Escaped defects, base (of 967) | Escaped defects, after shift (of 967) |
+| Policy | Hours | Escaped (base, of 967) | Escaped (30% new weak-signal pattern) |
 |---|---|---|---|
-| **Flag-only** | 10,000 | **0** | **0** |
-| Auto-close below −1.0 | 8,438 | 0 | **16** |
-| Auto-close below 0 | 5,243 | 23 | 118 |
-| Auto-close below +1.0 | 1,981 | 159 | 320 |
+| Flag-only | 10,000 | 57 (human misses) | 57 |
+| Auto-close below −1.0 | 8,438 | 57 | **73** |
+| Auto-close below 0 | 5,243 | 80 | 171 |
+| Auto-close below +1.0 | 1,981 | 209 | 365 |
 
-**Finding.** Any auto-close threshold that saves meaningful time escapes defects, and **a threshold that is "safe" on today's distribution is unsafe after a shift**. That is exactly when nobody knows the model is wrong. **DD-005 (flag-only) is supported at L3.** Its cost is human hours, which the economics must carry.
+**What this supports.** Auto-close adds escapes beyond human misses. A threshold that adds none on today's distribution (−1.0) adds 16 after a shift. This supports DD-005 **directionally**. Dossier minutes (45 → 30) and automation bias are assumed or not modeled.
 
-## E11: Cost comparison across architectures and business models
+## E11: Cost comparison
 
-See [`../09-economic-validation/economic-validation.md`](../09-economic-validation/economic-validation.md).
+There is no separate E11 code. The cost comparison is [`../09-economic-validation/economic-validation.md`](../09-economic-validation/economic-validation.md), using `NetworkEconomics.fs` and the parent cost model. The audit found about 10 documents citing "E11" as if it were a built experiment; read those citations as pointing to 09.
 
----
+## Experiments cited in design documents but NOT built
 
-## 12. Summary: what the experiments changed
+The audit, §6 item 3, lists these. Where the design catalogs and workflow files cite them, they are **planned, not executed**:
 
-| Before | After experiments |
+| Citation | Planned experiment | Status |
+|---|---|---|
+| "E5 complex-asset queue" (INN-11, W4, XW-14) | Queue model of pre-underwritten acceptance against bespoke review | not built |
+| "E6 contact model" (INN-14, W5, XW-23) | Contact-volume model of shared-state servicing | not built; needs contact-centre logs |
+| "E6 liquidity" (INN-27, D-INV-3, XW-16, XW-31) | Pipeline forecast against buffer | not built; the parent twin covers a buffer, not a forecast |
+| "E2 back-test" (INN-21, XW-24) | Policy compiler back-test on a historical decision corpus | not built; needs partner history |
+| "E2 evidence completeness" (D-W10-3) | Evidence coverage test | parent PoC asserts evidence records only |
+| E1, E2, E3 adversarial extensions (W1–W3 §7) | Poisoned refresh; stale determination; registry hijack blast radius | not built |
+
+## Summary: what the experiments changed, after audit
+
+| Before | After experiments and independent audit |
 |---|---|
-| Passport (INN-01) reduces work | Only if **diff-driven**; naive refresh increases work (E1) |
-| Acceptance sampling can replace per-item review (INN-06) | Too little statistical power against rare-defect failures; **canaries** are needed (E2) |
-| Pooling specialists across sponsors smooths surge (INN-28) | Barely, because surges are correlated; **time-shifting** works (E6) |
-| A verification network is a strong business (INN-02) | Mechanism real (E7); economics thin for routine checks, viable for costly determinations (09) |
-| Flag-only AI is a governance principle (DD-005) | Also the economically rational choice under shift risk (E10, E2 injection) |
-| Exactly-once payments via outbox (parent design) | Needs rail idempotency too (E9) |
+| Passport (INN-01) reduces work | Only if diff-driven; the value is latency and evidence, not compute |
+| Sampling can replace per-item review (INN-06) | **Does not survive**; canaries required for rule health |
+| Pooling across sponsors smooths surge (INN-28) | Weak when surges are correlated; matters for small sponsors' indivisibility |
+| Surge smoothing (INN-37) | Deferral cuts peak FTE ~29% in the model; donor acceptance unknown, so insufficient evidence |
+| Verification network (INN-02) | Pair overlap real; costly-work overlap unmeasured, so insufficient evidence; economics thin for routine checks |
+| AI-native approval dominates manual | **Not robust:** equal control at half the hours, or equal hours with better control, depending on unmeasured parameters |
+| Flag-only AI (DD-005) | Supported directionally (E2 injection, E10 shift) |
+| Exactly-once payments | A specification: requires counterparty dedupe, which ACH lacks natively |
+| Continuous close saves labor | Not evidenced; only earlier detection is |
