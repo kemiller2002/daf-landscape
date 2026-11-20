@@ -32,7 +32,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
   - The $90m and $138m schedule figures remain as list-price ceilings.
   - Fee rates fall with size, and publishing a schedule makes no difference once size is controlled.
 - **Faith sponsors outside the top 50.**
-  - They add $1.08bn to the church block. Across all panel sponsors, faith sponsors send about 30% of it (25% without the OJC Fund, a pass-through sponsor), against 22% in the top-50 frame.
+  - They add $1.08bn to the church block. Across all panel sponsors, faith sponsors send about 30% of it (25% without the OJC Fund, a pass-through sponsor in the asset sense whose Schedule I goes to church-status Orthodox bodies, not to other DAF sponsors; 27–29% if its non-congregation recipients are discounted, 23% if every sponsor is limited to congregation names) [V wave 43B], against 22% in the top-50 frame.
   - Nationals send about 59%, against 74% top-50 only, an understatement because BofA and RCF do not itemise. CCF-LA is Catholic.
 - **Corporate 1% floor.** No company ties a 2025 DAF gift to the floor. Apollo predates the bill and Circle was a scheduled pledge. BlackRock, Unum and URBN fit the timing but state no tax motive.
 - **AI realization for routing and correlated execution.**
@@ -79,7 +79,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 | Industry report | §11.1–§11.53 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
 
 **Additions in PR #63 (validated; report §11.51–§11.53):**
-- **Propagation.** The refined exception proxy now appears in the gap19 note, report §4 and the synthesis. FY2024 non-DAFRC accounts become 24,800 with Groundswell included; its accounts average $787, which raises the same comparability caveat as processor accounts.
+- **Propagation.** The refined exception proxy now appears in the gap19 note, report §4 and the synthesis. FY2024 non-DAFRC accounts become 24,800 with Groundswell included; its accounts average $787, which raises the same comparability caveat as processor accounts. They are DAFs in the legal sense and meet DAFRC’s Schedule D Part I(a) rule: one DAF per user, mostly employees, funded by the user and by employer matches (b4026-0601-01-p0503-ojc-groundswell.md) [V wave 43B]
 - **DAF grant schema and processor accounts.**
   - Chariot and Endaoment carry all 8 core grant-record fields. Form 990 requires only the recipient EIN in full.
   - Processors are 76.7% of corrected FY2024 accounts. With all 22 processors removed, sponsor accounts are about 770,785.
@@ -118,9 +118,9 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 - **Detection probability.** An escaped DAF error has roughly a 0.1–1% chance per year of being detected and taxed, measured as average-filer coverage. The composite m is fragile: it is about 1.6 when OFAC penalties are priced per transaction and 14–1,270 when priced per missed alert.
 - **Line 6 versus Schedule D.**
   - 33 returns that hold DAFs answer "No" on line 6, carrying $265m. SOI extracts keyed on line 6 drop them; DAFRC does not use line 6.
-  - Non-DAFRC FY2024 accounts are 24,800: 11,992 at line-6 “Yes” filers plus Groundswell’s 12,808 (average $787 per account), with $353.9m of DAF assets (`non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv`) [V wave 40A]
+  - Non-DAFRC FY2024 accounts are 24,800: 11,992 at line-6 “Yes” filers plus Groundswell’s 12,808 (average $787 per account; per-employee DAFs funded by employees and employer matches, so DAFs, but processor-like in size) [V wave 43B], with $353.9m of DAF assets (`non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv`) [V wave 40A]
 - **Exception proxy refinements.**
-  - EIN-keyed fiscal sponsors account for 0.44% of lines and 1.94% of dollars; dropping large-programme hosts gives 1.68%.
+  - EIN-keyed fiscal sponsors account for 0.44% of lines and 1.94% of dollars; dropping large-programme hosts gives 1.68%. Five de facto hosts found from filers’ own “FBO” naming (g0503-03-de-facto-fiscal-sponsors.md) would raise this to at most 0.47% / 2.06%, and the core to at most 7.79% / 11.73%. Three of the five are also DAFRC-vetted DAF sponsors and 82% of the detections come from one filer, so these are upper bounds and the headline stands [V wave 43B]
   - The time-correct recent-ruling flag counts true new organisations at 3.16% of lines and 4.72% of dollars.
   - Core is 7.76% / 11.61%.
 
@@ -219,7 +219,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 - **Ren acknowledgement defaults track guide vintage.** The evidence shows neither a sponsor setting nor a platform limit.
 - **Adviser-managed assets.** The share is 46.9% at Fidelity Charitable and 0% at Vanguard. DAFgiving360 is only bracketed and NPT cannot be estimated.
 - **NPT foreign grants.** None of NPT's FY2023–24 foreign grants went to related organisations as filed (Schedule R Part V line 1b = No). Part V excludes only NPT's own transactions with its disregarded entities; on the repo's reading of Appendix F, a disregarded entity's grants to a related organisation are NPT's, so the filed No is a weak test [V wave 36C] In FY2025, £30.9m went from NPT Transatlantic to NPT UK.
-- **The $6.18bn "church" block is about half congregations.** Faith sponsors send about 22–26% of it within the top-50 frame and about 30% across all itemising DAFRC panel sponsors (25% without the OJC Fund), where nationals send about 59% rather than three-quarters; none of the 14 congregation giving pages read offers a DAF option [V wave 42B].
+- **The $6.18bn "church" block is about half congregations.** Faith sponsors send about 22–26% of it within the top-50 frame and about 30% across all itemising DAFRC panel sponsors (25% without the OJC Fund; about 23% if every sponsor is limited to congregation-named recipients) [V wave 43B], where nationals send about 59% rather than three-quarters; none of the 14 congregation giving pages read offers a DAF option [V wave 42B].
 
 **Process note.** A correction-applier bug truncated replacement text at inner double quotes. It was found in wave 35B and fixed. The 17 affected passages from waves 34S/34A/34B were repaired and audited against their reports.
 

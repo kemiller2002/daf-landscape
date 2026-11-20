@@ -22,7 +22,7 @@ Tags: **[F]** read from a filing or the BMF · **[C]** computed by the script ·
   - 0.008% ($59k) goes to recipients with federation names.
   - None of these recipients is in the church block [C].
 - **But "church-status" is not the same as "congregation".** An Orthodox-aware name rule types OJC's $545.3m of block dollars (DAF-weighted) as follows:
-  - **38.9%** to congregations (1,110 recipients);
+  - **38.9%** to congregations (1,110 recipients; 41.6% if recipients are typed by their BMF names, which is the basis the faith-share variants below use) [V wave 43B]
   - **25.9%** to yeshivas and schools (585);
   - **16.5%** to chesed or relief funds (217);
   - 1.5% to communal umbrella bodies (21);
@@ -43,7 +43,7 @@ Tags: **[F]** read from a filing or the BMF · **[C]** computed by the script ·
   | Symmetric: drop every sponsor's yeshiva/school and chesed-fund block lines | 32.7% | 29.2% | 59.5% |
   | Symmetric: every sponsor, congregation names only | 25.8% | 23.0% | 66.6% |
 
-  **Reading.** "About three-tenths" survives as an upper figure. A defensible range for the all-panel faith share of church-block dollars is **27–30%**. The low end confines OJC to congregation-named recipients, and 25.1% applies without OJC at all. On a congregations-only basis applied to every sponsor, the faith share is about 23%, against 26.6% under the base rules [C][I].
+  **Reading.** "About three-tenths" survives as an upper figure. The central figure for church-status block dollars stays 30.2%. The OJC-only variants filter one sponsor and not the others, so 27–30% is a sensitivity range, not a restatement; the symmetric congregations-only figure is 23.0% [V wave 43B] The low end confines OJC to congregation-named recipients, and 25.1% applies without OJC at all. On a congregations-only basis applied to every sponsor, the faith share is about 23%, against 26.6% under the base rules [C][I].
 
 **(B) Groundswell Charitable Foundation (EIN 871530516)**
 
@@ -258,7 +258,7 @@ python3 scripts/mission_ojc_groundswell.py . --np-cache $S/npcache --lines-cache
 
 ## 5. Implications
 
-- The b4026-06-01 headline "about 30%" of church-block DAF dollars from faith sponsors is an upper figure. Report **27–30%**, or 25.1% without OJC. It rests on church-status recipients, of which about two-fifths of OJC's dollars go to yeshivas and chesed funds rather than congregations.
+- The b4026-06-01 headline "about 30%" of church-block DAF dollars from faith sponsors is the central figure for church-status recipients. Report about 30%, with 27–29% if OJC’s non-congregation recipients are discounted, 23% on a congregations-only basis for every sponsor, and 25.1% without OJC [V wave 43B] It rests on church-status recipients, of which about two-fifths of OJC's dollars go to yeshivas and chesed funds rather than congregations.
 - OJC is "pass-through" in the asset sense (DAF assets $34.5m against $385.7m of DAF grants). It is not a conduit to other sponsors.
 - Groundswell's accounts can stay in DAF account totals, as they are DAFs. They should be tagged as employer-platform micro-accounts, alongside processor accounts (P-B40601P0503-06).
 

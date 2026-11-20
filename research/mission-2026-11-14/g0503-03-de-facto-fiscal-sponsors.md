@@ -29,7 +29,7 @@
 | **Core union** | **7.76% / 11.61% → 7.79% / 11.73%**: +178 lines and +$108.8m. Twelve of the 190 lines were already in the core through another flag [C].<br>At ≥ 2 projects: 7.82% / 11.80%. |
 | **Broad union** | **24.79% / 19.85% → 24.82% / 19.97%** (150,898 → 151,076 lines) [C].<br>At ≥ 2 projects: 24.85% / 20.04%. |
 | Precision, hand check of 30 detections | **Parse: 29 / 30 (97%)**. Host and beneficiary were split correctly and are distinct; the one miss names the same food bank on both sides.<br>**Plausible fiscal sponsorship (project hosted by an intermediary): 21 / 30 (70%)** over all classes; **19 / 21 (90%)** among `intermediary_other` hosts.<br>The class rule removes 7 of the 9 non-sponsorship detections: university units, a diocesan appeal, a Salvation Army centre, a community-foundation fund [I]. |
-| **Main caveat** | **82% of valid detections (284 of 346) are on one sponsor's Schedule I: ImpactAssets.** 10 of the 11 de facto hosts are detected only through ImpactAssets lines; only Players Philanthropy Fund is seen across three sponsors [C].<br>The method therefore measures one filer's naming convention ("HOST FBO PROJECT") more than the market. The other sponsors almost always file the host name alone. |
+| **Main caveat** | **82% of valid detections (284 of 346) are on one sponsor's Schedule I: ImpactAssets.** 10 of the 11 de facto hosts reach three projects only through ImpactAssets lines. Tides Foundation also has a US Charitable Gift Trust detection, but it repeats an ImpactAssets project (Movement Voter Fund). Only Players Philanthropy Fund reaches three projects without ImpactAssets (three sponsors) [C] [V wave 43B]<br>The method therefore measures one filer's naming convention ("HOST FBO PROJECT") more than the market. The other sponsors almost always file the host name alone. |
 
 **Reading [I]**
 - Read from the filings, the de facto fiscal-sponsor set is small and mostly already listed: 6 of the 11 hosts are on the refined list.
@@ -139,7 +139,7 @@ Lines to added EINs gain `fiscal_sponsor_name`, `any_si` and `any_core_si`, on t
 | 821517696 | Assets Under Movement (filed: Amalgamated Charitable Foundation) | 6 | 1 | 58 | $58.0m | no | no | **added** |
 | 300108263 | GlobalGiving Foundation | 6 | 1 | 54 | $33.0m | no | no | **added** |
 | 853989363 | Possibility Labs | 6 | 1 | 26 | $10.9m | no | no | **added** |
-| 943214166 | Common Counsel Foundation | 5 | 1 | 34 | $10.5m | no | no | **added** |
+| 943214166 | Common Counsel Foundation | 5; 4 after merging “Fund for the Movement 4 Black Lives” and “M4BL” [V wave 43B] | 1 | 34 | $10.5m | no | no | **added** |
 | 276601178 | Stonier Scholarship Inc (filed: Players Philanthropy Fund) | 4 | 3 | 45 | $17.3m | yes | yes | yes |
 | 133191113 | NEO Philanthropy | 3 | 1 | 44 | $47.5m | yes | no | yes |
 | 521211059 | Center for Third World Organizing | 3 | 1 | 18 | $2.1m | no | no | **added** |
@@ -196,7 +196,7 @@ Lines to added EINs gain `fiscal_sponsor_name`, `any_si` and `any_core_si`, on t
 
 - The added dollars are concentrated: Assets Under Movement is $58.0m of the $114.6m.
 - Assets Under Movement / Amalgamated Charitable Foundation (NTEE T30) also runs donor-advised and pooled funds, so part of its $58.0m may be DAF-to-DAF or pooled-fund flow rather than fiscal sponsorship. It is not on the DAF-to-DAF whitelist (P-G050303-02) [I].
-- Without it, the ≥ 3 addition is $56.6m (0.061%) [C, from the per-EIN figures].
+- Without it, the ≥ 3 addition is $56.6m (0.061%) [C, from the per-EIN figures]. None of its 58 lines carries another flag, so without it the fiscal-sponsor share is 0.46% / 2.00%, the core 7.78% / 11.67% and the broad union 24.81% / 19.90%. Assets Under Movement, Possibility Labs and Common Counsel are all DAFRC-vetted DAF sponsors (DAF share of grants 0.73, 0.65 and 0.62 in sponsor-cost-structure.csv; the DAF-to-DAF whitelist excludes them under rules W2 and W4), so part of their $79.4m may be DAF-to-DAF flow. Only $1.06m of Assets Under Movement’s $58.0m arrives on project-style lines. Its site offers DAFs and collaborative or pooled funds and supports “sponsored projects”, so it is a hybrid, not a pure fiscal sponsor. The ≥ 3 addition is best stated as $35.1m–$114.6m (0.04%–0.12% of proxy dollars); the lower end drops the three DAF-sponsor hybrids [V wave 43B]
 
 ## 3. Hand check (30 detections) [I]
 
@@ -240,14 +240,14 @@ Lines to added EINs gain `fiscal_sponsor_name`, `any_si` and `any_core_si`, on t
 | 30 | University of Southern California FBO Emerge Lab | university | ✓ | ✗ unit |
 
 - **Parse precision: 29 / 30 = 96.7%.**
-- **Sponsorship precision: 21 / 30 = 70%** over all classes; **19 / 21 = 90.5%** in `intermediary_other`. The 2 misses are #16 and #29.
+- **Sponsorship precision: 21 / 30 = 70%** over all classes; **19 / 21 = 90.5%** in `intermediary_other`. The 2 misses are #16 and #29. A validator re-read reproduces parse 29 / 30. From names alone, sponsorship is 19–21 / 30, because #10 and #17 cannot be judged without host pages. #26 repeats #20’s project in another year, so the sample holds 29 distinct projects, and 21 / 30 has a Wilson 95% interval of about 52–83% [V wave 43B]
 - The class rule removes 9 sampled detections: 7 non-sponsorship cases and 2 plausible ones (#3, and #21, The Giving Back Fund, a known fiscal sponsor caught by the T70 rule, as the parent note also found).
 - **De facto host check** (all 11; names and filings only): 10 are recognisable fiscal sponsors or pass-through intermediaries [I]. GlobalGiving is a donation platform passing funds to (often foreign) projects, so it counts as an intermediary but not a fiscal sponsor in the narrow sense.
 - **Recall is not measured.** Lines filed under the project's own name with the host's EIN (e.g. "SOL VIDA" or "HAPPENSTANCE THEATER" under Fractured Atlas's EIN; "Future Chefs" under TSNE) are not project-style names and are not detected (P-G050303-01).
 
 ## 4. Limits
 
-- **Filer concentration.** ImpactAssets writes "HOST FBO PROJECT" routinely; most sponsors do not. The ≥ 3 rule therefore selects ImpactAssets' sponsored-project grantees. A "≥ 3 projects from ≥ 2 filers" rule leaves only Players Philanthropy Fund. The set is a lower bound on de facto hosts, not a census.
+- **Filer concentration.** ImpactAssets writes "HOST FBO PROJECT" routinely; most sponsors do not. The ≥ 3 rule therefore selects ImpactAssets' sponsored-project grantees. A "≥ 3 projects from ≥ 2 filers" rule, read as at least three projects outside ImpactAssets, leaves only Players Philanthropy Fund; Tides Foundation has two filers, but all eight of its projects come from ImpactAssets [V wave 43B] The set is a lower bound on de facto hosts, not a census.
 - **Truncation.** Filed names are cut at about 35–75 characters, so some connectors and projects are lost (e.g. "Tides Foundation For benefit of Movement Voter Fu"). The prefix merge (N5) handles partial project names; names cut before the connector cannot be recovered.
 - **Bare "CO".** It is ambiguous (company, county, Colorado, c/o). The N2 and N4 guards remove the cases seen. Some c/o lines with the host on the left that name real projects are rejected by the addressee rule, e.g. "TIDES CENTER CO VC INCLUDE" and "FUND FOR THE CITY OF NEW YORK CO POWER OF TWO". The same Tides project is still caught through an FBO line.
 - **Host classes are name- and code-based.** NTEE T70 puts The Giving Back Fund in the community-foundation class, as in the parent note. Only `intermediary_other` hosts are added; including all classes changes nothing at ≥ 3, because no other class reaches 3.

@@ -76,7 +76,7 @@
 ### 1.3 Reading [I]
 - **The line-6 false-negative tail is small and new.**
   - Three of the five likely sponsors are workplace, app or online-giving platforms (Groundswell, DEED, Visit.org). This is the same model as the micro-account processors (batch 36 §1).
-  - Groundswell's 12,808 accounts average $787. It would fall into batch 36's A3 small-balance screen if it had ≥5,000 accounts and an average under $500. It does not quite: the average is above $500.
+  - Groundswell's 12,808 accounts average $787. It would fall into batch 36's A3 small-balance screen if it had ≥5,000 accounts and an average under $500. It does not quite: the average is above $500. Its accounts are per-user DAFs under its terms of use, funded by employees and by employer matches; its TY2024 grants average at most about $172 (over 26,000 grants, $4.46m) (b4026-0601-01-p0503-ojc-groundswell.md) [V wave 43B]
 - **Money is negligible:** $10.1m of filed DAF value (0.003% of FY2024 corrected DAF assets of about $323bn) [C].
 - **The "possible" group is mostly local community foundations whose wording is ambiguous.** Their Schedule D is blank, so no value can be added.
 - **Not covered:** filers outside T30/T31/T70 without a DAF-like name. Groundswell, DEED and Visit.org happen to carry T30, but other workplace platforms may not (P-B37B-01).
