@@ -115,8 +115,11 @@ SPLIT_RX = re.compile(r"\s+-+\s+|\s+F/?B/?O\b|\bC/O\b|\(|,|/|;|:|\s+FOR THE BENE
                       r"\s+FOR\s+(?:THE\s+)?[A-Z]+\s+(?:FAMILY|FUND)\b", re.I)
 
 
+LEAD_RX = re.compile(r"^\s*(?:\(\s*\d+\s*\)|\d+[.)])\s*")
+
+
 def first_segment(s: str) -> str:
-    return SPLIT_RX.split(html.unescape(s or ""), maxsplit=1)[0]
+    return SPLIT_RX.split(LEAD_RX.sub("", html.unescape(s or "")), maxsplit=1)[0]
 
 
 EIN_RX = re.compile(r"(?<!\d)(\d{2})-?(\d{7})(?!\d)")
@@ -129,11 +132,12 @@ CAND_RX = re.compile(r"DONOR[\s-]*ADVISED|\bDAF\b|ADVISED FUND|CHARITABLE GIFT|G
 
 # Brand aliases for national/processor sponsors, applied only after EIN and exact-name matching failed.
 ALIASES = (
-    (r"\bFIDELITY\s+(INVESTMENTS?\s+)?(CHARITABLE|GIFT\s+FUND)", "110303001"),
+    (r"\bFIDELITY\s+(INVESTMENTS?\s+)?(CHARITABLE|GIFT\s+FUND)|\bFIDELITY\b.*(\bDAF\b|DONOR[\s-]+ADVISED)", "110303001"),
     (r"NATIONAL\s+PHILANTHROPIC\s+TRUST|^NPT\b", "237825575"),
-    (r"SCHWAB\s+CHARITABLE|DAF\s*GIVING\s*360|DONOR\s+ADVISED\s+CHARITABLE\s+GIVING", "311640316"),
-    (r"VANGUARD\s+CHARITABLE", "232888152"),
-    (r"GOLDMAN\s+SACHS\s+PHILANTHROPY\s+FUND|GS\s+DONOR\s+ADVISED|GOLDMAN\s+SACHS\s+DONOR\s+ADVISED", "311774905"),
+    (r"SCHWAB\s+CHARITABLE|DAF\s*GIVING\s*360|DONOR\s+ADVISED\s+CHARITABLE\s+GIVING|\bSCHWAB\b.*(\bDAF\b|DONOR[\s-]+ADVISED)", "311640316"),
+    (r"VANGUARD\s+CHARITABLE|VANGUARD\b.*(\bDAF\b|DONOR[\s-]+ADVISED)", "232888152"),
+    (r"J\.?\s*P\.?\s*MORGAN\s+CHARITABLE\s+GIVING\s+FUND", "237825575"),
+    (r"GOLDMAN\s+SACHS\s+PHILANTHROPY\s+FUND|GS\s+DONOR\s+ADVISED|GOLDMAN\s+SACHS\s+DONOR\s+ADVISED|^GS\s+DAF\b", "311774905"),
     (r"GOLDMAN\s+SACHS\s+CHARITABLE\s+GIFT", "113813663"),
     (r"MORGAN\s+STANLEY\s+(GLOBAL\s+IMPACT|GIFT\b|CHARITABLE\s+GIFT)", "527082731"),
     (r"AMERICAN\s+ENDOWMENT\s+FOUNDATION", "341747398"),
@@ -198,6 +202,11 @@ def _tags(t: str, rx: str) -> dict:
     return {m.group(1): m.group(2).strip() for m in re.finditer(r"<(?:\w+:)?(%s)\b[^>]*>([^<]*)<" % rx, t)}
 
 
+def _block(t: str, name: str) -> str:
+    m = re.search(r"<(?:\w+:)?%s\b[^>]*>(.*?)</(?:\w+:)?%s>" % (name, name), t, re.S)
+    return m.group(1) if m else ""
+
+
 GRANT_RX = re.compile(r"<(?:\w+:)?GrantOrContributionPdDurYrGrp\b[^>]*>(.*?)</(?:\w+:)?GrantOrContributionPdDurYrGrp>", re.S)
 
 
@@ -227,7 +236,7 @@ def extract(text: str, keys: Mapping) -> tuple[dict, tuple]:
                         r"InitialReturnFormerPubChrtyInd")
     summ = {"tax_yr": _tag(head, "TaxYr"), "period_end": _tag(head, "TaxPeriodEndDt"),
             "rtype": _tag(head, "ReturnTypeCd"), "filer_ein": _tag(head, "EIN"),
-            "filer_name": _tag(head, "BusinessNameLine1Txt"), "flags": flags,
+            "filer_name": _tag(_block(head, "Filer"), "BusinessNameLine1Txt"), "flags": flags,
             "fmv_eoy": num(_tag(text, "FMVAssetsEOYAmt")), "assets_boy": num(_tag(text, "TotalAssetsBOYAmt")),
             "assets_eoy": num(_tag(text, "TotalAssetsEOYAmt")),
             "contrib_paid_l25": num(_tag(text, "ContriPaidRevAndExpnssAmt")),
@@ -297,6 +306,20 @@ def load_harvest(cache: str) -> tuple[dict, ...]:
     return tuple(r for p in sorted(glob.glob(os.path.join(cache, "harvest", "c*.jsonl.gz"))) for r in one(p))
 
 
+CO_RX = re.compile(r"\s+(?:C/O|%|ATTN:?|ATTENTION)\s.*$|\s*%.*$", re.I)
+
+
+def org_name(s: str) -> str:
+    """index TAXPAYER_NAME without 'C/O person', '% firm' or 'ATTN person' care-of tails (organisation names only)."""
+    return CO_RX.sub("", s or "").strip()
+
+
+def csv_rows(rows: Sequence[Mapping]) -> tuple[dict, ...]:
+    """CSV keeps every T0-T3 row; T4 (universities, hospitals, other single-issue charities) only where the line
+    text says DAF / donor advised or the PF is winding down. Aggregates in the summary use all rows."""
+    return tuple(m for m in rows if m["sponsor_tier"] != "T4_single_issue" or m["daf_purpose_amount_usd"] or m["pf_terminating"])
+
+
 def latest_per_period(h: Sequence[Mapping]) -> tuple[dict, ...]:
     """after 'extend', an (EIN, TAX_PERIOD) can appear twice; keep the latest object id (amended supersedes)."""
     by = _group_by_fast(h, lambda r: (r["ein"], r["tax_period"]))
@@ -352,26 +375,30 @@ def tier_of(ein: str, seg: str, rank: Mapping) -> str:
 def matched_rows(h: Sequence[Mapping], keys: Mapping, panel: Mapping, bmf: Mapping, rank: Mapping) -> tuple[dict, ...]:
     def per_return(r):
         hits = tuple((g, *match_line(g, keys, panel, bmf)) for g in r.get("lines", ()))
-        hits = tuple(x for x in hits if x[1] and x[1] != r["ein"])
+        # unmatched lines that say DAF / donor advised in the recipient name or purpose: a PF->DAF flow whose
+        # sponsor cannot be identified (bucket T0); kept apart from sponsor totals.
+        hits = tuple((g, e, m) if e else (g, "", "daf_label_only") for g, e, m in hits
+                     if e or DAF_PURPOSE_RX.search(g["name"] + " " + g["purpose"]))
+        hits = tuple(x for x in hits if x[1] != r["ein"])
         by = _group_by_fast(hits, lambda x: x[1])
         return tuple(row(r, e, xs) for e, xs in by.items())
 
     def row(r, e, xs):
-        p = panel[e]
-        seg = segment_of(p["type"], p["subtype"])
+        p = panel.get(e) or {"name": "", "type": "", "subtype": ""}
+        seg = segment_of(p["type"], p["subtype"]) if e else ""
         amt = sum(g["amt"] for g, _, _ in xs)
         daf_amt = sum(g["amt"] for g, _, _ in xs if DAF_PURPOSE_RX.search(g["purpose"] + " " + g["name"]))
-        return {"pf_ein": r["ein"], "pf_name": r.get("filer_name") or r["name"], "tax_year": r["tax_year"],
+        return {"pf_ein": r["ein"], "pf_name": org_name(r["name"]), "tax_year": r["tax_year"],
                 "tax_period": r["tax_period"], "return_object_id": r["object_id"],
                 "pf_final_return": int(is_final(r)), "pf_507b1a": int(f507a(r)), "pf_507b1b_60month": int(f507b(r)),
                 "pf_dissolved_ind": int(dissolved(r)), "pf_terminating": int(terminating(r)),
                 "pf_fmv_assets_eoy": r.get("fmv_eoy"), "pf_book_assets_boy": r.get("assets_boy"),
                 "pf_total_grants_paid": grants_paid(r),
                 "sponsor_ein": e, "sponsor_name": p["name"], "sponsor_type": p["type"], "sponsor_subtype": p["subtype"],
-                "sponsor_segment": seg, "sponsor_tier": tier_of(e, seg, rank), "sponsor_rank_fy2024": rank.get(e, ""),
+                "sponsor_segment": seg, "sponsor_tier": tier_of(e, seg, rank) if e else "T0_daf_label_unattributed", "sponsor_rank_fy2024": rank.get(e, ""),
                 "match_method": ";".join(sorted({m for _, _, m in xs})), "lines": len(xs), "amount_usd": amt,
                 "daf_purpose_amount_usd": daf_amt, "largest_line_usd": max(g["amt"] for g, _, _ in xs),
-                "recipient_name_filed": xs[0][0]["name"][:80],
+                "recipient_name_filed": first_segment(xs[0][0]["name"])[:80],
                 "purpose_text": " | ".join(sorted({g["purpose"][:60] for g, _, _ in xs}))[:200],
                 "share_of_pf_grants_paid": amt / grants_paid(r) if grants_paid(r) else None,
                 "xml_url": XML_URL.format(oid=r["object_id"]), "source": SOURCE}
@@ -446,6 +473,8 @@ def summarise(h: Sequence[Mapping], rows: Sequence[Mapping], panel: Mapping, lea
                     "pfs": len({m["pf_ein"] for m in ms}), "lines": sum(m["lines"] for m in ms),
                     "daf_purpose_usd": _r(sum(m["daf_purpose_amount_usd"] for m in ms))}
         return {"frame_returns": sum(1 for r in h if r["tax_year"] == ty), "parsed_returns": len(rs),
+                "t0_daf_label_unattributed": t(("T0_daf_label_unattributed",)),
+                "t0_terminating": t(("T0_daf_label_unattributed",), lambda m: m["return_object_id"] in term_e),
                 "pf_grants_paid_total": _r(sum(grants_paid(r) for r in rs)),
                 "pf_itemised_lines_total": _r(sum(r["sum_lines"] for r in rs)),
                 "pf_fmv_assets_eoy_total": _r(sum(r.get("fmv_eoy") or 0 for r in rs)),
@@ -577,7 +606,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     league = read_csv(os.path.join(data, LEAGUE_CSV))
     rank = {r["ein"]: int(r["rank_assets"]) for r in league if r["fiscal_year"] == "2024" and r["row_type"] == "top50"}
     rows = sorted(matched_rows(h, keys, panel, bmf, rank), key=lambda m: (m["tax_year"], -m["amount_usd"]))
-    write_csv(os.path.join(data, OUT_NAME), rows, FIELDS)
+    write_csv(os.path.join(data, OUT_NAME), csv_rows(rows), FIELDS)
     s = {**summarise(h, rows, panel, league, read_csv(os.path.join(data, MARKET_CSV))),
          "unmatched_review": unmatched_review(h, keys, panel, bmf)}
     with open(os.path.join(a.cache, "pf_to_daf_summary.json"), "w", encoding="utf-8") as fh:
