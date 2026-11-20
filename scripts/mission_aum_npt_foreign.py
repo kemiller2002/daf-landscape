@@ -73,9 +73,10 @@ FY_LINES_SOURCE = "daf-foreign-grants-schedule-f-2023-2024.csv"
 UA = "research-script/1.0 (stdlib urllib)"
 FIELDS = ("row_type", "section", "scope", "fiscal_year", "metric", "value", "unit", "detail", "evidence", "source_url")
 
-FS_TXT = re.compile(r"\bFISCAL(LY)?\b")
+FS_TXT = re.compile(r"\bFISCAL(LY)?\s+SPONSOR")
 DAF_TXT = re.compile(r"\bDONOR[ -]ADVISED\b|\bDAF\b")
-FUND_TXT = re.compile(r"\bFUND\b|\bCOLLABORATIVE\b|\bINITIATIVE\b")
+FUND_TXT = re.compile(r"\bFUND\b|\bCOLLABORATIVE\b|\bINITIATIVE\b|\bPROJECT\b")
+GENERIC_TXT = re.compile(r"\bANNUAL FUND\b|\bGENERAL FUND\b|\bPROJECT SUPPORT\b")   # removed before FUND_TXT
 
 
 # ----------------------------------------------------------------------------- pure helpers
@@ -192,7 +193,7 @@ def derived(x: Mapping, prior_daf_eoy: float | None) -> dict:
 def evidence_class(name: str, purpose: str, fbo: bool) -> str:
     p = (purpose or "").upper()
     return ("project_style_fbo" if fbo else "purpose_fiscal_sponsorship" if FS_TXT.search(p) else
-            "purpose_daf" if DAF_TXT.search(p) else "purpose_named_fund" if FUND_TXT.search(p) else "generic")
+            "purpose_daf" if DAF_TXT.search(p) else "purpose_named_fund" if FUND_TXT.search(GENERIC_TXT.sub(" ", p)) else "generic")
 
 
 def apportion(lines: Sequence[Mapping], shares: Mapping, basis: str) -> float:
@@ -458,8 +459,9 @@ def main(argv: Sequence[str] | None = None) -> int:
         rows += [row("aum_derived", "A1", "aum", fy, k, v, "share" if "share" in k else "usd",
                      "Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY "
                      "+ contributions - grants (Schedule D lines 2-4)", "C", u) for k, v in der[fy].items()]
-    rows += [row("aum_return", "A1", "aum", 2022, "sd_daf_eoy_value", prior["sd_daf_eoy_value"], "usd", "prior-year EOY, for roll-forward",
-                 "F", U(AUM_PRIOR))]
+    rows += [row("aum_return", "A1", "aum", 2022, k, prior[k], u, "FY2022 return: prior-year EOY for the roll-forward",
+                 "F", U(AUM_PRIOR)) for k, u in (("part4_l6_daf_ind", "flag"), ("sd_daf_count", "count"),
+                                                 ("sd_daf_eoy_value", "usd"), ("total_assets_eoy", "usd"))]
     rows += [row("aum_whitelist", "A3", "aum", "2022-2024", k, wl_aum.get(k, ""), "text" if k in ("decision", "rule", "reason") else "share",
                  "daf-to-daf-recipient-whitelist.csv (unchanged)", "F") for k in
              ("decision", "rule", "reason", "daf_share_of_total_assets", "daf_share_of_grants")]

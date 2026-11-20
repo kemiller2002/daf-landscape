@@ -124,9 +124,13 @@ FEES_EXT: dict[str, dict] = {
                                                                                           "https://www.comm-foundation.org/"),
         source_date="live 2026-11-20", quotes=("Our administrative fees are among the lowest", "NO MINIMUMS TO SET UP A FUND"),
         notes="Fee described but not quantified; no minimum to open a fund."),
-    "411429402": dict(status="partial", website="https://www.dsacommunityfoundation.com/", opening_min=25_000,
-        source_url="https://www.dsacommunityfoundation.com/giving/how-to-open-a-fund", source_date="live 2026-11-20 (now Boreal Waters CF)",
-        quotes=("The minimum contribution to establish a Donor-Advised Fund is $25,000",), notes="Opening minimum only."),
+    "411429402": dict(status="published_unread", website="https://www.dsacommunityfoundation.com/", opening_min=25_000,
+        source_url="https://www.dsacommunityfoundation.com/giving/how-to-open-a-fund",
+        source_date="live 2026-11-20 (now Boreal Waters CF); fee PDF on cdn.prod.website-files.com",
+        robots="homepage: robots.txt 200 allowed; fee PDF host cdn.prod.website-files.com: robots.txt 403, treated as disallowed",
+        quotes=("The minimum contribution to establish a Donor-Advised Fund is $25,000",),
+        notes="Advisor-services page links 'View fees PDF' (Fee Schedule _ Boreal Waters Community Foundation.pdf) on the Webflow CDN, "
+              "whose robots.txt returns 403, so the schedule was not read. $25,000 DAF minimum is on the site."),
     "237041310": dict(status="partial", website="https://www.bryanareafoundation.org/", opening_min=100_000,
         source_url="https://www.bryanareafoundation.org/wp-content/uploads/2026/08/7-1-2026-DONOR-Handbook.pdf",
         source_date="Donor Handbook dated 7-1-2026 (upload 2026-08)",
@@ -134,7 +138,7 @@ FEES_EXT: dict[str, dict] = {
                 "including the names of investment manager, investment and administrative fees"),
         notes="Opening minimum; fees available on request only."),
     "416017740": dict(status="partial", website="https://www.rochesterarea.org/", opening_min=10_000,
-        source_url="https://rochesterarea.org/giving/start-a-new-fund/", source_date="live 2026-11-20",
+        source_url="https://rochesterarea.org/giving/fundholder-resources/", source_date="live 2026-11-20",
         quotes=("Donor advised funds can be created with a minimum gift of $10,000",), notes="Opening minimum only."),
     "251380549": dict(status=_NPF, notes="Funds, donors, component-fund and FAQ pages read: no DAF fee or minimum."),
     "237310660": dict(status="published_schedule", website="https://www.hafoundation.org/",
@@ -259,11 +263,13 @@ FEES_EXT: dict[str, dict] = {
         verify_urls=("https://www.dublinfoundation.org/resources/establishing-a-donor-advised-fund/",),
         source_date="live 2026-11-20", quotes=("contributing an agreed minimum amount (e.g., $25,000)",),
         notes="Minimum given only as an example ('e.g., $25,000'), so opening_min is left blank. The corporate-fund page mentions 'a nominal annual fee'."),
-    "351889139": dict(status="partial", website="https://www.cfpartner.org/", opening_min=25_000,
-        source_url="https://www.cfpartner.org/funds", source_date="live 2026-11-20 (minimums stated as effective 2012)",
-        quotes=("Donor Advised, Scholarships, and Named Funds- A minimum gift of $25,000",
+    "351889139": dict(status=_NPF, website="https://www.cfpartner.org/",
+        source_url="https://www.cfpartner.org/s/Gift-Acceptance-Policy.pdf",
+        source_date="Gifts Acceptance Policy 'Revised August 12, 2016' (pre-2021: not used as a fee term)",
+        quotes=("Donor Advised, Scholarships, and Named Funds- A minimum gift of $25,000", "Revised August 12, 2016",
                 "determined in accordance with the then current fee schedule"),
-        notes="990 homepage cfpartner.org fails TLS (name mismatch); www.cfpartner.org robots-checked and read. Fee schedule referred to, not published."),
+        notes="990 homepage cfpartner.org fails TLS (name mismatch); www.cfpartner.org robots-checked and read. The only fee term "
+              "(DAF minimum $25,000; fee schedule referred to, not published) is in a 2016 policy, so it is not counted (2021+ rule)."),
     "630864276": dict(status=_NPF, notes="Squarespace site; give page read: no DAF fee or minimum."),
     "841246756": dict(status="published_schedule", website="https://www.broomfieldfoundation.org/",
         tiers=((0, None, 1.5),), basis="marginal", gift_fee="not stated", grant_fee="not stated", investment="not stated",
@@ -497,6 +503,20 @@ def pool_section(pooled, frame_cf, realised_all, bpsv) -> str:
     real = [r for r in realised_all if r.get("part") == "B_tail_cf"]
     real_pool = sum(B.num(r["pool_central_usd"]) or 0 for r in real)
     # realised vs published, for every sampled CF with a 2021+ rate and an observed internal rate
+    # sensitivity: sampled 2021+ publishers whose realised rate in b4427b-0405 is a band-median imputation (no internal fee
+    # observed): replace that imputed rate with the published fee at the CF's own FY2024 average account.
+    imp = [r for r in rates if not B.num(r.get("realised_internal_bps_ta", "")) and B.num(r.get("realised_pool_rate_bps", "")) is not None
+           and B.num(r.get("fee_bps_at_avg_account", "")) is not None]
+    d_usd = [(B.num(r["daf_assets_fy2024"]) or 0) * (B.num(r["fee_bps_at_avg_account"]) - B.num(r["realised_pool_rate_bps"])) / 1e4 for r in imp]
+    d_w = sum(d * float(r["weight_pooled"]) for d, r in zip(d_usd, imp))
+    pub_bps = median([B.num(r["fee_bps_at_avg_account"]) for r in imp])
+    imp_bps = median([B.num(r["realised_pool_rate_bps"]) for r in imp])
+    sens = T(("Sensitivity (publishers with an imputed realised rate)", "Value"),
+             (("n sampled 2021+ publishers with imputed realised rate", str(len(imp))),
+              ("Median published fee at own avg account vs median imputed band rate, bps", f"{B.fmt(pub_bps,0)} vs {B.fmt(imp_bps,1)}"),
+              ("Sample-level change in pool if published fee replaces imputation", f"${sum(d_usd)/1e6:+,.2f}m"),
+              ("Design-weighted to the 641 tail CFs (weights N/(n_orig+n_ext)) [I]", f"${d_w/1e6:+,.1f}m"),
+              ("Realised pool with that substitution [I]", f"${(real_pool + d_w)/1e6:,.1f}m")))
     pairs = [(r["name"][:34], bpsv(r, 100_000), B.num(r.get("realised_internal_bps_ta", ""))) for r in rates]
     obs = [(n, p, q) for n, p, q in pairs if q is not None]
     return ("## E7 Fee pools (tail CFs, FY2024 DAF assets)\n\n" + T(
@@ -506,7 +526,7 @@ def pool_section(pooled, frame_cf, realised_all, bpsv) -> str:
          ("Pooled published median at $100k, bps (bootstrap 95%)", bfmt(bm)),
          ("Flat schedule ceiling at the pooled $100k median", f"${assets*med100/1e4/1e6:,.1f}m" if med100 is not None else "–"),
          ("Flat schedule ceiling, bootstrap bounds", f"${assets*bm[1]/1e4/1e6:,.1f}m–${assets*bm[2]/1e4/1e6:,.1f}m" if bm else "–")))
-        + "\n\nPublishers with an observed realised internal rate (b4427b-0405):\n\n"
+        + "\n\n" + sens + "\n\nPublishers with an observed realised internal rate (b4427b-0405):\n\n"
         + T(("Sponsor", "Published bps at $100k", "Realised internal bps of total assets"),
             ((n, B.fmt(p, 0), B.fmt(q, 1)) for n, p, q in obs)))
 
@@ -587,7 +607,10 @@ def main(argv: Sequence[str]) -> int:
     rows = tuple(ext_row(r, hp.get(r["ein"], ""), realised.get(r["ein"], {}), a.cache_dir) for r in ext)
     B.write_csv(OUT_CSV, rows, FIELDS)
     orig_rows = tuple(r for r in B.read_csv(B.OUT_CSV) if r["type4"] == "cf")
-    orig_cf = tuple({**r, "realised_internal_bps_ta": realised.get(r["ein"], {}).get("internal_bps_ta", "")} for r in orig_rows)
+    wpool = {r["stratum"]: r["weight_pooled"] for r in rows}
+    orig_cf = tuple({**r, "weight_pooled": wpool[r["stratum"]],
+                     "realised_internal_bps_ta": realised.get(r["ein"], {}).get("internal_bps_ta", ""),
+                     "realised_pool_rate_bps": realised.get(r["ein"], {}).get("pool_rate_bps", "")} for r in orig_rows)
     frame_cf = tuple(r for r in frame if r["type4"] == "cf")
     print(report(rows, orig_cf, frame_cf, tuple(realised.values())))
     return 0

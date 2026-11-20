@@ -85,7 +85,7 @@ COLS = ["row_id", "population", "foundation", "ein", "fy2024_daf_assets_usd", "d
         "affiliate_lists_read", "type_daf_explicit", "type_advised_agency", "type_advised_other",
         "type_scholarship", "type_endowment", "type_memorial", "type_designated", "type_agency",
         "type_field_of_interest_or_general", "type_family_or_named_charitable", "type_other",
-        "fund_type_shown_on_hub", "lists_daf_public", "daf_examples", "hub_nav_items",
+        "fund_type_shown_on_hub", "lists_daf_public", "unique_hub", "duplicate_of", "daf_examples", "hub_nav_items",
         "donor_portal_link_on_hub", "grant_catalog_on_hub", "recommend_grant_text_on_hub",
         "daf_mention_in_hub_text", "dafpay_or_dafdirect_on_hub", "dafpay_or_dafdirect_on_cf_pages",
         "notes", "retrieved"]
@@ -288,7 +288,7 @@ def http_get(url, cookie, cache, offline):
     except Exception as err:  # transport failure: record, never retry around a block
         rec = dict(status="transport_error:" + type(err).__name__, text="", final_url=url)
     time.sleep(DELAY_S)
-    if isinstance(rec["status"], int):
+    if True:  # transport failures are cached too, so an --offline rerun reproduces the same rows
         with open(path, "w", encoding="utf-8") as fh:
             json.dump(dict(url=url, **rec), fh)
     return rec["status"], rec["text"], rec["final_url"]
@@ -353,13 +353,15 @@ def hub_row(cf, cache, offline):
                 cf_robots_status=cf_rv[0], cf_robots_allows_agent="Y" if cf_rv[1] else "N",
                 cf_robots_ai_group=cf_rv[2], retrieved=RETRIEVED)
     if not cf_rv[1]:
-        return {**base, "hub_read_status": "cf_robots_disallowed"}
+        unreachable = not isinstance(cf_robots[0], int)
+        return {**base, "hub_read_status": "cf_robots_unreachable" if unreachable else "cf_robots_disallowed"}
     pages, hubs, found_on = find_hub(start_urls, site_key(cf_host), cf_robots, cache, offline)
     cf_widget = ";".join(sorted({w for p in pages for w in daf_widget(p[2]).split(";") if w}))
     base = {**base, "dafpay_or_dafdirect_on_cf_pages": cf_widget or "none seen",
             "notes": "" if pages else "CF start pages not read"}
     if not hubs:
-        return {**base, "hub_read_status": "no hub link found", "lists_daf_public": "n/a"}
+        return {**base, "hub_read_status": "no hub link found" if pages else "cf start pages not read",
+                "lists_daf_public": "n/a"}
     hub_urls = tuple(h[0] for h in hubs)
     hub_host = most_common_host(hub_urls)
     hub_robots = robots_for(hub_host, cache, offline)
@@ -391,7 +393,7 @@ def hub_row(cf, cache, offline):
             "hub_nav_items": "; ".join(t for t, _ in nav),
             "donor_portal_link_on_hub": "Y" if any(re.search(r"/erp/(portal|fundmanager|login)", h) for _, h in nav) else "N",
             "grant_catalog_on_hub": "Y" if any("/erp/donate/list/grant" in h for _, h in nav) else "N",
-            "recommend_grant_text_on_hub": "Y" if re.search(r"recommend(?:ing)? a grant|grant recommendation", strip_tags(hub["featured"]), re.I) else "N",
+            "recommend_grant_text_on_hub": "Y" if re.search(r"recommend(?:ing)? a grant|grant recommendation", hub_text, re.I) else "N",
             "daf_mention_in_hub_text": "Y" if re.search(r"donor[- ]advised|\bDAF\b", hub_text) else "N",
             "dafpay_or_dafdirect_on_hub": daf_widget(all_hub_html) or "none seen"}
 
@@ -430,6 +432,16 @@ def extended_population(root, core_eins):
                                     assets=r["fy2024_daf_assets_usd"], rank="", start_urls=(r["homepage"],)),
                      rows))
 
+def mark_duplicates(rows):
+    """Several filers (supporting trusts, affiliates) link to one hub. The first row per hub host (core
+    rows come first) is the unique hub; later rows point to it. Rows without a hub are deduplicated
+    on CF host the same way."""
+    def key(r):
+        return r["hub_host"] or ("cf:" + site_key(r["cf_host"]))
+    first = reduce(lambda acc, r: acc if key(r) in acc else {**acc, key(r): r["row_id"]}, rows, {})
+    return tuple({**r, "unique_hub": "Y" if first[key(r)] == r["row_id"] else "N",
+                  "duplicate_of": "" if first[key(r)] == r["row_id"] else first[key(r)]} for r in rows)
+
 # ----------------------------------------------------------------------------------------------
 # Summaries (pure)
 # ----------------------------------------------------------------------------------------------
@@ -440,12 +452,20 @@ def share(rows, pred):
     return k, n, (round(100.0 * k / n, 1) if n else 0.0)
 
 
+def median_pct(read):
+    pcts = sorted(100.0 * int(r["type_daf_explicit"]) / int(r["public_funds_total"]) for r in read if int(r["public_funds_total"]))
+    n = len(pcts)
+    return round((pcts[n // 2] if n % 2 else (pcts[n // 2 - 1] + pcts[n // 2]) / 2), 1) if n else 0.0
+
+
 def summarise(rows):
     def block(label, sub):
         read = tuple(filter(lambda r: r.get("hub_read_status") == "read", sub))
         lines = [f"[{label}] foundations={len(sub)} hub_status={dict(Counter(r.get('hub_read_status') for r in sub))}",
                  "  hubs read: %d; lists DAF (Y) %d/%d = %.1f%%" % ((len(read),) + share(read, lambda r: r["lists_daf_public"] == "Y")),
                  "  Y or P (any 'advised' name): %d/%d = %.1f%%" % share(read, lambda r: r["lists_daf_public"] in ("Y", "P")),
+                 "  sensitivity, >=2 explicit-DAF funds: %d/%d = %.1f%%" % share(read, lambda r: int(r["type_daf_explicit"]) >= 2),
+                 "  explicit-DAF share of public funds, median hub: %s%%" % median_pct(read),
                  "  public funds total: %d; explicit-DAF funds: %d" % (sum(int(r["public_funds_total"]) for r in read),
                                                                        sum(int(r["type_daf_explicit"]) for r in read)),
                  "  fund type field shown on hub: %d/%d" % share(read, lambda r: r["fund_type_shown_on_hub"] == "Y")[:2],
@@ -457,8 +477,10 @@ def summarise(rows):
                      + share(sub, lambda r: r.get("dafpay_or_dafdirect_on_cf_pages", "none seen") not in ("none seen", ""))[:2])]
         return "\n".join(lines)
     core = tuple(filter(lambda r: r["population"] == "core", rows))
-    return "\n".join([block("core", core), block("extended", tuple(filter(lambda r: r["population"] == "extended", rows))),
-                      block("all", rows)])
+    uniq = tuple(filter(lambda r: r["unique_hub"] == "Y", rows))
+    return "\n".join([block("core", core),
+                      block("extended, unique hubs not in core", tuple(filter(lambda r: r["population"] == "extended", uniq))),
+                      block("all rows (filers)", rows), block("all unique hubs (headline)", uniq)])
 
 # ----------------------------------------------------------------------------------------------
 
@@ -483,7 +505,7 @@ def main(argv):
     cfs = core + ext
     with ThreadPoolExecutor(max_workers=args["workers"]) as pool:
         rows = tuple(pool.map(lambda cf: hub_row(cf, args["cache"], args["offline"]), cfs))
-    numbered = tuple({**{c: "" for c in COLS}, **r, "row_id": f"FGH-{i:03d}"} for i, r in enumerate(rows, 1))
+    numbered = mark_duplicates(tuple({**{c: "" for c in COLS}, **r, "row_id": f"FGH-{i:03d}"} for i, r in enumerate(rows, 1)))
     with open(args["out"], "w", newline="", encoding="utf-8") as fh:
         writer = csv.DictWriter(fh, fieldnames=COLS, extrasaction="ignore")
         writer.writeheader()
