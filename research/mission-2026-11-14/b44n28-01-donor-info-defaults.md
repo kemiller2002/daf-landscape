@@ -252,7 +252,7 @@ The fetcher made 76 requests in all:
 | S16 | AEF, Grant Recommendation Process for Donors | 2021-12-09 | https://www.aefonline.org/wp-content/uploads/2023/07/Grant-Recommendation-Process-for-Donors.pdf |
 | S17 | RCF portal, Ren ‘Giving Platform Donor User Guide’ (same file on seven RCF portals, SHA-1 93d97b49e84a) [V wave 35B] | 2026-10-06 | https://rcf.donorfirstx.com/pdf/RCF/Donor%20User%20Guide.pdf |
 | S18 | RCF, Program Circular | 2026-06-01 | https://rcf.donorfirstx.com/pdf/RCF/RCF%20Program%20Circular.pdf |
-| S19 | NCF, Guide to giving | live | https://ncfgiving.com/guide |
+| S19 | NCF, Guide to giving | live | https://ncfgiving.com/guide. The fund-name quote “This name appears alongside your name and address on correspondence, including the letter that accompanies each grant issued by the fund.” is on https://www.ncfgiving.com/guide-to-giving-at-NCF, not on S20 (/giving-fund/); row 10 of `donor-info-defaults-top20-2026-11-19.csv` should cite the guide (b52-01; re-checked live 2026-11-20) [V wave 52A] |
 | S20 | NCF, Giving Fund | live | https://www.ncfgiving.com/giving-fund |
 | S21 | BofA CGF, Guide to Navigating Your Donor Advised Fund | 2025-11-14 / 2026-02-23 | https://bofa.donorfirst.org/pdf/bofa/Guide%20to%20Navigating%20Your%20Donor%20Advised%20Fund.pdf |
 | S22 | BofA CGF, Program Guidelines 2024 (Version 3.2024) | 2024-06-05 (PDF modified 2024-09-18) [V wave 34A] | https://www.bankofamerica.com/philanthropic/Program_Guidelines_2024.pdf |

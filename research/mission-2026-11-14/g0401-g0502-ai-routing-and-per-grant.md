@@ -271,6 +271,7 @@ robots.txt was read for each host first (§S2).
 | Jewish Community Foundation of LA (37) | 2024 | 14,000 | 3,320 | Stated dollars ($207m) are 1.6× Part IX ($130.9m), and Schedule I exceeds Part IX |
 
 **Consistency checks [C]**
+- **NPT restatement (wave 52A note).** The 106,235 and 129,575 used here are the FY25 report’s restated values. NPT’s FY23 report printed 107,385 grants and 36,361 recipients for FY2023, and its FY24 report printed 130,875 and 41,879 for FY2024 (b52-01, re-fetched by wave 52A). The restated series governs because the international counts (335, 406) and dollars come from the same FY25 report; the share changes by about 0.003 percentage points either way. [V wave 52A]
 - **NPT's two sources agree.** The 990 narratives ("approximately 107,000"; "more than 129,000") match the annual report's 106,235 and 129,575.
 - **Source dollars against Part IX lines 1–3:**
   - Fidelity: 1.11 and 1.05;

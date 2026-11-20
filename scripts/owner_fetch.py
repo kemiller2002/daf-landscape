@@ -32,6 +32,7 @@ Usage
   python3 scripts/owner_fetch.py --list
   python3 scripts/owner_fetch.py --out owner-files               # all tasks
   python3 scripts/owner_fetch.py --out owner-files --only regs-0242 wayback-rcf-1
+  python3 scripts/owner_fetch.py --out owner-files --targets-only --priority high   # blocked-source list
 
 Output
   owner-files/<task_id>/...         saved files
@@ -137,6 +138,30 @@ def now() -> str:
 
 def safe_name(s: str) -> str:
     return "".join(c if c.isalnum() or c in "._-" else "_" for c in s)[:150] or "file"
+
+
+TARGETS_CSV = Path("data/mission-2026-11-14/owner-fetch-targets-2026-11-20.csv")
+PRIORITY_ORDER = {"high": 0, "medium": 1, "low": 2}
+MODE_FROM_CSV = {"download": "guided", "snapshot": "guided", "lookup": "lookup"}
+
+
+def task_from_target(row: dict) -> Task:
+    """One owner-fetch-targets row -> Task. Downloads open in the visible browser too."""
+    note = f"[{row.get('priority','')}] {row.get('what_to_get','')} (blocked: {row.get('block_reason','')})"
+    return Task(row["target_id"], row.get("needed_for", ""), MODE_FROM_CSV.get(row.get("mode", ""), "guided"),
+                row["url"], note)
+
+
+def targets_from_csv(rows: Iterable[dict], priorities: Optional[Sequence[str]]) -> tuple[Task, ...]:
+    keep = lambda r: (not r.get("already_in_owner_fetch", "").strip().lower().startswith(("y", "true"))
+                      and r.get("url", "").startswith("http")
+                      and (not priorities or r.get("priority", "") in priorities))
+    order = lambda r: (PRIORITY_ORDER.get(r.get("priority", ""), 9), r.get("target_id", ""))
+    return tuple(task_from_target(r) for r in sorted(filter(keep, rows), key=order))
+
+
+def load_targets(path: Path, priorities: Optional[Sequence[str]]) -> tuple[Task, ...]:
+    return targets_from_csv(csv.DictReader(path.open(newline="")), priorities) if path.exists() else ()
 
 
 def select(tasks: Sequence[Task], only: Optional[Sequence[str]]) -> tuple[Task, ...]:
@@ -300,11 +325,17 @@ def main(argv: Sequence[str]) -> int:
     ap.add_argument("--out", default="owner-files")
     ap.add_argument("--only", nargs="*")
     ap.add_argument("--list", action="store_true")
+    ap.add_argument("--targets", default=str(TARGETS_CSV),
+                    help="CSV of extra blocked sources (owner-fetch-targets); empty string to skip")
+    ap.add_argument("--priority", nargs="*", choices=("high", "medium", "low"),
+                    help="only run targets-CSV rows of these priorities")
+    ap.add_argument("--targets-only", action="store_true", help="skip the built-in task list")
     ap.add_argument("--profile", default=str(Path.home() / ".daf-owner-fetch-profile"),
                     help="persistent browser profile, so sign-ins and cookies survive between runs")
     args = ap.parse_args(argv)
 
-    tasks = select(TASKS, args.only)
+    extra = load_targets(Path(args.targets), args.priority) if args.targets else ()
+    tasks = select(extra if args.targets_only else TASKS + extra, args.only)
     if args.list:
         print("\n".join(f"{t.task_id:30} {t.mode:7} {t.queue_item:28} {t.url}" for t in tasks))
         return 0

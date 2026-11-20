@@ -147,7 +147,7 @@ Sources:
 
 ### 2.3 Every.org [F, partial]
 
-- **Site terms not read.** `www.every.org/terms` was not read: robots.txt returned 429 and was treated as disallowed. This repeats the 403/429 result of 2026-11-15 ([queue-batch30-everyorg-givinga-goodstack.md](queue-batch30-everyorg-givinga-goodstack.md)).
+- **Site terms not read.** `www.every.org/terms` was not read: robots.txt returned 429 and was treated as disallowed. This repeats the 403/429 result of 2026-11-15 ([queue-batch30-everyorg-givinga-goodstack.md](queue-batch30-everyorg-givinga-goodstack.md)). On 2026-11-20 (b52-01, and again in wave 52A) robots.txt still returned 429, now serving a “Vercel Security Checkpoint” JS challenge, so the terms remain unread even after the owner lifted the site-terms rule. [V wave 52A]
 - **Developer docs** ([docs.every.org](https://docs.every.org/docs/endpoints/nonprofits), undated, ©2026):
   - "We strive to keep this API open and available for use without restrictions."
   - Rate limits apply (100–500 requests per minute per key).
@@ -317,7 +317,7 @@ Sources:
 | S8 | Candid License Agreement (APIs) (portal) | Dec 2023 | https://developer.candid.org/page/candid-license-agreement.md | F |
 | S9 | Candid developer llms.txt | fetched 2026-11-20 | https://developer.candid.org/llms.txt | F |
 | S10 | Every.org Charity API docs (intro, auth, nonprofits) | undated | https://docs.every.org/docs/endpoints/nonprofits | F |
-| S11 | Every.org site terms | — | https://www.every.org/terms | not read (robots 429) |
+| S11 | Every.org site terms | — | https://www.every.org/terms | not read (robots 429; still 429 with a Vercel Security Checkpoint challenge on 2026-11-20, b52-01 and wave 52A) [V wave 52A] |
 | S12 | Pledge Terms of Service | 2025-01-15 | https://www.pledge.to/terms | F |
 | S13 | Pledge Acceptable Use Policy | 2024-12-20 | https://www.pledge.to/acceptable-use-policy | F |
 | S14 | Pledge MCP guide and tool reference | undated | https://developer.pledge.to/guides/mcp/ ; https://developer.pledge.to/reference/mcp/ | F |
