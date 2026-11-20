@@ -57,5 +57,12 @@ let main argv =
     write outX "e8-migration.csv" (Daf.Experiments.ExperimentReport.e8 ())
     write outX "e9-crash-recovery.csv" (Daf.Experiments.ExperimentReport.e9 ())
     write outX "e10-ai-triage.csv" (Daf.Experiments.ExperimentReport.e10 seed)
-    printfn "wrote outputs to %s, %s and %s" out09 out11 outX
+    let summaryPath = Path.Combine(root, "..", "..", "data", "workflow-innovation", "recipient-overlap-summary.csv")
+    let (netCurve, netSens, infraModels, _) = Daf.Experiments.ExperimentReport.network summaryPath
+    let out09wi = Path.Combine(root, "workflow-innovation", "09-economic-validation", "results")
+    Directory.CreateDirectory out09wi |> ignore
+    write out09wi "network-join-curve.csv" netCurve
+    write out09wi "network-sensitivity.csv" netSens
+    write out09wi "infrastructure-models.csv" infraModels
+    printfn "wrote outputs to %s, %s, %s and %s" out09 out11 outX out09wi
     0

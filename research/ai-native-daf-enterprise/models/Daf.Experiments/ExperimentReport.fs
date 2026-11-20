@@ -76,3 +76,30 @@ let e8 () =
     Migration.compare 5 2
     |> List.map (fun r -> String.Join(",", [ q r.Method; string r.GrantsVisible; string r.ContributionsVisible; string r.FundBalance; string r.ScheduleDGrantsAllYears; f2 r.HistoryCompleteness ]))
     |> csv "method,grants_visible,contributions_visible,fund_balance,schedule_d_grants_paid_visible,history_completeness"
+
+let network (summaryPath: string) =
+    let (curve, sponsors) = NetworkEconomics.load summaryPath
+    let p = NetworkEconomics.defaults
+    let rows order = if order = "random_mean_200" then NetworkEconomics.joinCurveRandom p curve sponsors else NetworkEconomics.joinCurve p curve sponsors order
+    let orders = [ "descending_assets"; "ascending_assets"; "random_mean_200" ]
+    let body =
+        orders |> List.collect (fun o ->
+            rows o |> List.map (fun r -> String.Join(",", [ q r.Order; string r.K; f2 r.MemberSavings; f2 r.CumulativeOperatorRevenue; string r.OperatorBreakEven ])))
+    let curveCsv = csv "join_order,k,member_annual_savings_usd,cumulative_operator_revenue_usd,operator_break_even" body
+    let total o = rows o |> List.sumBy (fun r -> r.MemberSavings)
+    let sens =
+        [ for v in [ 67.5; 270.0; 1080.0 ] do
+            for h in [ 0.08; 0.2 ] do
+                let p' = { p with CostPerDetermination = v; HumanDeterminationShare = h }
+                let r = NetworkEconomics.joinCurve p' curve sponsors "descending_assets"
+                let tot = r |> List.sumBy (fun x -> x.MemberSavings)
+                yield String.Join(",", [ f2 v; f2 h; f2 tot; f2 (tot * p.FeeShareOfSavings); (match NetworkEconomics.firstBreakEven r with Some k -> string k | None -> "never") ]) ]
+    let summary =
+        csv "cost_per_determination_usd,human_determination_share,total_member_savings_usd,operator_revenue_usd,break_even_k_descending" sens
+    let models =
+        [ NetworkEconomics.grantInfrastructure 10 80000.0 1.0; NetworkEconomics.grantInfrastructure 30 80000.0 1.0
+          NetworkEconomics.grantInfrastructure 10 80000.0 3.0; NetworkEconomics.sharedCompliance 20 60000.0
+          NetworkEconomics.sharedCompliance 60 60000.0; NetworkEconomics.sharedCompliance 150 30000.0 ]
+        |> List.map (fun m -> String.Join(",", [ q m.Model; string m.Customers; f2 m.Revenue; f2 m.Cost; f2 (m.Revenue - m.Cost); q m.Note ]))
+        |> csv "model,customers,revenue_usd,cost_usd,operating_result_usd,note"
+    curveCsv, summary, models, (orders |> List.map (fun o -> o, total o))

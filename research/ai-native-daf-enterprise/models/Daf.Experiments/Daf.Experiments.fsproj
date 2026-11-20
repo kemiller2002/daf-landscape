@@ -9,6 +9,7 @@
     <Compile Include="Sim.fs" />
     <Compile Include="Experiments.fs" />
     <Compile Include="Migration.fs" />
+    <Compile Include="NetworkEconomics.fs" />
     <Compile Include="ExperimentReport.fs" />
   </ItemGroup>
 

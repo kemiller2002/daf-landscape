@@ -147,3 +147,22 @@ let ``E10: any auto-close threshold escapes defects; distribution shift makes it
     Assert.True(baseEsc > 0)
     Assert.True(shiftedEsc > baseEsc)
     Assert.True((E10.autoClose p seed 0.5).Minutes < (E10.flagOnly p seed).Minutes)
+
+// E7/E11 network economics on the measured public-data reuse curve
+[<Fact>]
+let ``network: measured curve loads for 48 sponsors in three orders; routine-only value never breaks even large-first; costly determinations do`` () =
+    let path = System.IO.Path.Combine(Daf.Enterprise.Tests.Fixtures.repoRoot (), "data", "workflow-innovation", "recipient-overlap-summary.csv")
+    let (curve, sponsors) = Daf.Experiments.NetworkEconomics.load path
+    Assert.Equal(48, sponsors.Length)
+    for o in [ "descending_assets"; "ascending_assets"; "random_mean_200" ] do
+        Assert.Equal(48, curve |> List.filter (fun c -> c.Order = o) |> List.length)
+    Assert.All(curve, fun c -> Assert.InRange(c.RecipientShare, 0.0, 1.0))
+    let p = Daf.Experiments.NetworkEconomics.defaults
+    let routine = Daf.Experiments.NetworkEconomics.joinCurve p curve sponsors "descending_assets"
+    Assert.Equal(None, Daf.Experiments.NetworkEconomics.firstBreakEven routine)
+    let costly = Daf.Experiments.NetworkEconomics.joinCurve { p with CostPerDetermination = 270.0 } curve sponsors "descending_assets"
+    Assert.True((Daf.Experiments.NetworkEconomics.firstBreakEven costly).IsSome)
+    // order dependence: small-first gives the second joiner almost nothing
+    let small2 = (Daf.Experiments.NetworkEconomics.joinCurve p curve sponsors "ascending_assets").[1].MemberSavings
+    let large2 = routine.[1].MemberSavings
+    Assert.True(small2 < large2 / 10.0)
