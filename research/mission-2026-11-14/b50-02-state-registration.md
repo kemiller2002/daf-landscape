@@ -27,9 +27,9 @@
 | Question | Answer |
 |---|---|
 | **Which states could be checked by script?** | **Two: Colorado and Connecticut.** Both publish official registry data as public-domain open data, and robots.txt allows the SODA `/resource/` path for `*` and names no Claude agent [C]. The five candidate states (CA, NY, PA, MA, WA) are **manual only**; the reasons are in §2. |
-| **Share of sponsors current, Colorado** (FEIN join) | **Top-50: 17 of 50 (34%) current.** Of the 35 sponsors with a CO record, 49% are current. **Small sample: 4 of 50 (8%)**; 4 of the 9 with a record are current. 15 top-50 and 41 small-sample sponsors have no CO record [C]. |
+| **Share of sponsors current, Colorado** (FEIN join) | **Top-50: 17 of 50 (34%) current.** Of the 35 sponsors with a CO record, 49% are current. **Small sample: 4 of 50 (8%)**; 4 of the 9 with a record are current. 15 top-50 and 41 small-sample sponsors have no CO record [C]. The of-sample shares count those sponsors as not current; no record is not evidence of non-compliance (§3.3). [V wave 50A] |
 | **Share of sponsors current, Connecticut** (name join) | **Top-50: 28 of 50 (56%)** current, or 26 without the low-confidence name matches. That is 90% of the 31 matched. **Small sample: 6 of 50 (12%)**, or 5 without low-confidence matches. That is 6 of the 7 matched [C]. |
-| **Who is delinquent?** | **CT: none** in either frame. **CO: 19 sponsors carry an expiration-notice status.** 14 of them are NOTICE 1, dated 2026-11-16, **five days past a 2026-11-15 due date** that fell on a Sunday. That is almost certainly filing lag, not lapse [I]. **Five have been past due for more than 30 days** (§3.2). |
+| **Which sponsors show an expiration notice?** | **CT: none** in either frame (no LAPSED credential). [V wave 50A] **CO: 19 sponsors carry an expiration-notice status.** 14 of them are NOTICE 1, dated 2026-11-16, **five days past a 2026-11-15 due date** that fell on a Sunday. Colorado sends notice 1 one day after the due date, so a Monday notice after a Sunday due date is the published schedule. The pattern recurs: for 13 of the 14, the FY2024 renewal payment was processed 2 to 94 days after 2025-11-15, the same extended due date a year earlier. The likely cause is late filing by the sponsors within the extension cycle, not SOS processing. The registrations are technically expired until the report is filed, but most should clear within weeks [I]. [V wave 50A] **Five have been past due for more than 30 days** (§3.2). |
 | **Enforcement notices** | **None found in the sources checked.** Those were the CO and CT status fields (no REVOKED, DENIED or SUSPENDED status for any sampled sponsor) and the repo's state-AG litigation rows. The CA, NY and PA enforcement lists were **not** checked (manual only). |
 
 ## 2. Method
@@ -65,7 +65,7 @@ No logins, forms or outreach were used, and no CAPTCHA was attempted. The user a
 - **Status:** `currentStatus` [F] is mapped to a class [I]:
   - GOOD and REMINDER → *current*;
   - EXEMPT → *exempt*;
-  - NOTICE 1, 2 or 3 (and their ESTIMATE variants) → *delinquent*;
+  - NOTICE 1, 2 or 3 (and their ESTIMATE variants) → *delinquent*. The CO SOS calls these expiration notices; validation recommends reporting notices up to 30 days old as *expiration notice (recent)* and reserving *lapsed* for older ones; [V wave 50A]
   - REVOKED and REGISTRATION DENIED → *revoked*;
   - WITHDRAWN → *withdrawn*.
 - **Notice schedule:** the CO SOS publishes it ([notices FAQ](https://www.coloradosos.gov/pubs/charities/FAQ/notices.html)) [F]:
@@ -107,7 +107,7 @@ No logins, forms or outreach were used, and no CAPTCHA was attempted. The user a
 | CA, NY, PA, MA, WA | both | 500 | – | – | – | – | manual only | – |
 
 - **Exempt:** no sampled sponsor carries CO status EXEMPT.
-- **CT:** four "current" CT matches hold the credential "PUBLIC CHARITY-EXEMPT FROM FINANCIAL REQUIREMENTS": Servant Foundation, Signatry, UCLA Foundation and St Luke's Foundation [F].
+- **CT:** four "current" CT matches hold the credential "PUBLIC CHARITY-EXEMPT FROM FINANCIAL REQUIREMENTS": Servant Foundation, Signatry, UCLA Foundation and St Luke’s Foundation [F]. St Luke’s (MN) probably matched a different, CT-based organization (§6), so the defensible small-sample CT figure is 5 of 50. [V wave 50A]
 - **Either state:** 47 of the 100 sponsors appear in at least one of the two registries. 18 are current in both.
 - **Latest fiscal year in CO:** among the 21 CO-current sponsors, CO holds FY2025 financials for 18, FY2024 for 2 and FY2026 for 1 (T. Rowe Price, FYE 2026-03-31) [C].
 
@@ -125,7 +125,7 @@ No logins, forms or outreach were used, and no CAPTCHA was attempted. The user a
 | small50 | Indian Land Tenure Foundation, Donors Capital Fund, The American Ireland Fund | 2 current, 1 not found |
 
 - All 14 are calendar-year filers whose latest CO financials are FY2024. Their FY2025 report was due on the extended date of 2026-11-15 [F/C].
-- **This is a timing artefact of a snapshot five days after a mass due date [I].**
+- **This is a timing artefact of a snapshot five days after a mass due date [I].** On this reading the lapsed count to report is 5 (NOTICE 3, more than 30 days), with the 14 recent expiration notices shown separately. [V wave 50A]
 - P-B5002-02 re-pulls the file after 2026-12-15 to test this.
 
 **Colorado, more than 30 days past due:** 5 sponsors, listed below with their latest CO filing [F].

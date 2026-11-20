@@ -23,13 +23,13 @@
   One matter is pending: *Peterson v. Christian Community Foundation (WaterStone)*, D. Colo., filed 2026-01-15. [F/S]
 - **What the courts have established:**
   1. Advisory privileges are non-binding. The sponsor "is not legally obligated to comply with the donor's advice" (9th Cir. slip op. 6).
-  2. A donor has no Article III standing to challenge fees, share classes or investment menus, because those are paid from assets the donor gave away (9th Cir. slip op. 12; N.D. Cal. ECF 74 at 6).
-  3. Under California law, a donor is not among the persons allowed to sue a charitable corporation for mismanagement; that role belongs to the Attorney General (ECF 74 at 8–9, citing Cal. Corp. Code §5142(a)). [F]
+  2. A donor who agreed to disclosed fees and a pre-selected investment menu has no Article III standing to challenge them, because they are paid from assets the donor gave away (9th Cir. slip op. 7, 12; N.D. Cal. ECF 74 at 6). The Ninth Circuit ruled on the pleaded facts and left the other injury theories undecided (slip op. 9). [V wave 50A]
+  3. Under California law, a donor is not among the persons allowed to sue a charitable corporation for mismanagement; that role belongs to the Attorney General (ECF 74 at 8–9, citing Cal. Corp. Code §5142(a)). This is the district court’s holding only; the Ninth Circuit did not reach it (slip op. 13). [F] [V wave 50A]
 - **Two questions remain open:**
   - **Specific promises made to induce a gift.** *Fairbairn* reached trial on this theory but lost on proof (ECF 257 at 11).
   - **Interference with the advisory right itself.** The Ninth Circuit stressed that the donor did not allege the sponsor "refused to listen to his advice" (slip op. 11). *Peterson* is the first 2021+ case to plead that injury. No court has ruled on it. [F/I]
 - **The sponsor's "exclusive legal control" also decides tax cases.**
-  - In *Keefer v. United States* (N.D. Tex. 2022), donors lost a DAF deduction because the sponsor's acknowledgment letter did not state exclusive legal control. Compliance must be "strict (not substantial)" (Doc. 86 at 7). [F]
+  - In *Keefer v. United States* (N.D. Tex. 2022), donors lost a DAF deduction on two independent grounds: the gift was an anticipatory assignment of income (Doc. 79 at 21), and the sponsor’s acknowledgment letter did not state exclusive legal control (Doc. 79 at 23–24). [V wave 50A] Compliance must be "strict (not substantial)" (Doc. 86 at 7). [F]
   - In T.C. Memo. 2023-34, a pre-sale stock gift to Fidelity Charitable was taxed to the donors as an assignment of income (law-firm alert). [S]
   - **[I] The control that wins the donor a deduction is the same control that defeats the donor's suit.**
 - **Enforcement runs through state AGs.** In 2026 the Georgia AG sued a self-described DAF sponsor (SDG Impact Fund) in Fulton County Superior Court, seeking restitution and a receiver. Alaska sued six giving platforms, including PayPal Giving Fund. [F/S]
@@ -88,7 +88,7 @@
   - the need to contribute more.
 
   The reputation, expression and contribution theories failed because none was alleged as actual or imminent (slip op. 9–10). The property theory failed because the Program Policies give the sponsor "final authority … for any other reason" (slip op. 11). Fees and the investment menu were disclosed and agreed at the time of the gift (slip op. 12). [F]
-- **Concurrence (Judge Bress).** He would hold outright that expressive or reputational injuries tied to DAF spending never confer standing. He also restates the common-law rule leaving charitable-trust enforcement to state AGs (slip op. 15–16). He cites *Herbst v. Univ. of Colo. Found.*, 513 P.3d 388 (Colo. Ct. App. 2022): donor status alone is "insufficient to give him standing." That is Colorado authority, the same state as *Peterson*. [F]
+- **Concurrence (Judge Bress).** He would hold outright that expressive or reputational injuries tied to DAF spending never confer standing. He also restates the common-law rule leaving charitable-trust enforcement to state AGs (slip op. 15–16; the concurrence begins at 13). *Herbst* (at 393) concerns a university foundation, not a DAF sponsor. [V wave 50A] He cites *Herbst v. Univ. of Colo. Found.*, 513 P.3d 388 (Colo. Ct. App. 2022): donor status alone is "insufficient to give him standing." That is Colorado authority, the same state as *Peterson*. [F]
 - **Repo correction.** Repo row LIT-02 dates the appeal decision "2022-09". The slip opinion is dated **2022-09-14**. The 48 F.4th 1051 cite was not re-verified. [F]
 
 ### 3.2 Sponsor discretion and donor promises: *Fairbairn* and successors
@@ -140,7 +140,7 @@
   - the gift was an anticipatory assignment of income (Doc. 79 at 21);
   - the acknowledgment letter "contains nothing to prove 'exclusive legal control'", so §170(f)(18) was not satisfied (at 23–24).
 
-  The pre-gift DAF packet, which did state exclusive control, could not be read together with the letter (Doc. 86 at 7). The claims denied were $507,964.80, with alternatives of $327,520.00 and $136,875.00 (Doc. 79 at 34). Whether there was an appeal was not verified (P-B5001-03).
+  The pre-gift DAF packet could not supplement the acknowledgment letter, and the court expressly did not decide whether the packet established exclusive legal control (Doc. 79 at 23). On reconsideration it also refused to read the packet together with the 2015-06-18 assignment of interest, because the CWA requirement “requires strict (not substantial) compliance” (Doc. 86 at 7). The claims denied were $507,964.80 (Claim 1), with alternative claims for at least $327,520 and at least $136,875 (Doc. 79 at 34). [V wave 50A] Whether there was an appeal was not verified (P-B5001-03).
 - **T.C. Memo. 2023-34 (S).** The deduction for stock gifted to Fidelity Charitable before a sale was lost (about $3.3m per the alert), and the gain was taxed to the donors (P-B5001-04).
 
 ## 4. Synthesis: donor rights against sponsors, and the link to policy
@@ -151,14 +151,14 @@
    - Sponsor program policies repeat this, and courts take the policies into account: *Pinkert* incorporated them by reference, and the Ninth Circuit supplemented the record with them (ECF 74 at 3 n.7; slip op. 11 n.2). [F]
 2. **Standing is the gate, and it is closed for general mismanagement claims.**
    - Fee, share-class, investment-menu and prudence claims fail because the donor no longer has an interest in the money (Article III), and because California routes charitable-trust enforcement to the AG (§5142(a)). [F]
-   - **[I]** This forecloses the ERISA-style excessive-fee class action against fee-charging sponsors. That is the litigation risk the repo's fee and affiliate analyses would otherwise have to price.
+   - **[I]** In the Ninth Circuit this makes an ERISA-style excessive-fee class action hard to bring over fees that were disclosed and agreed. It does not foreclose one generally: the majority ruled on the pleaded facts (slip op. 7, 9), the broader rule is the Bress concurrence, and California statutory standing was not reached on appeal (slip op. 13). [V wave 50A] That is the litigation risk the repo's fee and affiliate analyses would otherwise have to price.
 3. **Open lanes are narrow and fact-specific.** Courts have left room for:
    - (a) specific pre-gift promises (*Fairbairn*: allowed in 2018, lost at trial in 2021);
    - (b) refusal to consider advice, the *Pinkert* gap, now tested by *Peterson*;
    - (c) a possible but undecided duty of care in handling a donor's gift (*Fairbairn* at 13, 18). [F/I]
 4. **The control paradox.**
-   - The statutory control that defeats donor suits is also what the IRS and courts demand, strictly, before allowing the deduction (*Keefer*). [F]
-   - **[I]** Sponsors cannot soften "exclusive legal control" language in their agreements and receipts to reassure donors without putting the deduction at risk. Donor protections therefore have to come from transparency, portability and AG oversight, not from enforceable donor rights.
+   - The statutory control that defeats donor suits must also be documented, strictly, before the deduction is allowed: *Keefer* requires the sponsor’s written acknowledgment itself to show exclusive legal control (Doc. 79 at 23–24; Doc. 86 at 7). It is a substantiation holding, not a ruling on how much control the sponsor exercised. [F] [V wave 50A]
+   - **[I]** Sponsors cannot soften "exclusive legal control" language in their acknowledgments (receipts) without putting the deduction at risk; *Keefer* did not address program agreements (Doc. 79 at 23). [V wave 50A] Donor protections therefore have to come from transparency, portability and AG oversight, not from enforceable donor rights.
 5. **Who actually polices sponsors: AGs, not donors.**
    - The Bress concurrence restates the common-law rule (slip op. 16), and the 2021+ enforcement record matches it: Georgia (receiver, restitution), Alaska (consent to use charity names), and earlier the NY AG's PPGF settlement. [F/S]
    - **[I]** Commercially, enforcement risk for sponsors is regulatory and reputational, concentrated at small or novel sponsors (SDG) and platform-type sponsors (PPGF). The large national sponsors show none in the 2021+ record.
