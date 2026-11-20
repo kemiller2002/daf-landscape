@@ -63,6 +63,7 @@ import xml.etree.ElementTree as ET
 from concurrent.futures import ThreadPoolExecutor
 from typing import Mapping, Sequence
 
+sys.dont_write_bytecode = True  # importing the base script must not leave a .pyc in the repo
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import mission_npt_screen_fees as base  # noqa: E402
 
