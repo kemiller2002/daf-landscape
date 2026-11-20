@@ -27,7 +27,7 @@ Reproduce: put the panel's CRA files in `DIR` (as in the parent doc) and the fou
 7. **Panel-wide (2025 release, 864 sponsors).** 375 have a Schedule 8 row [C]:
    - 107 cover the DQ from net DAF disbursements, and 6 only gross of transfers.
    - 212 need non-DAF spending. They hold C$3.22bn of DAF assets.
-   - 22 are in shortfall (C$0.30bn of DAF assets). 10 of the 22 are covered by an excess shown in their 2024-release return.
+   - 22 are in shortfall (C$0.30bn of DAF assets). 10 of the 22 are covered by an excess shown in their 2024-release return. Adding 2023 Schedule 8 excesses and nil-quota years gives 13 of 22 on filed returns. A pre-2023 proxy gives 16 of 22, leaving C$1.13m uncovered ([b3946-02-canada-carry-forward.md](b3946-02-canada-carry-forward.md)). [V wave 45B]
    - 7 sponsors are in shortfall in both releases.
    - The other 489 sponsors (C$2.79bn) have no Schedule 8 row. Of the 375 with a row, 22 have no DQ and 6 have blank spending lines [V wave 38A]
 8. **A 5% floor on DAF assets would bind far more often than the charity DAF.** Apply the DQ formula to each sponsor's prior-year DAF assets alone (a proxy, not law). Then 332 of 586 matched sponsors meet it gross, and 312 meet it net of tier-B transfers. That leaves 274 (47%) below such a floor. Among the top-20, 18 of 20 meet such a floor net of tier-B transfers and 19 gross [C] [V wave 38A]
@@ -235,7 +235,7 @@ Amounts in C$m except DAF assets. \* No T1236 rows, so transfers are unknown. �
   - Public foundations: 61 DAF_NET_COVERS, 115 NEEDS_NON_DAF, 16 SHORTFALL, 53 no Schedule 8.
   - Charitable organizations: 427 of 571 have no Schedule 8 row. Most are small holders, below the C$100k threshold or exempt [I].
 - **Shortfalls (2025):** 10 of 22 are covered by the excess on the sponsor's 2024-release return. Examples are Hamilton CF, Brant CF, Barrie CF, Creston Valley CF and Legacy Private Trust Foundation. 2024 shortfalls could not be tested, because no 2023 Schedule 8 was loaded.
-- **Repeat shortfalls:** 7 sponsors are in shortfall in both releases. They are Brandon University Foundation (−C$0.90m, then −C$0.91m), Fondation du Collège de l'Assomption, Lithuanian Canadian Foundation, Brampton and Caledon CF, Fredericton CF, The Rogan Foundation and Fondation Caritas-Sherbrooke. Whether older excesses cover them is open (P-B3946-02).
+- **Repeat shortfalls:** 7 sponsors are in shortfall in both releases. They are Brandon University Foundation (−C$0.90m, then −C$0.91m), Fondation du Collège de l'Assomption, Lithuanian Canadian Foundation, Brampton and Caledon CF, Fredericton CF, The Rogan Foundation and Fondation Caritas-Sherbrooke. Followed up in [b3946-02-canada-carry-forward.md](b3946-02-canada-carry-forward.md): Brampton and Caledon CF is covered by its 2023 excess, Fredericton CF and Collège de l’Assomption only with a pre-2023 proxy, and Caritas-Sherbrooke partly. Brandon, Lithuanian and Rogan are not covered. [V wave 45B]
 - **DAF_GROSS_ONLY (11 sponsor-years):** Burgundy Legacy Foundation, SickKids Charitable Giving Fund and Osprey CF (both years); Alder Foundation and Wood Buffalo CF (2024); Brookfield, North Okanagan CF and Fondation du Cégep de Baie-Comeau (2025).
 
 ### 3.4 Answer to the P-B39N3-06 test [C/I]

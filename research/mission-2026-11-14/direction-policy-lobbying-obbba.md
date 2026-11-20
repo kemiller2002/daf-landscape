@@ -112,7 +112,7 @@ What the proposal said is quoted from the NPRM [P01]. Positions come from second
 | 2025–26 PGP (Sept 30, 2025), Deregulation and Burden Reduction, item 35 | "Final regulations under §4966 regarding donor advised funds, including excise taxes on sponsoring organizations and fund management. Proposed regulations were published on November 14, 2023." | [[P02](https://www.irs.gov/pub/irs-counsel/2025-2026-initial-pgp.pdf)] |
 | 2026–27 PGP (Sept 29, 2026), Tax Exempt Organizations, item 4 | "Guidance under §§4966 and 6033 regarding certain donor advised fund arrangements." Item 5 is §6033 reporting, including fiscal sponsorship | [[P03](https://www.irs.gov/pub/irs-counsel/2026-2027-initial-pgp.pdf)] |
 | Federal Register / regulations.gov | No final rule and no withdrawal (API search, 2026-11-15) | [[A2](https://api.regulations.gov/v4/documents?filter[searchTerm]=donor%20advised%20fund%204966&filter[agencyId]=IRS)] |
-| Unified Agenda | A secondary source reports a July 2026 target for finalization (SS). We did not reach reginfo.gov's rule page; the Fall 2025 and Spring 2025 queries returned no DAF text | SS only |
+| Unified Agenda | RIN 1545-BI33, ‘Taxes on Taxable Distributions Under Section 4966’: Final Rule Stage; Priority ‘Substantive, Nonsignificant’; EO 14192 Designation ‘Not subject to, not significant’; Timetable ‘Final Action 07/00/2026’. The edition is the 2026 Regulatory Plan and Unified Agenda (reginfo pubId 202510, labelled ‘2026’; OIRA introduction dated 2026-07-01). The Spring 2025 edition gave Final Action 05/00/2026. The July 2026 target has passed with no final rule (A2). OIRA lists no EO 12866 meetings for the RIN | [reginfo.gov, 2026 edition](https://www.reginfo.gov/public/do/eAgendaViewRule?pubId=202510&RIN=1545-BI33); [Spring 2025](https://www.reginfo.gov/public/do/eAgendaViewRule?pubId=202504&RIN=1545-BI33) (P) [V wave 45A] |
 | Council on Foundations | Filed a comment on the 2026 PGP (Notice 2026-23) asking for final DAF regulations (SS, cof.org PDF dated 2026-05; not opened) | SS |
 
 ---
@@ -218,7 +218,7 @@ What the proposal said is quoted from the NPRM [P01]. Positions come from second
 2. **Commenter types are assigned from titles.** "DAF Policy Network", "FAOG", "FPLG" and "Faith & Giving" are unidentified. "CF" and "MCF" in 2026 are inferred.
 3. **LDA keyword coverage.** Filings that do not name DAFs or the specific bills are missed. The full-pull follow-up (b39n1-03-b39n2-02-lobbying-and-breaches.md) found 255 such policy-tagged filings for the same clients plus four sponsor parents. 169 of them carry a charitable-deduction, QCD or §4966 tag, mostly from Independent Sector, AHA and other charity-side clients. None lobbied §4966 without naming DAFs [V wave 43C] Amounts are per filing, not per issue.
 4. **No 2026 behavioural data.**
-5. **Unified Agenda target** not verified on reginfo.gov.
+5. **Unified Agenda target** verified on reginfo.gov in wave 45A: Final Action 07/00/2026 in the 2026 Unified Agenda (05/00/2026 in Spring 2025). The target has passed without a final rule. [V wave 45A]
 
 ## 5. Proposed corrections to repo text (not governing until validated)
 
