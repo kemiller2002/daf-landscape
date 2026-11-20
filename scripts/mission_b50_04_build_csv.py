@@ -166,7 +166,7 @@ PROVIDERS = (
 )
 
 SUPPLEMENT = (
-    P(entity="TRIANGLE COMMUNITY FOUNDATION INC", ein="", rank="59", entity_type="community_foundation",
+    P(entity="TRIANGLE COMMUNITY FOUNDATION INC", ein="561380796", rank="59", fy2024_daf_assets_usd="225384195", entity_type="community_foundation",
       sample_basis="purposive_supplement (repo CF list; found by web search for 'giving circle fund')",
       offering_class="explicit_gc_fund_product", product_or_program="Giving Circle Fund",
       source_url="https://trianglecf.org/wp-content/uploads/2026/01/Giving-Circles-one-pager-1.pdf", source_date="2026-01 (upload path)",
@@ -177,7 +177,7 @@ SUPPLEMENT = (
       other_quote="Access to fund via Donor Portal, and donations can be made online (minimum online contribution of $100)",
       vehicle="non-endowed fund",
       notes="Clearest CF giving-circle fund term sheet found. The HTML set-up page indexed by search now 404s."),
-    P(entity="Sacramento Region Community Foundation", ein="", rank="81", entity_type="community_foundation",
+    P(entity="Sacramento Region Community Foundation", ein="942891517", rank="81", fy2024_daf_assets_usd="138016978", entity_type="community_foundation",
       sample_basis="purposive_supplement (search snippet lists 'Giving Circle' among fee-schedule fund types)",
       offering_class="blocked", source_url="https://www.sacregcf.org/fees",
       notes="robots.txt HTTP 403 => treated as disallowed; fee schedule not read."),
@@ -274,7 +274,7 @@ def provider_row(cache, log_rows, sample_by_rank, cands_by_rank, i, spec):
            "entity_type": spec.get("entity_type", "community_foundation"),
            "sample_basis": spec.get("sample_basis", "systematic_1in3_top100_cf (cf-vendor-map-by-ein-v2.csv)" if s else ""),
            "cf_rank_fy2024": spec.get("rank", ""),
-           "fy2024_daf_assets_usd": s.get("fy2024_daf_assets_usd", ""),
+           "fy2024_daf_assets_usd": spec.get("fy2024_daf_assets_usd") or s.get("fy2024_daf_assets_usd", ""),
            "vehicle_stated": spec.get("vehicle", "not stated"),
            "robots": rb or (c.get("robots", "") + (f"; sitemaps_read={c.get('sitemaps_read')}" if c else "")),
            "fetch_status": st or ("sitemap scan only" if c else ""),
