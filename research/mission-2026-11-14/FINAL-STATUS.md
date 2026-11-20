@@ -8,7 +8,58 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-20, through PR #66) — governing
+## Counts (refresh 2026-11-20, through PR #67) — governing
+
+These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #67 merged. They supersede the tables below, and the PR #67 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#67 (48 PRs) | GitHub |
+| Research documents | 370 documents, 1,426,915 words | `research/**/*.md` |
+| Datasets | 693 CSV files, 490,671 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,219 | regex over `research/**/*.md` |
+| Independent validation | **2,151 register rows** in 73 register files (waves 1–45B): 1,535 confirmed, 501 partially confirmed, 84 contradicted, 20 unverifiable, 11 other | `validation-register*.csv`, classified by the leading words of `validation_result` |
+| Research queue | 930 items: 420 done, 378 open, 76 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.66 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #67 (validated; report §11.63–§11.66):**
+- **Charity-data terms for AI uses.**
+  - Of the 24 commercial-provider cells, only one use is permitted outright: Charity Navigator lets licensees cache ratings.
+  - Candid's AI/ML consent clause qualifies its ban on mining for three listed purposes.
+  - 8 of the 12 "silent" cells are really "not determinable" (Every.org and Pledge).
+  - Only IRS data is free on all four uses.
+  - Pledge runs a partner MCP server that is not in the AI census.
+- **Chariot size match.**
+  - Matched on their own contributions, recipients give 10.0% (8.2–12.1%) pooled and 5.8% median, against Chariot's 12.6%.
+  - Size matching does not close the gap. Its 0.6–4.4 pt interval reflects recipient sampling only.
+  - The all-recipient 9.2% and 13.7% figures are not like-for-like with Chariot.
+- **Tail CF fees on 20 schedules.**
+  - The pooled median is 137.5 / 137.5 / 125 bps at $25k / $100k / $500k.
+  - The premium over the top 100 (+37.5 bps at $100k) is not established at the two-sided 95% level (one-sided p = 0.04).
+  - Tail and top-100 opening minimums are equal ($10,000).
+  - The realised pool is unchanged at $49.4m.
+- **Assets Under Movement and NPT.**
+  - AUM fails the DAF-to-DAF whitelist rule (its DAF share of assets is 0.21). Its FY2024 Schedule D roll-forward gap is −$111.4m.
+  - The governing fiscal-sponsor addition stays $35.1m–$114.6m: AUM apportioned on assets gives $102.5m, AUM dropped gives $56.6m.
+  - NPT's $39.1m Europe line is in FY2025, so FY2024 foreign grants are unchanged.
+- **Foundant Giving Hub census withdrawn** before validation, because fcsuite.com's robots.txt disallows Anthropic agents. P-B4222-02-01 is re-scoped to vendor documentation (P-B4222-02-02).
+- **Blank vs zero DAF-grant cells.**
+  - All 248 blank IPS FY2023 cells are blank-filed, and all 100 explicit zeros are zero-filed.
+  - IPS's 9.68% median is unchanged.
+  - A blank line 3(a) is a preparer choice and not evidence of no grants.
+  - The repo panel under IPS's rule gives 9.86%.
+- **2026 docket letters.**
+  - All 13 are unreadable: regulations.gov returns 403. The queue item is blocked and the owner needs to download them.
+  - RIN 1545-BI33 (2026 Unified Agenda) targets the final rule for 07/2026, a target that has passed, with no EO 12866 meetings.
+- **Schedule A excess over 2%.**
+  - Gifts from (vi) organisations are exempt from the 2% limit unless earmarked (Reg. §1.170A-9(f)(6)(v)). So 98.4% of top-50 DAF dollars is an upper bound on DAF dollars outside line 5.
+  - The DAF share of 1f net of the excess is 13.0% (all) and 13.9% (Part II, against 11.4%). This is not an individual-only share.
+- **Canadian carry-forwards.**
+  - 11–13 of the 22 shortfall sponsors are covered on filed returns, and 16 with the screened pre-2023 proxy (C$0.44–1.13m uncovered).
+  - The netted payout stays 12.05%.
+  - The nil-quota and old-rate readings rest on statute text alone, without CRA guidance.
+
+## Counts (refresh 2026-11-20, through PR #66) (superseded by the table above)
 
 These counts were recomputed from the git-tracked files on branch `claude/daf-landscape-research-tdxdiq` just before PR #66 merged. They supersede the tables below. The PR #66 description records the head SHA. The validation-result classifier now normalises underscores and "partly", so its split differs slightly from earlier tables; the row total is exact.
 
