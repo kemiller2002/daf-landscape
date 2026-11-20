@@ -185,16 +185,13 @@ def modal_plain(lines: Iterable[tuple]) -> dict:
 
 
 def host_class(name: str, ntee: str, foundation: str, group: str) -> str:
+    """NTEE / name classes first (HOST_CLASSES order), then BMF FOUNDATION 10 church / 11 school / 12 hospital,
+    then group-exempt national bodies, else intermediary_other."""
     nm = mel.upname(name)
-    if foundation == "10":
-        return "religious_body"
-    if foundation == "11":
-        return "school_k12"
-    if foundation == "12":
-        return "hospital_health"
+    by_code = {"10": "religious_body", "11": "school_k12", "12": "hospital_health"}
     return next((c for c, nt, rx in HOST_CLASSES if (ntee and re.match(nt, ntee)) or re.search(rx, nm)),
-                "federated_national" if group not in ("", "0", "0000") and re.search(
-                    r"\b(NATIONAL|AMERICAN|INTERNATIONAL)\b", nm) else "intermediary_other")
+                by_code.get(foundation) or ("federated_national" if group not in ("", "0", "0000") and re.search(
+                    r"\b(NATIONAL|AMERICAN|INTERNATIONAL)\b", nm) else "intermediary_other"))
 
 
 def sample(dets: Sequence[Mapping], n: int) -> tuple:
@@ -286,6 +283,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     q19_eins = frozenset(e for e, v in fsx.items() if v["q19"])
     added_int = de_facto_int - counted
     added_all = de_facto - counted
+    added_ge2 = frozenset(e for e in det_eins if nproj[e] >= 2 and cls[e] == "intermediary_other") - counted
 
     # --- weights and per-EIN totals
     cost = read_csv(COST)
@@ -310,7 +308,7 @@ def main(argv: Sequence[str] | None = None) -> int:
               "faith": tuple(k for k in keys if st(k) == "faith")}
     cut = lambda added: {k: tuple(recut(f, r["ein"], added) for r, f in zip(screened[k], ref_flags[k])) for k in keys}  # noqa: E731
     variants = {"refined_as_published": ref_flags, "plus_de_facto_intermediary": cut(added_int),
-                "plus_de_facto_all_classes": cut(added_all)}
+                "plus_de_facto_all_classes": cut(added_all), "plus_ge2_projects_intermediary": cut(added_ge2)}
     unions = {v: {s: pooled(ks, screened, fl, fpart) for s, ks in scopes.items()} for v, fl in variants.items()}
     si_usd = tot(lambda k, r: True)
     si_usd_w = tot(lambda k, r: True, True)
@@ -380,7 +378,13 @@ def main(argv: Sequence[str] | None = None) -> int:
                        "usd_ex_d2d": round(sum(r["amount"] for _, r in flat if r["ein"] in es and not r["d2d"])),
                        "project_style_lines_only_usd": round(proj_lines_usd(es)),
                        "project_style_lines_only_share": mel.ratio(proj_lines_usd(es), denom)}
-                  for nm, es in (("intermediary", added_int), ("all_classes", added_all))},
+                  for nm, es in (("intermediary", added_int), ("all_classes", added_all), ("ge2_intermediary", added_ge2))},
+        "valid_by_sponsor": {f"{panel[sp]['name'][:40]} ({sp})": {"lines": len(v), "hosts": len({x['ein'] for x in v}),
+                                                                  "usd": round(sum(x["amount"] for x in v))}
+                             for sp, v in sorted(_group_by_fast(valid, lambda x: x["sponsor_ein"]).items(),
+                                                 key=lambda kv: -len(kv[1]))},
+        "de_facto_by_sponsor_count": {e: sorted({panel[x["sponsor_ein"]]["name"][:30] for x in by_ein[e]}) for e in sorted(de_facto)},
+        "class_counts_all_detected": {c: sum(1 for e in det_eins if cls[e] == c) for c in sorted(set(cls.values()))},
         "added_intermediary_list": miss(added_int),
         "unions": unions,
         "sample_status": {s: sum(1 for x in smp if x["rule"] == s) for s in ("fbo", "care_of", "on_behalf_of", "project_of")},
