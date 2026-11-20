@@ -31,10 +31,10 @@ The six commercial providers give 24 provider × use cells. In those cells, no p
 | Benevity | requires-licence | silent | silent | prohibited (backup/legal carve-out) |
 | IRS EO BMF / TEOS (baseline) | permitted | permitted | permitted | permitted (and required for reliance) |
 
-Script output for the 24 commercial cells: permitted 1, prohibited 5, requires-licence 6, silent 12. Express clauses back 11 of the 24. One cell, Candid (b), has AI/LLM/ML-specific wording.
+Script output for the 24 commercial cells: permitted 1, prohibited 5, requires-licence 6, silent 12. Of the 12 silent cells, 8 (all of Every.org and Pledge) mean not determinable, because the governing terms were blocked or are not public; only 4 (Goodstack and Benevity (b) and (c)) are silent in terms that were read. Express clauses back 11 of the 24, or 10 if Goodstack (d), an inference, is not counted. [V wave 44A] One cell, Candid (b), has AI/LLM/ML-specific wording.
 
 **Headline [I].**
-- **Raw ratings.** An AI DAF product cannot treat third-party *ratings* as free model inputs. Charity Navigator forbids using its ratings "in any other calculation". Candid needs written consent before its data are mined for "artificial intelligence (“A.I.”), large language models, machine learning".
+- **Raw ratings.** An AI DAF product cannot treat third-party *ratings* as free model inputs. Candid’s AI wording, quoted below, qualifies a ban on mining to build a non-internal database, to resell or to compete; it is not a stand-alone AI ban (§2.2). [V wave 44A] Charity Navigator forbids using its ratings "in any other calculation". Candid needs written consent before its data are mined for "artificial intelligence (“A.I.”), large language models, machine learning".
 - **Display.** Every commercial licence that speaks to display ties it to the licensee's own site or app. That does not cover a third-party AI host receiving MCP tool output.
 - **Retention.** Every licence that speaks to termination requires deletion or an end to use.
 - **What is clean.** Only the IRS baseline is free of licence limits on all four uses. An AI product can rank and cache on IRS fields, and link out to or quote licensed ratings under attribution.
@@ -83,7 +83,7 @@ Script output for the 24 commercial cells: permitted 1, prohibited 5, requires-l
 | uscode.house.gov | 200 | allowed (page 404) | 1 | 0 |
 | api.github.com | 403 | not fetched | 1 | 0 |
 
-**Logging note.** The first version of the fetcher treated any 4xx robots status as "allowed". It was corrected mid-run so that 401, 403 and 429 count as disallowed. The three requests logged "True" under the old rule (two to candid.org, two of the three to www.every.org) all returned 403 or 429, so no content was obtained from those hosts.
+**Logging note.** The first version of the fetcher treated any 4xx robots status as "allowed". It was corrected mid-run so that 401, 403 and 429 count as disallowed. The three requests logged "True" under the old rule (two to candid.org and two of the three to www.every.org, so four requests, not three) all returned 403 or 429, so no content was obtained from those hosts. The fetcher is not in the repo, so the log cannot be re-run; a 2026-11-20 re-check found the same robots statuses (candid.org 403, www.every.org 429). [V wave 44A]
 
 ---
 
@@ -93,7 +93,7 @@ Script output for the 24 commercial cells: permitted 1, prohibited 5, requires-l
 
 Sources:
 - [API Terms of Use](https://www.charitynavigator.org/products-and-services/api/), "Last updated October 2026". The `graphql-api/api-terms-of-use/` URL serves a byte-identical page (same sha256 prefix).
-- [Attribution Guidelines](https://developer.charitynavigator.org/attribution) (undated).
+- [Attribution Guidelines](https://developer.charitynavigator.org/attribution) (“Last modified on November 17, 2026”). This page reads “Our ratings may not be used in any other calculation or manipulated.” The “Please remember, …” wording quoted below is the copy printed in the Attribution Requirements section of the API Terms page. [V wave 44A]
 - [Developer terms summary](https://developer.charitynavigator.org/termsofuse), "Last modified on November 17, 2026".
 
 | Use | Clause |
@@ -261,7 +261,7 @@ Sources:
 
 | Repo text | This run |
 |---|---|
-| strategic-synthesis l.543: CN "API licence ... bars using ratings 'in any other calculation'" | **Confirmed, with a precision note.** The sentence is in the *Attribution Guidelines*, which Terms s.4(a) makes binding. It is not in the licence body. |
+| strategic-synthesis l.543: CN "API licence ... bars using ratings 'in any other calculation'" | **Confirmed.** The sentence is in the Attribution Requirements, which Terms s.4(a) makes binding. The API Terms page itself prints those requirements after s.12, with the sentence in the same words, so l.543 needs no correction. [V wave 44A] |
 | direction-charity-ratings-integrations §2.1: CN "Caching allowed" | **Confirmed, with qualifiers.** The grant covers ratings data only, for Licensee Site speed or an approved purpose. No time limit. |
 | queue-sponsor-terms-data-clauses §5: Candid "Caching and retention: No clause found" | **Consistent.** The portal TOS and the Dec-2023 copy also have no caching clause, but both have a general "store" ban. |
 | queue-batch29 §4: Candid stop-use on termination | **Consistent.** The same words are in the 2026-09-07 portal TOS s.4.3. |

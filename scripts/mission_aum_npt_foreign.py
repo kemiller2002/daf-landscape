@@ -486,6 +486,20 @@ def main(argv: Sequence[str] | None = None) -> int:
              for m, v, u in (("eins", len(es), "count"),
                              ("lines", sum(1 for k in keys for r in screened[k] if r["ein"] in es), "count"),
                              ("usd", sum(r["amount"] for k in keys for r in screened[k] if r["ein"] in es), "usd"))]
+    denom = res["R_refined_as_published"]["all_top50_itemising"]["denom_usd"]
+    si_all = sum(r["amount"] for k in keys for r in screened[k])
+    ex_aum = sum(r["amount"] for k in keys for r in screened[k] if r["ein"] in others)
+    d2d0 = res["R_refined_as_published"]["all_top50_itemising"]["d2d_usd"]
+    rows += [row("de_facto_addition", "A4", "all_top50_itemising", "2023-2024", f"apportioned__{b}__{m}", v, u,
+                 "4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF") for b, dv in app.items()
+             for m, v, u in (("fs_addition_usd", ex_aum + tot_in - dv, "usd"),
+                             ("fs_addition_share_of_proxy_denom", (ex_aum + tot_in - dv) / denom, "share"),
+                             ("d2d_usd", d2d0 + dv, "usd"), ("d2d_share_of_sched_i_usd", (d2d0 + dv) / si_all, "share"))]
+    rows += [row("de_facto_addition", "A4", "all_top50_itemising", "2023-2024", m, v, u) for m, v, u in (
+        ("published_5_hosts__share_of_proxy_denom", (ex_aum + tot_in) / denom, "share"),
+        ("ex_aum_4_hosts__share_of_proxy_denom", ex_aum / denom, "share"),
+        ("sched_i_usd", si_all, "usd"), ("d2d_share_of_sched_i_usd__base", d2d0 / si_all, "share"),
+        ("d2d_share_of_sched_i_usd__aum_whitelisted", (d2d0 + tot_in) / si_all, "share"))]
     # B
     for nm, x, oid, fy in (("npt_fy2025", npt25, NPT_FY2025, 2025), ("npt_fy2024", npt24, NPT_FY2024, 2024)):
         rows += [row("npt_sched_f", "B", "npt", fy, k, v, "count" if k.endswith(("lines", "found")) else

@@ -28,13 +28,13 @@ Tags: [F] computed from filings by the script · [P] quoted primary source · [I
   - Size-matched recipients sit **3.7 points lower on 1h − 1d − 1e** (10.0% against 13.7%) and **1.1 points lower on 1h** (8.1% against 9.2%).
   - The size-matched median (5.8%) is less than half the all-recipient median (14.2%).
 - **Against Chariot's 12.6%** [F/I]:
-  - On the central numerator, the size-matched pooled share is **2.6 points below Chariot**. The bootstrap interval of the gap is 0.6–4.4 points, so the interval for the share (8.2–12.1%) **excludes** 12.6%, though only just.
+  - On the central numerator, the size-matched pooled share is **2.6 points below Chariot**. The bootstrap interval of the gap is 0.6–4.4 points, so the interval for the share (8.2–12.1%) **excludes** 12.6%, though only just. The interval reflects recipient sampling only. It resamples the 400-unit certainty stratum as if it were a sample, which widens it (holding certainty units fixed gives 8.9–11.5%), and it carries no numerator-allocation, definition or period uncertainty. [V wave 44A]
   - Across the allocation envelope (9.9–10.3%) the gap stays between 2.3 and 2.8 points.
 - **Does the repo's Chariot comparison change? Yes** [I]:
   - **What the repo says now.** In b40n1202-b43n26 §0 and §3, Chariot's 12.6% "sits inside the unscaled-to-scaled range for the $25–100m band and for all recipients, and above the ≥$100m range". Its size-matched figures are $25–100m at 11.0% unscaled and 16.4% scaled, and ≥$100m at 5.8% and 8.7%.
   - **What changes.** Matching on the recipient's own contributions removes the bracketing. With the central numerator in place of 1/0.6727 scaling, the filings sit **below Chariot, not around it**.
   - **Why the old match bracketed.** The BMF band $25–100m on the same numerator and basis is 13.7%, because that band picks up government-funded organisations whose contributions are much smaller than their revenue. The legacy 1/0.6727 scaling of the size-matched top-50 figure gives 12.1%. That number is superseded by the central allocation, but it explains why earlier readings looked consistent with Chariot.
-  - **Proposed wording:** "Size-matched on contributions (own 1h − 1d − 1e of $50m–$200m a year), the filings give a pooled DAF share of 10.0% (8.2–12.1%) and a median of 5.8%, against Chariot's pooled 12.6%. The remaining gap of about 2.6 points (0.6–4.4) is consistent with selection of DAFpay-using participants or with numerator definition, not with denominator choice or size."
+  - **Proposed wording:** "Size-matched on contributions (own 1h − 1d − 1e of $50m–$200m a year), the filings give a pooled DAF share of 10.0% (8.2–12.1%) and a median of 5.8%, against Chariot's pooled 12.6%. The remaining gap of about 2.6 points (0.6–4.4) is consistent with selection of DAFpay-using participants, with numerator definition or with the period difference; denominator choice does not explain it, and size matching on contributions does not close it. The 0.6–4.4 range is a sampling interval only. [V wave 44A]"
 - **Selection signal [F/I].** Two organisations the Chariot webinar names in the study are in the size-matched domain, and both sit above 12.6% on central filing shares:
   - ACLU Foundation: 35.2% of 1h − 1d − 1e, average $176.6m a year;
   - Share Our Strength (No Kid Hungry): 18.0%, average $78.9m a year.
@@ -51,7 +51,7 @@ Tags: [F] computed from filings by the script · [P] quoted primary source · [I
   - Band edges ÷ mean: 0.517 and 2.069.
   - `chariot_band` rows in the CSV.
 - **Assumptions [I].**
-  - The participant panel is balanced; the page does not say so.
+  - The $26.1bn spans all five years and the participant panel is balanced; the page says neither. Read as one year, it is $483m per participant, where the ≥$200m band gives 7.3%, further below Chariot. [V wave 44A]
   - "Total giving" in a CRM is close to Form 990 1h − 1d − 1e. Both exclude government grants. CRM totals may book pledges and affiliate gifts differently.
   - The page also calls the same ratio "nearly 13% of total revenue" [P]. The repo reads it as total giving, following NPB001–002.
 
@@ -132,11 +132,11 @@ See the table in §0. Further points [F]:
 | BMF revenue ≥$100m (old band) | 421 | 7.4% (5.8–9.4%) | 5.9% |
 
 **Reading [I].**
-- Every contribution-based band containing the $96.7m mean gives a pooled share of 9.9–10.2%, below 12.6%. Only a band reaching down to $25m reaches Chariot's level.
+- Every bounded contribution band centred near the $96.7m mean ($50–200m, $75–125m, $48.3–193.3m) gives a pooled share of 9.9–10.2%, below 12.6%. Open-ended bands from $48m up give 7.3–8.5%. The $25–100m band, which also contains the mean, gives 12.9% (11.3–14.8%) and is the only one to reach Chariot’s level. [V wave 44A]
 - Matching on BMF revenue instead pulls in organisations whose contributions are far below their revenue: the $50–200m BMF band has twice the respondents of the contribution band. That raises the pooled share on 1h − 1d − 1e and lowers it on 1h.
 
 ### 3.3 Influence and intermediaries
-- **The 85 Fund.** It is the largest leave-one-out influence on the headline 1h − 1d − 1e share: removing it takes the central share from 10.0% to 9.6% [F]. Its central filing share exceeds 100% (106.6%): the DAF-weighted grants it was paid are larger than the 1h − 1d − 1e it reported, plausibly because of timing or booking differences [I].
+- **The 85 Fund.** It is the largest leave-one-out influence on the headline 1h − 1d − 1e share: removing it takes the central share from 10.0% to 9.6% [F]. Its central filing share exceeds 100% (106.6%): the DAF-weighted grants it was paid are larger than the 1h − 1d − 1e it reported, plausibly because of timing or booking differences [I]. Top-50 Schedule I grants alone, DAF-weighted, equal 100.1% of its two-year 1h − 1d − 1e ($311.8m against $311.6m), and the central allocation adds 6.5% on top. The numerator comes from sponsors’ returns for their own fiscal years and the denominator from the recipient’s, so a per-recipient share is not bounded at 100%. Capping every share at 100% moves the pooled figure from 10.04% to 10.01%. [V wave 44A]
 - **Shares above 50%.** 10 of the 220 domain respondents exceed 50% [F]:
   - The 85 Fund 107%;
   - San Antonio Valley Ranch LLC 99%;
