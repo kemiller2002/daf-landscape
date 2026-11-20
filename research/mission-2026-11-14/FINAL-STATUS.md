@@ -42,7 +42,7 @@ These counts were recomputed from the git-tracked files on branch `claude/daf-la
   - AUM fails the DAF-to-DAF whitelist rule (its DAF share of assets is 0.21). Its FY2024 Schedule D roll-forward gap is −$111.4m.
   - The governing fiscal-sponsor addition stays $35.1m–$114.6m: AUM apportioned on assets gives $102.5m, AUM dropped gives $56.6m.
   - NPT's $39.1m Europe line is in FY2025, so FY2024 foreign grants are unchanged.
-- **Foundant Giving Hub census withdrawn** before validation, because fcsuite.com's robots.txt disallows Anthropic agents. P-B4222-02-01 is re-scoped to vendor documentation (P-B4222-02-02).
+- **Foundant Giving Hub census withdrawn** before validation, because fcsuite.com's robots.txt disallows Anthropic agents. P-B4222-02-01 is re-scoped to vendor documentation (P-B4222-02-01-01; renumbered from a colliding ID).
 - **Blank vs zero DAF-grant cells.**
   - All 248 blank IPS FY2023 cells are blank-filed, and all 100 explicit zeros are zero-filed.
   - IPS's 9.68% median is unchanged.

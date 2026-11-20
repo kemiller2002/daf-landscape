@@ -10,7 +10,7 @@ Every `*.fcsuite.com` hub host serves a robots.txt that disallows `/` for named 
 
 The first pass read 299 hubs under a narrow reading. It treated the named tokens as training crawlers only, and fetched under the generic user agent as a user-directed agent (`Claude-User`, which is not named there). That reading is defensible on the letter of the file. But the file plainly expresses the host's wish that Anthropic agents not crawl it. The mission rule is to respect robots.txt, so the conservative reading governs, and the hub contents are treated as off-limits. The fund lists also carried donor-family fund names, which this repo does not need.
 
-**To revisit:** if the owner decides the narrow reading is acceptable, the withdrawn files can be restored from git history (commit 818069a). Otherwise answer the question from Foundant's own public documentation, where robots.txt allows it (queue P-B4222-02-02).
+**To revisit:** if the owner decides the narrow reading is acceptable, the withdrawn files can be restored from git history (commit 818069a). Otherwise answer the question from Foundant's own public documentation, where robots.txt allows it (queue P-B4222-02-01-01).
 
 ## What survives (no fcsuite.com content)
 
