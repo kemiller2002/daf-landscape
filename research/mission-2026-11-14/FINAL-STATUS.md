@@ -8,7 +8,34 @@
 - **Final commit SHA:** a file cannot contain the SHA of the commit that adds it. The PR #20 description records the head SHA after this file was committed. The parent of the commit that adds this file is `1b8f763`.
 - **Pre-existing open PRs:** #1 and #16 are left untouched.
 
-## Counts (refresh 2026-11-19, through PR #62) — governing
+## Counts (refresh 2026-11-20, through PR #63) — governing
+
+Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #63 merged. These counts supersede the tables below. The PR #63 description records the head SHA.
+
+| Item | Count | How computed |
+|---|---|---|
+| Pull requests merged in this mission | #20–#63 (44 PRs) | GitHub |
+| Research documents | 333 documents, 1,256,217 words | `research/**/*.md` |
+| Datasets | 630 CSV files, 359,631 data rows | `data/**/*.csv` (headers excluded) |
+| Unique URLs cited in research markdown | 4,034 | regex over `research/**/*.md` |
+| Independent validation | **1,813 register rows** in 60 register files (waves 1–40C): 1,303 confirmed, 411 partially confirmed, 74 contradicted, 18 unverifiable, 7 other | `validation-register*.csv`, classified by the leading word of `validation_result` |
+| Research queue | 812 items: 385 done, 296 open, 75 blocked, 50 monitoring, 5 deprioritized historical, 1 declined | `research-priority-queue.csv`, `state` |
+| Industry report | §11.1–§11.53 | `research/DAF-INDUSTRY-REPORT-2026-11.md` |
+
+**Additions in PR #63 (validated; report §11.51–§11.53):**
+- **Propagation.** The refined exception proxy now appears in the gap19 note, report §4 and the synthesis. FY2024 non-DAFRC accounts become 24,800 with Groundswell included; its accounts average $787, which raises the same comparability caveat as processor accounts.
+- **DAF grant schema and processor accounts.**
+  - Chariot and Endaoment carry all 8 core grant-record fields. Form 990 requires only the recipient EIN in full.
+  - Processors are 76.7% of corrected FY2024 accounts. With all 22 processors removed, sponsor accounts are about 770,785.
+- **Non-top-50 numerator.** Measured directly, the all-sponsor DAF share of recipient contributions is 8.4–9.9% on line 1h and 12.6–14.8% on 1h−1d−1e. The like-for-like overstatement from the earlier scaling is only about 0.4 percentage points.
+- **Canada follow-ups.**
+  - Sponsors' gifts to public foundations go mostly to hospitals and federations; the middle netting tier is about 12.0%.
+  - The Schedule 8 gap follows the answer to line 5850. JCF Montreal meets the quota.
+  - CanadaHelps is not a DAF.
+- **990 margin proxy retired.** ΔR1 is other-fund growth, an endowment, or a reporting-basis gap, not a fee surplus.
+- **Who pays sponsor marketing.** No filing shows a parent paying beyond what the charity pays it, and Fidelity's FMR costs are not separately stated. The adviser-programme expenses found are Fidelity $8–21m a year and DAFgiving360 commissions.
+
+## Counts (refresh 2026-11-19, through PR #62) (superseded by the table above)
 
 These counts were recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` just before PR #62 merged. They supersede the tables below. The PR #62 description records the head SHA.
 
@@ -35,7 +62,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 - **Detection probability.** An escaped DAF error has roughly a 0.1–1% chance per year of being detected and taxed, measured as average-filer coverage. The composite m is fragile: it is about 1.6 when OFAC penalties are priced per transaction and 14–1,270 when priced per missed alert.
 - **Line 6 versus Schedule D.**
   - 33 returns that hold DAFs answer "No" on line 6, carrying $265m. SOI extracts keyed on line 6 drop them; DAFRC does not use line 6.
-  - Non-DAFRC FY2024 accounts are about 24,800.
+  - Non-DAFRC FY2024 accounts are 24,800: 11,992 at line-6 “Yes” filers plus Groundswell’s 12,808 (average $787 per account), with $353.9m of DAF assets (`non-dafrc-daf-filers-summary-with-groundswell-2026-11-19.csv`) [V wave 40A]
 - **Exception proxy refinements.**
   - EIN-keyed fiscal sponsors account for 0.44% of lines and 1.94% of dollars; dropping large-programme hosts gives 1.68%.
   - The time-correct recent-ruling flag counts true new organisations at 3.16% of lines and 4.72% of dollars.
@@ -62,7 +89,7 @@ These counts were recomputed from the repository on branch `claude/daf-landscape
 - **Sponsor economics.**
   - Dechomai is 0.1–3.0% of national sponsors' DAF contributions.
   - Audited fee economics: Fidelity passes its whole fee to FMR and runs an operating deficit; Renaissance passes 98% to Ren; JCF keeps a small surplus.
-  - The 990 non-DAF net-asset change is not an operating margin.
+  - The 990 non-DAF net-asset change is not an operating margin and is retired as one: it tracks other-fund growth, endowment returns, campaign receipts and Schedule D reporting basis, and the fee surplus is identifiable in it at none of the five audited sponsors. [b4427-03] [V wave 40C]
 - **Filing frames.**
   - 7 new small DAF sponsors were found that DAFRC missed.
   - 24 place-based community foundations exited in 2021–2026, 19 of them outside DAFRC. That is about 3× the filed-exit count for overlapping years, not 5×.
@@ -158,7 +185,7 @@ Recomputed from the repository on branch `claude/daf-landscape-research-tdxdiq` 
 - **Synthesis §0 validated.** No figures were wrong. 14 wording and scope corrections were applied, including that the review-need proxy is an indicator, not a bound, and that the staff-cost gap is about 3.5–9×.
 - **NPT FY2023 Schedule D is understated.** NPT's consolidated statements give net assets of $28.51bn. The filed value stays in the headline series, and a sensitivity variant shows FY2023 market assets of $261.44bn. All top-50 imputed FY2024 rows had already been replaced, and the headline totals are unchanged.
 - **Donor-information defaults at the top-20 sponsors.** Neither "withheld by default" nor "shared by default" holds as a rule. Full contact is the documented default for 33.2% of assets and withholding for 17.2%; the default is undocumented for 44.6%.
-- **DAF share of recipient giving.** On the private-giving proxy (1h − 1d − 1e), the median is 7.7% and the pooled share 10.3%. 76.5–76.9% of top-50 DAF dollars go to recipients eligible for a Charity Navigator rating.
+- **DAF share of recipient giving.** On the private-giving proxy (1h − 1d − 1e), top-50 DAF grants are a median 7.7% and a pooled 10.3%; with every itemising panel sponsor measured, the pooled share is 12.6% on the same recipients and 12.1% adding recipients with no top-50 grant (floors; the scaled 15.4% is superseded) [V wave 40B] 76.5–76.9% of top-50 DAF dollars go to recipients eligible for a Charity Navigator rating.
 - **Long-tail fee census.** 7 of 60 sampled tail sponsors (11.7%) publish a 2021+ admin rate. Tail community foundations that do publish charge a median 150 bps at $100k.
 
 ## Counts (refresh 2026-11-19, through PR #56) (superseded by the table above)

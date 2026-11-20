@@ -78,8 +78,8 @@
    - **Fidelity:** ΔR1 is +$36.3m and +$48.8m, while fee less opex is −$11.3m and −$21.9m. ΔR1 here is the growth of Schedule D "other funds".
    - **RCF:** ΔR1 is +$6.6m and +$57.2m, against a fee surplus of $0.28m and $0.15m.
    - **NCF:** ΔR1 is +$59.8m and +$105.8m, against −$69.5m and −$76.8m.
-   - **JCF** is the closest match: ΔR1 of +$1.8m and +$3.0m against a fee surplus of $2.2m and $3.8m (after the UJA grant, $0.2m and $1.8m). Because the UJA grant leaves the operating fund, the like-for-like figure is the post-grant surplus, which ΔR1 exceeds by $1.56m and $1.18m [C]. [V wave 38B]
-   - The earlier direction ([direction-sponsor-financial-resilience.md](direction-sponsor-financial-resilience.md) §0 item 6) called ΔR1 "the preferred operating-result proxy". The audits show it mostly measures other-fund and endowment movements [I]. This qualifies the resilience study rather than contradicting it: that study already showed Fidelity’s R1 equal to its “other funds” and defined ΔR1 to include returns on own funds. What the audits do contradict is its reading that ΔR1 of about +0.4× operating cost at affiliated nationals means “fees retained exceed costs”: Fidelity retains none of its fee, and RCF retains 2%. [V wave 38B]
+   - **JCF** is the closest match: ΔR1 of +$1.8m and +$3.0m against a fee surplus of $2.2m and $3.8m (after the UJA grant, $0.2m and $1.8m). Because the UJA grant leaves the operating fund, the like-for-like figure is the post-grant surplus, which ΔR1 exceeds by $1.56m and $1.18m [C]. [V wave 38B] The match is coincidental: JCF’s R1 equals its board-designated endowment (Schedule D column (b), the Special Gifts Fund) plus its reserve fund to the dollar, and the operating fund that receives the fee is reported inside the Schedule D DAF value. Endowment growth ($1.87m and $2.90m) is 104% and 96% of ΔR1 [C]. The audit’s Note C allows surplus above the $2.0m UJA grant to go to the Special Gifts Fund or a capital reserve, both inside R1, but the Note G roll-forward shows only investment return less appropriations in FY2023–24 [F]. [b4427-03] [V wave 40C]
+   - The earlier direction ([direction-sponsor-financial-resilience.md](direction-sponsor-financial-resilience.md) §0 item 6) called ΔR1 "the preferred operating-result proxy". The audits show it mostly measures other-fund and endowment movements; the b4427-03 decomposition confirms this at Fidelity and JCF, finds Schedule D reporting-basis gaps at RCF and NCF, and finds endowment returns and Israel Emergency Fund campaign receipts at CJP [C]. [b4427-03] [V wave 40C] This qualifies the resilience study rather than contradicting it: that study already showed Fidelity’s R1 equal to its “other funds” and defined ΔR1 to include returns on own funds. What the audits do contradict is its reading that ΔR1 of about +0.4× operating cost at affiliated nationals means “fees retained exceed costs”: Fidelity retains none of its fee, and RCF retains 2%. [V wave 38B]
 
 ---
 
@@ -279,11 +279,11 @@ Notes:
 | Sponsor | FY2023 | FY2024 | Reading [I] |
 |---|---|---|---|
 | Fidelity | +$47.6m | +$70.7m | R1 at Fidelity equals the Schedule D "other funds" column (wave 29), so ΔR1 is growth in non-DAF donor funds, not a sponsor margin. The fee itself nets to zero at the sponsor |
-| RCF | +$6.3m | +$57.0m | ΔR1 is driven by the gap between Part X and Schedule D DAF value (R1 is negative throughout), not by operations |
-| NCF | +$129.3m | +$182.6m | ΔR1 includes NCCF's non-DAF charitable funds and annuity reserves |
-| JCF | −$0.4m | −$0.8m | Close: the operating fund is most of R1's movement |
+| RCF | +$6.3m | +$57.0m | ΔR1 is driven by the gap between Part X and Schedule D DAF value (R1 is negative throughout), not by operations. R1 = (total assets − Schedule D DAF value) − liabilities; at end-2024 the Schedule D DAF value equals total assets to the dollar, so R1 equals minus liabilities [C] [b4427-03] [V wave 40C] |
+| NCF | +$129.3m | +$182.6m | ΔR1 includes NCCF's non-DAF charitable funds and annuity reserves. In 2024 NCCF’s audited operating net assets fell $4.8m while ΔR1 rose $105.8m; $110.5m of the rise is funds the audit counts as donor-advised or charitable beyond the Schedule D DAF value [C] [b4427-03] [V wave 40C] |
+| JCF | −$0.4m | −$0.8m | Close by coincidence: R1 is the board-designated endowment (Schedule D column (b)) plus the reserve fund, and the operating fund sits inside the Schedule D DAF value, so ΔR1 is mostly endowment growth (104% and 96% of ΔR1) [C] [b4427-03] [V wave 40C] |
 
-- **ΔR1 does not reproduce an audited fee margin at three of the four sponsors where one can be computed.** It should not be used as an "operating margin" without the decomposition in proposal P-B4427-03.
+- **ΔR1 does not reproduce an audited fee margin at three of the four sponsors where one can be computed.** It should not be used as an "operating margin" at all: the decomposition in [b4427-03-b43n23-proxy-and-parent-marketing.md](b4427-03-b43n23-proxy-and-parent-marketing.md) finds the audited fee surplus identifiable in ΔR1 at none of the five sponsors. [b4427-03] [V wave 40C]
 - **The 990 does capture the fee *paid to an administrator* in some cases [F]:**
   - RCF's Part IX line 11g ($15,667,168 and $19,225,546) equals or approaches the Ren payment;
   - MS GIFT's 11g is $13.1m and $16.0m;

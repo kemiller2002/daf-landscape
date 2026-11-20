@@ -37,8 +37,8 @@ Scope: 48 top-50 sponsors (46 DAFRC top-50 plus Stanford and UCLA Foundation, as
 | Question | Answer [C] |
 |---|---|
 | **Broad proxy** (the five categories exactly as briefed) | **25.1% of recipient lines, 19.9% of dollars.**<br>Here the count share is the *larger* one: gap −5.2 pp, dollar share ÷ count share 0.79×. The reason is that 19.3% of lines go to recipients absent from Pub 78, mostly small church and group-subordinate lines. |
-| **Core proxy** (unlabelled non-list recipients only; rulings inside the window only) | **7.4% of lines, 11.2% of dollars.**<br>The dollar share is larger: gap +3.75 pp, 1.51×.<br>Excluding SVCF and the university/hospital sponsors: **7.2% / 9.8%**. Without the Greater Horizons FY2024 totals row (§2), core is 7.41% / **10.96%** (gap +3.55 pp, 1.48×) and 7.2% / 9.6% excluding SVCF and university/hospital sponsors [V wave 32A] |
-| **Count-vs-dollar gap by category** | - Fiscal-sponsor names: 0.12% of lines vs 1.30% of dollars (**10.7×**); on the EIN-keyed host list (19 Q-B15 hosts plus the Fiscal Sponsor Directory; $92.72bn base) 0.44% vs 1.94% (4.4×), or 0.42% vs 1.68% (4.0×) without 50CAN, Global Impact, NEO Philanthropy and Myriad USA ([g0503-0501-exception-proxy-refinements.md](g0503-0501-exception-proxy-refinements.md)) [V wave 39C]<br>- Private foundations / ER: 0.39% vs 1.39% (3.5×).<br>- Foreign: 0.63% vs 2.07% (3.3×).<br>- Recent ruling: 4.8% vs 5.9% (1.2×).<br>- Not 501(c)(3) or not in Pub 78: 19.3% vs 9.3% (**0.48×**). |
+| **Core proxy** (unlabelled non-list recipients only; rulings inside the window only) | **7.4% of lines, 11.2% of dollars.**<br>The dollar share is larger: gap +3.75 pp, 1.51×.<br>Excluding SVCF and the university/hospital sponsors: **7.2% / 9.8%**. Without the Greater Horizons FY2024 totals row (§2), core is 7.41% / **10.96%** (gap +3.55 pp, 1.48×) and 7.2% / 9.6% excluding SVCF and university/hospital sponsors [V wave 32A]<br>With the EIN-keyed fiscal-sponsor list and time-correct rulings ($92.72bn base) the core is **7.76% / 11.61%** (gap +3.85 pp), or 6.80% / 11.00% counting only true new organisations as recent; 7.56% / 10.27% excluding SVCF and university/hospital sponsors; 7.74% / 11.35% without 50CAN, Global Impact, NEO Philanthropy and Myriad USA ([g0503-0501-exception-proxy-refinements.md](g0503-0501-exception-proxy-refinements.md)) [V wave 40A] |
+| **Count-vs-dollar gap by category** | - Fiscal-sponsor names: 0.12% of lines vs 1.30% of dollars (**10.7×**); on the EIN-keyed host list (19 Q-B15 hosts plus the Fiscal Sponsor Directory; $92.72bn base) 0.44% vs 1.94% (4.4×), or 0.42% vs 1.68% (4.0×) without 50CAN, Global Impact, NEO Philanthropy and Myriad USA ([g0503-0501-exception-proxy-refinements.md](g0503-0501-exception-proxy-refinements.md)) [V wave 39C]<br>- Private foundations / ER: 0.39% vs 1.39% (3.5×).<br>- Foreign: 0.63% vs 2.07% (3.3×).<br>- Recent ruling: 4.8% vs 5.9% (1.2×). Dated with archived monthly BMF files ($92.72bn base), rulings recent at grant time are 4.14% vs 5.34%, and true new organisations 3.16% vs 4.72% ([g0503-0501-exception-proxy-refinements.md](g0503-0501-exception-proxy-refinements.md)) [V wave 40A]<br>- Not 501(c)(3) or not in Pub 78: 19.3% vs 9.3% (**0.48×**). |
 | **By sponsor type** (core, count / dollars) | - National (15 sponsors; Servant Foundation is counted under faith): 7.0% / 10.2%, or 7.0% / 9.9% without the Greater Horizons totals row [V wave 32A]<br>- Community foundation (22): 8.5% / **16.2%**.<br>- Faith (7, including Servant Foundation): 8.1% / 9.1%.<br>- DonorsTrust (single-issue, non-faith): 12.0% / 8.2%.<br>- Dechomai (processor, 9 lines): 22.2% / 5.6%.<br>- University/hospital (2): 60.0% / 3.8%. |
 | … the distribution across sponsors | Sponsor-level broad dollar share: median **16.4%** (IQR 13.4–21.1%), range 1.35% (UCLA Foundation) to 59.8% (Greater Horizons, driven by one blank line of $212m). Outside the university/hospital sponsors the lowest is 5.6% (Dechomai, 9 lines), then 7.9% (Ayco). The 59.8% at Greater Horizons is an e-file totals row (§2). Without it Greater Horizons is 19.8%, the maximum is SVCF at 45.8% and the p75 is 20.7% [V wave 32A]<br>Sponsor-level broad count share: median 19.7% (IQR 15.5–25.2%). |
 | … community foundations | The pooled community-foundation dollar share exceeds its count share by **+11.4 pp** (broad) and +7.7 pp (core). The **median CF** gap is −1.2 pp (broad), so the pooled gap comes from a few large lines, chiefly SVCF's $1.309bn FY2023 line to Further Future Foundation (BMF ruling 2023-03). |
@@ -122,18 +122,18 @@ Scope: 48 top-50 sponsors (46 DAFRC top-50 plus Stanford and UCLA Foundation, as
 ## 3. Results
 
 ### 3.1 Pooled, all 48 sponsors (94 sponsor-years), FY2023–24 [C]
-Denominator: 608,612 lines; $92.94bn. **Validation note:** this includes Greater Horizons' FY2024 totals row (two blank lines: $212,187,406 and 3,282). Without it the denominator is 608,610 lines and $92.72bn; raw not-c3/not-Pub-78 is 9.11% of dollars (0.47×); unexplained is 13,568 lines and $0.89bn (0.96%); blank EIN with no label is $0.06bn on 1,095 lines; broad is 25.08% / 19.72%; core is 7.41% / 10.96% (gap +3.55 pp); and FY2024 core is 7.36% / 9.73% [V wave 32A]
+Denominator: 608,612 lines; $92.94bn. **Validation note:** this includes Greater Horizons' FY2024 totals row (two blank lines: $212,187,406 and 3,282). Without it the denominator is 608,610 lines and $92.72bn; raw not-c3/not-Pub-78 is 9.11% of dollars (0.47×); unexplained is 13,568 lines and $0.89bn (0.96%); blank EIN with no label is $0.06bn on 1,095 lines; broad is 25.08% / 19.72%; core is 7.41% / 10.96% (gap +3.55 pp); and FY2024 core is 7.36% / 9.73% [V wave 32A]. With the EIN-keyed fiscal-sponsor list and time-correct rulings: core 7.76% / 11.61%, broad 24.79% / 19.85%, FY2024 core 7.69% / 10.37% ([g0503-0501-exception-proxy-refinements.md](g0503-0501-exception-proxy-refinements.md)) [V wave 40A]
 
 | Category | Lines | $ | Count share | Dollar share | Gap ($ − count), pp | $ share ÷ count share |
 |---|---|---|---|---|---|---|
 | Foreign (Sched I foreign address + Sched F) | 3,805 | $1.93bn | 0.63% | 2.07% | +1.45 | 3.32× |
 | Not 501(c)(3) or not in Pub 78 (raw) | 117,401 | $8.66bn | 19.29% | 9.32% | −9.97 | 0.48× |
 | … unexplained (no legitimate-absence label) | 13,570 | $1.10bn | 2.23% | 1.19% | −1.04 | 0.53× |
-| BMF ruling ≤24 months before the grant year (or later) | 29,082 | $5.52bn | 4.78% | 5.94% | +1.16 | 1.24× |
+| BMF ruling ≤24 months before the grant year (or later) | 29,082 | $5.52bn | 4.78% | 5.94% | +1.16 | 1.24× (recent at grant time on archived BMF snapshots, $92.72bn base: 25,185 lines, $4.95bn, 4.14% / 5.34%; true new organisations 3.16% / 4.72%) [V wave 40A] |
 | Fiscal-sponsor name | 740 | $1.21bn | 0.12% | 1.30% | +1.18 | 10.72× (EIN-keyed list on $92.72bn: 2,682 lines, $1.80bn, 0.44% / 1.94%, 4.4×) [V wave 39C]
 | Private foundation / ER | 2,396 | $1.29bn | 0.39% | 1.39% | +0.99 | 3.52× |
 | **Any (broad union)** | **152,661** | **$18.50bn** | **25.08%** | **19.90%** | **−5.18** | **0.79×** |
-| **Any (core union)** | **45,104** | **$10.37bn** | **7.41%** | **11.16%** | **+3.75** | **1.51×** |
+| **Any (core union)** | **45,104** | **$10.37bn** | **7.41%** | **11.16%** | **+3.75** | **1.51×** (refined on $92.72bn: 47,228 lines, $10.77bn, 7.76% / 11.61%, +3.85 pp; new organisations only 6.80% / 11.00%) [V wave 40A] |
 
 **Sub-components [C]:**
 - **Private foundation / ER:**
@@ -163,7 +163,7 @@ Denominator: 608,612 lines; $92.94bn. **Validation note:** this includes Greater
 
 **By year:**
 - Broad: FY2023 25.3% / 23.5%; FY2024 24.9% / 16.9%.
-- Core: FY2023 7.5% / 12.4%; FY2024 7.4% / 10.1%.
+- Core: FY2023 7.5% / 12.4%; FY2024 7.4% / 10.1%. Refined ($92.72bn base): FY2023 7.84% / 13.08%; FY2024 7.69% / 10.37% ([g0503-0501-exception-proxy-refinements.md](g0503-0501-exception-proxy-refinements.md)) [V wave 40A]
 - The FY2023 dollar figures include SVCF's $1.31bn Further Future line and its $1.66bn CZ Biohub LLC lines.
 
 **Sensitivity:**
@@ -182,7 +182,7 @@ Denominator: 608,612 lines; $92.94bn. **Validation note:** this includes Greater
 | Processor (Dechomai) | 1 (2) | 9 | $0.89bn | 22.22% | 5.60% | −16.6 | 22.22% | 5.60% | −16.6 | n=1 | n=1 |
 | University/hospital | 2 (4) | 810 | $1.01bn | 61.36% | 4.01% | −57.3 | 60.00% | 3.80% | −56.2 | n=2 | n=2 |
 | *Big-4 nationals* | 4 (8) | 337,139 | $49.14bn | 28.25% | 17.82% | −10.4 | 7.32% | 10.02% | +2.7 | 17.89% (16.13–19.42%) | 26.71% (24.08–29.21%) |
-| *All* | 48 (94) | 608,612 | $92.94bn | 25.08% | 19.90% | −5.2 | 7.41% | 11.16% | +3.8 | 16.36% (13.39–21.08%) | 19.68% (15.48–25.18%) |
+| *All* | 48 (94) | 608,612 | $92.94bn | 25.08% (refined, $92.72bn base: 24.79%) | 19.90% (19.85%) | −5.2 (−4.9) | 7.41% (7.76%) | 11.16% (11.61%) | +3.8 (+3.85) [V wave 40A] | 16.36% (13.39–21.08%) | 19.68% (15.48–25.18%) |
 
 **Dollar shares by category and type [C]:**
 
@@ -279,29 +279,29 @@ Ranks 9 (Renaissance) and 11 (BofA CGF) are absent because their Schedule I is a
 | Component | Existing (FY6/2025) | This proxy, same definition (FY2023–24) [C] | This proxy, full category [C] |
 |---|---|---|---|
 | Foreign: Part IX line 3 ÷ lines 1–3 | 1.46% | **1.96%** (line 3 $976.1m of $49.90bn) | Foreign incl. Sched I foreign-address lines: 2.00% of $, 0.43% of lines |
-| Named fiscal sponsors ÷ Schedule I $ | ≈1.20% | **1.50%** (same 19-host list) | 1.47% of $, 0.04% of lines |
+| Named fiscal sponsors ÷ Schedule I $ | ≈1.20% | **1.50%** (same 19-host list; 2.10% on the EIN-keyed host list, 1.82% without 50CAN, Global Impact, NEO Philanthropy and Myriad USA) | 1.47% of $, 0.04% of lines (EIN-keyed list: 2.05% of $, 0.24% of lines) [V wave 40A] |
 | Non-501(c)(3) IRC-section text ÷ Schedule I $ | ≈0.03% | **0.15%** (NPT 0.78%; the others 0.00%) | Not c3 / not in Pub 78: 8.20% of $, 22.61% of lines (unexplained 0.98% / 2.33%) |
 | Recent ruling (≤24 months) | not measured | — | 4.25% of $, 4.91% of lines |
 | Private foundations / ER | not measured | — | 2.05% of $, 0.41% of lines (ER-required $61.0m; POF $948.6m) |
-| **Sum / union** | **≈2.5–3%** of $ | **≈3.6%** of $ (simple sum, as in the existing method) | **Core 10.0% of $, 7.3% of lines; broad 17.8% of $, 28.3% of lines** |
-| Count-based | "roughly 0.3–1%" [I]; NPT floor ≥0.35% | Foreign + fiscal-sponsor lines: 0.47% of big-4 lines | — |
+| **Sum / union** | **≈2.5–3%** of $ | **≈3.6%** of $ (simple sum, as in the existing method; ≈4.2% with the EIN-keyed fiscal-sponsor list, ≈3.9% without the four large-programme hosts) | **Core 10.0% of $, 7.3% of lines; broad 17.8% of $, 28.3% of lines** (refined: core 10.62% / 7.55%; broad 18.00% / 27.79%) [V wave 40A] |
+| Count-based | "roughly 0.3–1%" [I]; NPT floor ≥0.35% | Foreign + fiscal-sponsor lines: 0.47% of big-4 lines (0.67% with the EIN-keyed fiscal-sponsor list) [V wave 40A] | — |
 
 **Per sponsor, FY2023–24 [C]:**
 
 | Sponsor | Line 3 share | Named FS share of Sched I | Core: count / $ | Broad: count / $ |
 |---|---|---|---|---|
-| Fidelity Charitable | 0.50% (FY6/2025: 0.48%) | 1.79% (1.27%) | 7.55% / 8.32% | 30.20% / 16.78% |
-| NPT | 7.42% (4.84%) | 2.21% (1.70%) | 9.55% / 15.75% | 22.70% / 20.69% |
-| DAFgiving360 | 0.93% (1.23%) | 0.88% (1.05%) | 6.93% / 9.56% | 28.88% / 18.99% |
-| Vanguard Charitable | 0.21% (0.12%) | 0.30% (0.45%) | 5.68% / 7.34% | 24.54% / 14.17% |
+| Fidelity Charitable | 0.50% (FY6/2025: 0.48%) | 1.79% (1.27%) | 7.55% / 8.32% | 30.20% / 16.78% (refined: named FS 2.39%, core 7.76% / 8.95%, broad 29.65% / 17.04%) [V wave 40A] |
+| NPT | 7.42% (4.84%) | 2.21% (1.70%) | 9.55% / 15.75% | 22.70% / 20.69% (refined: named FS 3.27%, core 9.84% / 16.74%, broad 22.46% / 21.19%) [V wave 40A] |
+| DAFgiving360 | 0.93% (1.23%) | 0.88% (1.05%) | 6.93% / 9.56% | 28.88% / 18.99% (refined: named FS 1.21%, core 7.17% / 9.90%, broad 28.43% / 18.99%) [V wave 40A] |
+| Vanguard Charitable | 0.21% (0.12%) | 0.30% (0.45%) | 5.68% / 7.34% | 24.54% / 14.17% (refined: named FS 0.62%, core 5.96% / 7.65%, broad 24.20% / 13.77%) [V wave 40A] |
 
 **Reading [I]**
-1. **On its own definition, the existing figure holds up.** FY2023–24 gives about 3.6% against "2.5–3%". The difference is mostly NPT's foreign dollars ($742.8m over the two years, 7.4% of its grants, against 4.84% in FY6/2025), plus slightly higher fiscal-sponsor shares at Fidelity and NPT.
-2. **On the briefed categories, it covers only about a third of the core dollar proxy** (3.6% of 10.0%). The categories it omits are:
+1. **On its own definition, the existing figure holds up.** FY2023–24 gives about 3.6% against "2.5–3%". The difference is mostly NPT's foreign dollars ($742.8m over the two years, 7.4% of its grants, against 4.84% in FY6/2025), plus slightly higher fiscal-sponsor shares at Fidelity and NPT. On the EIN-keyed fiscal-sponsor list the like-for-like sum is about 4.2% (3.9% without 50CAN, Global Impact, NEO Philanthropy and Myriad USA) ([g0503-0501-exception-proxy-refinements.md](g0503-0501-exception-proxy-refinements.md)) [V wave 40A]
+2. **On the briefed categories, it covers only about a third of the core dollar proxy** (3.6% of 10.0%; about two-fifths, 4.2% of 10.6%, on the refined lists). [V wave 40A] The categories it omits are:
    - **operating foundations:** $948.6m at the big four, 1.93% of their dollars, most of it a few large lines. DAFgiving360 alone has $446.4m, 3.9% of its dollars;
    - **recipients ruled within 24 months:** 4.25%;
    - **unexplained non-list recipients:** 0.98%.
-3. **The count-side claim needs a qualifier.** "Count-weighted it is far smaller" (0.3–1%) is right for foreign and fiscal-sponsor grants (0.47% of lines). It is wrong for the full proxy:
+3. **The count-side claim needs a qualifier.** "Count-weighted it is far smaller" (0.3–1%) is right for foreign and fiscal-sponsor grants (0.47% of lines; 0.67% with the EIN-keyed fiscal-sponsor list). [V wave 40A] It is wrong for the full proxy:
    - new-ruling recipients are 4.9% of lines;
    - recipients absent from Pub 78 are 22.6% of lines (mostly churches and subordinates, clearable from the BMF or group rulings).
    - At the big four, flagged lines average $91,936 against $166,950 for the rest (broad).
@@ -404,6 +404,6 @@ python3 scripts/mission_exception_load.py . --np-cache NPCACHE --lines-cache LIN
 | Recipient lines | 608,610 |
 | Grant dollars | $92.72bn |
 | Broad share (lines / dollars) | 25.08% / 19.72% |
-| Core share (lines / dollars) | 7.41% / 10.96% |
+| Core share (lines / dollars) | 7.41% / 10.96% (7.76% / 11.61% with the EIN-keyed fiscal-sponsor list and time-correct rulings; 6.80% / 11.00% new organisations only; [g0503-0501-exception-proxy-refinements.md](g0503-0501-exception-proxy-refinements.md)) [V wave 40A] |
 
 These figures match the wave 32A corrections above. The National sponsor-type row was not changed by this regeneration. Its de-duplicated values (Servant Foundation removed) are the ones in the wave 32A correction to §3.2 [V wave 32A].

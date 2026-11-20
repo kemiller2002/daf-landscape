@@ -57,7 +57,7 @@
 | PPGF 990 CY2024 | Part III: "make it easy for donors to support the charities they care about on the websites and apps they use every day"; no account-basis wording | [F] | Neutral |
 
 - **Result:** neither processor's own text disclaims ongoing privileges, and both describe balances that donors direct later. Batch 36's A1 rule (exclude only on the sponsor's own statement) therefore keeps their 1.80m FY2024 accounts. A2 stays the cited "accounts excluding micro-account processors" bound.
-- **Caveat [I]:** Givinga's 1,421,011 accounts average $8.73 (EOY $12.4m). Many are probably employee accounts opened by default with little or no balance. The privilege exists, but the count measures enrolment rather than active advising.
+- **Caveat [I]:** Givinga’s 1,421,011 accounts average $8.74 of CY2024 DAF grants ($12.4m) and $1.37 of year-end value ($1.95m); the $12.4m is grants, not EOY value [V wave 40A] Many are probably employee accounts opened by default with little or no balance. The privilege exists, but the count measures enrolment rather than active advising.
 - **Index check [F]** (`accounts` task):
 
 | Target | Newest indexed 990 | TY2025 period sought | Indexed? |

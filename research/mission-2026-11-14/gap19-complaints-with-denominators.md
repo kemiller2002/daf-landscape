@@ -202,15 +202,15 @@ These are strict-scope rows. The upper bound is only what a complete venue would
 | Chicago Community Trust | 1,914 | 19.27 | 2.62 |
 | SVCF | 1,011 | 36.49 | 1.20 |
 | Foundation For The Carolinas | 1,047 | 35.23 | 5.11 |
-| PPGF | 380,644 | 0.10 | 4.64 |
+| PPGF | 380,644 (consumer donor accounts; not comparable with sponsor accounts) | 0.10 (not comparable) | 4.64 [V wave 40A] |
 | Dechomai | 314 | 117.5 | 6.68 |
 
 ### 4.3 Denominator notes
 
-- **Processor "accounts" are not sponsor DAF accounts.** AOGF's 720,545 (IRS 990) almost certainly counts workplace donor accounts. PPGF's 380,644 is a filed count that replaced DAFRC's imputed 694,979. These figures cannot be compared with Fidelity's 204,614 donor-advised accounts. This is the main reason the per-account and per-dollar rankings diverge (P-G1913-03).
+- **Processor "accounts" are not sponsor DAF accounts.** AOGF’s 720,545 is its filed Schedule D Part I line 1 column (a) for the year ended 31 March 2024, where its own note says “AOGF HAS A MICRODONATION DAF MODEL VERSUS A CONVENTIONAL DAF ENDOWMENT MODEL.” Its FYE 2026 return reports 695 DAFs in column (a) and 751,746 other accounts in column (b), and says individual donors recommend grants “WITHOUT ONGOING ADVISORY PRIVILEGES”, so the 720,545 are mostly individual workplace donor accounts [I]. Blackbaud Giving Fund filed no line 1 count for CY2023–CY2025 (DAFRC’s 460 is imputed; the last filed count is 359 for CY2022), and its funds are employer and campaign programs [I]. For Good’s 1 is filed and counts one pooled fund that every donor gives through, so its per-account rate is undefined rather than implausible (b40n13-03-g1913-03 §4) [V wave 40A] PPGF's 380,644 is a filed count that replaced DAFRC's imputed 694,979. These figures cannot be compared with Fidelity's 204,614 donor-advised accounts. This is the main reason the per-account and per-dollar rankings diverge (P-G1913-03).
 - **Grant dollars are the more comparable denominator across sponsors and processors.** They are still a weak unit for delay complaints, which happen per gift.
 - **Fidelity grant-count side calculation (not in the CSV).** The repository's [`grant-rail-shares-panel-2026.csv`](../../data/mission-2026-11-14/grant-rail-shares-panel-2026.csv) records Fidelity's "nearly 2.7 million grants in 2024". Dividing 27 review-venue complaints over 5.88 years by that one-year grant count gives **about 0.017 complaints per 10,000 grants per year**. No other entity in the frame has a grant count in the repo (P-G1913-02).
-- **DAFRC FY2024 timing** means fiscal years ending in 2024 or early 2025 (AOGF's year ends 31 March). Complaints span about six years; the denominators are one year. The per-year column divides by 5.881 and assumes a stable account base, which is optimistic for growing sponsors [V wave 32B]
+- **DAFRC FY2024 timing** means fiscal years ending in calendar 2024 (762 of the 767 panel rows sourced to an IRS 990); 677 of the 709 imputed rows carry a 2023 year end. AOGF’s year ends 31 March, so its FY2024 row is the year ended 31 March 2024 (return 202530159349302758), not a year ending in early 2025 [V wave 40A] Complaints span about six years; the denominators are one year. The per-year column divides by 5.881 and assumes a stable account base, which is optimistic for growing sponsors [V wave 32B]
 
 ---
 
@@ -280,7 +280,7 @@ The new records number 46 complaint/mixed plus 1 praise.
   - BBB shows 3 years; give.org counts 36 months; Trustpilot shows full history; Google Play shows the 3 reviews the page features.
   - All are cut to 2021 or later, but effective coverage differs by venue. Rates are therefore not comparable across venues, only across entities on the same venue mix.
 - **Convenience sample and selection.** Benevity's Trustpilot page draws nonprofit reviews invited after webinars (excluded) and nonprofit grievances. Fidelity's app reviews come mostly from donors whose app failed. The share of users who review is unknown and differs by brand (P-G1913-06).
-- **Denominator quality.** Two of the five processor account counts are imputed or implausible. Processor accounts are a different unit from sponsor accounts (§4.3). All denominators come from the repo and none were invented.
+- **Denominator quality.** Of the five processors here (AOGF, PPGF, Blackbaud Giving Fund, Dechomai, For Good), Blackbaud has no filed line 1 count (DAFRC-imputed 460) and For Good’s filed 1 is one pooled fund. AOGF and PPGF count individual donor accounts and Blackbaud employer and campaign programs [I]; Dechomai’s unit (314 accounts after correction) has not been classified. Per-account rates for processors should be read as not comparable (b40n13-03-g1913-03 §4.3) [V wave 40A] Processor accounts are a different unit from sponsor accounts (§4.3). All denominators come from the repo and none were invented.
 - **Attribution.**
   - Benevity reviews span its Canadian, UK and other giving funds. The strict scope keeps US reviewers only.
   - Three new records have low attribution (Blackbaud product not named; Ren product not named; Benevity reviewer with no subject). Strict excludes them.

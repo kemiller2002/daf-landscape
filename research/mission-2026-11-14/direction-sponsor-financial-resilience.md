@@ -60,7 +60,7 @@
      | AOGF (processor) | 40% |
 
    - **[F]** The one place an internal fee is disclosed is Schedule D Part V, line 1e (administrative expenses charged to endowment funds). For community foundations it equals **24%** of operating cost (TY2024, pooled; for example NYCT $40.8m, Cleveland $18.5m, CCT $17.0m).
-   - **[I]** No 990 line carries the equivalent DAF charge. Fee reliance therefore has to be inferred from the balance sheet (item 6) or read from audited statements (P-B44N27-02).
+   - **[I]** No 990 line carries the equivalent DAF charge. Fee reliance cannot be inferred from the balance sheet: at the five sponsors with audited fee data the fee surplus is not identifiable in ΔR1 (item 6). It has to be read from audited statements (P-B44N27-02; [b4427-03-b43n23-proxy-and-parent-marketing.md](b4427-03-b43n23-proxy-and-parent-marketing.md)). [b4427-03] [V wave 40C]
 5. **Revenue mix, TY2024 (pooled Part VIII) [C]:**
 
    | Group | Contributions | Investment income (lines 3–5) | Net gains (line 7d) |
@@ -71,7 +71,7 @@
    | Faith / single-issue | 85.4% | 6.3% | 7.8% |
 
    - Investment income alone (lines 3–5) is a median **10.6×** operating cost at affiliated nationals and **1.6×** at community foundations. Most of it belongs to DAF accounts.
-6. **Operating surplus: the 990 headline is uninformative. The change in non-DAF net assets is a better balance-sheet signal, but audits show it is not an operating margin [C].** [V wave 38B]
+6. **Operating surplus: the 990 headline is uninformative, and the change in non-DAF net assets (ΔR1) is a balance-sheet movement, not an operating signal. At the five sponsors with audited fee data it follows Schedule D other-fund growth, endowment returns, campaign receipts and Schedule D reporting basis; the fee surplus is identifiable in it at none [C].** [V wave 38B] [b4427-03] [V wave 40C]
    - Part I line 19 (revenue less expenses) is positive in nearly every sponsor-year, because DAF inflows exceed DAF grants.
    - Stripping net DAF flows (S2), 9 of 96 sponsors ran a deficit in TY2024 (23 in TY2022).
    - Also stripping all investment income (S4), 78 of 96 ran a deficit in TY2024. This is mechanical: the fee that funds operations is not revenue on the 990.
@@ -176,9 +176,9 @@ DAF assets are legally owned by the sponsor and are usually booked **without don
 | **S2** | S1 − (Schedule D DAF contributions − DAF grants): strips net DAF inflow |
 | **S3** | S2 − line 7d net gains |
 | **S4** | S3 − lines 3–5: the pre-investment result |
-| **ΔR1** | R1(TY) − R1(TY−1). The sponsor's own balance-sheet surplus, including fees moved from DAF accounts and returns on its own funds |
+| **ΔR1** | R1(TY) − R1(TY−1). Change in non-DAF net assets: Schedule D column (b) funds, endowment returns, PP&E, donor-restricted and campaign funds, the sponsor’s own operating fund where it is not reported inside the Schedule D DAF value (as at NCF, not at JCF), and any gap between the Schedule D DAF value and the balance sheet. Not an operating result [b4427-03] [V wave 40C] |
 
-- **[I]** ΔR1 was proposed as the operating-result proxy, on the view that a DAF administrative fee moves value from DAF balances into sponsor-owned funds without passing through Part VIII. Audited statements do not support it as a margin ([b4014-b4427-sponsor-economics.md](b4014-b4427-sponsor-economics.md)). ΔR1 exceeds audited fee less operating expense by $47.6m and $70.7m at Fidelity, which pays its fee to FMR one for one; by $6.3m and $57.0m at RCF, which books its fee as Part VIII revenue; and by $129.3m and $182.6m at NCF. Only at JCF is it within about $1.6m. Treat ΔR1 as a non-DAF balance-sheet movement, not an operating result. [V wave 38B]
+- **[I]** ΔR1 was proposed as the operating-result proxy, on the view that a DAF administrative fee moves value from DAF balances into sponsor-owned funds without passing through Part VIII. Audited statements do not support it as a margin ([b4014-b4427-sponsor-economics.md](b4014-b4427-sponsor-economics.md)). ΔR1 exceeds audited fee less operating expense by $47.6m and $70.7m at Fidelity, which pays its fee to FMR one for one; by $6.3m and $57.0m at RCF, which books its fee as Part VIII revenue; and by $129.3m and $182.6m at NCF. Only at JCF is it within about $1.6m, and that is coincidence: JCF’s R1 is its board-designated endowment plus its reserve fund, while the operating fund that receives the fee is reported inside the Schedule D DAF value. Treat ΔR1 as a non-DAF balance-sheet movement, not an operating result. [V wave 38B] [b4427-03] [V wave 40C]
 - ΔR1 is blank for TY2021 (no TY2020 row, under the recency rule) and wherever either year is flagged `daf_share_break`.
 
 ### 1.6 Quality screens
@@ -335,7 +335,7 @@ The growth columns come from the `group_trend` rows: sponsors analysable in both
 | Processor | 2024 | 107.0% | 1.1% | 0.5% | −8.7% | 40.1% / 22.3% | 0.2× |
 
 - **[I]** The DAF administrative fee is the main operating revenue of every national sponsor, by their own fee schedules (`sponsor-fee-schedules.csv`). The 990 does not show it, because the fee is a transfer between funds the sponsor already owns.
-- **[I]** "Reliance on fee income" therefore cannot be measured from Part VIII. Its balance-sheet trace is ΔR1. At affiliated nationals ΔR1 runs at about +0.4× operating cost each year. That does not show that fees retained exceed costs. Fidelity pays FMR an amount equal to its fee, and its other costs exceed the fee by $11.3m (FY2023) and $21.9m (FY2024). RCF passes 98% of its fee from fund holder accounts to Ren, leaving a $0.15–0.28m surplus (audits read in wave 38B). [V wave 38B]
+- **[I]** "Reliance on fee income" therefore cannot be measured from Part VIII. It has no reliable balance-sheet trace: the fee surplus is not identifiable in ΔR1 at any of the five sponsors with audited fee data. [b4427-03] [V wave 40C] At affiliated nationals ΔR1 runs at about +0.4× operating cost each year. That does not show that fees retained exceed costs. Fidelity pays FMR an amount equal to its fee, and its other costs exceed the fee by $11.3m (FY2023) and $21.9m (FY2024). RCF passes 98% of its fee from fund holder accounts to Ren, leaving a $0.15–0.28m surplus (audits read in wave 38B). [V wave 38B]
 - **[I]** Rising rates lifted investment income from 4.5% to 6.4% of revenue at affiliated nationals between TY2021 and TY2024, and from 2.3% to 7.3% at independents. Under asset-based fees, sponsor revenue tracks DAF asset values and market returns, not account activity.
 
 ## 7. Surplus and deficit (TY2024; `group_year`)
@@ -365,7 +365,7 @@ The growth columns come from the `group_trend` rows: sponsors analysable in both
   - The `daf_share_break` rows are excluded, and NPT TY2022 is referred for verification (P-B44N27-01).
 - **Classification is not on the 990.** Whether DAFs sit in line 27 or 28 is inferred from `daf_gt_na_without_restr`. Board designations beyond Schedule D Part V, liquidity (cash versus illiquid gifts) and lines of credit are not visible.
 - **Costs off the 990.**
-  - Affiliated-commercial sponsors' staff, technology and marketing are paid by the parent under services agreements (compensation direction §5; cost-structure §8).
+  - Affiliated-commercial sponsors buy staff, technology and fundraising from the parent under services agreements (compensation direction §5; cost-structure §8). The filings that speak show the charity paying the parent: Fidelity’s payment to FMR equals its donor fee and covers services that include fundraising, though FMR’s own cost of those services is “not separately stated”; Raymond James’s service agreement covers fundraising; DAFgiving360 reimburses Schwab for its workforce and books its own advertising; and Vanguard Charitable books its own fundraising expense while receiving $0.8–1.0m a year of in-kind professional services from Vanguard. Whether any parent spends more than it recovers, and any brand marketing it bears on its own account, are not disclosed. [b4427-03] [V wave 40C]
   - Their operating cost, and therefore their months of cover, describes the charity's bill from the affiliate, not the economic cost.
   - BofA's figures are unusable for months of cover.
 - **Fee income is not reported as revenue.** The fee-line screen is description-based. It catches agency, supporting-organisation and consulting fees, but not internal DAF fees.

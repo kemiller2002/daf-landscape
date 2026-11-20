@@ -235,7 +235,7 @@
 
 ## 7. Lessons for a US AI-native entrant [I unless cited]
 
-1. **Build payout analytics in from day one.** Every peer market studied has, or is adopting, a sponsor-level floor: Canada 5% above $1m, and Australia 4%/5% today, with 6% and smoothing decided but not yet in any registered instrument at 2026-11-19 [V wave 37B]. Canada's quota (3.5% to C$1m, 5% above, on a 24-month average) is charity-level and rarely binds on DAF sponsors: in the 2025 release 13 of the top-20 meet it from DAF disbursements net of sponsor transfers [V wave 38A] Smoothing, Commissioner reductions and a charity-level DQ create the same work a US rule would: account-level dormancy tracking and aggregate floor management. An entrant that can show per-account payout and simulate the floor is ready if the US moves.
+1. **Build payout analytics in from day one.** Every peer market studied has, or is adopting, a sponsor-level floor: Canada 5% above $1m, and Australia 4%/5% today, with 6% and smoothing decided but not yet in any registered instrument at 2026-11-19 [V wave 37B]. Canada's quota (3.5% to C$1m, 5% above, on a 24-month average) is charity-level and rarely binds on DAF sponsors: in the 2025 release 13 of the top-20 meet it from DAF disbursements net of sponsor transfers [V wave 38A], or 14 counting JCF Montreal, which files no Schedule 8 but whose line 5900 implies a DQ of C$107.1m against C$236.9m of DAF disbursements [V wave 40B] Smoothing, Commissioner reductions and a charity-level DQ create the same work a US rule would: account-level dormancy tracking and aggregate floor management. An entrant that can show per-account payout and simulate the floor is ready if the US moves.
 2. **The large consumer models abroad ran their own stacks.**
    - **Own stacks:** CHIMP, Canada Gives, CAF and APS run their own platforms or name no vendor.
    - **Where US vendors appear:** Ren, Foundant and NPact are concentrated at adviser-channel and community-foundation sponsors (NPT UK, ACF, Calgary).
@@ -255,7 +255,7 @@
    - The UK and Australia have no equivalent return field. UK totals come from NPT UK reading annual accounts, and Australian sub-funds are invisible.
    - **Implication:** Canada is the one foreign market where the repo's 990-style sponsor benchmarking can be repeated (P-B39N3-01). Note that the account counts carry known filing errors [F: S13].
 6. **Pass-through vehicles are a feature of corporate giving everywhere.** Examples include Benevity's Canadian Online Giving Foundation (99% gifts-to-donations) and its UK partners. They inflate account counts, as in the US repo finding that processors hold 79.5% of US accounts.
-7. **Do not read across payout rates.** The UK 28.3%, Canadian 12% and US 22.8% figures use different numerators and denominators. Canadian figures also include DAF-to-DAF transfers, which the authors flag [F: S13]. Netting gifts to other line-5860 = Y sponsors lowers Canada's 2025 prior-year-asset payout from 13.3% to 12.0% [C: b39n3-0406] [V wave 38A]
+7. **Do not read across payout rates.** The UK 28.3%, Canadian 12% and US 22.8% figures use different numerators and denominators. Canadian figures also include DAF-to-DAF transfers, which the authors flag [F: S13]. Netting gifts to other line-5860 = Y sponsors lowers Canada's 2025 prior-year-asset payout from 13.3% to 12.0% [C: b39n3-0406] [V wave 38A]. CanadaHelps, a C$467m-a-year pass-through that answers 5860 = N, would raise it to 14.9% if counted as a sponsor, so platform-inclusive Canadian figures are not comparable [C: b3946] [V wave 40B]
 
 ---
 
