@@ -31,7 +31,9 @@ Outputs (build):
 
 Usage:
   python3 scripts/mission_pf_to_daf_flows.py . frame   --irs-dir DIR --cache CACHE
+  python3 scripts/mission_pf_to_daf_flows.py . extend  --irs-dir DIR --index-2026 NEWER.csv --cache CACHE
   python3 scripts/mission_pf_to_daf_flows.py . harvest --cache CACHE [--procs 40] [--limit N]
+  python3 scripts/mission_pf_to_daf_flows.py . bulk    --irs-dir DIR --index-2026 NEWER.csv --cache CACHE
   python3 scripts/mission_pf_to_daf_flows.py . build   --cache CACHE --bmf-dir DIR
 """
 from __future__ import annotations
@@ -48,6 +50,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+from functools import partial
 from multiprocessing import Pool
 from typing import Iterable, Mapping, Sequence
 
@@ -132,14 +135,14 @@ CAND_RX = re.compile(r"DONOR[\s-]*ADVISED|\bDAF\b|ADVISED FUND|CHARITABLE GIFT|G
 
 # Brand aliases for national/processor sponsors, applied only after EIN and exact-name matching failed.
 ALIASES = (
-    (r"\bFIDELITY\s+(INVESTMENTS?\s+)?(CHARITABLE|GIFT\s+FUND)|\bFIDELITY\b.*(\bDAF\b|DONOR[\s-]+ADVISED)", "110303001"),
+    (r"\bFIDELITY\s+(INVESTMENTS?\s+)?(CHARITABLE|GIFT\s+FUND)|\bFIDELITY\b.*(\bDAF\b|DONOR[\s-]+ADVISED)|(\bDAF\b|DONOR[\s-]+ADVISED).*\bFIDELITY\b", "110303001"),
     (r"NATIONAL\s+PHILANTHROPIC\s+TRUST|^NPT\b", "237825575"),
-    (r"SCHWAB\s+CHARITABLE|DAF\s*GIVING\s*360|DONOR\s+ADVISED\s+CHARITABLE\s+GIVING|\bSCHWAB\b.*(\bDAF\b|DONOR[\s-]+ADVISED)", "311640316"),
-    (r"VANGUARD\s+CHARITABLE|VANGUARD\b.*(\bDAF\b|DONOR[\s-]+ADVISED)", "232888152"),
+    (r"SCHWAB\s+CHARITABLE|DAF\s*GIVING\s*360|DONOR\s+ADVISED\s+CHARITABLE\s+GIVING|\bSCHWAB\b.*(\bDAF\b|DONOR[\s-]+ADVISED)|(\bDAF\b|DONOR[\s-]+ADVISED).*\bSCHWAB\b", "311640316"),
+    (r"VANGUARD\s+CHARITABLE|\bVANGUARD\b.*(\bDAF\b|DONOR[\s-]+ADVISED)|(\bDAF\b|DONOR[\s-]+ADVISED).*\bVANGUARD\b", "232888152"),
     (r"J\.?\s*P\.?\s*MORGAN\s+CHARITABLE\s+GIVING\s+FUND", "237825575"),
     (r"GOLDMAN\s+SACHS\s+PHILANTHROPY\s+FUND|GS\s+DONOR\s+ADVISED|GOLDMAN\s+SACHS\s+DONOR\s+ADVISED|^GS\s+DAF\b", "311774905"),
     (r"GOLDMAN\s+SACHS\s+CHARITABLE\s+GIFT", "113813663"),
-    (r"MORGAN\s+STANLEY\s+(GLOBAL\s+IMPACT|GIFT\b|CHARITABLE\s+GIFT)", "527082731"),
+    (r"MORGAN\s+STANLEY\s+(GLOBAL\s+IMPACT|GIFT\b|CHARITABLE\s+GIFT)|MORGAN\s+STANLEY\b.*(\bDAF\b|DONOR[\s-]+ADVISED)|(\bDAF\b|DONOR[\s-]+ADVISED).*MORGAN\s+STANLEY", "527082731"),
     (r"AMERICAN\s+ENDOWMENT\s+FOUNDATION", "341747398"),
     (r"RENAISSANCE\s+CHARITABLE", "352129262"),
     (r"^(THE\s+)?NATIONAL\s+CHRISTIAN\s+(CHARITABLE\s+)?FOUNDATION(\s+INC\.?)?$|^NCF(\s+GIVING)?(\s+INC\.?)?$", "581493949"),
@@ -247,13 +250,6 @@ def extract(text: str, keys: Mapping) -> tuple[dict, tuple]:
 
 
 # ----------------------------------------------------------------------------- harvest (edge)
-_KEYS: dict = {}
-
-
-def _init(keys: Mapping) -> None:
-    _KEYS.update(keys)
-
-
 def fetch(oid: str) -> tuple[str, str | None]:
     req = urllib.request.Request(XML_URL.format(oid=oid), headers={"User-Agent": UA})
     for i in range(4):
@@ -269,12 +265,12 @@ def fetch(oid: str) -> tuple[str, str | None]:
     return "error", None
 
 
-def work(row: Mapping) -> dict:
+def work(row: Mapping, keys: Mapping) -> dict:
     status, text = fetch(row["object_id"])
     if text is None:
         return {**row, "xml_status": status}
     try:
-        summ, lines = extract(text, _KEYS)
+        summ, lines = extract(text, keys)
     except Exception as e:  # noqa: BLE001
         return {**row, "xml_status": f"parse_error:{type(e).__name__}"}
     return {**row, "xml_status": "ok", **summ, "lines": lines}
@@ -288,15 +284,106 @@ def harvest(frame: Sequence[Mapping], cache: str, keys: Mapping, procs: int) -> 
     start = len(glob.glob(os.path.join(out, "c*.jsonl.gz")))
     chunks = {start + j: rest[j * CHUNK:(j + 1) * CHUNK] for j in range((len(rest) + CHUNK - 1) // CHUNK)}
     print(f"done {len(done)} todo {len(rest)} new chunks {len(chunks)}", flush=True)
-    with Pool(procs, initializer=_init, initargs=(keys,)) as pool:
+    with Pool(procs) as pool:
         for i in sorted(chunks):
             t0 = time.time()
-            res = pool.map(work, chunks[i], chunksize=4)
+            res = pool.map(partial(work, keys=keys), chunks[i], chunksize=16)
             tmp = os.path.join(out, f"c{i:04d}.tmp")
             with gzip.open(tmp, "wt", encoding="utf-8") as fh:
                 fh.writelines(json.dumps(r, separators=(",", ":")) + "\n" for r in res)
             os.replace(tmp, os.path.join(out, f"c{i:04d}.jsonl.gz"))
             print(f"chunk {i} ok={sum(r['xml_status'] == 'ok' for r in res)}/{len(res)} {time.time() - t0:.0f}s", flush=True)
+
+
+# ----------------------------------------------------------------------------- IRS bulk zip fallback (edge)
+ZIP_URL = "https://apps.irs.gov/pub/epostcard/990/xml/{y}/{batch}.zip"
+
+
+def http_range(url: str, start: int, end: int) -> bytes:
+    req = urllib.request.Request(url, headers={"User-Agent": UA, "Range": f"bytes={start}-{end}"})
+    for i in range(4):
+        try:
+            with urllib.request.urlopen(req, timeout=120) as r:
+                return r.read()
+        except Exception:  # noqa: BLE001
+            time.sleep(2 + 3 * i)
+    raise IOError(f"range failed {url} {start}-{end}")
+
+
+def zip_directory(url: str) -> dict:
+    """member name -> (local header offset, compressed size, method), read with HTTP range requests only."""
+    import struct
+    req = urllib.request.Request(url, method="HEAD", headers={"User-Agent": UA})
+    with urllib.request.urlopen(req, timeout=60) as r:
+        size = int(r.headers["Content-Length"])
+    tail = http_range(url, max(0, size - 70000), size - 1)
+    i = tail.rfind(b"PK\x05\x06")
+    n, cd_size, cd_off = struct.unpack("<HII", tail[i + 10:i + 20])
+    j = tail.rfind(b"PK\x06\x06")                      # zip64 end of central directory record
+    if j >= 0:
+        n, cd_size, cd_off = struct.unpack("<QQQ", tail[j + 32:j + 56])
+    cd = http_range(url, cd_off, cd_off + cd_size - 1)
+
+    def entries(pos, acc):
+        while pos + 46 <= len(cd) and cd[pos:pos + 4] == b"PK\x01\x02":
+            method, csize, usize = struct.unpack("<H", cd[pos + 10:pos + 12])[0], *struct.unpack("<II", cd[pos + 20:pos + 28])
+            nl, el, cl = struct.unpack("<HHH", cd[pos + 28:pos + 34])
+            off = struct.unpack("<I", cd[pos + 42:pos + 46])[0]
+            name = cd[pos + 46:pos + 46 + nl].decode("utf-8", "replace")
+            extra = cd[pos + 46 + nl:pos + 46 + nl + el]
+            if 0xFFFFFFFF in (csize, usize, off):          # zip64 extended information extra field
+                k = 0
+                while k + 4 <= len(extra):
+                    hid, hl = struct.unpack("<HH", extra[k:k + 4])
+                    if hid == 1:
+                        vals = list(struct.unpack("<%dQ" % (hl // 8), extra[k + 4:k + 4 + 8 * (hl // 8)]))
+                        usize = vals.pop(0) if usize == 0xFFFFFFFF else usize
+                        csize = vals.pop(0) if csize == 0xFFFFFFFF else csize
+                        off = vals.pop(0) if off == 0xFFFFFFFF else off
+                    k += 4 + hl
+            acc[os.path.basename(name)] = (off, csize, method)
+            pos += 46 + nl + el + cl
+        return acc
+    return entries(0, {})
+
+
+def zip_member(url: str, ent: tuple) -> str:
+    import struct
+    import zlib
+    off, csize, method = ent
+    hdr = http_range(url, off, off + 29)
+    nl, el = struct.unpack("<HH", hdr[26:30])
+    raw = http_range(url, off + 30 + nl + el, off + 30 + nl + el + csize - 1)
+    data = zlib.decompress(raw, -15) if method == 8 else raw
+    return data.decode("utf-8", errors="replace")
+
+
+def bulk_fallback(frame: Sequence[Mapping], h: Sequence[Mapping], batches: Mapping, cache: str, keys: Mapping) -> None:
+    ok = frozenset(r["object_id"] for r in h if r["xml_status"] == "ok")
+    miss = tuple(r for r in frame if r["object_id"] not in ok and r["object_id"] in batches)
+    by = _group_by_fast(miss, lambda r: batches[r["object_id"]])
+
+    def one(r, d):
+        url, ent = d.get(f"{r['object_id']}_public.xml", ("", None))
+        if not ent:
+            return {**r, "xml_status": "bulk_missing"}
+        summ, lines = extract(zip_member(url, ent), keys)
+        return {**r, "xml_status": "ok", "xml_source": url, **summ, "lines": lines}
+
+    def directory(y, b):
+        """the index's batch id plus its sibling volumes (..A, ..B, ..C): a month can span several zips."""
+        urls = tuple(ZIP_URL.format(y=y, batch=b[:-1] + v) for v in "ABC")
+        def safe(u):
+            try:
+                return {k: (u, e) for k, e in zip_directory(u).items()}
+            except Exception:  # noqa: BLE001  (volume does not exist)
+                return {}
+        return {k: v for u in urls for k, v in safe(u).items()}
+    res = tuple(x for (y, b), rs in sorted(by.items()) for d in (directory(y, b),) for x in (one(r, d) for r in rs))
+    i = len(glob.glob(os.path.join(cache, "harvest", "c*.jsonl.gz")))
+    with gzip.open(os.path.join(cache, "harvest", f"c{i:04d}.jsonl.gz"), "wt", encoding="utf-8") as fh:
+        fh.writelines(json.dumps(r, separators=(",", ":")) + "\n" for r in res)
+    print(json.dumps({"missing": len(miss), "recovered": sum(r["xml_status"] == "ok" for r in res)}))
 
 
 def load_harvest(cache: str) -> tuple[dict, ...]:
@@ -306,7 +393,7 @@ def load_harvest(cache: str) -> tuple[dict, ...]:
     return tuple(r for p in sorted(glob.glob(os.path.join(cache, "harvest", "c*.jsonl.gz"))) for r in one(p))
 
 
-CO_RX = re.compile(r"\s+(?:C/O|%|ATTN:?|ATTENTION)\s.*$|\s*%.*$", re.I)
+CO_RX = re.compile(r"\s*\(?\s*(?:C/O|%|\bATTN|\bATTENTION\b).*$", re.I)
 
 
 def org_name(s: str) -> str:
@@ -323,10 +410,15 @@ def csv_rows(rows: Sequence[Mapping]) -> tuple[dict, ...]:
 def latest_per_period(h: Sequence[Mapping]) -> tuple[dict, ...]:
     """after 'extend', an (EIN, TAX_PERIOD) can appear twice; keep the latest object id (amended supersedes)."""
     by = _group_by_fast(h, lambda r: (r["ein"], r["tax_period"]))
-    return tuple(max(v, key=lambda r: r["object_id"]) for _, v in sorted(by.items()))
+    return tuple(max(v, key=lambda r: (r["object_id"], r["xml_status"] == "ok")) for _, v in sorted(by.items()))
 
 
 # ----------------------------------------------------------------------------- matching (pure)
+GENERIC = frozenset({"COMMUNITY", "FOUNDATION", "TRUST", "FUND", "FUNDS", "CHARITABLE", "CHARITY", "JEWISH",
+                     "FEDERATION", "GIFT", "GIVING", "PHILANTHROPY", "PHILANTHROPIC", "ENDOWMENT", "AREA", "REGIONAL",
+                     "COUNTY", "CHRISTIAN", "NATIONAL", "UNITED", "WAY", "DONOR", "ADVISED", "DAF"})
+
+
 def match_line(g: Mapping, keys: Mapping, panel: Mapping, bmf: Mapping) -> tuple[str, str]:
     text = " ".join((g["name"], g["purpose"], g["status"], g.get("ein_field", "")))
     eins = tuple(ein9(a + b) for a, b in EIN_RX.findall(text))
@@ -346,11 +438,12 @@ def match_line(g: Mapping, keys: Mapping, panel: Mapping, bmf: Mapping) -> tuple
         return same[0] if len(same) == 1 else (legal[0] if len(legal) == 1 else "")
     for k, how in ((key(g["name"]), "name_exact"), (dedup_name(g["name"]), "name_exact"),
                    (key(first_segment(g["name"])), "name_first_segment")):
-        e = resolve(keys.get(k, ()), k) if not foreign else ""
+        e = resolve(keys.get(k, ()), k) if not foreign and not set(k.split()) <= GENERIC else ""
         if e:
             return e, how
     nm = re.sub(r"\s+", " ", html.unescape(g["name"]).upper()).strip()
-    hit = next((e for rx, e in ALIAS_RX if rx.search(nm) and e in panel), None)
+    seg = re.sub(r"\s+", " ", first_segment(g["name"]).upper()).strip()
+    hit = next((e for rx, e in ALIAS_RX if (rx.search(nm) or rx.search(seg)) and e in panel), None)
     return (hit, "alias") if hit and not foreign else ("", "")
 
 
@@ -532,9 +625,30 @@ def summarise(h: Sequence[Mapping], rows: Sequence[Mapping], panel: Mapping, lea
         rank = {r["ein"]: int(r["rank_assets"]) for r in league if r["fiscal_year"] == "2024" and r["row_type"] == "top50"}
         return [one(e, rk) for e, rk in sorted(rank.items(), key=lambda x: x[1])]
 
+    def term_detail():
+        tr = tuple(m for m in rows if m["pf_terminating"])
+        by = _group_by_fast((m for m in tr if m["sponsor_tier"] in TIERS["T123"]), lambda m: m["return_object_id"])
+        per = sorted(({"pf_ein": v[0]["pf_ein"], "pf_name": v[0]["pf_name"], "tax_year": v[0]["tax_year"],
+                       "usd": _r(sum(m["amount_usd"] for m in v)), "book_assets_boy": _r(v[0]["pf_book_assets_boy"]),
+                       "grants_paid": _r(v[0]["pf_total_grants_paid"]), "f507b1a": v[0]["pf_507b1a"],
+                       "sponsors": "; ".join(sorted({m["sponsor_name"][:40] for m in v}))} for v in by.values()),
+                     key=lambda d: -d["usd"])
+        boy = sorted(x["book_assets_boy"] or 0 for x in per)
+        usd = sorted(x["usd"] for x in per)
+        return {"returns_T123": len(per), "median_boy_book_assets": boy[len(boy) // 2] if boy else None,
+                "median_usd_to_T123": usd[len(usd) // 2] if usd else None,
+                "f507b1a_to_sponsor_by_tier": {k: {"returns": len({m["return_object_id"] for m in tr if m["pf_507b1a"] and m["sponsor_tier"] in v}),
+                                                   "usd": _r(sum(m["amount_usd"] for m in tr if m["pf_507b1a"] and m["sponsor_tier"] in v))}
+                                               for k, v in TIERS.items()},
+                "top_terminating_to_T123": per[:15]}
+
     mk = {int(r["fiscal_year"]): num(r["corrected_value"]) for r in market if r["metric"] == "daf_contributions"}
     yb = {ty: year_block(ty) for ty in TAX_YEARS}
-    return {"by_year": yb,
+    three = {k: _r(sum(yb[ty]["by_tier"][k]["usd"] for ty in TAX_YEARS)) for k in TIERS}
+    return {"by_year": yb, "three_year_totals_by_tier": three,
+            "three_year_t0_unattributed": _r(sum(yb[ty]["t0_daf_label_unattributed"]["usd"] for ty in TAX_YEARS)),
+            "three_year_pf_grants_paid": _r(sum(yb[ty]["pf_grants_paid_total"] for ty in TAX_YEARS)),
+            "terminating_detail": term_detail(),
             "market_daf_contributions_corrected": {ty: _r(mk.get(ty)) for ty in TAX_YEARS},
             "share_of_market_contributions": {ty: {k: (yb[ty]["by_tier"][k]["usd"] / mk[ty]) if mk.get(ty) else None for k in TIERS}
                                               for ty in TAX_YEARS},
@@ -554,7 +668,9 @@ FIELDS = ("pf_ein", "pf_name", "tax_year", "tax_period", "return_object_id", "pf
           "pf_507b1b_60month", "pf_dissolved_ind", "pf_terminating", "pf_fmv_assets_eoy", "pf_book_assets_boy", "pf_total_grants_paid",
           "sponsor_ein", "sponsor_name", "sponsor_type", "sponsor_subtype", "sponsor_segment", "sponsor_tier",
           "sponsor_rank_fy2024", "match_method", "lines", "amount_usd", "daf_purpose_amount_usd", "largest_line_usd",
-          "share_of_pf_grants_paid", "recipient_name_filed", "purpose_text", "xml_url", "source")
+          "share_of_pf_grants_paid", "recipient_name_filed", "purpose_text")
+# xml_url (XML_URL with return_object_id) and source (SOURCE) are identical in form on every row, so they are
+# documented in the research note instead of being repeated in the CSV.
 
 
 # ----------------------------------------------------------------------------- edges
@@ -568,7 +684,7 @@ def load_bmf(d: str, eins: frozenset) -> dict:
 def main(argv: Sequence[str] | None = None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("root")
-    ap.add_argument("task", choices=("frame", "extend", "harvest", "build"))
+    ap.add_argument("task", choices=("frame", "extend", "harvest", "bulk", "build"))
     ap.add_argument("--irs-dir")
     ap.add_argument("--index-2026", help="newer copy of index_2026.csv (task extend)")
     ap.add_argument("--bmf-dir")
@@ -597,6 +713,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         add = tuple(r for r in fr if r["object_id"] not in seen)
         write_csv(frame_p, (*old, *add), ("object_id", "ein", "tax_period", "tax_year", "name", "sub_date", "index_year"))
         print(json.dumps({"added": len(add), "by_tax_year": {ty: sum(1 for r in add if r["tax_year"] == ty) for ty in TAX_YEARS}}))
+        return 0
+    if a.task == "bulk":
+        # GT-mirror misses -> IRS monthly bulk zip named in the index XML_BATCH_ID column, read by HTTP range
+        src = lambda y: a.index_2026 if (y == 2026 and a.index_2026) else os.path.join(a.irs_dir, f"index_{y}.csv")  # noqa: E731
+        batches = {r["OBJECT_ID"]: (y, r["XML_BATCH_ID"]) for y in INDEX_YEARS for r in index_rows(src(y)) if r.get("XML_BATCH_ID")}
+        fr = tuple({**r, "tax_year": int(r["tax_year"])} for r in read_csv(frame_p))
+        bulk_fallback(fr, load_harvest(a.cache), batches, a.cache, keys)
         return 0
     if a.task == "harvest":
         fr = tuple({**r, "tax_year": int(r["tax_year"])} for r in read_csv(frame_p))
