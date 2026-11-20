@@ -335,8 +335,9 @@ def gov_rule(p: Mapping) -> str:
     if any(GOV_IRC.search(i) for i in p["irc"]):
         return "government_irc_text"
     nm = " ".join(norm(n) for n in p["names_filed"]) + " " + " ".join(n.upper() for n in p["names_filed"])
-    by_name = next((f"government_name_{k}" for k, rx in GOV_NAME if rx.search(nm)), "")
     religious = any(RELIGIOUS.search(norm(n)) for n in p["names_filed"])
+    weak = ("public_school_by_level", "state_or_federal")  # too loose for religious names (church schools, US-wide orders)
+    by_name = next((f"government_name_{k}" for k, rx in GOV_NAME if rx.search(nm) and not (religious and k in weak)), "")
     return by_name or ("government_ein_600_series_heuristic" if p["ein"][2:5] == "600" and not religious
                        and not re.search(r"\b(ACADEMY|PREP|PREPARATORY|CHRISTIAN|SAINT|ST)\b", nm) else "")
 

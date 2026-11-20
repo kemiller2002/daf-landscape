@@ -1,43 +1,43 @@
 row_type,scope,category,recipients,usd_daf_weighted,usd_schedule_i,usd_daf_weighted_fy2023,usd_daf_weighted_fy2024,share_of_non_bmf_daf_weighted,share_of_all_top50_daf_weighted,ein,name_as_filed
 aggregate,category,subsidiary_or_disregarded,59,1610730651,1680563239,1603172191,7558460,0.385767,0.021745,,
-aggregate,category,unresolved,16205,1543433237,1576178672,687533143,855900095,0.369649,0.020836,,
-aggregate,category,foreign_or_government,2542,631142883,690578886,354130768,277012114,0.151157,0.00852,,
+aggregate,category,unresolved,16332,1578971623,1612370059,701779994,877191629,0.378161,0.021316,,
+aggregate,category,foreign_or_government,2414,595598500,654381499,339883918,255714583,0.142645,0.008041,,
 aggregate,category,merged_or_terminated,1334,240704861,248838737,117217148,123487714,0.057648,0.00325,,
 aggregate,category,revoked,1405,83579228,89973073,43183089,40396138,0.020017,0.001128,,
-aggregate,category,invalid_or_typo,568,46358234,54014198,23437202,22921031,0.011103,0.000626,,
+aggregate,category,invalid_or_typo,569,46364230,54020198,23437202,22927028,0.011104,0.000626,,
 aggregate,category,new_ein,156,19450433,20338476,8097732,11352701,0.004658,0.000263,,
-aggregate,category_six_way,unresolved,16264,3154163888,3256741911,2290705333,863458555,0.755416,0.042581,,
-aggregate,category_six_way,foreign_or_government,2542,631142883,690578886,354130768,277012114,0.151157,0.00852,,
+aggregate,category_six_way,unresolved,16391,3189702273,3292933298,2304952184,884750089,0.763927,0.043061,,
+aggregate,category_six_way,foreign_or_government,2414,595598500,654381499,339883918,255714583,0.142645,0.008041,,
 aggregate,category_six_way,merged_or_terminated,1334,240704861,248838737,117217148,123487714,0.057648,0.00325,,
 aggregate,category_six_way,revoked,1405,83579228,89973073,43183089,40396138,0.020017,0.001128,,
-aggregate,category_six_way,invalid_or_typo,568,46358234,54014198,23437202,22921031,0.011103,0.000626,,
+aggregate,category_six_way,invalid_or_typo,569,46364230,54020198,23437202,22927028,0.011104,0.000626,,
 aggregate,category_six_way,new_ein,156,19450433,20338476,8097732,11352701,0.004658,0.000263,,
 aggregate,category_sub,subsidiary_or_disregarded/llc_name,59,1610730651,1680563239,1603172191,7558460,0.385767,0.021745,,
-aggregate,category_sub,unresolved/no_irs_trace_religious_name,14647,1313027445,1336461289,579913100,733114346,0.314467,0.017726,,
+aggregate,category_sub,unresolved/no_irs_trace_religious_name,14772,1348429202,1372516000,594080424,754348778,0.322946,0.018204,,
 aggregate,category_sub,foreign_or_government/government_irc_text,447,300236017,324121602,178027623,122208394,0.071906,0.004053,,
 aggregate,category_sub,merged_or_terminated/final_or_terminate_flag_latest_return,1187,233424165,241243281,112861977,120562188,0.055905,0.003151,,
 aggregate,category_sub,unresolved/no_irs_trace_other,1078,155294996,161930142,60877016,94417980,0.037193,0.002096,,
-aggregate,category_sub,foreign_or_government/government_name_local_government,747,89315484,99654852,44330853,44984632,0.021391,0.001206,,
+aggregate,category_sub,foreign_or_government/government_name_local_government,748,91927149,102273602,46214957,45712192,0.022016,0.001241,,
 aggregate,category_sub,foreign_or_government/government_name_school_district,629,79366692,83051410,59986190,19380502,0.019008,0.001071,,
-aggregate,category_sub,foreign_or_government/government_name_public_school_by_level,354,76951030,78705750,31223135,45727895,0.01843,0.001039,,
-aggregate,category_sub,revoked/no_bmf_successor,1197,69755938,75036146,36147591,33608347,0.016706,0.000942,,
-aggregate,category_sub,unresolved/has_irs_filings,168,46752894,47973062,31589529,15163365,0.011197,0.000631,,
+aggregate,category_sub,revoked/no_bmf_successor,1200,69851047,75131546,36193116,33657931,0.016729,0.000943,,
+aggregate,category_sub,unresolved/has_irs_filings,170,46889522,48109738,31669055,15220467,0.01123,0.000633,,
 aggregate,category_sub,foreign_or_government/government_name_state_university,198,45515376,56224871,21479884,24035492,0.010901,0.000614,,
-aggregate,category_sub,foreign_or_government/government_name_state_or_federal,56,26249125,33568008,12912336,13336789,0.006287,0.000354,,
-aggregate,category_sub,invalid_or_typo/typo_neighbour_ein_name_match,333,25871515,32318153,13480677,12390838,0.006196,0.000349,,
+aggregate,category_sub,foreign_or_government/government_name_public_school_by_level,228,38934066,40031213,15139203,23794863,0.009325,0.000526,,
+aggregate,category_sub,foreign_or_government/government_name_state_or_federal,53,26110043,33426408,12865313,13244729,0.006253,0.000352,,
+aggregate,category_sub,invalid_or_typo/typo_neighbour_ein_name_match,334,25877512,32324153,13480677,12396835,0.006198,0.000349,,
 aggregate,category_sub,new_ein/first_period_2022_plus,140,18152727,19002632,7219044,10933684,0.004348,0.000245,,
 aggregate,category_sub,unresolved/no_irs_trace_name_in_bmf_exact_name_other_state_only,117,16656493,17245428,8733681,7922812,0.003989,0.000225,,
 aggregate,category_sub,foreign_or_government/government_ein_600_series_heuristic,111,13509158,15252393,6170748,7338411,0.003235,0.000182,,
-aggregate,category_sub,revoked/name_now_in_bmf_other_ein,95,7721061,8040690,4746429,2974631,0.001849,0.000104,,
+aggregate,category_sub,revoked/name_now_in_bmf_other_ein,96,7868561,8188190,4808429,3060131,0.001885,0.000106,,
 aggregate,category_sub,unresolved/revoked_then_reinstated_not_in_bmf,106,6790580,7448294,3234978,3555602,0.001626,9.2e-05,,
 aggregate,category_sub,invalid_or_typo/wrong_ein_exact_name_unique_in_state,66,6516787,6985824,3258430,3258357,0.001561,8.8e-05,,
 aggregate,category_sub,invalid_or_typo/wrong_ein_fuzzy_name_unique_in_state,75,4812783,4944177,2165259,2647525,0.001153,6.5e-05,,
 aggregate,category_sub,invalid_or_typo/ein_on_revocation_list_unrelated_name,36,4259877,4440324,3107347,1152531,0.00102,5.8e-05,,
 aggregate,category_sub,merged_or_terminated/name_now_in_bmf_other_ein,45,4034505,4135977,2411407,1623098,0.000966,5.4e-05,,
-aggregate,category_sub,revoked/name_partial_match,44,3415056,3859362,1001541,2413515,0.000818,4.6e-05,,
+aggregate,category_sub,revoked/name_partial_match,45,3505738,3950112,1076804,2428934,0.00084,4.7e-05,,
 aggregate,category_sub,merged_or_terminated/epostcard_terminated,102,3246191,3459479,1943764,1302427,0.000777,4.4e-05,,
 aggregate,category_sub,invalid_or_typo/unassigned_ein_prefix,49,3090636,3123956,752093,2338543,0.00074,4.2e-05,,
-aggregate,category_sub,revoked/government_unit_name,69,2687173,3036875,1287528,1399645,0.000644,3.6e-05,,
+aggregate,category_sub,revoked/government_unit_name,64,2353881,2703225,1104740,1249142,0.000564,3.2e-05,,
 aggregate,category_sub,unresolved/no_irs_trace_name_in_bmf_exact_name_ambiguous_in_state,24,2285783,2291771,2137275,148508,0.000547,3.1e-05,,
 aggregate,category_sub,unresolved/no_irs_trace_name_in_bmf_fuzzy_name_ambiguous_in_state,32,1966253,2118300,708935,1257318,0.000471,2.7e-05,,
 aggregate,category_sub,new_ein/initial_return_flag,16,1297706,1335844,878688,419018,0.000311,1.8e-05,,
@@ -46,10 +46,10 @@ aggregate,category_sub,invalid_or_typo/typo_exact_name_unique_in_state,4,811691,
 aggregate,category_sub,unresolved/epostcard_only,32,622495,672935,302331,320164,0.000149,8e-06,,
 aggregate,category_sub,unresolved/pub78_only,1,36298,37451,36298,0,9e-06,0.0,,
 aggregate,cn_filing_rule_pass_1213,merged_or_terminated,884,220374414,227639050,104631051,115743362,0.752698,0.002975,,
-aggregate,cn_filing_rule_pass_1213,unresolved,125,43315208,44435033,28758080,14557127,0.147945,0.000585,,
+aggregate,cn_filing_rule_pass_1213,unresolved,126,43391999,44511859,28803106,14588893,0.148207,0.000586,,
 aggregate,cn_filing_rule_pass_1213,revoked,136,15461643,16667696,7003820,8457823,0.05281,0.000209,,
 aggregate,cn_filing_rule_pass_1213,new_ein,15,9103125,9475477,4258646,4844479,0.031092,0.000123,,
-aggregate,cn_filing_rule_pass_1213,foreign_or_government,47,4122285,4267531,1623549,2498737,0.01408,5.6e-05,,
+aggregate,cn_filing_rule_pass_1213,foreign_or_government,46,4045494,4190705,1578523,2466971,0.013818,5.5e-05,,
 aggregate,cn_filing_rule_pass_1213,subsidiary_or_disregarded,2,343998,369204,172158,171840,0.001175,5e-06,,
 aggregate,cn_filing_rule_pass_1213,invalid_or_typo,4,58698,71000,24252,34446,0.0002,1e-06,,
 aggregate,all,all,22269,4175399526,4360485281,2836771273,1338628254,1.0,0.056368,,
@@ -109,7 +109,7 @@ recipient,,foreign_or_government,,4214110,,,,,,736021192,Cushing Independent Sch
 recipient,,subsidiary_or_disregarded,,4211865,,,,,,842684537,GKFF BEST LLC
 recipient,,foreign_or_government,,4194380,,,,,,636005396,UNIVERSITY OF ALABAMA AT BIRMINGHAM
 recipient,,merged_or_terminated,,4144522,,,,,,412063123,SOLOMON SCHECHTER SCHOOL OF MANHATTAN
-recipient,,foreign_or_government,,4019956,,,,,,941156697,JUNIPERO SERRA HIGH SCHOOL
+recipient,,unresolved,,4019956,,,,,,941156697,JUNIPERO SERRA HIGH SCHOOL
 recipient,,merged_or_terminated,,3944568,,,,,,844402727,MHC BRIDGE FOUNDATION
 recipient,,revoked,,3862173,,,,,,943162646,PET NETWORK HUMANE SOCIETY
 recipient,,merged_or_terminated,,3839861,,,,,,841435420,Meridian Institute
@@ -125,7 +125,7 @@ recipient,,unresolved,,3039212,,,,,,620811890,HERMITAGE HILLS BAPTIST CHURCH INC
 recipient,,unresolved,,3027232,,,,,,741277656,HIGHLAND BAPTIST CHURCH
 recipient,,foreign_or_government,,3000000,,,,,,870266913,NORTH LOGAN CITY
 recipient,,unresolved,,2962305,,,,,,351617555,ZIONSVILLE PRESBYTERIAN CHURCH
-recipient,,foreign_or_government,,2794516,,,,,,362473481,ST LAURENCE HIGH SCHOOL
+recipient,,unresolved,,2794516,,,,,,362473481,ST LAURENCE HIGH SCHOOL
 recipient,,foreign_or_government,,2790424,,,,,,946000524,County of Monterey
 recipient,,foreign_or_government,,2787323,,,,,,521333483,CITY OF CHARLOTTE
 recipient,,foreign_or_government,,2773114,,,,,,956006659,SOUTHWESTERN COMMUNITY COLLEGE DISTRICT
@@ -161,12 +161,12 @@ recipient,,foreign_or_government,,2206352,,,,,,521261462,Department of the Navy
 recipient,,unresolved,,2200503,,,,,,851834696,JOIN FREEWORLD INC
 recipient,,unresolved,,2199073,,,,,,621183348,NEW MARKET BAPTIST CHURCH
 recipient,,unresolved,,2188440,,,,,,910690267,FIRST PRESBYTERIAN CHURCH OF BELLEVUE
-recipient,,foreign_or_government,,2179349,,,,,,042393983,MALDEN CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,2179349,,,,,,042393983,MALDEN CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,2101655,,,,,,631080839,MOUNTAIN BROOK COMMUNITY CHURCH
 recipient,,foreign_or_government,,2091000,,,,,,546001718,COLLEGE OF WILLIAM AND MARY
 recipient,,unresolved,,2048060,,,,,,741680596,STRAKE JESUIT COLLEGE PREPARATORY INC
 recipient,,unresolved,,2043865,,,,,,933272108,AWAKEN CHURCH OF BOCA RATON INC
-recipient,,foreign_or_government,,2043513,,,,,,391046808,RONCALLI CATHOLIC SCHOOLS
+recipient,,unresolved,,2043513,,,,,,391046808,RONCALLI CATHOLIC SCHOOLS
 recipient,,unresolved,,2005887,,,,,,461977068,HOPI EDUCATION ENDOWMENT FUND
 recipient,,foreign_or_government,,2003457,,,,,,381714601,MACOMB INTERMEDIATE SCHOOL DISTRICT
 recipient,,foreign_or_government,,2000000,,,,,,920039457,Native Village of Unalakleet
@@ -180,7 +180,7 @@ recipient,,unresolved,,1952907,,,,,,620546034,BRENTWOOD UNITED METHODIST CHURCH
 recipient,,foreign_or_government,,1951745,,,,,,566000756,NORTH CAROLINA STATE UNIVERSITY
 recipient,,unresolved,,1951188,,,,,,626039465,FIRST UNITARIAN CHURCH OF THE RIVER
 recipient,,unresolved,,1937126,,,,,,201330430,SOUTHSIDE MINISTRIES INC
-recipient,,foreign_or_government,,1936095,,,,,,390929898,DIVINE SAVIOR HOLY ANGELS HIGH SCHOOL
+recipient,,unresolved,,1936095,,,,,,390929898,DIVINE SAVIOR HOLY ANGELS HIGH SCHOOL
 recipient,,revoked,,1914948,,,,,,237156071,FRED HUTCHINSON CANCER RESEARCH CENTER
 recipient,,unresolved,,1901222,,,,,,263011769,Interise Inc
 recipient,,unresolved,,1898118,,,,,,856279456,LOVE ONE ANOTHER TRUST
@@ -252,12 +252,12 @@ recipient,,unresolved,,1404704,,,,,,874098158,Celadon Construction Corporation N
 recipient,,unresolved,,1402820,,,,,,223752478,COMMUNITY SYNAGOGUE OF TENAFLY AND ENGLEWOOD
 recipient,,unresolved,,1386536,,,,,,741143080,CONGREGATION BETH ISRAEL
 recipient,,unresolved,,1367944,,,,,,630418187,MOUNTAIN BROOK BAPTIST CHURCH
-recipient,,foreign_or_government,,1360335,,,,,,481057398,St Thomas Aquinas High School
+recipient,,unresolved,,1360335,,,,,,481057398,St Thomas Aquinas High School
 recipient,,unresolved,,1333173,,,,,,451794419,JALEN ROSE LEADERSHIP ACADEMY
 recipient,,revoked,,1327364,,,,,,471153202,COOPERATION JACKSON OF MISSISSIPPI
 recipient,,unresolved,,1324940,,,,,,362167080,FOURTH PRESBYTERIAN CHURCH
 recipient,,foreign_or_government,,1322498,,,,,,943084018,REDWOOD CITY SCHOOL DISTRICT
-recipient,,foreign_or_government,,1322320,,,,,,812898208,CATHOLIC CENTRAL HIGH SCHOOL
+recipient,,unresolved,,1322320,,,,,,812898208,CATHOLIC CENTRAL HIGH SCHOOL
 recipient,,foreign_or_government,,1316230,,,,,,566001834,ROWAN-SALISBURY SCHOOL SYSTEM
 recipient,,unresolved,,1308582,,,,,,581926575,CROSSROADS CHURCH
 recipient,,unresolved,,1303634,,,,,,750800643,FIRST BAPTIST CHURCH OF MCKINNEY
@@ -284,13 +284,13 @@ recipient,,unresolved,,1231748,,,,,,043798193,CHABAD OF THE SHORE
 recipient,,foreign_or_government,,1222012,,,,,,436003997,SCHOOL DISTRICT OF WEBSTER GROVES
 recipient,,unresolved,,1221741,,,,,,630302180,TRINITY UNITED METHODIST CHURCH
 recipient,,unresolved,,1213211,,,,,,113838490,REDEEMER COMMUNITY CHURCH
-recipient,,foreign_or_government,,1209455,,,,,,410694737,CHURCH OF ST AGNES AND SCHOOL
+recipient,,unresolved,,1209455,,,,,,410694737,CHURCH OF ST AGNES AND SCHOOL
 recipient,,unresolved,,1202235,,,,,,746200682,HARRIS CREEK BAPTIST CHURCH
 recipient,,merged_or_terminated,,1202128,,,,,,133840271,COUNCIL FOR A STRONG AMERICA
 recipient,,unresolved,,1194209,,,,,,561244709,PROVIDENCE BAPTIST CHURCH
-recipient,,foreign_or_government,,1188114,,,,,,610480949,ST XAVIER HIGH SCHOOL
+recipient,,unresolved,,1188114,,,,,,610480949,ST XAVIER HIGH SCHOOL
 recipient,,foreign_or_government,,1187473,,,,,,946000385,OAKLAND UNIFIED SCHOOL DISTRICT
-recipient,,foreign_or_government,,1185955,,,,,,876000473,JUDGE MEMORIAL CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,1185955,,,,,,876000473,JUDGE MEMORIAL CATHOLIC HIGH SCHOOL
 recipient,,foreign_or_government,,1182970,,,,,,410693969,The Saint Paul Seminary School of Divinity
 recipient,,merged_or_terminated,,1179132,,,,,,455362738,TOGETHER RISING
 recipient,,merged_or_terminated,,1178708,,,,,,880984541,Hoosiers for Good Inc
@@ -324,7 +324,7 @@ recipient,,foreign_or_government,,1079815,,,,,,716003252,UNIVERSITY OF ARKANSAS
 recipient,,unresolved,,1076490,,,,,,750808773,TEMPLE EMANU-EL
 recipient,,unresolved,,1075000,,,,,,853966985,BRIGHT CITY MINISTRIES
 recipient,,unresolved,,1072790,,,,,,481022818,Church of the Nativity
-recipient,,foreign_or_government,,1062299,,,,,,431102368,DE SMET JESUIT HIGH SCHOOL ST LOUIS MO
+recipient,,unresolved,,1062299,,,,,,431102368,DE SMET JESUIT HIGH SCHOOL ST LOUIS MO
 recipient,,foreign_or_government,,1060481,,,,,,611730890,OREGON STATE UNIVERSITY
 recipient,,unresolved,,1059836,,,,,,561855739,COVENANT PRESBYTERIAN CHURCH
 recipient,,foreign_or_government,,1059388,,,,,,752002868,University of Texas Southwestern Medical Center
@@ -335,7 +335,7 @@ recipient,,unresolved,,1035601,,,,,,636004317,FIRST BAPTIST CHURCH OF JASPER
 recipient,,unresolved,,1033845,,,,,,251056201,DIOCESE OF PITTSBURGH
 recipient,,foreign_or_government,,1031303,,,,,,816010045,MONTANA STATE UNIVERSITY
 recipient,,foreign_or_government,,1029000,,,,,,876000243,CITY OF LOGAN
-recipient,,foreign_or_government,,1026937,,,,,,941156698,MARIN CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,1026937,,,,,,941156698,MARIN CATHOLIC HIGH SCHOOL
 recipient,,merged_or_terminated,,1023945,,,,,,546056480,WILLIAM AND MARY ATHLETIC EDUCATIONAL FOUNDATION
 recipient,,unresolved,,1020051,,,,,,540585201,CHRIST EPISCOPAL CHURCH
 recipient,,unresolved,,1019626,,,,,,873221874,CORNERSTONE BIBLE CHURCH OF KATY INC
@@ -385,7 +385,7 @@ recipient,,unresolved,,925418,,,,,,581541847,MOUNT CALVARY BAPTIST CHURCH
 recipient,,new_ein,,924382,,,,,,882769487,EXCESSIVE WEALTH DISORDER INSTITUTE
 recipient,,foreign_or_government,,924321,,,,,,936002287,Clatsop County
 recipient,,unresolved,,923640,,,,,,581312906,ST PHILIP CENTER OF HOPE INC
-recipient,,foreign_or_government,,922389,,,,,,720539545,ST AUGUSTINE HIGH SCHOOL
+recipient,,unresolved,,922389,,,,,,720539545,ST AUGUSTINE HIGH SCHOOL
 recipient,,merged_or_terminated,,921207,,,,,,882674250,Black Progressive Action Coalition Education Fund
 recipient,,unresolved,,918735,,,,,,274665498,CONDUIT CHURCH
 recipient,,foreign_or_government,,917915,,,,,,386003094,SOUTHFIELD PUBLIC SCHOOLS
@@ -394,7 +394,7 @@ recipient,,unresolved,,914682,,,,,,941556664,VALLEY PRESBYTERIAN CHURCH
 recipient,,merged_or_terminated,,913653,,,,,,873759195,PRECIPICE RECOVERY AND RELIEF
 recipient,,unresolved,,908908,,,,,,520894058,CHURCH OF THE NATIVITY
 recipient,,unresolved,,908139,,,,,,042111418,THE UNITED CHURCH IN WALPOLE
-recipient,,foreign_or_government,,908015,,,,,,930391557,CENTRAL CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,908015,,,,,,930391557,CENTRAL CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,906152,,,,,,636005351,FIRST BAPTIST CHURCH TRUSSVILLE
 recipient,,unresolved,,903454,,,,,,580641230,CATHEDRAL OF ST PHILIP
 recipient,,revoked,,900000,,,,,,200109928,INSTITUTE FOR THERAPEUTIC DISCOVERY
@@ -463,7 +463,7 @@ recipient,,merged_or_terminated,,776865,,,,,,042150651,BIG SISTER ASSOCIATION OF
 recipient,,unresolved,,774800,,,,,,240798711,ST JANE FRANCES DE CHANTAL CHURCH
 recipient,,merged_or_terminated,,772007,,,,,,911351110,VIRGINIA MASON HEALTH SYSTEM
 recipient,,foreign_or_government,,771510,,,,,,591023705,CITY OF BELLEAIR BLUFFS
-recipient,,foreign_or_government,,770204,,,,,,381360587,UNIVERSITY OF DETROIT JESUIT HIGH SCHOOL AND ACADE
+recipient,,unresolved,,770204,,,,,,381360587,UNIVERSITY OF DETROIT JESUIT HIGH SCHOOL AND ACADE
 recipient,,unresolved,,769317,,,,,,540505947,CATHOLIC DIOCESE OF RICHMOND
 recipient,,unresolved,,768066,,,,,,453420693,BAIS NOCHUM CHASDEI YEHOSHUA
 recipient,,foreign_or_government,,766431,,,,,,416005521,CITY OF SAINT PAUL MINNESOTA
@@ -529,7 +529,7 @@ recipient,,foreign_or_government,,679114,,,,,,730706623,BISHOP KELLEY HIGH SCHOO
 recipient,,unresolved,,678243,,,,,,853743655,OPERATION REBOOT
 recipient,,foreign_or_government,,675392,,,,,,410705834,DE LA SALLE HIGH SCHOOL MINNEAPOLIS MN
 recipient,,unresolved,,675144,,,,,,382562067,FIRST BAPTIST CHURCH OF ST JOHNS
-recipient,,foreign_or_government,,674721,,,,,,042229971,CATHOLIC MEMORIAL HIGH SCHOOL
+recipient,,unresolved,,674721,,,,,,042229971,CATHOLIC MEMORIAL HIGH SCHOOL
 recipient,,unresolved,,673276,,,,,,752732215,URSULINE ACADEMY OF DALLAS
 recipient,,foreign_or_government,,670594,,,,,,311334820,DIVISION OF NATURAL AREAS AND PRESERVES OF THE OHIO DEPT OF NATURAL RESOUR
 recipient,,unresolved,,666484,,,,,,540715868,CHURCH OF THE HOLY COMFORTER
@@ -541,7 +541,7 @@ recipient,,unresolved,,658508,,,,,,221589196,BARNERT TEMPLE
 recipient,,foreign_or_government,,656885,,,,,,946022431,MARIN COUNTY OFFICE OF EDUCATION
 recipient,,unresolved,,654194,,,,,,620502449,IDLEWILD PRESBYTERIAN CHURCH
 recipient,,unresolved,,654018,,,,,,590966385,CHRIST THE KING CATHOLIC CHURCH
-recipient,,foreign_or_government,,649627,,,,,,941547088,BISHOP O'DOWD HIGH SCHOOL
+recipient,,unresolved,,649627,,,,,,941547088,BISHOP O'DOWD HIGH SCHOOL
 recipient,,unresolved,,649178,,,,,,876112484,SAINT AMBROSE PARISH AND SCHOOL
 recipient,,foreign_or_government,,648010,,,,,,362684803,GOVERNORS STATE UNIVERSITY
 recipient,,unresolved,,647659,,,,,,251495523,SOUTH HILLS BIBLE CHAPEL
@@ -563,7 +563,7 @@ recipient,,unresolved,,631082,,,,,,205509269,ST COLUMBKILLE PARTNERSHIP SCHOOL
 recipient,,merged_or_terminated,,630677,,,,,,135562223,FRIENDS SEMINARY
 recipient,,foreign_or_government,,629626,,,,,,596000301,CITY OF DADE CITY
 recipient,,unresolved,,627349,,,,,,410711587,BETH EL SYNAGOGUE
-recipient,,foreign_or_government,,626082,,,,,,221599180,BERGEN CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,626082,,,,,,221599180,BERGEN CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,625921,,,,,,590767700,PALMA CEIA PRESBYTERIAN CHURCH
 recipient,,revoked,,623808,,,,,,815246983,STAND UP REPUBLIC FOUNDATION DBA THE RENEW AMERICA FOUNDATION
 recipient,,unresolved,,623112,,,,,,391659776,NOTRE DAME ACADEMY
@@ -635,7 +635,7 @@ recipient,,unresolved,,569049,,,,,,730706865,QUAIL SPRINGS BAPTIST CHURCH
 recipient,,unresolved,,568965,,,,,,900108101,GATEWAY COMMUNITY CHURCH OF MURPHY
 recipient,,revoked,,568764,,,,,,222474771,CONNECTICUT FOODSHARE INC
 recipient,,unresolved,,568484,,,,,,520845118,TEMPLE MICAH WASHINGTON DC
-recipient,,foreign_or_government,,566234,,,,,,530242993,ST JOHN'S COLLEGE HIGH SCHOOL
+recipient,,unresolved,,566234,,,,,,530242993,ST JOHN'S COLLEGE HIGH SCHOOL
 recipient,,unresolved,,564635,,,,,,566148149,BAY LEAF BAPTIST CHURCH
 recipient,,merged_or_terminated,,563647,,,,,,371483975,LuMind IDSC Foundation
 recipient,,unresolved,,559642,,,,,,590996116,ANONA UNITED METHODIST CHURCH
@@ -843,12 +843,12 @@ recipient,,unresolved,,435622,,,,,,521738895,ST FRANCES ACADEMY
 recipient,,unresolved,,434208,,,,,,231360837,BETH SHOLOM CONGREGATION
 recipient,,unresolved,,433168,,,,,,560582028,FIRST PRESBYTERIAN CHURCH
 recipient,,unresolved,,432575,,,,,,854358284,HOME CHURCH ROSWELL INC
-recipient,,foreign_or_government,,432084,,,,,,951831113,ST JOHN BOSCO HIGH SCHOOL
+recipient,,unresolved,,432084,,,,,,951831113,ST JOHN BOSCO HIGH SCHOOL
 recipient,,unresolved,,431637,,,,,,271367069,REDEEMER CHURCH OF ARLINGTON
-recipient,,foreign_or_government,,431555,,,,,,362373448,ST FRANCIS HIGH SCHOOL
+recipient,,unresolved,,431555,,,,,,362373448,ST FRANCIS HIGH SCHOOL
 recipient,,unresolved,,429403,,,,,,620630933,FIRST BAPTIST CHURCH SEVIERVILLE
 recipient,,unresolved,,427679,,,,,,560529968,FIRST PRESBYTERIAN CHURCH OF ASHEVILLE NC (USA) INC
-recipient,,foreign_or_government,,427358,,,,,,844032231,LANCASTER CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,427358,,,,,,844032231,LANCASTER CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,427231,,,,,,561435797,FIRST UNITED PENTECOSTAL CHURCH
 recipient,,unresolved,,427221,,,,,,141666321,INTERFAITH PARTNERSHIP FOR THE HOMELESS
 recipient,,unresolved,,427162,,,,,,561431857,COMMUNITY BIBLE CHURCH
@@ -921,7 +921,7 @@ recipient,,foreign_or_government,,399802,,,,,,020257164,BISHOP GUERTIN HIGH SCHO
 recipient,,foreign_or_government,,399705,,,,,,381909530,WAYNE COUNTY REGIONAL EDUCATIONAL SERVICE AGENCY
 recipient,,foreign_or_government,,399582,,,,,,731383996,OKLAHOMA STATE UNIVERSITY
 recipient,,unresolved,,399454,,,,,,621017342,LONG HOLLOW BAPTIST CHURCH
-recipient,,foreign_or_government,,399281,,,,,,470753834,SKUTT CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,399281,,,,,,470753834,SKUTT CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,398744,,,,,,562189076,GRACE COMMUNITY CHURCH OF RALEIGH INC
 recipient,,unresolved,,398536,,,,,,640352478,FIRST BAPTIST CHURCH GULFPORT
 recipient,,unresolved,,398468,,,,,,221508563,THE UNITARIAN CHURCH IN SUMMIT
@@ -1005,13 +1005,13 @@ recipient,,foreign_or_government,,373202,,,,,,956000943,ORANGE COUNTY SUPERINTEN
 recipient,,unresolved,,373105,,,,,,800876633,CHURCH OF THE REDEEMER
 recipient,,unresolved,,372959,,,,,,560629343,ST ANNS CHURCH
 recipient,,unresolved,,372693,,,,,,560569598,HOLY NAME OF JESUS CATHEDRAL
-recipient,,foreign_or_government,,372055,,,,,,221820001,GLOUCESTER CATHOLIC JUNIOR SENIOR HIGH SCHOOL
+recipient,,unresolved,,372055,,,,,,221820001,GLOUCESTER CATHOLIC JUNIOR SENIOR HIGH SCHOOL
 recipient,,merged_or_terminated,,371992,,,,,,943335236,REGENERATION PROJECT
 recipient,,unresolved,,371974,,,,,,746058607,CHINESE BAPTIST CHURCH OF HOUSTON
 recipient,,unresolved,,371966,,,,,,311067676,LINWORTH BAPTIST CHURCH
 recipient,,unresolved,,371776,,,,,,621198306,LIBERTY BAPTIST CHURCH OF CROSSVILLE TENNESSEE
 recipient,,unresolved,,371653,,,,,,454871054,CHRIST FELLOWSHIP CHURCH
-recipient,,foreign_or_government,,371491,,,,,,205539866,ST MARY'S HIGH SCHOOL INC
+recipient,,unresolved,,371491,,,,,,205539866,ST MARY'S HIGH SCHOOL INC
 recipient,,merged_or_terminated,,371318,,,,,,812905686,MY DIGITAL TAT2 INC
 recipient,,unresolved,,370725,,,,,,520824914,SEVEN LOCKS JEWISH COMMUNITY INC
 recipient,,unresolved,,370461,,,,,,620595590,St Paul's Episcopal Church
@@ -1165,7 +1165,7 @@ recipient,,unresolved,,328123,,,,,,580835133,CALVARY BAPTIST TEMPLE
 recipient,,unresolved,,328105,,,,,,750908999,FIRST UNITED METHODIST CHURCH
 recipient,,unresolved,,327966,,,,,,951691289,MANHATTAN BEACH COMMUNITY CHURCH
 recipient,,merged_or_terminated,,327929,,,,,,851083201,EQUINIMITY505
-recipient,,foreign_or_government,,327909,,,,,,362471940,ST VIATOR HIGH SCHOOL
+recipient,,unresolved,,327909,,,,,,362471940,ST VIATOR HIGH SCHOOL
 recipient,,unresolved,,327636,,,,,,910864632,NEW HEIGHTS CHURCH
 recipient,,invalid_or_typo,,327122,,,,,,743124170,SAMARITAN CENTER
 recipient,,unresolved,,326946,,,,,,800895357,REDEEMER CHURCH OF ROCKY MOUNT NC
@@ -1198,7 +1198,7 @@ recipient,,unresolved,,320963,,,,,,752819695,GRACE AVENUE UNITED METHODIST CHURC
 recipient,,revoked,,320868,,,,,,832882907,MACROVOYANT FOUNDATION CORPORATION
 recipient,,unresolved,,320355,,,,,,620476817,OVERBROOK SCHOOL
 recipient,,unresolved,,320322,,,,,,520743363,TIFERETH ISRAEL CONGREGATION
-recipient,,foreign_or_government,,320214,,,,,,680331088,ST MARY'S COLLEGE HIGH SCHOOL OF BERKELEY INC
+recipient,,unresolved,,320214,,,,,,680331088,ST MARY'S COLLEGE HIGH SCHOOL OF BERKELEY INC
 recipient,,unresolved,,320000,,,,,,923745352,Killearn Methodist Church
 recipient,,unresolved,,319838,,,,,,060646922,TEMPLE BETH EL INC
 recipient,,unresolved,,319746,,,,,,520591429,SAINT JOSEPH PARISH
@@ -1387,7 +1387,7 @@ recipient,,foreign_or_government,,283181,,,,,,746000024,TERLINGUA COMMON SCHOOL 
 recipient,,unresolved,,282879,,,,,,566043850,TRINITY BAPTIST CHURCH OF RALEIGH
 recipient,,unresolved,,282604,,,,,,570354651,ST JOHN'S UNITED METHODIST CHURCH OF AIKEN
 recipient,,invalid_or_typo,,281699,,,,,,610510932,FIRST BAPTIST CHURCH
-recipient,,foreign_or_government,,281313,,,,,,262785863,NOTRE DAME PREPARATORY HIGH SCHOOL
+recipient,,unresolved,,281313,,,,,,262785863,NOTRE DAME PREPARATORY HIGH SCHOOL
 recipient,,unresolved,,281027,,,,,,210698910,PRESBYTERIAN CHURCH OF LAWRENCEVILLE
 recipient,,unresolved,,281015,,,,,,362661160,CONGREGATION BETH SHALOM OF NORTHBROOK
 recipient,,unresolved,,280999,,,,,,813163938,THAT PROPERTY PLACE
@@ -1675,7 +1675,7 @@ recipient,,foreign_or_government,,233281,,,,,,410901311,SAINT PAUL PUBLIC SCHOOL
 recipient,,unresolved,,233216,,,,,,999900041,FELLOWSHIP BIBLE CHURCH
 recipient,,merged_or_terminated,,233197,,,,,,510186460,METHODIST MEDICAL CENTER FOUNDATION
 recipient,,foreign_or_government,,232900,,,,,,366005820,City of Chicago
-recipient,,foreign_or_government,,232893,,,,,,330235681,SANTA MARGARITA CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,232893,,,,,,330235681,SANTA MARGARITA CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,232740,,,,,,471848131,CONGREGATION BNEI KEDOSHIM
 recipient,,unresolved,,232544,,,,,,590760228,SOUTHSIDE UNITED METHODIST CHURCH
 recipient,,unresolved,,232498,,,,,,941312336,UNITARIAN UNIVERSALIST CHURCH OF PALO ALTO
@@ -1725,7 +1725,7 @@ recipient,,unresolved,,225887,,,,,,840528677,BETHANY LUTHERAN CHURCH
 recipient,,revoked,,225799,,,,,,884093852,UP EXCELLENCE ACADEMY
 recipient,,unresolved,,225759,,,,,,203380254,FIRST UNITED METHODIST CHURCH
 recipient,,unresolved,,225733,,,,,,314391227,WORTHINGTON PRESBYTERIAN CHURCH
-recipient,,foreign_or_government,,225437,,,,,,610730149,COVINGTON CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,225437,,,,,,610730149,COVINGTON CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,225127,,,,,,364027959,CHRISTIAN BROTHERS OF THE MIDWEST
 recipient,,unresolved,,225000,,,,,,922990975,LATROBE UNITED METHODIST CHURCH
 recipient,,unresolved,,224897,,,,,,522027952,HOPE BIBLE CHURCH
@@ -1886,7 +1886,7 @@ recipient,,unresolved,,208650,,,,,,570428167,FIRST PRESBYTERIAN CHURCH
 recipient,,foreign_or_government,,208572,,,,,,566001023,CITY OF DILLON
 recipient,,unresolved,,207858,,,,,,541709651,OLIVET PRESBYTERIAN CHURCH
 recipient,,foreign_or_government,,207719,,,,,,756001870,TARLETON STATE UNIVERSITY
-recipient,,foreign_or_government,,207659,,,,,,262785742,SETON ROMAN CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,207659,,,,,,262785742,SETON ROMAN CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,207542,,,,,,953367257,GOOD SHEPARD LUTHERAN CHURCH
 recipient,,unresolved,,207500,,,,,,823457540,V & I BEST STEAK HOUSE
 recipient,,unresolved,,207499,,,,,,570811907,ALL SAINTS EPISCOPAL CHURCH
@@ -1964,7 +1964,7 @@ recipient,,unresolved,,200633,,,,,,750818151,NORTHPARK PRESBYTERIAN CHURCH
 recipient,,unresolved,,200369,,,,,,314428027,COVENANT PRESBYTERIAN CHURCH
 recipient,,unresolved,,200327,,,,,,941156765,CATHOLIC COMMUNITY OF PLEASANTON
 recipient,,unresolved,,200300,,,,,,621868335,Maury Hills Church
-recipient,,foreign_or_government,,200284,,,,,,362595746,MONTINI CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,200284,,,,,,362595746,MONTINI CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,200282,,,,,,204624213,GRACE BIBLE CHURCH OF TAMPA
 recipient,,unresolved,,200262,,,,,,043002145,UNIVERSALIST MEETING HOUSE OF PROVINCETOWN
 recipient,,unresolved,,200234,,,,,,836015705,CHRIST EPISCOPAL CHURCH
@@ -2054,7 +2054,7 @@ recipient,,unresolved,,194781,,,,,,590839563,ST JOSEPH CATHOLIC CHURCH
 recipient,,unresolved,,194753,,,,,,141338404,FIRST PRESBYTERIAN CHURCH
 recipient,,unresolved,,194686,,,,,,226015844,WILLOW GROVE PRESBYTERIAN CHURCH
 recipient,,unresolved,,194635,,,,,,581989776,LOST MOUNTAIN BAPTIST CHURCH
-recipient,,foreign_or_government,,194521,,,,,,262361648,BISHOP MOORE HIGH SCHOOL
+recipient,,unresolved,,194521,,,,,,262361648,BISHOP MOORE HIGH SCHOOL
 recipient,,unresolved,,194272,,,,,,112978910,CONGREGATION MACHZEH AVRUHOM INC
 recipient,,unresolved,,194161,,,,,,131740298,PRESBYTERIAN CHURCH OF PLEASANTVILLE N Y
 recipient,,unresolved,,194100,,,,,,751943838,ROSE HEIGHTS CHURCH
@@ -2308,12 +2308,12 @@ recipient,,invalid_or_typo,,173984,,,,,,922165312,Beis Knesses of New Milford
 recipient,,unresolved,,173912,,,,,,560993862,AVERSBORO ROAD BAPTIST CHURCH
 recipient,,unresolved,,173836,,,,,,621845745,SEASIDE INTERFAITH CHAPEL INC
 recipient,,unresolved,,173667,,,,,,621342797,SECOND STREET CHURCH OF CHRIST
-recipient,,foreign_or_government,,173526,,,,,,111882039,SAINT ANTHONYS HIGH SCHOOL
+recipient,,unresolved,,173526,,,,,,111882039,SAINT ANTHONYS HIGH SCHOOL
 recipient,,unresolved,,173258,,,,,,840433475,WELLSHIRE PRESBYTERIAN CHURCH
 recipient,,unresolved,,173142,,,,,,237250143,CALVARY BAPTIST CHURCH
 recipient,,unresolved,,173134,,,,,,752627837,SUNCREEK UNITED METHODIST CHURCH
 recipient,,unresolved,,173092,,,,,,630288829,FIRST BAPTIST CHURCH
-recipient,,foreign_or_government,,172959,,,,,,381865499,LUMEN CHRISTI HIGH SCHOOL
+recipient,,unresolved,,172959,,,,,,381865499,LUMEN CHRISTI HIGH SCHOOL
 recipient,,foreign_or_government,,172911,,,,,,386004654,CITY OF ADRIAN
 recipient,,merged_or_terminated,,172871,,,,,,464218859,WOMEN WHO CODE INC
 recipient,,unresolved,,172859,,,,,,592066151,ST FRANCES XAVIER CABRINI CATHOLIC CHURCH OF SPRI
@@ -2367,7 +2367,7 @@ recipient,,unresolved,,168733,,,,,,751047362,FIRST BAPTIST CHURCH OF FRISCO TEXA
 recipient,,merged_or_terminated,,168691,,,,,,541532165,PHYSICIANS FOR PEACE
 recipient,,invalid_or_typo,,168682,,,,,,610445851,ST JAMES CATHOLIC CHURCH
 recipient,,unresolved,,168677,,,,,,314427843,REYNOLDSBURG GLOBAL METHODIST CHURCH
-recipient,,foreign_or_government,,168595,,,,,,223608121,ROSELLE CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,168595,,,,,,223608121,ROSELLE CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,168505,,,,,,362345197,GRACE LUTHERAN CHURCH
 recipient,,unresolved,,168274,,,,,,862523884,CHRIST CHURCH MADISON INC
 recipient,,unresolved,,168250,,,,,,560563131,FIRST PRESBYTERIAN CHURCH OF DURHAM
@@ -2463,14 +2463,14 @@ recipient,,unresolved,,161177,,,,,,381601520,FIRST PRESBYTERIAN CHURCH OF PLYMOU
 recipient,,unresolved,,161116,,,,,,730579223,AMERICAN RED CROSS - TULSA AREA CHAPTER
 recipient,,foreign_or_government,,161102,,,,,,911138664,METHOW VALLEY SCHOOL DISTRICT
 recipient,,unresolved,,160984,,,,,,851015622,CONGREGATION AGUDAS CHASIDEI MEZIBUZ
-recipient,,foreign_or_government,,160970,,,,,,231445630,MARIAN CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,160970,,,,,,231445630,MARIAN CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,160969,,,,,,362182138,CHURCH OF ST PAUL AND THE REDEEMER
 recipient,,unresolved,,160968,,,,,,630440044,HOMEWOOD CHURCH OF CHRIST
 recipient,,unresolved,,160936,,,,,,261904302,REDEEMER COMMUNITY CHURCH INC
 recipient,,unresolved,,160865,,,,,,912161098,GODS VISION
 recipient,,unresolved,,160671,,,,,,410953697,POPE JOHN PAUL II CATHOLIC SCHOOL
 recipient,,foreign_or_government,,160603,,,,,,520689920,CENTRAL PRESBYTERIAN CHURCH
-recipient,,foreign_or_government,,160414,,,,,,221697025,ST JOSEPHS REGIONAL HIGH SCHOOL
+recipient,,unresolved,,160414,,,,,,221697025,ST JOSEPHS REGIONAL HIGH SCHOOL
 recipient,,foreign_or_government,,160369,,,,,,042263530,THE NORTH PARISH OF NORTH ANDOVER
 recipient,,unresolved,,160307,,,,,,636005417,PHILADELPHIA BAPTIST CHURCH
 recipient,,unresolved,,160096,,,,,,221601254,CONGREGATION SHOMREI EMUNAH
@@ -2571,7 +2571,7 @@ recipient,,unresolved,,154183,,,,,,042192688,DOVER CHURCH
 recipient,,foreign_or_government,,154131,,,,,,566000334,RICHMOND COUNTY NORTH CAROLINA
 recipient,,unresolved,,154096,,,,,,540793161,PROVIDENCE PRESBYTERIAN CHURCH
 recipient,,unresolved,,154084,,,,,,046048639,PILGRIM CHURCH
-recipient,,foreign_or_government,,153982,,,,,,540551903,ST GERTRUDE HIGH SCHOOL
+recipient,,unresolved,,153982,,,,,,540551903,ST GERTRUDE HIGH SCHOOL
 recipient,,revoked,,153966,,,,,,932724051,BEFORE THE LINKS
 recipient,,unresolved,,153888,,,,,,208056977,CHABAD OF OXNARD INC
 recipient,,unresolved,,153847,,,,,,932867723,WESLEY CHURCH
@@ -2720,7 +2720,7 @@ recipient,,unresolved,,146826,,,,,,452430157,CITY LIFE CHURCH
 recipient,,unresolved,,146824,,,,,,741728459,FRIENDSWOOD UNITED METHODIST CHURCH
 recipient,,revoked,,146822,,,,,,472101671,TAYA AND CHRIS KYLE FDN SERVICE FAMILY STRONG
 recipient,,unresolved,,146815,,,,,,430662494,ACADEMY OF THE SACRED HEART
-recipient,,foreign_or_government,,146779,,,,,,111829148,ST DOMINIC R C CHURCH
+recipient,,unresolved,,146779,,,,,,111829148,ST DOMINIC R C CHURCH
 recipient,,unresolved,,146770,,,,,,941536602,DANVILLE CONGREGATIONAL CHURCH UNITED CHURCH OF CH
 recipient,,unresolved,,146659,,,,,,042103846,ST PAULS EPISCOPAL CHURCH
 recipient,,unresolved,,146651,,,,,,921227496,HURON RIVER METHODIST CHURCH
@@ -2853,7 +2853,7 @@ recipient,,unresolved,,139498,,,,,,560952480,Sacred Heart Catholic Church
 recipient,,unresolved,,139410,,,,,,042212162,JEWISH COMMUNITY CENTER OF SHARON
 recipient,,unresolved,,139264,,,,,,630322675,DAUPHIN WAY UNITED METHODIST CHURCH
 recipient,,unresolved,,139192,,,,,,231352472,ST PATRICKS CHURCH
-recipient,,foreign_or_government,,139153,,,,,,362387143,MARIAN CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,139153,,,,,,362387143,MARIAN CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,139075,,,,,,540616345,ETZ HAYIM
 recipient,,unresolved,,139061,,,,,,933628828,WEE KIRK PRESBYTERIAN CHURCH
 recipient,,unresolved,,139015,,,,,,210684449,ST GEORGES BY THE RIVER EPISCOPAL CHURCH
@@ -3011,7 +3011,7 @@ recipient,,unresolved,,130600,,,,,,521091926,HOLY FAMILY CATHOLIC CHURCH
 recipient,,unresolved,,130500,,,,,,550620494,FELLOWSHIP BIBLE CHURCH
 recipient,,unresolved,,130499,,,,,,232389446,CHRIST UNITED METHODIST CHURCH
 recipient,,unresolved,,130493,,,,,,952243061,MISSION VALLEY CHURCH OF THE NAZARENE DBA MISSION CHURCH OF THE NAZARENE
-recipient,,foreign_or_government,,130465,,,,,,453656265,DEPAUL CATHOLIC HIGH SCHOOL INC
+recipient,,unresolved,,130465,,,,,,453656265,DEPAUL CATHOLIC HIGH SCHOOL INC
 recipient,,unresolved,,130448,,,,,,760062102,CHRISTCHURCH BAPTIST FELLOWSHIP
 recipient,,unresolved,,130405,,,,,,753018884,CORNERSTONE COMMUNITY CHURCH OF PENINSULA
 recipient,,unresolved,,130356,,,,,,580968522,EAST COBB CHURCH OF CHRIST
@@ -3038,7 +3038,7 @@ recipient,,revoked,,129643,,,,,,841783149,FREE CENTER INCORPORATED
 recipient,,unresolved,,129635,,,,,,746053000,FIRST BAPTIST CHURCH OF HONDO
 recipient,,unresolved,,129628,,,,,,320642518,BELLEVUE BAPTIST CHURCH
 recipient,,unresolved,,129627,,,,,,590674257,FIRST UNITED METHODIST CHURCH OF WINTER PARK
-recipient,,foreign_or_government,,129577,,,,,,640317258,ST STANISLAUS COLLEGE
+recipient,,unresolved,,129577,,,,,,640317258,ST STANISLAUS COLLEGE
 recipient,,unresolved,,129512,,,,,,231352452,ST JAMES EPISCOPAL CHURCH
 recipient,,foreign_or_government,,129509,,,,,,946000299,CITY OF BERKELEY
 recipient,,unresolved,,129480,,,,,,236050841,MAIN LINE UNITARIAN CHURCH
@@ -3275,7 +3275,7 @@ recipient,,unresolved,,120793,,,,,,610660328,VERSAILLES BAPTIST CHURCH
 recipient,,unresolved,,120764,,,,,,042106357,ST PAUL CHURCH
 recipient,,unresolved,,120738,,,,,,351440300,CALVARY BAPTIST CHURCH INC OF GREENWOOD INDIANA
 recipient,,unresolved,,120738,,,,,,410695523,SISTERS OF THE ORDER OF SAINT BENEDICT
-recipient,,foreign_or_government,,120713,,,,,,900111463,BISHOP MANOGUE CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,120713,,,,,,900111463,BISHOP MANOGUE CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,120680,,,,,,752507742,THE CHURCH AT WICHITA CREEK OF FLOWER MOUND TEXAS
 recipient,,unresolved,,120675,,,,,,251038814,ST MICHAELS VALLEY EPISCOPAL CHURCH
 recipient,,unresolved,,120639,,,,,,381368331,EASTERN AVENUE CHRISTIAN REFORMED CHURCH
@@ -3333,7 +3333,7 @@ recipient,,unresolved,,119501,,,,,,620784042,CLEAR CREEK CHURCH OF CHRIST
 recipient,,unresolved,,119501,,,,,,752960910,CROSSVIEW CHURCH OF CHRIST
 recipient,,unresolved,,119450,,,,,,310857161,FAITH COMMUNITY UNITED METHODIST CHURCH
 recipient,,unresolved,,119439,,,,,,616080362,DAVID'S FORK BAPTIST CHURCH
-recipient,,foreign_or_government,,119334,,,,,,362436117,PROVIDENCE CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,119334,,,,,,362436117,PROVIDENCE CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,119271,,,,,,596557076,CHRIST PRESBYTERIAN CHURCH
 recipient,,unresolved,,119261,,,,,,273758292,GRACE EPISCOPAL CHURCH OF BAINBRIDGE ISLAND
 recipient,,unresolved,,119241,,,,,,620961320,ST ANDREW LUTHERAN CHURCH
@@ -3448,7 +3448,7 @@ recipient,,unresolved,,114982,,,,,,382111393,VAN BORN BAPTIST CHURCH
 recipient,,merged_or_terminated,,114915,,,,,,461419216,MCSWEENEY FOUNDATION CORPORATION
 recipient,,unresolved,,114891,,,,,,200645127,FIRST FAMILY CHURCH
 recipient,,foreign_or_government,,114824,,,,,,856000642,THE UNIVERSITY OF NEW MEXICO
-recipient,,foreign_or_government,,114798,,,,,,310644788,SAINT FRANCIS DESALES HIGH SCHOOL
+recipient,,unresolved,,114798,,,,,,310644788,SAINT FRANCIS DESALES HIGH SCHOOL
 recipient,,unresolved,,114791,,,,,,411345853,CHRISTIANIA LUTHERAN CHURCH
 recipient,,unresolved,,114753,,,,,,586011835,TUCKER FIRST UNITED METHODIST CHURCH
 recipient,,foreign_or_government,,114721,,,,,,953664259,CHINESE BAPTIST CHURCH OF ORANGE COUNTY
@@ -3730,7 +3730,7 @@ recipient,,foreign_or_government,,105511,,,,,,132793205,PARISH OF CHRIST THE RED
 recipient,,revoked,,105459,,,,,,881024304,THOMPSON HENRY CONSTRUCTION CORPORATION
 recipient,,unresolved,,105444,,,,,,310677794,SYCAMORE PRESBYTERIAN CHURCH
 recipient,,unresolved,,105428,,,,,,611469850,ST JUDE CATHOLIC CHURCH
-recipient,,foreign_or_government,,105345,,,,,,430825803,ST JOHN FRANCIS REGIS
+recipient,,unresolved,,105345,,,,,,430825803,ST JOHN FRANCIS REGIS
 recipient,,revoked,,105322,,,,,,854038611,BROOKLYN ERUV INC
 recipient,,unresolved,,105310,,,,,,381723700,THE GREAT LAKES REGION OF THE WESLEYAN CHURCH
 recipient,,unresolved,,105304,,,,,,520824342,OBLATE SISTERS OF ST FRANCIS DE SALES INC
@@ -3842,7 +3842,7 @@ recipient,,revoked,,102550,,,,,,815100712,Saint Patrick's Cathedral
 recipient,,unresolved,,102512,,,,,,911830348,SAINT GREGORY THE GREAT SEMINARY
 recipient,,unresolved,,102495,,,,,,204888690,HARDIN VALLEY CHURCH OF CHRIST
 recipient,,unresolved,,102482,,,,,,756215127,ST BARNABAS PRESBYTERIAN CHURCH
-recipient,,foreign_or_government,,102388,,,,,,870713302,SAINT JOSEPH NOTRE DAME HIGH SCHOOL
+recipient,,unresolved,,102388,,,,,,870713302,SAINT JOSEPH NOTRE DAME HIGH SCHOOL
 recipient,,unresolved,,102376,,,,,,465136600,BEDROCK CHURCH ROANOKE
 recipient,,unresolved,,102352,,,,,,410827148,IMMANUEL LUTHERAN CHURCH
 recipient,,unresolved,,102336,,,,,,841788445,Kansas City Community Bail Fund
@@ -3912,7 +3912,7 @@ recipient,,merged_or_terminated,,100465,,,,,,262216581,CITY SLICKER FARMS
 recipient,,unresolved,,100448,,,,,,813410301,SALEM ASSOCIATE REFORMED PRESBYTERIAN CHURCH INC
 recipient,,merged_or_terminated,,100444,,,,,,046151880,LASPAU INC
 recipient,,unresolved,,100400,,,,,,741233792,Memorial Baptist Church
-recipient,,foreign_or_government,,100395,,,,,,300499855,ST JOSEPH HIGH SCHOOL
+recipient,,unresolved,,100395,,,,,,300499855,ST JOSEPH HIGH SCHOOL
 recipient,,foreign_or_government,,100381,,,,,,396005599,MEAD PUBLIC LIBRARY
 recipient,,unresolved,,100380,,,,,,262161853,SKY VALLEY MINISTRIES
 recipient,,unresolved,,100370,,,,,,750800678,Salvation Army of North Texas
@@ -4158,7 +4158,7 @@ recipient,,unresolved,,96536,,,,,,810555020,ST GABRIEL CONGREGATION
 recipient,,unresolved,,96452,,,,,,222535179,CATHEDRAL INTERNATIONAL INC
 recipient,,unresolved,,96439,,,,,,560554211,FIRST BAPTIST CHURCH OF ASHEVILLE INC
 recipient,,unresolved,,96426,,,,,,210742906,UNITARIAN UNIVERSALIST CONGREGATION OF MONMOUTH CO
-recipient,,foreign_or_government,,96345,,,,,,223620836,HUDSON CATHOLIC REGIONAL HIGH SCHOOL
+recipient,,unresolved,,96345,,,,,,223620836,HUDSON CATHOLIC REGIONAL HIGH SCHOOL
 recipient,,unresolved,,96229,,,,,,910877058,SOUTHMINSTER PRESBYTERIAN CHURCH
 recipient,,revoked,,96222,,,,,,825265290,Future is Now Schools - Los Angeles
 recipient,,unresolved,,96186,,,,,,420703759,DUBUQUE ST LUKE'S UNITED METHODIST CHURCH
@@ -4329,7 +4329,7 @@ recipient,,unresolved,,91672,,,,,,910622843,FAUNTLEROY CHURCH UCC
 recipient,,unresolved,,91646,,,,,,570788934,THE CHURCH AT SANDHURST
 recipient,,unresolved,,91632,,,,,,340753542,ROCKY RIVER UNITED METHODIST CHURCH
 recipient,,foreign_or_government,,91628,,,,,,066001961,TOWN OF BETHEL
-recipient,,foreign_or_government,,91618,,,,,,133615147,SAINT RAYMOND ELEMENTARY SCHOOL
+recipient,,unresolved,,91618,,,,,,133615147,SAINT RAYMOND ELEMENTARY SCHOOL
 recipient,,unresolved,,91504,,,,,,320054264,CONGREGATION BNAI TESHUVA
 recipient,,unresolved,,91493,,,,,,720994703,FIRST BAPTIST CHURCH OF ROSELAND
 recipient,,unresolved,,91483,,,,,,731109213,TRINITY BAPTIST CHURCH OF YUKON
@@ -4512,7 +4512,7 @@ recipient,,unresolved,,87563,,,,,,820200756,FIRST PRESBYTERIAN CHURCH OF BOISE
 recipient,,foreign_or_government,,87535,,,,,,416001408,ROBBINSDALE AREA SCHOOLS
 recipient,,unresolved,,87515,,,,,,620967387,GALLATIN FIRST CHURCH OF THE NAZARENE
 recipient,,invalid_or_typo,,87506,,,,,,237410104,PEACE CHRISTIAN REFORMED CHURCH
-recipient,,foreign_or_government,,87489,,,,,,710847443,ARKANSAS DEPARTMENT OF HEALTH
+recipient,,unresolved,,87489,,,,,,710847443,ARKANSAS DEPARTMENT OF HEALTH
 recipient,,merged_or_terminated,,87488,,,,,,453463744,NORTHWEST OUTWARD BOUND SCHOOL
 recipient,,unresolved,,87432,,,,,,751157138,First Baptist Church of Plano
 recipient,,unresolved,,87426,,,,,,812111713,Kehillas Westgate Inc
@@ -4861,7 +4861,7 @@ recipient,,unresolved,,79992,,,,,,580683814,REHOBOTH BAPTIST CHURCH
 recipient,,unresolved,,79991,,,,,,742161500,GULF PRAIRIE PRESBYTERIAN CHURCH
 recipient,,unresolved,,79991,,,,,,752944784,BURNING HOPE BAPTIST CHURCH
 recipient,,unresolved,,79990,,,,,,810311020,ST AGNES CATHOLIC CHURCH
-recipient,,foreign_or_government,,79990,,,,,,870285115,ST JOSEPH CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,79990,,,,,,870285115,ST JOSEPH CATHOLIC HIGH SCHOOL
 recipient,,foreign_or_government,,79988,,,,,,956002502,RAMONA UNIFIED SCHOOL DISTRICT
 recipient,,unresolved,,79979,,,,,,231484141,HOLY CROSS PARISH
 recipient,,unresolved,,79979,,,,,,901129219,HINDS INDEPENDENT METHODIST CHURCH
@@ -5033,7 +5033,7 @@ recipient,,unresolved,,76905,,,,,,221508616,MISSIONARY SERVANTS OF THE MOST HOLY
 recipient,,unresolved,,76904,,,,,,237123576,SAINT THOMAS A BECKET CHURCH
 recipient,,foreign_or_government,,76874,,,,,,876000517,SNOW COLLEGE
 recipient,,unresolved,,76836,,,,,,351610247,ST MARIA GORETTI PARISH
-recipient,,foreign_or_government,,76792,,,,,,203081128,YESHIVA OF LOS ANGELES GIRLS HIGH SCHOOL
+recipient,,unresolved,,76792,,,,,,203081128,YESHIVA OF LOS ANGELES GIRLS HIGH SCHOOL
 recipient,,unresolved,,76689,,,,,,561702099,UNIVERSITY CHURCH OF CHRIST AT CHARLOTTE
 recipient,,unresolved,,76679,,,,,,453663943,SOJOURN COMMUNITY CHURCH OF WOODSTOCK GREGORIA INC
 recipient,,unresolved,,76650,,,,,,610500818,IMMANUEL
@@ -5051,7 +5051,7 @@ recipient,,unresolved,,76239,,,,,,630922210,CAPSHAW BAPTIST CHURCH
 recipient,,unresolved,,76234,,,,,,620797438,HENDERSONVILLE CHURCH OF CHRIST
 recipient,,unresolved,,76201,,,,,,341111313,ARCHBOLD EVANGELICAL CHURCH
 recipient,,unresolved,,76164,,,,,,060646580,CONGREGATION B'NAI JACOB
-recipient,,foreign_or_government,,76164,,,,,,370857760,Althoff Catholic High School
+recipient,,unresolved,,76164,,,,,,370857760,Althoff Catholic High School
 recipient,,unresolved,,76137,,,,,,561767640,ST BRENDAN THE NAVIGATOR CATHOLIC CHURCH
 recipient,,unresolved,,76081,,,,,,946096583,BNAI ISRAEL JEWISH CENTER
 recipient,,foreign_or_government,,76070,,,,,,521158023,MOUNT DE SALES ACADEMY
@@ -5183,7 +5183,7 @@ recipient,,foreign_or_government,,74375,,,,,,946000529,SACRAMENTO EMPLOYMENT AND
 recipient,,foreign_or_government,,74365,,,,,,936000566,LANE COUNTY SCHOOL DISTRICT 4J
 recipient,,invalid_or_typo,,74364,,,,,,112994769,BNAI ISRAEL JEWISH CENTER OF EAST MIDWOOD INC
 recipient,,unresolved,,74348,,,,,,561407124,FIRST PRESBYTERIAN CHURCH
-recipient,,foreign_or_government,,74303,,,,,,210696407,UNITED STATES CATHOLIC CONFERENCE NOTRE DAME HIGH
+recipient,,unresolved,,74303,,,,,,210696407,UNITED STATES CATHOLIC CONFERENCE NOTRE DAME HIGH
 recipient,,unresolved,,74295,,,,,,111672792,CHURCH OF SAINT AIDAN
 recipient,,unresolved,,74234,,,,,,480847178,FIRST CHRISTIAN CHURCH
 recipient,,unresolved,,74226,,,,,,026009761,NEW CASTLE CONGREGATIONAL CHURCH
@@ -5242,11 +5242,11 @@ recipient,,unresolved,,73155,,,,,,620523667,ST JOHN'S EPISCOPAL CHURCH
 recipient,,unresolved,,73146,,,,,,810572840,DIVINE MERCY CATHOLIC CHURCH
 recipient,,unresolved,,73145,,,,,,463327816,ACADEMY OF ST JOSEPH
 recipient,,invalid_or_typo,,73115,,,,,,410701934,ST RAPHAEL CATHOLIC CHURCH
-recipient,,foreign_or_government,,73097,,,,,,431246269,ST FRANCIS BORGIA REGIONAL HIGH SCHOOL
+recipient,,unresolved,,73097,,,,,,431246269,ST FRANCIS BORGIA REGIONAL HIGH SCHOOL
 recipient,,unresolved,,73093,,,,,,111720244,CONGREGATIONAL CHURCH OF MANHASSET
 recipient,,unresolved,,73078,,,,,,941384684,OUR SAVIORS LUTHERAN CHURCH
 recipient,,unresolved,,73074,,,,,,382534512,THE ROCK CHURCH OF FENTON
-recipient,,foreign_or_government,,73074,,,,,,540563003,CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,73074,,,,,,540563003,CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,73062,,,,,,541974027,LAKE CHRISTIAN CHURCH
 recipient,,unresolved,,73054,,,,,,910581034,VALLEY AND MOUNTAIN - PNW CONFERENCE
 recipient,,merged_or_terminated,,73045,,,,,,841320036,COLORADO HEADWATERS LAND TRUST
@@ -5385,7 +5385,7 @@ recipient,,unresolved,,70986,,,,,,590866139,FIRST- DADE CITY UNITED METHODIST CH
 recipient,,unresolved,,70975,,,,,,610529829,HARVEY BROWNE MEMORIAL PRESBYTERIAN CHURCH
 recipient,,unresolved,,70974,,,,,,141845822,ANTHEM CHURCH
 recipient,,unresolved,,70928,,,,,,840444737,HEART OF LONGMONT FIRST UNITED METHODIST CHURCH
-recipient,,foreign_or_government,,70923,,,,,,942964847,SAINT JAMES ELEMENTARY SCHOOL
+recipient,,unresolved,,70923,,,,,,942964847,SAINT JAMES ELEMENTARY SCHOOL
 recipient,,unresolved,,70898,,,,,,946050423,FOOTHILLS CONGREGATIONAL CHURCH UCC
 recipient,,unresolved,,70880,,,,,,410785169,FIRST CONGREGATIONAL UNITED CHURCH OF CHRIST MOORHEAD MINNESOTA
 recipient,,unresolved,,70831,,,,,,391103182,ST MARY MAGDALENE CHURCH
@@ -5879,7 +5879,7 @@ recipient,,unresolved,,63572,,,,,,231684800,ST IGNATIUS LOYOLA CHURCH & SCHOOL
 recipient,,unresolved,,63566,,,,,,951744372,ST AUGUSTINE BY-THE-SEA
 recipient,,unresolved,,63546,,,,,,454940311,MINGLEWOOD FARM AND NATURE PRESERVE INC
 recipient,,unresolved,,63537,,,,,,610576720,ST MARGARET MARY CATHOLIC COMMUNITY
-recipient,,foreign_or_government,,63518,,,,,,470482832,CEDAR CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,63518,,,,,,470482832,CEDAR CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,63517,,,,,,251045698,ST JOHNS LUTHERAN CHURCH OF HIGHLAND
 recipient,,unresolved,,63515,,,,,,141607427,CALVARY UNITED METHODIST CHURCH
 recipient,,invalid_or_typo,,63513,,,,,,811746715,GRACE VALLEY CHURCH
@@ -6028,7 +6028,7 @@ recipient,,unresolved,,61789,,,,,,221905758,COMMUNITY PRESBYTERIAN CHURCH
 recipient,,unresolved,,61788,,,,,,561900459,OAK RIDGE PRESBYTERIAN CHURCH
 recipient,,unresolved,,61786,,,,,,751314587,ST JOHNS UNITED METHODIST CHURCH
 recipient,,foreign_or_government,,61742,,,,,,472904478,MOUNT MANSFIELD MODIFIED UNION SCHOOL DISTRICT
-recipient,,foreign_or_government,,61733,,,,,,420788212,DOWLING CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,61733,,,,,,420788212,DOWLING CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,61724,,,,,,946089844,UNITARIAN UNIVERSALIST FELLOWSHIP OF SUNNYVALE
 recipient,,unresolved,,61724,,,,,,135660278,NOTRE DAME ACADEMY OF STATEN ISLAND
 recipient,,unresolved,,61722,,,,,,431056957,ST LOUIS ART MUSEUM
@@ -6054,7 +6054,7 @@ recipient,,unresolved,,61527,,,,,,452437281,THE SEED CHURCH
 recipient,,unresolved,,61519,,,,,,250969426,ST ANNE CATHOLIC CHURCH
 recipient,,unresolved,,61498,,,,,,562067914,PILGRIM UNITED CHURCH OF CHRIST
 recipient,,unresolved,,61489,,,,,,351692535,HARVEST FELLOWSHIP INC
-recipient,,foreign_or_government,,61481,,,,,,362317629,BISHOP MCNAMARA CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,61481,,,,,,362317629,BISHOP MCNAMARA CATHOLIC HIGH SCHOOL
 recipient,,foreign_or_government,,61467,,,,,,216008497,PRINCETON PUBLIC LIBRARY
 recipient,,unresolved,,61464,,,,,,350921036,ST JOSEPH CATHOLIC PARISH
 recipient,,unresolved,,61448,,,,,,942875441,COMMUNITY CONGREGATIONAL CHURCH - UCC OF BENICIA
@@ -6219,7 +6219,7 @@ recipient,,foreign_or_government,,59905,,,,,,366005821,SOUTH SHORE INTERNATIONAL
 recipient,,unresolved,,59878,,,,,,046053926,ST MARYS EPISCOPAL CHURCH
 recipient,,unresolved,,59860,,,,,,480556717,ST JAMES EPISCOPAL CHURCH
 recipient,,unresolved,,59846,,,,,,264630791,CHRISTIAN CITY CHURCH ASHEVILLE
-recipient,,foreign_or_government,,59837,,,,,,431989150,ST MARY'S HIGH SCHOOL STOCKTON CA
+recipient,,unresolved,,59837,,,,,,431989150,ST MARY'S HIGH SCHOOL STOCKTON CA
 recipient,,unresolved,,59835,,,,,,363167091,GRACE EPISCOPAL CHURCH
 recipient,,unresolved,,59832,,,,,,346400459,Lima First Church of the Nazarene
 recipient,,unresolved,,59832,,,,,,473961540,MARTINS PRAIRIE BAPTIST CHURCH
@@ -6391,7 +6391,7 @@ recipient,,unresolved,,57772,,,,,,593835983,BATTLE MOUNTAIN UNITED METHODIST CHU
 recipient,,invalid_or_typo,,57768,,,,,,231352423,FIRST PRESBYTERIAN CHURCH OF ALLENTOWN
 recipient,,merged_or_terminated,,57763,,,,,,136218740,FUND FOR ANIMALS INC
 recipient,,invalid_or_typo,,57756,,,,,,941294916,FIRST PRESBYTERIAN CHURCH OF SANTA ROSA
-recipient,,foreign_or_government,,57738,,,,,,930599000,OHARA CATHOLIC SCHOOL
+recipient,,unresolved,,57738,,,,,,930599000,OHARA CATHOLIC SCHOOL
 recipient,,unresolved,,57734,,,,,,520211782,HADASSAH GREATER WASHINGTON AREA CHAPTER
 recipient,,subsidiary_or_disregarded,,57733,,,,,,844338889,ADA Science & Research Institute LLC
 recipient,,unresolved,,57707,,,,,,742488706,SAINT MARY OUR LADY OF THE LAKE
@@ -6406,7 +6406,7 @@ recipient,,unresolved,,57613,,,,,,231365106,SAINT HELENA CHURCH
 recipient,,unresolved,,57605,,,,,,203296699,THE VINE COMMUNITY
 recipient,,foreign_or_government,,57594,,,,,,956000613,CHULA VISTA ELEMENTARY SCHOOL DISTRICT
 recipient,,unresolved,,57592,,,,,,356037899,Markle Church of Christ
-recipient,,foreign_or_government,,57590,,,,,,462522212,ST MICHAEL THE ARCHANGEL CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,57590,,,,,,462522212,ST MICHAEL THE ARCHANGEL CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,57588,,,,,,231619527,CAMP HILL UNITED METHODIST CHURCH
 recipient,,invalid_or_typo,,57585,,,,,,203356009,GRAND CANYON UNIVERSITY
 recipient,,unresolved,,57561,,,,,,840963229,AVE MARIA CATHOLIC CHURCH
@@ -6486,7 +6486,7 @@ recipient,,unresolved,,56484,,,,,,541001338,HARRISONBURG MENNONITE CHURCH
 recipient,,unresolved,,56479,,,,,,421156147,CLEAR LAKE CHRISTIAN CHURCH
 recipient,,unresolved,,56467,,,,,,263500304,SALESIAN SISTERS OF TAMPA BAY DBA SALESIAN YOUTH CENTER
 recipient,,unresolved,,56464,,,,,,411464906,TRINITY PRESBYTERIAN CHURCH
-recipient,,foreign_or_government,,56449,,,,,,474744465,SAINT BARNABAS HIGH SCHOOL
+recipient,,unresolved,,56449,,,,,,474744465,SAINT BARNABAS HIGH SCHOOL
 recipient,,unresolved,,56442,,,,,,880146768,FIRST UNITED METHODIST CHURCH
 recipient,,unresolved,,56430,,,,,,650083735,ST PATRICK CATHOLIC CHURCH
 recipient,,revoked,,56418,,,,,,814121847,IMAGINE AN ANSWER TO KIDS BRAIN CANCER FOUNDATION
@@ -7126,7 +7126,7 @@ recipient,,merged_or_terminated,,50000,,,,,,821551664,ETHIO-AMERICAN HEARING PRO
 recipient,,revoked,,50000,,,,,,824587973,BLACK LADIES IN PUBLIC HEALTH FOUNDATION
 recipient,,revoked,,50000,,,,,,843351819,HELPING HANDS FOR BARTOW COUNTY ANIMALS INC
 recipient,,new_ein,,50000,,,,,,843392823,FATHERING TOGETHER
-recipient,,foreign_or_government,,50000,,,,,,844021759,DELONE CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,50000,,,,,,844021759,DELONE CATHOLIC HIGH SCHOOL
 recipient,,revoked,,50000,,,,,,851991453,Liberty Now Inc
 recipient,,revoked,,50000,,,,,,854112339,ONE HAMPTON INC
 recipient,,unresolved,,50000,,,,,,860393097,San Carlos Appache Catholic Community
@@ -7685,7 +7685,7 @@ recipient,,unresolved,,46025,,,,,,020237752,CONGREGATIONAL CHURCH OF LACONIA
 recipient,,unresolved,,46023,,,,,,561998354,YATES BAPTIST CHURCH
 recipient,,unresolved,,46007,,,,,,390979549,GRACE PRESBYTERIAN CHURCH
 recipient,,revoked,,46006,,,,,,850847563,Turn2 Ministries Inc
-recipient,,foreign_or_government,,46000,,,,,,726000093,Lakeside Primary School
+recipient,,unresolved,,46000,,,,,,726000093,Lakeside Primary School
 recipient,,merged_or_terminated,,46000,,,,,,822298225,K9S OF VALOR- CARE PACKAGES FOR K9S
 recipient,,revoked,,46000,,,,,,831822480,LOS ANGELES FOOD POLICY COUNCIL
 recipient,,unresolved,,46000,,,,,,843032159,Saint Hilary School
@@ -7697,7 +7697,7 @@ recipient,,unresolved,,45989,,,,,,391231298,ROCK PRAIRIE PRESBYTERIAN CHURCH
 recipient,,unresolved,,45988,,,,,,363929680,COVENANT CHURCH
 recipient,,unresolved,,45986,,,,,,943440003,CHARLOTTESVILLE COMMUNITY CHURCH
 recipient,,unresolved,,45934,,,,,,042192694,MAIN STREET CONGREGATIONAL CHURCH
-recipient,,foreign_or_government,,45899,,,,,,844030803,YORK CATHOLIC JUNIOR SENIOR HIGH SCHOOL OF DIOCESE
+recipient,,unresolved,,45899,,,,,,844030803,YORK CATHOLIC JUNIOR SENIOR HIGH SCHOOL OF DIOCESE
 recipient,,unresolved,,45895,,,,,,363803526,TRINITY VINEYARD CHRISTIAN FELLOWSHIP
 recipient,,unresolved,,45890,,,,,,390806221,ST ANDREW'S CONGREGATION
 recipient,,foreign_or_government,,45887,,,,,,810853606,EMMANUEL ANGLICAN CHURCH NEW YORK CITY
@@ -7963,7 +7963,7 @@ recipient,,merged_or_terminated,,43957,,,,,,200166014,SOZO INTERNATIONAL INC
 recipient,,unresolved,,43951,,,,,,593560615,TEMPLE OF THE LIVING GOD OF ST PETERSBURG INC
 recipient,,unresolved,,43943,,,,,,810907417,WAYSIDE COMMUNITIES CHURCH
 recipient,,unresolved,,43929,,,,,,310682658,ST GEORGE EPISCOPAL CHURCH
-recipient,,foreign_or_government,,43925,,,,,,381880384,LUKE M POWERS CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,43925,,,,,,381880384,LUKE M POWERS CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,43890,,,,,,561023229,FAITH CHURCH OF MIDWAY INC
 recipient,,unresolved,,43886,,,,,,546002056,OHEF SHOLOM TEMPLE
 recipient,,unresolved,,43880,,,,,,741552277,NASSAU BAY BAPTIST CHURCH
@@ -8949,7 +8949,7 @@ recipient,,unresolved,,37046,,,,,,946080820,ST STEPHENS EPISCOPAL CHURCH OF BELV
 recipient,,unresolved,,37000,,,,,,486107723,St Stephen's Episcopal Church
 recipient,,unresolved,,37000,,,,,,582231998,ANSHEI EMUNA CONGREGATION
 recipient,,revoked,,36997,,,,,,270632494,LOCKED DOWN ON THE OUTSIDE
-recipient,,foreign_or_government,,36997,,,,,,440546201,SAINT ELIZABETH CHURCH
+recipient,,unresolved,,36997,,,,,,440546201,SAINT ELIZABETH CHURCH
 recipient,,unresolved,,36996,,,,,,540836354,GEORGE MASON UNIVERSITY
 recipient,,unresolved,,36996,,,,,,810647858,CLEAR LAKE BIBLE CHURCH
 recipient,,unresolved,,36988,,,,,,942313829,TOMALES PRESBYTERIAN CHURCH
@@ -9145,7 +9145,7 @@ recipient,,unresolved,,35850,,,,,,930853106,YAMHILL CHRISTIAN CHURCH
 recipient,,unresolved,,35848,,,,,,720654142,MULBERRY BAPTIST CHURCH
 recipient,,unresolved,,35847,,,,,,560654461,BNAI ISRAEL CONGREGATION INC
 recipient,,unresolved,,35842,,,,,,237191138,GATEWAY CHURCH OF THE CHRISTIAN AND MISSION ALLIANCE
-recipient,,foreign_or_government,,35841,,,,,,472977342,ST MICHAEL CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,35841,,,,,,472977342,ST MICHAEL CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,35840,,,,,,610659991,ST PATRICK EPISCOPAL CHURCH
 recipient,,unresolved,,35827,,,,,,591005855,PASS-A-GRILLE BEACH COMMUNITY CHURCH INC
 recipient,,unresolved,,35819,,,,,,112895813,CHRIST COMMUNITY CHURCH OF EAST ISLIP
@@ -9186,7 +9186,7 @@ recipient,,unresolved,,35496,,,,,,910712656,MAGNOLIA PRESBYTERIAN CHURCH
 recipient,,unresolved,,35495,,,,,,341181481,STOW PRESBYTERIAN CHURCH
 recipient,,unresolved,,35492,,,,,,381358407,ST MARYS PARISH
 recipient,,unresolved,,35492,,,,,,620586087,INGLEWOOD BAPTIST CHURCH INC
-recipient,,foreign_or_government,,35490,,,,,,160846639,ST FRANCIS HIGH SCHOOL
+recipient,,unresolved,,35490,,,,,,160846639,ST FRANCIS HIGH SCHOOL
 recipient,,unresolved,,35486,,,,,,720551661,BROOKWOOD BAPTIST CHURCH
 recipient,,unresolved,,35476,,,,,,953619909,Beverly Hills Firemens Relief Fund
 recipient,,revoked,,35465,,,,,,920830334,Shmira Public Safety
@@ -9256,7 +9256,7 @@ recipient,,unresolved,,35000,,,,,,131768237,GRACELA GRACIA EPISCOPAL CHURCH
 recipient,,unresolved,,35000,,,,,,204297209,LITTLE ROCK CDC
 recipient,,unresolved,,35000,,,,,,232081932,COMMUNITY UNITED METHODIST CHURCH
 recipient,,revoked,,35000,,,,,,232889006,TRI-CITY LIFE CENTER INC
-recipient,,foreign_or_government,,35000,,,,,,237030327,ST THOMAS AQUINAS HIGH SCHOOL
+recipient,,unresolved,,35000,,,,,,237030327,ST THOMAS AQUINAS HIGH SCHOOL
 recipient,,unresolved,,35000,,,,,,322167731,Cedarville United Methodist Church
 recipient,,unresolved,,35000,,,,,,364693713,IMPACT CHURCH
 recipient,,merged_or_terminated,,35000,,,,,,474415732,THE SCOTCH
@@ -9277,7 +9277,7 @@ recipient,,unresolved,,35000,,,,,,923208388,Grace Church
 recipient,,unresolved,,35000,,,,,,941156629,VALLOMBROSA CENTER
 recipient,,unresolved,,34997,,,,,,880253270,SOUTH RENO UNITED METHODIST CHURCH
 recipient,,unresolved,,34996,,,,,,046354611,TRI-PARISH COMMUNITY CHURCH
-recipient,,foreign_or_government,,34996,,,,,,132699291,ST PETER ELEMENTARY SCHOOL - YONKERS NY
+recipient,,unresolved,,34996,,,,,,132699291,ST PETER ELEMENTARY SCHOOL - YONKERS NY
 recipient,,unresolved,,34996,,,,,,203437952,HARRY CHUSID TORAH CENTER
 recipient,,revoked,,34996,,,,,,264191640,MORNING STAR PRAYER CENTER
 recipient,,unresolved,,34996,,,,,,510113081,CAPITAL BAPTIST CHURCH
@@ -9502,7 +9502,7 @@ recipient,,unresolved,,33790,,,,,,461932140,JERICHO ROAD CHURCH OF THE CHRISTIAN
 recipient,,unresolved,,33780,,,,,,760033867,SAINT MATTHIAS THE APOSTLE CHURCH
 recipient,,unresolved,,33767,,,,,,810232802,FIRST PRESBYTERIAN CHURCH
 recipient,,foreign_or_government,,33760,,,,,,550523820,WEST VIRGINIA UNIVERSITY PARKERSBURG
-recipient,,foreign_or_government,,33750,,,,,,561778650,CHARLOTTE CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,33750,,,,,,561778650,CHARLOTTE CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,33738,,,,,,621589783,FIRST BAPTIST CHURCH OF PARIS TENNESSEE
 recipient,,unresolved,,33713,,,,,,480981582,STILWELL UNITED METHODIST CHURCH
 recipient,,unresolved,,33712,,,,,,362549398,ST MATTHEW UNITED CHURCH OF CHRIST
@@ -9686,14 +9686,14 @@ recipient,,unresolved,,32489,,,,,,410757851,CHURCH OF ST MARY
 recipient,,unresolved,,32489,,,,,,300573192,AREA CONSORTIUM OF EDUCATIONAL SERVICES FOR OUR YOUTH
 recipient,,unresolved,,32485,,,,,,042178887,NEWTON HIGHLANDS CONGREGATION CHURCH
 recipient,,unresolved,,32483,,,,,,830280168,CHURCH OF CHRIST OF LEWISTON IDAHO INC
-recipient,,foreign_or_government,,32476,,,,,,610449644,OWENSBORO CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,32476,,,,,,610449644,OWENSBORO CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,32468,,,,,,221899589,CHURCH OF THE HOLY INNOCENTS EPISCOPAL
 recipient,,merged_or_terminated,,32465,,,,,,760406996,ASSISTANCE LEAGUE OF THE BAY AREA
 recipient,,unresolved,,32465,,,,,,640356254,ST JOHN'S METHODIST CHURCH
 recipient,,unresolved,,32457,,,,,,411294049,SERVANT OF CHRIST LUTHERAN CHURCH
 recipient,,unresolved,,32442,,,,,,133369763,ST JOSEPH HILL ACADEMY
 recipient,,unresolved,,32439,,,,,,043455952,Newton-Wellesley Hospital Charitable Foundation
-recipient,,foreign_or_government,,32437,,,,,,710250080,CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,32437,,,,,,710250080,CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,32430,,,,,,562458132,HEART CRY CHURCH
 recipient,,unresolved,,32415,,,,,,910947159,REDMOND PRESBYTERIAN CHURCH
 recipient,,unresolved,,32397,,,,,,580971253,FIRST METHODIST CHURCH OF DOUGLASVILLE INC
@@ -10093,7 +10093,7 @@ recipient,,unresolved,,30287,,,,,,941427851,PRESBYTERIAN CHURCH IN CHINATOWN
 recipient,,unresolved,,30285,,,,,,310667220,SULPHUR GROVE UNITED METHODIST CHURCH
 recipient,,unresolved,,30277,,,,,,316402586,ST PAUL LUTHERAN CHURCH
 recipient,,unresolved,,30273,,,,,,710641793,EAST UNION MISSIONARY BAPTIST CHURCH
-recipient,,foreign_or_government,,30272,,,,,,382365635,WEST CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,30272,,,,,,382365635,WEST CATHOLIC HIGH SCHOOL
 recipient,,foreign_or_government,,30267,,,,,,966000519,Medford School District 549C
 recipient,,unresolved,,30255,,,,,,383844687,COVENANT CHURCH INC
 recipient,,unresolved,,30251,,,,,,141464077,SISTERS OF THE RESURRECTION
@@ -10122,7 +10122,7 @@ recipient,,unresolved,,30118,,,,,,470379012,SAINT PAUL UNITED METHODIST CHURCH
 recipient,,unresolved,,30115,,,,,,231390630,ZION MENNONITE CHURCH
 recipient,,foreign_or_government,,30112,,,,,,411778191,INDEPENDENT SCHOOL DISTRICT #2169
 recipient,,unresolved,,30098,,,,,,382239028,CENTER PARK UNITED METHODIST CHURCH
-recipient,,foreign_or_government,,30094,,,,,,870299575,ST JOSEPH CATHOLIC ELEMENTARY SCHOOL
+recipient,,unresolved,,30094,,,,,,870299575,ST JOSEPH CATHOLIC ELEMENTARY SCHOOL
 recipient,,unresolved,,30091,,,,,,051271261,ST MARKS LUTHERAN CHURCH
 recipient,,unresolved,,30077,,,,,,540913910,ST JAMES EPISCOPAL CHURCH
 recipient,,unresolved,,30067,,,,,,460601174,PROJECT SHORESH OF RHODE ISLAND INC
@@ -10159,7 +10159,7 @@ recipient,,unresolved,,30000,,,,,,452435307,FIRST ASSEMBLY OF GOD OF BAKERSFIELD
 recipient,,unresolved,,30000,,,,,,453968981,WEST RIDGE COMMUNITY CHURCH
 recipient,,revoked,,30000,,,,,,463692621,Lets Ride Therapeutic Equestrian Program
 recipient,,unresolved,,30000,,,,,,510251813,Christ's Church at Virginia Tech
-recipient,,foreign_or_government,,30000,,,,,,520422640,MOUNT SAINT JOSEPH HIGH SCHOOL
+recipient,,unresolved,,30000,,,,,,520422640,MOUNT SAINT JOSEPH HIGH SCHOOL
 recipient,,merged_or_terminated,,30000,,,,,,521181917,THE UNITED WAY OF SOUTHERN MARYLAND INC
 recipient,,unresolved,,30000,,,,,,541196510,WAYNESBORO MENNONITE CHURCH
 recipient,,unresolved,,30000,,,,,,570662492,Lake Murray Presbyterian Church
@@ -10398,7 +10398,7 @@ recipient,,unresolved,,29545,,,,,,823064947,CORPUS CHRISTI CHAPEL IN NAPLES
 recipient,,revoked,,29531,,,,,,454450102,BEAT THE STREETS NEW ENGLAND INC
 recipient,,merged_or_terminated,,29520,,,,,,391774841,SUN PRAIRIE EMERGENCY FOOD PANTRY INC
 recipient,,unresolved,,29509,,,,,,860143399,FIRST SOUTHERN BAPTIST CHURCH OF SCOTTSDALE
-recipient,,foreign_or_government,,29507,,,,,,371360519,ST TERESA HIGH SCHOOL
+recipient,,unresolved,,29507,,,,,,371360519,ST TERESA HIGH SCHOOL
 recipient,,unresolved,,29507,,,,,,221628563,TEMPLE EMETH
 recipient,,unresolved,,29503,,,,,,561372065,LEE PARK BAPTIST CHURCH
 recipient,,unresolved,,29502,,,,,,452478141,FREEDOM LIFE CHURCH
@@ -10474,7 +10474,7 @@ recipient,,unresolved,,29097,,,,,,410941936,REDEEMER LUTHERAN CHURCH
 recipient,,unresolved,,29077,,,,,,560713878,COLLEGE PARK BAPTIST CHURCH
 recipient,,unresolved,,29074,,,,,,591918169,ST JUDE CATHOLIC CHURCH
 recipient,,unresolved,,29050,,,,,,356028603,Waterford Mennonite Church
-recipient,,foreign_or_government,,29047,,,,,,223812954,SAINT JOSEPHS REGIONAL HIGH SCHOOL
+recipient,,unresolved,,29047,,,,,,223812954,SAINT JOSEPHS REGIONAL HIGH SCHOOL
 recipient,,foreign_or_government,,29045,,,,,,596000750,PLANTATION KEY SCHOOL-MONROE COUNTY SCHOOL DISTRICT
 recipient,,unresolved,,29037,,,,,,042104922,SECOND CHURCH IN NEWTON
 recipient,,merged_or_terminated,,29027,,,,,,931055450,SOUTHERN CALIFORNIA LEADERSHIP NETWORK
@@ -10482,7 +10482,7 @@ recipient,,unresolved,,29026,,,,,,043676594,PROGRESS BAPTIST CHURCH
 recipient,,unresolved,,29018,,,,,,824203575,GLOBAL PARTNERS
 recipient,,unresolved,,29006,,,,,,570559320,LANDER UNIVERSITY
 recipient,,foreign_or_government,,29006,,,,,,690210637,JOHN DEWEY HIGH SCHOOL
-recipient,,foreign_or_government,,29000,,,,,,264399471,NATIONAL COUNCIL OF THE UNITED STATES SOCIETY OF ST VINCENT DEPAU
+recipient,,unresolved,,29000,,,,,,264399471,NATIONAL COUNCIL OF THE UNITED STATES SOCIETY OF ST VINCENT DEPAU
 recipient,,unresolved,,29000,,,,,,561385413,SUNSET FOREST BAPTIST CHURCH
 recipient,,unresolved,,29000,,,,,,760717350,CALVERY CHAPEL GULF COAST
 recipient,,unresolved,,28999,,,,,,860262614,NORTHWEST COMMUNITY FRIENDS CHURCH
@@ -10537,7 +10537,7 @@ recipient,,foreign_or_government,,28866,,,,,,454808258,Mission College
 recipient,,unresolved,,28865,,,,,,580836669,TRINITY UNITED METHODIST CHURCH
 recipient,,unresolved,,28860,,,,,,310569731,ST ANN ROMAN CATHOLIC CHURCH
 recipient,,unresolved,,28835,,,,,,840678638,HOLY APOSTLES CATHOLIC CHURCH
-recipient,,foreign_or_government,,28820,,,,,,730605969,MOUNT ST MARY CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,28820,,,,,,730605969,MOUNT ST MARY CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,28797,,,,,,363569390,LOOP CHRISTIAN MINISTRIES
 recipient,,invalid_or_typo,,28793,,,,,,965785564,ORTING COMMUNITY BAPTIST CHURCH
 recipient,,unresolved,,28792,,,,,,210638142,ST TERESA OF CALCUTTA PARISH
@@ -11126,7 +11126,7 @@ recipient,,unresolved,,26122,,,,,,820252845,IDAHO CORPORATION OF BENEDICTINE SIS
 recipient,,revoked,,26117,,,,,,874616792,MONEY WISDOM INC
 recipient,,unresolved,,26100,,,,,,716070211,St Mary of the Springs Catholic Church
 recipient,,unresolved,,26095,,,,,,141984462,TALMADGE HILL COMMUNITY CHURCH
-recipient,,foreign_or_government,,26094,,,,,,421788212,DOWLING CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,26094,,,,,,421788212,DOWLING CATHOLIC HIGH SCHOOL
 recipient,,revoked,,26094,,,,,,871616759,NIYAKE YUZA YOUTH SERVICES
 recipient,,unresolved,,26093,,,,,,760596626,HOLY CROSS MONASTERY
 recipient,,unresolved,,26092,,,,,,311432818,MOUNT VERNON BAPTIST TEMPLE OF MOUNT VERNON INC
@@ -11559,7 +11559,7 @@ recipient,,unresolved,,24982,,,,,,620988075,SOUTHSIDE CHURCH OF CHRIST
 recipient,,invalid_or_typo,,24982,,,,,,830363638,THE TABERNACLE OF THE LORD
 recipient,,new_ein,,24982,,,,,,852423644,SEARCHING FOR SOLUTIONS
 recipient,,unresolved,,24980,,,,,,590637902,OUR LADY OF PERPETUAL HELP CHURCH
-recipient,,foreign_or_government,,24976,,,,,,720467512,ST FREDERICK HIGH SCHOOL
+recipient,,unresolved,,24976,,,,,,720467512,ST FREDERICK HIGH SCHOOL
 recipient,,foreign_or_government,,24975,,,,,,351099142,HAMILTON HEIGHTS HIGH SCHOOL
 recipient,,unresolved,,24975,,,,,,370661112,ST MARY CHURCH
 recipient,,unresolved,,24975,,,,,,371480317,BASE CAMP URBAN OUTREACH
@@ -11571,7 +11571,7 @@ recipient,,foreign_or_government,,24973,,,,,,386001598,DANSVILLE SCHOOLS
 recipient,,unresolved,,24973,,,,,,420698112,ST AUGUSTINS CHURCH
 recipient,,foreign_or_government,,24972,,,,,,341302991,BROWN TOWNSHIP OF PAULDING COUNTY OHIO
 recipient,,merged_or_terminated,,24969,,,,,,232188997,THE PENNSYLVANIA MASONIC FOUNDATION FOR CHILDREN
-recipient,,foreign_or_government,,24969,,,,,,341686290,ST VINCENT-ST MARY HIGH SCHOOL
+recipient,,unresolved,,24969,,,,,,341686290,ST VINCENT-ST MARY HIGH SCHOOL
 recipient,,merged_or_terminated,,24969,,,,,,825367949,EC 250
 recipient,,unresolved,,24963,,,,,,136012595,ALL SAINTS EPISCOPAL CHURCH
 recipient,,unresolved,,24962,,,,,,942701573,TRINITY LUTHERAN CHURCH
@@ -11812,7 +11812,7 @@ recipient,,unresolved,,24257,,,,,,630366290,PARKER MEMORIAL BAPTIST CHURCH OF AN
 recipient,,unresolved,,24252,,,,,,870269255,ST VINCENT DE PAUL CHURCH
 recipient,,unresolved,,24252,,,,,,746028912,SOUTHWEST CENTRAL CHURCH OF CHRIST
 recipient,,merged_or_terminated,,24250,,,,,,850610320,FEED CHICAGO
-recipient,,foreign_or_government,,24249,,,,,,221891152,ST JOHN VIANNEY HOLMDEL
+recipient,,unresolved,,24249,,,,,,221891152,ST JOHN VIANNEY HOLMDEL
 recipient,,unresolved,,24248,,,,,,231472502,EMMANUEL UNITED CHURCH OF CHRIST
 recipient,,revoked,,24246,,,,,,260471733,CONNECTING HEARTS MINISTRY (CHAPEL HILL CHRISTIAN SCHOOL)
 recipient,,unresolved,,24245,,,,,,340753546,ST FRANCIS OF ASSISI CHURCH
@@ -12091,7 +12091,7 @@ recipient,,unresolved,,23349,,,,,,223693103,CHRIST THE KING CHURCH OF DENVILLE
 recipient,,unresolved,,23348,,,,,,741675400,FIRST BAPTIST CHURCH KINGSLAND
 recipient,,foreign_or_government,,23346,,,,,,541579076,STAFFORD COUNTY CHRISTIAN CHURCH
 recipient,,invalid_or_typo,,23341,,,,,,843012535,ST LOUIS CATHOLIC PARISH
-recipient,,foreign_or_government,,23339,,,,,,730642613,BISHOP MCGUINNESS HIGH SCHOOL
+recipient,,unresolved,,23339,,,,,,730642613,BISHOP MCGUINNESS HIGH SCHOOL
 recipient,,unresolved,,23324,,,,,,391922765,FALLS PRESBYTERIAN CHURCH
 recipient,,unresolved,,23312,,,,,,562408295,Mountain Creek Baptist Church
 recipient,,unresolved,,23310,,,,,,581440232,EPISCOPAL CHURCH OF THE ADVENT
@@ -12251,7 +12251,7 @@ recipient,,unresolved,,22771,,,,,,814597593,IGLESIA PRESBITERIANA EMANUEL
 recipient,,unresolved,,22750,,,,,,391637915,AMERY FREE LUTHERAN CHURCH
 recipient,,unresolved,,22749,,,,,,540812353,ST JUDE CATHOLIC CHURCH
 recipient,,unresolved,,22747,,,,,,043260458,THEODORE PARKER UNITARIAN CHURCH
-recipient,,foreign_or_government,,22746,,,,,,812892087,WEST CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,22746,,,,,,812892087,WEST CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,22744,,,,,,520630226,SALEM EVANGELICAL LUTHERAN CHURCH
 recipient,,unresolved,,22743,,,,,,882793536,FIRST METHODIST CHURCH OF VERO BEACH INC
 recipient,,unresolved,,22718,,,,,,440658123,ST SABINA CATHOLIC CHURCH BELTON
@@ -12270,7 +12270,7 @@ recipient,,foreign_or_government,,22636,,,,,,416000464,INDEPENDENT SCHOOL DISTRI
 recipient,,unresolved,,22609,,,,,,910874943,HOPE PRESBYTERIAN CHURCH
 recipient,,unresolved,,22598,,,,,,271767309,COMMUNITY OF FAITH CHURCH
 recipient,,unresolved,,22595,,,,,,270397810,TRINITY ANGLICAN CHURCH
-recipient,,foreign_or_government,,22594,,,,,,630288837,GOVERNMENT STREET PRESBYTERIAN CHURCH
+recipient,,unresolved,,22594,,,,,,630288837,GOVERNMENT STREET PRESBYTERIAN CHURCH
 recipient,,unresolved,,22593,,,,,,465760391,BISHOP SIMON BRUTE COLLEGE SEMINARY
 recipient,,new_ein,,22592,,,,,,873335924,FOOD IS LOVE PRODUCTION COMPANY INC
 recipient,,foreign_or_government,,22585,,,,,,271642506,UNIVERSITY PREP INC
@@ -12519,7 +12519,7 @@ recipient,,unresolved,,21720,,,,,,823182917,ORMEWOOD CHURCH
 recipient,,unresolved,,21719,,,,,,540291853,CONGREGATION BETH ISRAEL
 recipient,,unresolved,,21719,,,,,,834692637,ANCHOR POINT CHURCH
 recipient,,unresolved,,21709,,,,,,741246234,MEMORIAL BAPTIST CHURCH
-recipient,,foreign_or_government,,21709,,,,,,310835459,TRINITY CATHOLIC ELEMENTARY SCHOOL
+recipient,,unresolved,,21709,,,,,,310835459,TRINITY CATHOLIC ELEMENTARY SCHOOL
 recipient,,merged_or_terminated,,21709,,,,,,260046876,FRIENDS OF THE POOR
 recipient,,unresolved,,21700,,,,,,381515414,ALMA UNITED METHODIST CHURCH
 recipient,,unresolved,,21698,,,,,,237292290,FIRST BAPTIST CHURCH OF METUCHEN
@@ -12707,7 +12707,7 @@ recipient,,revoked,,21000,,,,,,920364815,Soccer for Dreamers
 recipient,,unresolved,,20998,,,,,,630865834,CAMDEN UNITED METHODIST CHURCH
 recipient,,unresolved,,20998,,,,,,731194940,FIRST BAPTIST CHURCH
 recipient,,unresolved,,20998,,,,,,943088948,ALAMEDA SEVENTH-DAY ADVENTIST CHURCH
-recipient,,foreign_or_government,,20997,,,,,,231629126,Trinity High School
+recipient,,unresolved,,20997,,,,,,231629126,Trinity High School
 recipient,,unresolved,,20996,,,,,,260147154,LAMONI COMMUNITY OF CHRIST
 recipient,,unresolved,,20995,,,,,,010327203,OUR LADY OF PERPETUAL HELP CHURCH
 recipient,,revoked,,20995,,,,,,166054308,CHURCH OF THE ASCENSION
@@ -12900,7 +12900,7 @@ recipient,,unresolved,,20457,,,,,,582056816,ST PETER THE APOSTLE CHURCH
 recipient,,unresolved,,20450,,,,,,231651420,TRINITY EVANGELICAL LUTHERAN CHURCH
 recipient,,revoked,,20450,,,,,,464574086,FRIENDS OF THE CHARLOTTE NEWS INC
 recipient,,unresolved,,20450,,,,,,620587283,FIRST ALCOA UNITED METHODIST CHURCH
-recipient,,foreign_or_government,,20450,,,,,,880718153,JOHN CARROLL CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,20450,,,,,,880718153,JOHN CARROLL CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,20444,,,,,,581081847,COVENANT PRESBYTERIAN CHURCH
 recipient,,unresolved,,20443,,,,,,610444817,ST PAUL UNITED METHODIST CHURCH
 recipient,,unresolved,,20442,,,,,,026008758,WALPOLE UNITARIAN CHURCH
@@ -13338,7 +13338,7 @@ recipient,,unresolved,,19976,,,,,,640659214,THE FIRST PRESBYTERIAN CHURCH OF CHA
 recipient,,unresolved,,19976,,,,,,742278266,SHORTER COMMUNITY AME CHURCH
 recipient,,revoked,,19976,,,,,,831756054,FOLKSOUL FARM
 recipient,,unresolved,,19974,,,,,,591292890,ST GREGORY THE GREAT CATHOLIC CHURCH AND SCHOOL
-recipient,,foreign_or_government,,19972,,,,,,720593679,VANDEBILT CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,19972,,,,,,720593679,VANDEBILT CATHOLIC HIGH SCHOOL
 recipient,,foreign_or_government,,19968,,,,,,453018162,CHABAD OF STARRETT CITY
 recipient,,unresolved,,19967,,,,,,111633532,SAINT FRANCIS XAVIER ROMAN CATHOLIC CHURCH
 recipient,,revoked,,19967,,,,,,850830426,YESHIVA MIDDLE SCHOOL
@@ -13475,7 +13475,7 @@ recipient,,unresolved,,19906,,,,,,521138849,MOUNTAIN VIEW BAPTIST CHURCH
 recipient,,unresolved,,19905,,,,,,386073489,ALDERSGATE MIDLAND UNITED METHODIST CHURCH
 recipient,,unresolved,,19905,,,,,,431599434,Good Shepherd United Methodist Church
 recipient,,invalid_or_typo,,19896,,,,,,080297718,LAKEWOOD BAPTIST CHURCH
-recipient,,foreign_or_government,,19890,,,,,,112142915,ST EDMUND ELEMENTARY SCHOOL
+recipient,,unresolved,,19890,,,,,,112142915,ST EDMUND ELEMENTARY SCHOOL
 recipient,,merged_or_terminated,,19890,,,,,,203074754,MAINE DENTAL HEALTH OUT-REACH INC
 recipient,,unresolved,,19890,,,,,,237346646,NEW LIFE PRESBYTERIAN CHURCH
 recipient,,revoked,,19890,,,,,,270216820,HOOPESTON AREA SOFTBALL ASSOCIATION
@@ -13528,7 +13528,7 @@ recipient,,unresolved,,19796,,,,,,236050534,LEHMAN MEMORIAL UNITED METHODIST CHU
 recipient,,unresolved,,19795,,,,,,582550730,OCONEE STREET UNITED METHODIST CHURCH INC
 recipient,,unresolved,,19794,,,,,,710608461,ST THOMAS EPISCOPAL CHURCH
 recipient,,unresolved,,19791,,,,,,810250446,FIRST BAPTIST CHURCH OF BILLINGS
-recipient,,foreign_or_government,,19788,,,,,,590643776,PENSACOLA CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,19788,,,,,,590643776,PENSACOLA CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,19778,,,,,,710595043,70 W CHURCH OF CHRIST
 recipient,,revoked,,19774,,,,,,920134317,SHELDON MUSEUM AND CULTURAL CENTER INC
 recipient,,unresolved,,19762,,,,,,237373299,ST PAUL UNITED METHODIST CHURCH
@@ -13999,7 +13999,7 @@ recipient,,unresolved,,18210,,,,,,756042260,Wall Brethren Church
 recipient,,unresolved,,18206,,,,,,316400431,DANVILLE LOCAL SCHOOLS
 recipient,,unresolved,,18201,,,,,,942631003,CHRIST COMMUNITY CHURCH OF SAN JOSE
 recipient,,unresolved,,18200,,,,,,311438972,CORNERSTONE CHURCH OF CHRIST
-recipient,,foreign_or_government,,18197,,,,,,362385216,NEWMAN CENTRAL CATHOLIC HIGH SCHOOL STERLING IL
+recipient,,unresolved,,18197,,,,,,362385216,NEWMAN CENTRAL CATHOLIC HIGH SCHOOL STERLING IL
 recipient,,unresolved,,18196,,,,,,590678767,CHURCH WARDENS AND VESTRYMEN OF CHRIST CHURCH IN PENSACOLA
 recipient,,unresolved,,18194,,,,,,200724775,CONGREGATION BNAI SHALOM
 recipient,,foreign_or_government,,18185,,,,,,586002060,UNIVERSITY OF NORTH GEORGIA
@@ -14377,7 +14377,7 @@ recipient,,unresolved,,17068,,,,,,941270354,ST ALBERT'S PRIORY
 recipient,,unresolved,,17068,,,,,,480561965,SACRED HEART CATHOLIC CHURCH
 recipient,,unresolved,,17064,,,,,,237295612,HOLY SPIRIT CATHOLIC CHURCH
 recipient,,unresolved,,17064,,,,,,930770080,Monroe United Methodist Church
-recipient,,foreign_or_government,,17058,,,,,,470768292,HEARTLAND LUTHERAN HIGH SCHOOL
+recipient,,unresolved,,17058,,,,,,470768292,HEARTLAND LUTHERAN HIGH SCHOOL
 recipient,,foreign_or_government,,17057,,,,,,046001398,Malden Public Schools
 recipient,,unresolved,,17057,,,,,,530204646,SOUTHEAST HEBREW CONGREGATION
 recipient,,merged_or_terminated,,17056,,,,,,020780463,NEXT GENERATION NEPAL
@@ -14698,7 +14698,7 @@ recipient,,unresolved,,16131,,,,,,561414907,FAIRVIEW BAPTIST CHURCH
 recipient,,foreign_or_government,,16129,,,,,,956006594,PALOS VERDES HIGH SCHOOL
 recipient,,foreign_or_government,,16125,,,,,,016000376,TOWN OF SOUTHWEST HARBOR
 recipient,,unresolved,,16115,,,,,,840437962,OUR SAVIORS LUTHERAN CHURCH
-recipient,,foreign_or_government,,16115,,,,,,610458774,LEXINGTON CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,16115,,,,,,610458774,LEXINGTON CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,16109,,,,,,741464209,ST MATTHEWS UNITED METHODIST CHURCH
 recipient,,invalid_or_typo,,16106,,,,,,030181257,ST JOHN THE BAPTIST PARISH CHARITABLE TRUST
 recipient,,unresolved,,16102,,,,,,581172867,CUMMING FIRST UNITED METHODIST CHURCH
@@ -15094,7 +15094,7 @@ recipient,,unresolved,,15116,,,,,,942941122,PESCADERO COMMUNITY CHURCH
 recipient,,unresolved,,15106,,,,,,131740286,IRVINGTON PRESBYTERIAN CHURCH
 recipient,,unresolved,,15102,,,,,,471335811,GATHERING POINT CHURCH OF THE NAZARENE
 recipient,,unresolved,,15097,,,,,,237187646,HADASSAH THE WOMENS ZIONIST ORGANIZATION OF AMERICA
-recipient,,foreign_or_government,,15096,,,,,,721227517,ST JOSEPH CATHOLIC ELEMENTARY SCHOOL
+recipient,,unresolved,,15096,,,,,,721227517,ST JOSEPH CATHOLIC ELEMENTARY SCHOOL
 recipient,,unresolved,,15096,,,,,,470667089,GRACE EVANGELICAL LUTHERAN CHURCH
 recipient,,unresolved,,15092,,,,,,522133723,CHRIST THE KING RETREAT CENTER
 recipient,,unresolved,,15088,,,,,,730634803,FIRST BAPTIST CHURCH
@@ -15333,7 +15333,7 @@ recipient,,revoked,,14960,,,,,,834456847,ALABAMA CIVIL RIGHTS TOURISM ASSOCIATIO
 recipient,,revoked,,14959,,,,,,946105053,WEST BAY OPERA ASSOCIATION
 recipient,,foreign_or_government,,14958,,,,,,026000902,TOWN OF SWANZEY
 recipient,,unresolved,,14958,,,,,,042666013,STRATFORD STREET UNITED CHURCH
-recipient,,foreign_or_government,,14958,,,,,,112121220,ST JOHN THE BAPTIST DIOCESAN HIGH SCHOOL
+recipient,,unresolved,,14958,,,,,,112121220,ST JOHN THE BAPTIST DIOCESAN HIGH SCHOOL
 recipient,,unresolved,,14958,,,,,,134299850,Transforming Faith Baptist Church
 recipient,,unresolved,,14958,,,,,,160851155,ST PETERS EPISCOPAL CHURCH
 recipient,,foreign_or_government,,14958,,,,,,160875927,JOHNSON CITY CENTRAL SCHOOL DISTRICT
@@ -15870,7 +15870,7 @@ recipient,,unresolved,,13743,,,,,,430738241,WEBSTER GROVES CHURCH OF THE NAZAREN
 recipient,,unresolved,,13743,,,,,,472179239,THE EPISCOPAL CHURCH OF THE CROSS
 recipient,,unresolved,,13743,,,,,,930432723,ST PETER CATHOLIC CHURCH
 recipient,,unresolved,,13743,,,,,,450507943,EPISCOPAL CHURCH OF THE INCARNATION OVIEDO FLORIDA INC
-recipient,,foreign_or_government,,13742,,,,,,231352627,DELONE CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,13742,,,,,,231352627,DELONE CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,13741,,,,,,111834297,ST KILIANS CHURCH
 recipient,,unresolved,,13740,,,,,,841299830,PARKER BIBLE CHURCH
 recipient,,foreign_or_government,,13738,,,,,,593525576,HABITAT FOR HUMANITY INTERNATIONAL INC
@@ -15970,7 +15970,7 @@ recipient,,unresolved,,13445,,,,,,231421909,ST BERNADETTE PARISH
 recipient,,unresolved,,13445,,,,,,576038378,MOUNT CALVARY BAPTIST CHURCH
 recipient,,unresolved,,13445,,,,,,742378114,HOLY FAMILY CATHOLIC CHURCH
 recipient,,unresolved,,13443,,,,,,236402732,ELKINS PARK PRESBYTERIAN CHURCH
-recipient,,foreign_or_government,,13442,,,,,,340735599,STEUBENVILLE CATHOLIC CENTRAL HIGH SCHOOL
+recipient,,unresolved,,13442,,,,,,340735599,STEUBENVILLE CATHOLIC CENTRAL HIGH SCHOOL
 recipient,,revoked,,13442,,,,,,824763277,BRAVE GLOBAL INC
 recipient,,merged_or_terminated,,13426,,,,,,208021061,INTEGRATIVE MEDICINE FOUNDATION INC
 recipient,,unresolved,,13426,,,,,,720802780,ORLEANS INDIGENT DEFENDER PROGRAM
@@ -16044,7 +16044,7 @@ recipient,,unresolved,,13208,,,,,,610650176,FLORENCE BAPTIST CHURCH
 recipient,,foreign_or_government,,13200,,,,,,236003469,Abington SHS
 recipient,,unresolved,,13198,,,,,,822572514,THE GATHERING CHURCH
 recipient,,unresolved,,13197,,,,,,561242194,MUD CREEK BAPTIST CHURCH
-recipient,,foreign_or_government,,13196,,,,,,251681026,CENTRAL CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,13196,,,,,,251681026,CENTRAL CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,13187,,,,,,752536903,BARUCH HASHEM MESSIANIC SYNAGOGUE
 recipient,,unresolved,,13179,,,,,,036009330,GREENSBORO UNITED CHURCH OF CHRIST
 recipient,,unresolved,,13175,,,,,,222511605,LIVING HOPE LAKEPORT
@@ -16868,7 +16868,7 @@ recipient,,unresolved,,11468,,,,,,250990594,WAVERLY UNITED PRESBYTERIAN CHURCH
 recipient,,unresolved,,11468,,,,,,561341968,BETHLEHEM UNITED METHODIST CHURCH
 recipient,,unresolved,,11468,,,,,,592899472,NORTH BREVARD CHURCH OF CHRIST INCORPORATED
 recipient,,unresolved,,11468,,,,,,610514715,SPRINGDALE PRESBYTERIAN CHURCH
-recipient,,foreign_or_government,,11468,,,,,,610547541,ST FRANCIS DESALES HIGH SCHOOL
+recipient,,unresolved,,11468,,,,,,610547541,ST FRANCIS DESALES HIGH SCHOOL
 recipient,,unresolved,,11468,,,,,,630367124,ST ROSE ACADEMY
 recipient,,unresolved,,11468,,,,,,920068615,WILDWOOD BIBLE CHURCH
 recipient,,unresolved,,11466,,,,,,390914792,ST BERNARD CONGREGATION
@@ -17254,7 +17254,7 @@ recipient,,unresolved,,10556,,,,,,470379838,ST MARYS CATHERDRAL PARISH
 recipient,,unresolved,,10556,,,,,,210635032,SAINT NICHOLAS TOLENTINE
 recipient,,unresolved,,10555,,,,,,223095370,SISTERS OF JESUS OUR HOPE
 recipient,,unresolved,,10555,,,,,,883608458,GRACE CHURCH RED HILL
-recipient,,foreign_or_government,,10549,,,,,,050625590,PIUS X CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,10549,,,,,,050625590,PIUS X CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,10547,,,,,,310538529,HOLY CROSS-IMMACULATA CHURCH
 recipient,,unresolved,,10547,,,,,,931014905,CHINESE FAITH BAPTIST CHURCH
 recipient,,unresolved,,10547,,,,,,320234010,CHURCH OF THE HOLY SPIRIT
@@ -17293,7 +17293,7 @@ recipient,,unresolved,,10495,,,,,,742786532,PATON BAPTIST CHURCH
 recipient,,unresolved,,10495,,,,,,850250750,ST EDWIN ALBUQUERQUE NM
 recipient,,unresolved,,10495,,,,,,952111195,ST JOHN THE BAPTIST CATHOLIC CHURCH
 recipient,,unresolved,,10492,,,,,,042321547,GREEK ORTHODOX CHURCH TAXIARCHAE
-recipient,,foreign_or_government,,10492,,,,,,231718879,MONSIGNOR BONNER CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,10492,,,,,,231718879,MONSIGNOR BONNER CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,10492,,,,,,874072696,ACACIA REFORMED OPC
 recipient,,unresolved,,10491,,,,,,150623169,UNITARIAN UNIVERSALIST CHURCH OF UTICA
 recipient,,revoked,,10484,,,,,,821489300,JEWISH VOICE EDUCATIONAL FUND INC
@@ -17421,7 +17421,7 @@ recipient,,invalid_or_typo,,10243,,,,,,610478737,FIRST UNITED METHODIST CHURCH O
 recipient,,unresolved,,10243,,,,,,930685553,ST ALOYSIUS CATHOLIC CHURCH
 recipient,,unresolved,,10235,,,,,,216016632,CHURCH OF ST MARKS AND ALL SAINTS
 recipient,,unresolved,,10227,,,,,,042104125,GRACE EPISCOPAL CHURCH
-recipient,,foreign_or_government,,10221,,,,,,131990905,ST JOSEPH BY THE SEA HIGH SCHOOL
+recipient,,unresolved,,10221,,,,,,131990905,ST JOSEPH BY THE SEA HIGH SCHOOL
 recipient,,unresolved,,10221,,,,,,580909377,St Peter the Apostle School
 recipient,,revoked,,10221,,,,,,851789108,MESIVTA SHAAREI CHAIM CORP
 recipient,,unresolved,,10221,,,,,,883701500,THE PARK FAMILY SHUL INC
@@ -17883,7 +17883,7 @@ recipient,,unresolved,,9999,,,,,,221533511,MADISON PRESBYTERIAN CHURCH
 recipient,,unresolved,,9999,,,,,,221614477,SAINT ANTHONY ROMAN CATHOLIC CHURCH
 recipient,,unresolved,,9999,,,,,,223103380,ALL SAINTS EPISCOPAL CHURCH
 recipient,,unresolved,,9999,,,,,,223612156,SAINT PETER SCHOOL
-recipient,,foreign_or_government,,9999,,,,,,231035131,ST HUBERT CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,9999,,,,,,231035131,ST HUBERT CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,9999,,,,,,231355116,IMMACULATE CONCEPTION CHURCH
 recipient,,unresolved,,9999,,,,,,231465622,ST JAMES PARISH
 recipient,,unresolved,,9999,,,,,,231465959,HOLY GHOST PREPARATORY SCHOOL
@@ -17962,7 +17962,7 @@ recipient,,unresolved,,9999,,,,,,930459301,ST THERESE OF THE CHILD JESUS CHURCH
 recipient,,unresolved,,9999,,,,,,930955650,METANOIA PEACE UNITED METHODIST CHURCH
 recipient,,unresolved,,9999,,,,,,933054554,CLASSICAL CHRISTIAN ACCADAMY
 recipient,,unresolved,,9999,,,,,,952055096,PALISADES UNITED PRESBYTERIAN CHURCH OF SAN DIEGO
-recipient,,foreign_or_government,,9999,,,,,,952230254,ST LUCY'S PRIORY HIGH SCHOOL
+recipient,,unresolved,,9999,,,,,,952230254,ST LUCY'S PRIORY HIGH SCHOOL
 recipient,,revoked,,9999,,,,,,952508873,CENTER FOR YOUTH AND COMMUNITY DEVELOPMENT
 recipient,,foreign_or_government,,9999,,,,,,956002968,ACTON AGUA DULCE UNIFIED SCHOOL DISTRICT
 recipient,,foreign_or_government,,9999,,,,,,956004692,SINALOA MIDDLE SCHOOL - SIMI VALLEY CA
@@ -17980,7 +17980,7 @@ recipient,,unresolved,,9995,,,,,,201681122,HOPE COMMUNITY CHURCH ROGERSVILLE
 recipient,,unresolved,,9995,,,,,,203305002,LIGHTHOUSE PENTECOSTAL CHURCH
 recipient,,unresolved,,9995,,,,,,203811656,DU QUOIN CUSD #300 EDUCATION FOUNDATION
 recipient,,unresolved,,9995,,,,,,204349477,HERITAGE BAPTIST CHURCH
-recipient,,foreign_or_government,,9995,,,,,,210644458,RED BANK CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,9995,,,,,,210644458,RED BANK CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,9995,,,,,,231429819,OUR LADY OF HOPE CATHOLIC PARISH
 recipient,,unresolved,,9995,,,,,,231702584,GRAVEL HILL UNITED METHODIST CHURCH
 recipient,,unresolved,,9995,,,,,,231978050,ST JOHN'S UNITED CHURCH OF CHRIST
@@ -17990,7 +17990,7 @@ recipient,,foreign_or_government,,9995,,,,,,246002157,BALD EAGLE AREA SCHOOL DIS
 recipient,,unresolved,,9995,,,,,,261412697,CHRIST CHURCH ANGLICAN BRANFORD CT
 recipient,,unresolved,,9995,,,,,,273001185,NEW LIFE BAPTIST CHURCH
 recipient,,unresolved,,9995,,,,,,310977738,FAIRFIELD CHRISTIAN CHURCH
-recipient,,foreign_or_government,,9995,,,,,,331035297,CENTRAL CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,9995,,,,,,331035297,CENTRAL CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,9995,,,,,,344479766,MAUMEE UNITED METHODIST CHURCH
 recipient,,unresolved,,9995,,,,,,351113190,BARTHOLOMEW CON SCHOOL CORP
 recipient,,unresolved,,9995,,,,,,351399564,FORTVILLE CHURCH OF THE NAZARENE INC
@@ -18040,7 +18040,7 @@ recipient,,unresolved,,9995,,,,,,640308407,ST PAUL'S EPISCOPAL CHURCH
 recipient,,unresolved,,9995,,,,,,640836035,CENTER HILL UNITED PENTECOSTAL CHURCH
 recipient,,unresolved,,9995,,,,,,720423652,ST ANNE CATHOLIC CHURCH
 recipient,,unresolved,,9995,,,,,,720849503,QUITMAN FIRST BAPTIST CHURCH
-recipient,,foreign_or_government,,9995,,,,,,720915464,ST THOMAS MORE HIGH SCHOOL
+recipient,,unresolved,,9995,,,,,,720915464,ST THOMAS MORE HIGH SCHOOL
 recipient,,unresolved,,9995,,,,,,731626656,MT TABOR CHURCH
 recipient,,foreign_or_government,,9995,,,,,,736031586,COUNTY OF KAY PONCA CITY PUBLIC SCHOOLS
 recipient,,unresolved,,9995,,,,,,741110101,ST MICHAEL PARISH
@@ -19434,7 +19434,7 @@ recipient,,unresolved,,7956,,,,,,240815052,EMMANUEL EVANGELICAL CONGREGATIONAL C
 recipient,,unresolved,,7956,,,,,,261545908,MOUNTAIN STREAM BAPTIST CHURCH
 recipient,,unresolved,,7956,,,,,,261823019,POINT HOPE UNITED METHODIST CHURCH
 recipient,,unresolved,,7956,,,,,,330743811,SEASIDE PRESBYTARIAN CHURCH
-recipient,,foreign_or_government,,7956,,,,,,340905004,SAINT JOSEPH CENTRAL CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,7956,,,,,,340905004,SAINT JOSEPH CENTRAL CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,7956,,,,,,351593849,CENTRAL BAPTIST CHURCH OF BRIDGEPORT
 recipient,,invalid_or_typo,,7956,,,,,,352213853,UKRAINIAN MUSEUM AND LIBRARY OF STAMFORD INC
 recipient,,merged_or_terminated,,7956,,,,,,411716149,RURAL ENRICHMENT AND COUNSELING HEADQUARTERS INC
@@ -19467,7 +19467,7 @@ recipient,,unresolved,,7905,,,,,,921192011,KAOMBE MALAWI RELIEF FUND INC
 recipient,,unresolved,,7900,,,,,,729878199,ACADEMY OF THE SACRED HEART
 recipient,,revoked,,7900,,,,,,731277255,BILL WINSTON MINISTRIES
 recipient,,unresolved,,7899,,,,,,010360783,TEMPLE BETH EL OF AUGUSTA
-recipient,,foreign_or_government,,7899,,,,,,720643305,Vermilion Catholic High School
+recipient,,unresolved,,7899,,,,,,720643305,Vermilion Catholic High School
 recipient,,unresolved,,7896,,,,,,910651421,WESTMINSTER UNITED PRESBYTERIAN CHURCH
 recipient,,unresolved,,7884,,,,,,942875912,LOOMIS BASIN CONGREGATIONAL UNITED CHURCH OF CHRIS
 recipient,,unresolved,,7882,,,,,,825481331,WORKING FAITH FELLOWSHIP CHURCH INC
@@ -19523,7 +19523,7 @@ recipient,,unresolved,,7760,,,,,,933619589,Mitchells Grove Methodist Church
 recipient,,foreign_or_government,,7758,,,,,,716015810,CITY OF SPRINGDALE
 recipient,,unresolved,,7757,,,,,,362645872,LORAINE UNITED METHODIST CHURCH
 recipient,,unresolved,,7757,,,,,,561581501,OCEAN VIEW UNITED METHODIST CHURCH
-recipient,,foreign_or_government,,7757,,,,,,991000945,CENTRAL CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,7757,,,,,,991000945,CENTRAL CATHOLIC HIGH SCHOOL
 recipient,,merged_or_terminated,,7754,,,,,,562426898,WOMENSTRUST INC
 recipient,,unresolved,,7750,,,,,,593372792,UNITARIAN UNIVERSALIST CHURCH OF PENSACOLA
 recipient,,unresolved,,7747,,,,,,825422562,NORTH POINT CHURCH
@@ -19857,7 +19857,7 @@ recipient,,foreign_or_government,,7257,,,,,,946002197,SOLANO COUNTY OFFICE OF ED
 recipient,,revoked,,7250,,,,,,472210473,SOUTH WINN ATHLETIC BOOSTERS
 recipient,,unresolved,,7246,,,,,,390806390,SACRED HEART
 recipient,,unresolved,,7246,,,,,,431636756,DAUGHTERS OF ST PAUL CONVENT
-recipient,,foreign_or_government,,7246,,,,,,991670307,MARQUETTE CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,7246,,,,,,991670307,MARQUETTE CATHOLIC HIGH SCHOOL
 recipient,,invalid_or_typo,,7244,,,,,,434265685,HOPE HOUSE
 recipient,,foreign_or_government,,7240,,,,,,936000234,WEST LINN - WILSONVILLE SD 3J
 recipient,,unresolved,,7232,,,,,,232199455,AKRON MENNONITE CHURCH
@@ -20155,7 +20155,7 @@ recipient,,foreign_or_government,,6954,,,,,,930721569,Tualatin Soil & Water Cons
 recipient,,unresolved,,6951,,,,,,356026294,ST MARKS EVANGELICAL LUTHERAN CHURCH
 recipient,,unresolved,,6950,,,,,,352282608,The Jane Goodall Institute
 recipient,,unresolved,,6947,,,,,,586011888,MEMORIAL HOSPITAL AND MANOR
-recipient,,foreign_or_government,,6947,,,,,,720639707,NOTRE DAME HIGH SCHOOL OF ACADIA PARISH
+recipient,,unresolved,,6947,,,,,,720639707,NOTRE DAME HIGH SCHOOL OF ACADIA PARISH
 recipient,,unresolved,,6947,,,,,,730687904,FIRST BAPTIST CHURCH NICOMA PARK
 recipient,,unresolved,,6947,,,,,,920670817,FALCON LAKE SPANISH CONGREGACION OF JEHOVAH'S WITNESSES
 recipient,,unresolved,,6943,,,,,,620502851,ST LUKES EPISCOPAL CHURCH
@@ -20690,7 +20690,7 @@ recipient,,unresolved,,6053,,,,,,411360556,MILACA EVANGELICAL FREE CHURCH
 recipient,,new_ein,,6053,,,,,,411443581,WAYZATA HISTORICAL SOCIETY
 recipient,,foreign_or_government,,6052,,,,,,726001284,CENTERVILLE HIGH SCHOOL
 recipient,,unresolved,,6050,,,,,,541558142,HARVESTWOOD COVENANT PRESBYTERIAN CHURCH
-recipient,,foreign_or_government,,6050,,,,,,510079508,SAINT ELIZABETH HIGH SCHOOL
+recipient,,unresolved,,6050,,,,,,510079508,SAINT ELIZABETH HIGH SCHOOL
 recipient,,unresolved,,6050,,,,,,570517008,MOUNTAIN VIEW UNITED METHODIST CHURCH
 recipient,,unresolved,,6047,,,,,,542105983,ST JAMES SANTEE EPISCOPAL CHURCH
 recipient,,foreign_or_government,,6033,,,,,,042199864,CHRIST CHURCH IN THE CITY OF BOSTON
@@ -20885,7 +20885,7 @@ recipient,,unresolved,,5997,,,,,,410886227,HOLY FAMILY PARISH
 recipient,,merged_or_terminated,,5997,,,,,,462688708,TLC RESCUE INC
 recipient,,unresolved,,5997,,,,,,474248355,BETHANY MENNONITE CHURCH
 recipient,,unresolved,,5997,,,,,,474659947,FIRST REFORMED CHURCH OF DEMOTTE
-recipient,,foreign_or_government,,5997,,,,,,480607677,ST PIUS X HIGH SCHOOL
+recipient,,invalid_or_typo,,5997,,,,,,480607677,ST PIUS X HIGH SCHOOL
 recipient,,unresolved,,5997,,,,,,510146962,POINT REYES PRESBYTERIAN CHURCH
 recipient,,unresolved,,5997,,,,,,541175128,PLEASANT VALLEY SAINT JAMES UNITED METHODIST CHURCH
 recipient,,unresolved,,5997,,,,,,541193189,CAPITAL BAPTIST CHURCH
@@ -21230,7 +21230,7 @@ recipient,,foreign_or_government,,5745,,,,,,046001317,Sutton Public Schools
 recipient,,unresolved,,5740,,,,,,362362368,ST PIUS X CATHOLIC CHURCH
 recipient,,unresolved,,5734,,,,,,042104171,EPISCOPAL CITY MISSION
 recipient,,unresolved,,5734,,,,,,042113266,SAINT PAULS EPISCOPAL CHURCH
-recipient,,foreign_or_government,,5734,,,,,,132688406,ST PETERS BOYS HIGH SCHOOL
+recipient,,unresolved,,5734,,,,,,132688406,ST PETERS BOYS HIGH SCHOOL
 recipient,,unresolved,,5734,,,,,,231663519,HOLY TRINITY LUTHERAN CHURCH
 recipient,,merged_or_terminated,,5734,,,,,,452301719,DME EXCHANGE OF DALLAS INC
 recipient,,unresolved,,5734,,,,,,760589760,OUR LADY OF CZESTOCHOWA CATHOLIC CHURCH
@@ -21429,7 +21429,7 @@ recipient,,unresolved,,5499,,,,,,590089302,FIRST CONGREGATIONAL UNITED CHURCH OF
 recipient,,unresolved,,5499,,,,,,591091265,ST LUCIE CATHOLIC CHURCH - PORT ST LUCIE FL
 recipient,,unresolved,,5499,,,,,,841143956,ST IGNATIUS PARISH
 recipient,,new_ein,,5499,,,,,,841180776,ADOPTABLE ANIMAL RESCUE FORCE
-recipient,,foreign_or_government,,5499,,,,,,843195506,CATHOLIC CENTRAL HIGH SCHOOL
+recipient,,unresolved,,5499,,,,,,843195506,CATHOLIC CENTRAL HIGH SCHOOL
 recipient,,revoked,,5499,,,,,,880969966,TELEMARK NORTHWOODS COMMUNITY FOUNDATION INC
 recipient,,revoked,,5499,,,,,,923614244,CHEF KING PHOJANAKONG FOUNDATION CORP
 recipient,,unresolved,,5499,,,,,,465425364,EPISCOPAL CHURCH OF THE GOOD SHEPHERD
@@ -21579,7 +21579,7 @@ recipient,,unresolved,,5397,,,,,,410831056,HOLY NAME PARISH
 recipient,,unresolved,,5397,,,,,,582379891,LONGSTREET BAPTIST CHURCH INC
 recipient,,unresolved,,5397,,,,,,910745501,PUYALLUP UNITED METHODIST CHURCH
 recipient,,unresolved,,5397,,,,,,952438173,OUR LADY OF GUADALUPE CATHOLIC CHURCH
-recipient,,foreign_or_government,,5395,,,,,,340937167,ST THOMAS AQUINAS HIGH SCHOOL
+recipient,,unresolved,,5395,,,,,,340937167,ST THOMAS AQUINAS HIGH SCHOOL
 recipient,,foreign_or_government,,5391,,,,,,746002173,SAN ANTONIO COLLEGE- SAN ANTONIO
 recipient,,unresolved,,5387,,,,,,860693390,GOOD SHEPHERD UNITED CHURCH OF CHRIST
 recipient,,unresolved,,5387,,,,,,900914604,CENTRAL MINNESOTA TEC
@@ -21969,7 +21969,7 @@ recipient,,invalid_or_typo,,5000,,,,,,320066563,The Innocence Project Inc
 recipient,,new_ein,,5000,,,,,,331390984,Educate Nevada Now
 recipient,,unresolved,,5000,,,,,,340575300,St John UCC Maeystown IL Backpack Program
 recipient,,merged_or_terminated,,5000,,,,,,341313806,New Directions Inc
-recipient,,foreign_or_government,,5000,,,,,,347014500,Saint Ignatius High School
+recipient,,unresolved,,5000,,,,,,347014500,Saint Ignatius High School
 recipient,,unresolved,,5000,,,,,,351938639,Catholic Community Foundation of Northeast Indiana
 recipient,,unresolved,,5000,,,,,,362700573,Church of the Incarnation United Methodist
 recipient,,unresolved,,5000,,,,,,364113790,Our Mother of Good Counsel Church
@@ -22119,7 +22119,7 @@ recipient,,unresolved,,4680,,,,,,410954737,HOLY CROSS CATHOLIC SCHOOL
 recipient,,foreign_or_government,,4680,,,,,,426004333,UNIVERSITY OF NORTHERN IOWA
 recipient,,unresolved,,4680,,,,,,462366149,BOOMING LEARNING CENTER
 recipient,,unresolved,,4680,,,,,,472680683,LITTLE SCHOLARS MONTESSORI SCHOOL
-recipient,,foreign_or_government,,4680,,,,,,540680798,PENINSULA CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,4680,,,,,,540680798,PENINSULA CATHOLIC HIGH SCHOOL
 recipient,,unresolved,,4680,,,,,,541529704,ST PIUS X CATHOLIC SCHOOL
 recipient,,unresolved,,4680,,,,,,560991632,HILLTOP CHRISTIAN SCHOOL
 recipient,,unresolved,,4680,,,,,,570990475,NORTHWOOD ACADEMY - UPPER SCHOOL
@@ -22127,7 +22127,7 @@ recipient,,unresolved,,4680,,,,,,592111456,FULL SAIL UNIVERSITY
 recipient,,unresolved,,4680,,,,,,592186039,RESURRECTION CATHOLIC SCHOOL
 recipient,,unresolved,,4680,,,,,,650991686,MONTESSORI ACADEMY
 recipient,,invalid_or_typo,,4680,,,,,,721180954,OUR LADY QUEEN OF HEAVEN
-recipient,,foreign_or_government,,4680,,,,,,721209260,TEURLINGS CATHOLIC HIGH SCHOOL
+recipient,,unresolved,,4680,,,,,,721209260,TEURLINGS CATHOLIC HIGH SCHOOL
 recipient,,foreign_or_government,,4680,,,,,,731083823,BERRYHILL PUBLIC SCHOOLS
 recipient,,foreign_or_government,,4680,,,,,,731163983,FARGO FIRE DEPARTMENT
 recipient,,foreign_or_government,,4680,,,,,,736006423,WASHITA EMERGENCY MANAGEMENT
