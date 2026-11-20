@@ -22,28 +22,28 @@ Tags: [F] computed by the script · [P] quoted primary source · [I] inference o
 | Category | EINs | $m | Share of non-BMF $ | Share of top-50 $ |
 |---|---|---|---|---|
 | subsidiary or disregarded entity (LLC name; added category) | 59 | 1,610.7 | 38.6% | 2.17% |
-| still unresolved | 16,205 | 1,543.4 | 37.0% | 2.08% |
-| — of which religious-pattern name, no IRS trace | 14,647 | 1,313.0 | 31.4% | 1.77% |
-| foreign or government | 2,542 | 631.1 | 15.1% | 0.85% |
+| still unresolved | 16,332 | 1,579.0 | 37.8% | 2.13% |
+| — of which religious-pattern name, no IRS trace | 14,772 | 1,348.4 | 32.3% | 1.82% |
+| foreign or government | 2,414 | 595.6 | 14.3% | 0.80% |
 | merged or terminated | 1,334 | 240.7 | 5.8% | 0.32% |
 | revoked (automatic revocation, not reinstated) | 1,405 | 83.6 | 2.0% | 0.11% |
-| invalid or typo EIN | 568 | 46.4 | 1.1% | 0.06% |
+| invalid or typo EIN | 569 | 46.4 | 1.1% | 0.06% |
 | new EIN | 156 | 19.5 | 0.5% | 0.03% |
 | **Total** | **22,269** | **4,175.4** | 100% | 5.64% |
 
-  - On the task's six-way split, the LLC category folds into unresolved: 16,264 EINs, $3,154.2m (75.5%).
+  - On the task's six-way split, the LLC category folds into unresolved: 16,391 EINs, $3,189.7m (76.4%).
   - Four Chan Zuckerberg LLCs hold $1,594.0m of the subsidiary bucket, almost all of it in FY2023 [F].
   - The subsidiary category's label (LLC, disregarded) rests on name rules [I].
 - **Reconciling the 1,213 ($0.29bn) that pass CN's filing rules.** 884 of them ($220.4m, 75%) filed a final return or reported terminating or dissolving on their latest e-filed return. They had three or more recent returns because they were established organisations that then closed or merged.
-  - The rest: 136 revoked ($15.5m), 15 new ($9.1m), 47 foreign or government ($4.1m), 2 LLC ($0.3m), 4 invalid ($0.06m) and 125 unresolved ($43.3m) [F].
+  - The rest: 136 revoked ($15.5m), 15 new ($9.1m), 46 foreign or government ($4.0m), 2 LLC ($0.3m), 4 invalid ($0.06m) and 126 unresolved ($43.4m) [F].
   - So the "upper bound of about 77.3%" in the parent note §4.1 is too generous. At most about $43m of the $293m (0.06 points of top-50 dollars) looks like live organisations that CN might list [I].
 - **Revoked at the time of the grant.** These are EINs in the revoked category whose automatic revocation took effect before the granting sponsor's fiscal year began. They received **$7.24m DAF-weighted across 141 EINs from 32 of the 50 sponsors** in FY2023–24. That is 0.010% of top-50 DAF-weighted dollars [F].
   - **$6.33m** ($7.01m Schedule I; 30 sponsors) went to EINs whose revocation the IRS had also posted publicly before that fiscal year began [F].
   - Of that $6.33m:
-    - $1.87m went to names now listed in the BMF under another EIN (stale EIN; the money probably reached a recognised successor);
-    - $0.68m went to government-unit names;
-    - $1.23m went to EINs whose name matches only partly;
-    - $2.55m went to EINs with a matching name and no BMF successor [F].
+    - $2.02m went to names now listed in the BMF under another EIN (stale EIN; the money probably reached a recognised successor);
+    - $0.37m went to government-unit names;
+    - $1.32m went to EINs whose name matches only partly;
+    - $2.62m went to EINs with a matching name and no BMF successor [F].
   - A further $11.30m (272 EINs) went to EINs revoked during the sponsor's fiscal year, so the grant may have come before or after the revocation.
   - $65.04m (1,092 EINs) went to EINs revoked only after the fiscal year ended [F].
   - Most revoked dollars therefore went to organisations that were exempt when paid and lost their status later. 866 of the 1,405 revoked EINs have 2025 or 2026 revocation dates [F].
@@ -103,6 +103,7 @@ Name similarity (`name_sim`):
    - The line address is foreign (no case was found: Schedule I Part II lines with an EIN are domestic).
    - Or the IRC-section text names a government, 170(c)(1) or 115.
    - Or a government-unit name rule matches: school district, public school by level, state university, local government, state, federal or tribal.
+   - Weak name rules (public school by level; state, federal or tribal) are skipped for religious-pattern names, which catch church schools and national religious orders.
    - Failing those, a heuristic: a non-religious name whose EIN has digits 3–5 equal to "600". This is the pattern of the large public-university and school-district EINs seen here. No IRS source documents it, and about 4 of 20 sampled cases look non-governmental [I].
 4. **subsidiary_or_disregarded.** An LLC or "limited liability" name. This category is added to the task's list because it holds 39% of the dollars.
 5. **invalid_or_typo (b).** One of:
@@ -154,21 +155,21 @@ All figures are [F]. $m are DAF-weighted.
 | Category / sub | EINs | $m | FY2023 $m | FY2024 $m |
 |---|---|---|---|---|
 | **subsidiary_or_disregarded** / llc_name | 59 | 1,610.7 | 1,603.2 | 7.6 |
-| **unresolved** | 16,205 | 1,543.4 | 687.5 | 855.9 |
-| · no IRS trace, religious-pattern name | 14,647 | 1,313.0 | | |
+| **unresolved** | 16,332 | 1,579.0 | 701.8 | 877.2 |
+| · no IRS trace, religious-pattern name | 14,772 | 1,348.4 | | |
 | · no IRS trace, other | 1,078 | 155.3 | | |
-| · has IRS filings, no BMF row, no revocation or termination signal | 168 | 46.8 | | |
+| · has IRS filings, no BMF row, no revocation or termination signal | 170 | 46.9 | | |
 | · no IRS trace; name in BMF only in another state | 117 | 16.7 | | |
 | · revoked then reinstated, still not in BMF | 106 | 6.8 | | |
 | · no IRS trace; name ambiguous in state (exact 24, fuzzy 32) | 56 | 4.3 | | |
 | · e-Postcard only / Pub 78 only | 32 / 1 | 0.6 / 0.04 | | |
-| **foreign_or_government** | 2,542 | 631.1 | 354.1 | 277.0 |
+| **foreign_or_government** | 2,414 | 595.6 | 339.9 | 255.7 |
 | · IRC-section text says government / 170(c)(1) | 447 | 300.2 | | |
-| · local-government name | 747 | 89.3 | | |
+| · local-government name | 748 | 91.9 | | |
 | · school-district name | 629 | 79.4 | | |
-| · public school by level (elementary, high, …) | 354 | 77.0 | | |
+| · public school by level (elementary, high, …; not for religious names) | 228 | 38.9 | | |
 | · state university / community college | 198 | 45.5 | | |
-| · state, federal or tribal | 56 | 26.2 | | |
+| · state, federal or tribal (not for religious names) | 53 | 26.1 | | |
 | · EIN "600" heuristic | 111 | 13.5 | | |
 | · foreign address | 0 | 0 | | |
 | **merged_or_terminated** | 1,334 | 240.7 | 117.2 | 123.5 |
@@ -176,12 +177,12 @@ All figures are [F]. $m are DAF-weighted.
 | · e-Postcard terminated | 102 | 3.2 | | |
 | · IRS history; name now on another BMF EIN | 45 | 4.0 | | |
 | **revoked** | 1,405 | 83.6 | 43.2 | 40.4 |
-| · no BMF successor | 1,197 | 69.8 | | |
-| · name now on another BMF EIN | 95 | 7.7 | | |
-| · partial name match | 44 | 3.4 | | |
-| · government-unit name | 69 | 2.7 | | |
-| **invalid_or_typo** | 568 | 46.4 | 23.4 | 22.9 |
-| · typo: neighbour EIN (1 digit / transposition) with matching name | 333 | 25.9 | | |
+| · no BMF successor | 1,200 | 69.9 | | |
+| · name now on another BMF EIN | 96 | 7.9 | | |
+| · partial name match | 45 | 3.5 | | |
+| · government-unit name | 64 | 2.4 | | |
+| **invalid_or_typo** | 569 | 46.4 | 23.4 | 22.9 |
+| · typo: neighbour EIN (1 digit / transposition) with matching name | 334 | 25.9 | | |
 | · wrong EIN: exact name unique in state | 66 | 6.5 | | |
 | · wrong EIN: fuzzy name unique in state | 75 | 4.8 | | |
 | · EIN on revocation list under an unrelated name | 36 | 4.3 | | |
@@ -198,7 +199,7 @@ Every sub-category row with its Schedule I dollars and shares is in the CSV (`sc
 
 ### 3.1 The largest bucket by count is churches and other religious bodies that never appear in IRS files [I]
 
-14,647 EINs ($1.31bn) have a religious-pattern name and no trace in Pub 78, the revocation list, the e-Postcard file or the TEOS index. Examples are a Jesuit province, a Latter-day Saints entity, yeshivas and Catholic parishes.
+14,772 EINs ($1.35bn) have a religious-pattern name and no trace in Pub 78, the revocation list, the e-Postcard file or the TEOS index. Examples are a Jesuit province, a Latter-day Saints entity, yeshivas and Catholic parishes.
 
 Two features of the law make this expected [I]:
 - churches are not required to apply for recognition or to file a 990;
@@ -206,7 +207,7 @@ Two features of the law make this expected [I]:
 
 This bucket overlaps the parent note's church finding (8.3% of top-50 dollars to BMF church-code organisations with no e-filed 990). It is the part with no BMF row at all.
 
-Sensitivity: 2,350 of these EINs ($0.23bn) carry a name that matches exactly one same-state BMF EIN (898 exact, 1,452 fuzzy). If all were sponsor-entered wrong EINs, the invalid/typo bucket would grow to about $0.28bn. Because common church names recur, the central run does not count them (P-B40N1202-B43N2603-01).
+Sensitivity: 2,360 of these EINs ($0.24bn) carry a name that matches exactly one same-state BMF EIN (902 exact, 1,458 fuzzy). If all were sponsor-entered wrong EINs, the invalid/typo bucket would grow to about $0.28bn. Because common church names recur, the central run does not count them (P-B40N1202-B43N2603-01).
 
 ### 3.2 Subsidiary LLCs carry 39% of the dollars
 
@@ -220,7 +221,7 @@ $1,603.2m of the LLC bucket's $1,610.7m falls in FY2023 [F]. A single-member LLC
 
 ### 3.3 Government units are about one dollar in seven
 
-2,542 EINs ($631.1m) are government units. They include:
+2,414 EINs ($595.6m) are government units. They include:
 - the University of Texas at Austin ($54.5m);
 - Penn State ($31.4m);
 - Washoe County School District ($28.6m);
@@ -248,23 +249,24 @@ Reconciliation of the 1,213 ($292.8m) [F]:
 | Category | EINs | $m |
 |---|---|---|
 | merged_or_terminated | 884 | 220.4 |
-| unresolved (has filings, no termination signal) | 125 | 43.3 |
+| unresolved (has filings, no termination signal) | 126 | 43.4 |
 | revoked | 136 | 15.5 |
-| foreign_or_government | 47 | 4.1 |
+| foreign_or_government | 46 | 4.0 |
 | new_ein | 15 | 9.1 |
 | subsidiary_or_disregarded | 2 | 0.3 |
 | invalid_or_typo | 4 | 0.1 |
 | **Total** | **1,213** | **292.8** |
 
-The 125 unresolved passers are the only plausible "live, not yet re-listed" organisations [I]. The largest is the LA Clippers Foundation ($15.5m). They are queued as P-B40N1202-B43N2603-06.
+The 126 unresolved passers are the only plausible "live, not yet re-listed" organisations [I]. The largest is the LA Clippers Foundation ($15.5m). They are queued as P-B40N1202-B43N2603-06.
 
 ### 3.5 Wrong and mistyped EINs are small in dollars
 
-The invalid/typo bucket holds 568 EINs and $46.4m (1.1% of non-BMF dollars) [F]. Examples:
+The invalid/typo bucket holds 569 EINs and $46.4m (1.1% of non-BMF dollars) [F]. Examples:
 - a large church entered one digit off its BMF EIN, filed under a name that matches the BMF entry;
 - Catholic Charities of the Archdiocese of New York under an EIN one digit away;
 - "Blue Ridge Conservancy" and "Crossroads Fund" under EINs that appear in no IRS file, while the same name is the only BMF entry in the state;
-- 49 EINs whose prefix the IRS never assigns, including 999999999.
+- 49 EINs whose prefix the IRS never assigns;
+- 36 EINs on the revocation list under an unrelated organisation's name, including the placeholder 999999999.
 
 A one-digit neighbour with a similar name is a probable, not certain, typo. For example, "New Community Church" is filed one digit away from BMF "New Life Community Church" [I].
 
@@ -287,10 +289,10 @@ Notes on the table [F]:
 - Four sponsors account for 64% of the before-FY dollars. Sponsors are not named here: the screen cannot distinguish a lapse from a documented decision.
 
 Composition of the $6.33m posted before the fiscal year began [F]:
-- $1.87m (14 EINs): the same name is now on another same-state BMF EIN. This is likely a stale EIN for an organisation re-recognised or succeeded under a new number. For example, an old UCSF EIN revoked in 2022, and a Lutheran high school revoked in 2011 whose name is listed under a current EIN.
-- $0.68m (20 EINs): government-unit names, such as a public library. Deductibility there rests on §170(c)(1), not on exemption.
-- $1.23m (10 EINs): partial name match.
-- $2.55m (66 EINs): matching name and no BMF successor. This is the core of the signal.
+- $2.02m (15 EINs): the same name is now on another same-state BMF EIN. This is likely a stale EIN for an organisation re-recognised or succeeded under a new number, for example a Lutheran high school and a community church whose revoked EINs date from 2011 and 2018 while their names are listed under current EINs. Separately, an old University of California San Francisco EIN, revoked in 2022, falls in the posted-later row.
+- $0.37m (17 EINs): government-unit names, such as a public library and a tribal nation. Deductibility there rests on §170(c)(1), not on exemption.
+- $1.32m (11 EINs): partial name match.
+- $2.62m (67 EINs): matching name and no BMF successor. This is the core of the signal.
 
 **How to read this.**
 1. The IRS says an automatically revoked organisation "is not eligible to receive tax-deductible contributions and will be removed from … Publication 78" [P]. A DAF grant is not itself a deductible gift (the donor's deduction arose on contribution to the fund), but sponsors generally confirm public-charity status before granting [I].
@@ -317,12 +319,12 @@ Most revoked-recipient dollars ($65.0m of $83.6m) went to organisations revoked 
 1. The 22,269 EINs and $4,175.4m DAF-weighted reproduce the parent §4.1 `not_in_bmf` row. The 1,213 EINs / $292.8m CN filing-rule passers also reproduce. Evidence: script JSON `non_bmf_eins`, `usd_dw`, `cn_pass`; CSV `scope = all`.
 2. 18,928 of the 22,269 EINs (85%) appear in none of Pub 78, the revocation list, the e-Postcard file or the TEOS index 2019–2026. 3 are in Pub 78. Evidence: JSON `evidence_counts`.
 3. Four CZ LLC EINs hold $1,594.0m, 38% of non-BMF dollars. Evidence: CSV recipient rows 882242512, 882010111, 931478843, 922259616.
-4. 14,647 religious-pattern EINs with no IRS trace hold $1,313.0m. Evidence: CSV `category_sub` `unresolved/no_irs_trace_religious_name`.
+4. 14,772 religious-pattern EINs with no IRS trace hold $1,348.4m. Evidence: CSV `category_sub` `unresolved/no_irs_trace_religious_name`.
 5. 884 of the 1,213 CN filing-rule passers ($220.4m) carry a final-return, terminate or dissolved flag on their latest e-filed return. Evidence: CSV `scope = cn_filing_rule_pass_1213`; header cache.
-6. Government units hold $631.1m across 2,542 EINs. 447 of them ($300.2m) are labelled by the sponsors' own IRC-section text. Evidence: CSV `category_sub` `foreign_or_government/*`.
+6. Government units hold $595.6m across 2,414 EINs. 447 of them ($300.2m) are labelled by the sponsors' own IRC-section text. Evidence: CSV `category_sub` `foreign_or_government/*`.
 7. EINs revoked effective before the granting sponsor's fiscal year received $7.24m DAF-weighted (141 EINs, 32 sponsors). $6.33m of it went to revocations posted before the fiscal year. Evidence: JSON `revoked_timing`; revocation list rows by EIN.
 8. $65.0m of the $83.6m paid to revoked EINs went to EINs revoked only after the fiscal year ended. Evidence: JSON `revoked_timing.after_fy`, `revoked_rev_year`.
-9. Wrong or mistyped EINs total $46.4m (568 EINs). 333 of them are one digit or one transposition away from a BMF EIN with a matching name. Evidence: CSV `category_sub` `invalid_or_typo/*`.
+9. Wrong or mistyped EINs total $46.4m (569 EINs). 334 of them are one digit or one transposition away from a BMF EIN with a matching name. Evidence: CSV `category_sub` `invalid_or_typo/*`.
 
 ## 6. Data dictionary: `non-bmf-recipients-2026-11-20.csv`
 
