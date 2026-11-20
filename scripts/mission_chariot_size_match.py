@@ -66,11 +66,14 @@ SCEN_OF = {"all_panel_floor": "measured_floor", "central": cg.CENTRAL, "env_low"
 TOP50_COVERAGE = 0.6727  # committed 1/0.6727 scaling, reported only as the legacy [I] comparison
 
 M = 1e6
-# domain name -> (size variable, lo, hi). size variables: avg_b3 = own (1h-1d-1e)/yr; avg_b1 = own 1h/yr;
+# domain name -> (size variable, lo, hi[, extra filter]). size variables: avg_b3 = own (1h-1d-1e)/yr; avg_b1 = own 1h/yr;
 # bmf_rev = BMF REVENUE_AMT (the committed matching variable, for contrast)
 DOMAINS = {
     "all_recipients": ("avg_b3", float("-inf"), float("inf")),
     "chariot_b3avg_50m_200m": ("avg_b3", 50 * M, 200 * M),
+    "chariot_b3avg_50m_200m_ex_intermediaries": ("avg_b3", 50 * M, 200 * M, "not_intermediary"),
+    "chariot_b3avg_50m_200m_ex_leaked_daf_sponsors": ("avg_b3", 50 * M, 200 * M, "not_leaked"),
+    "chariot_b3avg_50m_200m_form990_only": ("avg_b3", 50 * M, 200 * M, "form990_only"),
     "b3avg_75m_125m": ("avg_b3", 75 * M, 125 * M),
     "b3avg_48m_193m_half_to_double": ("avg_b3", 0.5 * 96.67 * M, 2 * 96.67 * M),
     "b3avg_ge_50m": ("avg_b3", 50 * M, float("inf")),
@@ -83,6 +86,8 @@ DOMAINS = {
     "bmf_rev_ge_100m": ("bmf_rev", 100 * M, float("inf")),
 }
 HEADLINE = "chariot_b3avg_50m_200m"
+FILTERS = {"not_intermediary": lambda u: not u["intermediary"], "not_leaked": lambda u: not u["leaked"],
+           "form990_only": lambda u: bool(u["forms"]) and "IRS990EZ" not in u["forms"]}
 SRC = ("Recipients: b40n1202-01 committed-frame sample, Form 990 Part VIII 1a-1h / 990-EZ line 1 FY2023-24 "
        "(GivingTuesday mirror of IRS TEOS XML, gt990datalake-rawdata.s3.amazonaws.com; located via "
        "apps.irs.gov/pub/epostcard/990/xml/{y}/index_{y}.csv). Numerators: mission_coverage_gap.py scenarios. "
@@ -105,6 +110,8 @@ def unit_record(rows_by_num: Mapping[str, Mapping], bmf_rev) -> dict:
     n_years = len([y for y in r0["years_matched"].split(";") if y])
     return {"ein": r0["ein"], "name": r0["name"], "stratum": r0["stratum"], "status": r0["status"],
             "sample_part": r0["sample_part"], "revenue_band": r0["revenue_band"], "ntee_major_group": r0["ntee_major_group"],
+            "leaked": bool(r0["leaked_sponsor_name"]),
+            "intermediary": r0["ntee_cd"].startswith("T") or bool(base.INTERMEDIARY_NAME.search(r0["name"].upper())),
             "forms": r0["forms"], "years_matched": r0["years_matched"], "n_years": n_years,
             "den_b1_1h": r0["den_b1_1h"], "den_b3_1abcf": r0["den_b3_1abcf"],
             "avg_b1": r0["den_b1_1h"] / n_years if n_years else None,
@@ -114,9 +121,9 @@ def unit_record(rows_by_num: Mapping[str, Mapping], bmf_rev) -> dict:
 
 
 def in_domain(u: Mapping, dom: str) -> bool:
-    var, lo, hi = DOMAINS[dom]
+    var, lo, hi, *extra = DOMAINS[dom]
     v = u.get(var)
-    return v is not None and lo <= v < hi
+    return v is not None and lo <= v < hi and all(FILTERS[f](u) for f in extra)
 
 
 def usable(u: Mapping, basis: str) -> bool:
@@ -141,10 +148,13 @@ def stats(units: Sequence[Mapping], w: Mapping, dom: str, numer: str, basis: str
 def max_influence(units: Sequence[Mapping], w: Mapping, dom: str, numer: str, basis: str) -> dict:
     """Leave-one-out: the recipient whose removal moves the pooled share most."""
     use = tuple(u for u in units if usable(u, basis) and in_domain(u, dom))
-    full = stats(use, w, dom, numer, basis).get("pooled_share")
-    if full is None or len(use) < 2:
+    if len(use) < 2:
         return {}
-    loo = ((u["ein"], u["name"], stats(tuple(x for x in use if x is not u), w, dom, numer, basis)["pooled_share"]) for u in use)
+    wt = lambda u: w[u["stratum"]]  # noqa: E731
+    N = sum(wt(u) * u[f"num_{numer}"] for u in use)
+    D = sum(wt(u) * u[f"den_{basis}"] for u in use)
+    full = N / D
+    loo = ((u["ein"], u["name"], (N - wt(u) * u[f"num_{numer}"]) / (D - wt(u) * u[f"den_{basis}"])) for u in use)
     e, n, p = max(loo, key=lambda t: abs(t[2] - full))
     return {"loo_max_ein": e, "loo_max_name": n, "loo_max_pooled_share": p}
 
@@ -154,7 +164,20 @@ def bootstrap(units: Sequence[Mapping], w: Mapping, combos: Sequence[tuple], rep
     by = _group_by_fast((u for u in units if u["stratum"] in w), lambda u: u["stratum"])
     rng = random.Random(seed)
     draws = (tuple(x for k in sorted(by) for x in rng.choices(by[k], k=len(by[k]))) for _ in range(reps))
-    reps_out = tuple({c: stats(d, w, *c) for c in combos} for d in draws)
+    doms = sorted({c[0] for c in combos})
+
+    def point(sub, n, b):
+        use = tuple(u for u in sub if u[f"den_{b}"] > 0)
+        if not use:
+            return {}
+        den = sum(w[u["stratum"]] * u[f"den_{b}"] for u in use)
+        return {"pooled_share": sum(w[u["stratum"]] * u[f"num_{n}"] for u in use) / den,
+                "median_share": base.wquantile([(u[f"num_{n}"] / u[f"den_{b}"], w[u["stratum"]]) for u in use], 0.5)}
+
+    def one_rep(d):
+        subs = {dm: tuple(u for u in d if u["status"] == "ok" and in_domain(u, dm)) for dm in doms}
+        return {c: point(subs[c[0]], c[1], c[2]) for c in combos}
+    reps_out = tuple(map(one_rep, draws))
     pct = lambda xs, q: xs[min(len(xs) - 1, int(q * len(xs)))] if xs else None  # noqa: E731
 
     def ci(c):
@@ -271,7 +294,7 @@ def load_state(a) -> dict:
 
 
 # ----------------------------------------------------------------------------- output rows
-FIELDS = ("row_type", "frame", "domain", "size_variable", "size_lo_usd", "size_hi_usd", "numerator", "basis",
+FIELDS = ("row_type", "frame", "domain", "size_variable", "size_lo_usd", "size_hi_usd", "domain_filter", "numerator", "basis",
           "respondents", "certainty_respondents", "weighted_recipients", "median_share", "median_ci95_lo",
           "median_ci95_hi", "p25_share", "p75_share", "pooled_share", "pooled_ci95_lo", "pooled_ci95_hi",
           "boot_reps_used", "scaled_pooled_inference", "repo_reference_share", "chariot_pooled_share",
@@ -295,11 +318,11 @@ def summary_rows(units, w, reps, seed, repo_ref) -> list:
 
     def one(f, d, n, b):
         s = stats(fr[f], w, d, n, b)
-        var, lo, hi = DOMAINS[d]
+        var, lo, hi, *extra = DOMAINS[d]
         infl = max_influence(fr[f], w, d, n, b) if d in (HEADLINE, "all_recipients") and f == "committed" else {}
         pl = s.get("pooled_share")
         return {"row_type": "summary", "frame": f, "domain": d, "size_variable": var,
-                "size_lo_usd": lo if lo != float("-inf") else "", "size_hi_usd": hi if hi != float("inf") else "",
+                "size_lo_usd": lo if lo != float("-inf") else "", "size_hi_usd": hi if hi != float("inf") else "", "domain_filter": ";".join(extra),
                 "numerator": n, "basis": b, **{k: s.get(k) for k in ("respondents", "certainty_respondents",
                                                                      "weighted_recipients", "median_share", "p25_share",
                                                                      "p75_share", "pooled_share")},
