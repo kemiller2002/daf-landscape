@@ -37,8 +37,8 @@ What Echelon lacks:
 | Deliverable | Requirements baseline. Market scan of 4–6 platforms with documented-evidence scoring (no invented scores). Total-cost model from comparable 990 vendor payments. Contract-term checklist (export, transition, SOC scope). Reference-check script. Recommendation memo. Optional renewal-negotiation benchmark |
 | Expertise | DAF operations; platform evidence; procurement; contract terms |
 | Effort | 4–8 weeks, about 120–250 hours [I] |
-| Price hypothesis | $35k–90k fixed. Anchors: BerryDunn $107–118k selection and $175k needs assessment; Kitces scan $19.5–39.5k; GSA principal median about $227/h (CP) |
-| ROI hypothesis | Vendor fees at these sponsors run $118k–416k a year (INV032–INV033) on contracts of three years or more. A 10% better contract, or one avoided failed migration, outweighs the fee [I] |
+| Price hypothesis | $35k–90k fixed. Anchors: BerryDunn $107–118k selection and $175k needs assessment (public-sector work: a 2019 village ERP and a 2023 health-records assessment, not DAF); Kitces scan $19.5–39.5k; GSA principal median about $227/h (CP) |
+| ROI hypothesis | Ren/Stellar fees at community foundations run $118k–416k a year (INV032–INV033), and reach $801k at Stifel Charitable. A 10% better contract saves only $12k–42k a year, so it covers a $35k–90k fee only over a multi-year term or with an avoided failed migration [I, unquantified] |
 | Differentiation | Vendor-neutral (no vendor revenue). Evidence base across 43 providers. Contract and migration test library |
 | Risks | Lumpy, trigger-driven demand. The recent migration wave is largely finished (PS notes). Incumbent IT consultancies (EPAM, Slalom, Clarity Partners) are already paid (DS spend). Vendors may refuse cooperation |
 | Recurring potential | Low. Annual renewal benchmarks and monitoring add some |

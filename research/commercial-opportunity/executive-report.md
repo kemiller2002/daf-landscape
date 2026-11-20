@@ -15,14 +15,14 @@
 
 Build an **independent, evidence-led DAF advisory and intelligence practice**, not a software company, at least initially.
 
-**The first market** is roughly 40–60 mid-size community foundations and faith or single-issue sponsors with $250m–$5bn of DAF assets, plus about 10 broker-dealer and bank programmes facing dated platform decisions. Sell them:
+**The first market** is the about 63 sponsors with $250m–$10bn of DAF assets in FY2024: 53 community foundations (43 at $250m–1bn, 10 at $1–10bn) and 10 religiously affiliated sponsors, counted from `sponsor-cost-structure.csv` [C]. Single-issue sponsors in that band are not counted, plus about 10 broker-dealer and bank programmes facing dated platform decisions. Sell them:
 1. vendor-neutral platform assessment and selection;
 2. migration assurance.
 
 These are the needs with the most visible cost:
 - 3–5 week grant freezes during migrations;
 - lost donor history;
-- vendor fees of $118k–416k a year;
+- Ren/Stellar platform fees of $118k–416k a year at community foundations (up to $801k at Stifel Charitable);
 - attrition from older platforms.
 
 **Turn the existing evidence base into a market-intelligence subscription** for vendors, investors and wealth platforms. No analyst covers DAF platforms.
@@ -35,12 +35,12 @@ These are the needs with the most visible cost:
 
 | # | Question | Answer | Confidence |
 |---|---|---|---|
-| 1 | Who might buy? | **Mid-size community foundations and faith or single-issue sponsors** ($250m–$5bn): median IT spend of $455k and $1.29m in outside services for the $250m–1bn band, reproducible from 990s (DS spend). **Independent broker-dealers, regional banks and large RIAs** with dated programme decisions: LPL–Commonwealth (Q4 2026), Stifel, Raymond James, Mercer's new unit, SEI's two stacks, Regions (PW06–PW24). **Vendors and investors**, for intelligence and diligence (PV rows). Seventy-eight named prospect hypotheses are profiled | Medium on ability to pay; Low on willingness |
+| 1 | Who might buy? | **Mid-size community foundations and faith or single-issue sponsors** ($250m–$5bn): median whole-organisation IT spend (990 line 14) of $455k and $1.29m in fees for services excluding investment management (lines 11a–c, e, g; includes audit and legal) for the 43 community foundations with $250m–1bn of DAF assets, FY2024, reproducible from 990s (DS spend). This shows capacity to spend, not a discretionary consulting budget. **Independent broker-dealers, regional banks and large RIAs** with dated programme decisions: LPL–Commonwealth (advisor conversion completed about 2026-11-14; the Commonwealth Charitable Fund's fate is unannounced), Stifel, Raymond James, Mercer's new unit, SEI's two stacks, Regions (PW06–PW24). **Vendors and investors**, for intelligence and diligence (PV rows). Seventy-eight named prospect hypotheses are profiled | Medium on ability to pay; Low on willingness |
 | 2 | What problems would they pay to solve? | Vendor selection and renewal without comparative evidence; migration risk (freezes, lost history); programme design that keeps the adviser relationship; investors' DAF-specific diligence gaps (customer concentration, sponsor-of-record dependence); credible market data | Medium |
-| 3 | Existing solutions and their gaps | Generalist IT consultancies already paid by sponsors (EPAM, Slalom, Clarity Partners, BCG, Accenture; McKinsey received $11.8m from Fidelity Charitable in FY2025, verified in the repository's 990 harvest). Vendors' own professional services, which are conflicted. Sponsor and vendor sales teams give wealth firms advice for free. No analyst coverage since Datos (2021). Gap: **neutral, DAF-specific evidence** | Medium-High |
+| 3 | Existing solutions and their gaps | Generalist IT and strategy consultancies already paid by sponsors (EPAM, Slalom, Clarity Partners, BCG, Accenture; McKinsey received $11.8m for "phil. consulting" from Fidelity Charitable in FY2025, verified in the repository's 990 harvest). Vendors' own professional services, which are conflicted. Sponsor and vendor sales teams give wealth firms advice for free. No analyst coverage since Datos (2021). Gap: **neutral, DAF-specific evidence** | Medium-High |
 | 4 | Competitive advantages Echelon could build | A validated public-evidence base: 990 vendor footprints, Evidence Quadrants for 43 providers, a migration runbook, an evaluation protocol, AI failure modes, process economics. **Independence**: no vendor revenue. Clarity and EDF discipline. Change monitoring (watchlist) | Medium |
 | 5 | How could DAFCP help? | Marginally. It offers shared vocabulary and research access. There is no employer recognition, no fee premium, and firm-level use is barred by the trademark guidelines ([certification](certification/dafcp-commercial-value.md)). Enrol one principal ($1,495) for research | Medium |
-| 6 | Highest-probability profitable revenue | OF1 assessment and selection, OF6 migration assurance and OF3 intelligence. All three stay in the top 3 under every weighting scenario and under any single score moved by one point ([sensitivity](../../data/commercial-opportunity/opportunity-sensitivity.csv)). OF3 ranks first when recurring revenue is weighted | Medium (scores are judgements) |
+| 6 | Highest-probability profitable revenue | OF1 assessment and selection, OF6 migration assurance and OF3 intelligence. All three stay in the top 3 under every weighting scenario and under any single score moved by one point ([sensitivity](../../data/commercial-opportunity/opportunity-sensitivity.csv)). OF3 ranks first when recurring revenue is weighted | Low-Medium. Rankings rest on judgement scores; no buyer evidence yet |
 | 7 | Overlooked by vendors and consultancies | **Buyer-side, vendor-neutral evidence.** Every incumbent adviser is conflicted or generalist (CP). Specific overlooked areas: contract-term and export-rights review; migration data-continuity testing; adviser-controlled programme design for broker-dealers and banks; DAF-specific modules for investor diligence | Medium |
 | 8 | Where conventional assumptions are wrong | DAF administration need not stay manual for routine work. AI value is in complex-asset and non-standard due diligence, not routine vetting. Scale does not determine unit economics. Advisers with scale keep the relationship. Small sponsors do not need full platforms. Credentials do not create credibility. The largest markets are not the most attractive ([assumption tests](clarity-edf-analysis/assumption-tests.md)) | Medium (suggestive) |
 | 9 | What to reject | A competing certification; standalone AI grant-review software; long-tail SaaS; forming a sponsor or holding funds; paid ratings or sponsorships; vendor-paid assessments of the paying vendor; complex-asset software built before repeat demand ([offerings](service-offerings/offerings.md)) | Medium-High |
@@ -76,7 +76,7 @@ The existing research is critical of several vendors (Ren, Benevity, YourCause),
 
 | Opportunity | Evidence for | Strongest objection | What would kill it |
 |---|---|---|---|
-| **OF1 Independent DAF technology assessment and vendor selection** | Visible budgets; vendor fees of $118k–416k a year; iPhi attrition 6/57; no analyst coverage; repository evaluation protocol | No public RFPs; the recent migration wave is largely complete; incumbent IT consultancies are already paid | Rejection criteria R1–R4 in [interview-program.md](market-validation/interview-program.md) |
+| **OF1 Independent DAF technology assessment and vendor selection** | Visible budgets; Ren/Stellar platform fees of $118k–416k a year at community foundations (up to $801k at Stifel Charitable); iPhi attrition 6/57; no analyst coverage; repository evaluation protocol | No public RFPs; the recent migration wave is largely complete; incumbent IT consultancies are already paid | Rejection criteria R1–R4 in [interview-program.md](market-validation/interview-program.md) |
 | **OF6 Migration assurance and data continuity** | 3–5 week freezes; AEF two-year history limit; runbook exists; dated go-lives (Give Interactive, NPact sunset) | Short, lumpy engagements; vendors resist outside testing | No interviewee reports migration losses (Q7/Q10) |
 | **OF3 Market-intelligence subscription** | Empty analyst slot (INV094); price anchors from Cerulli, PitchBook and Inside Philanthropy; existing datasets and watchlist | Small buyer universe; vendor-independence tension; no subscriber identified | Fewer than 5 institutions willing to pay at least $5k (Q19) |
 
@@ -131,3 +131,22 @@ Actions marked † need owner authorisation, because they involve outward contac
 - interviews show budgets sit with parent firms or generalist consultancies at 3 or more of the 4 mid-size sponsors interviewed;
 - a vendor-neutral analyst enters the DAF platform space;
 - a final §4966 rule creates a compliance-assessment wave that changes priorities.
+
+---
+
+## Validation corrections (wave CO1, 2026-11-20) — governing
+
+An independent adversarial validator checked 16 claims: 12 confirmed, 3 partly confirmed, 0 contradicted. The full register is [validation-register-wave-co1.csv](../../data/commercial-opportunity/validation-register-wave-co1.csv) and the report is [validation-wave-co1-report.md](evidence/validation-wave-co1-report.md). Thirteen find-and-replace corrections have been applied to this package. The following also govern:
+
+1. **The LPL–Commonwealth adviser conversion is done.** It completed around 2026-11-14/15 (InvestmentNews, 2026-11-16). The Commonwealth Charitable Fund decision is still open but has no announced date. Treat it as a monitoring item, not a dated trigger.
+2. **Spend medians and contract-fee ranges.**
+   - The spend medians describe the 43 community foundations with $250m–1bn of DAF assets only. For FY2024, IT is $454,619, or $467,616 when blank lines are excluded. Outside services are $1,285,942, which **includes audit, legal and management fees** and is not a consulting budget.
+   - These are evidence of ability to pay, not willingness to pay.
+   - Vendor fees: the Ren/Stellar range at community foundations is $118k–416k. Across wealth programmes the range is $118k–498k, with Stifel at $801k.
+3. **Platform attrition is past.** The figure of 6 exits from 57 iPhi sponsors records exits that have already happened. It indicates churn propensity, not current open demand.
+4. **"No analyst covers DAF platforms"** holds for analyst firms. Tech Impact nonetheless publishes software-selection guidance for community foundations (2024), and Kitces sells wealth-tech vendor selection. Treat both as partial substitutes.
+5. **Communities Foundation of Texas.** Its falling spend with EPAM is equally consistent with a project winding down. It is not the strongest signal.
+6. **BerryDunn price anchors** are public-sector and seven years old. Price hypotheses remain untested.
+7. **Ranking confidence is lowered to Low-Medium.** The ranking rests on judgement scores only. The top three stay robust to changes in those judgements, but that robustness is not buyer evidence.
+
+The overall recommendation is unchanged. Its evidential basis is weaker than §2 first stated, which makes the discovery interviews (days 1–30) more important before any pricing commitment.

@@ -16,7 +16,7 @@
 
 | Segment | Pain (evidence) | Who holds budget [I] | Ability to pay (evidence) | Triggers | Current alternatives | Fit | Main disconfirming evidence |
 |---|---|---|---|---|---|---|---|
-| **A1 National sponsors (affiliated: Fidelity, DAFgiving360, Vanguard Charitable)** | Parent-run technology. Vanguard Charitable/Give Interactive go-live not observed (INV015) | Parent firm (FMR, Schwab, Vanguard) | Very high: McKinsey $11.8m paid by Fidelity Charitable (FY2025); Slalom $2.1–3.4m a year at Vanguard Charitable (CP) | Platform changes, regulation | Large consultancies, parent IT | Low | Purchasing decisions are out of reach |
+| **A1 National sponsors (affiliated: Fidelity, DAFgiving360, Vanguard Charitable)** | Parent-run technology. Vanguard Charitable/Give Interactive go-live not observed (INV015) | Parent firm (FMR, Schwab, Vanguard) | Very high: McKinsey $11.8m paid by Fidelity Charitable (FY2025); Slalom $2.06–3.74m a year at Vanguard Charitable (TY2021–24) (CP) | Platform changes, regulation | Large consultancies, parent IT | Low | Purchasing decisions are out of reach |
 | **A2 National sponsors (independent: NPT, AEF, RCF, NCF)** | NPT costs $419 per grant (INV006); thin margins (RCF +0.8%); 2.2 months of reserves (INV012) | CEO, COO, CTO. A CTO appointed in March 2026 at NPT is verified on an official page (PS01) | Moderate. NCF paid Ren $2.50m (INV047) and Accenture $0.8m (CP) | §4966 final rule; vendor renewal | Vendors' own services; Accenture-type firms | Medium (niche work) | RCF is run by Ren and does not choose its own vendor (PS03) |
 | **A3 Mid-size community foundations ($250m–$5bn)** | Admin fees 1.7–4.7× the nationals' (INV037); cost per DAF dollar up 21% (INV044); migrations freeze grants for 3–5 weeks (DS) | CEO, COO, CFO; board technology or finance committee | **Best visible:** median IT $455k and outside services $1.29m for the $250m–1bn band (DS spend, reproducible); vendor fees $118k–416k (INV032–INV033) | iPhi attrition, renewals, leadership change (Arkansas), donor surveys | EPAM, Slalom, Clarity Partners; vendor implementation; peer referral | **High** | No public RFPs; the migration wave is largely complete (PS notes) |
 | **A4 Small and tail sponsors (under $250m)** | Cost pressure | Executive director | Very low: median IT $81 (under $10m) and $42k ($10–50m) (DS spend) | — | Foundant module; peers | Low | "No intervention" wins in 87–100% of model runs (DS) |
@@ -34,7 +34,7 @@
 ## Reading [I]
 
 - **The most promising buyers combine three things:** a discretionary budget, a dated platform or programme decision, and decision-making held in-house rather than at a parent firm. That means:
-  - **A3** mid-size community foundations (about 40–60 organisations at $250m or more of DAF assets; the 43 CFs in the $250m–1bn band from the DS spend table plus larger independents);
+  - **A3** mid-size community foundations (53 community foundations at $250m–10bn plus 10 religiously affiliated sponsors in FY2024 [C]; the 43 CFs in the $250m–1bn band from the DS spend table plus larger independents);
   - **A5** faith and single-issue sponsors;
   - **B2** independent broker-dealers and regional banks.
 - **Investors (D) and vendors (C)** are better served by OF3 research and the OF4 diligence module, with explicit conflict rules.

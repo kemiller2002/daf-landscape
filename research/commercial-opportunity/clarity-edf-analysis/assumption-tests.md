@@ -134,10 +134,10 @@
   - The largest sponsors make technology decisions at parent firms (FMR, Schwab, Vanguard) and use large consultancies: Vanguard Charitable paid UST Global and Slalom about $9.9m (DS spend).
   - The biggest addressable spend sits where Echelon has the least access.
   - The visible discretionary buyers are community foundations of $250m–1bn: median IT $455k, outside services $1.29m (DS spend table).
-  - Platform decisions at broker-dealers are dated: the LPL–Commonwealth conversion in Q4 2026, Stifel's spend trend (PW06, PW08).
+  - Platform decisions at broker-dealers are dated: the LPL–Commonwealth conversion (completed about 2026-11-14; the DAF-programme decision is still open), Stifel's spend trend (PW06, PW08).
 - **I:** **Contradicted.** The attractive market is **mid-sized buyers with discretionary budgets and a dated trigger**, not the largest asset pools.
 - **Claim state and confidence:** suggestive, Medium.
-- **R:** Prioritise roughly 40–60 mid-sized community foundations and faith sponsors, plus about 10 broker-dealer and bank programmes facing a platform decision.
+- **R:** Prioritise the about 63 sponsors with $250m–$10bn of DAF assets in FY2024: 53 community foundations (43 at $250m–1bn, 10 at $1–10bn) and 10 religiously affiliated sponsors, counted from `sponsor-cost-structure.csv` [C],, plus about 10 broker-dealer and bank programmes facing a platform decision.
 
 ---
 

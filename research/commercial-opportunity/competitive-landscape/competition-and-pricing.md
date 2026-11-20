@@ -40,7 +40,7 @@
    |---|---|---|---|---|
    | Fidelity Charitable | McKinsey | ended 2025-06 | **$11.8M** | "PHIL. CONSULTING" |
    | Fidelity Charitable | McKinsey | ended 2024-06 | $2.88M | "phil. consulting" |
-   | Vanguard Charitable | Slalom | 2021–23 | $2.1–3.4M a year | "TECH SERVICES" |
+   | Vanguard Charitable | Slalom | TY2021–24 | $2.06–3.74M a year (rising) | "TECH SERVICES" |
    | National Christian Foundation | Accenture | 2022 | $0.8M | consulting |
    | Silicon Valley Community Foundation | Slalom | 2023 | $1.5M | consulting |
    | Communities Foundation of Texas | EPAM | 2022 | $1.6M | technology consulting |
