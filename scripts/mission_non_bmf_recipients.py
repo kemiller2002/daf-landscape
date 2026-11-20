@@ -30,8 +30,8 @@ Categories (first match wins, in this order):
                               (name_sim < NAME_BAD): `ein_on_revocation_list_unrelated_name`.
     foreign_or_government     line address foreign, IRC-section text naming a government / 170(c)(1) / 115, a
                               government-unit name rule (state, county, city, school district, public university,
-                              ...), or, failing those, an EIN whose digits 3-5 are "600" (heuristic: the pattern of
-                              the large state/local-government EINs seen here; no IRS source states it).
+                              ...), or, failing those, a non-religious name whose EIN digits 3-5 are "600" (heuristic:
+                              the pattern of the large state/local-government EINs seen here; no IRS source states it).
     subsidiary_or_disregarded LLC / limited-liability names (disregarded single-member LLCs have no BMF row). This
                               category is an addition to the task's list; folding it into `unresolved` gives the
                               task's six-way split (both are reported).
@@ -129,7 +129,8 @@ GOV_NAME = (
                                     r"HEALTH DISTRICT|WATER DISTRICT|PORT AUTHORITY|HOUSING AUTHORITY)\b|\bCITY$")),
     ("state_or_federal", re.compile(r"\b(STATE OF|COMMONWEALTH OF|DEPARTMENT OF|DEPT OF|UNITED STATES|U S |"
                                     r"NATIONAL PARK SERVICE|TREASURER|GOVERNMENT|GOVT|TRIBE|TRIBAL|NATION OF|"
-                                    r"VETERANS AFFAIRS|STATE PARKS?)\b")),
+                                    r"VETERANS AFFAIRS|STATE PARKS?|INDIAN NATION|INDIAN TRIBE|PUEBLO OF|VAMC|VA MEDICAL CENTER|"
+                                    r"CONSERVATION DISTRICT|PARKS AUTHORITY)\b")),
 )
 FOREIGN_NAME = re.compile(r"\b(CANADA|CANADIAN|UK|ENGLAND|LONDON|AUSTRALIA|ISRAEL|STIFTUNG|E\.?\s?V\.?|GMBH|"
                           r"FONDATION|FUNDACION|FONDAZIONE|ASBL|VZW|TRUST UK|LIMITED|LTD|CIC|SOCIETE|ASOCIACION|"
@@ -335,7 +336,9 @@ def gov_rule(p: Mapping) -> str:
         return "government_irc_text"
     nm = " ".join(norm(n) for n in p["names_filed"]) + " " + " ".join(n.upper() for n in p["names_filed"])
     by_name = next((f"government_name_{k}" for k, rx in GOV_NAME if rx.search(nm)), "")
-    return by_name or ("government_ein_600_series_heuristic" if p["ein"][2:5] == "600" else "")
+    religious = any(RELIGIOUS.search(norm(n)) for n in p["names_filed"])
+    return by_name or ("government_ein_600_series_heuristic" if p["ein"][2:5] == "600" and not religious
+                       and not re.search(r"\b(ACADEMY|PREP|PREPARATORY|CHRISTIAN|SAINT|ST)\b", nm) else "")
 
 
 def fuzzy_same_state(name: str, state: str, bmf_ein: Mapping, tok_idx: Mapping, cap: int = 4000) -> tuple:
@@ -471,7 +474,7 @@ def agg_rows(units: Sequence[Mapping], key, scope: str, total_dw_all: float) -> 
 
 FIELDS = ("row_type", "scope", "category", "recipients", "usd_daf_weighted", "usd_schedule_i",
           "usd_daf_weighted_fy2023", "usd_daf_weighted_fy2024", "share_of_non_bmf_daf_weighted",
-          "share_of_all_top50_daf_weighted", "ein", "name_as_filed", "sub_category")
+          "share_of_all_top50_daf_weighted", "ein", "name_as_filed")
 
 
 def write_out(path: str, rows: Sequence[Mapping]) -> None:
@@ -551,7 +554,7 @@ def main(argv: Sequence[str] | None = None) -> int:
             + agg_rows(tuple(u for u in units if cn_pass(u)), lambda u: u["category"], "cn_filing_rule_pass_1213", TOT)
             + agg_rows(units, lambda u: "all", "all", TOT)
             + [{"row_type": "recipient", "ein": u["ein"], "name_as_filed": u["name_filed"], "category": u["category"],
-                "sub_category": u["sub"], "usd_daf_weighted": round(u["dw"])}
+                "usd_daf_weighted": round(u["dw"])}
                for u in sorted(units, key=lambda u: (-u["dw"], u["ein"]))])
     write_out(a.out, rows)
 

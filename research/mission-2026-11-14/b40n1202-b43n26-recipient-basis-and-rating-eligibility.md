@@ -20,7 +20,7 @@ Tags: [F] computed from filings by the script · [P] quoted primary source · [I
   - median **7.7%** (95% CI 5.9–8.9%);
   - pooled **10.3%** (9.2–11.7%);
   - on the 1h basis these were 5.9% and 6.9%, which reproduces the committed study.
-- **Narrowest basis, 1f alone:** median 8.1% (6.4–9.7%), pooled 11.0% (9.8–12.5%) [F].
+- **Narrowest basis, 1f alone:** median 8.1% (6.4–9.7%), pooled 11.0% (9.8–12.5%) [F]. Net of the Schedule A Part II line 5 excess over 2% (central allocation), these are 8.9% and 13.0%, and 12.0% and 13.9% for Part II filers. That is the DAF share of contributions from donors below the 2% limit, not an individual-only share ([b40n1202-b43n26-01-schedule-a-excess.md](b40n1202-b43n26-01-schedule-a-excess.md)). [V wave 45B]
 - **By size, 1h − 1d − 1e basis, pooled** [F]:
   - <$1m 21.0%; $1–5m 11.7%; $5–25m 12.5%; $25–100m 11.0%; ≥$100m 5.8%.
   - The large-recipient discount narrows sharply once government grants leave the denominator. ≥$100m goes from 3.7% to 5.8%; $25–100m from 6.3% to 11.0%.
@@ -290,7 +290,7 @@ By recipient type, the eligible share of dollars is:
 
 ## 5. Limits
 
-1. **(A) Individual giving is still not isolated.** Line 1f holds foundation, corporate, trust and estate gifts, DAF grants and gaming contributions alike. Schedule B donor detail is not public, and the Schedule A Part II and III support lines were not parsed (P-B40N1202-B43N26-01).
+1. **(A) Individual giving is still not isolated.** Line 1f holds foundation, corporate, trust and estate gifts, DAF grants and gaming contributions alike. Schedule B donor detail is not public, and the Schedule A Part II and III support lines were not parsed here. They are parsed in [b40n1202-b43n26-01-schedule-a-excess.md](b40n1202-b43n26-01-schedule-a-excess.md): the line 5 excess over 2% is 18.5% of Part II filers’ 1f pooled (median 1.8%). Netting it out does not isolate individual giving, because grants from 170(b)(1)(A)(vi) organisations and each large donor’s first 2% stay in. [V wave 45B]
 2. **(A) 990-EZ filers.** Their line 1 includes government grants and is used unchanged on every basis. Separately, 53 of 2,170 respondents (3.4% weighted) have a b3 share above 100%. One is the Association of Public Health Laboratories at 132%, with $334,788 on line 1f against $238m on 1e. This points to timing or DAF-weighting mismatches at heavily government-funded recipients [V wave 34B]
 3. **(A) Numerator and scaling.** The numerator, scaling and sample limits of the committed study all carry over: top-50 sponsors only, grants over $5,000, sponsor-level DAF weighting, BMF revenue bands and selection on DAF recipients. Scaled figures lean high (V33A-09).
 4. **(A) Leaked sponsors.** The leaked-sponsor regex misses UJA-Federation of New York, so the sensitivity scope is incomplete.
