@@ -23,8 +23,8 @@ Recipient filings (stage `fetch`, I/O)
 
 Receiving channel (stage `fetch`, I/O; polite, public pages only)
   For each website in the scan: robots.txt first (200 -> parsed for `*`; 404/410 -> no rules; else unreadable and
-  nothing fetched). Then, only where allowed: the homepage, up to 8 same-site pages whose link URL or anchor text
-  suggests giving or partnering, up to 6 sitemap URLs with such words, and 6 fixed paths (/donate, /give,
+  nothing fetched). Then, only where allowed: the homepage, up to 10 same-site pages whose link URL or anchor text
+  suggests giving, partnering or fiscal sponsorship (news/blog/report paths skipped), up to 6 sitemap URLs with such words, and 6 fixed paths (/donate, /give,
   /support, /ways-to-give, /faq, /contact). Raw HTML only (no JS rendering); nothing is clicked or submitted.
   >= 1.5 s between requests to a host. UA "research-script/1.0".
   Detectors: donor-advised / DAF text; DAFpay/Chariot or DAF Direct widget; sponsor links; wire/ACH; check by
@@ -50,6 +50,7 @@ from __future__ import annotations
 
 import argparse
 import csv
+import hashlib
 import html
 import json
 import os
@@ -81,6 +82,57 @@ TAX_YEARS = (2023, 2024)
 POP_STATUS = "home_only_no_donate_link"
 # The organisations the queue item names (P-B39N6-03); both Energy Foundation EINs are kept.
 NAMED = frozenset({"205806345", "473681860", "473522162", "815086187", "262303250", "831740146", "943126848"})
+
+# Hand subtype [I]: judgement from the organisation's own 990 (Part III / Schedule I) and its public pages.
+HAND_SUBTYPE: dict[str, tuple[str, str]] = {
+    "205806345": ("fiscal_sponsor", "990 Part III: 'nonprofit organization providing fiscal sponsorship'; site FAQ"),
+    "473681860": ("fiscal_sponsor", "990 Part III / Sched O: 'primarily through fiscal sponsorship'; site /fiscal-sponsorship"),
+    "473522162": ("fiscal_sponsor", "site homepage: 'comprehensive fiscal sponsorship services to environmental projects'"),
+    "815086187": ("pooled_fund", "site /engage-with-us: 'pooling capital'; General/Impact Partner commitments $50m/$15m (FAQ)"),
+    "262303250": ("pooled_fund", "site /about-us: 'connect funders and implementing organizations', 'working with over 80 funders'"),
+    "831740146": ("pooled_fund", "site FAQ: 'partner with individuals and organizations ... raise vital resources for grant portfolios'"),
+    "943126848": ("pooled_fund", "site Key Funders page lists foundations incl. ClimateWorks; Part IX line 3 foreign grants"),
+    "845024713": ("grantmaking_public_charity", "990 Part IX: grants 78% of expenses; largest grantees Energy Foundation China / US"),
+    "050620063": ("pooled_fund", "Charter School Growth Fund: Schedule I 300+ grants to charter networks"),
+    "884235954": ("single_recipient_conduit", "990 Schedule I: $96.2m of $96.7m to one EIN (921713534)"),
+    "933648500": ("single_recipient_conduit", "990 Schedule I: $30.5m of $33.0m to one EIN (992703731)"),
+    "853677542": ("single_recipient_conduit", "990 Schedule I FY2023: $50.0m to one EIN (831896485); FY2024 foreign grants"),
+    "952250801": ("affiliated_support_foundation", "990 Schedule I: $739.6m to EIN 956006143 (the university)"),
+    "371975407": ("affiliated_support_foundation", "990 Schedule I FY2024: $9.7m to EIN 473334579; operating school"),
+    "462109112": ("giving_platform", "workplace-giving platform; grants without Schedule I lines (Part IX lines 1 and 3)"),
+    "463508366": ("grantmaking_public_charity", "990 Schedule I: one 'SEE ATTACHED' line, $272.2m"),
+    "821503998": ("private_foundation", "990-PF; scholarships to Maine colleges"),
+    "872622825": ("operating", "advocacy organisation; its grants fund fiscally sponsored campaigns of others"),
+    "223419667": ("operating", "public-health NGO; grants 42% of expenses, mostly foreign"),
+    "474422640": ("private_foundation", "990-PF; operating programme with grants 27% of expenses"),
+    "832504447": ("private_foundation", "990-PF; grants 6% of expenses"),
+    "861626267": ("operating", "grants 1% of expenses"),
+    "871920284": ("operating", "research institute; grants 13% of expenses"),
+    "640851798": ("operating", "CDFI / credit union; grants 5% of expenses"),
+    "883013217": ("operating", "research organisation (focused research organisations); grants 1% of expenses"),
+    "521623781": ("operating", "education/travel programmes; no Part IX grants"),
+    "850346325": ("operating", "CDFI / housing lender; no grants"),
+    "870234341": ("church_no_990", "church; files 990-T only"),
+}
+# Hand-read receiving-path notes [I] (public pages, robots-allowed, read 2026-11-20).
+CHANNEL_NOTES: dict[str, str] = {
+    "205806345": "No donate page (/donate etc. 404). Contact page lists general and 'New Project Inquiries' e-mails. FAQ explains fiscal sponsorship; money is raised for projects by funders (newventurefund.org/contact/, /who-we-are/faq/).",
+    "473681860": "No donate page. /fiscal-sponsorship: 'Projects raise their own funding, and we ensure those funds are managed responsibly'. Contact page: info@ e-mail for fiscal-sponsorship and general enquiries.",
+    "473522162": "No donate page. Contact form has an 'Partner with Windward' option (not submitted); homepage: 'connect donors ... with projects'.",
+    "815086187": "No donate page. /engage-with-us: partner interest form (General / Impact Partner; not submitted); FAQ: General and Impact Partners commit $50m and $15m over time; 'raised over $4 billion'.",
+    "262303250": "No donate page; /support redirects off-site (to an alliancemagazine.org article). /about-us: 'working with over 80 funders'; funder collaboratives (e.g. ARC) by invitation.",
+    "831740146": "No donate page. FAQ: 'We partner with individuals and organizations in the U.S. to align on strategy and raise vital resources'. Contact page: web form and media e-mail only.",
+    "943126848": "No donate page. 'Key Funders' page lists foundation funders; contact e-mail info@ef-global.org.",
+    "845024713": "Minimal site (homepage ~700 characters of text); contact page only.",
+    "223419667": "No donate page; /partners lists partnerships@ e-mail.",
+    "952250801": "uclafoundation.org redirects to mygiving.ucla.edu (another host; not read). Giving happens on the university's giving site, so 'no donate link' is a scan artefact.",
+    "462109112": "brightfunds.org redirects to hello.brightfunds.org (another host; not read): a workplace-giving product site.",
+    "850346325": "homewise.org/donate/ exists ('Donate to Homewise ... Contact us to have a conversation'); no payment form or DAF option in the HTML.",
+    "870234341": "/donate redirects to a sign-in page on id.churchofjesuschrist.org (not followed: login).",
+    "050620063": "Homepage readable; /work-with-us/, /give and /contact return HTTP 403 to this client (not retried).",
+    "821503998": "robots.txt returned HTTP 403: unreadable, so nothing was fetched.",
+}
+
 
 # ============================================================================ population
 def population(scan_rows: Sequence[Mapping]) -> tuple[dict, ...]:
@@ -161,8 +213,11 @@ def extract_990(data: bytes) -> dict:
                if local(el.tag) == "RecipientTable" else (num(g.get("Amt", "")) or 0.0))
         return {"ein": ein9(g["RecipientEIN"]) if g.get("RecipientEIN") else "", "name": name[:90], "amount": amt}
     recs = tuple(rec(el) for el in root.iter() if local(el.tag) in ("RecipientTable", "GrantOrContributionPdDurYrGrp"))
+    in_tables = frozenset(id(c) for el in root.iter() if local(el.tag) in ("RecipientTable", "GrantOrContributionPdDurYrGrp")
+                          for c in el.iter())
+    # Self-description only: text in grant tables (e.g. "fiscal sponsorship funding for X") is about the grantee.
     fs_texts = tuple(sorted({re.sub(r"\s+", " ", el.text.strip())[:240] for el in root.iter()
-                             if el.text and FS_RX.search(el.text)}))
+                             if el.text and id(el) not in in_tables and FS_RX.search(el.text)}))
     return {**{k: (num(v) if k not in ("daf_ind", "website") else v) for k, v in out.items()}, **ix,
             "return_type": rtype, "sched_i_lines": len(recs), "sched_i_usd": sum(r["amount"] for r in recs),
             "sched_i_recipients": recs, "fiscal_sponsor_texts": fs_texts}
@@ -237,8 +292,18 @@ def links_of(base: str, body: str) -> tuple[tuple[str, str], ...]:
     return tuple((urllib.parse.urljoin(base, h).split("#")[0], t) for h, t in p.links if h and not h.startswith(("mailto:", "tel:", "javascript:")))
 
 
-CHANNEL_WORDS = re.compile(r"donat|\bgive\b|giving|support[-_ ]?us|ways[-_ ]to|donor|\bdaf\b|partner[-_ ]with|work[-_ ]with[-_ ]us|"
-                           r"fund[-_ ]?with|contribut|philanthrop|for[-_ ]funders|funders|invest[-_ ]with|faq", re.I)
+CHANNEL_WORDS = re.compile(r"donat|\bgive\b|giving|support[-_ ]?us|ways[-_ ]to|donor|\bdaf\b|partner|work[-_ ]with[-_ ]us|engage|"
+                           r"fund[-_ ]?with|contribut|philanthrop|funders|invest[-_ ]with|faq|fiscal[-_ ]sponsor|how[-_ ]we[-_ ]work|"
+                           r"our[-_ ]model|get[-_ ]involved", re.I)
+NOISE_PATH = re.compile(r"/(19|20)\d\d/|/(blog|news|media|stories|press[-_]release|report|grant|insights|events?|tag|category)s?/", re.I)
+
+
+def channel_url(u: str, anchor: str = "") -> bool:
+    path = urllib.parse.urlparse(u).path
+    return (not NOISE_PATH.search(path) and not re.search(r"\.(pdf|jpe?g|png|zip|docx?)$", path, re.I)
+            and bool(CHANNEL_WORDS.search(path) or (anchor and CHANNEL_WORDS.search(anchor))))
+
+
 FIXED_PATHS = ("/donate", "/give", "/support", "/ways-to-give", "/faq", "/contact")
 
 
@@ -256,6 +321,7 @@ DETECT = {
     "stock": re.compile(r"(gifts?|transfers?|donations?) of (stock|securities|appreciated)|stock (gift|transfer|donation)", re.I),
     "grant_agreement": re.compile(r"grant agreement", re.I),
     "fiscal_sponsor": re.compile(r"fiscal(ly)?[- ]sponsor", re.I),
+    "pooled_fund_terms": re.compile(r"commitments? of \$[\d,.]+ ?(million|m\b)|minimum (gift|commitment|contribution|investment)", re.I),
     "tax_id_label": re.compile(r"\b(EIN|tax[- ]ID|federal (tax )?identification)\b", re.I),
 }
 EMAIL_RX = re.compile(r"[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}")
@@ -269,7 +335,9 @@ def detect(url: str, body: str, ein: str) -> dict:
     hits["own_ein_shown"] = bool(re.search(rf"{d[:2]}[- ]?{d[2:]}", txt))
     emails = sorted({m for m in EMAIL_RX.findall(body) if GIVE_EMAIL_RX.match(m)})
     snip = next((txt[max(0, m.start() - 90): m.end() + 110] for m in [DETECT["daf_text"].search(txt)] if m), "")
-    return {"url": url, **hits, "giving_emails": emails, "daf_snippet": snip}
+    fs_snip = next((txt[max(0, m.start() - 120): m.end() + 120] for m in [DETECT["fiscal_sponsor"].search(txt)] if m), "")
+    return {"url": url, **hits, "giving_emails": emails, "daf_snippet": snip, "fs_snippet": fs_snip,
+            "text_sha": hashlib.sha1(txt.encode()).hexdigest()[:16], "text_len": len(txt)}
 
 
 def fetch(url: str, timeout: int = 30) -> tuple[int, str, str]:
@@ -330,9 +398,9 @@ def scan_site(row: Mapping) -> dict:
             return {"url": u, "code": code, "final": final, "body": "", "note": "redirect_robots_disallowed"}
         return {"url": u, "code": code, "final": final, "body": body if code == 200 else ""}
     home = get(base)
-    cand = tuple(dict.fromkeys(u for u, t in links_of(home["final"], home["body"])
-                               if same_site(u, base) and (CHANNEL_WORDS.search(urllib.parse.urlparse(u).path) or CHANNEL_WORDS.search(t))
-                               and not re.search(r"\.(pdf|jpg|png|zip|docx?)$", u, re.I)))[:8] if home else ()
+    cand = tuple(dict.fromkeys(u.rstrip("/") + "/" if not urllib.parse.urlparse(u).query else u
+                               for u, t in links_of(home["final"], home["body"])
+                               if same_site(u, base) and channel_url(u, t)))[:10] if home else ()
     sm_urls = ()
     for sm in (rb["sitemaps"] or (urllib.parse.urljoin(base, "/sitemap.xml"),))[:2]:
         r = get(sm)
@@ -340,8 +408,7 @@ def scan_site(row: Mapping) -> dict:
             locs = re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", r["body"])
             sub = [l for l in locs if l.endswith(".xml")][:3]
             subs = tuple(x for s in sub for x in re.findall(r"<loc>\s*([^<\s]+)\s*</loc>", (get(s) or {}).get("body", "")))
-            sm_urls += tuple(l for l in (*locs, *subs) if not l.endswith(".xml") and same_site(l, base)
-                             and CHANNEL_WORDS.search(urllib.parse.urlparse(l).path))
+            sm_urls += tuple(l for l in (*locs, *subs) if not l.endswith(".xml") and same_site(l, base) and channel_url(l))
     sm_urls = tuple(dict.fromkeys(sm_urls))[:6]
     fixed = tuple(urllib.parse.urljoin(base, p) for p in FIXED_PATHS)
     others = [get(u) for u in dict.fromkeys((*cand, *sm_urls, *fixed))]
@@ -377,25 +444,32 @@ def stage_fetch(a) -> int:
 
 
 # ============================================================================ report (pure + edges)
+GIVING_PATH = re.compile(r"donat|\bgive\b|giving|ways[-_ ]to|support[-_ ]?us|/support/?$", re.I)
+
+
 def channel_class(w: Mapping) -> tuple[str, dict]:
+    """Classify what the public pages read say about how money is received (first match wins)."""
     st = w.get("robots_state")
     if st in ("unreadable", "no_website"):
-        return f"robots_{st}" if st == "unreadable" else st, {}
-    ok = [p for p in w.get("pages", []) if p.get("code") == 200 and "daf_text" in p]
+        return ("robots_unreadable" if st == "unreadable" else st), {}
+    ok = [p for p in w.get("pages", []) if p.get("code") == 200 and "text_sha" in p]
     if not ok:
         return "unreachable", {}
+    home = ok[0]
     agg = {k: any(p.get(k) for p in ok) for k in ("daf_text", "daf_widget", "sponsor_link", "wire_ach", "check_mail",
-                                                  "stock", "grant_agreement", "fiscal_sponsor", "own_ein_shown", "tax_id_label")}
+                                                  "stock", "grant_agreement", "fiscal_sponsor", "pooled_fund_terms", "own_ein_shown", "tax_id_label")}
     emails = sorted({e for p in ok for e in p.get("giving_emails", [])})
-    giving_pages = [p["url"] for p in ok if CHANNEL_WORDS.search(urllib.parse.urlparse(p["url"]).path)
-                    and (p.get("daf_text") or p.get("wire_ach") or p.get("check_mail") or p.get("stock") or p.get("own_ein_shown"))]
-    daf_pages = [p for p in ok if p.get("daf_widget") or p.get("sponsor_link") or (p.get("daf_text") and (p.get("own_ein_shown") or p.get("wire_ach") or p.get("check_mail") or p.get("stock")))]
+    # A giving page: a giving-type path that served its own content (not the homepage again, as single-page sites do).
+    giving_pages = [p["url"] for p in ok[1:] if GIVING_PATH.search(urllib.parse.urlparse(p["url"]).path)
+                    and urllib.parse.urlparse(p["url"]).path.strip("/") and p["text_sha"] != home["text_sha"]]
+    daf_pages = [p for p in ok if p.get("daf_widget") or p.get("sponsor_link") or
+                 (p.get("daf_text") and (p.get("own_ein_shown") or p.get("wire_ach") or p.get("check_mail") or p.get("stock")))]
     cls = ("daf_instructions" if daf_pages else "giving_page_no_daf" if giving_pages else
            "giving_contact_only" if emails else "no_giving_info_found")
-    ev = {**agg, "giving_emails": "; ".join(emails),
+    ev = {**agg, "home_fiscal_sponsor": bool(home.get("fiscal_sponsor")), "home_fs_snippet": home.get("fs_snippet", ""),
+          "giving_emails": "; ".join(emails),
           "evidence_url": (daf_pages[0]["url"] if daf_pages else giving_pages[0] if giving_pages else ""),
-          "daf_snippet": next((p["daf_snippet"] for p in daf_pages if p.get("daf_snippet")), "")
-          or next((p["daf_snippet"] for p in ok if p.get("daf_snippet")), ""),
+          "daf_snippet": next((p["daf_snippet"] for p in ok if p.get("daf_snippet")), ""),
           "pages_read": len(ok), "pages_robots_disallowed": len(w.get("disallowed", []))}
     return cls, ev
 
@@ -410,17 +484,17 @@ def pooled(filings: Mapping, e: str) -> dict:
             "grants_ix3": s("grants_ix3"), "sched_i_usd": s("sched_i_usd"), "sched_i_lines": s("sched_i_lines"),
             "na_boy_first": (min(filings[e].items())[1]["extract"] or {}).get("net_assets_boy") if ys else None,
             "na_eoy_last": (max(filings[e].items())[1]["extract"] or {}).get("net_assets_eoy") if ys else None,
-            "daf_ind": "|".join(y.get("daf_ind") or "" for y in ys), "fs_hits": len(fs),
+            "daf_ind": "|".join({"true": "1", "false": "0"}.get((y.get("daf_ind") or "").lower(), y.get("daf_ind") or "") for y in ys), "fs_hits": len(fs),
             "fs_example": fs[0] if fs else "",
             "tax_periods": ";".join(f["tax_period"] for _, f in sorted(filings.get(e, {}).items())),
             "object_ids": ";".join(f["oid"] for _, f in sorted(filings.get(e, {}).items())),
             "recipients": tuple(r for y in ys for r in y["sched_i_recipients"])}
 
 
-def pt_class(p: Mapping) -> str:
+def pt_class(p: Mapping, home_fs: bool) -> str:
     if not p["years"]:
         return "no_990"
-    if p["fs_hits"]:
+    if p["fs_hits"] or home_fs:
         return "fiscal_sponsor"
     if p["total_expenses"] and p["grants_out"] / p["total_expenses"] >= 0.5:
         return "regranting_intermediary"
@@ -474,7 +548,8 @@ def stage_report(a) -> int:
         top_out = sorted(_group_by_fast(p["recipients"], lambda r: r["ein"] or r["name"]).items(),
                          key=lambda kv: -sum(x["amount"] for x in kv[1]))[:3]
         return {"daf_rank": s["daf_rank"], "ein": e, "name": s["name"], "ntee_cd": s["ntee_cd"], "website": s["website"],
-                "named_in_queue_item": int(e in NAMED), "pass_through_class": pt_class(p),
+                "named_in_queue_item": int(e in NAMED), "pass_through_class": pt_class(p, bool(ev.get("home_fiscal_sponsor"))),
+                "hand_subtype": HAND_SUBTYPE.get(e, ("", ""))[0], "hand_subtype_basis": HAND_SUBTYPE.get(e, ("", ""))[1],
                 "top50_usd_ex_uh_filed": round(d.get("ex_uh_filed", 0)), "scan_daf_grant_usd": s["daf_grant_usd_fy2023_2024"],
                 "top50_usd_all_filed": round(d.get("all_filed", 0)), "top50_usd_all_daf_weighted": round(d.get("all_daf_weighted", 0)),
                 "top50_usd_fy2023": round(d.get("fy2023_filed", 0)), "top50_usd_fy2024": round(d.get("fy2024_filed", 0)),
@@ -490,6 +565,8 @@ def stage_report(a) -> int:
                 "onward_ratio_grants_to_contrib": r4(ratio(p["grants_out"], p["contrib_1h"])),
                 "grants_share_of_expenses": r4(ratio(p["grants_out"], p["total_expenses"])),
                 "top50_daf_share_of_contrib": r4(ratio(d.get("all_filed", 0), p["contrib_1h"])),
+                "timing_flag": int(bool(p["contrib_1h"]) and d.get("all_filed", 0) > p["contrib_1h"]) if p["years"] else "",
+                "onward_ratio_net_of_population": r4(ratio(p["grants_out"] - intra, p["contrib_1h"])),
                 "net_assets_boy_first": "" if p["na_boy_first"] is None else round(p["na_boy_first"]),
                 "net_assets_eoy_last": "" if p["na_eoy_last"] is None else round(p["na_eoy_last"]),
                 "net_assets_change": "" if p["na_boy_first"] is None or p["na_eoy_last"] is None else round(p["na_eoy_last"] - p["na_boy_first"]),
@@ -498,7 +575,8 @@ def stage_report(a) -> int:
                 "top_sched_i_recipients": "; ".join(f"{k} ${sum(x['amount'] for x in v) / 1e6:.1f}m" for k, v in top_out),
                 "daf_ind_part_iv_6": p["daf_ind"], "fiscal_sponsor_text_hits": p["fs_hits"], "fiscal_sponsor_text_example": p["fs_example"],
                 "robots_state": web.get(e, {}).get("robots_state", ""), "robots_code": web.get(e, {}).get("robots_code", ""),
-                "channel_class": cls, **{f"web_{k}": (int(v) if isinstance(v, bool) else v) for k, v in ev.items()}}
+                "channel_class": cls, **{f"web_{k}": (int(v) if isinstance(v, bool) else v) for k, v in ev.items()},
+                "channel_note_hand": CHANNEL_NOTES.get(e, "")}
     rows = tuple(row(s) for s in pop)
     fields = list(dict.fromkeys(k for r in rows for k in r))
     write_csv(a.out, [{f: r.get(f, "") for f in fields} for r in rows], fields)
@@ -519,6 +597,11 @@ def stage_report(a) -> int:
                 "top50_daf_share_of_contrib": round(s("top50_usd_all_filed") / s("contrib_1h_usd"), 4) if s("contrib_1h_usd") else None,
                 "net_assets_change": round(sum(float(r["net_assets_change"] or 0) for r in rs)),
                 "intra_population": round(s("sched_i_to_population_usd")),
+                "onward_ratio_net_of_population": round((s("grants_out_ix1_3_usd") - s("sched_i_to_population_usd")) / s("contrib_1h_usd"), 4) if s("contrib_1h_usd") else None,
+                "onward_ratio_ex_timing_flag": (lambda q: round(sum(float(r["grants_out_ix1_3_usd"]) for r in q) / sum(float(r["contrib_1h_usd"]) for r in q), 4)
+                                                if q and sum(float(r["contrib_1h_usd"]) for r in q) else None)([r for r in rs if r["timing_flag"] == 0]),
+                "timing_flagged": sum(1 for r in rs if r["timing_flag"] == 1),
+                "hand_subtypes": dict(Counter(r["hand_subtype"] for r in rs)),
                 "channel": dict(Counter(r["channel_class"] for r in rs))}
     pt = lambda r: r["pass_through_class"] in ("fiscal_sponsor", "regranting_intermediary")  # noqa: E731
     summ = {"totals": {k: {b: round(v) for b, v in x.items()} for k, x in T.items()},
@@ -529,6 +612,8 @@ def stage_report(a) -> int:
             "population": agg(lambda r: True), "pass_through": agg(pt), "named": agg(lambda r: r["named_in_queue_item"] == 1),
             "fiscal_sponsor": agg(lambda r: r["pass_through_class"] == "fiscal_sponsor"),
             "regranting_intermediary": agg(lambda r: r["pass_through_class"] == "regranting_intermediary"),
+            "hand_core": agg(lambda r: r["hand_subtype"] in ("fiscal_sponsor", "pooled_fund", "grantmaking_public_charity")),
+            "by_hand_subtype": {h: agg(lambda r, h=h: r["hand_subtype"] == h) for h in sorted({v[0] for v in HAND_SUBTYPE.values()})},
             "robots_log": [l for w in web.values() for l in w.get("log", [])]}
     print(json.dumps(summ, indent=1, default=str))
     return 0
