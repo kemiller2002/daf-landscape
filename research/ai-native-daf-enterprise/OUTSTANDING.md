@@ -1,0 +1,52 @@
+# Outstanding work (pick-up list)
+
+**Created:** 2026-11-21. **Scope rule (owner):** this is analysis of what an AI-native DAF company would need to build and how it should work, not an implementation. No new API contracts are written. Completed artifacts are kept.
+
+**How to resume:**
+- Work top-down within each group and mark each item `done` here, with the commit.
+- Easy items (group A) come first.
+- Run `cd models && dotnet test` before committing any model change.
+
+## A. Consistency clean-up (easy; no outside input)
+
+| # | Item | Where | Done when | Status |
+|---|---|---|---|---|
+| A1 | Map each legal requirement (REG id) to at least one control (CTL id) | `08-governance-and-compliance/controls.csv`, `regulatory-applicability-matrix.csv` | A mapping file exists; every REG row with `obligation_type = legal` maps to ≥1 CTL, or is listed as a gap; test added | open |
+| A2 | Reconcile agent names used in functional areas, workflows and workflow-innovation with the 19-agent catalog | `05-agent-architecture/agent-catalog.csv`; `workflow-innovation/06-agent-opportunities/` | Every agent name maps to a catalog entry, a new agent, or "not an agent (deterministic job)" | open |
+| A3 | Map functional-area local workflow IDs (WF-A1…WF-N5) to WF-01…WF-24, or list them as sub-workflows | `02-business-capabilities/functional-areas/`, `03-workflow-redesign/workflows.csv` | Mapping table exists | open |
+| A4 | Decide on the ~40 proposed events and ~20 interface groups from the cross-enterprise workflows: add to the catalogs or reject with a reason | `workflow-innovation/04-cross-enterprise-workflows/README.md`; `06-data-and-knowledge/events.csv`; `04-enterprise-apis/api-catalog.csv` | Each proposal is marked added or rejected; coverage tests still pass | open |
+| A5 | Decide on the interface details raised earlier: batch recommendations, grant verification, party preferences, policy evaluate, shared-determination entity | `04-enterprise-apis/api-catalog.md` | Each is marked added or rejected | open |
+| A6 | Apply the adversarial review's design-level maturity downgrades to the design catalog | `workflow-innovation/03-alternative-designs/design-catalog.csv` vs `07-adversarial-reviews/verdicts.csv` | Catalog maturity matches the verdicts | open |
+
+## B. Analysis that public data or models can support (medium effort; no outside input)
+
+| # | Item | Done when | Status |
+|---|---|---|---|
+| B1 | Add a determination-reuse parameter (reusable foreign-charity and fiscal-sponsor reviews) to the cost model; rerun sensitivity | Parameter in `Economics.fs`, outputs regenerated, financial doc updated | open |
+| B2 | Small-sponsor Schedule I harvest (outside the top 50); rerun the overlap (E7/E7b) and network-economics analyses | New data and results; network conclusions updated | open |
+| B3 | Adversarial cases the review asked for: poisoned data load and name collision (E1); adaptive fraudster, correlated AI misses and reviewer automation bias (E2); payee-registry compromise blast radius (E3) | Each case is a test that can fail; results documented | open |
+| B4 | Build or explicitly drop the experiments cited but never built: complex-asset queue, contact-volume model, liquidity forecast, policy back-test | Built with results, or removed from the citing documents | open |
+| B5 | Charity vetting: improve candidate matching for "which charity is this" (abbreviations, nicknames, addresses) and rerun V1 | Higher share of true answers among candidates, documented | open |
+| B6 | Charity vetting: check that genuine sanctions matches are still caught when names are spelled or transliterated differently (V2) | Recall reported | open |
+| B7 | Charity vetting: check whether false sanctions alerts fall unevenly by name origin, with a privacy-preserving design and no organization named | Method and result documented | open |
+| B8 | Charity vetting: accuracy of extracting figures from charity tax filings, using e-file XML as ground truth | Protocol and baseline documented | open |
+
+## C. Needs outside help or an owner decision (blocked)
+
+| # | Item | Blocked on | Gap ID |
+|---|---|---|---|
+| C1 | Shadow replay of a sponsor's past grants with timed human review (exception rate, minutes, error rate) | A sponsor partner | GAP-001, GAP-004, GAP-034 |
+| C2 | Reconciliation break rates and cost | A sponsor partner | GAP-005 |
+| C3 | Executed sponsor–vendor contracts (API and export rights) | Contract access | GAP-002 |
+| C4 | Money-transmitter status of an instruction-only operator; reliance on another sponsor's reviews | Counsel | GAP-012; REG-019/020 |
+| C5 | Willingness to pay (~$300 per account), partner sponsor-of-record terms, donor acceptance of execution windows | Interviews; owner approval for outreach | GAP-014, GAP-027 |
+| C6 | Schwab, Fidelity and BNY Pershing API references | Developer-portal login or NDA | vendor assessment §6 |
+| C7 | Vendor confirmations: J.P. Morgan ACH idempotency; Column, Increase and Apex charity-titled accounts; Auth0 and WorkOS federation and MFA behaviour | Vendor documentation or sales contact | vendor assessment §6 |
+| C8 | Run an AI matcher on the charity-identification benchmark (V1 referred cases) | Model API access in the environment | charity-vetting-ai §10 |
+| C9 | Final Treasury/IRS guidance under §§4966 and 6033 | External event | GAP-008 |
+
+## Log
+
+| Date | Item | Commit |
+|---|---|---|
+| 2026-11-21 | List created | (this commit) |

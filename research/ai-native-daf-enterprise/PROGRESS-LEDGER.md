@@ -35,6 +35,8 @@ This workstream is **analysis** of what an AI-native DAF company would need to b
 
 ## Open items (next session)
 
+**Superseded by [OUTSTANDING.md](OUTSTANDING.md) (2026-11-21), which lists every open item with status.**
+
 | Item | Why | Acceptance |
 |---|---|---|
 | CTL→REG mapping table | `controls.csv` refers to obligations generically; the coverage test needs REG ids | Every REG row with obligation_type=legal maps to ≥1 CTL |
