@@ -192,3 +192,14 @@ Each domain below repeats the CSV in prose for review. The CSV is authoritative.
 | **Disbursement and reconciliation** | API-14 (via partner), API-16 | Sponsors without in-house rails | Chariot proves demand ([industry report §2.5](../../DAF-INDUSTRY-REPORT-2026-11.md)) | Money-transmission licensing; competes with Chariot, PayPal and Ren RDE |
 
 The full commercial evaluation is in [`../10-market-and-business-model/`](../10-market-and-business-model/).
+
+
+## Decisions on interface details raised by later work (2026-11-21, OUTSTANDING A5)
+
+| Proposed detail | Decision | Where |
+|---|---|---|
+| Batch grant recommendations (`/v1/recommendations:batch`) | **Added** as an operation of API-09. Each item carries its own idempotency key; partial acceptance returns per-item results. Needed for year-end volume and advisor bulk submissions (WF-05) | API-09 |
+| Grant verification view (`/v1/grants/{id}/verification`) | **Added** as a read sub-resource of API-10. It returns the evidence the decision used: list versions, screening result and determination reference. For donors, advisors and auditors; no new authority | API-10 |
+| Party preferences (`/v1/parties/{id}/preferences`) | **Added** as a sub-resource of API-02: communication channels, anonymity default and recognition defaults. Changes to payout-relevant defaults require step-up (DD-021) | API-02 |
+| Policy evaluation (`/v1/policies/{id}/evaluate`) | **Already covered** by API-13 (partner exposure for evaluate; publish stays internal). Includes suitability policies used in acquisition (functional area A) | API-13 |
+| Shared-determination entity | **Added** to the canonical data model as `Determination`. Exposed through API-35. Expenditure responsibility excluded (per grant) | Data model; API-35 |

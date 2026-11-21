@@ -15,7 +15,7 @@
 | A2 | Reconcile agent names used in functional areas, workflows and workflow-innovation with the 19-agent catalog | `05-agent-architecture/agent-catalog.csv`; `workflow-innovation/06-agent-opportunities/` | A scan of every document found no unmapped agent name; 4 wordings were added to the mapping table (`workflow-innovation/06-agent-opportunities/agent-opportunity-catalog.md` §3) | **done** |
 | A3 | Map functional-area local workflow IDs (WF-A1…WF-N5) to WF-01…WF-24, or list them as sub-workflows | `02-business-capabilities/functional-areas/local-workflow-mapping.csv` | 73 local workflows: 58 mapped to a WF or XW workflow (same as, part of, related), 15 area-local | **done** |
 | A4 | Decide on the ~40 proposed events and ~20 interface groups from the cross-enterprise workflows: add to the catalogs or reject with a reason | `workflow-innovation/04-cross-enterprise-workflows/README.md`; `06-data-and-knowledge/events.csv`; `04-enterprise-apis/api-catalog.csv` | Each proposal is marked added or rejected; coverage tests still pass | open |
-| A5 | Decide on the interface details raised earlier: batch recommendations, grant verification, party preferences, policy evaluate, shared-determination entity | `04-enterprise-apis/api-catalog.md` | Each is marked added or rejected | open |
+| A5 | Decide on the interface details raised earlier: batch recommendations, grant verification, party preferences, policy evaluate, shared-determination entity | `04-enterprise-apis/api-catalog.md` (decisions section) | 3 added as sub-resources or operations, 1 already covered, `Determination` entity added to the data model | **done** |
 | A6 | Apply the adversarial review's design-level maturity downgrades to the design catalog | `workflow-innovation/03-alternative-designs/design-catalog.csv` | Added `audit_verdict` and `maturity_after_audit` for all 45 reviewed designs; 8 downgrades applied; W1–W5 placeholders and 2 missing designs filled from the review | **done** |
 | A7 | Cost model assumes 18 agent families; the reconciled catalog has 31. Update `AgentFamilies` and regenerate outputs (agent-owner FTE rises from 4 to 7 at 6 families per owner), then update the headline staffing figures in 09- and 14- | `models/Daf.Enterprise/Economics.fs`; `09-financial-models/`; `14-executive-conclusions/` | Outputs regenerated; documents consistent; tests pass | open |
 
@@ -54,4 +54,5 @@
 | 2026-11-21 | A1 done | bb4f8da |
 | 2026-11-21 | A6 done | d00cc9b, 428542d |
 | 2026-11-21 | A2 done; A7 added | 215ee5e |
-| 2026-11-21 | A3 done | (this commit) |
+| 2026-11-21 | A3 done | 131416a, 04fd899 |
+| 2026-11-21 | A5 done | (this commit) |
