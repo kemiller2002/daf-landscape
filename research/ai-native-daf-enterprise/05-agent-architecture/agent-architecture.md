@@ -139,3 +139,11 @@ Cost per AgentRun is recorded, and cost per *completed outcome* is computed by t
 | P12 | Invoke another agent directly or extend its own run beyond the orchestrator's step budget | §4 |
 
 These prohibitions are enforced structurally: the corresponding tools do not exist in the broker. They are **tested as invariants** in the F# proof of concept ([`authority-boundaries.md`](authority-boundaries.md) §3). They may be revisited only through the change process, with legal authority, validated controls and board approval (addendum §7 Category 5).
+
+## Update (2026-11-21): public evaluation datasets now exist for two agent roles
+
+The statement that no public evaluation datasets exist still holds for DAF-specific vetting judgments. It no longer holds for:
+- **sanctions entity matching:** OpenSanctions Pairs, 755,540 labelled pairs (landscape LS-049);
+- **charity-recipient resolution:** a labelled benchmark built from public Schedule I lines, [`data/charity-vetting-ai/resolution-eval-sample.csv`](../../../data/charity-vetting-ai/resolution-eval-sample.csv). See the [charity-vetting deep dive](../charity-vetting-ai/README.md) §3 and §7.
+
+The sanctions near-match triage agent and the recipient-resolution agent should be evaluated on these sets before shadow deployment.

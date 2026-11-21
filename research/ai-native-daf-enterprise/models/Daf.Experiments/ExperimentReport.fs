@@ -107,3 +107,65 @@ let network (summaryPath: string) =
         |> List.map (fun m -> String.Join(",", [ q m.Model; string m.Customers; f2 m.Revenue; f2 m.Cost; f2 (m.Revenue - m.Cost); q m.Note ]))
         |> csv "model,customers,revenue_usd,cost_usd,operating_result_usd,note"
     curveCsv, summary, models, (orders |> List.map (fun o -> o, total o))
+
+// ---------------- charity-vetting-ai: public-data benchmarks ----------------
+let vettingResolution (bmfDir: string) (samplePath: string) =
+    let orgs = Vetting.loadBmf bmfDir
+    let ix = Vetting.buildIndex orgs
+    let qs = Vetting.loadQueries samplePath
+    // label consistency: is the filed EIN a current BMF record, and does its name agree with the filed name?
+    let inBmf = qs |> List.filter (fun q -> ix.ByEin.ContainsKey q.FiledEin)
+    let nameAgrees =
+        inBmf |> List.filter (fun q ->
+            let o = ix.ByEin.[q.FiledEin]
+            let a = Vetting.keyTokens q.Name |> Set.ofList
+            let b = Vetting.keyTokens o.Name |> Set.ofList
+            not (Set.isEmpty (Set.intersect a b)) || Vetting.exactKey q.Name = Vetting.exactKey o.Name)
+    let evalQs = inBmf   // ground truth usable only where the filed EIN is a current BMF record
+    let ambiguity (q: Vetting.Query) = ix.ByExact.TryFind(Vetting.exactKey q.Name) |> Option.map List.length |> Option.defaultValue 0
+    let strata =
+        [ "all", (fun (_: Vetting.Query) -> true)
+          "name unique nationally (exact key appears once)", (fun q -> ambiguity q = 1)
+          "name shared by 2-5 orgs", (fun q -> let a = ambiguity q in a >= 2 && a <= 5)
+          "name shared by 6+ orgs", (fun q -> ambiguity q >= 6)
+          "exact key absent from BMF (spelling/format differs)", (fun q -> ambiguity q = 0) ]
+    let methods =
+        [ "exact name, national", Vetting.ExactNameNational
+          "exact name + state", Vetting.ExactNameState
+          "exact name + state, city/zip tie-break", Vetting.ExactNameStateCityZip
+          "fuzzy TF-IDF, accept >=0.85 & margin >=0.10", Vetting.FuzzyTfIdf(0.85, 0.10)
+          "fuzzy TF-IDF, accept >=0.95 & margin >=0.20", Vetting.FuzzyTfIdf(0.95, 0.20)
+          "cascade: deterministic, then fuzzy 0.95/0.20, else refer", Vetting.Cascade ]
+    let rows =
+        [ for (sname, sf) in strata do
+            let sq = evalQs |> List.filter sf
+            for (mname, m) in methods do
+                let s = Vetting.score mname ix m sq
+                yield String.Join(",", [ q sname; q s.Method; string s.Queries; string s.Resolved; string s.Correct; string s.Wrong
+                                         string s.Referred; string s.NoMatch; f2 (s.Precision * 100.0); f2 (s.Coverage * 100.0); string s.TruthInReferredCandidates ]) ]
+    let header = "stratum,method,queries,resolved,correct,wrong,referred,no_match,precision_pct,coverage_pct,truth_in_referred_top_candidates"
+    let consistency =
+        csv "metric,value"
+            [ "sample_lines," + string qs.Length
+              "filed_ein_is_current_bmf_record," + string inBmf.Length
+              "filed_ein_not_in_current_bmf," + string (qs.Length - inBmf.Length)
+              "filed_ein_in_bmf_but_name_shares_no_token," + string (inBmf.Length - nameAgrees.Length)
+              "bmf_records_loaded," + string ix.N ]
+    csv header rows, consistency, ix
+
+let vettingScreening (ix: Vetting.BmfIndex) (ofacDir: string) (fullLinesPath: string) =
+    let entries = Vetting.loadOfac ofacDir
+    let si = Vetting.buildScreenIndex entries
+    let names =
+        System.IO.File.ReadLines fullLinesPath |> Seq.skip 1 |> Seq.map Vetting.loadQueriesLine |> Seq.map (fun q -> q.Name)
+        |> Seq.filter (fun n -> n <> "") |> Seq.distinctBy Vetting.exactKey |> List.ofSeq
+    let matched = Vetting.matchAll si names
+    let rows =
+        [ 0.88; 0.92; 0.95; 0.98; 1.0 ]
+        |> List.map (fun t ->
+            let r = Vetting.screenMatched matched t
+            let byType = r.AlertsByEntryType |> List.map (fun (k, v) -> k + "=" + string v) |> String.concat "; "
+            String.Join(",", [ f2 t; string r.NamesScreened; string r.Alerts; string r.AlertsEntityTypeOnly; string r.AlertsAfterTokenCoverageRule
+                               f2 (100.0 * float r.Alerts / float r.NamesScreened); string r.AlertsPersonLikeRecipient; q byType ]))
+    csv "jaro_winkler_threshold,distinct_recipient_names,alerts,alerts_on_entity_entries,alerts_after_token_coverage_rule,alert_rate_pct,alerts_where_recipient_name_is_person_like,alerts_by_list_entry_type" rows,
+    entries.Length

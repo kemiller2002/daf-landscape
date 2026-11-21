@@ -204,3 +204,11 @@ Market: [TIFIN Louise](https://www.prnewswire.com/news-releases/tifin-give-launc
 
 17. **`ai-governance-failure-modes.md`, Exec #2.** Add:
     > "These counts are rubric ratings against unconstrained AI, with no observed DAF AI incidents and no baseline for human error rates."
+
+## Correction (2026-11-21), governing
+
+**F02 evidence relabelled.** This file cites Benevity's "30% → <3%" figure as evidence that decline rates are material and movable. The source measures **employee match-request declines** under Benevity's Match Assurance, attributed to one partner. It does not measure charity-vetting or grant decline rates.
+
+The F02 failure mode (false holds and declines of legitimate grantees) stands on the de-risking evidence instead (see [`../ai-native-daf-enterprise/charity-vetting-ai/landscape-and-evidence.md`](../ai-native-daf-enterprise/charity-vetting-ai/landscape-and-evidence.md) §5 and §10, LS-032, LS-035, LS-068).
+
+**Flag-only rule clarified.** Deterministic, documented and tested rules may clear below-threshold sanctions false positives (REG-036). Probabilistic models may rank, explain and add flags, but never dispose (charity-vetting deep dive §1.6).

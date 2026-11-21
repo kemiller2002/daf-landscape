@@ -1,0 +1,6 @@
+metric,value
+sample_lines,20000
+filed_ein_is_current_bmf_record,18222
+filed_ein_not_in_current_bmf,1778
+filed_ein_in_bmf_but_name_shares_no_token,448
+bmf_records_loaded,1984891

@@ -1,0 +1,26 @@
+stratum,method,queries,resolved,correct,wrong,referred,no_match,precision_pct,coverage_pct,truth_in_referred_top_candidates
+"all","exact name, national",18222,12983,12844,139,1870,3369,98.93,71.25,1275
+"all","exact name + state",18222,13633,13551,82,570,4019,99.4,74.82,433
+"all","exact name + state, city/zip tie-break",18222,14031,13935,96,172,4019,99.32,77,93
+"all","fuzzy TF-IDF, accept >=0.85 & margin >=0.10",18222,12425,12209,216,5382,415,98.26,68.19,4191
+"all","fuzzy TF-IDF, accept >=0.95 & margin >=0.20",18222,9366,9301,65,8441,415,99.31,51.4,7134
+"name unique nationally (exact key appears once)","exact name, national",12983,12983,12844,139,0,0,98.93,100,0
+"name unique nationally (exact key appears once)","exact name + state",12983,12518,12483,35,0,465,99.72,96.42,0
+"name unique nationally (exact key appears once)","exact name + state, city/zip tie-break",12983,12518,12483,35,0,465,99.72,96.42,0
+"name unique nationally (exact key appears once)","fuzzy TF-IDF, accept >=0.85 & margin >=0.10",12983,10214,10151,63,2648,121,99.38,78.67,2382
+"name unique nationally (exact key appears once)","fuzzy TF-IDF, accept >=0.95 & margin >=0.20",12983,8025,8004,21,4837,121,99.74,61.81,4534
+"name shared by 2-5 orgs","exact name, national",1095,0,0,0,1095,0,0,0,977
+"name shared by 2-5 orgs","exact name + state",1095,858,840,18,120,117,97.9,78.36,109
+"name shared by 2-5 orgs","exact name + state, city/zip tie-break",1095,922,901,21,56,117,97.72,84.2,45
+"name shared by 2-5 orgs","fuzzy TF-IDF, accept >=0.85 & margin >=0.10",1095,633,608,25,455,7,96.05,57.81,389
+"name shared by 2-5 orgs","fuzzy TF-IDF, accept >=0.95 & margin >=0.20",1095,403,393,10,685,7,97.52,36.8,605
+"name shared by 6+ orgs","exact name, national",775,0,0,0,775,0,0,0,298
+"name shared by 6+ orgs","exact name + state",775,257,228,29,450,68,88.72,33.16,324
+"name shared by 6+ orgs","exact name + state, city/zip tie-break",775,591,551,40,116,68,93.23,76.26,48
+"name shared by 6+ orgs","fuzzy TF-IDF, accept >=0.85 & margin >=0.10",775,185,159,26,585,5,85.95,23.87,394
+"name shared by 6+ orgs","fuzzy TF-IDF, accept >=0.95 & margin >=0.20",775,91,84,7,679,5,92.31,11.74,474
+"exact key absent from BMF (spelling/format differs)","exact name, national",3369,0,0,0,0,3369,0,0,0
+"exact key absent from BMF (spelling/format differs)","exact name + state",3369,0,0,0,0,3369,0,0,0
+"exact key absent from BMF (spelling/format differs)","exact name + state, city/zip tie-break",3369,0,0,0,0,3369,0,0,0
+"exact key absent from BMF (spelling/format differs)","fuzzy TF-IDF, accept >=0.85 & margin >=0.10",3369,1393,1291,102,1694,282,92.68,41.35,1026
+"exact key absent from BMF (spelling/format differs)","fuzzy TF-IDF, accept >=0.95 & margin >=0.20",3369,847,820,27,2240,282,96.81,25.14,1521

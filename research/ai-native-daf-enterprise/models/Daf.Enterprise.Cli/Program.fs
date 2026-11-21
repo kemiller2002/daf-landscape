@@ -4,8 +4,24 @@ open System.IO
 open Daf.Enterprise.Economics
 open Daf.Enterprise.Report
 
+/// Public-data charity-vetting benchmarks (heavy; run separately):
+///   dotnet run --project Daf.Enterprise.Cli -- --vetting <workstream-dir> <bmf-dir> <ofac-dir> <full-lines-csv>
+let runVetting (root: string) (bmfDir: string) (ofacDir: string) (fullLines: string) =
+    let outDir = Path.Combine(root, "charity-vetting-ai", "results")
+    Directory.CreateDirectory outDir |> ignore
+    let sample = Path.Combine(root, "..", "..", "data", "charity-vetting-ai", "resolution-eval-sample.csv")
+    let (resCsv, consistency, ix) = Daf.Experiments.ExperimentReport.vettingResolution bmfDir sample
+    File.WriteAllText(Path.Combine(outDir, "v1-resolution.csv"), resCsv)
+    File.WriteAllText(Path.Combine(outDir, "v1-label-consistency.csv"), consistency)
+    let (screenCsv, nEntries) = Daf.Experiments.ExperimentReport.vettingScreening ix ofacDir fullLines
+    File.WriteAllText(Path.Combine(outDir, "v2-sanctions-screening.csv"), screenCsv)
+    printfn "vetting outputs written to %s (OFAC entries incl. aliases: %d)" outDir nEntries
+    0
+
 [<EntryPoint>]
 let main argv =
+  if argv.Length >= 5 && argv.[0] = "--vetting" then runVetting argv.[1] argv.[2] argv.[3] argv.[4]
+  else
     let root = if argv.Length > 0 then argv.[0] else ".."
     let out09 = Path.Combine(root, "09-financial-models", "outputs")
     let out11 = Path.Combine(root, "11-scenarios-and-validation", "outputs")
