@@ -53,7 +53,7 @@ These are enforced by tests in `models/Daf.Enterprise.Tests/IdentityTests.fs`: e
 
 - **Security:** OAuth 2.0 with the FAPI 2.0 security profile for partner and money-adjacent APIs. Machine clients use sender-constrained tokens (mTLS or DPoP). Step-up uses RFC 9470. See [identity and partner federation](../08-governance-and-compliance/identity-and-partner-federation.md).
 - **Contracts:**
-  - A machine-readable contract (for example OpenAPI) for every API, written by whoever builds the platform. This research specifies the requirement only.
+  - A machine-readable contract (for example OpenAPI) for every API, written by whoever builds the platform. Five illustrative contracts from earlier work are kept in [`openapi/`](openapi/) as worked examples; no more will be written here.
   - Idempotency-Key on every state-changing request.
   - RFC 9457 problem details for errors.
   - Additive versioning with a deprecation window.

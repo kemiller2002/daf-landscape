@@ -4,7 +4,7 @@
 
 **Machine-readable catalog:** [`api-catalog.csv`](api-catalog.csv) (36 interface domains, each with all twelve required attributes).
 
-**Contracts:** none. Five draft OpenAPI documents written on 2026-11-20 were removed on 2026-11-21, when the owner set the scope as analysis only. They remain in git history.
+**Contracts:** [`openapi/`](openapi/) keeps five illustrative OpenAPI 3.1 documents, written on 2026-11-20, for the most consequential surfaces. They are retained as worked examples of the requirements. Under the owner's 2026-11-21 scope (analysis only), no further contracts will be written.
 
 **Consistency with other artifacts:**
 - Resource families match the workflows in [`../03-workflow-redesign/`](../03-workflow-redesign/).
