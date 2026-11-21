@@ -111,7 +111,7 @@ At the parent model's 100k-account scale (30 grants-compliance FTE), smoothing a
 | Claim | Break-even or condition | Most sensitive assumption |
 |---|---|---|
 | AI-native approval beats manual on cost and control | Holds whenever human per-item catch rates on benefit and related-party defects are below the AI flagger's recall (E2) | Human catch rates (GAP-004) and AI recall under attack |
-| Shared determinations add savings | Reuse ≥ ~20% of non-routine reviews | Reuse factor (measure on partner history) |
+| Shared determinations add savings | Reuse ≥ ~20% of non-routine reviews, **and** a grants-compliance team big enough to cut whole FTE (≥ ~100k accounts; parent 09 B1 update: +$0.36m at 100k, −$30k at 10k for 50% reuse) | Reuse factor and determination minute share (measure on partner history) |
 | Grant ID in remittance | Always positive for recipients | Recipient bank passing addenda |
 | Netting | Positive if per-payment cost > ~$0.10 | Return rate × grants per payment |
 | Verification network | Determination value ≥ ~$270, or anchor members | Cost per determination; anchor participation |

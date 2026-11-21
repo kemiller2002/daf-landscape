@@ -38,6 +38,7 @@ let main argv =
     write out09 "cost-lines.csv" (costLines ps baseScales)
     write out09 "sensitivity-100k.csv" (sensitivityTable ps (baseScenario 100000m))
     write out09 "sensitivity-10k.csv" (sensitivityTable ps (baseScenario 10000m))
+    write out09 "determination-reuse.csv" (reuseTable ps)
     write out09 "models-abcd.csv" (modelTable (modelGrid ps))
     let be label tmpl =
         match breakEvenAccounts ps tmpl with

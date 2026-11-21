@@ -41,6 +41,11 @@ let sensitivityTable (ps: Parameters) (s: Scenario) =
     |> List.map (fun x -> String.Join(",", [ q x.Factor; r0 baseCost; r0 x.Low; r0 x.High; r2 ((x.High - x.Low) / baseCost * 100m) ]))
     |> csv "factor,base_cost_usd,cost_at_x0.5,cost_at_x2,swing_pct_of_base"
 
+let reuseTable (ps: Parameters) =
+    reuseSweep ps [ 10000m; 100000m; 1000000m ] [ 0.15m; 0.30m; 0.60m ] [ 0m; 0.2m; 0.5m; 0.8m ]
+    |> List.map (fun r -> String.Join(",", [ r0 r.Accounts; r2 r.MinuteShare; r2 r.ReuseRate; r0 r.GrantsComplianceFte; r0 r.NetworkFees; r0 r.AiNativeCost; r0 r.SavingVsNoReuse ]))
+    |> csv "accounts,determination_minute_share,reuse_rate,grants_compliance_fte,network_fees_usd,ai_native_cost_usd,saving_vs_no_reuse_usd"
+
 // ---------- Models A/B/C/D on one grid ----------
 type ModelRow =
     { Model: string

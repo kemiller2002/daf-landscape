@@ -214,3 +214,29 @@ The tables below were regenerated from `outputs/` and **supersede the correspond
 | B AI-native | -170.29% | 58.52% | 84.61% | 88.12% |
 | C infrastructure | -3133.16% | -351.49% | -36.32% | 5.78% |
 | D hybrid | -451.64% | 16.97% | 70.00% | 77.07% |
+
+## Update 2026-11-21 (OUTSTANDING B1): reusing determinations
+
+**Question.** How much do reused determinations save the sponsor's cost model? These are foreign-charity equivalency, fiscal-sponsor and new-organization reviews that another sponsor or a shared record has already completed.
+
+**Model** (`Economics.fs`, output [`outputs/determination-reuse.csv`](outputs/determination-reuse.csv)):
+- Grants-compliance hours = exception hours × (1 − determination minute share × reuse rate).
+- A network fee is charged at 40% [A] of the labor value saved.
+- There are three new parameters, all [A]:
+  - determination minute share: 0.30, sensitivity 0.15–0.60;
+  - reuse rate: **0 by default**, so every earlier figure in this document is unchanged;
+  - network fee share: 0.40.
+
+**Results.** Net saving per year against no reuse, at a 0.30 minute share:
+
+| Accounts | 20% reuse | 50% reuse | 80% reuse | Grants-compliance FTE at 50% |
+|---|---|---|---|---|
+| 10k | −$12k | −$30k | −$48k | 3 (unchanged) |
+| 100k | +$46k | +$363k (1.3% of cost) | +$680k | 26 (from 30) |
+| 1m | +$1.8m | +$4.5m (2.1% of cost) | +$7.1m | 255 (from 300) |
+
+**Findings**
+1. **At small scale, reuse loses money.** At 10k accounts, the 3 grants-compliance FTE cannot shrink by a fraction of a person, so the network fee is pure cost. Reuse only pays once the role is large enough to cut whole people. The single 10k exception is the 0.60 share with 80% reuse, at +$70k.
+2. **At scale it is real but modest.** The best tested case is a 0.60 share with 80% reuse at 1m accounts: +$14.3m, or 6.7% of cost. In the base case it is 1–2% of total cost, because grants compliance is one role among ten and staff are only part of cost.
+3. **This agrees with the workflow-innovation result (09 §4).** The network's value sits with members that do many costly determinations. It is a scale feature of Model C's multi-tenant platform, not a reason to change the B/C/D ranking. No conclusion in this document changes.
+4. **The most sensitive input is the determination minute share.** It is unmeasured. Measuring it needs partner case history (GAP-001, OUTSTANDING C-group).
