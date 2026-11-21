@@ -1,6 +1,6 @@
 # Event catalog and event-driven operating model
 
-**Catalog data:** [`events.csv`](events.csv) has 58 business events (50 original plus 8 added after cross-deliverable review: `PaymentGateDenied`, `DonorConfirmationRequested`/`Received`, `ScheduledGrantDue`, `KillSwitchActivated`, `JournalPosted`, `CharityEligibilityHoldApplied`, `PostPaymentReviewOpened`). Each row gives the producer, consumers, authoritative state change, required controls, exception handling, audit evidence, and whether the event can lead to money movement. It covers every example in addendum §20, as shown below.
+**Catalog data:** [`events.csv`](events.csv) has 99 business events (41 added on 2026-11-21 from the cross-enterprise workflows and the new API domains; see `../04-enterprise-apis/a4-event-endpoint-decisions.csv`). Earlier: 58 (50 original plus 8 added after cross-deliverable review: `PaymentGateDenied`, `DonorConfirmationRequested`/`Received`, `ScheduledGrantDue`, `KillSwitchActivated`, `JournalPosted`, `CharityEligibilityHoldApplied`, `PostPaymentReviewOpened`). Each row gives the producer, consumers, authoritative state change, required controls, exception handling, audit evidence, and whether the event can lead to money movement. It covers every example in addendum §20, as shown below.
 
 | Addendum §20 example | Catalog event(s) |
 |---|---|

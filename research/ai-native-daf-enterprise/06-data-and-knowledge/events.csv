@@ -57,3 +57,44 @@ KillSwitchActivated,operations,Authorized person (CTO/CRCO/COO),Agent runtime / 
 JournalPosted,accounting,C4.1 Ledger (posting rules),C4.2;C4.4;C6.2,Journal entry appended,posting rule version; balanced entry invariant,unbalanced entry rejected -> incident,entry + rule version,no
 CharityEligibilityHoldApplied,grant,C3.1 monitor,C3.3;C3.4;C4.1 (commitment reversed),Approved-unreleased grant returned to human decision,block-never-release rule,released payments -> PostPaymentReviewOpened,hold record,no (blocks)
 PostPaymentReviewOpened,grant,C3.1 monitor,C5.3;Head of Grants Compliance,Review case for already-released grant,—,possible recovery or reporting decision (H),case record,no
+OrganizationRegistered,partner,API-24 Organizations,C1.3;C5.4;C4.5,Partner organization and program created,sponsor admin approval; contract reference,incomplete trust config blocks activation,registration record + approver,no
+PartnerTrustChanged,partner,API-24 Organizations,Identity policy;C5.6;C4.5,Federation/MFA attestation/accepted amr updated,CISO approval; CTL-051,change without attestation reverts to untrusted MFA,change record + attestation reference,no
+PartnerUserProvisioned,identity,API-25 SCIM (partner IdP),C1.2;C5.6,Partner user active with mapped role,group-to-role mapping; CTL-052,unmapped group -> no role,SCIM event log,no
+PartnerUserDeprovisioned,identity,API-25 SCIM (partner IdP),C1.2;C5.6;API gateway,User inactive; sessions and tokens revoked,CTL-052 latency monitor,revocation failure -> incident,SCIM event + revocation confirmation,no
+SessionStepUpRequired,identity,API-26 Sessions,Client applications;C6.2,None (challenge issued),RFC 9470 challenge; Identity policy,repeated failures -> lock + recovery flow,challenge record,no
+SessionRevoked,identity,API-26 Sessions,API gateway;C5.6,Session and tokens invalid,revocation propagation check,propagation failure -> incident,revocation record,no
+LiquidityBufferBreached,treasury,C2.5 Liquidity model,Investment Committee;C2.4;C5.3,Breach recorded,buffer parameter version (CTL-047),sustained breach -> CIO case,evaluation record,no
+LiquidityParameterChanged,treasury,API-27 (Investment Committee approval),C2.5;C6.3;C4.5,Buffer parameters versioned,IC approval; CTL-010 monotonic rule,loosening without back-test rejected,approval + parameter version,no
+LiquidityForecastPublished,treasury,C2.5 Liquidity model,C2.4;Treasury;C6.3,Forecast series stored (simulated vs measured labelled),model version; provenance label,forecast error beyond tolerance -> review,forecast + model version,no
+ObligationDue,grant,C3.5 Post-grant,Grants compliance;Grantee,Obligation open with due date,ER schedule (CTL-060),—,obligation record,no
+ReportReceived,grant,API-28 (grantee submit),C3.5;Post-grant ER tracker agent (read),Report attached to obligation,document hash; grantee authentication,incomplete report -> follow-up,report document,no
+ObligationOverdue,grant,C3.5 Post-grant,Head of Grants Compliance;Board (I),Obligation overdue,escalation schedule,persistent overdue -> ER failure procedure,escalation record,no
+AlertRaised,screening,API-29 Screening,Sanctions officer;Sanctions near-match triage agent (rank only),Alert open with list version and score,CTL-012; CTL-013,—,alert record (10-year retention),no
+AlertDisposed,screening,Sanctions officer (person),C3.3;C2.1;C4.5,Alert closed by a person or by a documented deterministic rule,person or rule only (REG-036; CTL-008),true match -> blocking/reporting workflow,disposition with person or rule id,no
+DelegationChanged,governance,API-30 (board or delegate),Authorization service;C4.5,Delegation-of-authority register updated,board resolution reference,—,resolution + register version,no
+ParameterExpiring,governance,API-30 parameter register,Parameter owner;Board pack,Expiry warning issued,CTL-047,expired -> revert to conservative value,warning record,no
+ParameterRenewed,governance,API-30 (owner + approver),Policy engine;C4.5,Parameter expiry extended,approval; CTL-047,—,approval record,no
+VendorSlaBreached,vendor,C5.5 Vendor monitor,COO;C5.3,Breach recorded,SLA telemetry,repeated breach -> exit readiness review,telemetry record,no
+CustodianFailoverActivated,operations,COO (person) via runbook,C2.4;C2.5;C3.4;C1.4,Degraded-mode cash path active,runbook; human activation; CTL-028,—,activation record,no
+SimulationCompleted,learning,API-32 Twin,COO;CFO;Board,Simulation result stored with provenance,provenance label mandatory,—,result + parameter set,no
+ImprovementProposed,learning,Improvement agent (proposal only),C6.4 Change board,Proposal recorded (no state change),agent cannot change state (INV-A5),—,AgentRun + proposal,no
+ChangeApproved,learning,API-33 (change board person),Deployment;C4.5,Change approved for deployment,author != approver (CTL-009/010),—,approval record,no
+ChangeDeployed,learning,API-33 deployment,C6.2;C4.5,Change live,approved change only,failed verification -> rollback,deployment record,no
+ChangeVerified,learning,API-33 verification,C6.2;Board (I),Post-deployment effect verified,predefined metrics,mismatch -> rollback or review,verification record,no
+PolicyCompiled,policy,C5.1 Policy compiler,Back-test harness;C4.5,Compiled rule set + generated prose + tests stored,compiler version,compile error -> blocked,artifact hashes,no
+PolicyBackTestCompleted,policy,C5.1 Back-test harness,Change board;C4.5,Diff report on replay corpus stored,corpus version,unexplained diffs block publish,diff report,no
+TransferRequestReceived,account,API-34 (receiving or sending sponsor),C3.3;C1.4,Inbound or outbound transfer case open,eligibility of counterparty sponsor,ineligible counterparty -> decline,request record,no
+TransferAssetsDelivered,account,API-34 / custodian,C4.1;C4.2;C1.4,Assets moved (cash or in kind),sending sponsor decision (DD-003),delivery failure -> reconciliation break,settlement reference,yes (via payment gate or custody)
+HistoryPackageDelivered,account,API-34,Receiving sponsor;Donor,Open grant record history delivered,donor consent; schema validation,—,package hash,no
+TransferCompleted,account,API-34,C1.4;C4.1;C4.5,Transfer closed,assets and history delivered,—,completion record,no
+DeterminationIssued,grant,C3.3 Grants compliance specialist (person),Policy engine;API-35,Determination active with scope and expiry,person authorship; CTL-060,—,determination file,no
+DeterminationApplied,grant,C3.3 Policy engine,C4.5,Grant decision references the determination,within scope and unexpired,out of scope -> refer,decision record,no
+DeterminationExpiring,grant,C3.3 Determination store,Grants compliance specialist,Renewal task opened,expiry monitor,expired -> grants refer to a person,warning record,no
+DeterminationInvalidated,grant,C3.3 (trigger or person),Policy engine;in-flight grants,Determination inactive; dependent grants re-evaluated,trigger rules,—,invalidation record,no
+AuditPackageGenerated,assurance,C4.5 Evidence ledger,Auditor;Regulator response,Package produced for a scope and period,scope definition; hash,missing evidence -> coverage test fails,package hash,no
+RegulatoryInquiryOpened,compliance,General Counsel (person),C4.5;CEO;Board (I),Inquiry case open; legal hold applied,CTL-058 legal hold,—,inquiry record,no
+InquiryEvidenceExported,compliance,C4.5 (GC approval),Regulator (external),Evidence export recorded,GC approval; redaction (CTL-057),—,export manifest + hash,no
+ReplayVerified,operations,Replay job,C4.5;C5.5,Projections reproduced from the log,invariants,—,verification report,no
+ReplayMismatch,operations,Replay job,CTO;Controller;C5.3,Mismatch recorded,invariants,investigate before any migration,mismatch report,no
+RecipientPassportRefreshed,registry,C3.1 Eligibility monitor,C3.3;C6.1,Recipient evidence record versioned,source diff; CTL-050,load anomaly -> block publish,diff evidence,no
+WindDownPlanApproved,governance,Board,All capabilities;State AG (notice),Wind-down plan active,board resolution; AG notice where required,—,resolution,no

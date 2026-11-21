@@ -147,7 +147,7 @@ There are 19 agents: 15 do assisted analysis (Category 2) and 4 are supervised e
 
 ## 8. Canonical data model
 
-There are 35 entities, each with one authoritative owner ([data model](../06-data-and-knowledge/canonical-data-model.md)), and 58 business events with producer, consumers, controls, exceptions and evidence ([`events.csv`](../06-data-and-knowledge/events.csv)).
+There are 36 entities, each with one authoritative owner ([data model](../06-data-and-knowledge/canonical-data-model.md)), and 99 business events with producer, consumers, controls, exceptions and evidence ([`events.csv`](../06-data-and-knowledge/events.csv)).
 - **The event ledger is the system of record.** It is bitemporal for eligibility and financial facts ("what did we know when we approved this grant?").
 - **Every external fact** carries provenance.
 - **Every decision** carries the policy and data versions.

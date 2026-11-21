@@ -121,3 +121,12 @@ let ``every legal requirement that applies to the sponsor maps to existing contr
         Assert.NotEqual<string>("GAP", r.["status"])
         if r.["status"] = "mapped" then
             r.["control_ids"].Split(';') |> Array.iter (fun c -> Assert.True(controls.Contains c, r.["req_id"] + " -> " + c)))
+
+[<Fact>]
+let ``every event an API publishes exists in the event catalog (A4)`` () =
+    let events = readCsv "06-data-and-knowledge/events.csv" |> List.map (fun r -> r.["event_type"]) |> set
+    let camel = System.Text.RegularExpressions.Regex(@"\b[A-Z][a-z]+(?:[A-Z][a-z]+)+\b")
+    readCsv "04-enterprise-apis/api-catalog.csv"
+    |> List.iter (fun r ->
+        for m in camel.Matches(r.["events_published"]) do
+            Assert.True(events.Contains m.Value, r.["api_id"] + " publishes unknown event " + m.Value))
