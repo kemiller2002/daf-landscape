@@ -19,11 +19,11 @@
 ## 1. Bottom line
 
 1. **Vetting is mostly not an AI problem.** Of the ten vetting tasks (§2), the load-bearing legal determinations are deterministic lookups against authoritative public data: IRS Pub 78, the EO BMF, the Auto-Revocation List and OFAC. The IRS lets a sponsor *rely* on those lists (Rev. Proc. 2018-32). An LLM restating them adds error and no information. **The evidence-supported AI roles are narrower:** resolving *which* organization is meant, triaging fuzzy sanctions alerts, extracting facts from documents, and *adding* risk flags.
-2. **Recipient resolution, "who is this?", is the hidden first step, and it is where deterministic methods run out.** On 18,222 labeled public Schedule I lines [X-public], a deterministic cascade of normalized exact name, then state, then city or ZIP resolves 77% at 99.3% precision. **The remaining quarter is hard:**
+2. **Recipient resolution, "who is this?", is the hidden first step, and it is where deterministic methods run out.** On 18,222 labeled public Schedule I lines [X-public], a deterministic cascade of normalized exact name, then state, then city or ZIP resolves 77% at 99.3% precision. Adding a conservative fuzzy step raises coverage to 82.0% at 99.05% precision. **The remaining quarter is hard:**
    - **Names shared by many organizations.** "First Baptist Church"-type names run at 88.7% precision on name and state alone.
    - **Spelling differences** (18.5% of lines). Only fuzzy matching helps, and it reaches 41% coverage at 92.7% precision.
 
-   For referred cases, the right organization is among the top candidates 72–78% of the time. That is the **ceiling** for an AI adjudicator choosing among candidates; the rest needs a person or more data.
+   For the cascade's 2,876 referred cases, the right organization is among the generated candidates 60% of the time. That is the **ceiling** for an AI adjudicator choosing among candidates; the rest needs a person or more data.
 3. **Fuzzy sanctions screening of charity names generates alerts that are, in practice, all false positives. Deterministic rules remove most of them before any AI is involved** [X-public]. 149,950 distinct recipient names were screened against 41,451 OFAC names and aliases:
 
    | Threshold | Alerts | Rate | After a token-coverage rule |
@@ -32,7 +32,7 @@
    | 0.92 | 218 | 0.15% | 41 |
    | Exact equality | 10 | — | — |
 
-   The 10 exact equalities are all against individual or vessel entries, not entities. The strongest external evidence for AI in vetting is LLM disambiguation of exactly these alerts: a Federal Reserve staff paper reports −92% false positives and +11% detection against fuzzy matching, but at more than 10⁴× the latency [preprint]. **None of it has been tested on charity populations.**
+   The 10 exact equalities are all against **vessel** names: a short charity name equals a listed ship's name. The strongest external evidence for AI in vetting is LLM disambiguation of exactly these alerts: a Federal Reserve staff paper reports −92% false positives and +11% detection against fuzzy matching, but at more than 10⁴× the latency [preprint]. **None of it has been tested on charity populations.**
 4. **The documented harm in charity screening is over-screening, not AI.** De-risking has fallen on Muslim, international, small and faith grantees. Two-thirds of U.S. nonprofits working abroad reported banking-access problems [NGO report]. FinCEN's October 2026 notice reaffirmed that most U.S. nonprofits are low-risk [regulatory]. **An AI that adds hits without a calibrated, accountable way to clear them would reproduce that harm faster.**
 5. **Funders barely use AI to decide.** 1% of foundations use generative AI to screen or choose grantees (Candid, n=529) [survey]. MacArthur's policy bans it. No DAF sponsor documents AI in eligibility or approval [repo V]. Grant-software AI (summaries, 990 financial scoring) is spreading, **with no published accuracy data** [vendor claim].
 6. **Design conclusion:** a **cascade**.
@@ -50,7 +50,7 @@
 
 | # | Vetting task | Legal or risk basis | Nature of the decision | Authoritative source | AI role (evidence) |
 |---|---|---|---|---|---|
-| T1 | **Recipient resolution** (which legal entity?) | Prerequisite to every check below | Deterministic when the EIN is given and consistent; ambiguous when free text | IRS EO BMF; donor-supplied EIN | **Adjudicate among candidates, for donor or staff confirmation** (V1 ceiling 72–78% of referred) |
+| T1 | **Recipient resolution** (which legal entity?) | Prerequisite to every check below | Deterministic when the EIN is given and consistent; ambiguous when free text | IRS EO BMF; donor-supplied EIN | **Adjudicate among candidates, for donor or staff confirmation** (V1: the truth is among the cascade's candidates in 60% of referred cases) |
 | T2 | Eligibility class (public charity, private foundation, Type III, government unit, church) | §4966; Rev. Proc. 2018-32 reliance | Deterministic | Pub 78, BMF foundation code, Auto-Revocation List | **None.** Restating lists adds error [repo V F01] |
 | T3 | Sanctions | OFAC strict liability; 10-year records (REG-036/037) | Deterministic screen; human disposition of true potential matches | SDN plus consolidated lists | **Rank and explain fuzzy alerts; never close a potential match** ([preprint] LS-048/049; V2) |
 | T4 | Foreign grantees: equivalency determination or expenditure responsibility | §4966, §4945(h); REG-002/020 | Legal judgment | Grantee documents; NGOsource-type EDs | **Extract and translate documents with citations; human judges** (no evidence of AI in EDs) |
@@ -96,7 +96,7 @@
 | **Exact name + state + city/ZIP tie-break** | **77.0%** | **99.3%** | 172 | 93 |
 | Fuzzy TF-IDF ≥0.85, margin ≥0.10 | 68.2% | 98.3% | 5,382 | 4,191 (78%) |
 | Fuzzy TF-IDF ≥0.95, margin ≥0.20 | 51.4% | 99.3% | 8,441 | 7,134 (85%) |
-| **Cascade** (deterministic → fuzzy 0.95/0.20 → refer) | CASCADE_COV | CASCADE_PREC | CASCADE_REF | CASCADE_TRUTH |
+| **Cascade** (deterministic → fuzzy 0.95/0.20 → refer) | **82.0%** | **99.05%** | 2,876 | 1,728 (60%) |
 
 **By difficulty** (the stratum is the number of BMF organizations sharing the normalized name):
 
@@ -131,13 +131,20 @@
 | 0.98 | 10 | 0.01% | 0 | 10 |
 | 1.00 (exact) | 10 | 0.01% | 0 | 10 |
 
-V2_BREAKDOWN
+**Alerts by list entry type:**
+
+| Threshold | Entity | Vessel | Individual | Aircraft | Recipient name is person-like (2–3 tokens, no organizational word) |
+|---|---|---|---|---|---|
+| 0.88 | 1,484 | 584 | 37 | 1 | 652 |
+| 0.92 | 137 | 77 | 4 | 0 | 87 |
+| 0.95 | 7 | 14 | 0 | 0 | 14 |
+| 1.00 | 0 | **10** | 0 | 0 | 10 |
 
 **Reading:**
 - **For a domestic charity population, nearly every fuzzy alert is a false positive.** These are U.S. charities that are mostly BMF-listed. **This experiment does not adjudicate any alert, and no recipient is named.** A name match is not a finding about any organization.
 - **Alert volume is governed by the threshold and by deterministic secondary rules far more than by AI.** One token-coverage rule removes 81–84% of alerts at the operational thresholds.
 - **The workload is real but small at scale.** At 0.92, about 41 alerts per 150k names would need a person *before* any AI. That is a few hours a year at sponsor scale, which matches the repository's finding that the operations-AI value pool is thin (EV-107).
-- **Exact name equalities happen.** All 10 are against individual or vessel entries. A named memorial fund or a common personal name equals a listed person's name, so **secondary identifiers** (entity vs individual, country, address) are essential. They are deterministic too.
+- **Exact name equalities happen.** All 10 are against **vessel** entries: short charity names equal to a listed ship's name. Vessel entries also produce 28% of alerts at 0.88. **Secondary identifiers** (entry type: a vessel cannot be a grantee; country; address) are deterministic and remove these outright.
 - **Where AI would add value:** ranking and explaining the residual alerts, with an evidence packet (list entry, programme, addresses and identifiers against the recipient's BMF record) for the sanctions officer. **Not closing them.**
 
 ## 5. Where AI helps, where it must not be used
