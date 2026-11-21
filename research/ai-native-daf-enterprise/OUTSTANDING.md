@@ -12,11 +12,12 @@
 | # | Item | Where | Done when | Status |
 |---|---|---|---|---|
 | A1 | Map each legal requirement (REG id) to at least one control (CTL id) | `08-governance-and-compliance/reg-control-mapping.csv` | 46 of 50 legal requirements mapped; 4 do not apply to a sponsor; 10 missing controls added (CTL-055 to CTL-064); test added | **done** |
-| A2 | Reconcile agent names used in functional areas, workflows and workflow-innovation with the 19-agent catalog | `05-agent-architecture/agent-catalog.csv`; `workflow-innovation/06-agent-opportunities/` | Every agent name maps to a catalog entry, a new agent, or "not an agent (deterministic job)" | open |
+| A2 | Reconcile agent names used in functional areas, workflows and workflow-innovation with the 19-agent catalog | `05-agent-architecture/agent-catalog.csv`; `workflow-innovation/06-agent-opportunities/` | A scan of every document found no unmapped agent name; 4 wordings were added to the mapping table (`workflow-innovation/06-agent-opportunities/agent-opportunity-catalog.md` §3) | **done** |
 | A3 | Map functional-area local workflow IDs (WF-A1…WF-N5) to WF-01…WF-24, or list them as sub-workflows | `02-business-capabilities/functional-areas/`, `03-workflow-redesign/workflows.csv` | Mapping table exists | open |
 | A4 | Decide on the ~40 proposed events and ~20 interface groups from the cross-enterprise workflows: add to the catalogs or reject with a reason | `workflow-innovation/04-cross-enterprise-workflows/README.md`; `06-data-and-knowledge/events.csv`; `04-enterprise-apis/api-catalog.csv` | Each proposal is marked added or rejected; coverage tests still pass | open |
 | A5 | Decide on the interface details raised earlier: batch recommendations, grant verification, party preferences, policy evaluate, shared-determination entity | `04-enterprise-apis/api-catalog.md` | Each is marked added or rejected | open |
 | A6 | Apply the adversarial review's design-level maturity downgrades to the design catalog | `workflow-innovation/03-alternative-designs/design-catalog.csv` | Added `audit_verdict` and `maturity_after_audit` for all 45 reviewed designs; 8 downgrades applied; W1–W5 placeholders and 2 missing designs filled from the review | **done** |
+| A7 | Cost model assumes 18 agent families; the reconciled catalog has 31. Update `AgentFamilies` and regenerate outputs (agent-owner FTE rises from 4 to 7 at 6 families per owner), then update the headline staffing figures in 09- and 14- | `models/Daf.Enterprise/Economics.fs`; `09-financial-models/`; `14-executive-conclusions/` | Outputs regenerated; documents consistent; tests pass | open |
 
 ## B. Analysis that public data or models can support (medium effort; no outside input)
 
@@ -51,4 +52,5 @@
 |---|---|---|
 | 2026-11-21 | List created | 2ffeb18 |
 | 2026-11-21 | A1 done | bb4f8da |
-| 2026-11-21 | A6 done | (this commit) |
+| 2026-11-21 | A6 done | d00cc9b, 428542d |
+| 2026-11-21 | A2 done; A7 added | (this commit) |

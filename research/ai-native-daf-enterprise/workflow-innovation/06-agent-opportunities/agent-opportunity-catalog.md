@@ -76,5 +76,9 @@ This matches the parent finding that the redesign, not the AI, creates the value
 | service | AG-09 | Same |
 | improvement | AG-16 | Same |
 | document | AG-08 | Same |
+| discovery agent; discovery/education agent | AG-11 Donor discovery and education | Same (added 2026-11-21, A2) |
+| reconciliation agent | AG-06 Reconciliation break triage (breaks), or AG-05 Orphan deposit matcher (unattributed receipts) | Same (added 2026-11-21, A2) |
+| drafting and impact agent | AG-13 Policy drafting and impact analysis | Same (added 2026-11-21, A2) |
+| donor agent; donor-side AI agent | **Not one of the enterprise's agents.** An external delegated principal acting for the donor (DD-017; INV-A6) | Governed by delegation caps and donor confirmation, not by the tool broker (added 2026-11-21, A2) |
 
 **Result:** 19 parent agents plus 12 new opportunities give **31 agent families**. Four parent-referenced names are deliberately *not* agents (QA sampler, identity-risk model, fairness monitor, integration assistant). The parent cost model assumed 18 agent families. If all 31 reach production, agent-ownership FTE rises by about 2 at 6 families per owner. That is a small cost against the model's sensitivity ranges.
