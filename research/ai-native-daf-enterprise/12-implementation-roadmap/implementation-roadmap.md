@@ -4,7 +4,7 @@
 **Machine-readable form:** [`roadmap-phases.csv`](roadmap-phases.csv).
 
 **Labels:**
-- **[A]** marks durations, budgets and team sizes. They are assumptions, sized to be consistent with the [financial model](../09-financial-models/financial-and-staffing-models.md). The C ramp has a peak capital need of about $6.4m at $300 per account with 20k-account clients. The calibrated B ramp needs about $12.8m.
+- **[A]** marks durations, budgets and team sizes. They are assumptions, sized to be consistent with the [financial model](../09-financial-models/financial-and-staffing-models.md). The C ramp has a peak capital need of about $7.4m at $300 per account with 20k-account clients. The calibrated B ramp needs about $14.8m.
 - Acceptance thresholds are **design targets**, not observed benchmarks.
 
 ## 0. Ground rules that hold in every phase
@@ -44,7 +44,7 @@ gantt
   Own-sponsor formation option (B) - not started without Gate 5 + board decision :crit, b1, after g5, 18M
 ```
 
-Phases 1–5 take about 30 months [A], with total spend through Gate 5 of about **$5.5m–$9.5m [A]**. This brackets the $6.4m peak capital from the C ramp. The upper end assumes slow partner data access (Q-N04).
+Phases 1–5 take about 30 months [A], with total spend through Gate 5 of about **$5.5m–$9.5m [A]**. This brackets the $7.4m peak capital from the C ramp. The upper end assumes slow partner data access (Q-N04).
 
 ## 2. Phases
 

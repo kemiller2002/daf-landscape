@@ -73,8 +73,8 @@ At the parent model's 100k-account scale (30 grants-compliance FTE), smoothing a
 
 | Model | Workflows it removes or changes for the operator | New workflows it adds | Economics (source) |
 |---|---|---|---|
-| **B: AI-native sponsoring charity** | None removed; all redesigned | Sponsor governance, fundraising and distribution | Best steady-state margins; peak capital $12.8m calibrated ([parent 09](../../09-financial-models/financial-and-staffing-models.md) §7) |
-| **C: AI-native administration provider** | Board and investment-committee work stays with client sponsors | Multi-tenant onboarding; client contract management | Needs about $300 per account and ≥20k-account clients; peak $6.4m (parent 09 §7) |
+| **B: AI-native sponsoring charity** | None removed; all redesigned | Sponsor governance, fundraising and distribution | Best steady-state margins; peak capital $14.8m calibrated ([parent 09](../../09-financial-models/financial-and-staffing-models.md) §7) |
+| **C: AI-native administration provider** | Board and investment-committee work stays with client sponsors | Multi-tenant onboarding; client contract management | Needs about $300 per account and ≥20k-account clients; peak $7.4m (parent 09 §7) |
 | **Grantmaking infrastructure platform** (per-grant API: decision, eligibility, payment orchestration) | Everything except grants | API support; partner SLAs | Loses money at $1 per grant even with 30 customers × 80k grants (−$1.4m). At $3 per grant with 10 customers, −$0.5m ([results/infrastructure-models.csv](results/infrastructure-models.csv)) [S]. **Per-grant pricing is weak** because approval labor is a small share of per-grant cost (§2) |
 | **Charity verification network** | Duplicated recipient verification across members | Neutral governance; data-sharing agreements; dispute handling | See §4: **not viable on routine checks; viable on costly determinations** |
 | **Advisor-embedded philanthropic platform** | Donor acquisition and branded portals | Platform integrations; advisor support | Depends on revenue share with platforms and sponsors; no public pricing (GAP-014). Distribution leverage is high [I] (RCF–Ren spine) |

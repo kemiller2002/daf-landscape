@@ -1,10 +1,10 @@
 factor,base_cost_usd,cost_at_x0.5,cost_at_x2,swing_pct_of_base
-"loaded cost per FTE",6971860,4496860,11921860,106.50
-"customer acquisition cost",6971860,6671860,7571860,12.91
-"grants per account",6971860,6777180,7526220,10.74
-"exception rate",6971860,6803980,7472620,9.59
-"minutes per exception",6971860,6806860,7466860,9.47
-"complex asset share",6971860,6806860,7466860,9.47
-"infrastructure",6971860,6831860,7251860,6.02
-"human contacts per account",6971860,6971860,7136860,2.37
-"inference cost (x0.5 / x10)",6971860,6967980,7041700,1.06
+"loaded cost per FTE",7466860,4744360,12911860,109.38
+"customer acquisition cost",7466860,7166860,8066860,12.05
+"grants per account",7466860,7272180,8021220,10.03
+"exception rate",7466860,7298980,7967620,8.95
+"minutes per exception",7466860,7301860,7961860,8.84
+"complex asset share",7466860,7301860,7961860,8.84
+"infrastructure",7466860,7326860,7746860,5.62
+"human contacts per account",7466860,7466860,7631860,2.21
+"inference cost (x0.5 / x10)",7466860,7462980,7536700,0.99

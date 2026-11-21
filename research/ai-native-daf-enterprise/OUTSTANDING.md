@@ -17,7 +17,7 @@
 | A4 | Decide on the ~40 proposed events and ~20 interface groups from the cross-enterprise workflows: add to the catalogs or reject with a reason | `workflow-innovation/04-cross-enterprise-workflows/README.md`; `06-data-and-knowledge/events.csv`; `04-enterprise-apis/api-catalog.csv` | `04-enterprise-apis/a4-event-endpoint-decisions.csv`: 19 added, 19 deferred (tied to innovations rated insufficient evidence or watch), 4 rejected as duplicates or non-events, 5 already covered. Events 58 → 99, including 28 that API rows already published but the catalog lacked. Reverse test added | **done** |
 | A5 | Decide on the interface details raised earlier: batch recommendations, grant verification, party preferences, policy evaluate, shared-determination entity | `04-enterprise-apis/api-catalog.md` (decisions section) | 3 added as sub-resources or operations, 1 already covered, `Determination` entity added to the data model | **done** |
 | A6 | Apply the adversarial review's design-level maturity downgrades to the design catalog | `workflow-innovation/03-alternative-designs/design-catalog.csv` | Added `audit_verdict` and `maturity_after_audit` for all 45 reviewed designs; 8 downgrades applied; W1–W5 placeholders and 2 missing designs filled from the review | **done** |
-| A7 | Cost model assumes 18 agent families; the reconciled catalog has 31. Update `AgentFamilies` and regenerate outputs (agent-owner FTE rises from 4 to 7 at 6 families per owner), then update the headline staffing figures in 09- and 14- | `models/Daf.Enterprise/Economics.fs`; `09-financial-models/`; `14-executive-conclusions/` | Outputs regenerated; documents consistent; tests pass | open |
+| A7 | Cost model assumes 18 agent families; the reconciled catalog has 31. Update `AgentFamilies` and regenerate outputs (agent-owner FTE rises from 4 to 7 at 6 families per owner), then update the headline staffing figures in 09- and 14- | `models/Daf.Enterprise/Economics.fs`; `09-financial-models/`; `14-executive-conclusions/` | `AgentFamilies` 18 → 31; outputs regenerated; 09- has a governing update section; headline figures updated inline in 10-, 12-, 13-, 14- and workflow-innovation (FTE 24/33/107/768; peak capital C $7.4m, B $14.8m). No conclusion changes | **done** |
 
 ## B. Analysis that public data or models can support (medium effort; no outside input)
 
@@ -56,4 +56,5 @@
 | 2026-11-21 | A2 done; A7 added | 215ee5e |
 | 2026-11-21 | A3 done | 131416a, 04fd899 |
 | 2026-11-21 | A5 done | aece741 |
-| 2026-11-21 | A4 done | (this commit) |
+| 2026-11-21 | A4 done | 43b4661 |
+| 2026-11-21 | A7 done; group A complete | (this commit) |

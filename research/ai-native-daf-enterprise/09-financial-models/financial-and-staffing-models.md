@@ -1,5 +1,7 @@
 # Financial and staffing models
 
+> **Governing update 2026-11-21:** figures now use 31 agent families. See the [update section](#update-2026-11-21-governing-31-agent-families-outstanding-a7) at the end, which supersedes earlier tables.
+
 **Model code:** [`../models/Daf.Enterprise/Economics.fs`](../models/Daf.Enterprise/Economics.fs) and [`Report.fs`](../models/Daf.Enterprise/Report.fs), with tests in `EconomicsTwinCensusTests.fs`. To regenerate every table below:
 
 ```
@@ -173,3 +175,42 @@ These results feed the decision matrix in [`../10-market-and-business-model/mode
 | Price per account (C) | Design-partner commercial terms, three or more partners | 4 |
 
 Until these are measured, every AI-native cost figure above remains an **[S]** scenario.
+
+## Update (2026-11-21, governing): 31 agent families (OUTSTANDING A7)
+
+The agent-name reconciliation (A2) found **31 agent families**: 19 parent agents plus 12 workflow-innovation opportunities. The model above assumed 18, so `AgentFamilies` was changed from 18 to 31.
+
+The effect is that agent-ownership and evaluation staff rise from 4 to 7, about +$0.5m a year at every scale. **No ranking or conclusion changes.**
+
+The tables below were regenerated from `outputs/` and **supersede the corresponding figures earlier in this document.**
+
+| Accounts | AI-native FTE | AI-native cost | $/account | Cost bps | Margin at published tiers | Accounts per FTE |
+|---|---|---|---|---|---|---|
+| 1,000 | 24 | $4.87m | $4865 | 162.17 | -170.29% | 42 |
+| 10,000 | 33 | $7.47m | $747 | 24.89 | 58.52% | 303 |
+| 100,000 | 107 | $27.69m | $277 | 9.23 | 84.61% | 935 |
+| 1,000,000 | 768 | $213.78m | $214 | 7.13 | 88.12% | 1302 |
+
+| Role | 1k | 10k | 100k | 1m |
+|---|---|---|---|---|
+| Leadership | 5 | 8 | 10 | 10 |
+| GrantsCompliance | 1 | 3 | 30 | 300 |
+| ComplexAssets | 1 | 3 | 30 | 300 |
+| FinanceAndPaymentsOps | 2 | 2 | 4 | 22 |
+| ServiceRecovery | 1 | 1 | 7 | 63 |
+| Engineering | 4 | 6 | 8 | 10 |
+| AgentOwnershipAndEvaluation | 7 | 7 | 7 | 7 |
+| Security | 1 | 1 | 3 | 3 |
+| Partnerships | 1 | 1 | 5 | 50 |
+| PhilanthropicIntelligence | 1 | 1 | 3 | 3 |
+
+**Break-even accounts:** base: $300k avg balance: 3000; $50k avg balance: 60000; $150k avg balance: 9000; $800k avg balance: 2000; base, CAC x2: 4000; base, loaded cost $250k per FTE: 6000.
+
+**Peak capital:** B optimistic: $2.9m; B calibrated: $14.8m; C $300 20k: $7.4m; C $150 20k: $38.3m; C $300 5k: $17.7m.
+
+| Model | 1k | 10k | 100k | 1m |
+|---|---|---|---|---|
+| A traditional | -6.23% | 30.33% | 31.98% | 32.13% |
+| B AI-native | -170.29% | 58.52% | 84.61% | 88.12% |
+| C infrastructure | -3133.16% | -351.49% | -36.32% | 5.78% |
+| D hybrid | -451.64% | 16.97% | 70.00% | 77.07% |
