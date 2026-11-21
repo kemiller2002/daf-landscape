@@ -112,3 +112,12 @@ let ``every API declares an exposure tier and an authorization boundary`` () =
     |> List.iter (fun r ->
         Assert.False(System.String.IsNullOrWhiteSpace r.["exposure"], r.["api_id"])
         Assert.False(System.String.IsNullOrWhiteSpace r.["authorization_boundary"], r.["api_id"]))
+
+[<Fact>]
+let ``every legal requirement that applies to the sponsor maps to existing controls (A1)`` () =
+    let controls = readCsv "08-governance-and-compliance/controls.csv" |> List.map (fun r -> r.["control_id"]) |> set
+    readCsv "08-governance-and-compliance/reg-control-mapping.csv"
+    |> List.iter (fun r ->
+        Assert.NotEqual<string>("GAP", r.["status"])
+        if r.["status"] = "mapped" then
+            r.["control_ids"].Split(';') |> Array.iter (fun c -> Assert.True(controls.Contains c, r.["req_id"] + " -> " + c)))

@@ -11,7 +11,7 @@
 
 | # | Item | Where | Done when | Status |
 |---|---|---|---|---|
-| A1 | Map each legal requirement (REG id) to at least one control (CTL id) | `08-governance-and-compliance/controls.csv`, `regulatory-applicability-matrix.csv` | A mapping file exists; every REG row with `obligation_type = legal` maps to ≥1 CTL, or is listed as a gap; test added | open |
+| A1 | Map each legal requirement (REG id) to at least one control (CTL id) | `08-governance-and-compliance/reg-control-mapping.csv` | 46 of 50 legal requirements mapped; 4 do not apply to a sponsor; 10 missing controls added (CTL-055 to CTL-064); test added | **done** |
 | A2 | Reconcile agent names used in functional areas, workflows and workflow-innovation with the 19-agent catalog | `05-agent-architecture/agent-catalog.csv`; `workflow-innovation/06-agent-opportunities/` | Every agent name maps to a catalog entry, a new agent, or "not an agent (deterministic job)" | open |
 | A3 | Map functional-area local workflow IDs (WF-A1…WF-N5) to WF-01…WF-24, or list them as sub-workflows | `02-business-capabilities/functional-areas/`, `03-workflow-redesign/workflows.csv` | Mapping table exists | open |
 | A4 | Decide on the ~40 proposed events and ~20 interface groups from the cross-enterprise workflows: add to the catalogs or reject with a reason | `workflow-innovation/04-cross-enterprise-workflows/README.md`; `06-data-and-knowledge/events.csv`; `04-enterprise-apis/api-catalog.csv` | Each proposal is marked added or rejected; coverage tests still pass | open |
@@ -49,4 +49,5 @@
 
 | Date | Item | Commit |
 |---|---|---|
-| 2026-11-21 | List created | (this commit) |
+| 2026-11-21 | List created | 2ffeb18 |
+| 2026-11-21 | A1 done | (this commit) |
