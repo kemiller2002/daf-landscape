@@ -116,3 +116,17 @@ These mirror [`IdentityTests.fs`](../models/Daf.Enterprise.Tests/IdentityTests.f
 | CTL-052 | SCIM deprovisioning latency monitor |
 | CTL-053 | Sender-constrained tokens for partner machine clients |
 | CTL-054 | Recovery-factor change protection |
+
+## 8. Vendor fit (from the vendor API assessment, 2026-11-21)
+
+No single identity product is proven on every requirement. The recommended composition:
+
+| Role | Recommendation | Why |
+|---|---|---|
+| **Authorization server for platform APIs and agent tokens** | **Keycloak** (open source) | The only product in the assessment with documented RFC 8693 token exchange, DPoP, FAPI 2.0 profiles and SCIM support |
+| Authorization server, commercial alternative | Auth0 with its Highly Regulated Identity add-on, or PingFederate | — |
+| **Partner federation and B2B SSO** | **Auth0 Organizations** or **WorkOS** | Per-partner SAML/OIDC connections, SCIM directory sync and per-organization MFA policy |
+| MFA verification | The platform checks the partner's `amr`/`acr` on every assertion (CTL-051) and runs its own passkey step-up before money-moving or privilege-changing actions | — |
+| Not recommended for partner users | Microsoft Entra External ID | Partner users become guest accounts, federation is capped at 1,000 identity providers, and token exchange is non-standard |
+
+**Caveat.** Most payment and data vendors authenticate with API keys only, not mTLS or `private_key_jwt`. The platform therefore applies its own controls on outbound vendor credentials: KMS-held keys, egress allow-lists and rotation. Its *inbound* partner APIs keep the stronger profile above.

@@ -181,3 +181,39 @@ flowchart TB
 - AI agents (agents are represented by their *outputs* and the constraints on them).
 
 These are Phase 2–5 deliverables in the [roadmap](../12-implementation-roadmap/).
+
+## Update (2026-11-21): vendor selection by API quality (DD-020)
+
+The [vendor API assessment](vendor-api-assessment.md) scored 75 vendors on 12 criteria. Each criterion is marked Yes, Partial, No or Unknown, with sources; unproven cells stay Unknown.
+
+**Verdicts:** 23 select-candidate, 28 conditional, 18 unverified, 4 reject, and 2 file-only exceptions.
+
+**Effect on §5 (integration architecture):**
+
+| Area | Primary | Second | Note |
+|---|---|---|---|
+| Custody | Apex | IBKR (conditional) | Schwab, Fidelity and Pershing API docs are login-gated, so they are unverified. **The custodian file adapter remains mandatory** |
+| Payments (instruction-only) | Modern Treasury, in bring-your-own-bank mode only. The contract must exclude Modern Treasury holding funds | Column or Increase | J.P. Morgan is conditional until ACH idempotency keys are confirmed (E9 makes counterparty idempotency load-bearing) |
+| Charity rail | Chariot | — | Chariot runs on Column N.A. **Do not also use Column as the direct-ACH bank:** that concentrates risk in one bank (industry report §2.7) |
+| Bank account verification | Plaid Auth | Finicity or MX | — |
+| KYC | Persona | Alloy or Entrust | — |
+| Sanctions | OpenSanctions, self-hosted, with a commercial data licence | World-Check One or ComplyAdvantage | — |
+| Charity data | IRS bulk files (file-only exception) | Goodstack | Candid only with written consent for AI use; Charity Navigator rejected as a decision input (licence) |
+| Crypto | Anchorage (conditional) | Coinbase Prime (conditional) | — |
+| E-signature | DocuSign | Dropbox Sign | — |
+| Accounting (if an external GL is kept) | QuickBooks Online or Dynamics 365 Business Central | NetSuite or Sage Intacct (conditional) | — |
+| Advisor platforms | Addepar, Wealthbox, Salesforce FSC, Orion | — | Envestnet, Black Diamond, Redtail and Morningstar are gated |
+| LLM providers | Anthropic API | Amazon Bedrock or OpenAI | Two providers qualified per agent family |
+
+**Rejected:**
+- Stripe Treasury/Connect for grant payments (Stripe holds the funds, which conflicts with instruction-only, DD-008).
+- Charity Navigator as a decision input.
+- NGOsource (no API).
+- Non-cash asset processors (none has an API).
+
+**No API-capable vendor exists for:**
+- IRS eligibility data and OFAC lists (files only, so download-and-diff adapters emit events);
+- non-cash assets and equivalency determinations (manual partner process, recorded as evidence events);
+- PayPal Grant Payments and Engiven (no grantmaker API reference published).
+
+These gaps are accepted under DD-020 and tracked as integration risks.
