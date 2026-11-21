@@ -16,7 +16,7 @@
 | A3 | Map functional-area local workflow IDs (WF-A1…WF-N5) to WF-01…WF-24, or list them as sub-workflows | `02-business-capabilities/functional-areas/`, `03-workflow-redesign/workflows.csv` | Mapping table exists | open |
 | A4 | Decide on the ~40 proposed events and ~20 interface groups from the cross-enterprise workflows: add to the catalogs or reject with a reason | `workflow-innovation/04-cross-enterprise-workflows/README.md`; `06-data-and-knowledge/events.csv`; `04-enterprise-apis/api-catalog.csv` | Each proposal is marked added or rejected; coverage tests still pass | open |
 | A5 | Decide on the interface details raised earlier: batch recommendations, grant verification, party preferences, policy evaluate, shared-determination entity | `04-enterprise-apis/api-catalog.md` | Each is marked added or rejected | open |
-| A6 | Apply the adversarial review's design-level maturity downgrades to the design catalog | `workflow-innovation/03-alternative-designs/design-catalog.csv` vs `07-adversarial-reviews/verdicts.csv` | Catalog maturity matches the verdicts | open |
+| A6 | Apply the adversarial review's design-level maturity downgrades to the design catalog | `workflow-innovation/03-alternative-designs/design-catalog.csv` | Added `audit_verdict` and `maturity_after_audit` for all 45 reviewed designs; 8 downgrades applied; W1–W5 placeholders and 2 missing designs filled from the review | **done** |
 
 ## B. Analysis that public data or models can support (medium effort; no outside input)
 
@@ -50,4 +50,5 @@
 | Date | Item | Commit |
 |---|---|---|
 | 2026-11-21 | List created | 2ffeb18 |
-| 2026-11-21 | A1 done | (this commit) |
+| 2026-11-21 | A1 done | bb4f8da |
+| 2026-11-21 | A6 done | (this commit) |
