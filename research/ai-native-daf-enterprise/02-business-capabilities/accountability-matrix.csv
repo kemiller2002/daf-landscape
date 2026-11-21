@@ -1,0 +1,31 @@
+capability_id,capability,accountable_A,responsible_human_R,software_executor_S,consulted_C,informed_I,sod_constraint
+C1.1,Party and identity management,Head of Client and Partner Operations,Client operations specialist (exceptions),Identity service (DET); identity-risk model (AGT-A); identity provider (EXT),CRCO,Controller,staff cannot edit their own or related party records
+C1.2,Delegated authority,Head of Client and Partner Operations,Client operations specialist,Authorization service (DET),CISO;GC,Donor,grants require donor consent event; no staff override without dual control
+C1.3,Advisor and institution integration,Head of Partnerships,Partner integration engineer,API gateway (DET),CTO;CRCO,CEO,partner credentials scoped per institution
+C1.4,Donor and advisor servicing,Head of Client and Partner Operations,Service recovery specialists,Service agent (AGT-S read-only plus drafting),GC (policy corpus),COO,service agent has no write access to money or legal state
+C1.5,Discovery and education,Head of Philanthropic Intelligence,Content editor,Discovery agent (AGT-A),GC (tax content),Head of Partnerships,content claims require citation and legal review
+C2.1,Contribution intake,Controller,Contribution operations specialist,Intake and matching service (DET); reconciliation agent (AGT-A),CRCO,Donor,matcher cannot post without settlement evidence
+C2.2,Asset acceptance and valuation,CFO,Complex asset specialist; gift acceptance committee above threshold,Asset dossier agent (AGT-A),GC;CIO,Board (large gifts),specialist cannot both accept and value above threshold
+C2.3,Custody and positions,CFO,Treasury analyst,Custodian (EXT); position mirror (DET),CIO,Controller,no staff or software holds custody credentials enabling withdrawals to non-whitelisted accounts
+C2.4,Investment policy and execution,Investment Committee,Outsourced CIO,Rebalancer and mandate checker (DET),CFO;CRCO,Board,rebalancer parameters approved by committee; engineers cannot change them unilaterally
+C2.5,Liquidity and treasury,CFO,Treasury analyst,Liquidity model (DET),CIO,Investment Committee,
+C3.1,Recipient registry and eligibility,Head of Grants Compliance,Grants compliance specialist,Eligibility service (DET); resolution agent (AGT-A); data providers (EXT),CRCO,Client operations,list refresh versions recorded; no manual status override without H record
+C3.2,Recommendation intake,Head of Client and Partner Operations,—,Intake API (DET),—,Donor;Advisor,intake creates requests only never instructions
+C3.3,Grant decisioning,Head of Grants Compliance,Grants compliance specialist,Policy engine (DET); flag agents (AGT-A),GC;CRCO,Donor;Recipient,AI may add flags never clear; approver cannot approve grants to related parties
+C3.4,Disbursement and remittance,Controller,Payments operations specialist (exceptions),Payment gate (DET); bank/rail (EXT),CRCO,Recipient,payee creation and payment approval separated; payee bank change cooling-off
+C3.5,Post-grant obligations,Head of Grants Compliance,Grants compliance specialist,Post-grant agent (AGT-S tracking and drafting),GC,Board (ER failures),
+C4.1,Event ledger and fund accounting,Controller,Fund accountant,Ledger and posting rules (DET),CFO,Auditor,ledger append-only; corrections by reversing entries only
+C4.2,Reconciliation,Controller,Fund accountant,Reconciliation engine (DET); break-triage agent (AGT-A),Treasury,CFO,write-offs above threshold need second approver
+C4.3,Fees and billing,Controller,Fund accountant,Fee engine (DET),Head of Partnerships,Board (schedule),fee schedule changes need board approval record
+C4.4,Reporting and filings,CFO,Controller,Reporting engine (DET),GC,Board,officer signs filings
+C4.5,Evidence and audit,CRCO,Compliance analyst,Evidence ledger (DET),Internal audit,Audit Committee,evidence ledger immutable; auditors read-only
+C5.1,Policy-as-code,General Counsel,Policy engineer,Policy engine (DET); drafting and impact agent (AGT-A),CRCO;domain owners,Board (material policies),author cannot deploy own policy change; change board approval
+C5.2,Screening and fraud,CRCO,Sanctions officer; fraud analyst,Screening (DET); fraud model (AGT-A),GC,CEO,only sanctions officer may clear potential true match
+C5.3,Exception management,COO,Assigned specialist per case type,Case router (DET),Domain owners,CEO,cases routed by skill; requester cannot decide own case
+C5.4,Governance and delegations,Board,CEO;Corporate secretary,Delegation register (DET enforcement),GC,Regulators (via 990),delegations enforced in authorization model
+C5.5,Third-party and concentration risk,COO,Vendor manager,Vendor telemetry (DET); SOC analysis agent (AGT-A),CISO;GC,Audit Committee,
+C5.6,Security and privacy,CTO (CISO delegate),Security engineer,Security tooling (DET/EXT),GC,Audit Committee,privileged access just-in-time with approval
+C6.1,Philanthropic intelligence,Head of Philanthropic Intelligence,Research analyst,Intelligence agents (AGT-A),GC,Donors,no sponsor-paid placement in rankings
+C6.2,Operational telemetry,COO,Telemetry analyst,Telemetry pipeline (DET),CTO,Board,
+C6.3,Enterprise digital twin,COO,Telemetry analyst,Simulation (DET),CFO;CRCO,Board,simulated vs measured always labeled
+C6.4,Controlled change,COO (Change Board chair),Change owners,Improvement agent (AGT-A); test harness (DET),CRCO;GC,Board (material),no change to controls policy or agent permissions without independent test and H approval

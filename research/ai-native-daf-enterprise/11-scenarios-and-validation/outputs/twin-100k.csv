@@ -1,0 +1,33 @@
+stress,queue,arrived,served,max_backlog,days_over_sla,mean_wait_days,min_liquidity_buffer_days,liquidity_exhausted
+"baseline (year-end surge only)",GrantExceptions,76711,67049,9662,34,1.91,29.20,False
+"baseline (year-end surge only)",ComplexAssetAcceptance,4019,4019,0,0,0.00,29.20,False
+"baseline (year-end surge only)",ServiceRecovery,30139,30139,0,0,0.00,29.20,False
+"baseline (year-end surge only)",ReconciliationBreaks,11986,11092,894,29,0.80,29.20,False
+"grant volume x10",GrantExceptions,767112,93440,673672,365,1096.52,2.92,False
+"grant volume x10",ComplexAssetAcceptance,4019,4019,0,0,0.00,2.92,False
+"grant volume x10",ServiceRecovery,30139,30139,0,0,0.00,2.92,False
+"grant volume x10",ReconciliationBreaks,98286,21024,77262,365,545.62,2.92,False
+"complex asset gifts x2",GrantExceptions,76711,67049,9662,34,1.91,29.20,False
+"complex asset gifts x2",ComplexAssetAcceptance,8037,5840,2197,336,68.05,29.20,False
+"complex asset gifts x2",ServiceRecovery,30139,30139,0,0,0.00,29.20,False
+"complex asset gifts x2",ReconciliationBreaks,11986,11092,894,29,0.80,29.20,False
+"custodian outage 5 business days during surge",GrantExceptions,76711,67049,9662,34,1.91,8.77,False
+"custodian outage 5 business days during surge",ComplexAssetAcceptance,4019,4019,0,0,0.00,8.77,False
+"custodian outage 5 business days during surge",ServiceRecovery,30139,30139,0,0,0.00,8.77,False
+"custodian outage 5 business days during surge",ReconciliationBreaks,13105,11092,2013,29,1.98,8.77,False
+"custodian outage 30 days during surge",GrantExceptions,76711,67049,9662,34,1.91,-61.48,True
+"custodian outage 30 days during surge",ComplexAssetAcceptance,4019,4019,0,0,0.00,-61.48,True
+"custodian outage 30 days during surge",ServiceRecovery,30139,30139,0,0,0.00,-61.48,True
+"custodian outage 30 days during surge",ReconciliationBreaks,16955,11092,5862,30,4.52,-61.48,True
+"manual reviews halved (exception rate x0.5)",GrantExceptions,38356,38004,471,0,0.09,29.20,False
+"manual reviews halved (exception rate x0.5)",ComplexAssetAcceptance,4019,4019,0,0,0.00,29.20,False
+"manual reviews halved (exception rate x0.5)",ServiceRecovery,30139,30139,0,0,0.00,29.20,False
+"manual reviews halved (exception rate x0.5)",ReconciliationBreaks,11986,11092,894,29,0.80,29.20,False
+"new regulation doubles exceptions",GrantExceptions,153422,93440,59982,359,72.90,29.20,False
+"new regulation doubles exceptions",ComplexAssetAcceptance,4019,4019,0,0,0.00,29.20,False
+"new regulation doubles exceptions",ServiceRecovery,30139,30139,0,0,0.00,29.20,False
+"new regulation doubles exceptions",ReconciliationBreaks,11986,11092,894,29,0.80,29.20,False
+"staff capacity -40% (illness/attrition)",GrantExceptions,76711,56064,20647,346,30.25,29.20,False
+"staff capacity -40% (illness/attrition)",ComplexAssetAcceptance,4019,3504,516,286,26.21,29.20,False
+"staff capacity -40% (illness/attrition)",ServiceRecovery,30139,29387,792,292,4.36,29.20,False
+"staff capacity -40% (illness/attrition)",ReconciliationBreaks,11986,10286,1700,33,2.49,29.20,False

@@ -1,0 +1,26 @@
+path,year,accounts_end,revenue_usd,cost_usd,operating_result_usd,cumulative_usd
+"B AI-native sponsor, optimistic: $300k avg, 49.5k accounts by yr5 (~$15bn) [A]",1,1500,2700000,5153236,-2453236,-2453236
+"B AI-native sponsor, optimistic: $300k avg, 49.5k accounts by yr5 (~$15bn) [A]",2,5500,9900000,7447175,2452825,-411
+"B AI-native sponsor, optimistic: $300k avg, 49.5k accounts by yr5 (~$15bn) [A]",3,13500,24300000,10548553,13751447,13751036
+"B AI-native sponsor, optimistic: $300k avg, 49.5k accounts by yr5 (~$15bn) [A]",4,27500,49500000,15071006,34428994,48180030
+"B AI-native sponsor, optimistic: $300k avg, 49.5k accounts by yr5 (~$15bn) [A]",5,49500,89100000,21733544,67366456,115546486
+"B AI-native sponsor, calibrated: $100k avg, ~$2bn by yr5 (Daffy-reported scale) [A]",1,1000,600000,4702336,-4102336,-4102336
+"B AI-native sponsor, calibrated: $100k avg, ~$2bn by yr5 (Daffy-reported scale) [A]",2,3000,1800000,5466000,-3666000,-7768336
+"B AI-native sponsor, calibrated: $100k avg, ~$2bn by yr5 (Daffy-reported scale) [A]",3,7000,4200000,7778136,-3578136,-11346473
+"B AI-native sponsor, calibrated: $100k avg, ~$2bn by yr5 (Daffy-reported scale) [A]",4,13000,7800000,9259248,-1459248,-12805721
+"B AI-native sponsor, calibrated: $100k avg, ~$2bn by yr5 (Daffy-reported scale) [A]",5,20000,12000000,10653080,1346920,-11458801
+"C provider at $300/account, 20k-account clients",1,20000,3000000,7800080,-4800080,-4800080
+"C provider at $300/account, 20k-account clients",2,40000,9000000,10635161,-1635161,-6435241
+"C provider at $300/account, 20k-account clients",3,80000,18000000,16364961,1635039,-4800203
+"C provider at $300/account, 20k-account clients",4,120000,30000000,22711033,7288967,2488764
+"C provider at $300/account, 20k-account clients",5,180000,45000000,30796825,14203175,16691938
+"C provider at $150/account, 20k-account clients",1,20000,1500000,7800080,-6300080,-6300080
+"C provider at $150/account, 20k-account clients",2,40000,4500000,10635161,-6135161,-12435241
+"C provider at $150/account, 20k-account clients",3,80000,9000000,16364961,-7364961,-19800203
+"C provider at $150/account, 20k-account clients",4,120000,15000000,22711033,-7711033,-27511236
+"C provider at $150/account, 20k-account clients",5,180000,22500000,30796825,-8296825,-35808062
+"C provider at $300/account, 5k-account clients",1,5000,750000,5793320,-5043320,-5043320
+"C provider at $300/account, 5k-account clients",2,10000,2250000,6337360,-4087360,-9130680
+"C provider at $300/account, 5k-account clients",3,20000,4500000,7980080,-3480080,-12610760
+"C provider at $300/account, 5k-account clients",4,30000,7500000,9414072,-1914072,-14524832
+"C provider at $300/account, 5k-account clients",5,45000,11250000,11946744,-696744,-15221577
