@@ -1,0 +1,31 @@
+capability_id,capability,apis_before_2026_11_21,apis_after
+C1.1,Party and identity management,API-02,API-02
+C1.2,Delegated authority,API-04,API-04
+C1.3,Advisor and institution integration,API-19,API-19;API-24;API-25
+C1.4,Donor and advisor servicing,API-18;API-21,API-18;API-21;API-34
+C1.5,Discovery and education,API-23,API-23
+C2.1,Contribution intake,API-05,API-05
+C2.2,Asset acceptance and valuation,API-06,API-06
+C2.3,Custody and positions,API-07,API-07
+C2.4,Investment policy and execution,API-08,API-08
+C2.5,Liquidity and treasury,NONE,API-27
+C3.1,Recipient registry and eligibility,API-11,API-11
+C3.2,Recommendation intake,API-09,API-09
+C3.3,Grant decisioning,API-10;API-12;API-13,API-10;API-12;API-13;API-35
+C3.4,Disbursement and remittance,API-14,API-14
+C3.5,Post-grant obligations,NONE,API-28
+C4.1,Event ledger and fund accounting,API-15,API-15
+C4.2,Reconciliation,API-16,API-16
+C4.3,Fees and billing,API-17,API-17
+C4.4,Reporting and filings,API-18,API-18
+C4.5,Evidence and audit,API-20,API-20
+C5.1,Policy-as-code,API-13,API-13
+C5.2,Screening and fraud,NONE,API-29
+C5.3,Exception management,API-21,API-21
+C5.4,Governance and delegations,NONE,API-30
+C5.5,Third-party and concentration risk,NONE,API-31
+C5.6,Security and privacy,API-01,API-01;API-26
+C6.1,Philanthropic intelligence,API-23,API-23
+C6.2,Operational telemetry,API-22,API-22
+C6.3,Enterprise digital twin,NONE,API-32
+C6.4,Controlled change,NONE,API-33;API-36

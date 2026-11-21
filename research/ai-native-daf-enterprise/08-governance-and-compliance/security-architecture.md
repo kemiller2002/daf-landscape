@@ -92,3 +92,15 @@ These targets are assumptions **[A]**, to be validated in Phase 5 restore tests 
 3. Model and provider changes are agent version changes and go through CTL-026.
 4. Per-agent cost and rate ceilings prevent runaway spend.
 5. Evaluation sets include adversarial cases: injection, social engineering and jailbreaks. Results are reported to the board (governance §6).
+
+## Update (2026-11-21): partner-federated identity and MFA (DD-021)
+
+For partner-owned programmes, partner users (advisors, partner administrators and service staff) are **federated by default** from the partner organization's IdP (OIDC or SAML), with **SCIM 2.0** joiner and leaver provisioning. This supersedes the advisor row above ("federated where possible").
+
+The full design is in [identity-and-partner-federation.md](identity-and-partner-federation.md):
+- partner MFA counts only with a contractual attestation and accepted `amr` claims;
+- RFC 9470 step-up;
+- phishing-resistant, fresh authentication for sensitive actions;
+- sender-constrained machine tokens;
+- recovery protections;
+- controls CTL-051 to CTL-054.
