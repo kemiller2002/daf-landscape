@@ -17,7 +17,7 @@
 | 01 | `01-enterprise-outcomes/` | done | 18 outcomes; 81 decision types (37 D / 11 P / 33 H); 80 legacy activities classified (tested census) |
 | 02 | `02-business-capabilities/` | done | 29 capabilities; org model; accountability matrix (one A per row, tested); functional areas A–N × 18 headings |
 | 03 | `03-workflow-redesign/` | done | 24 workflows (22 span ≥2 legacy departments; WF-11 and WF-23 are new capabilities, exempted); integration journey; 16 diagrams |
-| 04 | `04-enterprise-apis/` | done | 23 API domains; 5 OpenAPI 3.1 contracts (load-checked) |
+| 04 | `04-enterprise-apis/` | done | 36 interface domains specified as requirements (analysis only; the draft OpenAPI contracts were removed 2026-11-21 per owner scope) |
 | 05 | `05-agent-architecture/` | done | 19 agents; category model; authority boundaries INV-A1–A8 (tested in models/) |
 | 06 | `06-data-and-knowledge/` | done | 35 entities; 58 events (8 added after cross-deliverable review) |
 | 07 | `07-technology-architecture/` | done | Technology architecture; Echelon component assessment (DD-014) |
@@ -29,6 +29,9 @@
 | 13 | `13-clarity-edf-analysis/` | done | 19 assumption challenges; 5 EDF analyses; 25 failure modes; 9 major conclusions |
 | 14 | `14-executive-conclusions/` | done | Executive report (softened per 13-); traceability matrix (18 rows) |
 | — | `models/` | done | F# .NET 8 solution: domain, policy, ledger, journey, economics, twin, report, CLI; **59 passing tests** |
+
+## Scope (owner, 2026-11-21)
+This workstream is **analysis** of what an AI-native DAF company would need to build and how it should work. It does not build APIs. The F# models stay: they are analytical tools (decision-rule checks, economics, simulations). They are not an implementation.
 
 ## Open items (next session)
 

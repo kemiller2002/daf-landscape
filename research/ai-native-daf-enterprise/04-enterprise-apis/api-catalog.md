@@ -1,10 +1,10 @@
 # Enterprise API catalog
 
-**Status:** design artifact, 2026-11-20.
+**Status:** requirements analysis, 2026-11-20; scope clarified 2026-11-21. This catalog describes the interfaces an AI-native DAF company **would need to build** and how they should behave. It is analysis, not an implementation: no API contracts are written here, and none are planned in this research.
 
-**Machine-readable catalog:** [`api-catalog.csv`](api-catalog.csv) (23 API domains, each with all twelve required attributes).
+**Machine-readable catalog:** [`api-catalog.csv`](api-catalog.csv) (36 interface domains, each with all twelve required attributes).
 
-**Contracts:** [`openapi/`](openapi/) holds five OpenAPI 3.1 documents for the most consequential surfaces.
+**Contracts:** none. Five draft OpenAPI documents written on 2026-11-20 were removed on 2026-11-21, when the owner set the scope as analysis only. They remain in git history.
 
 **Consistency with other artifacts:**
 - Resource families match the workflows in [`../03-workflow-redesign/`](../03-workflow-redesign/).
@@ -102,7 +102,6 @@ Each domain below repeats the CSV in prose for review. The CSV is authoritative.
 - **Purpose:** grants for advisors, family members, successors and **AI agent principals**.
 - **Validation:** caps must be ≤ the program maximum, and the grantee must be verified.
 - **Commercial potential:** medium. It could become an open delegation profile for philanthropy, which lowers integration cost for donor-side agent products without credential sharing (DD-017).
-- **Contract:** [`openapi/privileges.yaml`](openapi/privileges.yaml).
 
 ### API-05 Contributions (`/v1/contribution-intents`, `/v1/contributions`)
 - **Purpose:** intents carry a unique reference that the custodian transfer must quote. This removes most orphan-deposit work (ACT-010).
@@ -124,7 +123,6 @@ Each domain below repeats the CSV in prose for review. The CSV is authoritative.
 - **Purpose:** the highest-volume external write.
 - **Idempotency:** mandatory. Duplicate submissions from portals, agents and retries are the common failure.
 - **Commercial potential:** **high.**
-- **Contract:** [`openapi/recommendations-grants.yaml`](openapi/recommendations-grants.yaml).
 
 ### API-10 Grants (`/v1/grants`)
 - **Purpose:** the state machine is readable by donors, advisors and the recipient (for its own grants). Cancellation is allowed only before release.
@@ -134,7 +132,6 @@ Each domain below repeats the CSV in prose for review. The CSV is authoritative.
 ### API-11 Charity eligibility (`/v1/recipients`, `/v1/eligibility`)
 - **Purpose:** returns **dated, sourced, bitemporal** facts plus a policy evaluation, so a sponsor can prove "what we knew when we approved".
 - **Commercial potential:** **high.** Buyers are sponsors, donation processors and giving platforms. The alternatives are Candid Charity Check and in-house BMF loads ([industry report §2.6](../../DAF-INDUSTRY-REPORT-2026-11.md)). The differentiation is evidence retention and continuous change events, not the underlying IRS data, which is public.
-- **Contract:** [`openapi/eligibility.yaml`](openapi/eligibility.yaml).
 
 ### API-12 Due diligence (`/v1/recipients/{id}/diligence`)
 - **Purpose:** dossiers for foreign recipients, expenditure responsibility (ER) and fiscal sponsors.
@@ -147,7 +144,6 @@ Each domain below repeats the CSV in prose for review. The CSV is authoritative.
 ### API-14 Grant payments (`/v1/payments`)
 - **Exposure:** **internal only.** Rails post settlements and returns inbound.
 - **Commercial potential:** medium. It is sellable only in combination with a regulated rail partner, given money-transmission constraints (see 08- regulatory map).
-- **Contract:** [`openapi/payments-internal.yaml`](openapi/payments-internal.yaml).
 
 ### API-15 Fund accounting (`/v1/ledger`)
 - **Exposure:** read-only externally.
@@ -171,7 +167,6 @@ Each domain below repeats the CSV in prose for review. The CSV is authoritative.
 ### API-20 Audit evidence (`/v1/evidence`, `/v1/decisions`)
 - **Purpose:** read-only, time-boxed auditor scopes.
 - **Commercial potential:** **high**, as continuous evidence for sponsors and their auditors (C4.5).
-- **Contract:** [`openapi/decisions-evidence.yaml`](openapi/decisions-evidence.yaml).
 
 ### API-21 Exception cases (`/v1/cases`)
 - **Purpose:** decisions are allowed only within delegated authority, never on one's own or a related party's case.

@@ -88,7 +88,7 @@ Phases 1–5 take about 30 months [A], with total spend through Gate 5 of about 
   - The continuous eligibility pipeline: IRS BMF, Pub 78 and auto-revocation, plus OFAC, with list-version pinning and a freshness SLO.
   - The single exception queue (C5.3).
   - The identity and authorization model, including agent-principal tokens (DD-017).
-  - Internal API contracts per [`../04-enterprise-apis/openapi/`](../04-enterprise-apis/openapi/).
+  - Internal API contracts written by the builder to the requirements in [`../04-enterprise-apis/api-catalog.md`](../04-enterprise-apis/api-catalog.md).
   - The evidence ledger.
   - A tenancy model with tenant = sponsor (DD-016).
   - **The DD-015 re-evaluation:** F# confirmed or replaced, based on hiring, library, vendor-SDK and auditor-tooling evidence. The reference models keep passing in either case.

@@ -1,4 +1,6 @@
-# API completeness: "APIs for everything" (DD-019)
+# Interface completeness: "APIs for everything" (DD-019)
+
+**Scope:** analysis of what the company would need to build and how it should work. This is not an implementation; no API contracts are written.
 
 **Owner requirement (2026-11-21):** APIs for everything.
 
@@ -51,7 +53,7 @@ These are enforced by tests in `models/Daf.Enterprise.Tests/IdentityTests.fs`: e
 
 - **Security:** OAuth 2.0 with the FAPI 2.0 security profile for partner and money-adjacent APIs. Machine clients use sender-constrained tokens (mTLS or DPoP). Step-up uses RFC 9470. See [identity and partner federation](../08-governance-and-compliance/identity-and-partner-federation.md).
 - **Contracts:**
-  - OpenAPI 3.1 for every API. Five are already written ([`openapi/`](openapi/)); the remaining 31 contracts are Phase 2 deliverables.
+  - A machine-readable contract (for example OpenAPI) for every API, written by whoever builds the platform. This research specifies the requirement only.
   - Idempotency-Key on every state-changing request.
   - RFC 9457 problem details for errors.
   - Additive versioning with a deprecation window.

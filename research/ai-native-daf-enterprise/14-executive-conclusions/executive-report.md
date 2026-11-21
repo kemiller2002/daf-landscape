@@ -132,7 +132,7 @@ The [enterprise integration journey](../03-workflow-redesign/enterprise-integrat
 
 ## 6. API catalog
 
-There are 23 API domains ([catalog](../04-enterprise-apis/api-catalog.md)), with OpenAPI 3.1 contracts for recommendations and grants, eligibility, internal payments, decisions and evidence, and privileges ([`openapi/`](../04-enterprise-apis/openapi/)).
+The analysis identifies 36 interface domains the company would need ([catalog](../04-enterprise-apis/api-catalog.md); [completeness](../04-enterprise-apis/api-completeness.md)). It specifies their purpose, consumers, authorization, data, events and exposure. It does not write the APIs.
 
 - **API-first, not microservices** (DD-009). Exposure tiers are public, partner and internal.
 - **Never exposed externally:** payment instruction, ledger write, policy publish, flag clearance, custody instruction, and the raw event stream.

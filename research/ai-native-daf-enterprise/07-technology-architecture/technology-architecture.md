@@ -41,7 +41,7 @@
    - Principals are staff, donors, advisors, institutions, agents acting for donors, and internal agents.
    - Attribute-based authorization runs on the canonical PrivilegeGrant and delegation register, which also encodes the delegation of authority (DOA) and its thresholds.
 9. **Evidence by construction.** Controls emit evidence records as a side effect of operating, not as a separate reporting job.
-10. **Open formats at the boundary.** OpenAPI 3.1 contracts ([`../04-enterprise-apis/openapi/`](../04-enterprise-apis/openapi/)), problem+json errors, CloudEvents-style envelopes for webhooks, ISO 20022 / NACHA CCD+/CTX remittance with the grant ID, and open grant-record exports.
+10. **Open formats at the boundary.** machine-readable interface contracts (for example OpenAPI) written by the builder, problem+json errors, CloudEvents-style envelopes for webhooks, ISO 20022 / NACHA CCD+/CTX remittance with the grant ID, and open grant-record exports.
 
 ## 3. Logical architecture
 
