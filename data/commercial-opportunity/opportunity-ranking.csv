@@ -1,0 +1,11 @@
+opportunity_id,opportunity,base_score,equal_score,evidence_first_score,speed_to_revenue_score,recurring_focus_score,low_risk_score,base_rank,equal_rank,evidence_first_rank,speed_to_revenue_rank,recurring_focus_rank,low_risk_rank
+OF1,Independent DAF technology assessment and vendor selection (mid-size sponsors),3.365,3.333,3.267,3.375,3.172,3.4,1,1,1,1,2,1
+OF6,Platform migration assurance and data-continuity testing,3.192,3.167,3.133,3.25,2.862,3.267,2,2,2,2,4,2
+OF3,"DAF market-intelligence subscription (vendors, investors, wealth platforms)",3.077,3.083,2.867,2.938,3.345,3.0,3,3,3,3,1,3
+OF5,Wealth-manager DAF programme strategy and integration (adviser-controlled design),2.942,2.917,2.867,2.875,2.828,2.867,4,5,4,5,6,6
+OF4,Investor DAF commercial and technical diligence module,2.923,2.917,2.733,2.875,2.828,2.867,5,4,5,4,5,5
+OF2,DAF operating-model and AI-readiness review (sponsors >= $250m),2.673,2.667,2.533,2.75,2.586,2.667,6,7,7,7,7,7
+OF10,"Operations and technology education partnership (CE, case studies, guest modules)",2.635,2.667,2.6,2.812,2.517,2.867,7,6,6,6,8,4
+OF7,Sponsor operating benchmark (data cooperative),2.577,2.583,2.267,2.375,2.966,2.533,8,8,9,8,3,8
+OF8,Buyer-side second opinion for national sponsors alongside large consultancies,2.423,2.417,2.333,2.312,2.241,2.467,9,9,8,9,10,9
+OF9,Complex-asset intake decision-support software,2.212,2.167,2.067,1.938,2.483,2.067,10,10,10,10,9,10

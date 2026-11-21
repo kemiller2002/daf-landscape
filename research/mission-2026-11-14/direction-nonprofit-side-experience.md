@@ -90,7 +90,7 @@
 
 - **Fundraisers (DAFRC interviews, 2025).** They list six challenges: verifying the organisation, investigating DAF donations, entering grants, thanking the donor, understanding DAF rules, and getting gift information from donors.
   - NPT's summary: "This lack of transparency makes acknowledging the funder (as opposed to the DAF advisor) cumbersome." ([NPT](https://thenonprofittimes.com/?p=214617)) [S].
-  - NPT headlines "79% of DAF gifts are partially anonymous". The DAFRC donor report uses 79% for a different measure: the share of occasional partial-anonymity donors who feel identifiable. **[I] Treat the 79% as unverified** (P-B44N28-02).
+  - NPT headlines "79% of DAF gifts are partially anonymous". The DAFRC report itself (p.10) says "only 4% of grants are completely anonymous and that 79% of partially anonymous grants include identifiable information", citing the DAFRC donor survey (endnote 37). NPT's headline is a misreading [P; PDF read 2026-11-20] (P-B44N28-02, DAFRC part closed).
 - **Sponsor defaults (DAFRC manager survey, 2025).** Defaults are full contact 36%, name only 24%, fund name only 35%, other 5% and anonymous 1%. The authors say the variety "has created considerable confusion among professional fundraisers" and call for an industry standard with full contact as the default ([PDF](https://www.dafresearchcollaborative.org/s/The-National-Survey-of-Donor-Advised-Fund-Managers.pdf)) [F].
 - **Donors (DAFRC donor survey, 2025).**
   - 49% say they are always or almost always thanked; 8% never or almost never.
@@ -178,7 +178,7 @@ Donor rows are the complaints-corpus records whose complainant is a donor (incl.
 
 - **Small sample.** There are 32 fresh rows. Nine are AASP threads, which over-represent university and hospital advancement-services offices.
 - **Vendor sources.** Vendor rows (Chariot, FreeWill, Bloomerang, DonorDock) come from interested parties. Three Chariot posts carry no year (NPS-026, NPS-027 are "year unknown").
-- **Unread sources.** The DAFRC "Reinventing the Cycle" report, the FreeWill full reports, the Chariot/K2D reports and NonProfit PRO were not read (robots, forms or bot protection).
+- **Unread sources.** The FreeWill full reports, the Chariot/K2D reports (HubSpot gate) and NonProfit PRO were not read (forms or bot protection). The DAFRC "Reinventing the Cycle" report was read 2026-11-20; its six challenges carry no frequencies.
 - **Reddit rows.** The four r/nonprofit rows are carried from earlier repo coding and not re-verified.
 - **Counts.** Counts reflect venue accessibility, not prevalence.
 

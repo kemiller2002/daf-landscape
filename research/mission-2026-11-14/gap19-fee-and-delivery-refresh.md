@@ -133,7 +133,7 @@ The San Francisco admin layer (100 bps at $250k) is the one `all-in-cost-compari
 | AVD52 | Benevity Impact Workspace ("later this year") | no evidence | No launch release in the sitemap [F, absence] |
 | AVD53 | Fundraise Up Agentic Giving (2026) | partial | "rolling out in stages"; early access [F] |
 | AVD54 | Bonterra Que (2025-10-01) | partial | Launch post plus vendor-only claims (repo AP11/AP12) [F/repo] |
-| AVD55 | Foundant Fia (2026-09-02) | partial | Beta; controls claimed, not documented (repo AI census; foundant.com not fetched) [repo] |
+| AVD55 | Foundant Fia (2026-09-02) | partial | Beta; controls claimed, not documented; foundant.com release read 2026-11-20: "currently in beta with its initial group of early-adopter organizations" [F] |
 | AVD56 | Ren Recognize (2026-08-06) | delivered | Help article [F] |
 | AVD57 | Ren donor ACH request emails (Nov 2026) | delivered | Help article [F] |
 

@@ -53,9 +53,9 @@ Trace contribution → NPT legal acceptance → GivingPoint donor event → auth
 - Capstone transaction: https://www.capstonepartners.com/transactions/capstone-partners-advised-stellar-technology-solutions-on-its-sale-to-ren-inc/
 - Ren iPhi architecture description: https://www.reninc.com/blog/no-more-spreadsheets/
 - Public simulated iPhi demo: https://demo.stellartechsol.com/iphidemo/
-- Minneapolis case study: https://www.stellartechsol.com/sf/Portals/26/docs/TMFProfileFINAL020712.pdf
+- Minneapolis case study: https://www.stellartechsol.com/sf/Portals/26/docs/TMFProfileFINAL020712.pdf (now redirects to a Ren marketing page; PDF not retrievable 2026-11-20)
 - Cleveland case study: https://www.stellartechsol.com/sf/Portals/26/docs/ClevelandFoundationFINALProfile100614.pdf
 - Greater Memphis announcement: https://www.stellartechsol.com/sf/Home/ViewArticle/tabid/86/itemId/69/Default.aspx
 - Stanislaus announcement: https://www.prweb.com/releases/stanislaus_community_foundation_leverages_technology_to_create_new_ways_to_interact_with_donors_and_grantees/prweb11936954.htm
 - American Baptist Foundation announcement: https://www.prweb.com/releases/stellar_s_iphi_solution_selected_by_american_baptist_foundation_in_support_of_its_mission/prweb12102446.htm
-- Helping Hands announcement: https://www.stellartechsol.com/sf/Home/ViewArticle/tabid/86/itemId/46/Default.aspx
+- Helping Hands announcement: https://www.stellartechsol.com/sf/Home/ViewArticle/tabid/86/itemId/46/Default.aspx (now redirects to reninc.com/faith-based-community-foundations/; original not retrievable 2026-11-20)

@@ -117,7 +117,7 @@
   - Donor Advised Gift: 4% on the first £150,000 of each donation.
   - Charitable Trust: 1.4% on the first £100,000 of average daily balance. It is the only CAF vehicle that can invest, and it holds USD and EUR.
   - Minimum fee: £400 or £600. The page does not map each amount to a vehicle [F: S04].
-  - CAF American Donor Fund: 4.5% on the first £50,000; Premier DAF minimum £50k, with a £2,000 a year minimum charge [PS: [S05](https://www.cafonline.org/cadf/fees)].
+  - CAF American Donor Fund: 4.5% retention on the first £50,000 of each Donor Advised Gift donation; standard DAF 1.35% on the first £100,000 (minimum £1,600 a year); Premier DAF minimum £50k, with a £2,000 a year minimum charge (schedule from 15 June 2026) [PS: [S05](https://www.cafonline.org/cadf/fees)].
 - **NPT UK and NPT Transatlantic:**
   - Grants: "£84 million" in grants "last year" (press-release headline; very likely FY2023, since NPT Transatlantic's £68m and NPT UK's £16m for FY23 in the 2023 grantmaking report sum to £84m [I]) [V wave 35B] [S: [S06](https://prnewswire.co.uk/news-releases/donors-made-84-million-in-grants-from-npt-uk-and-npt-transatlantics-donor-advised-funds-last-year-302071231.html)].
   - Technology: runs on Ren, as do the Rathbones and Cazenove Capital programs (R01).

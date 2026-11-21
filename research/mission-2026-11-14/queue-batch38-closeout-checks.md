@@ -426,3 +426,13 @@ Source: [validation-wave23-report.md](validation-wave23-report.md); register `da
 3. **§5.1, vendor capture.**
    - **Find:** "Its payment to TIFIN Give LLC was $185,921, which is **74% of that cost**."
    - **Replace with:** "Its payment to TIFIN Give LLC was $185,921, which is **74% of that cost**. No Part IX line outside investment management (11f, $1.56m) is that large, so the payment is spread across lines or partly inside 11f; the ratio is an upper bound on the vendor's share of that budget [V wave 23]."
+
+
+## Pointer: DAFCP investigation (2026-11-20) — not yet validated
+
+§1 (P-B37C-03) used College-printed employers only, which gave 0 of 7 at a DAF sponsor. Employer-published pages give a different count; see [04-industry-relationships-and-influence-map.md](../dafcp-investigation-2026-11-20/04-industry-relationships-and-influence-map.md):
+- 2 current national-sponsor executives (NPT, DAFgiving360);
+- 6 people at Charitable Solutions LLC (Dechomai's administrator), including the programme director;
+- 10 of 22 current sponsor or administrator ties.
+
+The §1 reading that sponsor exposure "runs through event money … more than through faculty employment" is superseded once validated (DE072). The text above is unchanged.

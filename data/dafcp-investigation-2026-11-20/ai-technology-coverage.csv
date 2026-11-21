@@ -1,0 +1,17 @@
+row_id,capability,coverage_level,public_evidence,repo_benchmark,evidence_ids
+AT01,AI-assisted grant vetting,not-mentioned,Grant module names rules and eligible recipients only,"batch-2a/2b charity-vetting research; ai-governance-failure-modes 'AI may add a flag, never clear one'",DE045;DE057
+AT02,Automated gift acceptance,not-mentioned,Gift Acceptance module is asset-type and valuation focused,direction-noncash-gift-infrastructure.md,DE044;DE057
+AT03,Donor-facing AI advisors,not-mentioned,No AI in any College DAF material,TIFIN Give Louise (AIP01); Daffy Quick Donate (AIP03),DE057
+AT04,Workflow orchestration,not-mentioned,,ren-iphi-donorfirstx-grant-lifecycle-evidence-trace,DE057
+AT05,Data validation and normalization,not-mentioned,,b4013-03-02 DAF grant record schema; direction-data-standards-interoperability,DE057
+AT06,Fraud detection,not-mentioned,"Ethics module names prohibited transactions, not fraud tooling",b49-04-fraud-diversion-controls; batch 37C payment-redirection controls,DE057
+AT07,Compliance automation,mentioned,'Applied compliance' sits beside 'DAF technology tools'; automation not stated,ai-economics-replacement-analysis,DE057
+AT08,Explainable decision systems,not-mentioned,,daf-discretionary-grant-review-policy-explainability-audit,DE057
+AT09,Human review and escalation,not-mentioned,,ai-governance-failure-modes,DE057
+AT10,Audit trails and decision provenance,not-mentioned,,agent-delegation-terms (Daffy attributes adviser actions to the organizer),DE057
+AT11,Integration with wealth management systems,not-mentioned,"College tech partnerships (MoneyGuidePro, Holistiplan, fpPathfinder) not tied to DAFCP",ren-tifin-chariot-deep-dive; pave-daf-adviser-managed-sponsor-access,DE059
+AT12,API-based DAF infrastructure,not-mentioned,,Chariot DAFpay spec and MCP (AIP07); Daffy MCP (AIP02); Endaoment API,DE057
+AT13,Cybersecurity and donor privacy,not-mentioned,,soc2-assessment; anonymity-data-flow research,DE057
+AT14,Data portability and vendor lock-in,not-mentioned,"Succession content concerns fund succession, not platform portability",migration-runbook-2026; revenue-retention-and-switching; AEF two-year history loss,DE046;DE057
+AT15,Operational redesign around AI,not-mentioned,,ai-native-entrant-simulation,DE057
+AT16,DAF technology tools (generic),mentioned,Module 6 bullet; release 'useful technology resources',,DE057

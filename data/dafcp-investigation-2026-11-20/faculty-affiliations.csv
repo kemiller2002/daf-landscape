@@ -1,0 +1,23 @@
+row_id,name_as_printed,current_affiliation,affiliation_class,daf_ties,sponsor_tie_status,source,tag,confidence,evidence_ids
+FA01,Paul M. Caspersen,"The College: CAP and DAFCP Program Director; Managing Director, Center for Philanthropy and Social Impact; Wallace Chair. Also Charitable Solutions LLC: Vice President, Charitable Trusts & Life Income Strategies",academic + DAF administrator,Charitable Solutions administers Dechomai Foundation,current-administrator,DAFCP page; Charitable Solutions team page; College welcome release,F,High,DE026;DE027;DE028
+FA02,Erinn Andrews,"Founder and CEO, GiveTeam; President, Advisors in Philanthropy",consultant,none found,none-found,Advisors in Philanthropy board page,F,Medium,DE033
+FA03,Lisa Barr,"National Philanthropic Trust, Senior Vice President, Advisor Development, West",national DAF sponsor,NPT,current-sponsor,NPT advisors page,F,High,DE031
+FA04,Rachel Berg,not found,unknown,LinkedIn slug suggests holder of the 2025 badge ('DAFP') [I],unknown,DAFCP page link only,U,Low,DE033
+FA05,Aquanetta Betts,"Director of Planned Giving, George Mason University; Johnson Betts LLC",university gift planning + consultant,2025 certificate speaker,none-found,College 2025 President's Report; 2025 agenda,F,Medium,DE023
+FA06,Brad Caswell,"Charitable Solutions LLC, VP New Business; Acadia Squam Group",DAF administrator,Former Vanguard Charitable COO (12 years),current-administrator; former-sponsor,Charitable Solutions team page,F,High,DE026;DE034
+FA07,Bryan Clontz,"Founder and President, Charitable Solutions LLC; founder of Dechomai Foundation",DAF administrator / sponsor founder,Dechomai; CAP Advisory Board since 2001,current-administrator,Charitable Solutions team page; DAF Forum speakers,F,High,DE026;DE029;DE030
+FA08,Vanessa Denney,"VP Donor and Philanthropic Services, Omaha Community Foundation",community foundation (DAF sponsor),2025 certificate speaker and badge holder employer,current-sponsor,2025 agenda; OCF news,F,High,DE023;DE033
+FA09,Daniel Greenspon,PhilanthroTech (advisory); adviser to Chariot,consultant / DAF-technology adviser,Chariot adviser; Give Interactive adviser (2024); former Vanguard Charitable,former-sponsor; vendor-adviser,Chariot blog; newswire,F,Medium,DE035
+FA10,Ted Hart,Global DAF expert and author; podcast host,consultant,Former CAF America CEO 2012-2024,former-sponsor,DAF Forum speakers page; 2024 release,F,High,DE033
+FA11,Dan Heist,"Assistant Professor, Romney Institute, Brigham Young University",academic,DAF Research Collaborative co-founder,none-found,DAF Forum speakers page; BYU vita,F,High,DE033
+FA12,Dana Holt,"CEO, HOLT Consulting LLC",consultant,none found,none-found,DAF Forum speakers page,F,High,DE033
+FA13,Tiffany T. House,Gift Planning Institute; Thompson & Associates (per board bio),consultant,none found,none-found,DAF Forum speakers page,F,Medium,DE033
+FA14,Caleb Knepper,"Senior Director of Estate and Gift Planning, University of Florida Foundation",university gift planning,Programme director's former employer,none-found,UF Foundation page,F,High,DE033
+FA15,Michael Maestas,"DAFgiving360, Managing Director, Investment Oversight & Due Diligence",national DAF sponsor,DAFgiving360 (Schwab),current-sponsor,2025 agenda; Schwab author page,F,Medium-High,DE032
+FA16,Laura J. Malone,"Charitable Solutions LLC, VP Noncash Asset Donor Relations",DAF administrator,Dechomai webinar presenter 2026,current-administrator,Charitable Solutions team page; Dechomai webinar,F,High,DE026
+FA17,Richard C. Mills,"Senior Counsel, Smith Haughey",law,Drafted ABA comments on the 2023 proposed DAF regulations,none-found,firm bio,F,High,DE033
+FA18,Ken Nopar,"Principal, Nopar Consulting",consultant,Former American Endowment Foundation (to 2025),former-sponsor,trade bylines; aggregator,R,Medium,DE033
+FA19,Ryan Raffin,"Charitable Solutions LLC, Partner, Noncash Assets & Compliance",DAF administrator,Dechomai operations,current-administrator,Charitable Solutions team page,F,High,DE026
+FA20,Rebecca Stibbe,"Director, Family Philanthropy, Myriad USA (offers DAFs)",international DAF provider,Former SVP Thrivent Charitable,current-sponsor; former-sponsor,Myriad USA staff page,F,High,DE033
+FA21,Courtney Tsai,"Senior Counsel, Loeb & Loeb",law,Former DAFgiving360 charitable strategist,former-sponsor,firm bio,F,High,DE033
+FA22,Russell A. Willis,"Charitable Solutions LLC, Manager, Non-Cash Research; Planned Gift Design Services",DAF administrator / consultant,Dechomai administrator,current-administrator,Charitable Solutions team page,F,High,DE026
