@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Sim.fs" />
+    <Compile Include="Experiments.fs" />
+    <Compile Include="Migration.fs" />
+    <Compile Include="NetworkEconomics.fs" />
+    <Compile Include="Vetting.fs" />
+    <Compile Include="ExperimentReport.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Daf.Enterprise\Daf.Enterprise.fsproj" />
+  </ItemGroup>
+
+</Project>

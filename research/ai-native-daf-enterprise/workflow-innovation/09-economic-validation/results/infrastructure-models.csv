@@ -1,0 +1,7 @@
+model,customers,revenue_usd,cost_usd,operating_result_usd,note
+"grantmaking infrastructure (per-grant API)",10,800000,2940000,-2140000,"fixed $2.5m platform team [A]; $40k per customer support [A]; $0.05 compute+data per grant [A]"
+"grantmaking infrastructure (per-grant API)",30,2400000,3820000,-1420000,"fixed $2.5m platform team [A]; $40k per customer support [A]; $0.05 compute+data per grant [A]"
+"grantmaking infrastructure (per-grant API)",10,2400000,2940000,-540000,"fixed $2.5m platform team [A]; $40k per customer support [A]; $0.05 compute+data per grant [A]"
+"shared compliance policy packs",20,1200000,2100000,-900000,"counsel + policy engineers $1.8m [A]; $15k per sponsor onboarding/support [A]"
+"shared compliance policy packs",60,3600000,2700000,900000,"counsel + policy engineers $1.8m [A]; $15k per sponsor onboarding/support [A]"
+"shared compliance policy packs",150,4500000,4050000,450000,"counsel + policy engineers $1.8m [A]; $15k per sponsor onboarding/support [A]"
