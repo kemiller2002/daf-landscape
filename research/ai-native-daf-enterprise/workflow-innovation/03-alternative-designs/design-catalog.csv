@@ -1,29 +1,29 @@
 design_id,workflow,type,mechanism,maturity,status,file,audit_verdict,maturity_after_audit
-D-W1-1,W1,conventional,see W1 file,see file,see file,W1-*.md,not reviewed,see file
-D-W1-2,W1,automation-first,see W1 file,see file,see file,W1-*.md,not reviewed,see file
-D-W1-3,W1,ai-native,see W1 file,L3,see file,W1-*.md,SURVIVES,L3
-D-W1-4,W1,radical,see W1 file,L2,see file,W1-*.md,SURVIVES WITH MODIFICATIONS,L2
-D-W1-5,W1,ecosystem,see W1 file,L1 (L2 if E7),see file,W1-*.md,INSUFFICIENT EVIDENCE,L1 value / L2 overlap
-D-W2-1,W2,conventional,see W2 file,see file,see file,W2-*.md,not reviewed,see file
-D-W2-2,W2,automation-first,see W2 file,see file,see file,W2-*.md,not reviewed,see file
-D-W2-3,W2,ai-native,see W2 file,L3,see file,W2-*.md,SURVIVES,L3
-D-W2-4,W2,radical,see W2 file,L2,see file,W2-*.md,SURVIVES WITH MODIFICATIONS,L1
-D-W2-5,W2,ecosystem,see W2 file,L1,see file,W2-*.md,SURVIVES WITH MODIFICATIONS,L1
-D-W3-1,W3,conventional,see W3 file,see file,see file,W3-*.md,not reviewed,see file
-D-W3-2,W3,automation-first,see W3 file,see file,see file,W3-*.md,not reviewed,see file
-D-W3-3,W3,ai-native,see W3 file,L3,see file,W3-*.md,SURVIVES,L3
-D-W3-4,W3,radical,see W3 file,L1,see file,W3-*.md,SURVIVES WITH MODIFICATIONS,L1 (pull L0)
-D-W3-5,W3,ecosystem,see W3 file,see file,see file,W3-*.md,not reviewed,see file
-D-W4-1,W4,conventional,see W4 file,see file,see file,W4-*.md,not reviewed,see file
-D-W4-2,W4,automation-first,see W4 file,see file,see file,W4-*.md,not reviewed,see file
-D-W4-3,W4,ai-native,see W4 file,see file,see file,W4-*.md,not reviewed,see file
-D-W4-4,W4,radical,see W4 file,L1,see file,W4-*.md,SURVIVES WITH MODIFICATIONS,L1
-D-W4-5,W4,ecosystem,see W4 file,see file,see file,W4-*.md,not reviewed,see file
-D-W5-1,W5,conventional,see W5 file,see file,see file,W5-*.md,not reviewed,see file
-D-W5-2,W5,automation-first,see W5 file,see file,see file,W5-*.md,not reviewed,see file
-D-W5-3,W5,ai-native,see W5 file,L1,see file,W5-*.md,SURVIVES WITH MODIFICATIONS,L1
-D-W5-4,W5,radical,see W5 file,L1,see file,W5-*.md,SURVIVES WITH MODIFICATIONS,L1
-D-W5-5,W5,ecosystem,see W5 file,see file,see file,W5-*.md,not reviewed,see file
+D-W1-1,W1,conventional,Conventional baseline: Staff look up each recommendation in IRS tools and screen OFAC; queue; batch approval,"Observed industry practice (approval latency unpublished, EV-076)",see file,W1-recipient-verification.md,not reviewed,"Observed industry practice (approval latency unpublished, EV-076)"
+D-W1-2,W1,automation-first,Automation-first: Same sequence; API lookups and screening per grant; reviewer confirms the result,L1,see file,W1-recipient-verification.md,not reviewed,L1
+D-W1-3,W1,ai-native,see W1 file,L3,see file,W1-recipient-verification.md,SURVIVES,L3
+D-W1-4,W1,radical,see W1 file,L2,see file,W1-recipient-verification.md,SURVIVES WITH MODIFICATIONS,L2
+D-W1-5,W1,ecosystem,see W1 file,L1 (L2 if E7),see file,W1-recipient-verification.md,INSUFFICIENT EVIDENCE,L1 value / L2 overlap
+D-W2-1,W2,conventional,Conventional baseline: Grant enters a manual queue; specialist researches from scratch; documents emailed,Observed practice (minutes unpublished),see file,W2-non-routine-review.md,not reviewed,Observed practice (minutes unpublished)
+D-W2-2,W2,automation-first,Automation-first: Same queue; document collection portal; checklists; reminders for ER reports,L1,see file,W2-non-routine-review.md,not reviewed,L1
+D-W2-3,W2,ai-native,see W2 file,L3,see file,W2-non-routine-review.md,SURVIVES,L3
+D-W2-4,W2,radical,see W2 file,L2,see file,W2-non-routine-review.md,SURVIVES WITH MODIFICATIONS,L1
+D-W2-5,W2,ecosystem,see W2 file,L1,see file,W2-non-routine-review.md,SURVIVES WITH MODIFICATIONS,L1
+D-W3-1,W3,conventional,"Conventional baseline: Weekly or monthly batches; EFT where enrolled, checks otherwise; cover letters by mail or email; remittance out of band",Observed,see file,W3-disbursement-remittance.md,not reviewed,Observed
+D-W3-2,W3,automation-first,Automation-first: Daily electronic batches; email remittance; automated check reissue,L1,see file,W3-disbursement-remittance.md,not reviewed,L1
+D-W3-3,W3,ai-native,see W3 file,L3,see file,W3-disbursement-remittance.md,SURVIVES,L3
+D-W3-4,W3,radical,see W3 file,L1,see file,W3-disbursement-remittance.md,SURVIVES WITH MODIFICATIONS,L1 (pull L0)
+D-W3-5,W3,ecosystem,"Externalized / ecosystem: multi-rail orchestration over partner networks: Sponsor (or Model C operator) instructs through several rails (bank ACH, PayPal Grant Payments, Chariot Disbursements) chosen per recipient enrollment and cost;",L1,see file,W3-disbursement-remittance.md,not reviewed,L1
+D-W4-1,W4,conventional,Conventional baseline: Donor or advisor calls; specialist gathers documents by email; legal review; committee for large gifts; broker or buyer found per asset,Observed (via non-cash vendor research),see file,W4-complex-noncash.md,not reviewed,Observed (via non-cash vendor research)
+D-W4-2,W4,automation-first,"Automation-first: Intake portal, checklist, e-signature, document reminders",L1,see file,W4-complex-noncash.md,not reviewed,L1
+D-W4-3,W4,ai-native,"AI-native (parent): Document extraction agent builds a dossier (title, liabilities, valuation, relationships); specialist decides; deterministic 8283/8282 tracking",L1,see file,W4-complex-noncash.md,not reviewed,L1
+D-W4-4,W4,radical,see W4 file,L1,see file,W4-complex-noncash.md,SURVIVES WITH MODIFICATIONS,L1
+D-W4-5,W4,ecosystem,"Externalized / ecosystem: partner processor plus liquidity partners: Accepted-class gifts are processed by a non-cash processor, with pre-committed liquidity partners under standing agreements; the sponsor keeps accept/decline au",L1,see file,W4-complex-noncash.md,not reviewed,L1
+D-W5-1,W5,conventional,Conventional baseline: Call center plus email queue; agents look up multiple systems; tickets,Observed (volumes unpublished),see file,W5-servicing.md,not reviewed,Observed (volumes unpublished)
+D-W5-2,W5,automation-first,Automation-first: Chatbot over FAQ; ticket routing; CRM integration,L1,see file,W5-servicing.md,not reviewed,L1
+D-W5-3,W5,ai-native,see W5 file,L1,see file,W5-servicing.md,SURVIVES WITH MODIFICATIONS,L1
+D-W5-4,W5,radical,see W5 file,L1,see file,W5-servicing.md,SURVIVES WITH MODIFICATIONS,L1
+D-W5-5,W5,ecosystem,Externalized / ecosystem: advisor-embedded service: The advisor's platform shows DAF status and actions via APIs; the advisor is the first line; the sponsor serves the advisor,L2 (channel premise; industry report §2.2),see file,W5-servicing.md,not reviewed,L2 (channel premise; industry report §2.2)
 D-W6-1,W6,conventional,"Form, manual review, liquidate, wire, mailed statement; history lost",observed,baseline,W6-transfers-portability.md,not reviewed,observed
 D-W6-2,W6,automation-first,"E-sign, automated eligibility lookup and wire; PDF history",L1,held: superseded by D-W6-3,W6-transfers-portability.md,not reviewed,L1
 D-W6-3,W6,ai-native,Structured transfer intent; deterministic policy approval; payment gate; open grant record history bundle,L2,"forwarded: E8, E9, E2",W6-transfers-portability.md,SURVIVES WITH MODIFICATIONS,L1
@@ -104,5 +104,5 @@ D-PI-2,philanthropic intelligence,automation-first,Embedded ratings widgets,L1,h
 D-PI-3,philanthropic intelligence,ai-native,Goal elicitation; evidence-graded profiles; fairness monitoring,L1,forwarded,cap-philanthropic-intelligence.md,SURVIVES WITH MODIFICATIONS,L1
 D-PI-4,philanthropic intelligence,radical,"No rankings: donor analytics, anonymized aggregate patterns, graded self-reported outcomes",L0,held,cap-philanthropic-intelligence.md,not reviewed,L0
 D-PI-5,philanthropic intelligence,ecosystem,Local intelligence partners via API,L1,forwarded,cap-philanthropic-intelligence.md,SURVIVES,L1
-D-W4-6,W4,extra,W4 shared specialist pool,L1,forwarded,W4-*.md,SURVIVES WITH MODIFICATIONS,L1
-D-W5-6,W5,extra,W5 donor agents as interface,L3,forwarded,W5-*.md,SURVIVES,L3 (narrow)
+D-W4-6,W4,extra,W4 shared specialist pool,L1,forwarded,W4-complex-noncash.md,SURVIVES WITH MODIFICATIONS,L1
+D-W5-6,W5,extra,W5 donor agents as interface,L3,forwarded,W5-servicing.md,SURVIVES,L3 (narrow)
