@@ -6,6 +6,7 @@ This program tests the DAF enterprise requirements for gaps, contradictions, fra
 - [Executive findings](18-executive/executive-findings.md)
 - [Theoretical readiness](17-readiness/readiness-report.md)
 - [Owner decisions](16-registers/owner-decisions.md)
+- [All open questions and data](19-questions/all-open-questions.md): 183 questions in one CSV
 
 **Status:** theoretical. Nothing here is implemented, legally reviewed or independently validated, and it does not claim production readiness or SOC 1/SOC 2 compliance. Reviews were role-separated self-critique by one AI model family ([independence statement](00-program-charter.md#5-independence-statement)).
 
@@ -31,6 +32,7 @@ This program tests the DAF enterprise requirements for gaps, contradictions, fra
 | 16 | Registers | [Findings](16-registers/findings.csv), [contradictions](16-registers/contradiction-register.md), [assumptions](16-registers/assumption-register.csv), [requirements graph](16-registers/requirements.csv), [owner decisions](16-registers/owner-decisions.md) |
 | 17 | [Readiness report](17-readiness/readiness-report.md) | 18 criteria × domains; what not to implement yet |
 | 18 | [Executive findings](18-executive/executive-findings.md) | The 15-section final report |
+| 19 | [All open questions and data](19-questions/all-open-questions.md) | 183 questions consolidated from all registers; data inventory |
 | — | [Ledger](LEDGER.md) | Checkpoints, metrics, continuation plan |
 
 ## How this relates to existing work
