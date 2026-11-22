@@ -75,7 +75,7 @@ For criterion 18, "U" means role-separated self-critique only; no independent hu
 - **Do not implement until resolved:** the **no-touch routine approval path**. Build the human-batch-approval path first; it is the fallback in every option.
 
 ### 2.2 Payments and disbursement
-- **Sufficiently specified:** the attempt machine rev 2 (cumulative PA-1, two-source NotReceived, contradicting evidence, Lost, checks).
+- **Sufficiently specified:** the attempt machine rev 2 (cumulative PA-1, two-source NotReceived, contradicting evidence, Lost, checks), as amended by rev 3 A1–A23. Round 3 found no new severity-4 or 5 issue in this lifecycle: **approaching saturation** after fold-in.
 - **Incomplete:** the bulk-Unknown procedure (TVF-164); the per-provider observation-implication table (PA-6).
 - **Most dangerous assumption:** TVA-005 (providers can prove non-receipt and honour keys).
 - **Evidence:** executed provider contracts (GAP-002); vendor confirmations (OUTSTANDING C7).
@@ -108,8 +108,18 @@ For criterion 18, "U" means role-separated self-critique only; no independent hu
 
 ### 2.7 Security and identity
 - **Specified:** the authorization formula with tenant terms; AUTH-I1..I8; TVCTL-06/10.
-- **Residual:** two-person collusion (TVF-077, 131); break-glass data edits (OD-22); disaster-recovery restore consistency (TVF-144).
-- **Do not implement:** any human write path to payee, authority, ledger or policy data that bypasses domain commands.
+- **Residual (catastrophic, severity 5):**
+  - destination substitution at a provider, invisible to the sponsor (TVF-222; amendment B18);
+  - movements in external registers (custodian deliveries, identity-provider admin actions) with no matching command (TVF-223; B19);
+  - two-person collusion (TVF-077, 131).
+- **Residual (severity 4):**
+  - break-glass data edits (OD-22);
+  - edit-then-revert (TVF-209);
+  - restore consistency (TVF-144, 207, 216).
+- **Saturation:** not reached after round 3 (see the scenario library).
+- **Do not implement:**
+  - any human write path to payee, authority, ledger or policy data that bypasses domain commands;
+  - any payment to a provider-tokenized destination without per-payment destination confirmation (B18).
 
 ### 2.8 Organization and economics
 - **Specified:** the allocation rule (H/D/P/agent); SoD pairs; closed-form staffing and surge model.
