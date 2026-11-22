@@ -1,6 +1,6 @@
 # State models
 
-**Status:** theoretical specification [T]. These models restate and correct the baseline state machines. They are **proposals**, not decisions. Where a proposal changes a baseline rule, the change is listed in the [contradiction register](../16-registers/contradiction-register.md) and needs an owner decision.
+**Status:** theoretical specification [T]. **Read with [revision 3 amendments](revision-3-amendments.md), which supersede conflicting text below.** These models restate and correct the baseline state machines. They are **proposals**, not decisions. Where a proposal changes a baseline rule, the change is listed in the [contradiction register](../16-registers/contradiction-register.md) and needs an owner decision.
 
 Notation: `→` legal transition; **bold** = terminal for ordinary commands. "Terminal" never means "immutable forever": a terminal record can still receive *linked correction records* (reversal, adjustment, recovery case) without changing its state (rule SM-0 below).
 

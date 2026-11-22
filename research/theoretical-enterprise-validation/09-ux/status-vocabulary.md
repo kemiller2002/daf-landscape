@@ -1,6 +1,6 @@
 # Status vocabulary (proposal resolving TVC-008)
 
-**Status:** proposal [T]. Copy is illustrative; legal and plain-language review are required (the UX v0.2 content-governance rule).
+**Status:** proposal [T]. Copy is illustrative; legal and plain-language review are required (the UX v0.2 content-governance rule). Read with [revision 3 amendments](../06-state-models/revision-3-amendments.md), which supersede conflicting text.
 
 ## 1. Principle
 

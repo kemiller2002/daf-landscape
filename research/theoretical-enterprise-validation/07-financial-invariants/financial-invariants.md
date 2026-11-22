@@ -1,6 +1,6 @@
 # Financial invariants catalog
 
-**Status:** theoretical [T]. Accounting treatment marked [C] needs review by a CPA familiar with nonprofit (ASC 958) fund accounting. Nothing here is an accounting conclusion.
+**Status:** theoretical [T]. Accounting treatment marked [C] needs review by a CPA familiar with nonprofit (ASC 958) fund accounting. Nothing here is an accounting conclusion. Read with [revision 3 amendments](../06-state-models/revision-3-amendments.md), which supersede conflicting text.
 
 Baseline: [financial core v0.5](../../docs/financial-core-control-spec-v0.5.md) invariants 1–10, settlement conservation, SPEND-01..06, FEE-01..12, WF-17/WF-18 ([treasury](../ai-native-daf-enterprise/03-workflow-redesign/wf-investments-treasury.md)), and the grant machine in WF-01. This catalog keeps those rules and adds what is missing. Each invariant states what must hold, when it is checked, and what happens on violation.
 
