@@ -24,7 +24,7 @@ This program tests the DAF enterprise requirements for gaps, contradictions, fra
 | 08 | [Compliance and controls](08-compliance/compliance-and-controls.md) | Authority classes, control-template gaps, TVCTL-01..14 |
 | 09 | [Status vocabulary](09-ux/status-vocabulary.md), [personas and interaction models](09-ux/personas-and-interaction-models.md) | Five-dimension status; 21 personas; alternative interaction models; accessibility findings |
 | 10 | [Widget integration model](10-widgets/widget-integration-model.md) | Trust boundaries, unspecified behaviours, cross-system trace |
-| 11 | [Scenario library](11-scenarios/scenario-library.md), [scenarios.csv](11-scenarios/scenarios.csv) | Rounds 1–3, saturation tracking |
+| 11 | [Scenario library](11-scenarios/scenario-library.md), [scenarios.csv](11-scenarios/scenarios.csv) | Rounds 1–4, saturation tracking |
 | 12 | [Failure analysis](12-failure-analysis/failure-analysis.md) | FMEA, fault trees, STRIDE, conjunction day, counterfactuals |
 | 13 | [Role-separated reviews](13-adversarial-reviews/role-reviews.md) | Dispositions; [raw records](13-adversarial-reviews/raw/) |
 | 14 | [Alternative operating models](14-alternative-operating-models/alternatives.md) | Funding, review, finality, reconciliation, succession, service, enterprise shape |
