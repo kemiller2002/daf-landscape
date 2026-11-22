@@ -50,7 +50,15 @@ Baseline workflows:
 | **CW-37** | **Fee correction / refund** | FEE-11 | ~5/18 | No |
 | **CW-38** | **Board delegation (DoA) change** | GOV-01 | ~3/18 | Yes (TVC-003) |
 
-Bold rows are workflows the baseline does not define. 18 of 38 are missing or below 1/3 specified ([TVF-020](../16-registers/findings.csv)).
+Bold rows are the 18 workflows the baseline does not define as workflows. **14** of them are below one-third specified (corrected in review; [TVF-020](../16-registers/findings.csv)).
+
+Added after round 2 cross-domain (not yet specified):
+- **CW-39** transfer-in from another sponsor (TVF-121);
+- **CW-40** investment-structure transition: custodian conversion, custodian or processor insolvency, pool merger or liquidation (TVF-122);
+- **CW-41** inter-fund error correction (TVF-124);
+- **CW-42** sponsor succession: sponsor merger, dissolution or revocation (TVF-130);
+- **CW-43** migrated-fund validation and in-flight import (TVF-110/111);
+- **CW-44** acceptance invalidated after the fact (TVF-113).
 
 ## 2. Critical workflow specifications
 
@@ -80,7 +88,7 @@ Field order follows the directive. "Auth" = authorization; "Fin" = financial eff
 | Termination | Declined, Canceled, Reconciled (SM-0: later corrections are child records) |
 | User-visible | Separate request / decision / funding / payment / finality statuses ([status vocabulary](../09-ux/status-vocabulary.md)); never "paid" before Disbursed; never "failed" for Unknown |
 
-**Cancellation (CW-24):** requester asks → if `UnderReview`, it is a withdrawal (REC-2). If `Approved`..`Funded`, the sponsor decides (normally grants it; [P]). If an attempt is in `Submitted/Unknown/Accepted`, cancellation becomes a recall request (GR-3), and the donor sees "cancellation requested – payment may already be on its way".
+**Cancellation (CW-24).** Baseline WF-01 lets the *donor* cancel an approved grant before release (`Approved → Canceled`); review correction to TVF-005. Proposed: requester asks → if `UnderReview`, it is a withdrawal (REC-2). If `Approved`..`Funded`, the sponsor decides (normally grants it; [P]). If an attempt is in `Submitted/Unknown/Accepted`, cancellation becomes a recall request (GR-3), and the donor sees "cancellation requested – payment may already be on its way".
 
 ### 2.2 CW-02 Percentage or multi-source grant
 

@@ -16,9 +16,9 @@ Retention classes:
 
 Column "Authority conflict" names other systems or parties that could claim to be authoritative for the same fact. Each needs a field-level source-of-truth rule (DATA-07).
 
-| Entity | Identity | Owner (sole writer) | Lifecycle | Key relationships | Authority boundary | Retention | Authority conflict / known risk |
+| Entity | Identity | Owner (intended sole writer; see note) | Lifecycle | Key relationships | Authority boundary | Retention | Authority conflict / known risk |
 |---|---|---|---|---|---|---|---|
-| Sponsoring organization | EIN; legal entity ID | Sponsor governance (C5.4) | Formed → registered (states) → operating → dissolved/merged | Has legal entities, programs, policies, board | Holds exclusive legal control of fund assets (§4966(d)(2) [V via REG-001]) | R-CORP | **Model C/D infrastructure operator** may appear to control policy and payments; legal control must remain with the sponsor (DD-016; adversarial objection 5) |
+| Sponsoring organization | EIN; legal entity ID | Sponsor governance (C5.4) | Formed → registered (states) → operating → dissolved/merged | Has legal entities, programs, policies, board | Holds exclusive legal control of fund assets (§170(f)(18) acknowledgment language, REG-008 [F]; §4966(d)(2) definition [unverified]) | R-CORP | **Model C/D infrastructure operator** may appear to control policy and payments; legal control must remain with the sponsor (DD-016; adversarial objection 5) |
 | Legal entity | Internal ID + EIN/jurisdiction | Sponsor governance | Effective-dated | Owns custodial accounts; issues acknowledgments | Tenant ≠ legal entity (core invariant 2) | R-CORP | Program branding can hide which entity is the sponsor (ADM distinction 10; admin scenario 22) |
 | Program / brand | Program ID | Sponsor | Versioned | Distribution partner, fee schedule, investment menu | No legal authority of its own | R-CORP | Partner may present program as its own product |
 | Donor | PartyId (person or org) | Party service (C1.1) | Registered → verified → active → deceased/dissolved | Contributes to funds; may hold advisory privileges | Contributor role confers **no** control over assets after the gift | R-PII + R-TAX | "Fund owner" label (admin scenario 1); CRM at a wealth firm holds a competing client record |
@@ -55,6 +55,8 @@ Column "Authority conflict" names other systems or parties that could claim to b
 | Policy | Policy ID + version | Policy registry (C5.1) | Draft → back-tested → approved → published → superseded | Rules, decisions | Author ≠ publisher (DD-011) | R-CORP + R-EVD | Shared policy packs across sponsors (INN-36) create correlated error |
 | Decision / approval / flag | Decision ID | Issuing capability | Immutable | Subject, policy version, evidence | Actor kind ∈ {Rule, Person} for state-changing decisions (INV-A1) | R-EVD | — |
 | Audit event / control evidence | Event ID + hash | Evidence ledger (C4.5) | Immutable; retention-bound | Control, subject | Evidence of execution, not of policy existence | R-EVD | Evidence ledger owned by the same function it assures (CRCO; TVF-041) |
+
+**Review note (architecture A3/A4).** Donor, advisor, successor and authorized representative are listed as rows for readability. Under ONT-1 they are **capacities of a Party** (relationship edges), not separate entities. Where the owner column names a human, an external party or two writers, the ownership is split: the external party is authoritative for the observation, and the named capability is the sole *internal* writer.
 
 ## 2. Relationship rules
 

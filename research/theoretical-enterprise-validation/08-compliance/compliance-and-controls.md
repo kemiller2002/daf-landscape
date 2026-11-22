@@ -8,16 +8,18 @@ The baseline [regulatory map](../ai-native-daf-enterprise/08-governance-and-comp
 
 | Directive class | Baseline rows (examples) | Count (approx.) | Implication |
 |---|---|---|---|
-| 1. Verified legal requirement | REG-001, 003, 004, 008, 009, 011, 013, 024, 037 (OFAC reporting) — label [F] on primary text | ~20 | Design to them now |
+| 1. Verified legal requirement | Statute text of REG-001 (excise rates and exceptions only), 003, 004, 008, 009, 011, 013, 024, 037 (OFAC reporting) — label [F] on primary text | ~20 | Design to them now. **Review correction (A1):** REG-001's "sponsor-signed approval on every grant" is interpretation (class 2), not verified law. |
 | 2. Interpretation needing professional review | REG-002 ER mechanics [K]; REG-020 ED (Notice 2006-109 UNVERIFIED); REG-042/043 money transmission [I]; REG-057 UPMIFA [S]; DD-004 delegation reading of REG-001 (TVC-003); acknowledgment timing for reversible gifts (TVC-023); recipient refund treatment (OD-09); escheat (REG-045 [K]) | ~15 | Block dependent requirements from "approved" status until reviewed |
 | 3. Sponsor policy choice | Thresholds, routine class, haircut, fixing time, provisional credit limit, cooling-off length, discretionary holds (REG-055/CTL-045), over-commitment priority | — | Owner decisions ([OD register](../16-registers/owner-decisions.md)) |
 | 4. Industry convention | REG-025 990 Part VI policies; REG-039/040 Treasury/FATF guidance; REG-059 COI policy; NAV-error materiality practice | ~8 | Adopt with stated rationale; not mandatory |
 | 5. Proposed internal control | CTL-001..054; TVCTL-01..12 below | 66 | Need full template fields |
-| 6. Unverified assumption | REG-015, 025, 026, 049, 050, 058, 061, 062, 064 ([K]) | 11 | Not to be cited as obligations in `docs/` |
+| 6. Unverified (labelled [K]: not fetched) | REG-015, 026, 049, 050, 058, 061, 062, 064 | 8 | **Review correction (A3):** "not fetched" does not mean "not law". §509 public support, §6001 records, breach-notification statutes and E-SIGN are real obligations whose *text* was not verified here. Treat them as **class 2 pending verification**, not as assumptions. REG-025 is a convention (class 4). |
 
-**New external fact verified in this program:** Nacha rules give most ACH returns a two-banking-day deadline, but unauthorized consumer debits (R10) may be returned until the banking day after the 60th calendar day after settlement. [V: nacha.org rules pages "Differentiating Unauthorized Return Reasons" and "Which 60 Days is It?", accessed 2026-11-22.] A 2024 amendment on timing after the written statement of unauthorized debit was seen but not confirmed as in effect [S]. Consequence: TVC-023 and FI-22.
+**External fact checked in this program:** Nacha rules give most ACH returns a two-banking-day deadline. Unauthorized **consumer** debits (R10) may be returned until the banking day after the 60th calendar day after settlement. [S: nacha.org summary pages "Differentiating Unauthorized Return Reasons" and "Which 60 Days is It?", accessed 2026-11-22. **Downgraded from [V] in review:** the rule text itself was not read.] Business-account unauthorized debits use a two-day window [unverified]. A 2024 amendment on timing after the written statement was seen but not confirmed as in effect.
 
-**Retention:** the record retention basis is unverified (REG-026 [K]; TVC-016). No requirement in this program states a period. Classes R-* in the [ontology](../02-ontology/enterprise-ontology.md) await counsel (OD-12). Privacy deletion (REG-048 state laws [S]) conflicts with tax, OFAC and agreement retention, so CW-35 needs a precedence rule.
+This applies to **contributions** (debits), not to grant payments (credits). Consequence: TVC-023 and FI-22.
+
+**Retention:** the record retention basis is mostly unverified (REG-026 [K]; TVC-016). The review notes that REG-037 (31 CFR 501, [F] on the regulation, though the inventory pass labelled the 10-year rule itself [S]) supports a **10-year minimum for OFAC-related records**. That is the one period this program states, as a floor pending counsel. Otherwise no period is stated. Classes R-* in the [ontology](../02-ontology/enterprise-ontology.md) await counsel (OD-12). Privacy deletion (REG-048 state laws [S]) conflicts with tax, OFAC and agreement retention, so CW-35 needs a precedence rule.
 
 ## 2. Control template gaps in the baseline
 
@@ -136,8 +138,8 @@ SOC mapping is indicative only: TSC = AICPA Trust Services Criteria common-crite
 | Evidence | Three-way match report; break log with owner ≠ releaser |
 | Failure response | Breaks aged > threshold escalate to Audit Committee |
 | Monitoring | Break count and age |
-| Independent verification | External auditor |
-| Exceptions | At very small scale, a compensating monthly review by an outside accountant [P] |
+| Independent verification | Internal audit (review A14: the external auditor tests controls but is not part of the control system) |
+| Exceptions | At very small scale, a compensating review by an outside accountant [P]. Review B-6: a monthly compensating review leaves ~30 days of double-payment exposure, so the review must be at least weekly for payment matching. |
 | Mapping | ICFR |
 
 ### TVCTL-08 NAV-error and restatement control
@@ -152,6 +154,24 @@ Objective: authority changes reach every derived session, token, widget instance
 ### TVCTL-11 Control-evidence integrity (resolves TVF-041)
 Objective: control evidence cannot be altered by the function whose controls it evidences. Authority: internal audit (A). Evidence: append-only store with hash chain; access logs. Failure response: evidence gap logged as control failure. Independent verification: auditor. Mapping: TSC CC4/CC7.
 
+### TVCTL-13 OFAC blocking and reject reporting (rev 2; review A5)
+Objective: when a payment or asset involves a blocked person, funds are **blocked** (not merely recalled to the fund) or rejected as required. Reports are filed within the regulatory deadline. Records are kept for at least 10 years (REG-037 [F]; application to DAFs [C]).
+
+Implementation and ownership:
+- Authority: sanctions officer (R), GC (A).
+- Requires a `Blocked` disposition in the payment attempt and contribution models, with a blocked-property account.
+- Failure response: escalate to the GC immediately.
+- Independent verification: internal audit annually.
+
+Note: TVCTL-04 is a pre-payment gate and **does not** cover REG-037 reporting (review correction).
+
+### TVCTL-14 Disqualified-recipient and excess-benefit gate (rev 2; reviews A8, A18)
+Objective: the routine path excludes recipients and payees where:
+- §4966 requires expenditure responsibility, or where the grant is a taxable distribution, e.g. Type III non-functionally-integrated supporting organizations and donor-controlled supporting organizations [unverified detail, C];
+- §4958(c)(2) treats any payment to a donor, advisor or related person as automatic excess benefit (REG-004 [F]).
+
+Implementation: deterministic classification from IRS codes and the relationship graph. A match routes to a human, never to auto-approve. Independent verification: QA sample.
+
 ### TVCTL-12 Expenditure responsibility obligation tracker (fills REG-002 gap)
 Objective: every ER grant has pre-grant inquiry, agreement terms, reports and Schedule D/990 reporting inputs tracked to completion. Authority: grants compliance head. Evidence: per-grant obligation record. Failure response: missing report → escalation and hold on further grants to that grantee. Independent verification: annual sample. Mapping: REG-002 [K → C].
 
@@ -160,4 +180,4 @@ Objective: every ER grant has pre-grant inquiry, agreement terms, reports and Sc
 The governance inventory pass identified legal rows with no identifiable control (OUTSTANDING A1 is still open):
 REG-002, 006 (ongoing), 013, 014, 015, 019 (snapshot retention), 020, 024, 026, 027–032, 035, 037 (blocking/reject reports), 041, 042/043, 046, 048, 049, 050, 054, 060, 064/065.
 
-This program adds TVCTL-12 for REG-002 and TVCTL-04 for part of REG-037. The rest remain gaps (TVF-045). Several are conditional on the business model (C vs D), and BSA scope changes if the provider runs custody (REG-043). Controls must therefore be **conditioned on the operating model** (TVR-CMP-003).
+This program adds TVCTL-12 for REG-002, TVCTL-13 for REG-037 reporting and TVCTL-14 for REG-004/§4966 recipient classes. The rest remain gaps (TVF-045). Several are conditional on the business model (C vs D), and BSA scope changes if the provider runs custody (REG-043). Controls must therefore be **conditioned on the operating model** (TVR-CMP-003).

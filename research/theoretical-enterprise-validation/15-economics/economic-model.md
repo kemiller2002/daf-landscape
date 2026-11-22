@@ -27,7 +27,7 @@ The elasticity is 1 in each of *A, g, e, m*, and −1 in *H*. Every parameter ma
 | Parameter | Low | Expected | High | Source of range |
 |---|---|---|---|---|
 | g (grants/account/yr) | 6.2 | 8 | 13.0 | [V] observed RCF to Fidelity range, baseline 09 l.18 |
-| e (exception share) | 4.2% | 8% | 17% | 4.2% like-for-like and 7–8.5% core proxy [S]; 17–31% broad proxy (baseline ledger "conflicts recorded"). None is observed review. |
+| e (exception share) | 2.8% | 8% | 17% | Low corrected in review: 4.2% is a **dollar** share; the per-grant figure is 2.8% [S]. 7–8.5% core proxy [S]. 17% is outside the baseline's own 3–15% falsification band; the broad proxy is "likely 28–31%" [S]. None is observed review. |
 | m (minutes per exception) | 30 | 45 | 135 | 45 [A] baseline; 135 from FM-15 "real" alternative [A] |
 | H (productive hours) | 1,600 | 1,600 | 1,400 | [A] |
 | Loaded cost per FTE | $124.5k | $165k | $250k | $124,507 Vanguard comparator [V per baseline]; others [A] |
@@ -36,11 +36,24 @@ At A = 100,000 (g = 8, H = 1,600 unless noted):
 
 | Case | Exceptions/yr | Hours | FTE_avg | Cost | Per account |
 |---|---|---|---|---|---|
-| Low (e 4.2%, m 30) | 33,600 | 16,800 | 10.5 | $1.31m | $13 |
+| Low (e 2.8%, m 30) | 22,400 | 11,200 | 7.0 | $0.87m | $9 |
 | Expected (e 8%, m 45) | 64,000 | 48,000 | **30** (matches baseline) | $4.95m | $50 |
 | High (e 17%, m 135, H 1,400, $250k) | 136,000 | 306,000 | 219 | $54.6m | $546 |
 
-The high case alone would add ~$500 per account against a baseline total of $272 per account [S]. That takes total cost to roughly the Fidelity-derived frontier of ~$790 per account. **The AI-native cost advantage disappears if the exception rate and handling time are both at the pessimistic end.** That combination is not implausible: both ranges come from the repository's own proxies.
+Replacing the baseline's $50 per account exception cost with the high case gives 272 − 50 + 546 ≈ **$768 per account** [S]. That is close to, but still below, the Fidelity-derived frontier of ~$790. **Corrected in review:** the AI-native cost advantage *approaches parity* in the high case; it does not disappear.
+
+Per-account exception cost = 8 · e · m / (60 · H) · C. Holding everything else at baseline, the frontier is reached when:
+- **e·m ≈ 24** (e as a fraction, m in minutes) under pessimistic labour (H = 1,400, C = $250k);
+- **e·m ≈ 41** under base labour.
+
+Two further caveats:
+- The high case combines four extremes, so it is a stress test, not a range end.
+- Its m = 135 is FM-15's 3× stress multiplier. The only evidence is EV-106 (90 minutes unaided), which gives ~$587 per account.
+
+**Not modelled, in either direction:**
+- Pessimistic labour cost applied to *all* staff, not only exceptions. That gives ~$842 and crosses the frontier.
+- Grant intensity. Fidelity runs ~13 grants per account against 8 here; per grant, the high case (~$96) is already worse than Fidelity (~$61).
+- Determination reuse, which biases every case upward.
 
 ## 3. Surge amplification (missing from the baseline staffing model)
 
@@ -57,9 +70,12 @@ Assume December carries a multiplier *k* on daily arrivals for 25 of 250 working
 **Backlog if staffed at the annual average** (k = 3, expected case):
 - arrivals during the surge are 640 per day against capacity of 256 per day;
 - the backlog grows by ~384 per day;
-- after 25 days it is ~9,600 cases, about 37 working days of capacity.
+- after 25 days it is ~9,600 cases.
+- After December the surplus capacity is only 256 − 213 ≈ 43 per day, so clearance takes **~223 working days**. That is most of the following year. **Corrected in review:** an earlier draft said "37 days", which is the backlog expressed in days of capacity, not the time to clear it.
+- Staffing at the annual average means 100% utilisation: any variation in arrivals makes the backlog permanent.
+- Staffing to a **service level** instead [S]: ~54 FTE clears the surge within ~10 days; ~63 FTE within ~5 days. These are review-derived figures.
 
-This matches the twin's reported "34 days over SLA" [S]. The mechanism is arithmetic, not an emergent simulation result. The baseline twin and this calculation agree; the baseline *staffing table* does not include it.
+The twin reports "34 days over SLA" [S]. This agreement is **not corroboration**: both use the same assumed k = 3 (TVA-004). The mechanism is arithmetic. The baseline *staffing table* does not include it. The complex-asset specialist pool, also December-heavy, has no surge term in either model.
 
 **Levers ranked by effect on peak FTE** (expected case, k = 3):
 
@@ -77,7 +93,9 @@ The tech architecture's "10–30× peaks" (TVC-017) refers to throughput per sec
 
 Baseline: $0.90 per exception dossier, $0.05 per service interaction. At 100k accounts, $78k per year (0.3% of cost).
 
-**Break-even of significance.** AI cost reaches 1% of total cost ($272k at 100k accounts) when the per-dossier cost × 64k ≈ $250k, i.e. ≈ **$4 per dossier**. It equals the human cost it supports when the dossier cost ≈ 45 min × $103/h ≈ **$77**.
+**Break-even of significance (exception dossiers).** AI cost reaches 1% of total cost ($272k at 100k accounts) when the per-dossier cost × 64k ≈ $250k, i.e. ≈ **$4 per dossier**. The human cost it supports is about 45 min × $55–103/h ≈ **$42–77**. The labour-rate range is unreconciled: GAP-040; the baseline uses $55.45/h elsewhere.
+
+**Corrected in review:** the benefit-risk agent runs on **all ~800k grants**, not only exceptions. For routine runs, the 1% threshold is ≈ **$0.31 per run**. Per-grant agents are where inference cost becomes material first.
 
 Multi-step agentic runs (retrieval, many tool calls, long context) plausibly cost single-digit dollars per case [A]. Such costs would be material but not decisive. The model choice for agents should therefore be driven by error rates, not by price. AC-13 holds in this range, with the caveat that agent **re-runs** (on every eligibility or list refresh, if done by agent instead of D) multiply run counts. Requirement TVR-ECON-002: list refreshes are re-evaluated by deterministic rules, never by agents.
 
@@ -91,6 +109,8 @@ Routine grant dollar flow at 100k accounts ≈ 800k grants × $5k [S; the $4.5�
 - if a share of them are taxable distributions, §4966 imposes 20% on the sponsor and 5% on approving managers (REG-001 [F]), plus recovery and reputational cost.
 
 **Shared policy pack across *s* sponsors (Model C/D, INN-36).** Exposure scales by *s* while detection time does not shrink. This is the correlated-error term absent from the Model C economics (TVF-062).
+
+**§4966 manager tax.** It is capped per distribution (reviewers cite $10,000 [unverified, check statute]). The sponsor-level 20% tax is the dominant term.
 
 **Sanctions miss.** Strict liability (REG-036). Cost is not reducible to a per-case multiple; the baseline bounds escaped-error cost at 1.0–88.5× handling time, and a sanctions miss near 128×.
 
@@ -111,14 +131,16 @@ No *p_i* is known. The requirement is to **measure** rather than assume (TVR-ECO
 
 ## 7. Cash sleeve cost (alternative 1D)
 
-Cash drag ≈ sleeve share × (expected pool return − cash yield). At 5% × 2% = **10 bps of AUM** [A]. At $300k average balance that is ~$300 per account per year, borne by funds, not the sponsor. That is the same order as the baseline's per-account operating cost. The sleeve is therefore **not free**. Its justification is correctness and simplicity (fewer states, no funding market risk), not cost. A smaller sleeve sized to forecast grants (e.g. 90 days) lowers the drag proportionally.
+Cash drag ≈ sleeve share × (expected pool return − cash yield). At 5% × 2% = **10 bps of AUM** [A]: ~$300 per account per year at a $300k average balance, borne by **funds**, not the sponsor. That is ~20× the modelled custody cost (0.5 bps). A sleeve sized to 90 days of forecast grants still costs ~$197 per account [S, review-derived].
+
+**Corrected in review:** an earlier draft called this "comparable" to sponsor costs, which compared costs borne by different parties. The sleeve's justification would be correctness and simplicity, not cost. The architecture review disputes even that: a sleeve plus currency reservation keeps every reservation state, and the sleeve runs out in December. See [alternatives §1](../14-alternative-operating-models/alternatives.md).
 
 ## 8. Sensitivity summary
 
 | Conclusion | Robust? | Flips when |
 |---|---|---|
 | AI inference cost is immaterial | Yes, below ~$4 per dossier | Agents re-run on every refresh, or per-case cost > ~$10 |
-| AI-native cost per account beats the conventional frontier at ≥100k accounts | **No** | e ≥ ~15% and m ≥ ~120 together |
+| AI-native cost per account beats the conventional frontier at ≥100k accounts | Narrowly, in the modelled high case (~$768 vs ~$790) | e·m ≥ ~24 (pessimistic labour) or ~41 (base labour); or pessimistic labour applied to all staff; or comparing per grant |
 | Average-volume staffing is adequate | **No** | Always: k ≥ 2 creates backlog unless levers apply |
 | Specialist pool is the binding human constraint | Yes, across all cases | — |
 | Correlated failure is a material cost for multi-sponsor models | Probably [I] | Blast-radius analysis shows small *f·D·s* |

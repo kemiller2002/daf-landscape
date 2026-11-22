@@ -82,7 +82,12 @@ The theoretical minimum number of distinct people needed to satisfy SoD-1..9 plu
 | Sanctions officer clears true matches; must not be the grant approver on the same case | CTL-013 + inference |
 | Board/committee approves DoA and policy delegations | REG-058 [K] |
 
-A graph-colouring view gives at least **4 operational people** besides the board, plus coverage for absence (two-deep for payment release and sanctions). That makes **~6–8**. This is consistent with the org model's 8–10 floor and inconsistent with "~20 at any scale" (TVC-018). Vacations, illness and conflicts push the practical floor up. That is an operational assumption (TVA-022), not a derivation.
+**Corrected in review (architecture A1):** an earlier draft claimed a graph-colouring floor of four people. The pairwise constraints above form a **bipartite** conflict graph, so in principle **two** people satisfy them. The real floor comes from:
+- absence coverage;
+- reviewer independence (a reviewer must not report to the reviewed);
+- workload.
+
+**Unresolved disagreement (preserved):** the operations review (B-2) estimates that daily two-deep coverage of the payment chain needs **~10 or more people**. That chain is profile approver, releaser, independent reconciler, two PA-2 deciders excluding the releaser, and the sanctions decider. The org model says 8–10. This program has no derivation that settles it (TVA-022). A rota and on-call model is required (TVR-OPS-004).
 
 ## 5. Authority model
 
@@ -100,9 +105,9 @@ A graph-colouring view gives at least **4 operational people** besides the board
 
 ### 5.2 Authority evaluation (every command)
 
-`allowed(command) = scope_ok ∧ relationship_effective(t_exec) ∧ capability_granted ∧ delegation_chain_valid ∧ assurance(session) ≥ required(command, amount, recipient_novelty) ∧ no_hold(subject) ∧ SoD_ok(actor, subject_history) ∧ policy_version_effective(t_exec)`
+`allowed(command) = tenant_ok ∧ legal_entity_ok ∧ scope_ok ∧ relationship_effective(t_exec) ∧ capability_granted ∧ delegation_chain_valid ∧ assurance(session) ≥ required(command, amount, recipient_novelty) ∧ no_hold(subject) ∧ SoD_ok(actor, subject_history) ∧ policy_version_effective(t_exec)`
 
-Additions to the baseline:
+Additions to the baseline. The tenant and legal-entity terms were added after round 2 S-3: one tenant's verification or change never becomes another tenant's decision input without that tenant's own control.
 - the assurance term depends on **recipient novelty** as well as amount (TVC-025);
 - `delegation_chain_valid` re-walks the chain at execution time (AUTH-I2);
 - `SoD_ok` uses the subject's history (who created the payee, who raised the case).
@@ -115,5 +120,5 @@ Additions to the baseline:
 | Death reported with past effective date | AUTH-I3; GR-8; TVC-033 |
 | Advisor dispute | Fund `AuthorityState = Disputed`. Recommendations from the disputing parties held; sponsor-initiated actions (fees, investments) continue (AUTH-09). |
 | Partner offboarded | All partner-derived sessions and launch grants revoked. Donors keep direct access. Partner-specific fee sharing stops at the effective date. |
-| Staff terminated | IAM deprovision. Pending approvals they made stay valid (made under authority at the time). Their **queued** approvals not yet executed are re-routed. |
+| Staff terminated | IAM deprovision. Approvals they completed stay valid (made under authority at the time). SM-6 re-checks the **releaser's** authority and the grant state at payment, not that of past approvers (TVC-042). Their **queued** approvals not yet executed are re-routed. |
 | Board delegation resolution amended | Policies relying on the old delegation are suspended at the effective time until re-linked (TVR-GOV-002). |

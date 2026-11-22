@@ -16,7 +16,15 @@ Criteria abbreviations: FC financial correctness · RD regulatory defensibility 
 | **D. Policy cash sleeve per fund** | Each fund keeps cash = max(policy floor, forecast grants for N days). Grants paid from the sleeve. The sleeve is replenished asynchronously by liquidation. | ++ | 0 | ++ | + | + | − (cash drag) | + | + | + | Cash drag cost > value of faster, simpler funding. Donors reject a cash allocation. |
 | E. Pool-level liquidity buffer (sponsor fronts cash) | Pool cash pays grants; units redeemed at next strike | + | 0 | ++ | − (outage exhausts buffer, FM-17) | 0 | 0 | − (intra-pool funding must be accounted, TVF-073) | + | 0 | Outage length > buffer days |
 
-**Recommendation [I]:** D for the routine path, combined with C for amounts above the sleeve. D turns most grants into cash-only transitions: no `FundingShortfall`, no market risk between approval and payment, fewer states. The cost is cash drag. At a 2% cash-vs-pool return gap on a sleeve of 5% of AUM, drag ≈ 10 bps of AUM [A]. That is comparable to the custody and admin fees in the baseline. **Minority view preserved:** D changes every donor's investment allocation and may conflict with advisor-managed mandates (DD-010). Investment-advisor partners may oppose it. E is cheaper but concentrates outage risk.
+**Rev 2:** the architecture and economics reviews dispute this recommendation, and the dispute is **preserved**:
+- a sleeve plus currency reservation still needs every reservation state;
+- the sleeve depletes in December, exactly when it is needed;
+- its drag (~10 bps of AUM) is ~20× custody and is borne by funds;
+- sleeve sizing is an Investment Committee decision.
+
+The reviewers prefer **E (pool-level buffer) + C (currency reservation)**. This is now open as OD-13 with no program recommendation.
+
+Rev 1 text, kept for the record: **Recommendation [I]:** D for the routine path, combined with C for amounts above the sleeve. D turns most grants into cash-only transitions: no `FundingShortfall`, no market risk between approval and payment, fewer states. The cost is cash drag. At a 2% cash-vs-pool return gap on a sleeve of 5% of AUM, drag ≈ 10 bps of AUM [A]. That is comparable to the custody and admin fees in the baseline. **Minority view preserved:** D changes every donor's investment allocation and may conflict with advisor-managed mandates (DD-010). Investment-advisor partners may oppose it. E is cheaper but concentrates outage risk.
 
 ## 2. Grant review: where human judgment sits
 
@@ -28,7 +36,9 @@ Criteria abbreviations: FC financial correctness · RD regulatory defensibility 
 | **D. Giving plan (move controls earlier)** | Donor submits an annual or seasonal plan in Q3. The sponsor reviews new recipients ahead of time. December executes pre-cleared items deterministically. | + | + | + (for planners) | + (flattens surge) | + | Share of donors who plan ahead (unmeasured, TVA-030) |
 | E. Exception-only, no queue for "missing info" | Requester resolves gaps through self-service | 0 | 0 | 0/− | ++ | 0 | Requester abandonment |
 
-**Recommendation [I]:** B, kept as a hypothesis until OD-01, plus D as a surge-flattening overlay. D is the only lever that reduces December *specialist* demand without asking donors to accept deferred execution (INN-37, untested).
+**Recommendation [I]:** B, kept as a hypothesis until OD-01, plus D as a surge-flattening overlay. D reduces December specialist demand without asking donors to accept deferred execution (INN-37, untested). It is not the only lever (review A19): see economics §3.
+
+**Rev 2 red-team warning:** D creates the TVF-153 grooming chain. A recipient pre-cleared in Q3 by an attacker who controls the donor account auto-executes in December. D is acceptable only with REC-7 (re-confirmation at execution for recently added recipients), AUTH-I7 (step-up and cooling-off on credential changes) and a cross-fund recipient-addition flag.
 
 ## 3. Contribution finality
 

@@ -10,12 +10,12 @@ The baseline vocabulary is close to this, but no single document separates all t
 
 | # | Fact | Created by | Moves money? | Legal effect | Reversible? |
 |---|---|---|---|---|---|
-| 1 | Recommendation | Donor, advisor, agent principal | No | None: a request (DD-003, §4966(d)(2) [V via REG-001]) | Withdraw before decision |
+| 1 | Recommendation | Donor, advisor, agent principal | No | None: a request (DD-003; sponsor's exclusive legal control, §170(f)(18) language via REG-008 [F]. §4966(d)(2) definition [unverified]) | Withdraw before decision |
 | 2 | Authorization (approval) | Sponsor rule or human | No | Sponsor commits to a grant | Cancel before payment (sponsor) |
 | 3 | Fixing | Approval, or a defined later event for % grants | No | Converts a % into a currency amount | No; correct by new grant or cancel |
 | 4 | Reservation | Ledger, atomically with or after approval | No (encumbrance) | None externally | Release on cancel |
-| 5 | Liquidation order | Treasury rule | Yes (internal: units → cash) | Trade instruction to custodian | Until executed |
-| 6 | Liquidation settlement | Custodian observation | Yes | Cash available to the legal owner | No (a new trade reverses) |
+| 5 | Unit redemption | Valuation (internal) at NAV strike | Internal: fund's units → claim on pool cash | None externally | No; correct by adjustment |
+| 6 | Pool liquidity (net trading) | Treasury, at pool level, netted across all flows | Yes (pool trades at custodian) | Trade instructions | Pool-level, not per grant |
 | 7 | Funding | Ledger | Internal allocation of settled cash to a grant | None externally | Until payment submitted |
 | 8 | Payment instruction | Payment gate | Not yet | Sponsor order | Until submitted |
 | 9 | Provider acceptance | Provider | Yes (committed) | Provider obligation | Recall only, uncertain |
@@ -31,7 +31,7 @@ The baseline vocabulary is close to this, but no single document separates all t
 |---|---|---|---|
 | FI-01 | Every journal balances in each currency. No posting into a closed period through any write path. Corrections are reversals or adjustments. | Every posting | Reject (baseline invariant 3) |
 | FI-02 | Σ account units × NAV = pool NAV within tolerance; Σ pool positions = custodian positions after known in-transit items. | Each NAV strike; daily | Block NAV publication (WF-18; CTL-017) |
-| FI-03 | Legal-owner cash (sponsor entity) = Σ fund cash claims + sponsor operating cash + suspense, per custodial and bank account. | Daily | Break case; no new reservations against the affected account until classified |
+| FI-03 | Legal-owner cash (sponsor entity) per custodial and bank account = Σ fund cash claims + sponsor operating cash + suspense + **in-transit** (debited, not yet observed) − **outstanding checks** + **provider receivables** (PA-8). | Daily | Break case. Rev 2: reservations are blocked only up to the **unexplained break amount** above a materiality threshold [P], not on the whole shared account. Otherwise one timing break halts every donor (review A-11). |
 | FI-04 | Suspense and unapplied cash have an owner and an age. Nothing ages out of suspense into a fund or into revenue without a human decision. | Daily | Escalate by age |
 
 ### 2.2 Capacity and reservation
@@ -59,9 +59,9 @@ The baseline requires a defined denominator and as-of time (SPEND-03, W02, D-GR-
 |---|---|
 | FI-10 | **Single fixing.** A percentage grant is converted to a currency amount exactly once, at a defined fixing event, with a recorded valuation snapshot ID. Proposed default: fix at approval, using the latest struck NAV [P; OD-07]. The donor-visible preview is an *estimate at preview time*. After fixing, the grant is an ordinary fixed-amount grant. |
 | FI-11 | **Allocation is a funding plan, not a set of grants.** Lines `{source_i, share_i}` say where the cash comes from. The sponsor controls investments (DD-007), so a donor allocation is itself a recommendation. Line amounts = fixed amount × share, rounded to minor units by largest remainder with deterministic tie-break on source ID. Σ line amounts = grant amount exactly. |
-| FI-12 | **Over-commitment.** If market moves make `R(f,t) > V(f,t) − H`, the fund is over-committed. New reservations are refused. Already-approved grants keep their fixed amounts. Unfunded grants are funded in approval order. Any remaining shortfall is a sponsor decision case (cancel newest, top-up policy, or partial) [P; OD-08]. The fund never goes negative silently. |
+| FI-12 | **Over-commitment.** If market moves make `R(f,t) > V(f,t) − H`, the fund is over-committed. New reservations are refused, except re-reservations after a return (GR-11). Already-approved grants keep their fixed amounts. Unfunded grants are funded in **reservation sequence order** (GR-10). Any remaining shortfall is a sponsor decision case (cancel newest, top-up policy, or partial) [P; OD-08]. The fund never goes negative silently. |
 | FI-13 | **Source shortfall.** If one source cannot deliver its line (illiquid, restricted, gated, custodian outage), the grant enters `FundingShortfall`. Policy decides: re-plan to other permitted sources (allowed when the donor's allocation was a preference) or hold. No partial payment unless sponsor policy explicitly allows split disbursement [P]. |
-| FI-14 | **Liquidation sizing.** Units redeemed per source = line amount ÷ forward NAV at strike. Because forward NAV is unknown at order time, the order must either sell by amount (cash-amount redemption) or sell units with a buffer and return the excess to the fund. The choice is a treasury policy [P]. Either way, the realised proceeds and the excess or shortfall are recorded, and the grant receives exactly its fixed amount. |
+| FI-14 | **Funding in unitized pools (rev 2; review A-3).** Units redeemed per source = line amount ÷ forward NAV at strike. That redemption is internal and exact in currency. The pool meets cash needs by **net** trading across all flows (contributions, grants, fees, rebalancing) under treasury policy. Per-grant trades exist only for non-pooled (separately managed) sources. The grant receives exactly its fixed amount unless sponsor policy allows partial payment (FI-13). Pool liquidity shortfall is a pool-level event (WF-17), not a grant-level one. |
 | FI-15 | **"100% of fund" or closing grant** is a distinct type: a *residual sweep*. Its amount is not known until all fees through closing date, all other obligations and all liquidations have settled. It is fixed after the last settlement, not at approval. A 100% grant fixed at approval is guaranteed to be wrong in one direction or the other. |
 | FI-16 | **Percentage of what.** Allowed denominators are an enumerated set, each with a definition: fund `V`, reservable capacity `C`, a named portfolio's value, or a sponsor spendable base (endowed funds). "Percent of account" without a type is invalid. |
 
@@ -73,14 +73,14 @@ The baseline requires a defined denominator and as-of time (SPEND-03, W02, D-GR-
 | FI-18 | Double-payment invariant PA-1 ([state models §3](../06-state-models/state-models.md#3-payment-attempt)). |
 | FI-19 | A return after settlement **re-credits the fund in cash** (the units were already redeemed). Reinvestment of returned cash follows the fund's allocation policy at the next cycle. The grant goes to `Returned` and its new reservation is re-established from that cash, not from new units. |
 | FI-20 | A recipient refund (charity sends money back, for example a canceled event or excess benefit discovered) is **not** a return. It is a new inbound receipt linked to the grant. Whether it goes back to the fund or elsewhere, and whether it reverses the grant for Schedule D, are [C] questions (OD-09). |
-| FI-21 | Uncashed checks: issued-not-presented amounts stay as a liability, not as fund cash. Void → re-credit or reissue per policy. Dormancy → unclaimed-property process [C: REG-045 is UNVERIFIED]. |
+| FI-21 | Uncashed checks: at issue, the reservation is **consumed into an outstanding-check liability**, counted once (PA-4). Void (bank-confirmed) → re-credit or reissue per policy. Dormancy → unclaimed-property process [C: REG-045 is UNVERIFIED]. |
 
 ### 2.5 Contributions
 
 | ID | Invariant |
 |---|---|
 | FI-22 | Contribution value on a reversible rail is `Provisional` until the reversal window passes. Provisional value counts toward `V` for display and fees but is excluded from `C` except up to the provisional credit limit (CON-1). |
-| FI-23 | A reversed contribution produces a reversal entry dated when the reversal is recorded, with effective date = original. Units issued against it are cancelled. If the units no longer exist (already redeemed for a disbursed grant), the shortfall becomes a donor receivable and sponsor exposure, never a silent negative balance (CON-3). |
+| FI-23 | A reversed contribution produces a reversal entry dated when the reversal is recorded, with effective date = original. Units issued against it are cancelled at the current NAV. **Rev 2 (review A-5):** the difference between the NAV at issue and at cancellation would otherwise fall on other unitholders. The policy must say which net assets absorb it, and an uncollectible receivable [C]. If the units no longer exist, the shortfall is a donor receivable and sponsor exposure, never a silent negative balance (CON-3). Fees and partner revenue share accrued on reversed value are reversed (round 2 X-10). |
 | FI-24 | Non-cash gift value: acceptance value, custody receipt value, gift-date valuation for acknowledgment, and sale proceeds are four different numbers. Only sale proceeds fund grants. |
 
 ### 2.6 Fees
@@ -98,6 +98,15 @@ The baseline requires a defined denominator and as-of time (SPEND-03, W02, D-GR-
 | FI-28 | **Custodian historical correction.** A correction to positions or cash effective in a past period is recorded bitemporally. If it changes a struck NAV beyond the materiality tolerance, a NAV-error case decides between restatement (re-processing unit transactions at the corrected NAV) and current-period adjustment [P/C; industry practice for pooled vehicles is a materiality threshold, I]. Fund-level effects on already-redeemed units are computed and shown, not ignored. |
 | FI-29 | When the ledger, custodian and bank disagree, no source wins by default. Each field has a declared authoritative source (DATA-07). A disagreement creates a break that blocks new reservations on the affected resource when its amount exceeds a threshold [P]. |
 | FI-30 | An external balance feed is an observation. It never makes cash spendable on its own (baseline). |
+
+### 2.7a Charges, fees and residues (rev 2)
+
+| ID | Invariant |
+|---|---|
+| FI-36 | Every income and cost item has an owner and a destination: interest on in-transit cash, rounding residue, wire and return fees, credit-line interest, bank charges on incoming foreign wires. Defaults [P]: platform-caused costs are sponsor costs; rail charges follow the grant's recorded **charge bearer**, so a deducted foreign-bank fee never silently breaks the GR-1 fixed amount (review A-9; round 2 X-8). |
+| FI-37 | **Fund charges and commitments** that are neither grants nor fees are a distinct fact, and known commitments reduce `C(f,t)`. Examples: capital calls on held private assets, carrying costs, UBIT/990-T [C] (round 2 X-8). |
+| FI-38 | **Inter-fund correction.** Sponsor or third-party errors (misapplied receipt, mis-sourced grant, duplicate trade) are corrected by an inter-fund reclassification record. The party at fault makes the fund whole under an error-cost policy (OD-20; round 2 X-15). |
+| FI-39 | **Proceeds-linked grant** ("the proceeds of my stock gift"): its amount is fixed at the contribution's sale settlement, like FI-15 (round 2 X-9). |
 
 ### 2.8 Multi-currency and restricted assets
 
@@ -129,4 +138,4 @@ The baseline requires a defined denominator and as-of time (SPEND-03, W02, D-GR-
 
 ## 4. What the baseline does not let us decide (owner decisions)
 
-OD-04 provisional credit limit; OD-05 haircut rates; OD-06 approval vs reservation atomicity; OD-07 fixing time; OD-08 over-commitment priority; OD-09 recipient refund destination; OD-10 fees vs grants priority; OD-11 trailing receipts. See [owner decisions](../16-registers/owner-decisions.md).
+OD-04 provisional credit limit; OD-05 haircut rates; OD-06 approval vs reservation atomicity; OD-07 fixing time (and no re-fix on NAV restatement); OD-08 over-commitment priority; OD-09 recipient refund destination; OD-10 fees vs grants priority; OD-11 trailing receipts; OD-19 grant recognition point [C]; OD-20 error-cost and loss-bearer policy. See [owner decisions](../16-registers/owner-decisions.md).

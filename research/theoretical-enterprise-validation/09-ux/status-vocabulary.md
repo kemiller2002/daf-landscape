@@ -11,21 +11,27 @@ A grant has **five independent dimensions**. The baseline already says this in t
 | Request | Draft, AwaitingConfirmation, Submitted, Withdrawn, Superseded, Expired | Draft · Waiting for your confirmation · Recommendation submitted · Withdrawn · Replaced · Expired | "Accepted", "Approved" |
 | Decision | UnderReview, AwaitingHumanDecision, Approved, Declined, Canceled | In sponsor review · Additional review · Approved by [Sponsor] · Not approved · Canceled | "Pending" alone (ambiguous) |
 | Funding | NotStarted, Reserved, Funding, Funded, FundingShortfall | — (hidden unless delayed) · Funds set aside · Selling investments to fund grant · Ready to pay · Funding delayed | "Paid", "Processing" |
-| Payment | None, Prepared, Submitted, Unknown, Accepted, Disbursed, Returned, Recalled, Voided | — · Payment being prepared · Payment sent to bank · **Confirming payment status** · Payment in progress · Paid to [Recipient] on D · Returned by recipient's bank · Payment stopped · Check voided | "Failed" for Unknown; "Complete" before Final |
+| Payment | None, Prepared, Submitted, Unknown, Accepted, Settled, Final, Returned, StopRequested, Voided | — · Payment being prepared · Payment in progress · **Confirming payment status** · Payment in progress · Payment sent on D · Paid to [Recipient] on D · Returned – arranging payment again · Stop requested · Check voided | "Failed" for Unknown; "Paid" or "Complete" before Final (GR-5) |
 | Finality / reconciliation | Final, Reconciled, PostPaymentReview | (not shown; "Paid" remains) · — · Under post-payment review (staff only unless policy discloses) | — |
 | Hold (orthogonal) | Held(reason class) | On hold – [non-sensitive reason class]: eligibility review · verification · sponsor review | Specific sanctions or fraud reasons (UX-F19) |
 
-## 2. Headline derivation (priority order)
+## 2. Headline derivation (priority order, rev 2)
 
-1. Hold present → "On hold – …"
-2. Payment `Unknown` → "Confirming payment status" (with the W02 copy: "We cannot confirm … check its status before trying again")
-3. Payment `Returned` → "Returned – updating payment details"
-4. Payment `Disbursed` → "Paid to [Recipient] on [date]"
-5. Payment `Submitted/Accepted` → "Payment in progress"
-6. Funding `FundingShortfall` → "Funding delayed"
-7. Decision `Approved` → "Approved by [Sponsor]"
-8. Decision `Declined/Canceled` → that
-9. Request state otherwise
+Revision 2 follows the UX review (A1–A4) and round 2 (G-24, G-25). Revision 1 let a hold hide money already in flight, showed canceled grants as "Returned" forever, and reused receipt copy for payment Unknown.
+
+1. Grant `Declined`, `Withdrawn` or `Canceled` → that label. Terminal decisions outrank every payment label.
+2. Payment `Unknown` → "Confirming payment status". Body: "Your grant may already be on its way. **Please do not send a new recommendation for this grant**; we will update you." **Not** the W02 receipt copy ("check its status before trying again"), which applies only to an unconfirmed *recommendation submission*. While a payment is Unknown, a new recommendation to the same recipient from the same fund routes to a human.
+3. Payment in flight (`Submitted`/`Accepted`) → "Payment in progress". If a hold was added after submission, add "– under review", but never replace the in-flight fact.
+4. Payment settled, before `Final` → "Payment sent on [date]". After `Final` → "Paid to [Recipient] on [date]" (GR-5).
+5. Payment `Returned` (grant not canceled) → "Returned – we are arranging payment again".
+6. Hold present (no attempt in flight) → "On hold – [reason class]".
+7. Funding `FundingShortfall` → "Funding delayed". `ApprovedAwaitingCapacity` → "Approved – waiting for funds".
+8. Decision `Approved` → "Approved by [Sponsor]".
+9. Request state otherwise.
+
+**Charity-facing copy (UX review A14):** returns must never say "updating payment details" to a charity, because that primes a bank-detail phishing request. Say: "A payment was returned. To update your details, sign in at [sponsor domain]. We will never ask for bank details by email or phone."
+
+**Notification volume (UX review A6):** professional advisors (P5) receive a digest by default, not a push per status change. Push is reserved for items needing action: confirmation requests, holds needing information, Unknown resolved.
 
 ## 3. Mapping of baseline vocabularies
 
@@ -36,7 +42,7 @@ A grant has **five independent dimensions**. The baseline already says this in t
 | Reserved (core) | Funding = Reserved |
 | Submitted (core) | Payment = Submitted |
 | Observed (core) | Payment = Accepted or Disbursed, by observation type |
-| Settled (core) | Payment = Disbursed |
+| Settled (core) | Payment = Settled ("Payment sent"); "Paid" only at Final |
 | Reconciled (core) | Finality = Reconciled |
 | Denied (core) / decline (O03) / Rejected (W02 receipt) | Decision = Declined (sponsor) **or** command rejected (validation). Two different facts: the receipt's "Rejected" means *not recorded*, not *declined* |
 | Held (core) / On hold / held | Hold flag |

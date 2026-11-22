@@ -18,7 +18,7 @@ The goal is **not** to show that the existing requirements are good. A domain wi
 | Financial core control spec | [`docs/financial-core-control-spec-v0.5.md`](../../docs/financial-core-control-spec-v0.5.md) | v0.5 |
 | Administration core (ADM-01..30, EST, AG, PARTY, AUTH, SUCC, POL, SPEND, FEE, SVC, GOV, ECON, OPS, INT, DATA, MIG, AI, SLO) | [`docs/administration/`](../../docs/administration/) | v0.1 |
 | Enterprise UI, vertical slices, UX v0.2, widget contracts W01–W05 | [`docs/`](../../docs/), [`docs/ui/`](../../docs/ui/) | v0.1–v0.2 |
-| AI-native enterprise workstream (outcomes, 24 workflows, 35 entities, 58 events, 50 controls, 65 REG rows, 19 agents, DD-001..021) | [`research/ai-native-daf-enterprise/`](../ai-native-daf-enterprise/) | 2026-11-21 |
+| AI-native enterprise workstream (outcomes, 24 workflows, 35 entities, 58 events, 54 controls, 65 REG rows, 19 agents, DD-001..021) | [`research/ai-native-daf-enterprise/`](../ai-native-daf-enterprise/) | 2026-11-21 |
 | Workflow-innovation designs, experiments E1–E10, adversarial verdicts | [`research/ai-native-daf-enterprise/workflow-innovation/`](../ai-native-daf-enterprise/workflow-innovation/) | 2026-11-21 |
 
 **Out of scope (directive restrictions):** application code, prototypes, executable simulations, schemas, APIs, UI, infrastructure, technology selection, changes to existing F# models, claims of production readiness or SOC 2 compliance.
