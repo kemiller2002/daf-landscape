@@ -1,6 +1,6 @@
 # Failure analysis
 
-**Status:** theoretical [T]. Methods are applied only where they add information. Likelihood scores (1–5) are **assumptions** made in the absence of operating data; they rank attention, they do not estimate probabilities. Baseline failure modes FM-01..25 ([Clarity/EDF](../ai-native-daf-enterprise/13-clarity-edf-analysis/failure-modes.csv)) are not repeated unless this analysis changes them.
+**Status:** theoretical [T]. Methods are applied only where they add information. Likelihood scores (1–5) are **assumptions** made in the absence of operating data; they rank attention, they do not estimate probabilities. Baseline failure modes FM-01..25 ([Clarity/EDF](../../ai-native-daf-enterprise/13-clarity-edf-analysis/failure-modes.csv)) are not repeated unless this analysis changes them.
 
 ## 1. FMEA: catastrophic and irreversible outcomes first
 

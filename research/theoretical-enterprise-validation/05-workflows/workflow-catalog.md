@@ -5,9 +5,9 @@
 ## 1. Inventory and gaps
 
 Baseline workflows:
-- WF-01..WF-24 ([workflows.csv](../ai-native-daf-enterprise/03-workflow-redesign/workflows.csv));
-- OPS-01..OPS-10 ([administration/03](../../docs/administration/03-operations-integrations-data-and-ai-v0.1.md));
-- XW cross-enterprise workflows ([workflow-innovation/04](../ai-native-daf-enterprise/workflow-innovation/04-cross-enterprise-workflows/)).
+- WF-01..WF-24 ([workflows.csv](../../ai-native-daf-enterprise/03-workflow-redesign/workflows.csv));
+- OPS-01..OPS-10 ([administration/03](../../../docs/administration/03-operations-integrations-data-and-ai-v0.1.md));
+- XW cross-enterprise workflows ([workflow-innovation/04](../../ai-native-daf-enterprise/workflow-innovation/04-cross-enterprise-workflows/)).
 
 | Ref | Workflow | Baseline | Spec completeness (of the 18 directive fields) | Critical? |
 |---|---|---|---|---|

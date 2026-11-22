@@ -4,7 +4,7 @@
 
 ## 1. Classification of requirements by authority
 
-The baseline [regulatory map](../ai-native-daf-enterprise/08-governance-and-compliance/regulatory-applicability-map.md) already labels its 65 REG rows: obligation type legal / risk_control / convention, and evidence [F] fetched / [S] secondary / [R] repo note / [K] unverified. This program does not re-verify them. It maps them into the directive's six classes and flags where requirements in `docs/` rely on unverified rows.
+The baseline [regulatory map](../../ai-native-daf-enterprise/08-governance-and-compliance/regulatory-applicability-map.md) already labels its 65 REG rows: obligation type legal / risk_control / convention, and evidence [F] fetched / [S] secondary / [R] repo note / [K] unverified. This program does not re-verify them. It maps them into the directive's six classes and flags where requirements in `docs/` rely on unverified rows.
 
 | Directive class | Baseline rows (examples) | Count (approx.) | Implication |
 |---|---|---|---|
@@ -23,7 +23,7 @@ This applies to **contributions** (debits), not to grant payments (credits). Con
 
 ## 2. Control template gaps in the baseline
 
-[controls.csv](../ai-native-daf-enterprise/08-governance-and-compliance/controls.csv) (54 rows) has: objective (implied), risk, owner, frequency, evidence, test method. It is **missing**:
+[controls.csv](../../ai-native-daf-enterprise/08-governance-and-compliance/controls.csv) (54 rows) has: objective (implied), risk, owner, frequency, evidence, test method. It is **missing**:
 - evidence retention;
 - failure response;
 - monitoring threshold or KRI;

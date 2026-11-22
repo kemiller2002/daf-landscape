@@ -70,3 +70,24 @@ The round-3 grant pass found that 16 of its 24 findings were **revision-2 rules 
   - control parameters an attacker can wait out.
 
   A targeted round 4 was run on these areas ([scenario library §4](../11-scenarios/scenario-library.md#4-saturation-tracking)).
+
+## D. Round-4 findings: open, revision 4 not drafted
+
+Round 4 (TVS-701..747; findings TVF-226..254; 1 at severity 5, 12 at severity 4) found new paths in **seven revision-3 amendments**:
+
+| Amendment | Problem found | Finding |
+|---|---|---|
+| B6 | Its break-glass conflicts with OD-22 | M-3 |
+| B6 | The consistent restore point can erase evidence | M-5 |
+| B6 | Re-derivation breaks B19 matching | M-1 |
+| B18 | A provider-computed fingerprint fails when the provider itself is compromised | M-9 |
+| B18 | Resolving a mismatch with the provider's value undoes the control | M-25 |
+| A12 | Observations recorded under an untrusted clock | M-17 |
+| B5 | Year-end cross-tenant hold flooding | M-23 |
+| B7 + B11 | Re-enrolment phishing recreated | M-19 |
+| B13 | A requester can steer the agent into the weaker fallback | M-20 |
+| A6 | Fixed-later amounts skip their thresholds | M-27 |
+
+The severity-5 finding is **M-8 (TVF-233)**: B19 matching must compare the **destination**, not only amount and date. Custodian and bank settlement instructions, and pending custodian instructions, are registers in their own right.
+
+These are **not** converted into amendments. [Scenario library §3.3](../11-scenarios/scenario-library.md#33-security-and-external-dependencies-not-saturated-and-not-converging-under-theoretical-rounds) explains why theoretical expansion stops here. The proposed requirements are in each finding's `evidence` field in the [findings register](../16-registers/findings.csv). They should be drafted **together with** real provider, custodian and bank capability evidence.

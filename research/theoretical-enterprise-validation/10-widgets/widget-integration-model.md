@@ -1,10 +1,10 @@
 # Embedded widget and partner integration model
 
 **Status:** theoretical [T]. Baseline:
-- [widget platform v0.1](../../docs/ui/embedded-widgets-platform-v0.1.md), superseded in part by TVC-031;
-- [W01 runtime and trust contract v0.2](../../docs/ui/widgets/01-platform-runtime-and-trust-contract-v0.2.md);
-- [W02 grant recommendation](../../docs/ui/widgets/03-grant-recommendation-widget-contract-v0.2.md);
-- [identity and partner federation](../ai-native-daf-enterprise/08-governance-and-compliance/identity-and-partner-federation.md).
+- [widget platform v0.1](../../../docs/ui/embedded-widgets-platform-v0.1.md), superseded in part by TVC-031;
+- [W01 runtime and trust contract v0.2](../../../docs/ui/widgets/01-platform-runtime-and-trust-contract-v0.2.md);
+- [W02 grant recommendation](../../../docs/ui/widgets/03-grant-recommendation-widget-contract-v0.2.md);
+- [identity and partner federation](../../ai-native-daf-enterprise/08-governance-and-compliance/identity-and-partner-federation.md).
 
 The baseline trust contract is strong: one-use launch artifact, exact CSP frame-ancestors, validated postMessage, opaque host events, server-side reauthorization of every command. This model looks for what it leaves unspecified.
 

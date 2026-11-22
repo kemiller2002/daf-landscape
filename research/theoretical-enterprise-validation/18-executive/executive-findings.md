@@ -26,14 +26,14 @@ Where it is wrong or incomplete is the **mechanics between those principles**:
 
 | Measure | Count |
 |---|---|
-| Scenarios analysed, rounds 1–3 | 466 (round 4 in the [library](../11-scenarios/scenario-library.md)) |
-| Findings registered | 213 at round 3: 16 at severity 5, 84 at severity 4 |
+| Scenarios analysed, rounds 1–4 | 513 ([library](../11-scenarios/scenario-library.md)) |
+| Findings registered | 242: 17 at severity 5, 96 at severity 4 |
 | Contradictions recorded | 44, none silently resolved |
 | Owner decisions required | 22 |
 | New traceable requirements | 61 |
 | Domains rated "theoretically coherent" overall | **None** |
 
-The grant and payment lifecycle is **approaching saturation**: round 3 found no new severity-4 or 5 issue there. Security and cross-domain failure chains are **not saturated**.
+The grant and payment lifecycle is **approaching saturation**: round 3 found no new severity-4 or 5 issue there. Security and cross-domain failure chains are **not saturated**. Four rounds found 4 → 2 → 1 new severity-5 paths per round, and each revision's controls opened new paths. Theoretical expansion stopped because the remaining questions depend on real counterparty capabilities ([scenario library §3.3](../11-scenarios/scenario-library.md#33-security-and-external-dependencies-not-saturated-and-not-converging-under-theoretical-rounds)).
 
 **The single most important conclusion.** The no-human-touch routine approval path (DD-004) is the economic heart of the AI-native design, and it is the least settled element legally and in its security posture:
 - Whether board-delegated policy approval counts as the sponsor's approval of each grant is a matter of interpretation, not verified law ([TVC-003](../16-registers/contradiction-register.md); [review correction](../13-adversarial-reviews/role-reviews.md)).
@@ -82,7 +82,7 @@ Full list: [contradiction register](../16-registers/contradiction-register.md). 
 |---|---|---|
 | Duplicate payment after a provider timeout | [FT-1](../12-failure-analysis/failure-analysis.md#ft-1-money-leaves-the-sponsor-twice-for-one-grant). Single-failure cut sets are **organizational**: off-platform payment, and provider double-processing. | Designed controls; blocked on provider contracts |
 | Account takeover → auto-approved grant to an attacker's real charity | TVS-025, TVS-026, TVF-153 | TVCTL-06, REC-7, B2/B3/B20 proposed |
-| Destination substitution at a provider | TVF-222 | B18 proposed |
+| Destination substitution at a provider, or at the custodian/bank settlement-instruction level | TVF-222, TVF-233 | B18 proposed; round 4 found the provider-computed fingerprint insufficient (TVF-234). **Open.** |
 | Insider standing-data edit or two-person collusion | TVF-131, TVF-139, TVF-209 | OD-22, B8, TVR-SEC-006. **Residual.** |
 | Lossy disaster-recovery restore → payments without approval, or re-payment | TVF-144, TVF-216 | B6 proposed |
 | Year-end conjunction: surge + market drop + provider timeout + IRS revocation publication | [failure analysis §4](../12-failure-analysis/failure-analysis.md#4-event-storming-of-a-high-stress-day-narrative-check) | TVR-OPS-003 drill; no model exists |

@@ -1,9 +1,9 @@
 # Domain inventory, organization and authority model
 
 **Status:** theoretical [T]. Baseline:
-- [capability map](../ai-native-daf-enterprise/02-business-capabilities/capability-map.md): 30 capabilities, C1.1–C6.4;
-- [organization model](../ai-native-daf-enterprise/02-business-capabilities/organization-model.md);
-- [accountability matrix](../ai-native-daf-enterprise/02-business-capabilities/accountability-matrix.csv);
+- [capability map](../../ai-native-daf-enterprise/02-business-capabilities/capability-map.md): 30 capabilities, C1.1–C6.4;
+- [organization model](../../ai-native-daf-enterprise/02-business-capabilities/organization-model.md);
+- [accountability matrix](../../ai-native-daf-enterprise/02-business-capabilities/accountability-matrix.csv);
 - ADM-01..30;
 - AUTH-01..10.
 

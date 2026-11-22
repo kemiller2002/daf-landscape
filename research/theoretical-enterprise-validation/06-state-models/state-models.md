@@ -18,7 +18,7 @@ Notation: `→` legal transition; **bold** = terminal for ordinary commands. "Te
 
 ## 1. Grant recommendation (donor/advisor side)
 
-The baseline merges the request and the sponsor's grant into one machine that starts at `Submitted` ([WF-01](../ai-native-daf-enterprise/03-workflow-redesign/wf-contributions.md)). The recommendation needs its own lifecycle, because withdrawal, donor confirmation, expiry and duplicate detection belong to the requester, not the sponsor.
+The baseline merges the request and the sponsor's grant into one machine that starts at `Submitted` ([WF-01](../../ai-native-daf-enterprise/03-workflow-redesign/wf-contributions.md)). The recommendation needs its own lifecycle, because withdrawal, donor confirmation, expiry and duplicate detection belong to the requester, not the sponsor.
 
 ```mermaid
 stateDiagram-v2
@@ -281,7 +281,7 @@ Invariant FLAG-1: a flag never expires by time alone. An unreviewed flag past it
 
 ## 9. Widget session (embedded)
 
-Baseline [W01](../../docs/ui/widgets/01-platform-runtime-and-trust-contract-v0.2.md) states are kept. Added invariant WS-1: `Active` requires that the session's `EffectiveAuthorityRevision` equals the current revision **at each command**. The baseline requires this for commands (item 8). It does not say what the *displayed* data does when the revision changes while idle. See [widget model](../10-widgets/widget-integration-model.md).
+Baseline [W01](../../../docs/ui/widgets/01-platform-runtime-and-trust-contract-v0.2.md) states are kept. Added invariant WS-1: `Active` requires that the session's `EffectiveAuthorityRevision` equals the current revision **at each command**. The baseline requires this for commands (item 8). It does not say what the *displayed* data does when the revision changes while idle. See [widget model](../10-widgets/widget-integration-model.md).
 
 ## 10. Time basis (round 2 G-19, G-20; S-20)
 

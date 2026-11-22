@@ -1,6 +1,6 @@
 # Alternative operating models
 
-**Status:** comparative judgment [I]. Uses parameters from the [economic model](../15-economics/economic-model.md). The baseline already compares *business models* A–D ([models comparison](../ai-native-daf-enterprise/10-market-and-business-model/models-A-B-C-D-comparison.md)) and *workflow designs* ([design catalog](../ai-native-daf-enterprise/workflow-innovation/03-alternative-designs/)). This document compares **operating mechanisms** for the outcomes where this program found the most fragility, and does not repeat those comparisons.
+**Status:** comparative judgment [I]. Uses parameters from the [economic model](../15-economics/economic-model.md). The baseline already compares *business models* A–D ([models comparison](../../ai-native-daf-enterprise/10-market-and-business-model/models-A-B-C-D-comparison.md)) and *workflow designs* ([design catalog](../../ai-native-daf-enterprise/workflow-innovation/03-alternative-designs/)). This document compares **operating mechanisms** for the outcomes where this program found the most fragility, and does not repeat those comparisons.
 
 Scale: ++ / + / 0 / − / −− relative to the baseline AI-native design (column B). The scores are reasoned judgments, not measurements. Each row names the parameter that would flip the ranking.
 

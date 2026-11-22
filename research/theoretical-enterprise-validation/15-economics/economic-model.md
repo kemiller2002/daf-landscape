@@ -1,6 +1,6 @@
 # Economic model: assumptions, surge, failure costs, sensitivity
 
-**Status:** assumption-driven analytical model. Closed-form arithmetic only; nothing was simulated or executed. **No operational measurement exists for any parameter below.** Labels: [A] assumption, [S] scenario, [V] sourced, with the source named. Baseline: [financial and staffing models](../ai-native-daf-enterprise/09-financial-models/financial-and-staffing-models.md) and its parameter register.
+**Status:** assumption-driven analytical model. Closed-form arithmetic only; nothing was simulated or executed. **No operational measurement exists for any parameter below.** Labels: [A] assumption, [S] scenario, [V] sourced, with the source named. Baseline: [financial and staffing models](../../ai-native-daf-enterprise/09-financial-models/financial-and-staffing-models.md) and its parameter register.
 
 ## 1. Why a second model
 
