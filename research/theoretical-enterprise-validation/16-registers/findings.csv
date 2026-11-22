@@ -1,0 +1,66 @@
+finding_id,title,severity,domain,source,evidence,contradiction,proposed_requirement,status
+TVF-001,Grant state machine has no reservation or funding (liquidation) states; Approved goes straight to Released,5,grants/treasury,round1 TVS-002;discovery,wf-contributions.md WF-01 table,TVC-021,TVR-GR-001,open
+TVF-002,No transition for returns after settlement (Paid->Returned); ACH credits can return after settlement,4,payments,round1 TVS-016,WF-01; Nacha return rules [V],TVC-021,TVR-GR-002,open
+TVF-003,No Unknown state between payment instruction and provider acceptance in the grant machine,5,payments,round1 TVS-014,WF-01 vs financial core invariant 7,TVC-021,TVR-PAY-001,open
+TVF-004,Reconciled is terminal so later facts (returns; corrections; post-payment review) cannot be represented,3,accounting,round1 TVS-017,WF-01,TVC-021,SM-0 / TVR-GR-003,open
+TVF-005,GrantCanceled event exists but no cancel transitions; cancel vs payment release race undefined,4,grants,round1 TVS-012/013,events.csv; WF-01,TVC-021,GR-3 / TVR-GR-004,open
+TVF-006,ACH contributions treated as settled and spendable and acknowledged although R10 returns are allowed for ~60 days,5,contributions,round1 TVS-091; Nacha [V],WF-01 contribution leg,TVC-023,TVR-CON-001..003,open
+TVF-007,Twelve distinct financial facts (recommendation..reconciliation) are collapsed differently across documents,4,finance/UX,discovery,financial-invariants.md §1,TVC-008,TVR-FIN-001,open
+TVF-008,Percentage grant fixing time undefined; 100% grant must be a residual sweep,4,grants,round1 TVS-039/046,SPEND-03; DEC-UI-08 pending,,FI-10; FI-15,open
+TVF-009,Unit earmark vs currency reservation undefined; NAV drop can underfund approved grants; no over-commitment rule,5,treasury,round1 TVS-040/041,WF-05 'earmark units',TVC-022,FI-05; FI-12; TVR-FIN-002,open
+TVF-010,Multi-source funding shortfall and partial-payment rule undefined,3,treasury,round1 TVS-045,SPEND-03,,FI-13,open
+TVF-011,Fee accrual not deducted from capacity; fee vs grant priority in over-committed fund undefined,3,fees,round1 TVS-049/050,FEE-04,,FI-25; FI-26,open
+TVF-012,Recurring grants re-check eligibility but not the author's authority,4,grants/authority,round1 TVS-053,WF-05,TVC-033,REC-3; TVR-GR-005,open
+TVF-013,Approval vs reservation atomicity undecided; concurrency otherwise handled by core invariant 6,3,grants,round1 TVS-010,financial core invariant 6,,OD-06,open
+TVF-014,Routine grant released after 2-minute wait while benefit-risk agent still running,4,AI/grants,round1 TVS-033,WF-01 agents paragraph,TVC-007,TVCTL-05,open
+TVF-015,Authority-change propagation window to sessions; widgets; tokens; templates unspecified,4,authority,round1 TVS-057/064,AUTH-06 covers commands only,TVC-032,AUTH-I1; TVCTL-10,open
+TVF-016,Phishable session can originate auto-approved grants to new recipients,5,security,round1 TVS-025,identity:61; governance-architecture:108,TVC-025,TVCTL-06,open
+TVF-017,Below-cap donor-agent recommendations reach payment with no human anywhere,4,AI/security,round1 TVS-065,authority-boundaries:35; DD-004,TVC-026,TVCTL-06,open
+TVF-018,Rule for sponsor-approved but unpaid grants on donor death undefined,4,succession,round1 TVS-055,admin scenario 4,TVC-030,GR-8; OD-03,open
+TVF-019,Recipient refund of a paid grant undefined and conflated with return,3,payments/tax,round1 TVS-086,,,FI-20; OD-09,open
+TVF-020,18 of 38 enterprise workflows missing or below one-third specified,4,workflows,discovery,workflow-catalog.md §1,,TVR-WF-001,open
+TVF-021,No destination for trailing receipts after fund closure,2,lifecycle,round1 TVS-095,,,FI-35; OD-11,open
+TVF-022,Custodian historical correction and NAV error/restatement process absent,4,accounting,round1 TVS-093/094,,,FI-28; TVCTL-08,open
+TVF-023,Uncashed checks counted ambiguously; escheat basis unverified,3,payments,round1 TVS-087,REG-045 [K],,FI-21,open
+TVF-024,Unknown payment states may never resolve because rails lack proof of non-receipt,5,payments,round1 TVS-014; E9,experiments.md E9,TVC-024,PA-2; TVR-PAY-002,open
+TVF-025,Currency in which a foreign grant is fixed is undefined,3,payments,round1 TVS-083,,,FI-31,open
+TVF-026,Fund freeze (legal order or sanctions) not distinguished from sponsor suspension,3,lifecycle,round1 TVS-097,admin lifecycle table,,state-models §6,open
+TVF-027,Donor (not recipient) sanctions listing does not freeze fund activity,5,sanctions,round1 TVS-081,WF-01 screens donor at contribution,,TVR-SAN-001,open
+TVF-028,Recipient merger or EIN change mid-flight can pay a terminated entity,3,registry,round1 TVS-082,,,ONT-5; TVR-REG-002,open
+TVF-030,Two parallel requirement bodies (docs/ and research/ai-native) specify the same enterprise without cross-references,3,governance,discovery,requirements-inventory §3,,TVR-GOV-001,open
+TVF-031,Gate schemes and test-ID families collide without mapping,2,governance,discovery,UI inventory pass,,TVR-GOV-003,open
+TVF-032,Partner host can display stale or false financial figures beside the widget,3,widgets,round1 TVS-061,,,TVR-WID-002,open
+TVF-033,Partner suspension mid-transaction behaviour undefined,2,widgets,round1 TVS-062,,,TVR-WID-003,open
+TVF-034,Cross-channel duplicate recommendations not detected,3,widgets,round1 TVS-060,,,REC-4,open
+TVF-035,Offline queued commands implied in one document and forbidden in another,4,UX,round1 TVS-067,J-ADV vs D-GR-06,TVC-011,TVR-UX-002,open
+TVF-036,'Accepted' means received / provider-accepted / sponsor-accepted in different documents,4,UX,round1 TVS-068,W02 step 5 vs vertical slice,TVC-008,status-vocabulary,open
+TVF-040,Controls lack retention; failure response; independent verification; escalation; REG link; operating status,4,compliance,discovery,controls.csv header,TVC-015,TVR-CMP-001,open
+TVF-041,Evidence ledger owned by the function whose controls it evidences,3,governance,discovery;round1 TVS-077,accountability-matrix C4.5,,TVCTL-11,open
+TVF-042,CISO reports to CTO without a stated direct board line,2,governance,discovery,accountability-matrix C5.6,,TVR-ORG-006,open
+TVF-043,COO owns exception queue and the telemetry/twin that judges it,3,governance,discovery,organization-model,,TVR-ORG-004,open
+TVF-044,No control for expenditure responsibility obligations (REG-002),4,compliance,discovery;round1 TVS-085,governance inventory pass,,TVCTL-12,open
+TVF-045,About 25 legal REG rows have no identifiable control,4,compliance,discovery,OUTSTANDING A1,TVC-015/029,TVR-CMP-002,open
+TVF-046,Controller accountable for paying and reconciling payments,4,governance,discovery;round1 TVS-030,accountability-matrix,TVC-028,TVCTL-07,open
+TVF-047,DD-004 routine auto-approval lacks a linked board delegation and counsel review,5,governance/legal,discovery;round1 TVS-078/079,REG-001 row text,TVC-003,TVCTL-09; OD-01,open
+TVF-048,Sanctions guidance text permits automated closure of low-score matches,5,sanctions,discovery;round1 TVS-080,regulatory map REG-036,TVC-006,TVR-SAN-002,open
+TVF-050,No personas for disability; auditors; charities; executors; board members,3,UX,discovery,UI inventory pass,,personas §1,open
+TVF-051,Charities are users (remittance; re-enrolment; refunds) but have no UI flows,3,UX,discovery,UI inventory pass,,TVR-UX-004,open
+TVF-052,WCAG 2.2 criteria critical to financial flows (redundant entry; accessible authentication; focus not obscured) not named,3,accessibility,round1 TVS-071/072,,,UXA-2..4,open
+TVF-060,Staffing computed from annual average although surge is acknowledged as sizing driver,4,economics,discovery,09 l.22 vs exec l.198,TVC-017,economic-model §3,open
+TVF-061,Experiments E2/E4/E5/E8/E9 encode conclusions in parameters (inherited from authors' own review),4,evidence,discovery,adversarial-review.md l.92-122,TVC-024,TVR-EVD-001,open
+TVF-062,Correlated-failure and incident costs absent from cost model; decisive for multi-sponsor models,3,economics,discovery,economic-model §5,,TVR-ECON-003,open
+TVF-063,Requirements text commits to unverified noncommercially licensed technology,4,architecture,discovery,UI and admin headers vs DD-014,TVC-002,TVR-ARC-001,open
+TVF-064,Assurance coverage overclaimed in specification text,4,compliance,discovery,control-framework:3/31,TVC-015,TVR-CMP-001,open
+TVF-065,Event sourcing mandated as mechanism where a reconstructability requirement suffices,3,architecture,discovery,DD-006 vs core,TVC-001,TVR-DATA-001,open
+TVF-066,Threshold inclusivity not specified; preview and decision can disagree at the boundary,2,policy,round1 TVS-005,,,TVR-POL-001,open
+TVF-067,Conflicting IRS sources (Pub 78 vs BMF/revocation list) have no precedence rule,4,registry,round1 TVS-009,REG-019,,TVR-REG-001,open
+TVF-068,Rules tightened after approval apply only through release re-check; post-submission grants need explicit post-payment path,3,policy,round1 TVS-021,POL-04,,SM-6,open
+TVF-069,Public-charity listing is treated as sufficient for routine approval; sham-charity fraud passes eligibility,4,fraud,round1 TVS-026,DD-004,,TVCTL-06; TVR-REG-003,open
+TVF-070,No donor-facing large-change or unusual-amount warning before submission,3,UX,round1 TVS-032,,,TVR-UX-003,open
+TVF-071,Order of % fixing vs same-day fixed reservations undefined,3,grants,round1 TVS-048,,,FI-10 (fix against capacity at fixing),open
+TVF-072,Conjunction of surge; market drop; provider failure; regulatory publication not modelled or drilled,4,operations,round1 TVS-074; failure-analysis §4,,TVR-OPS-003,open
+TVF-073,Pool liquidity buffer paying grants before unit redemption creates unaccounted intra-pool funding,4,treasury,round1 TVS-075,WF-17/WF-18,,FI-03; TVR-FIN-003,open
+TVF-074,Privacy deletion rights vs tax/OFAC/agreement retention precedence undefined,3,privacy,round1 TVS-100,REG-048 [S],TVC-016,CW-35; OD-12,open
+TVF-075,Amount thresholds for step-up can be defeated by splitting,4,security,round1 TVS-101,identity:72,,TVR-SEC-004,open
+TVF-076,Most likely double-payment paths are organizational (off-platform payment; provider double processing) not software,4,payments,failure-analysis FT-1,,,TVR-PAY-004,open
+TVF-077,Two colluding staff defeat pairwise SoD; no collusion-resistant detective control,4,security,failure-analysis §3,,,TVR-SEC-006,open
