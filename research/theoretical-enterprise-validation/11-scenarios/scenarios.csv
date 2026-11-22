@@ -1,0 +1,103 @@
+scenario_id,round,workflow,category,scenario,permitted_outcome,prohibited_outcome,governing_rules,result,finding_id,severity
+TVS-001,1,CW-01,normal,Routine $1k grant to listed public charity; all data fresh,Approved by D policy; reserved; funded; paid; final; reconciled,Paid before reservation,GR-1..8;FI-05,covered-baseline,,1
+TVS-002,1,CW-01,normal,Grant approved; pool must sell units; custodian settles T+1,Funding then Funded after settlement,Released before cash exists,FI-14;GR,new-finding,TVF-001,5
+TVS-003,1,CW-01,boundary,Amount exactly equals reservable capacity,Reserved; capacity 0,Rejected due to rounding,FI-05;FI-11,covered-refined,,1
+TVS-004,1,CW-01,boundary,Amount one cent over capacity,Rejected or held with truthful status,Approved and paid,FI-05,covered-baseline,,2
+TVS-005,1,CW-01,boundary,Amount at routine threshold exactly,Policy defines inclusive or exclusive; recorded,Different outcome in preview vs decision,POL-03,new-finding,TVF-066,2
+TVS-006,1,CW-01,missing-data,Recipient EIN not in BMF (new charity),Refer to human; donor told review needed,Auto-decline as ineligible,WF-01;REG-019,covered-baseline,,2
+TVS-007,1,CW-01,missing-data,IRS data older than freshness SLO,D path blocked; hold,Approval on stale data,CTL-011,covered-baseline,,3
+TVS-008,1,CW-01,invalid-data,Donor enters EIN of a different charity with similar name,Resolution shows legal name and EIN on review; ambiguity referred,Silent best-match,GRW-02,covered-baseline,,3
+TVS-009,1,CW-01,conflicting-data,Pub 78 lists charity; BMF shows revoked (publication lag),Most adverse fact wins pending human,Approve on the favorable source,REG-019;FI-29,new-finding,TVF-067,4
+TVS-010,1,CW-01,concurrency,Two advisors recommend $60k each against $100k capacity,One reserves; other fails capacity with truthful status,Both approved and paid,FI-05;FI-08,covered-refined,TVF-013,5
+TVS-011,1,CW-01,concurrency,Same advisor double-taps submit,One recommendation via idempotency,Two recommendations,GRW-09,covered-baseline,,3
+TVS-012,1,CW-01,concurrency,Donor withdraws while D approval runs,Revision decides; if approved first then cancellation request,Both withdrawn and paid,REC-2;GR-3,new-finding,TVF-005,4
+TVS-013,1,CW-24,concurrency,Sponsor cancels while payment gate submits,GR-3: cancel blocked once submitted; becomes recall,Canceled status and paid,GR-3,new-finding,TVF-005,4
+TVS-014,1,CW-01,external-failure,Provider times out on submission,Unknown; query; no retry,New attempt with new key,PA-1..3;core-7,new-finding,TVF-003,5
+TVS-015,1,CW-01,external-failure,Provider accepts but webhook never arrives,Remains Accepted; aging alert; bank statement match,Marked failed and reissued,PA-1,covered-refined,TVF-003,4
+TVS-016,1,CW-01,external-failure,ACH credit to charity returned R03 after 2 days (after Paid),Grant Returned; fund re-credited in cash,Return cannot be represented,FI-19;GR,new-finding,TVF-002,4
+TVS-017,1,CW-01,external-failure,Return arrives after month-end reconciliation,Child ReturnCase; break; current-period entry,Edit reconciled grant,SM-0,new-finding,TVF-004,3
+TVS-018,1,CW-01,delayed-event,Settlement report 3 days late,Accepted persists; no retry,Retry,PA-1,covered-refined,,3
+TVS-019,1,CW-01,duplicate-event,Provider sends settlement webhook twice,Idempotent observation,Double reservation consumption,core-8;FI-17,covered-baseline,,3
+TVS-020,1,CW-01,policy-change,Routine threshold lowered while grant awaits funding,Decision stands under version at decision; SM-6 re-check covers eligibility not threshold,Retroactive decline without approved transition,POL-04,covered-baseline,,2
+TVS-021,1,CW-01,policy-change,Compliance rule tightened (new prohibited class) while grant awaits settlement,Pre-submission: re-check at release (SM-6) holds; post-submission: post-payment review,Ignore new rule pre-submission,SM-6;POL-04,new-finding,TVF-068,3
+TVS-022,1,CW-05,external,Charity revoked after approval before release,Hold at release; re-evaluate,Payment released,WF-09;TVCTL-04,covered-baseline,,4
+TVS-023,1,CW-05,external,Charity revoked with effective date before approval but published after payment,Post-payment review; reliance question [C],Automatic clawback,WF-09;REG-019,covered-baseline,,3
+TVS-024,1,CW-05,external,Charity added to OFAC SDN while payment Accepted,Recall attempt; sanctions officer; reporting decision,Let it settle silently,REG-036;WF-09,covered-baseline,,5
+TVS-025,1,CW-01,fraud,Account takeover; attacker recommends grants to new charity it controls,Hold for new recipient on phishable session,Auto-approved and paid,TVCTL-06,new-finding,TVF-016,5
+TVS-026,1,CW-01,fraud,Attacker creates sham 501(c)(3) months ahead (listed in Pub 78),Routine path passes; velocity and new-recipient confirmation are the only controls,Treat Pub 78 listing as proof of legitimacy,TVCTL-06,new-finding,TVF-069,4
+TVS-027,1,CW-06,fraud,Email from 'charity' changing bank details,Rejected channel; WF-10,Profile changed,WF-10;CTL-004,covered-baseline,,5
+TVS-028,1,CW-06,insider-abuse,Staffer approves new payee profile and releases payment,SoD blocks,Payment released,SoD-1,covered-baseline,,5
+TVS-029,1,CW-01,insider-abuse,Policy engineer lowers flag threshold and publishes,Author cannot publish,Change effective,SoD-2;DD-011,covered-baseline,,5
+TVS-030,1,CW-01,insider-abuse,Controller releases payment to a related payee and reconciles it,Reconciler independent of releaser,Same role pays and reconciles,TVC-028,new-finding,TVF-046,4
+TVS-031,1,CW-01,human-error,Specialist approves referred grant misreading evidence,Decision recorded; QA sampling; seeded errors,No second line,CTL-046,covered-baseline,,3
+TVS-032,1,CW-01,human-error,Donor types $50000 instead of $5000,Review screen; large-change warning vs history; withdraw before decision,Instant irreversible payment,REC-2;UX,new-finding,TVF-070,3
+TVS-033,1,CW-01,ai-error,Benefit-risk agent unavailable; grant waits 2 min then proceeds,Hold or deterministic fallback,Release without protective check,TVC-007;TVCTL-05,new-finding,TVF-014,4
+TVS-034,1,CW-01,ai-error,Agent flags late (after release),Post-payment review child case,Unwind payment automatically,GR-6,covered-baseline,,3
+TVS-035,1,CW-01,ai-error,Resolution agent maps project to wrong fiscal sponsor,Donor confirms resolved EIN; D eligibility on that EIN,Agent output treated as fact,WF-08,covered-baseline,,3
+TVS-036,1,CW-01,ai-hallucination,Service agent tells donor grant is paid when it is Approved,Grounded answer check; status from system of record,Invented completion,SVC-05;CTL-039,covered-baseline,,3
+TVS-037,1,CW-01,model-unavailable,LLM provider down during year-end,D path unaffected; P features degrade; queues for drafts,Routine grants stop,AI-12,covered-baseline,,3
+TVS-038,1,CW-01,prompt-injection,Charity website text instructs agent to clear flags,Agent cannot clear; flag-only,Flag cleared,DD-005;AI-11,covered-baseline,,4
+TVS-039,1,CW-02,normal,10% of fund recommended; NAV moves 3% before approval,Fixed at approval; donor sees estimate vs fixed,Amount moves after approval,FI-10,new-finding,TVF-008,4
+TVS-040,1,CW-02,market,NAV falls 20% between approval and liquidation,Grant paid at fixed amount; fund absorbs; over-commitment check,Recipient paid less; fund negative,FI-12;FI-14,new-finding,TVF-009,5
+TVS-041,1,CW-02,market,Units earmarked at approval are insufficient after drop (WF-05 unit earmark),Currency reservation with haircut,Grant underfunded,TVC-022,new-finding,TVF-009,5
+TVS-042,1,CW-02,boundary,Three sources 33.33% each of $100.00,Largest remainder; sums to $100.00 exactly,$99.99 or $100.01,FI-11,covered-refined,,2
+TVS-043,1,CW-02,boundary,Allocation 100% from restricted source,Rejected server-side,Accepted,GRW-05;FI-32,covered-baseline,,3
+TVS-044,1,CW-02,missing-data,Source pool has no NAV today (holiday),Use latest struck NAV with as-of; or defer fixing,Fabricated value,FI-10;UX-F03,covered-refined,,2
+TVS-045,1,CW-02,external-failure,One of two sources is a gated illiquid fund,FundingShortfall; re-plan or hold,Partial payment without policy,FI-13,new-finding,TVF-010,3
+TVS-046,1,CW-02,boundary,Donor recommends 100% of fund,Residual sweep after fees and settlements,Fixed 100% at approval leaving negative or residual,FI-15,new-finding,TVF-008,4
+TVS-047,1,CW-02,boundary,% of 'account' with no denominator,Invalid,Implementer picks NAV,FI-16,covered-baseline,,2
+TVS-048,1,CW-02,concurrency,% grant and fixed grant same day; % computed on value before the fixed grant reserves,Fixing uses capacity basis at fixing time; order defined,Both computed on same pre-grant value exceeding capacity,FI-10;FI-08,new-finding,TVF-071,3
+TVS-049,1,CW-02,fee,Fee accrual due day after a grant reserves entire capacity,Accrual already reduced capacity,Fee cannot be collected; fund negative,FI-25,new-finding,TVF-011,3
+TVS-050,1,CW-02,fee,Over-committed fund; fee due and grants unfunded,Policy priority OD-10,Ad hoc choice in incident,FI-26,new-finding,TVF-011,3
+TVS-051,1,CW-03,normal,Monthly recurring grant instance due,Per-instance reservation and full re-check,Series pre-reserved for year,FI-09,covered-refined,,2
+TVS-052,1,CW-03,concurrency,Recurring instance and extraordinary grant collide on capacity,Reservation order; loser held,Both paid,FI-08,covered-refined,,3
+TVS-053,1,CW-03,authority,Donor died last week; recurring instance fires before notice,Instance proceeds (no notice) then flagged under AUTH-I3; after notice templates suspended,Series continues indefinitely after notice,TVC-033;REC-3,new-finding,TVF-012,4
+TVS-054,1,CW-03,external,Recipient of recurring grant revoked,Series suspended; donor offered redirect,Only one instance blocked each month forever,WF-09,covered-refined,,2
+TVS-055,1,CW-11,authority,Donor dies with approved unfunded grant,GR-8 policy (OD-03),Undefined handling,GR-8,new-finding,TVF-018,4
+TVS-056,1,CW-11,authority,Successor nominated; requests access,No access until Active,Access on nomination,AUTH-07,covered-baseline,,4
+TVS-057,1,CW-11,authority,Successor activated while co-advisor session still open,Co-advisor rights recomputed; sessions re-checked within window,Stale session submits under old rights,AUTH-I1,new-finding,TVF-015,4
+TVS-058,1,CW-30,authority,Two successors with joint authority disagree,Quorum rule; else all required,One acts alone,AUTH-I4,covered-refined,,3
+TVS-059,1,CW-10,authority,Advisor revoked mid-submission,Command rejected at boundary,Accepted on UI permission,AUTH-06,covered-baseline,,4
+TVS-060,1,CW-20,partner,Widget submits twice via two instances on one page,Duplicate flag; two requests,Silent merge or double payment,WG-5;REC-4,new-finding,TVF-034,3
+TVS-061,1,CW-20,partner,Host shows stale balance beside widget,Contract + as-of; widget authoritative,Host figure used for decision,WG-3,new-finding,TVF-032,3
+TVS-062,1,CW-20,partner,Partner suspended mid-review,Accepted commands proceed under sponsor; new blocked,Accepted recommendation silently dropped,WG-6,new-finding,TVF-033,2
+TVS-063,1,CW-20,partner,Partner's IdP compromised; attacker federates as donor,Relationship check; step-up for new recipient; caps,Grant to attacker charity,DD-021;TVCTL-06,covered-refined,,5
+TVS-064,1,CW-20,partner,Advisor revoked; iframe stays open displaying balances,Context cleared within window,Indefinite display,WG-1,new-finding,TVF-015,3
+TVS-065,1,CW-11,agent,Donor agent submits 50 small grants to new charities under cap,Velocity hold; new-recipient confirmation,All auto-approved,TVC-026,new-finding,TVF-017,4
+TVS-066,1,CW-11,agent,Agent token stolen,Sender-constrained token; revocation; caps,Replay succeeds,CTL-053,covered-baseline,,4
+TVS-067,1,CW-01,offline,Advisor drafts offline and expects queued submission on reconnect,Drafts only; submit online,Queued command submitted under stale authority,TVC-011,new-finding,TVF-035,4
+TVS-068,1,CW-01,ux,Donor reads 'Accepted' as sponsor approved,Vocabulary forbids 'Accepted',Misleading label,TVC-008,new-finding,TVF-036,4
+TVS-069,1,CW-01,ux,Payment Unknown shown as Failed; donor re-recommends,Confirming status copy; duplicate flag,Two payments,UX-F14,covered-baseline,,4
+TVS-070,1,CW-01,accessibility,Screen reader user misses status change to On hold,Restrained live region; notification,Silent change,UX accessibility,covered-baseline,,2
+TVS-071,1,CW-01,accessibility,Session expires on review step for 400% zoom user,Draft restored; no re-entry,Re-enter all data,UXA-4,new-finding,TVF-052,2
+TVS-072,1,CW-01,accessibility,Step-up requires hardware key user lacks,Accessible phishing-resistant alternative,Lockout or downgrade to SMS,UXA-3,new-finding,TVF-052,3
+TVS-073,1,CW-01,high-volume,10x December surge,D path flat; exception queue capacity planned,Routine path stalls,WF-05,covered-baseline,,3
+TVS-074,1,CW-01,high-volume,Surge plus 20% market drop plus custodian outage,Liquidity buffer; holds with truthful dates; over-commitment cases,Promised dates missed silently,WF-17;FI-12,new-finding,TVF-072,4
+TVS-075,1,CW-14,external-failure,Custodian outage 5 days during surge,Pool cash buffer pays; units redeemed later; buffer accounting,Grants paid from unattributed cash,FI-03;FI-05,new-finding,TVF-073,4
+TVS-076,1,CW-01,disaster-recovery,Region failover mid payment submission,Command inbox and attempt state durable; Unknown on resume,Resubmission,SLO-03;PA-1,covered-baseline,,4
+TVS-077,1,CW-01,corrupted-evidence,Decision record hash mismatch on audit sample,Evidence integrity incident; control failure logged,Silent re-generation,TVCTL-11,new-finding,TVF-041,3
+TVS-078,1,CW-01,policy-change,Board rescinds delegation for routine approvals,Routine path switches to human; dependent policies suspended,D approvals continue under lapsed delegation,TVCTL-09,new-finding,TVF-047,5
+TVS-079,1,CW-01,legal,Counsel finds DD-004 incompatible with REG-001 reading,Routine path disabled; human approval,Continue,TVC-003,new-finding,TVF-047,5
+TVS-080,1,CW-01,sanctions,Low-score fuzzy match closed by automation,Rule-based clearance of defined class only with QA; model never,Model clears,TVC-006,new-finding,TVF-048,5
+TVS-081,1,CW-01,sanctions,Donor (not recipient) becomes SDN-listed,Fund Frozen; all grants held; reporting,Grants continue,REG-036,new-finding,TVF-027,5
+TVS-082,1,CW-01,recipient-change,Charity merges; old EIN terminated; grant in flight,Hold; redirect to successor org with donor consent,Pay terminated EIN account,ONT-5,new-finding,TVF-028,3
+TVS-083,1,CW-04,foreign,Foreign grant fixed in USD; EUR moves 5% before wire,FI-31 currency rule applies,Ambiguous amount,FI-31,new-finding,TVF-025,3
+TVS-084,1,CW-04,foreign,ED reused past validity window,Validity enforced D,Reuse,WF-06,covered-baseline,,3
+TVS-085,1,CW-04,ER,ER grantee misses report,Escalation; hold further grants,No tracking control,TVCTL-12,new-finding,TVF-044,4
+TVS-086,1,CW-25,refund,Charity returns grant (event canceled),Inbound receipt linked; destination per OD-09,Treated as payment return,FI-20,new-finding,TVF-019,3
+TVS-087,1,CW-29,check,Check uncashed 180 days,Void; reissue or redirect; liability not cash,Counted as fund cash,FI-21,new-finding,TVF-023,3
+TVS-088,1,CW-29,check,Check cashed after void,Bank stop; recovery case,Double payment,PA-4,covered-refined,,3
+TVS-089,1,CW-01,benefit,Grant purpose 'gala table for donor family',Benefit-risk flag; human; decline,Auto-approved because charity is listed,REG-003;DD-005,covered-baseline,,4
+TVS-090,1,CW-01,benefit,Grant pays donor's legally binding pledge,Notice 2017-73 conditions,Ignored,REG-016,covered-baseline,,3
+TVS-091,1,CW-07,contribution,ACH contribution returned R10 at day 55 after grants paid from it,Donor receivable; sponsor exposure; ack correction,Negative fund; ack stands,CON-3;FI-23,new-finding,TVF-006,5
+TVS-092,1,CW-07,contribution,ACH contribution returned R01 (NSF) day 2 before any grant,Reverse units; no exposure,Units remain,CON;FI-23,covered-refined,TVF-006,3
+TVS-093,1,CW-15,correction,Custodian restates position from last quarter,Bitemporal correction; NAV-error case,Silent overwrite,FI-28,new-finding,TVF-022,4
+TVS-094,1,CW-15,correction,Correction changes NAV after redemptions for grants,Materiality decision; restate or adjust,Ignore redeemed holders,FI-28,new-finding,TVF-022,3
+TVS-095,1,CW-21,closure,Dividend arrives after fund closed,Residual recovery destination,Fund reopened Active,FI-35,new-finding,TVF-021,2
+TVS-096,1,CW-21,closure,Closure requested with Unknown payment attempt,Blocked,Closed with live attempt,FUND-1,covered-baseline,,4
+TVS-097,1,CW-23,legal,Court order freezes fund pending divorce,Frozen; fees per legal authority [C],Suspended (sponsor policy) only,Fund Frozen,new-finding,TVF-026,3
+TVS-098,1,CW-01,organization-failure,Payment provider de-risks the sponsor with 30 days notice,Secondary rail; profile re-enrollment; continuity,Grants stall without notice,FM-18,covered-baseline,,4
+TVS-099,1,CW-01,data-rights,Recipient remittance includes donor name despite anonymity choice,Remittance built from anonymity choice,Name disclosed,DD-018,covered-baseline,,3
+TVS-100,1,CW-01,privacy,Donor requests deletion of personal data while grants in tax retention,Retention precedence; partial deletion,Delete tax records or ignore request,CW-35,new-finding,TVF-074,3
+TVS-101,1,CW-01,threshold,Same grant at $24999 avoids phishing-resistant step-up; attacker splits,Aggregate per-recipient and per-period thresholds,Split defeats threshold,TVCTL-06,new-finding,TVF-075,4
+TVS-102,1,CW-01,exception,Year-end exception backlog exceeds SLA,Backlog P95 SLA alert; deferral windows disclosed,Silent delay,WF-05,covered-baseline,,2
