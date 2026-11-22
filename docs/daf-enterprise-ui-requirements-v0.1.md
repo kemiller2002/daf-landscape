@@ -150,3 +150,31 @@ G. "Instant" grant status is often impossible because external charity, custody,
 
 ## Design review / release gate
 No screen is implementation-ready until: actor and purpose, data contract, states, permissions, error paths, mobile and desktop layout, accessibility, telemetry privacy, and executable tests are specified. No production gate passes on mockup appearance alone.
+
+## Integrated Giving Plans extension (2026-11-22, proposed)
+
+This extension links the canonical UI inventory to typed registry GP-01..GP-20, CA-180-01/05/08, CON-REC-05, GR-DEL-01 and GR-EXT-01 in `research/theoretical-enterprise-validation/16-registers/requirements.csv`. The full challenged reasoning is in `docs/integrated-giving-plans-decision-record-v0.1.md`. Existing screen IDs are retained.
+
+| Existing screen | Added user capability | Required states and safeguards | Registry |
+|---|---|---|---|
+| D01 Fund home | Upcoming contribution and grant; forecast versus available | pending, held, blocked, stale, completed | GP-05;GP-11 |
+| D02 Fund switcher | Authorized plan/fund allocation context | cross-fund authorization and isolation | GP-16;GP-19 |
+| D03 Recipient search | Current assurance and purpose eligibility | last verified, adverse signal, unknown, ineligible | CA-180-01;CA-180-05;GP-06 |
+| D06 Grant review | Recurring/future schedule, external reference, delivery and fees | separate grant and fee amounts, no implied approval | GP-03;GP-10;GR-EXT-01;GR-DEL-01 |
+| D07 Grant tracking | Schedule occurrence, custody, payment and settlement | issued is not delivered; delivered is not cleared | GP-03;GR-DEL-01 |
+| D08 Contribution initiation | $10/payday recurring funding and mandate consent | biweekly vs semimonthly; fees; revocation | GP-02;CON-REC-05 |
+| D09 Contribution tracking | Each debit attempt, clearing, return, tax acknowledgment | pending not available, returned not accepted | GP-09;GP-20 |
+| D14 Recurring giving | Unified giving plan wizard and calendar | create, edit, pause independently, preview shortfall, next action | GP-01..GP-08;GP-11;GP-12 |
+| D15 Notifications | Shortfall, charity hold, mandate/fee change | mandatory notices and digests | GP-13 |
+| O03/O05/O06 | Reusable charity assurance and exception-only vetting | zero-touch clean renewals, adverse signals, evidence lineage | CA-180-01;CA-180-05;CA-180-08;GP-14 |
+| O10/O11/O12 | Scheduled funding, check custody, unknown payment | no blind retry, no projected cash spending | GP-07;GR-DEL-01 |
+| O13/O14/O15 | Fee, debit, grant and correction evidence | immutable accounting corrections and audit | GP-17 |
+
+### New composite journey J-GP-01
+Select authorized fund -> choose automatic contributions (amount, true pay frequency, first date, mandate) -> optionally add grant schedule(s) (recipient, purpose, amount, frequency, delivery, external ID) -> display 12-month cash/fee/shortfall preview -> review sponsor rules and consent -> submit once with idempotency -> show plan calendar and independent contribution/grant statuses. An incoming contribution does not automatically create a grant payable. When a grant lacks eligible liquidity, default to hold and notify, not an unexpected debit.
+
+### Build gates
+- Verify every new registry ID has a UI/API mapping, authorization rule, normal/error/unknown state and acceptance test.
+- Test small-screen and assistive-technology completion of a $10 biweekly mandate and a quarterly $100 grant with a projected shortfall.
+- Test fee increase beyond consent ceiling, charity adverse event within the 180-day cycle, duplicate debit tick, ACH return, revoked authority, and cross-sponsor widget access.
+- Sponsor legal, CFO/CPA, treasury, and compliance decisions remain gates; no design document constitutes production authorization.
