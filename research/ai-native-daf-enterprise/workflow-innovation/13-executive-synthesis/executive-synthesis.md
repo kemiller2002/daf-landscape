@@ -97,7 +97,7 @@ The parent architecture (`research/ai-native-daf-enterprise/`) had already remov
 In order (see the implementation proposals):
 1. A design-partner **shadow replay with timed human review**. It resolves GAP-001 and GAP-004, on which every cost and control ranking depends.
 2. The **determination reuse factor**.
-3. A **small-sponsor Schedule I harvest**, rerunning E7 and E7b. Public data; can be done now.
+3. ~~A small-sponsor Schedule I harvest~~ **Done (E7c, 2026-11-23):** small sponsors reuse less per member than the top 50 (median 38–55% against 76%), but in aggregate they double the work avoided. The network must be bundled into a platform, seeded by large sponsors.
 4. **Donor acceptance of execution windows**.
 5. **Break cost by age**.
 6. A **red-team of the AI flagger**, including an adaptive adversary and automation bias.

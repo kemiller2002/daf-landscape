@@ -24,7 +24,7 @@
 | # | Item | Done when | Status |
 |---|---|---|---|
 | B1 | Add a determination-reuse parameter (reusable foreign-charity and fiscal-sponsor reviews) to the cost model; rerun sensitivity | Parameter in `Economics.fs`, outputs regenerated, financial doc updated | done (09 update section; `outputs/determination-reuse.csv`) |
-| B2 | Small-sponsor Schedule I harvest (outside the top 50); rerun the overlap (E7/E7b) and network-economics analyses | New data and results; network conclusions updated | open |
+| B2 | Small-sponsor Schedule I harvest (outside the top 50); rerun the overlap (E7/E7b) and network-economics analyses | New data and results; network conclusions updated | done (E7c in workflow-innovation 08; 09 §4b) |
 | B3 | Adversarial cases the review asked for: poisoned data load and name collision (E1); adaptive fraudster, correlated AI misses and reviewer automation bias (E2); payee-registry compromise blast radius (E3) | Each case is a test that can fail; results documented | open |
 | B4 | Build or explicitly drop the experiments cited but never built: complex-asset queue, contact-volume model, liquidity forecast, policy back-test | Built with results, or removed from the citing documents | open |
 | B5 | Charity vetting: improve candidate matching for "which charity is this" (abbreviations, nicknames, addresses) and rerun V1 | Higher share of true answers among candidates, documented | open |
@@ -59,3 +59,4 @@
 | 2026-11-21 | A4 done | 43b4661 |
 | 2026-11-21 | A7 done; group A complete | aa79d51 |
 | 2026-11-21 | B1 done | e234b67 |
+| 2026-11-23 | B2 done | (this commit) |

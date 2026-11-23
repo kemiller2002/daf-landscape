@@ -86,7 +86,7 @@ The audit and economics both point away from per-grant API pricing (09 §3) and 
 | 3 | **Costly-work overlap**: Schedule F foreign recipients and fiscal sponsors across sponsors (public data, extending E7) | Whether costly verification recurs (INN-02 audit objection) | Further public-data harvest (feasible now) | Cheap; directly tests the network premise the audit rejected |
 | 4 | **Donor acceptance of execution windows** (survey or partner A/B) | INN-37 | Partner donor base | Tests the largest human-cost lever |
 | 5 | **Reconciliation break-cost study** | INN-22/39; E4's one assumption (GAP-005) | Partner reconciliation logs | Determines whether continuous close saves labor |
-| 6 | **Small-sponsor Schedule I harvest** (non-top-50) | Network value for the long tail | Public data | Tests whether small sponsors gain most per member |
+| 6 | **Small-sponsor Schedule I harvest** (non-top-50) | Network value for the long tail | Public data | Tests whether small sponsors gain most per member. **Done (E7c): they do not, per member; aggregate value doubles** |
 | 7 | **Red-team the AI flagger** (adaptive adversary, correlated misses, automation bias) | E2 gaps; CTL-046 effectiveness | Synthetic data plus model access | Bounds the flag-only design's real downside |
 
 ## 3. Disagreements kept (from the seven-perspective passes and the audit)

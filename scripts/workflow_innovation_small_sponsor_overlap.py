@@ -5,7 +5,7 @@ shared verification record than the top 50 do?
 Universe   every sponsor in data/mission-2026-11-14/form990-returns-schedule-d-harvest-full.csv (all FY2024 DAFRC
            sponsors with a filed 990, 1,512 EINs) that is NOT a sponsor in the top-50 edge file
            (data/workflow-innovation/sponsor-recipient-edges-fy2023.csv). The two top-50 lists agree on 49 of 50 EINs;
-           the boundary sponsor is treated as "small" here so no sponsor is counted twice.
+           the boundary sponsor is treated as "small" (and put in the rank 51-200 band) so no sponsor is counted twice.
 Return     FY2023 return from that harvest; FY2024 when FY2023 is missing, unfetchable or has no itemised
            Schedule I Part II lines (same rule as the top-50 script).
 Lines      Schedule I Part II RecipientTable lines from the public e-file XML (GivingTuesday mirror of IRS TEOS);
@@ -48,7 +48,7 @@ FISCAL = os.path.join(ROOT, "data", "mission-2026-11-14", "fiscal-sponsor-ein-li
 OUT_DIR = top.OUT_DIR
 EDGES = os.path.join(OUT_DIR, "sponsor-recipient-edges-small-fy2023.csv")
 SUMMARY = os.path.join(OUT_DIR, "small-sponsor-overlap-summary.csv")
-BANDS = (("rank 51-200", 51, 200), ("rank 201-500", 201, 500), ("rank 501+", 501, 10 ** 9))
+BANDS = (("rank 51-200", 1, 200), ("rank 201-500", 201, 500), ("rank 501+", 501, 10 ** 9))
 FIELDS = ("section", "scope", "order", "k", "sponsor_ein", "sponsor_rank", "sponsor_name", "fiscal_year", "bucket",
           "metric", "value", "definition")
 

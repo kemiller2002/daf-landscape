@@ -116,7 +116,7 @@ let smallNetwork (topSummaryPath: string) (smallSummaryPath: string) =
     let sponsors = topSponsors @ smallSponsors
     let rankOf = sponsors |> List.map (fun s -> s.Ein, s.Rank) |> Map.ofList
     let smallSet = smallSponsors |> List.map (fun s -> s.Ein) |> Set.ofList
-    let band r = if r <= 50 then "top 50" elif r <= 200 then "rank 51-200" elif r <= 500 then "rank 201-500" else "rank 501+"
+    let band r = if r <= 200 then "rank 51-200" elif r <= 500 then "rank 201-500" else "rank 501+"
     let cases = [ "routine $67.50, 8%", 67.5, 0.08; "diligence $270, 8%", 270.0, 0.08; "foreign-grade $1,080, 8%", 1080.0, 0.08 ]
     let orders = [ "top50_then_small_by_rank"; "small_only_by_rank" ]
     let rows =

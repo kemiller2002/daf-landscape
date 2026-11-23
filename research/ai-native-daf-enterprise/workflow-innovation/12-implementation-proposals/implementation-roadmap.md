@@ -8,7 +8,7 @@ Nothing here authorizes live operation. Phases 1–3 involve no money movement.
 
 | # | Work | Closes | Acceptance criterion |
 |---|---|---|---|
-| 0.1 | Small-sponsor Schedule I harvest (outside the top 50) and rerun of E7/E7b | Long-tail network value | Overlap and costly-overlap curves for ≥200 additional sponsors |
+| 0.1 | Small-sponsor Schedule I harvest (outside the top 50) and rerun of E7/E7b | Long-tail network value | Overlap and costly-overlap curves for ≥200 additional sponsors. **Done 2026-11-23 (E7c): 1,285 sponsors** |
 | 0.2 | Build the audit's missing adversarial cases: E1 poisoned refresh and name collision; E2 adaptive adversary, correlated AI misses, reviewer automation bias; E3 registry-compromise blast radius | Audit §5 gaps | Each case has a test that can fail. No tautological assertions |
 | 0.3 | Policy compiler prototype: decision tables → tests → generated prose, with back-test on synthetic history | INN-21 L1 → L3 (synthetic) | A rule change produces a diff report on a replay corpus |
 | 0.4 | Canary harness for every deterministic rule in the parent PoC | FP-04; CTL-046 | Disabling any rule fails a canary within one simulated day |
