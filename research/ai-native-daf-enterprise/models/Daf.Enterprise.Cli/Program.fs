@@ -81,5 +81,8 @@ let main argv =
     write out09wi "network-join-curve.csv" netCurve
     write out09wi "network-sensitivity.csv" netSens
     write out09wi "infrastructure-models.csv" infraModels
+    let smallPath = Path.Combine(root, "..", "..", "data", "workflow-innovation", "small-sponsor-overlap-summary.csv")
+    if File.Exists smallPath then
+        write out09wi "small-sponsor-network.csv" (Daf.Experiments.ExperimentReport.smallNetwork summaryPath smallPath)
     printfn "wrote outputs to %s, %s, %s and %s" out09 out11 outX out09wi
     0
