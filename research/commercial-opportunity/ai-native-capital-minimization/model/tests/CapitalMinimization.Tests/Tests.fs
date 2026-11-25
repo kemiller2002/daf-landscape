@@ -47,6 +47,8 @@ let ``empty portfolio has no revenue and only fixed cost`` () =
     let expected =
         (f5.People |> List.sumBy (fun p -> p.LoadedCost)) + (f5.Contracted |> List.sumBy snd) + (f5.NonPersonnel |> List.sumBy snd)
         + 5.0 * f5.PerPersonOverhead + 10.0 * 0.5 * 48.0 * (f5.Pools |> List.averageBy (fun p -> p.LoadedHourly))
+        // named compliance owner floor: 0.25 FTE bought fractionally at the contract premium
+        + 0.25 * f5.ProductiveHours * complianceLoaded / hours * 1.5
     close 1.0 expected r.Base.TotalCost
 
 [<Fact>]

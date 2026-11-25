@@ -263,7 +263,7 @@ let scenarios () =
       designScenario "Echelon-supported AI-native (F5, 50 min, fully allocated; minimum build at 3x)" f5 50.0 FullyAllocated echelonSupported
       designScenario "Founder-led staged (F3, 50 min, standalone)" f3 50.0 Standalone baseLayers
       designScenario "Combined software + administration (F5, servicing 50% of Unbound, $300k licences)" f5 50.0 FullyAllocated combined
-      designScenario "Outcome-designed F5 at 30 min, sponsor work /2 [unproven], fully allocated" (outcomeDesigned f5) 30.0 FullyAllocated echelonSupported ]
+      designScenario "Outcome-designed F5 (OPS: 30.1 min, sponsor work 12,720 min) [unproven], fully allocated" (outcomeDesigned f5) outcomeDesignedTarget FullyAllocated echelonSupported ]
 
 /// Cost bridge from the previous study's fully loaded AI-native Model B to F5 at a fixed portfolio ($1.5B, 5 sponsors
 /// at $250k): which changes move the cost, and which are assumptions rather than demonstrated savings.
@@ -274,14 +274,14 @@ let bridgeSection () =
     let fOp = (evaluateDesign f5 50.0 (price 20.0) noStress ss).Base.TotalCost
     let total (d: Design) = (evaluateDesign d 50.0 (price 20.0) noStress ss).Base.TotalCost
     let fStand = servicingCost Standalone baseLayers total f5
-    let fOut = servicingCost Standalone baseLayers (fun d -> (evaluateDesign d 30.0 (price 20.0) noStress ss).Base.TotalCost) (outcomeDesigned f5)
+    let fOut = servicingCost Standalone baseLayers (fun d -> (evaluateDesign d outcomeDesignedTarget (price 20.0) noStress ss).Base.TotalCost) (outcomeDesigned f5)
     section "12. Cost bridge: previous fully loaded AI-native Model B to F5 ($1.5B, 5 sponsors, $250k)"
         (table [ "Step"; "Annual cost"; "Change"; "Nature of the change" ]
             [ [ "Previous Model B, AI-native, fully loaded ($1.0M build amortisation + $250k sales)"; money pFull; ""; "baseline" ]
               [ "Remove the fully loaded lines"; money pOp; money (pOp - pFull); "presentation: the lines are added back below at re-estimated values" ]
               [ "F5 workload-driven design, same minutes (pools, hiring threshold, coordination, itemised non-personnel)"; money fOp; money (fOp - pOp); "structural: ratio steps replaced by workload; partly offset by coordination, integration and relationship hours made explicit" ]
               [ "Add standalone platform charge (minimum build at 2x over 5 years, Echelon share, maintenance gap)"; money fStand; money (fStand - fOp); "assumption: build cost from the development model, not measured" ]
-              [ "Outcome-designed: 30 min, sponsor-level work halved, coordination halved [unproven]"; money fOut; money (fOut - fStand); "hypothesis: no observed operation" ] ])
+              [ "Outcome-designed (OPS): 30.1 min, sponsor-level 12,720 min, +3% capacity [unproven]"; money fOut; money (fOut - fStand); "hypothesis: no observed operation" ] ])
 
 let scenarioSection () =
     let sc = scenarios ()

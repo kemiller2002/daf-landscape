@@ -29,7 +29,8 @@ let hours = 1520.0                // productive hours per FTE-year (previous stu
 let pools fractional =
     [ { Name = "operations"; Share = 0.62; LoadedHourly = opsLoaded / hours; ContractPremium = 0.5; MinimumFte = 0.0; Fractional = fractional }
       { Name = "accounting"; Share = 0.20; LoadedHourly = accountantLoaded / hours; ContractPremium = 0.5; MinimumFte = 0.0; Fractional = fractional }
-      { Name = "compliance"; Share = 0.08; LoadedHourly = complianceLoaded / hours; ContractPremium = 0.5; MinimumFte = 0.0; Fractional = fractional }
+      // A named compliance owner from go-live: at least 0.25 FTE regardless of workload (OPS staffing-capacity). [A]
+      { Name = "compliance"; Share = 0.08; LoadedHourly = complianceLoaded / hours; ContractPremium = 0.5; MinimumFte = 0.25; Fractional = fractional }
       { Name = "service"; Share = 0.10; LoadedHourly = serviceLoaded / hours; ContractPremium = 0.5; MinimumFte = 0.0; Fractional = fractional }
       { Name = "engineering"; Share = 0.0; LoadedHourly = engineerLoaded / hours; ContractPremium = 0.5; MinimumFte = 0.0; Fractional = fractional } ]
 
@@ -111,13 +112,20 @@ let private design name people fractional contracted reviewer sponsorApprover =
       ProductiveHours = hours
       Utilisation = 0.9
       DecemberShare = 0.10
-      PeakPremium = 0.0
+      // December excess is bought at +50%: prep-only temporary staff cannot release payments, so the excess falls to
+      // overtime and pre-contracted releasers (OPS workload-tails; previous report 03). [A]
+      PeakPremium = 0.5
       SponsorApprover = sponsorApprover
       ContractedIndependentReviewer = reviewer }
 
 /// Contracted engineering capacity for designs without an employed engineer: an on-call contractor retainer
 /// (CST-C05 base $30k) plus 400 h a year at the engineer rate with the 50% contract premium. [A]
 let contractEngineering = [ "CST-C05 engineering retainer + 400 h contracted engineering", 30000.0 + 400.0 * engineerLoaded / hours * 1.5 ]
+
+/// Control-relevant code needs an author and two approvers who are not the author (OPS; CNV-PLT-010): designs with
+/// fewer than three engineering people contract the missing approvers at $45k a year each (about 240 h at the
+/// engineer contract rate). [A]
+let codeReviewers n = [ $"contracted independent code approvers x{n} (CNV-PLT-010 two-approver rule)", 45000.0 * float n ]
 
 /// Fractional controller acting as independent reviewer of reconciliations and payment releases: 200 h at
 /// CST-C01 $200/h. [A]
@@ -126,20 +134,20 @@ let independentReviewer = [ "independent fractional controller review 200 h (CST
 let f1 =
     design "F1 one founder + agents + contractors"
         [ person "Founder (operations, sponsor relationships, governance)" founderLoaded founderCash "operations" 0.4 true ]
-        true (contractEngineering @ independentReviewer) true true
+        true (contractEngineering @ independentReviewer @ codeReviewers 2) true true
 
 let f2 =
     design "F2 two founders"
         [ person "Founder (operations, finance, sponsor relationships)" founderLoaded founderCash "operations" 0.35 true
           person "Technical founder (platform, security; no bank access)" ctoLoaded ctoCash "engineering" 0.3 false ]
-        true independentReviewer true true
+        true (independentReviewer @ codeReviewers 2) true true
 
 let f3 =
     design "F3 three core"
         [ person "Founder / managing director" founderLoaded founderCash "operations" 0.15 true
           person "CTO (platform, security; no bank access)" ctoLoaded ctoCash "engineering" 0.25 false
           person "Controller / head of financial operations" controllerLoaded controllerLoaded "accounting" 0.6 true ]
-        true independentReviewer true false
+        true (independentReviewer @ codeReviewers 2) true false
 
 let f5 =
     design "F5 five core"
@@ -148,7 +156,7 @@ let f5 =
           person "Senior software engineer" engineerLoaded engineerLoaded "engineering" 0.3 false
           person "Controller" controllerLoaded controllerLoaded "accounting" 0.5 true
           person "Grant & client operations specialist" opsLoaded opsLoaded "operations" 0.85 true ]
-        false [] false false
+        false (codeReviewers 1) false false
 
 let f6 =
     design "F6 six core"
@@ -158,7 +166,7 @@ let f6 =
           person "Controller" controllerLoaded controllerLoaded "accounting" 0.5 true
           person "Grant & client operations specialist" opsLoaded opsLoaded "operations" 0.85 true
           person "Compliance and donor service specialist" complianceLoaded complianceLoaded "compliance" 0.8 true ]
-        false [] false false
+        false (codeReviewers 1) false false
 
 let f8 =
     design "F8+ nine core (specialised)"
@@ -175,13 +183,15 @@ let f8 =
 
 let designs = [ f1; f2; f3; f5; f6; f8 ]
 
-/// Outcome-designed variant: sponsor-level work halved by generated reporting and continuous reconciliation, and
-/// coordination halved by a shared case/event model. Unproven: no observed operation. [A]
+/// Outcome-designed variant (OPS pass): sponsor-level minutes 19,440 -> 12,720 a year by generated reporting and
+/// continuous reconciliation; coordination gain about 1.25 h per person-week (3% of capacity) by a shared case/event
+/// model; account minutes fall to about 30 (applied through the handling target). Unproven: no observed operation. [A]
+let outcomeDesignedTarget = 30.1
 let outcomeDesigned (d: Design) =
     { d with
-        Name = d.Name + " | outcome-designed (sponsor work /2, coordination /2) [unproven]"
-        SponsorMinutes = d.SponsorMinutes / 2.0
-        CoordinationHoursPerPairWeek = d.CoordinationHoursPerPairWeek / 2.0 }
+        Name = d.Name + " | outcome-designed (OPS: sponsor work 12,720 min, +3% capacity) [unproven]"
+        SponsorMinutes = 12720.0
+        ProductiveHours = d.ProductiveHours * 1.03 }
 
 /// Narrow-entry design: non-custodial software service (no money movement): no SOC 1, no crime cover, smaller
 /// compliance scope. [A]
