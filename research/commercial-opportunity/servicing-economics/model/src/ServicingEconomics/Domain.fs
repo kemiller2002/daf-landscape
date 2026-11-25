@@ -17,25 +17,23 @@ type Approach =
     | Conventional
     | AiEnhanced
     | AiNative
+    | AiNativeWithElimination
 
 /// An account archetype: a slice of a sponsor's book with its own balance and workload.
+/// Workload is per account-year by approach: servicer human minutes, external vendor cost
+/// (excluding payment rails) and payment-rail cost (which a contract may pass through at cost).
 type Archetype =
     { Name: string
       ShareOfAccounts: float
       AverageBalance: float
-      GrantsPerYear: float
-      ContributionsPerYear: float
-      ContactsPerYear: float
-      ComplexAssetsPerYear: float }
+      Minutes: Approach -> float
+      External: Approach -> float
+      Payments: Approach -> float
+      DecemberShare: float }
 
 /// Unit of an activity's volume.
 type Driver =
     | PerAccountYear
-    | PerGrant
-    | PerContribution
-    | PerContact
-    | PerComplexAsset
-    | PerNewAccount
     | PerSponsorYear
 
 /// A recurring servicing activity. Minutes are human handling time per occurrence by approach,
@@ -77,6 +75,8 @@ type Organization =
       NonPersonnelFixed: (string * float) list
       StepRules: StepRule list
       ProductiveHours: float
+      /// Added operations staff required for separation of duties regardless of workload.
+      MinimumAddedServicingFte: float
       ServicingHourlyLoaded: float
       DecemberShare: float
       PeakPremium: float }
@@ -86,7 +86,11 @@ type Price =
     { Bps: float
       MinimumAnnualFee: float
       ImplementationFeePerSponsor: float
-      ExceptionalFeesPerAccountYear: float }
+      ExceptionalFeesPerAccountYear: float
+      /// Per-account annual floor: each account pays the greater of its asset fee and this amount.
+      PerAccountMinimum: float
+      /// Payment-rail costs billed to the sponsor at cost (excluded from both revenue and cost).
+      PaymentsPassThrough: bool }
 
 /// A sponsor book of business under administration.
 type Sponsor =
@@ -94,7 +98,6 @@ type Sponsor =
       Accounts: float
       Mix: Archetype list
       ComplexityMultiplier: float
-      NewAccountRate: float
       AnnualSponsorCost: float
       OnboardingCost: float }
 

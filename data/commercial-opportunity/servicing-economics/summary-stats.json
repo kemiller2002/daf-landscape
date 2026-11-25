@@ -1,0 +1,176 @@
+{
+ "balance_distribution": [
+  {
+   "accounts": 1169438.0,
+   "daf_assets_eoy": 426482172.0,
+   "n_addressable": 59,
+   "n_positive_margin_20bps_base": 0,
+   "n_sponsors": 62,
+   "share_accounts": 0.6118,
+   "share_assets": 0.0012,
+   "sponsor_avg_balance_band": "<10k"
+  },
+  {
+   "accounts": 20830.0,
+   "daf_assets_eoy": 651476324.0,
+   "n_addressable": 182,
+   "n_positive_margin_20bps_base": 0,
+   "n_sponsors": 184,
+   "share_accounts": 0.0109,
+   "share_assets": 0.0018,
+   "sponsor_avg_balance_band": "10k-50k"
+  },
+  {
+   "accounts": 143402.0,
+   "daf_assets_eoy": 23583600694.0,
+   "n_addressable": 636,
+   "n_positive_margin_20bps_base": 93,
+   "n_sponsors": 637,
+   "share_accounts": 0.075,
+   "share_assets": 0.0636,
+   "sponsor_avg_balance_band": "50k-250k"
+  },
+  {
+   "accounts": 531676.0,
+   "daf_assets_eoy": 232288685096.0,
+   "n_addressable": 424,
+   "n_positive_margin_20bps_base": 254,
+   "n_sponsors": 428,
+   "share_accounts": 0.2782,
+   "share_assets": 0.6265,
+   "sponsor_avg_balance_band": "250k-1m"
+  },
+  {
+   "accounts": 44929.0,
+   "daf_assets_eoy": 101594482030.0,
+   "n_addressable": 111,
+   "n_positive_margin_20bps_base": 64,
+   "n_sponsors": 112,
+   "share_accounts": 0.0235,
+   "share_assets": 0.274,
+   "sponsor_avg_balance_band": "1m-5m"
+  },
+  {
+   "accounts": 1151.0,
+   "daf_assets_eoy": 12234851573.0,
+   "n_addressable": 27,
+   "n_positive_margin_20bps_base": 20,
+   "n_sponsors": 28,
+   "share_accounts": 0.0006,
+   "share_assets": 0.033,
+   "sponsor_avg_balance_band": ">=5m"
+  }
+ ],
+ "captive_counts": {
+  "captive_inhouse_affiliate": 3,
+  "financial_affiliate_name_inferred": 7,
+  "financial_affiliate_unknown_platform": 4,
+  "financial_affiliate_vendor_outsourced": 7,
+  "inhouse_platform_app_native": 3,
+  "inhouse_platform_custom": 1,
+  "none_found": 1561,
+  "vendor_captive": 11
+ },
+ "concentration": {
+  "addressable_assets_with_positive_margin_share": 0.9784,
+  "addressable_top10_share_of_addressable_assets": 0.576,
+  "addressable_top50_share_of_addressable_assets": 0.7833,
+  "captive_inhouse_share_assets_active": 0.431,
+  "median_eoy_assets_at_breakeven_band_cf_10_30m_positive_share": 0.3553,
+  "min_eoy_assets_positive_margin_base_cf": 10255652.0,
+  "n_addressable_positive_margin_20bps_base": 424,
+  "n_addressable_self_sustaining_base_excl_recent_migration_and_constrained": 28,
+  "not_addressable_share_assets_active": 0.4534,
+  "top10_share_assets_active": 0.72,
+  "top4_share_assets_active": 0.5817,
+  "top50_share_assets_active": 0.8701
+ },
+ "data_quality_counts": {
+  "A": 1311,
+  "B": 207,
+  "C": 64,
+  "D": 15
+ },
+ "grant_count_calibration_grants_per_account": [
+  [
+   "MORGAN STANLEY GLOBAL IMPACT FUNDING TRUST INC",
+   5.6
+  ],
+  [
+   "IMPACTASSETSINC",
+   6.14
+  ],
+  [
+   "Renaissance Charitable Foundation Inc",
+   6.2
+  ],
+  [
+   "NATIONAL PHILANTHROPIC TRUST",
+   6.26
+  ],
+  [
+   "AMERICAN ENDOWMENT FOUNDATION",
+   6.88
+  ],
+  [
+   "GS DONOR ADVISED PHILANTHROPY FUND FOR WEALTH MANAGEMENT INC",
+   7.08
+  ],
+  [
+   "VANGUARD CHARITABLE ENDOWMENT PROGRAM",
+   7.57
+  ],
+  [
+   "DONOR ADVISED CHARITABLE GIVING INC",
+   8.56
+  ],
+  [
+   "FIDELITY INVESTMENTS CHARITABLE GIFT FUND",
+   11.85
+  ],
+  [
+   "Silicon Valley Community Foundation",
+   14.34
+  ],
+  [
+   "FOUNDATION FOR THE CAROLINAS",
+   15.79
+  ],
+  [
+   "JEWISH COMMUNAL FUND",
+   17.68
+  ]
+ ],
+ "latest_fy_counts": {
+  "2019": 11,
+  "2020": 19,
+  "2021": 24,
+  "2022": 33,
+  "2023": 43,
+  "2024": 574,
+  "2025": 890
+ },
+ "n_active": 1467,
+ "n_addressable": 1448,
+ "n_sponsors_total": 1597,
+ "sensitivity": {
+  "oat_runs": 30,
+  "spearman_base_vs_cost_heavy": 0.9853,
+  "spearman_base_vs_equal": 0.9919,
+  "spearman_base_vs_revenue_heavy": 0.9813,
+  "spearman_base_vs_risk_heavy": 0.9842,
+  "top25_overlap_base_vs_cost_heavy": 21,
+  "top25_overlap_base_vs_equal": 20,
+  "top25_overlap_base_vs_revenue_heavy": 16,
+  "top25_overlap_base_vs_risk_heavy": 19
+ },
+ "status_counts": {
+  "active": 1467,
+  "dissolved_or_converted": 3,
+  "inactive_no_recent_data": 77,
+  "merged_or_dissolved": 9,
+  "no_daf_assets_reported": 37,
+  "no_schedule_d_panel": 3,
+  "stopped_reporting_dafs": 1
+ }
+}

@@ -8,6 +8,7 @@
     <Compile Include="Parameters.fs" />
     <Compile Include="Analysis.fs" />
     <Compile Include="CashFlow.fs" />
+    <Compile Include="Strategies.fs" />
     <Compile Include="Render.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>

@@ -165,3 +165,20 @@ let ``implementation fee is received half at signing and half at go-live`` () =
     let rows = simulate (plan [ { Sponsor = s; SignMonth = 2; OnboardingMonths = 4; ImplementationFee = 100000.0 } ])
     close 1e-6 50000.0 (rows |> List.find (fun r -> r.Month = 2)).CashIn
     close 1e-6 50000.0 (rows |> List.find (fun r -> r.Month = 6)).CashIn
+
+[<Fact>]
+let ``per-account floor raises only accounts whose asset fee is below it`` () =
+    // two archetypes: 500 accounts at $10k (fee $20 at 20 bps) and 500 at $1M (fee $2,000); floor $100
+    let mix =
+        [ { Name = "small"; ShareOfAccounts = 0.5; AverageBalance = 10000.0; Minutes = (fun _ -> 0.0); External = (fun _ -> 0.0); Payments = (fun _ -> 0.0); DecemberShare = 0.0 }
+          { Name = "large"; ShareOfAccounts = 0.5; AverageBalance = 1.0e6; Minutes = (fun _ -> 0.0); External = (fun _ -> 0.0); Payments = (fun _ -> 0.0); DecemberShare = 0.0 } ]
+    let s = { uniformSponsor "mixed" 1.0e8 100000.0 with Accounts = 1000.0; Mix = mix }
+    let a, _, _ = sponsorRevenue { price 20.0 with PerAccountMinimum = 100.0 } 1.0 s
+    close 1e-6 (500.0 * 100.0 + 500.0 * 2000.0) a
+
+[<Fact>]
+let ``asset shocks do not reduce revenue protected by a per-account floor`` () =
+    let s = uniformSponsor "small" 1.0e7 10000.0
+    let a1, _, _ = sponsorRevenue { price 20.0 with PerAccountMinimum = 100.0 } 1.0 s
+    let a2, _, _ = sponsorRevenue { price 20.0 with PerAccountMinimum = 100.0 } 0.5 s
+    close 1e-6 a1 a2
