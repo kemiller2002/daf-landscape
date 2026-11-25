@@ -1,0 +1,15 @@
+REV feab755
+CMD dotnet build Vigila.sln -c Release
+BUILD_RC 0 SECS 18
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+CMD dotnet test tests/Vigila.Application.Tests/Vigila.Application.Tests.fsproj -c Release --no-build
+TEST_RC Vigila.Application.Tests.fsproj 0 SECS 1 :: Passed!  - Failed:     0, Passed:   118, Skipped:     0, Total:   118, Duration: 189 ms - Vigila.Application.Tests.dll (net10.0) 
+CMD dotnet test tests/Vigila.Host.GitHub.Tests/Vigila.Host.GitHub.Tests.fsproj -c Release --no-build
+TEST_RC Vigila.Host.GitHub.Tests.fsproj 0 SECS 2 :: Passed!  - Failed:     0, Passed:   140, Skipped:     0, Total:   140, Duration: 284 ms - Vigila.Host.GitHub.Tests.dll (net10.0) 
+CMD dotnet test tests/Vigila.Semantic.Tests/Vigila.Semantic.Tests.fsproj -c Release --no-build
+TEST_RC Vigila.Semantic.Tests.fsproj 0 SECS 1 :: Passed!  - Failed:     0, Passed:    19, Skipped:     0, Total:    19, Duration: 56 ms - Vigila.Semantic.Tests.dll (net10.0) 
+CMD dotnet test tests/Vigila.Transition.Tests/Vigila.Transition.Tests.fsproj -c Release --no-build
+TEST_RC Vigila.Transition.Tests.fsproj 0 SECS 1 :: Passed!  - Failed:     0, Passed:     8, Skipped:     0, Total:     8, Duration: 32 ms - Vigila.Transition.Tests.dll (net10.0) 
+DONE

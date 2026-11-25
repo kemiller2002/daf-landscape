@@ -1,0 +1,12 @@
+PASS bound screen with async state hook passes every required kind
+PASS async state injection is awaited (state projection passes)
+PASS keyboard reachability passes on the conforming screen
+PASS NEGATIVE CONTROL: wrong screen fails identity for every kind
+PASS NEGATIVE CONTROL: wrong screen verdict is FAIL
+PASS NEGATIVE CONTROL: declared hook missing fails state projection
+PASS NEGATIVE CONTROL: declared hook missing fails interaction
+PASS no declared state injection leaves state projection unavailable, not passed
+PASS no declared state injection never yields PASS
+PASS NEGATIVE CONTROL: capability removed from tab order fails accessibility
+PASS NEGATIVE CONTROL: duplicated region boundary fails structural
+Percepta.Binding.Tests: all 11 checks passed.

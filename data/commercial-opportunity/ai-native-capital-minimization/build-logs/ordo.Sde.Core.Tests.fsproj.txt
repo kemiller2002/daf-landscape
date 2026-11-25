@@ -1,0 +1,1355 @@
+Test run for scratch:aincm/build/ordo/tests/Sde.Core.Tests/bin/Release/net8.0/Sde.Core.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.15]     Sde.Tests.VerifyGateTests.integrity-only fails closed when nothing is installed [FAIL]
+[xUnit.net 00:00:00.15]     Sde.Tests.LifecycleTests.init dry run makes no changes [FAIL]
+  Failed Sde.Tests.VerifyGateTests.integrity-only fails closed when nothing is installed [5 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.init dry run makes no changes@139.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.init dry run makes no changes()
+   at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed when nothing is installed@77.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed when nothing is installed()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.init dry run makes no changes [5 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.init dry run makes no changes@139.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.init dry run makes no changes()
+   at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed when nothing is installed@77.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed when nothing is installed()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.19]     Sde.Tests.VerifyGateTests.the boolean verify entry point keeps its released meaning [FAIL]
+[xUnit.net 00:00:00.19]     Sde.Tests.VerifyGateTests.integrity-only fails closed on a modified managed artifact even with structural findings present [FAIL]
+[xUnit.net 00:00:00.19]     Sde.Tests.LifecycleTests.another Echelon tool's installation record survives an upgrade untouched [FAIL]
+[xUnit.net 00:00:00.19]     Sde.Tests.VerifyGateTests.integrity-only fails closed on a missing managed artifact [FAIL]
+[xUnit.net 00:00:00.19]     Sde.Tests.LifecycleTests.doctor identifies an intentionally damaged installation and explains it [FAIL]
+[xUnit.net 00:00:00.19]     Sde.Tests.LifecycleTests.status reports an available upgrade for an older installation [FAIL]
+[xUnit.net 00:00:00.19]     Sde.Tests.LifecycleTests.clean init installs the expected files and a valid manifest [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.a VERSION file that disagrees with the manifest is detected even when its own hash matches [FAIL]
+  Failed Sde.Tests.VerifyGateTests.the boolean verify entry point keeps its released meaning [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.the boolean verify entry point keeps its released meaning@184.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.the boolean verify entry point keeps its released meaning()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerifyGateTests.integrity-only fails closed on a modified managed artifact even with structural findings present [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed on a modified managed artifact even with structural findings present@86.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed on a modified managed artifact even with structural findings present()
+   at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.LifecycleTests.another Echelon tool's installation record survives an upgrade untouched@487.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.another Echelon tool's installation record survives an upgrade untouched()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.another Echelon tool's installation record survives an upgrade untouched [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed on a modified managed artifact even with structural findings present@86.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed on a modified managed artifact even with structural findings present()
+   at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.LifecycleTests.another Echelon tool's installation record survives an upgrade untouched@487.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.another Echelon tool's installation record survives an upgrade untouched()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerifyGateTests.integrity-only fails closed on a missing managed artifact [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed on a missing managed artifact@99.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed on a missing managed artifact()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.doctor identifies an intentionally damaged installation and explains it [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.doctor identifies an intentionally damaged installation and explains it@617.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.doctor identifies an intentionally damaged installation and explains it()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.status reports an available upgrade for an older installation [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.LifecycleTests.status reports an available upgrade for an older installation@186.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.status reports an available upgrade for an older installation()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.clean init installs the expected files and a valid manifest [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.clean init installs the expected files and a valid manifest@29.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.clean init installs the expected files and a valid manifest()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.a VERSION file that disagrees with the manifest is detected even when its own hash matches [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.a VERSION file that disagrees with the manifest is detected even when its own hash matches@269.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.a VERSION file that disagrees with the manifest is detected even when its own hash matches()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.verify detects an undeclared file under the install root [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.verify fails when nothing is installed [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.ContractTests.the version command prints exactly the package version [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.verify detects a modified managed file [FAIL]
+  Failed Sde.Tests.LifecycleTests.verify detects an undeclared file under the install root [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.verify detects an undeclared file under the install root@252.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.verify detects an undeclared file under the install root()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.verify fails when nothing is installed [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.verify fails when nothing is installed@199.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.verify fails when nothing is installed()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ContractTests.the version command prints exactly the package version [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.verify detects a modified managed file@235.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.verify detects a modified managed file()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.verify detects a modified managed file [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.verify detects a modified managed file@235.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.verify detects a modified managed file()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.20]     Sde.Tests.ContractTests.a symlink under the install root is refused rather than followed [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.doctor succeeds on a healthy repository and never writes [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.init check exits with the drift code when changes are required [FAIL]
+  Failed Sde.Tests.ContractTests.a symlink under the install root is refused rather than followed [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.doctor succeeds on a healthy repository and never writes@638.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.doctor succeeds on a healthy repository and never writes()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.doctor succeeds on a healthy repository and never writes [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.doctor succeeds on a healthy repository and never writes@638.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.doctor succeeds on a healthy repository and never writes()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.init check exits with the drift code when changes are required [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.init check exits with the drift code when changes are required@150.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.init check exits with the drift code when changes are required()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.init refuses cleanly when the target directory does not exist [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.upgrade refuses to overwrite a locally modified installation and changes nothing [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.verify fails and reports a missing managed file [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.upgrade moves an older unmodified installation to the packaged version [FAIL]
+  Failed Sde.Tests.LifecycleTests.init refuses cleanly when the target directory does not exist [2 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.LifecycleTests.init refuses cleanly when the target directory does not exist@78.Invoke(String parent)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.init refuses cleanly when the target directory does not exist()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.upgrade refuses to overwrite a locally modified installation and changes nothing [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.LifecycleTests.upgrade refuses to overwrite a locally modified installation and changes nothing@409.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.upgrade refuses to overwrite a locally modified installation and changes nothing()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.verify fails and reports a missing managed file [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.verify fails and reports a missing managed file@218.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.verify fails and reports a missing managed file()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.upgrade moves an older unmodified installation to the packaged version [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.LifecycleTests.upgrade moves an older unmodified installation to the packaged version@366.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.upgrade moves an older unmodified installation to the packaged version()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.init writes the echelon installation record [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.status reports the installed version and does not modify the repository [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.init reports but does not perform an upgrade when an older version is installed [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.running init twice makes no change at all [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.a user-owned file survives an upgrade untouched [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.LifecycleTests.doctor explains a missing installation without calling it an error [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.VerifyGateTests.verify --integrity-only --json reports an integrity failure with its category [FAIL]
+[xUnit.net 00:00:00.20]     Sde.Tests.VerifyGateTests.strict mode still fails the same structural findings and categorises them as structural review [FAIL]
+  Failed Sde.Tests.LifecycleTests.init writes the echelon installation record [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.LifecycleTests.init writes the echelon installation record@52.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.init writes the echelon installation record()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.status reports the installed version and does not modify the repository [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.status reports the installed version and does not modify the repository@173.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.status reports the installed version and does not modify the repository()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.init reports but does not perform an upgrade when an older version is installed [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.LifecycleTests.init reports but does not perform an upgrade when an older version is installed@122.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.init reports but does not perform an upgrade when an older version is installed()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.running init twice makes no change at all [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.running init twice makes no change at all@64.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.running init twice makes no change at all()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.a user-owned file survives an upgrade untouched [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.LifecycleTests.a user-owned file survives an upgrade untouched@465.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.a user-owned file survives an upgrade untouched()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.doctor explains a missing installation without calling it an error [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.doctor explains a missing installation without calling it an error@650.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.doctor explains a missing installation without calling it an error()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerifyGateTests.verify --integrity-only --json reports an integrity failure with its category [19 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path '/tmp/sde-gate-8c05b2ebdfa7/.sde/reference/GLOSSARY.md'.
+  Stack Trace:
+     at System.IO.FileSystem.DeleteFile(String fullPath)
+   at Sde.Tests.VerifyGateTests.verify --integrity-only --json reports an integrity failure with its category@244.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.verify --integrity-only --json reports an integrity failure with its category()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Sde.Tests.VerifyGateTests.strict mode still fails the same structural findings and categorises them as structural review [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.a valid shared configuration file overrides the default thresholds@574.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.a valid shared configuration file overrides the default thresholds()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.a valid shared configuration file overrides the default thresholds [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.verify passes on a clean installation and does not mutate it [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.strict verify fails on structural findings that the default mode only warns about [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.init refuses to overwrite a locally modified installation [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.strict verify fails an installation that has not adopted the current configuration version [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.upgrade on a current installation is a no-op [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.an invalid shared configuration file is detected and never rewritten [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.upgrade dry run makes no changes [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.init does not touch unrelated files already in the project [FAIL]
+  Failed Sde.Tests.LifecycleTests.a valid shared configuration file overrides the default thresholds [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.a valid shared configuration file overrides the default thresholds@574.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.a valid shared configuration file overrides the default thresholds()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.verify passes on a clean installation and does not mutate it [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.verify passes on a clean installation and does not mutate it@206.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.verify passes on a clean installation and does not mutate it()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.strict verify fails on structural findings that the default mode only warns about [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.strict verify fails on structural findings that the default mode only warns about@598.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.strict verify fails on structural findings that the default mode only warns about()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.init refuses to overwrite a locally modified installation [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.init refuses to overwrite a locally modified installation@98.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.init refuses to overwrite a locally modified installation()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.strict verify fails an installation that has not adopted the current configuration version [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.strict verify fails an installation that has not adopted the current configuration version@307.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.strict verify fails an installation that has not adopted the current configuration version()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.upgrade on a current installation is a no-op [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.upgrade on a current installation is a no-op@442.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.upgrade on a current installation is a no-op()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.an invalid shared configuration file is detected and never rewritten [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.an invalid shared configuration file is detected and never rewritten@541.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.an invalid shared configuration file is detected and never rewritten()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.upgrade dry run makes no changes [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.LifecycleTests.upgrade dry run makes no changes@523.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.upgrade dry run makes no changes()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.init does not touch unrelated files already in the project [2 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.init does not touch unrelated files already in the project@88.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.init does not touch unrelated files already in the project()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.21]     Sde.Tests.VerifyGateTests.verify --strict --json categorises every failure [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.1.2.0 dry run exposes the additive decision semantics doctrine without writing [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.VerifyGateTests.integrity-only passes over structural findings and reports them as review signals [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.status reports not installed for a fresh repository and never writes [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.VerifyGateTests.integrity-only fails closed on an unusable structural configuration [FAIL]
+  Failed Sde.Tests.VerifyGateTests.verify --strict --json categorises every failure [9 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: Some(strict)
+Actual:   null
+  Stack Trace:
+     at Sde.Tests.VerifyGateTests.verify --strict --json categorises every failure@226.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.verify --strict --json categorises every failure()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Sde.Tests.LifecycleTests.1.2.0 dry run exposes the additive decision semantics doctrine without writing [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only passes over structural findings and reports them as review signals@51.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only passes over structural findings and reports them as review signals()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerifyGateTests.integrity-only passes over structural findings and reports them as review signals [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only passes over structural findings and reports them as review signals@51.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only passes over structural findings and reports them as review signals()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.status reports not installed for a fresh repository and never writes [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.status reports not installed for a fresh repository and never writes@164.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.status reports not installed for a fresh repository and never writes()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerifyGateTests.integrity-only fails closed on an unusable structural configuration [2 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed on an unusable structural configuration@169.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed on an unusable structural configuration()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.upgrade refuses to downgrade when the installed version is newer [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.upgrade refuses when a migration precondition fails and writes nothing [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.VerifyGateTests.verify --integrity-only --json exits zero with structural findings and lists them as review signals [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.upgrade refuses when nothing is installed [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.VerifyGateTests.integrity-only fails closed when the installation is ahead of this CLI [FAIL]
+  Failed Sde.Tests.LifecycleTests.upgrade refuses to downgrade when the installed version is newer [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.LifecycleTests.upgrade refuses to downgrade when the installed version is newer@425.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.upgrade refuses to downgrade when the installed version is newer()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.LifecycleTests.upgrade refuses when a migration precondition fails and writes nothing [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.LifecycleTests.upgrade refuses when a migration precondition fails and writes nothing@502.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.upgrade refuses when a migration precondition fails and writes nothing()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerifyGateTests.verify --integrity-only --json exits zero with structural findings and lists them as review signals [1 ms]
+  Error Message:
+   Assert.Equal() Failure: Values differ
+Expected: 0
+Actual:   1
+  Stack Trace:
+     at Sde.Tests.VerifyGateTests.verify --integrity-only --json exits zero with structural findings and lists them as review signals@204.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.verify --integrity-only --json exits zero with structural findings and lists them as review signals()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Sde.Tests.LifecycleTests.upgrade refuses when nothing is installed [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.LifecycleTests.upgrade refuses when nothing is installed@456.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.upgrade refuses when nothing is installed()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerifyGateTests.integrity-only fails closed when the installation is ahead of this CLI [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed when the installation is ahead of this CLI@124.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed when the installation is ahead of this CLI()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.21]     Sde.Tests.LifecycleTests.upgrade runs every intermediate configuration migration in order [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.VerifyGateTests.integrity-only fails closed on an installation at an older configuration version [FAIL]
+  Failed Sde.Tests.LifecycleTests.upgrade runs every intermediate configuration migration in order [3 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.LifecycleTests.upgrade runs every intermediate configuration migration in order@381.Invoke(String project)
+   at Sde.Tests.LifecycleTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.LifecycleTests.upgrade runs every intermediate configuration migration in order()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerifyGateTests.integrity-only fails closed on an installation at an older configuration version [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed on an installation at an older configuration version@158.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed on an installation at an older configuration version()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.21]     Sde.Tests.VerifyGateTests.integrity-only fails closed when the installation is behind this CLI [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.VerifyGateTests.integrity-only fails closed when the toolchain pin is absent [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.EcirScaffoldTests.ECIR scaffold requires both source and output paths [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.EcirScaffoldTests.ECIR check refuses unsupported versions and dangling references with stable codes [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.VerifyGateTests.integrity-only fails closed on a toolchain pin that names another release [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.ContractTests.every json mode emits exactly one valid JSON document on stdout [FAIL]
+[xUnit.net 00:00:00.21]     Sde.Tests.DecisionEventCommandTests.execution and a failing Dokimos completion receipt are recorded as separate correlated events [FAIL]
+  Failed Sde.Tests.VerifyGateTests.integrity-only fails closed when the installation is behind this CLI [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed when the installation is behind this CLI@110.Invoke(String project)
+   at Sde.Tests.VerifyGateTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.VerifyGateTests.integrity-only fails closed when the installation is behind this CLI()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerifyGateTests.integrity-only fails closed when the toolchain pin is absent [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.EcirScaffoldTests.ECIR scaffold requires both source and output paths()
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.EcirScaffoldTests.ECIR scaffold requires both source and output paths [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.EcirScaffoldTests.ECIR scaffold requires both source and output paths()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.EcirScaffoldTests.ECIR check refuses unsupported versions and dangling references with stable codes [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.EcirScaffoldTests.ECIR check refuses unsupported versions and dangling references with stable codes()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerifyGateTests.integrity-only fails closed on a toolchain pin that names another release [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.EcirScaffoldTests.ECIR check refuses unsupported versions and dangling references with stable codes()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ContractTests.every json mode emits exactly one valid JSON document on stdout [5 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path '/tmp/sde-json-f9cc2957084e/.sde/reference/GLOSSARY.md'.
+  Stack Trace:
+     at System.IO.FileSystem.DeleteFile(String fullPath)
+   at Sde.Tests.ContractTests.every json mode emits exactly one valid JSON document on stdout()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Sde.Tests.DecisionEventCommandTests.execution and a failing Dokimos completion receipt are recorded as separate correlated events [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.DecisionEventCommandTests.recognizeArgs(FSharpList`1 extra)
+   at Sde.Tests.DecisionEventCommandTests.execution and a failing Dokimos completion receipt are recorded as separate correlated events@90.Invoke(String dir)
+   at Sde.Tests.DecisionEventCommandTests.withDir(String prefix, FSharpFunc`2 body)
+   at Sde.Tests.DecisionEventCommandTests.execution and a failing Dokimos completion receipt are recorded as separate correlated events()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.25]     Sde.Tests.ContractTests.the installed manifest is schema version 1 with the released field names [FAIL]
+[xUnit.net 00:00:00.25]     Sde.Tests.ContractTests.every documented option in help is one the parser accepts [FAIL]
+[xUnit.net 00:00:00.25]     Sde.Tests.ContractTests.the CLI version, the payload version and the npm package version are the same [FAIL]
+  Failed Sde.Tests.ContractTests.the installed manifest is schema version 1 with the released field names [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.ContractTests.the installed manifest is schema version 1 with the released field names()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ContractTests.every documented option in help is one the parser accepts [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.ContractTests.every documented option in help is one the parser accepts()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ContractTests.the CLI version, the payload version and the npm package version are the same [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_packageJsonVersion()
+   at Sde.Tests.ContractTests.the CLI version, the payload version and the npm package version are the same()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.25]     Sde.Tests.ContractTests.manifest rendering round-trips through the JSON reader [FAIL]
+[xUnit.net 00:00:00.25]     Sde.Tests.ToolchainPinTests.init creates the toolchain manifest pinning the release it installs [FAIL]
+  Failed Sde.Tests.ContractTests.manifest rendering round-trips through the JSON reader [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.ContractTests.manifest rendering round-trips through the JSON reader()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ToolchainPinTests.init creates the toolchain manifest pinning the release it installs [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.ToolchainPinTests.init creates the toolchain manifest pinning the release it installs@47.Invoke(String project)
+   at Sde.Tests.ToolchainPinTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.ToolchainPinTests.init creates the toolchain manifest pinning the release it installs()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.26]     Sde.Tests.ToolchainPinTests.the dry-run plan names the pin change and writes nothing [FAIL]
+[xUnit.net 00:00:00.26]     Sde.Tests.ToolchainPinTests.upgrade --check reports a stale pin as required change and writes nothing [FAIL]
+[xUnit.net 00:00:00.26]     Sde.Tests.ToolchainPinTests.the pinned version is the release version, the same one recorded as installed [FAIL]
+[xUnit.net 00:00:00.26]     Sde.Tests.ToolchainPinTests.init adds the ordo pin to an existing manifest and keeps every other property [FAIL]
+  Failed Sde.Tests.ToolchainPinTests.the dry-run plan names the pin change and writes nothing [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.ToolchainPinTests.the dry-run plan names the pin change and writes nothing@197.Invoke(String project)
+   at Sde.Tests.ToolchainPinTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.ToolchainPinTests.the dry-run plan names the pin change and writes nothing()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ToolchainPinTests.upgrade --check reports a stale pin as required change and writes nothing [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.ToolchainPinTests.upgrade --check reports a stale pin as required change and writes nothing@118.Invoke(String project)
+   at Sde.Tests.ToolchainPinTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.ToolchainPinTests.upgrade --check reports a stale pin as required change and writes nothing()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ToolchainPinTests.the pinned version is the release version, the same one recorded as installed [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.ToolchainPinTests.the pinned version is the release version\, the same one recorded as installed@56.Invoke(String project)
+   at Sde.Tests.ToolchainPinTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.ToolchainPinTests.the pinned version is the release version, the same one recorded as installed()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ToolchainPinTests.init adds the ordo pin to an existing manifest and keeps every other property [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.ToolchainPinTests.init adds the ordo pin to an existing manifest and keeps every other property@67.Invoke(String project)
+   at Sde.Tests.ToolchainPinTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.ToolchainPinTests.init adds the ordo pin to an existing manifest and keeps every other property()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.26]     Sde.Tests.ToolchainPinTests.the release bump moves Ordo's own toolchain pin with the package version [FAIL]
+[xUnit.net 00:00:00.26]     Sde.Tests.ToolchainPinTests.upgrade re-pins only the ordo property [FAIL]
+[xUnit.net 00:00:00.26]     Sde.Tests.ToolchainPinTests.upgrade corrects a stale pin on an otherwise current installation, then has nothing to do [FAIL]
+[xUnit.net 00:00:00.26]     Sde.Tests.ToolchainPinTests.the ordo repository pins the Ordo release it is about to publish [FAIL]
+[xUnit.net 00:00:00.27]     Sde.Tests.ToolchainPinTests.init leaves the pin alone when it does not upgrade an older installation [FAIL]
+[xUnit.net 00:00:00.27]     Sde.Tests.ToolchainPinTests.a toolchain manifest that is not a plain JSON object is preserved untouched [FAIL]
+  Failed Sde.Tests.ToolchainPinTests.the release bump moves Ordo's own toolchain pin with the package version [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.ToolchainPinTests.the release bump moves Ordo's own toolchain pin with the package version()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ToolchainPinTests.upgrade re-pins only the ordo property [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.ToolchainPinTests.upgrade re-pins only the ordo property@82.Invoke(String project)
+   at Sde.Tests.ToolchainPinTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.ToolchainPinTests.upgrade re-pins only the ordo property()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ToolchainPinTests.upgrade corrects a stale pin on an otherwise current installation, then has nothing to do [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.ToolchainPinTests.upgrade corrects a stale pin on an otherwise current installation\, then has nothing to do@97.Invoke(String project)
+   at Sde.Tests.ToolchainPinTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.ToolchainPinTests.upgrade corrects a stale pin on an otherwise current installation, then has nothing to do()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ToolchainPinTests.the ordo repository pins the Ordo release it is about to publish [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.ToolchainPinTests.the ordo repository pins the Ordo release it is about to publish()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ToolchainPinTests.init leaves the pin alone when it does not upgrade an older installation [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.Fixtures.packageAtVersion(String version)
+   at Sde.Tests.Fixtures.installHistoricalVersion(String version, String projectRoot)
+   at Sde.Tests.ToolchainPinTests.init leaves the pin alone when it does not upgrade an older installation@140.Invoke(String project)
+   at Sde.Tests.ToolchainPinTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.ToolchainPinTests.init leaves the pin alone when it does not upgrade an older installation()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.ToolchainPinTests.a toolchain manifest that is not a plain JSON object is preserved untouched [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payload()
+   at Sde.Tests.ToolchainPinTests.a toolchain manifest that is not a plain JSON object is preserved untouched@130.Invoke(String project)
+   at Sde.Tests.ToolchainPinTests.withProject(FSharpFunc`2 body)
+   at Sde.Tests.ToolchainPinTests.a toolchain manifest that is not a plain JSON object is preserved untouched()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.28]     Sde.Tests.VerificationCommandTests.deterministic evidence of an earlier run is reused only with a reuse context [FAIL]
+[xUnit.net 00:00:00.28]     Sde.Tests.VerificationCommandTests.a malformed reuse context refuses the schedule [FAIL]
+[xUnit.net 00:00:00.28]     Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary assess --map") [FAIL]
+[xUnit.net 00:00:00.28]     Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary assess --map a --expected b") [FAIL]
+[xUnit.net 00:00:00.28]     Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary assess --map a --expected b --changed c -"···) [FAIL]
+[xUnit.net 00:00:00.28]     Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary assess --map a --map b --expected b --cha"···) [FAIL]
+  Failed Sde.Tests.VerificationCommandTests.deterministic evidence of an earlier run is reused only with a reuse context [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.VerificationCommandTests' threw an exception.
+---- System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+-------- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.VerificationCommandTests.get_planFixture()
+   at Sde.Tests.VerificationCommandTests.withWorkspace(FSharpFunc`2 body)
+   at Sde.Tests.VerificationCommandTests.deterministic evidence of an earlier run is reused only with a reuse context()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at Sde.Tests.Fixtures.get_repositoryRoot()
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.VerificationCommandTests..cctor()
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.VerificationCommandTests.a malformed reuse context refuses the schedule [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.VerificationCommandTests' threw an exception.
+---- System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+-------- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.VerificationCommandTests.get_planFixture()
+   at Sde.Tests.VerificationCommandTests.withWorkspace(FSharpFunc`2 body)
+   at Sde.Tests.VerificationCommandTests.a malformed reuse context refuses the schedule()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at Sde.Tests.Fixtures.get_repositoryRoot()
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.VerificationCommandTests..cctor()
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary assess --map") [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(String argv)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary assess --map a --expected b") [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(String argv)
+   at InvokeStub_BoundaryCommandTests.malformed boundary arguments exit 2(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary assess --map a --expected b --changed c -"···) [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(String argv)
+   at InvokeStub_BoundaryCommandTests.malformed boundary arguments exit 2(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary assess --map a --map b --expected b --cha"···) [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(String argv)
+   at InvokeStub_BoundaryCommandTests.malformed boundary arguments exit 2(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.28]     Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary") [FAIL]
+[xUnit.net 00:00:00.28]     Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary split --map a --expected b --changed c") [FAIL]
+[xUnit.net 00:00:00.28]     Sde.Tests.PackageBuildTests.the built package validates as a schema version 1 manifest [FAIL]
+[xUnit.net 00:00:00.28]     Sde.Tests.BoundaryCommandTests.boundary help exists and every option it documents is accepted [FAIL]
+[xUnit.net 00:00:00.28]     Sde.Tests.BoundaryCommandTests.an invalid input document exits 6 with a reason, in either mode [FAIL]
+[xUnit.net 00:00:00.29]     Sde.Tests.PackageBuildTests.the VERSION file agrees with the manifest [FAIL]
+  Failed Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary") [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(String argv)
+   at InvokeStub_BoundaryCommandTests.malformed boundary arguments exit 2(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(argv: "boundary split --map a --expected b --changed c") [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(String argv)
+   at InvokeStub_BoundaryCommandTests.malformed boundary arguments exit 2(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.PackageBuildTests.the built package validates as a schema version 1 manifest [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.BoundaryCommandTests.malformed boundary arguments exit 2(String argv)
+   at InvokeStub_BoundaryCommandTests.malformed boundary arguments exit 2(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithOneArg(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.PackageBuildTests.the built package validates as a schema version 1 manifest()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.BoundaryCommandTests.boundary help exists and every option it documents is accepted [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.BoundaryCommandTests.boundary help exists and every option it documents is accepted()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.BoundaryCommandTests.an invalid input document exits 6 with a reason, in either mode [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.BoundaryCommandTests' threw an exception.
+---- System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+-------- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.BoundaryCommandTests.get_mapFile()
+   at Sde.Tests.BoundaryCommandTests.an invalid input document exits 6 with a reason, in either mode()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at Sde.Tests.Fixtures.get_repositoryRoot()
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.BoundaryCommandTests..cctor()
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.PackageBuildTests.the VERSION file agrees with the manifest [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_payloadDirectory()
+   at Sde.Tests.PackageBuildTests.the VERSION file agrees with the manifest()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.29]     Sde.Tests.BoundaryCommandTests.the human rendering names risk, recommendation and approval [FAIL]
+[xUnit.net 00:00:00.29]     Sde.Tests.BoundaryCommandTests.a high-risk assessment is still a successful assessment [FAIL]
+[xUnit.net 00:00:00.29]     Sde.Tests.PackageBuildTests.building twice from the same sources produces identical bytes [FAIL]
+[xUnit.net 00:00:00.29]     Sde.Tests.PackageBuildTests.the distribution map is loadable and every declared source exists [FAIL]
+[xUnit.net 00:00:00.29]     Sde.Tests.PackageBuildTests.a missing canonical source fails the build loudly [FAIL]
+[xUnit.net 00:00:00.29]     Sde.Tests.BoundaryCommandTests.--root extracts imports so a misplaced effect becomes visible [FAIL]
+  Failed Sde.Tests.BoundaryCommandTests.the human rendering names risk, recommendation and approval [4 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.BoundaryCommandTests' threw an exception.
+---- System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+-------- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.BoundaryCommandTests.assess(FSharpList`1 extra, String name, String changed)
+   at Sde.Tests.BoundaryCommandTests.the human rendering names risk, recommendation and approval()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.PackageBuildTests.buildInputs(String outputDirectory)
+   at Sde.Tests.PackageBuildTests.building twice from the same sources produces identical bytes()
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.BoundaryCommandTests.a high-risk assessment is still a successful assessment [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.BoundaryCommandTests' threw an exception.
+---- System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+-------- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.BoundaryCommandTests.assess(FSharpList`1 extra, String name, String changed)
+   at Sde.Tests.BoundaryCommandTests.a high-risk assessment is still a successful assessment()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.PackageBuildTests.buildInputs(String outputDirectory)
+   at Sde.Tests.PackageBuildTests.building twice from the same sources produces identical bytes()
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.PackageBuildTests.building twice from the same sources produces identical bytes [2 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.PackageBuildTests.buildInputs(String outputDirectory)
+   at Sde.Tests.PackageBuildTests.building twice from the same sources produces identical bytes()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.PackageBuildTests.the distribution map is loadable and every declared source exists [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.PackageBuildTests.the distribution map is loadable and every declared source exists()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.PackageBuildTests.a missing canonical source fails the build loudly [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.PackageBuildTests.buildInputs(String outputDirectory)
+   at Sde.Tests.PackageBuildTests.a missing canonical source fails the build loudly()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.BoundaryCommandTests.--root extracts imports so a misplaced effect becomes visible [1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.BoundaryCommandTests' threw an exception.
+---- System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+-------- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.BoundaryCommandTests.get_mapFile()
+   at Sde.Tests.BoundaryCommandTests.--root extracts imports so a misplaced effect becomes visible()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.PackageBuildTests.buildInputs(String outputDirectory)
+   at Sde.Tests.PackageBuildTests.a missing canonical source fails the build loudly()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+[xUnit.net 00:00:00.37]     Sde.Tests.EcirScaffoldTests.ECIR check refuses contradictory decisions and reports requirement readiness [FAIL]
+[xUnit.net 00:00:00.37]     Sde.Tests.EcirScaffoldTests.ECIR check admits a published contract and detects a stale pinned digest [FAIL]
+[xUnit.net 00:00:00.40]     Sde.Tests.DecisionEventCommandTests.recognition succeeds with identical output when the event log cannot be written [FAIL]
+[xUnit.net 00:00:00.40]     Sde.Tests.DecisionEventCommandTests.a real recognition with --events produces identifiable events and an unchanged report [FAIL]
+[xUnit.net 00:00:00.42]     Sde.Tests.DecisionEventCommandTests.recognition without --events writes nothing [FAIL]
+  Failed Sde.Tests.EcirScaffoldTests.ECIR check refuses contradictory decisions and reports requirement readiness [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.EcirScaffoldTests.ECIR check refuses contradictory decisions and reports requirement readiness()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.EcirScaffoldTests.ECIR check admits a published contract and detects a stale pinned digest [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.Fixtures.get_repositoryRoot()
+   at Sde.Tests.EcirScaffoldTests.ECIR check admits a published contract and detects a stale pinned digest()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.DecisionEventCommandTests.recognition succeeds with identical output when the event log cannot be written [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.DecisionEventCommandTests.recognizeArgs(FSharpList`1 extra)
+   at Sde.Tests.DecisionEventCommandTests.recognition succeeds with identical output when the event log cannot be written@54.Invoke(String dir)
+   at Sde.Tests.DecisionEventCommandTests.withDir(String prefix, FSharpFunc`2 body)
+   at Sde.Tests.DecisionEventCommandTests.recognition succeeds with identical output when the event log cannot be written()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.DecisionEventCommandTests.a real recognition with --events produces identifiable events and an unchanged report [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.DecisionEventCommandTests.recognizeArgs(FSharpList`1 extra)
+   at Sde.Tests.DecisionEventCommandTests.a real recognition with --events produces identifiable events and an unchanged report@33.Invoke(String dir)
+   at Sde.Tests.DecisionEventCommandTests.withDir(String prefix, FSharpFunc`2 body)
+   at Sde.Tests.DecisionEventCommandTests.a real recognition with --events produces identifiable events and an unchanged report()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+  Failed Sde.Tests.DecisionEventCommandTests.recognition without --events writes nothing [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures' threw an exception.
+---- System.Exception : distribution/dist is not built; run `npm run build` in distribution/ before the test suite (pretest does this automatically)
+  Stack Trace:
+     at Sde.Tests.DecisionEventCommandTests.recognizeArgs(FSharpList`1 extra)
+   at Sde.Tests.DecisionEventCommandTests.recognition without --events writes nothing@142.Invoke(String dir)
+   at Sde.Tests.DecisionEventCommandTests.withDir(String prefix, FSharpFunc`2 body)
+   at Sde.Tests.DecisionEventCommandTests.recognition without --events writes nothing()
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at <StartupCode$Sde-Core-Tests>.$Sde.Tests.Fixtures..cctor()
+
+Failed!  - Failed:    95, Passed:    70, Skipped:     0, Total:   165, Duration: 278 ms - Sde.Core.Tests.dll (net8.0)
+VSTEST_ARTIFACTS_DIRECTORY environment variable was not found, falling back to a user-private temporary directory. This is most likely caused by an outdated Microsoft.NET.Test.Sdk package reference in the test project.

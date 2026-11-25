@@ -1,0 +1,23 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/fides/tests/Fides.Tests/Fides.Tests.fsproj (in 411 ms).
+  Restored scratch:aincm/build/fides/src/Fides/Fides.fsproj (in 411 ms).
+  Restored scratch:aincm/build/fides/src/Fides.Hosting/Fides.Hosting.fsproj (in 2 ms).
+  Restored scratch:aincm/build/fides/tests/Fides.Acceptance/Fides.Acceptance.fsproj (in 1 ms).
+  Restored scratch:aincm/build/fides/src/Fides.Client/Fides.Client.fsproj (in 2 ms).
+  Restored scratch:aincm/build/fides/src/Fides.Arca/Fides.Arca.fsproj (in 1 ms).
+  Restored scratch:aincm/build/fides/src/Fides.Hosting.Aws/Fides.Hosting.Aws.fsproj (in 1.07 sec).
+  Restored scratch:aincm/build/fides/tests/Fides.Hosting.Aws.Tests/Fides.Hosting.Aws.Tests.fsproj (in 1.07 sec).
+  Fides -> scratch:aincm/build/fides/src/Fides/bin/Release/net10.0/Fides.dll
+  Fides.Hosting -> scratch:aincm/build/fides/src/Fides.Hosting/bin/Release/net10.0/Fides.Hosting.dll
+  Fides.Client -> scratch:aincm/build/fides/src/Fides.Client/bin/Release/net10.0/Fides.Client.dll
+  Fides.Acceptance -> scratch:aincm/build/fides/tests/Fides.Acceptance/bin/Release/net10.0/Fides.Acceptance.dll
+  Fides.Arca -> scratch:aincm/build/fides/src/Fides.Arca/bin/Release/net10.0/Fides.Arca.dll
+  Fides.Hosting.Aws -> scratch:aincm/build/fides/src/Fides.Hosting.Aws/bin/Release/net10.0/bootstrap.dll
+  Fides.Hosting.Aws.Tests -> scratch:aincm/build/fides/tests/Fides.Hosting.Aws.Tests/bin/Release/net10.0/Fides.Hosting.Aws.Tests.dll
+  Fides.Tests -> scratch:aincm/build/fides/tests/Fides.Tests/bin/Release/net10.0/Fides.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:15.57

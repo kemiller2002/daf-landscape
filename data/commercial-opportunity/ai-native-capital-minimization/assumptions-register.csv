@@ -1,0 +1,70 @@
+assumption_id,pass,statement,value,unit,low,high,basis,evidence_ids,sensitivity
+A-DEV-001,DEV,Loaded engineering cost per productive hour,120,USD/h,95,140,"[D] CST-R03 $188,958 / 1,600 h = $118; low uses $150k loaded, high CTO mix",EV-DEV-007; EV-DEV-008,high
+A-DEV-002,DEV,Conventional effort for a minimum servicing product (16 capability groups),136,person-months,90,220,"[E] bottom-up decomposition by this agent (same-model; unvalidated against function-point or ISBSG data, none read)",EV-DEV-011; EV-DEV-012,very high
+A-DEV-003,DEV,Mandatory-for-live-money share of MSP conventional effort,116,person-months,80,180,"[E] 13 groups: ARCH, IAM, LEDGER, CONTRIB, CHARDATA, GRANTS, RECON, NAVMIN, STMT, WORKFLOW, UI, SECCTL, PRODUCT",EV-DEV-011,very high
+A-DEV-004,DEV,Echelon reuse credit against MSP effort,4,person-months,0,8,"[E] Forma CSS/patterns, Folio print markup, Strata schema mgmt, Aegis faults; consistent with prior 0-16% bound",EV-DEV-026; EV-DEV-027,medium
+A-DEV-005,DEV,Share of conventional effort compressible by agents,0.7,share,0.6,0.8,"[A] remainder = product/financial decisions, review of agent output, bank/custodian coordination, manual a11y and security verification, SOC evidence",EV-DEV-017; EV-DEV-020,high: caps effective multiple at 1/(1-c) = 3.3x
+A-DEV-006,DEV,Nominal productivity multiple vs conventional on compressible work,1,x,1,10,"[A] scenarios 1,1.5,2,3,5,10; no measured DAF-codebase multiple exists",EV-DEV-018; EV-DEV-019,decisive
+A-DEV-007,DEV,Agent compute per mission,20,USD/mission,12,27,[S] EV-SDE-2026-0008 measured platform cost,EV-DEV-016,low (compute is <5% of build cost)
+A-DEV-008,DEV,Conventional compressible hours per agent mission,16,h,8,40,[A] ordo mission adds ~0.9-1.4k lines,EV-DEV-016,low
+A-DEV-009,DEV,Rework/retry factor on agent compute,3,x,1,10,[A] 6 of 11 ordo runs void; self-reports wrong,EV-DEV-016; EV-DEV-017,low
+A-DEV-010,DEV,External assurance before live money (pen test + a11y audit + SOC readiness + vendor sandboxes + tooling),75000,USD,32000,140000,"[S/C] CST-C13, CST-C14; a11y audit and sandboxes [A]",EV-DEV-009; EV-DEV-010,medium
+A-DEV-011,DEV,Infrastructure during build,3000,USD/month,2000,5000,[A] prior budget cloud/monitoring $36k/yr,,low
+A-DEV-012,DEV,Annual engineering maintenance as share of conventional build effort,0.18,share/yr,0.12,0.25,"[A] industry rule of thumb, not sourced here",,high
+A-DEV-013,DEV,Minimum engineering staffing once live money flows,1,FTE,1,2,"[A] on-call, incident response, change approval; single maintainer is a bus-factor risk (prior study ECH-01)",EV-DEV-023,high: floor dominates maintenance at every multiple
+A-DEV-014,DEV,Build calendar minimum,6,months,6,18,"[A] integrations (bank/processor onboarding, custodian files) and SOC readiness have external lead times not compressible by agents",,medium
+A-DEV-015,DEV,Unbound $5m build_capex has no derivation,5000000,USD,3000000,15000000,[S] parameters.json:509-516 labelled 'assumption' citing a peak-capital output,EV-DEV-001; EV-DEV-002,high
+A-DEV-016,DEV,Previous study $60k/month build allowance is an integrator assumption,720000,USD over 12 months,720000,1800000,"[S] Strategies.fs:7-12, costlyBuild x2.5",EV-DEV-006,high
+A-OPS-001,OPS,Post-redesign minutes per activity in work-elimination.csv,see CSV,min,,,Judgement applied to prior AI-native minutes; no time study,EV-OPS-001;EV-OPS-018,high: A11 alone is 9.5 of 23.1 typical minutes
+A-OPS-002,OPS,"Grants per account-year, market mix",9.1,grants,6,13,0.5/4/9/40/15/10 by archetype x prior shares,EV-OPS-002,floor scales linearly
+A-OPS-003,OPS,Platform-effective exception rate used for the floor,3.1,%,2,8,public-data replay; core proxy 7.4-7.8%,EV-OPS-021,each +1 pt adds ~0.9 min servicer + 0.45 sponsor
+A-OPS-004,OPS,Servicer dossier review per exception / sponsor decision,10 / 5,min,5 / 3,30 / 15,assumption,EV-OPS-008,high
+A-OPS-005,OPS,Accounts per sponsor for allocating sponsor-level control minutes,4000,accounts,1000,20000,"target segment 5,000-50,000 funds (CNV-ECO-004) discounted for early sponsors",EV-OPS-007,sponsor-level minutes per account vary 0.6-12.7
+A-OPS-006,OPS,Independent sampling handling time per item,4,min,2,10,assumption,EV-OPS-035,low
+A-OPS-007,OPS,Share of December volume in the last 7 working days,0.5,share,0.35,0.65,assumption; December interval arrivals unmeasured,EV-OPS-028,high for core headcount
+A-OPS-008,OPS,Load multiplier during AI outage,1.6,x,1.3,2.0,WE-2 uses x2 on exception handling; deterministic paths continue,EV-OPS-027,medium
+A-OPS-009,OPS,January clearance window for December backlog,10,working days,5,40,"service expectation, not law (acknowledgments only need to precede filing)",EV-OPS-017,"core 9 (10 days) / 8 (20) / 6 (40) at 10k accounts, 2 surge"
+A-OPS-010,OPS,Pre-contracted prep-only surge in December,2,FTE,0,6,CNV-SVC-002 surge plan,EV-OPS-017;EV-OPS-024,medium
+A-OPS-011,OPS,Conventional small-firm coordination overhead,12.0,h/FTE/week,8,14,category build-up informed by WTI telemetry and Asana survey (both broader measures),EV-OPS-022;EV-OPS-023;EV-OPS-024,medium
+A-OPS-012,OPS,AI-native residual coordination overhead,4.75,h/FTE/week,3,6,"governance meetings, SoD approvals, documentation, escalations remain",EV-OPS-019,low vs prior model (6 h already assumed)
+A-OPS-013,OPS,Onboarding learning curve,85% (b=0.234),Wright curve,80%,95%,assumption; applies only to repeat counterparties and standard packs,,medium
+A-OPS-014,OPS,New counterparty adapter effort / upkeep,160-400 / 20-40,h / h per adapter-year,,,assumption,,medium
+A-OPS-015,OPS,Engineering on-call and change-control floor,3,people,2,4,CNV-PLT-010 author + 2 approvers,EV-OPS-015,fixed cost
+A-OPS-016,OPS,Manager span of control,6-8,direct reports,5,10,assumption,,low
+A-OPS-017,OPS,Pre-delegation additional minutes per account-year,13.8,min,8,25,1 min batch review + 3 x 0.1 min release per grant + 2 min calibration/NAV,EV-OPS-034,high in year 1 of each sponsor
+A-OPS-018,OPS,Reconciliation break rate for recon FTE sizing,0.5,% of transactions,0.2,3,activities.csv ACT-A18 1% (0.2-3%) reduced by structured references,EV-OPS-010,low (recon is <0.4 FTE even at 50k accounts)
+A-OPS-019,OPS,Accessibility accommodations,1% of accounts x 30 min,,0.5%,3%,assumption,EV-OPS-019,low
+A-OPS-020,OPS,Average loaded cost per worked hour for overhead valuation,82,USD/h,60,110,"$150k / 1,830 worked h",EV-OPS-005,linear
+A-COM-001,COM,Replaceable (equivalent-scope) share of DAF-allocated opex excl. advertising/professional fundraising,CF 0.30; faith 0.45; independent national 0.55; affiliate in-house 0.60; other 0.45,share,CF 0.15; nat 0.40,CF 0.45; nat 0.70,"Retained by sponsor: board/legal control, reserved decisions, development, philanthropic advising, community grantmaking, investment oversight, non-DAF funds. MS GIFT vendor/opex = 0.81 bounds the outsourced case",EV-COM-001;EV-COM-041,High: drives value_high; base value is bounded by bottom-up instead
+A-COM-002,COM,Realisation factor: realised donor-fee bps / schedule bps at mean balance,0.60,ratio,0.40,0.75,"Calibrated on Fidelity 0.38, RCF 0.63, MS GIFT TPA 0.68",EV-COM-007;EV-COM-008;EV-COM-001,"Medium: changes sponsor margin, not value or price"
+A-COM-003,COM,Headline donor-fee bps where no schedule is in repo,CF 90; national/faith 60; other 75,bps,50,100,Census medians and national schedules,EV-COM-012,Low-medium
+A-COM-004,COM,Management/overhead multiplier on conventional incremental cost,1.35,x,1.2,1.6,"Supervision, QA, occupancy, IT support not in activity model",EV-COM-013,Medium on bottom-up value
+A-COM-005,COM,"Sponsor-level conventional cost (close, audit support, governance reporting)",100000,USD/yr,50000,200000,ACT-S01/S04/S05 scale,EV-COM-013,Low
+A-COM-006,COM,Software cost avoided when sponsor outsources,"max(current DAF vendor payment, $150k, 3 bps x assets)",USD/yr,0.5 bps,9 bps,Software-only band 0.5-9 bps; $118-175k floor,EV-COM-016,Medium for large sponsors
+A-COM-007,COM,Sponsor oversight cost after outsourcing,60000 + 7.5/account,USD/yr,40000 + 5,120000 + 15,7.0 sponsor-retained min/acct-yr x $61.35/h + vendor management,EV-COM-013;EV-COM-015,Low
+A-COM-008,COM,"Sponsor-side migration cost, amortised over 5 years",(150000 + 20/account)/5,USD/yr,(75000+10)/5,(400000+50)/5,"Parallel run, data cleanup, donor communication; AEF lost self-service history",EV-COM-024,Low-medium
+A-COM-009,COM,"Value delivered on equivalent scope = min(top-down replaceable opex, bottom-up conventional equivalent cost)",rule,,,value_high = top-down base,Do not count work the servicer would not do; do not exceed what sponsor spends,EV-COM-041,High: base vs high changes 20 bps verdict for faith/CF
+A-COM-010,COM,"For 0-employee pass-through sponsors, donor-fee revenue ~ DAF opex",1.00,ratio,0.95,1.05,MS GIFT TPA funds Ren; opex = vendor + GOE,EV-COM-001;EV-COM-002,Low
+A-COM-011,COM,Tiered structure S4 parameters,20 bps to $500M; 12 bps $0.5-2B; 6 bps >$2B; $250/account floor,bps,,,MSSB and USBFS program-size tier precedents,EV-COM-033;EV-COM-002,Illustrative
+A-COM-012,COM,Per-account + low bps S3 parameters,$150/account + 7.5 bps,,$100+5,$200+10,Report 05 cost-reflective tariff centre,,Illustrative
+A-COM-013,COM,Value-share S5 parameter,50% of equivalent-scope value; floor = servicer AI-native high-case cost,share,30%,70%,Common gain-share practice [A]; no DAF precedent found,,Illustrative
+A-COM-014,COM,Servicer marginal cost per sponsor,sponsor-model-economics.csv annual_cost_ai_native_base/high,USD/yr,,,Previous study model (fixed costs excluded),EV-COM-014,Excludes fixed company cost
+A-COM-015,COM,Replication difficulty scores (1 easy-5 hard),see replication.csv,score,,,"Analyst judgement from repo evidence; same-model reasoning, not validation",EV-COM-020;EV-COM-021;EV-COM-035,High: qualitative
+A-COM-016,COM,Opportunity build sizes,S <=6 eng-months; M 6-18; L >18,engineer-months,,,Analogy to Unbound domain clause counts and prior build estimate ($1-5M),EV-COM-035,Medium
+A-LYR-001,LYR,"Reference scenario R: 5 sponsors, 10,000 accounts, $1.5B, $150k balance, AI-native steady state, 20 bps",1.5e9,USD AUA,,,previous study reference row,EV-LYR-007,all layer figures scale with it
+A-LYR-002,LYR,Group needs 1.5 senior technical FTE: Echelon principal 0.5 + Unbound technical lead 1.0,1.5,FTE,1,2,one person cannot be full-time maintainer of 26 repos and accountable platform lead,EV-LYR-002; EV-LYR-027,+/-$0.11-0.22M/yr
+A-LYR-003,LYR,Unbound platform engineers excluding per-sponsor integration upkeep,3,FTE,1,5,report 03: conventional 4-10 FTE; prior Model B 1,EV-LYR-025,largest B lever: ~$0.19M per FTE
+A-LYR-004,LYR,Echelon reuse reduces build and engineering cost (S0),0.08,share,0,0.5,report 03 ECH-4: S0 0-16%; S1 33-50% if measured,EV-LYR-025,low case requires measured >=2x throughput
+A-LYR-005,LYR,Second maintainer needed once a regulated platform relies on Echelon components,1.0,FTE,0.5,1.0,CNV-GOV-009 escrow/fork; single maintainer,EV-LYR-017; EV-LYR-027,$79-220k/yr
+A-LYR-006,LYR,Component security and supply-chain assurance for production reliance,25000,USD/yr,10000,60000,ECH-11 placeholder 0-40k,,small
+A-LYR-007,LYR,"Licence programme (drafting, IP/AI-provenance review, escrow) annualised",25000,USD/yr,7000,60000,no quotes,EV-LYR-005,small
+A-LYR-008,LYR,Licensor insurance once components are licensed commercially,35000,USD/yr,15000,70000,CST-I03 + I04,,small
+A-LYR-009,LYR,Usage share of Echelon running cost borne by Unbound,0.4,share,0.2,0.8,work-item hours on SBOM components (to be metered),,T01 +/-$0.05M
+A-LYR-010,LYR,Related-party markup on cost-plus charges,0.08,share,0.05,0.10,research reading of §482 / 1.482-9; no benchmark study,EV-LYR-021; EV-LYR-022,T01/T02 only; zero at group level
+A-LYR-011,LYR,Shared corporate allocation keys (S01-S05 shares in report),,shares,,,causal drivers pending metering (CNV-ECO-001),,moves cost between layers only
+A-LYR-012,LYR,"Standalone corporate floor shares for B and C (S01 70/90%, S02 80/90%, S03 60/80%, S05 80/80%, per-FTE by own headcount)",,shares,,,a standalone entity bears most corporate fixed cost itself,,standalone totals only
+A-LYR-013,LYR,Servicing-specific platform features one-off,300000,USD,150000,600000,"administrator principal, federated queue, workbench (CNV-TEN-001)",,$30-120k/yr amortised
+A-LYR-014,LYR,AI agent compute for Echelon development,24000,USD/yr,6000,60000,no invoice observed,EV-LYR-001,small
+A-LYR-015,LYR,Added admin cost per extra legal entity,,USD/yr,30000,130000,books/tax/filings + audit + insurance minimums + intercompany documentation,,entity options only
+A-LYR-016,LYR,Echelon principal cash compensation,0,USD/yr,0,222482,owner time; economic cost shown at CTO market rate,,cash vs economic gap
+A-LYR-017,LYR,Staged gates G0/G1 cumulative spend at stop,0.15/0.75,USD M,0.06/0.4,0.15/0.75,Model A cash personnel $427k/yr x 0.5 + 3 months contract engineering + counsel,EV-LYR-024,option value of staging

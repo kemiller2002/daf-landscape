@@ -1,0 +1,15 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/limen/site/fsharp/federation/Limen.Federation.Target.Engine/Limen.Federation.Target.Engine.fsproj (in 274 ms).
+  Restored scratch:aincm/build/limen/site/fsharp/federation/Limen.Federation.Source.Engine/Limen.Federation.Source.Engine.fsproj (in 274 ms).
+  Restored scratch:aincm/build/limen/site/fsharp/federation/tests/Limen.Federation.Proof.Tests/Limen.Federation.Proof.Tests.fsproj (in 274 ms).
+  Restored scratch:aincm/build/limen/guests/fsharp/Limen.Contract/Limen.Contract.fsproj (in 274 ms).
+  Limen.Contract -> scratch:aincm/build/limen/guests/fsharp/Limen.Contract/bin/Release/net8.0/Limen.Contract.dll
+  Limen.Federation.Source.Engine -> scratch:aincm/build/limen/site/fsharp/federation/Limen.Federation.Source.Engine/bin/Release/net8.0/Limen.Federation.Source.Engine.dll
+  Limen.Federation.Target.Engine -> scratch:aincm/build/limen/site/fsharp/federation/Limen.Federation.Target.Engine/bin/Release/net8.0/Limen.Federation.Target.Engine.dll
+  Limen.Federation.Proof.Tests -> scratch:aincm/build/limen/site/fsharp/federation/tests/Limen.Federation.Proof.Tests/bin/Release/net8.0/Limen.Federation.Proof.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:12.63

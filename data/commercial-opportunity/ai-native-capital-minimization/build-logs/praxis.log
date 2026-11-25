@@ -1,0 +1,11 @@
+REV 12bf9951
+CMD dotnet build Praxis.slnx -c Release
+BUILD_RC 0 SECS 113
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+CMD dotnet run --project tests/Praxis.Tests/Praxis.Tests.fsproj -c Release --no-build
+RUN_RC Praxis.Tests.fsproj 124 SECS 300 :: PASS provenance cli: identity resolves the frozen actor: an explicit unknown provider suppresses CI detection PASS provenance cli: identity resolves the frozen actor: a whitespace provider is not a known provider PASS provenance cli: identity resolves the frozen actor: explicit flags override the ru
+CMD dotnet run --project tests/Site.Tests/Site.Tests.fsproj -c Release --no-build
+RUN_RC Site.Tests.fsproj 0 SECS 2 :: PASS the Pages workflow mirrors echelon-foundry's deploy-pages.yml and deploys only the checked artifact PASS the deployment document never reports a deployment that has not happened 101 test(s); 101 passed; 0 failed 
+DONE

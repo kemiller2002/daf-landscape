@@ -1,0 +1,424 @@
+TAP version 13
+# Subtest: repository brand manifests compile deterministically and remain scoped
+ok 1 - repository brand manifests compile deterministically and remain scoped
+  ---
+  duration_ms: 4786.122622
+  type: 'test'
+  ...
+# Subtest: unsafe brand contrast is rejected
+ok 2 - unsafe brand contrast is rejected
+  ---
+  duration_ms: 1436.189849
+  type: 'test'
+  ...
+# Subtest: unsafe font-family injection is rejected
+ok 3 - unsafe font-family injection is rejected
+  ---
+  duration_ms: 1430.761423
+  type: 'test'
+  ...
+# Subtest: extended brand roles are emitted and contrast-gated
+ok 4 - extended brand roles are emitted and contrast-gated
+  ---
+  duration_ms: 2766.481086
+  type: 'test'
+  ...
+# Subtest: a manifest without surface roles still compiles and gets derived roles that pass their pairs
+ok 5 - a manifest without surface roles still compiles and gets derived roles that pass their pairs
+  ---
+  duration_ms: 1438.245807
+  type: 'test'
+  ...
+# Subtest: declared surface roles and elevation are emitted as written
+not ok 6 - declared surface roles and elevation are emitted as written
+  ---
+  duration_ms: 0.202968
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/brand-compiler.test.mjs:140:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'dist/brands/example-orchard.css'"
+  code: 'ENOENT'
+  stack: |-
+    Object.readFileSync (node:fs:440:20)
+    TestContext.<anonymous> (file://scratch:aincm/build/forma/tests/brand-compiler.test.mjs:141:18)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: unsafe secondary text on a declared raised surface is rejected
+ok 7 - unsafe secondary text on a declared raised surface is rejected
+  ---
+  duration_ms: 1488.80335
+  type: 'test'
+  ...
+# Subtest: unsafe secondary-surface text on a declared sunken surface is rejected
+ok 8 - unsafe secondary-surface text on a declared sunken surface is rejected
+  ---
+  duration_ms: 1546.258757
+  type: 'test'
+  ...
+# Subtest: unsafe chrome text on a declared chrome surface is rejected
+ok 9 - unsafe chrome text on a declared chrome surface is rejected
+  ---
+  duration_ms: 1456.602147
+  type: 'test'
+  ...
+# Subtest: elevation values that are not plain box-shadow layers are rejected
+ok 10 - elevation values that are not plain box-shadow layers are rejected
+  ---
+  duration_ms: 3634.033946
+  type: 'test'
+  ...
+# Subtest: the manifest schema declares the optional surface roles and elevation
+ok 11 - the manifest schema declares the optional surface roles and elevation
+  ---
+  duration_ms: 1.398471
+  type: 'test'
+  ...
+# Subtest: links resolve through the secondary-surface accent-text hook
+ok 12 - links resolve through the secondary-surface accent-text hook
+  ---
+  duration_ms: 0.780223
+  type: 'test'
+  ...
+# Subtest: accent-colored text routes through the secondary-surface hook
+ok 13 - accent-colored text routes through the secondary-surface hook
+  ---
+  duration_ms: 4.97018
+  type: 'test'
+  ...
+# Subtest: every rule that paints the secondary surface re-pairs its foreground roles
+ok 14 - every rule that paints the secondary surface re-pairs its foreground roles
+  ---
+  duration_ms: 6.683449
+  type: 'test'
+  ...
+1..3
+# Error: A resource generated asynchronous activity after the test ended. This activity created the error "Error: ENOENT: no such file or directory, scandir 'dist/brands'" which triggered an uncaughtException event, caught by the test runner.
+# Subtest: tests/contrast-pairs.test.mjs
+not ok 2 - tests/contrast-pairs.test.mjs
+  ---
+  duration_ms: 88.461162
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/contrast-pairs.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+# Subtest: the package ships the compiler sources and project files
+ok 16 - the package ships the compiler sources and project files
+  ---
+  duration_ms: 0.776565
+  type: 'test'
+  ...
+# Subtest: an external manifest compiled with the packed BrandCompiler is byte-identical to Forma's own build
+ok 17 - an external manifest compiled with the packed BrandCompiler is byte-identical to Forma's own build
+  ---
+  duration_ms: 4741.674313
+  type: 'test'
+  ...
+# Subtest: the packed BrandCompiler reproduces Forma's shipped brand CSS byte for byte
+not ok 18 - the packed BrandCompiler reproduces Forma's shipped brand CSS byte for byte
+  ---
+  duration_ms: 1345.363382
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/external-brand-compiler.test.mjs:48:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, scandir 'dist/brands'"
+  code: 'ENOENT'
+  stack: |-
+    Object.readdirSync (node:fs:1590:26)
+    files (file://scratch:aincm/build/forma/tests/external-brand-compiler.test.mjs:20:27)
+    sameBytes (file://scratch:aincm/build/forma/tests/external-brand-compiler.test.mjs:22:30)
+    TestContext.<anonymous> (file://scratch:aincm/build/forma/tests/external-brand-compiler.test.mjs:51:3)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: the packed TokenCompiler reproduces Forma's shipped tokens.css byte for byte
+not ok 19 - the packed TokenCompiler reproduces Forma's shipped tokens.css byte for byte
+  ---
+  duration_ms: 3591.304784
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/external-brand-compiler.test.mjs:54:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'dist/tokens.css'"
+  code: 'ENOENT'
+  stack: |-
+    Object.openSync (node:fs:560:18)
+    Object.readFileSync (node:fs:444:35)
+    TestContext.<anonymous> (file://scratch:aincm/build/forma/tests/external-brand-compiler.test.mjs:57:47)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: canonical token source compiles deterministically
+ok 20 - canonical token source compiles deterministically
+  ---
+  duration_ms: 5148.561013
+  type: 'test'
+  ...
+# Subtest: unsafe status pairing is rejected
+ok 21 - unsafe status pairing is rejected
+  ---
+  duration_ms: 1437.595791
+  type: 'test'
+  ...
+# Subtest: unsafe dark accent pairing is rejected
+ok 22 - unsafe dark accent pairing is rejected
+  ---
+  duration_ms: 1498.400365
+  type: 'test'
+  ...
+# Subtest: circular aliases are rejected
+ok 23 - circular aliases are rejected
+  ---
+  duration_ms: 1385.286481
+  type: 'test'
+  ...
+# Subtest: breakpoint tokens compile to custom properties and @custom-media ranges
+ok 24 - breakpoint tokens compile to custom properties and @custom-media ranges
+  ---
+  duration_ms: 1349.951687
+  type: 'test'
+  ...
+# Subtest: --custom-media fails when the source declares no breakpoints
+ok 25 - --custom-media fails when the source declares no breakpoints
+  ---
+  duration_ms: 1437.659355
+  type: 'test'
+  ...
+# Subtest: unsafe raised surface pairing is rejected
+ok 26 - unsafe raised surface pairing is rejected
+  ---
+  duration_ms: 1557.149151
+  type: 'test'
+  ...
+# Subtest: unsafe sunken surface pairing is rejected
+ok 27 - unsafe sunken surface pairing is rejected
+  ---
+  duration_ms: 1511.447225
+  type: 'test'
+  ...
+# Subtest: unsafe chrome surface pairing is rejected
+ok 28 - unsafe chrome surface pairing is rejected
+  ---
+  duration_ms: 1312.03624
+  type: 'test'
+  ...
+# Subtest: every theme compiles raised, sunken and chrome roles and two elevation levels
+not ok 29 - every theme compiles raised, sunken and chrome roles and two elevation levels
+  ---
+  duration_ms: 0.465902
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/token-compiler.test.mjs:132:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, open 'dist/tokens.css'"
+  code: 'ENOENT'
+  stack: |-
+    Object.readFileSync (node:fs:440:20)
+    TestContext.<anonymous> (file://scratch:aincm/build/forma/tests/token-compiler.test.mjs:133:18)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: Forma's own token sources, brands and built stylesheets validate
+not ok 30 - Forma's own token sources, brands and built stylesheets validate
+  ---
+  duration_ms: 43.321131
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/token-validator.test.mjs:28:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://scratch:aincm/build/forma/tests/token-validator.test.mjs:31:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: application CSS: every invalid Forma reference is reported, fallbacks included
+not ok 31 - application CSS: every invalid Forma reference is reported, fallbacks included
+  ---
+  duration_ms: 50.418343
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/token-validator.test.mjs:34:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://scratch:aincm/build/forma/tests/token-validator.test.mjs:36:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: application CSS: tokens, documented inputs, overrides and application-owned properties are valid
+not ok 32 - application CSS: tokens, documented inputs, overrides and application-owned properties are valid
+  ---
+  duration_ms: 51.012202
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/token-validator.test.mjs:59:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 0
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 0
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://scratch:aincm/build/forma/tests/token-validator.test.mjs:62:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: application CSS: strings are inert and cycles only count within one rule context
+not ok 33 - application CSS: strings are inert and cycles only count within one rule context
+  ---
+  duration_ms: 54.499506
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/token-validator.test.mjs:65:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    Expected values to be strictly equal:
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://scratch:aincm/build/forma/tests/token-validator.test.mjs:67:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: Forma sources: invalid aliases, alias cycles, theme gaps, missing definitions and deprecated use are reported
+ok 34 - Forma sources: invalid aliases, alias cycles, theme gaps, missing definitions and deprecated use are reported
+  ---
+  duration_ms: 202.150269
+  type: 'test'
+  ...
+# Subtest: application CSS: a token the Forma version deprecates is reported with its replacement
+ok 35 - application CSS: a token the Forma version deprecates is reported with its replacement
+  ---
+  duration_ms: 173.321683
+  type: 'test'
+  ...
+# Subtest: a consumer can run the validator from the packed package against that package
+not ok 36 - a consumer can run the validator from the packed package against that package
+  ---
+  duration_ms: 1803.361966
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/token-validator.test.mjs:98:1'
+  failureType: 'testCodeFailure'
+  error: |-
+    ERROR no built stylesheets under '/tmp/forma-token-pack-rmldcx/package/dist' (run npm run build, or point --forma at an installed package)
+    
+    
+    2 !== 1
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected: 1
+  actual: 2
+  operator: 'strictEqual'
+  stack: |-
+    TestContext.<anonymous> (file://scratch:aincm/build/forma/tests/token-validator.test.mjs:106:10)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.processPendingSubtests (node:internal/test_runner/test:744:18)
+    Test.postRun (node:internal/test_runner/test:1173:19)
+    Test.run (node:internal/test_runner/test:1101:12)
+    async Test.processPendingSubtests (node:internal/test_runner/test:744:7)
+  ...
+# Subtest: production distribution contains only the audited metadata runtime and no WebAssembly
+not ok 37 - production distribution contains only the audited metadata runtime and no WebAssembly
+  ---
+  duration_ms: 1.127416
+  type: 'test'
+  location: 'scratch:aincm/build/forma/tests/zero-runtime.test.mjs:16:1'
+  failureType: 'testCodeFailure'
+  error: "ENOENT: no such file or directory, scandir 'dist'"
+  code: 'ENOENT'
+  stack: |-
+    Object.readdirSync (node:fs:1590:26)
+    filesUnder (file://scratch:aincm/build/forma/tests/zero-runtime.test.mjs:8:26)
+    TestContext.<anonymous> (file://scratch:aincm/build/forma/tests/zero-runtime.test.mjs:17:22)
+    Test.runInAsyncScope (node:async_hooks:214:14)
+    Test.run (node:internal/test_runner/test:1047:25)
+    Test.start (node:internal/test_runner/test:944:17)
+    startSubtestAfterBootstrap (node:internal/test_runner/harness:296:17)
+  ...
+# Subtest: canonical HTML patterns contain no executable script
+ok 38 - canonical HTML patterns contain no executable script
+  ---
+  duration_ms: 6.929801
+  type: 'test'
+  ...
+# Subtest: package has no production runtime dependencies
+ok 39 - package has no production runtime dependencies
+  ---
+  duration_ms: 0.328974
+  type: 'test'
+  ...
+# Subtest: component source is CSS and HTML only
+ok 40 - component source is CSS and HTML only
+  ---
+  duration_ms: 1.484189
+  type: 'test'
+  ...
+1..40
+# tests 40
+# suites 0
+# pass 29
+# fail 11
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 20030.22471

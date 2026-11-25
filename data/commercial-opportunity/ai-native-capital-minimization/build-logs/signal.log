@@ -1,0 +1,11 @@
+REV e5530d3
+CMD dotnet build Echelon.Signal.sln -c Release
+BUILD_RC 0 SECS 59
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+CMD dotnet test tests/Echelon.Signal.Tests/Echelon.Signal.Tests.fsproj -c Release --no-build
+TEST_RC Echelon.Signal.Tests.fsproj 1 SECS 32 :: Failed!  - Failed:    14, Passed:   718, Skipped:     0, Total:   732, Duration: 30 s - Echelon.Signal.Tests.dll (net10.0) 
+DONE
+PASS2 CMD npm ci --ignore-scripts => RC 0 SECS 2 :: 
+PASS2 TEST_RC(after npm ci) Echelon.Signal.Tests.fsproj 0 SECS 20 :: Passed!  - Failed:     0, Passed:   732, Skipped:     0, Total:   732, Duration: 19 s - Echelon.Signal.Tests.dll (net10.0) 
