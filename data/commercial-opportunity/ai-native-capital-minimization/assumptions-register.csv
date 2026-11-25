@@ -68,3 +68,10 @@ A-LYR-014,LYR,AI agent compute for Echelon development,24000,USD/yr,6000,60000,n
 A-LYR-015,LYR,Added admin cost per extra legal entity,,USD/yr,30000,130000,books/tax/filings + audit + insurance minimums + intercompany documentation,,entity options only
 A-LYR-016,LYR,Echelon principal cash compensation,0,USD/yr,0,222482,owner time; economic cost shown at CTO market rate,,cash vs economic gap
 A-LYR-017,LYR,Staged gates G0/G1 cumulative spend at stop,0.15/0.75,USD M,0.06/0.4,0.15/0.75,Model A cash personnel $427k/yr x 0.5 + 3 months contract engineering + counsel,EV-LYR-024,option value of staging
+A-ADV2-001,ADV,Sales spend restored to the previous study's $250k (model $62k),188000,USD/yr,0,188000,Previous study fully loaded line; LYR sales $250k,,break-even +$0.11B
+A-ADV2-002,ADV,Independent reconciliation reviewer for F5/F6 (CNV-GOV-003),40000,USD/yr,24000,60000,Model's own independentReviewer line,EV-ADV2-006,small
+A-ADV2-003,ADV,Steady-state recruiting and turnover,40000,USD/yr,20000,75000,~15% turnover on 6-7 people x $15k recruiting + ramp,,small
+A-ADV2-004,ADV,Replacement-sponsor onboarding (churn 0.5 sponsor/yr x $105k),52000,USD/yr,26000,105000,Previous study onboardingBase,,small
+A-ADV2-005,ADV,Share of December excess that must be carried by year-round employees (temps cannot release),0.5,share,0,1,OPS: 2 prep-only surge reduce 10 -> 9 core at 10k accounts; CNV-GOV-004 surge reviewers per sponsor,EV-ADV2-003,high: +$0.16-0.36B break-even
+A-ADV2-006,ADV,Sponsor staff loaded rate for transferred time,100,USD/h,40,300,[A]; COM uses $61.35/h for sponsor-retained minutes,,low
+A-ADV2-007,ADV,Annual probability x cost of a serious incident (expected loss),50000,USD/yr,25000,100000,5-10% x $0.5-1.0M (model stress value),,low-medium

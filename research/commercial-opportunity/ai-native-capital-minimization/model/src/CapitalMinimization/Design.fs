@@ -54,7 +54,15 @@ type Design =
       IntegrationPool: string
       /// Coordination hours per pair of people per week (meetings, handoffs, status).
       CoordinationHoursPerPairWeek: float
+      /// Pairs whose coordination is already inside the productive-hours deduction (ADV2-013).
+      CoordinationFreePairs: float
+      /// Hours available for work per FTE-year (capacity).
       ProductiveHours: float
+      /// Hours paid per FTE-year for costing capacity at the pool's loaded rate (ADV2-014: independent of capacity).
+      PaidHours: float
+      /// Share of the December excess that must be carried by year-round release-capable employees rather than
+      /// premium hours (ADV2-003; OPS: temporary staff cannot release payments).
+      DecemberEmployeeShare: float
       Utilisation: float
       DecemberShare: float
       PeakPremium: float
@@ -104,15 +112,21 @@ type DesignResult =
 
 let private poolQueueHours (d: Design) = d.ProductiveHours * d.Utilisation
 
-/// Whether the design can separate preparation from release and cover an absence without collapsing duties.
-let controlCheck (d: Design) (addedOpsPeople: float) =
-    let internalAuthority = (d.People |> List.filter (fun p -> p.MoneyAuthority) |> List.length |> float) + addedOpsPeople
-    match internalAuthority with
-    | n when n >= 3.0 -> true, "three or more authorised people: preparation, release and absence cover separable"
-    | n when n >= 2.0 && d.ContractedIndependentReviewer -> true, "two authorised people plus a contracted independent reviewer; absence of either suspends release to the sponsor-appointed authority"
-    | n when n >= 2.0 -> false, "two authorised people: separation holds only while both are present; no absence cover"
-    | n when n >= 1.0 && d.SponsorApprover && d.ContractedIndependentReviewer ->
-        false, "one authorised person; release depends on sponsor approval and a contractor (transferred, not eliminated); single point of failure"
+/// Whether the design can operate live money under Unbound CNV-GOV-003 before the auditor and board accept the
+/// deterministic gate: three distinct internal people for preparation, approval and release, and reconciliation
+/// performed outside the payment chain (an accounting person without money authority, or a contracted independent
+/// reviewer). A sponsor-provided third person is work transferred to the sponsor and is reported as conditional.
+let controlCheck (d: Design) (addedOpsPeople: float) (addedAccountingPeople: float) =
+    let authority = (d.People |> List.filter (fun p -> p.MoneyAuthority) |> List.length |> float) + addedOpsPeople
+    let reconciler =
+        d.ContractedIndependentReviewer || addedAccountingPeople >= 1.0
+        || (d.People |> List.exists (fun p -> p.Pool = "accounting" && not p.MoneyAuthority))
+    match authority, reconciler with
+    | n, true when n >= 3.0 -> true, "three distinct authorised people and reconciliation outside the payment chain"
+    | n, false when n >= 3.0 -> false, "three authorised people but reconciliation sits inside the payment chain (CNV-GOV-003)"
+    | n, _ when n >= 2.0 && d.SponsorApprover -> false, "CONDITIONAL: the third release person is sponsor-provided (transferred work) until the auditor and board accept the deterministic gate"
+    | n, _ when n >= 2.0 -> false, "two authorised people: CNV-GOV-003 needs three distinct people before gate acceptance"
+    | n, _ when n >= 1.0 -> false, "one authorised person: not admissible with live money (pre-launch build organisation only)"
     | _ -> false, "no separation of duties possible"
 
 /// Annual result of a design for a portfolio at a handling-time target (account minutes per account-year).
@@ -150,15 +164,22 @@ let evaluateDesign (d: Design) (target: float) (price: Price) (stress: Stress) (
             let residual = max 0.0 (needed - hires)
             let added = hires + residual
             let rate = p.LoadedHourly * stress.WageFactor
-            let addedCost = (hires + residual * (1.0 + p.ContractPremium)) * d.ProductiveHours * rate
             let decDemand = (decemberAccount + sponsorLevelHours * d.DecemberShare) * p.Share + extra / 12.0
             let monthly = (coreHours + added * q) / 12.0
-            let peak = max 0.0 (decDemand - monthly) * rate * (1.0 + d.PeakPremium)
-            { Pool = p.Name; Hours = hours; CoreHours = coreHours; AddedFte = added; Hires = hires; AddedCost = addedCost; PeakCost = peak })
+            let excess = max 0.0 (decDemand - monthly)
+            // Year-round employees needed to carry the release-capable share of the December excess (they are hired
+            // for December and paid all year); the rest is bought as premium hours.
+            // Only release work (operations pool) must be carried by release-capable staff; other pools buy premium hours.
+            let releasePool = p.Name = "operations"
+            let decemberFte = if releasePool then excess * d.DecemberEmployeeShare / (q / 12.0) else 0.0
+            let carried = if releasePool then excess * d.DecemberEmployeeShare else 0.0
+            let addedCost = (hires + decemberFte + residual * (1.0 + p.ContractPremium)) * d.PaidHours * rate
+            let peak = (excess - carried) * rate * (1.0 + d.PeakPremium)
+            { Pool = p.Name; Hours = hours; CoreHours = coreHours; AddedFte = added + decemberFte; Hires = (if p.Fractional then hires else hires + floor (decemberFte + 0.25)); AddedCost = addedCost; PeakCost = peak })
     let addedPeople = pools |> List.sumBy (fun p -> p.Hires)
     let addedOps = pools |> List.filter (fun p -> p.Pool = "operations") |> List.sumBy (fun p -> p.Hires)
     let headcount = float (List.length d.People) + addedPeople
-    let pairs = headcount * (headcount - 1.0) / 2.0
+    let pairs = max 0.0 (headcount * (headcount - 1.0) / 2.0 - d.CoordinationFreePairs)
     let avgRate =
         match d.Pools with
         | [] -> 0.0
@@ -174,7 +195,8 @@ let evaluateDesign (d: Design) (target: float) (price: Price) (stress: Stress) (
     let total = external + addedCost + peakCost + corePersonnel + contracted + nonPersonnel + perPerson + coordination + sponsorCosts + stress.ExtraordinaryCost
     let profit = revenue - total
     let contribution = revenue - external - addedCost - peakCost - sponsorCosts
-    let feasible, note = controlCheck d addedOps
+    let addedAccounting = pools |> List.filter (fun p -> p.Pool = "accounting") |> List.sumBy (fun p -> p.Hires)
+    let feasible, note = controlCheck d addedOps addedAccounting
     let baseResult =
         { AverageAssets = assets
           Accounts = accounts

@@ -69,7 +69,7 @@ def register(root, kind, fields):
 
 def normalise_files(root):
     """Rewrite local checkout paths in the copied pass datasets (text otherwise unchanged)."""
-    paths = [p for pattern in ("*.csv", "*.json", "pass-reports/*.jsonl", "pass-evidence/*.jsonl", "build-logs/*")
+    paths = [p for pattern in ("*.csv", "*.json", "*.out", "pass-reports/*.jsonl", "pass-evidence/*.jsonl", "build-logs/*")
              for p in sorted((root / DATA).glob(pattern))]
     changed = [p for p in paths if rewrite(p.read_text(encoding="utf-8")) != p.read_text(encoding="utf-8")]
     for p in changed:

@@ -1,0 +1,85 @@
+== E01 control-feasible headline (50 min, standalone baseLayers)
+F1 one founder + agents + contractors | feasible=false | operating BE $0.97B | standalone BE $1.37B
+F2 two founders | feasible=false | operating BE $1.01B | standalone BE $1.37B
+F3 three core | feasible=true | operating BE $1.09B | standalone BE $1.45B
+F5 five core | feasible=true | operating BE $1.12B | standalone BE $1.39B
+F6 six core | feasible=true | operating BE $1.17B | standalone BE $1.44B
+F8+ nine core (specialised) | feasible=true | operating BE $1.31B | standalone BE $1.56B
+== E02 coordination double count: set CoordinationHoursPerPairWeek=0
+F3 three core coord cost at $1.5B $0.01M | BE $1.09B -> $1.09B
+F5 five core coord cost at $1.5B $0.04M | BE $1.12B -> $1.10B
+F8+ nine core (specialised) coord cost at $1.5B $0.08M | BE $1.31B -> $1.27B
+== E03 outcome-designed +3% productive hours: effect isolated (30.1 min, sponsor 12,720)
+F3 three core at $1000.00M: with +3% $1.98M, without $1.99M, diff $-0.00M
+F3 three core at $2500.00M: with +3% $2.31M, without $2.31M, diff $-0.01M
+F3 three core at $5000.00M: with +3% $2.93M, without $2.93M, diff $-0.01M
+F5 five core at $1000.00M: with +3% $2.03M, without $2.04M, diff $-0.01M
+F5 five core at $2500.00M: with +3% $2.34M, without $2.35M, diff $-0.01M
+F5 five core at $5000.00M: with +3% $2.90M, without $2.91M, diff $-0.01M
+== E04 December sets headcount: December excess covered by employees instead of +50% premium hours
+F3 three core at $1000.00M (4000 accts): headcount 3.0 + contracted 3.3, peak cost $0.05M; employ-for-December adds $0.42M (all) / $0.21M (half); margin -7.2% -> -28.0%
+F3 three core at $1500.00M (6000 accts): headcount 3.0 + contracted 4.3, peak cost $0.08M; employ-for-December adds $0.61M (all) / $0.31M (half); margin 22.0% -> 1.6%
+F3 three core at $2500.00M (10000 accts): headcount 3.0 + contracted 6.3, peak cost $0.13M; employ-for-December adds $1.01M (all) / $0.50M (half); margin 45.4% -> 25.3%
+F3 three core at $5000.00M (20000 accts): headcount 3.0 + contracted 11.4, peak cost $0.25M; employ-for-December adds $1.99M (all) / $1.00M (half); margin 62.9% -> 43.0%
+F3 three core operating BE: model $1.09B | half Dec excess employed $1.25B | all employed $1.47B
+F5 five core at $1000.00M (4000 accts): headcount 6.0 + contracted 1.4, peak cost $0.05M; employ-for-December adds $0.42M (all) / $0.21M (half); margin -9.0% -> -29.8%
+F5 five core at $1500.00M (6000 accts): headcount 7.0 + contracted 1.5, peak cost $0.08M; employ-for-December adds $0.60M (all) / $0.30M (half); margin 21.2% -> 1.1%
+F5 five core at $2500.00M (10000 accts): headcount 8.0 + contracted 2.4, peak cost $0.13M; employ-for-December adds $1.01M (all) / $0.50M (half); margin 45.7% -> 25.6%
+F5 five core at $5000.00M (20000 accts): headcount 14.0 + contracted 1.5, peak cost $0.25M; employ-for-December adds $1.98M (all) / $0.99M (half); margin 64.1% -> 44.3%
+F5 five core operating BE: model $1.12B | half Dec excess employed $1.28B | all employed $1.48B
+== E05 F3 at break-even scale: employees vs contracted FTE
+F3 $1000.00M: employees 3.0 contracted FTE 3.3 accounts 4000
+F3 $1450.00M: employees 3.0 contracted FTE 4.2 accounts 5800
+F3 $2000.00M: employees 3.0 contracted FTE 5.3 accounts 8000
+F3 $3000.00M: employees 3.0 contracted FTE 7.3 accounts 12000
+== E06 sequences: add omitted recurring platform costs (Echelon share, non-prod, servicing-specific, maintenance gap)
+A conventional | base $11.44M | +platform(base) $11.99M | +platform(LYR) $15.45M | no financing $8.64M | MSP at 1x $11.44M | econ+platform $11.99M | ROIC Some 0.05678900515 -> Some 0.05418549665 | Y5 profit with platform $0.82M
+B product-first | base $5.39M | +platform(base) $5.71M | +platform(LYR) $9.18M | no financing $4.37M | MSP at 1x $6.35M | econ+platform $6.05M | ROIC Some 0.1205446854 -> Some 0.1137728325 | Y5 profit with platform $0.82M
+C customer-funded | base $5.19M | +platform(base) $5.48M | +platform(LYR) $9.03M | no financing $4.26M | MSP at 1x $6.12M | econ+platform $5.76M | ROIC Some 0.125304197 -> Some 0.1185079669 | Y5 profit with platform $0.82M
+D narrow entry | base $6.14M | +platform(base) $6.49M | +platform(LYR) $9.20M | no financing $5.01M | MSP at 1x $6.14M | econ+platform $7.06M | ROIC Some 0.1305442653 -> Some 0.1234619927 | Y5 profit with platform $1.01M
+E provider partnership | base $6.22M | +platform(base) $7.35M | +platform(LYR) $11.20M | no financing $4.54M | MSP at 1x $7.37M | econ+platform $8.50M | ROIC Some 0.02290267298 -> Some 0.01939437885 | Y5 profit with platform $0.18M
+F founder-led | base $3.75M | +platform(base) $4.32M | +platform(LYR) $7.22M | no financing $3.14M | MSP at 1x $4.71M | econ+platform $4.82M | ROIC Some 0.2404099766 -> Some 0.2084656474 | Y5 profit with platform $1.14M
+G hybrid | base $5.88M | +platform(base) $6.30M | +platform(LYR) $9.57M | no financing $4.73M | MSP at 1x $5.88M | econ+platform $6.81M | ROIC Some 0.1233911689 -> Some 0.1151318073 | Y5 profit with platform $0.92M
+== E07 minimum build at 1x/1.5x/3x
+MSP at 1.0x: $2.43M
+MSP at 1.5x: $1.94M
+MSP at 2.0x: $1.70M
+MSP at 3.0x: $1.45M
+== E08 scenario matrix sensitivity: combined (50% share) vs 100% share; outcome-designed on standalone LYR
+F5 FA 3x share 1.0: $1.35B; share 0.5: $1.15B
+Outcome F5 FA 3x: $1.24B; outcome F5 standalone LYR: $2.01B; F5 standalone LYR: $2.22B
+F5 standalone base layers at 1x build: $1.48B; at 1.5x: $1.42B; at 2x: $1.39B
+F5 standalone base layers but LYR Echelon reliance: $1.52B
+F5 standalone base + sales restored to $250k (+$188k): $1.50B
+== E09 servicingOnly keeps code reviewers (double count with Layer B engineers)
+F3 three core servicingOnly contracted: ["independent fractional controller review 200 h (CST-C01)";
+ "contracted independent code approvers x2 (CNV-PLT-010 two-approver rule)"]
+F5 five core servicingOnly contracted: ["contracted independent code approvers x1 (CNV-PLT-010 two-approver rule)"]
+== E10 layer charge fixed vs scale: F5 standalone charge at $0.5B, $1B, $3B
+$500.00M: standalone charge $0.44M; FA charge $0.74M
+$1000.00M: standalone charge $0.44M; FA charge $0.74M
+$3000.00M: standalone charge $0.44M; FA charge $0.74M
+== E11 per-hire cost with ProductiveHours scaled (addedCost uses ProductiveHours x hourly)
+employee ops cost implied: base 99478, outcome-designed 102462 (loaded 99478)
+== E12 early target only after first go-live (pre-delegation per sponsor ignored)
+B product-first capital $5.39M -> lag 24 months $5.71M; Y5 profit $0.82M -> $0.82M
+F founder-led capital $3.75M -> lag 24 months $4.05M; Y5 profit $1.14M -> $1.14M
+== E13 seqF composition: F1 until month 18
+m0 live=0 out=$0.26M in=$0.00M cum=$-0.26M heads=1.0
+m11 live=0 out=$0.20M in=$0.00M cum=$-2.50M heads=1.0
+m17 live=0 out=$0.11M in=$0.00M cum=$-2.96M heads=1.0
+m18 live=1 out=$0.18M in=$0.05M cum=$-3.10M heads=3.0
+m23 live=1 out=$0.19M in=$0.00M cum=$-3.53M heads=3.0
+m29 live=1 out=$0.19M in=$0.00M cum=$-3.66M heads=3.0
+m35 live=1 out=$0.18M in=$0.00M cum=$-3.72M heads=3.0
+m59 live=2 out=$0.17M in=$0.00M cum=$-2.24M heads=3.0
+== E14 combined adjusted break-even (F5 / F3, 50 min, 20 bps, 5 x $250k)
+F3 three core: model standalone $1.45B | +sales,+reviewer,+turnover,+churn onboarding $1.65B | +Echelon LYR & MSP 1.5x $1.82B | +half Dec employed $2.08B | all of it with LYR platform team $2.85B
+F5 five core: model standalone $1.39B | +sales,+reviewer,+turnover,+churn onboarding $1.57B | +Echelon LYR & MSP 1.5x $1.74B | +half Dec employed $1.99B | all of it with LYR platform team $2.73B
+F5 adjusted (lc15, +320k, half Dec) at $500k balance: $1.83B; at $100k: $2.49B; at 15 bps $250k: $3.02B
+Outcome-designed F5 standalone lc15 +320k: $1.59B
+== E15 joint failures (modifiers are only applied one at a time in the model)
+B product-first base $5.39M | build x2 + sales 2x $11.20M (profit month Some 54) | build x2 + assurance + handling AI-enhanced $9.40M (profit month Some 36)
+C customer-funded base $5.19M | build x2 + sales 2x $10.59M (profit month Some 48) | build x2 + assurance + handling AI-enhanced $9.21M (profit month Some 33)
+F founder-led base $3.75M | build x2 + sales 2x $7.65M (profit month Some 30) | build x2 + assurance + handling AI-enhanced $6.98M (profit month Some 36)
+G hybrid base $5.88M | build x2 + sales 2x $11.67M (profit month None) | build x2 + assurance + handling AI-enhanced $9.74M (profit month Some 39)

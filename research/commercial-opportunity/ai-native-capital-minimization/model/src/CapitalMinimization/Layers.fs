@@ -10,6 +10,8 @@ type LayerCosts =
       EchelonAnnual: float
       /// Share of Layer A consumed by Unbound (allocation key: engineering hours or compute on Unbound work).
       EchelonShareToUnbound: float
+      /// Commercial licence for Echelon components paid by Unbound (internal if the owners are common).
+      EchelonLicence: float
       /// Layer B one-time build (capitalised) and useful life in years.
       UnboundBuild: float
       UnboundLifeYears: float
@@ -32,7 +34,7 @@ type View =
     | FullyAllocated
 
 let unboundAnnual (lc: LayerCosts) = lc.UnboundBuild / lc.UnboundLifeYears + lc.UnboundMaintenance + lc.UnboundPlatformOps
-let echelonToUnbound (lc: LayerCosts) = lc.EchelonAnnual * lc.EchelonShareToUnbound
+let echelonToUnbound (lc: LayerCosts) = lc.EchelonAnnual * lc.EchelonShareToUnbound + lc.EchelonLicence
 
 /// Annual platform charge borne by the servicing layer under a view (economic, not cash).
 let platformCharge (view: View) (lc: LayerCosts) =
@@ -51,6 +53,7 @@ let unboundIncremental (lc: LayerCosts) (echelonCapacityDisplaced: bool) =
 let consolidated (lc: LayerCosts) (servicingRevenue: float) (servicingCostExPlatform: float) =
     servicingRevenue + lc.UnboundExternalRevenue
     - servicingCostExPlatform - unboundAnnual lc - lc.ServicingSpecificPlatform - lc.EchelonAnnual
+    // the licence is an internal charge between commonly owned layers and cancels
 
 /// Internal transfer price under cost-plus: the servicing layer's charge marked up (the markup is profit of B,
 /// a cost of C, and zero consolidated).
@@ -68,7 +71,7 @@ let servicingOnly (d: Design) =
     { d with
         Name = d.Name + " (engineering in Layer B)"
         People = d.People |> List.filter (fun p -> p.Pool <> d.IntegrationPool)
-        Contracted = d.Contracted |> List.filter (fun (n, _) -> not (n.Contains "engineering"))
+        Contracted = d.Contracted |> List.filter (fun (n, _) -> not (n.Contains "engineering")) // code approvers are a platform control (ADV2-018)
         Pools = d.Pools |> List.map (fun p -> if p.Name = d.IntegrationPool then { p with Fractional = true } else p) }
 
 /// Annual cost of the servicing layer under a view, from a design evaluation function (design -> total cost).

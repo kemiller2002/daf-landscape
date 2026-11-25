@@ -109,7 +109,13 @@ let private design name people fractional contracted reviewer sponsorApprover =
       IntegrationPool = "engineering"
       // Coordination: 0.5 h per pair of people per week (meetings, handoffs, status). [A] (0.25-1.5)
       CoordinationHoursPerPairWeek = 0.5
+      // The 15% meetings-and-admin deduction inside 1,520 productive hours already covers a four-person team's
+      // coordination (6 pairs); only pairs beyond that are costed (ADV2-013). [A]
+      CoordinationFreePairs = 6.0
       ProductiveHours = hours
+      PaidHours = hours
+      // Half of the December excess must be carried by year-round release-capable employees (ADV2-003; OPS). [A]
+      DecemberEmployeeShare = 0.5
       Utilisation = 0.9
       DecemberShare = 0.10
       // December excess is bought at +50%: prep-only temporary staff cannot release payments, so the excess falls to
@@ -125,7 +131,7 @@ let contractEngineering = [ "CST-C05 engineering retainer + 400 h contracted eng
 /// Control-relevant code needs an author and two approvers who are not the author (OPS; CNV-PLT-010): designs with
 /// fewer than three engineering people contract the missing approvers at $45k a year each (about 240 h at the
 /// engineer contract rate). [A]
-let codeReviewers n = [ $"contracted independent code approvers x{n} (CNV-PLT-010 two-approver rule)", 45000.0 * float n ]
+let codeReviewers n = [ $"contracted engineering: independent code approvers x{n} (CNV-PLT-010 two-approver rule; platform control)", 45000.0 * float n ]
 
 /// Fractional controller acting as independent reviewer of reconciliations and payment releases: 200 h at
 /// CST-C01 $200/h. [A]
@@ -147,7 +153,7 @@ let f3 =
         [ person "Founder / managing director" founderLoaded founderCash "operations" 0.15 true
           person "CTO (platform, security; no bank access)" ctoLoaded ctoCash "engineering" 0.25 false
           person "Controller / head of financial operations" controllerLoaded controllerLoaded "accounting" 0.6 true ]
-        true (independentReviewer @ codeReviewers 2) true false
+        false (independentReviewer @ codeReviewers 2) true false
 
 let f5 =
     design "F5 five core"
@@ -156,7 +162,7 @@ let f5 =
           person "Senior software engineer" engineerLoaded engineerLoaded "engineering" 0.3 false
           person "Controller" controllerLoaded controllerLoaded "accounting" 0.5 true
           person "Grant & client operations specialist" opsLoaded opsLoaded "operations" 0.85 true ]
-        false (codeReviewers 1) false false
+        false (independentReviewer @ codeReviewers 1) true false
 
 let f6 =
     design "F6 six core"
@@ -166,7 +172,7 @@ let f6 =
           person "Controller" controllerLoaded controllerLoaded "accounting" 0.5 true
           person "Grant & client operations specialist" opsLoaded opsLoaded "operations" 0.85 true
           person "Compliance and donor service specialist" complianceLoaded complianceLoaded "compliance" 0.8 true ]
-        false (codeReviewers 1) false false
+        false (independentReviewer @ codeReviewers 1) true false
 
 let f8 =
     design "F8+ nine core (specialised)"
@@ -199,7 +205,7 @@ let narrowEntryNonPersonnel =
     withContingency (
         (assurance |> List.filter (fun (n, _) -> not (n.StartsWith "CST-C12")))
         @ (insurance |> List.filter (fun (n, _) -> not (n.StartsWith "CST-I05")))
-        @ (specialists |> List.filter (fun (n, _) -> not (n.StartsWith "CST-C04")))
+        @ specialists // CST-C04 kept: the product is charity verification and screening (ADV2-017)
         @ platformAndData @ salesAndGa @ agentCompute)
 
 // ---------------------------------------------------------------- handling-time targets
@@ -230,15 +236,18 @@ let productivityMultiples = [ 1.0; 1.5; 2.0; 3.0; 5.0; 10.0 ]
 
 // ---------------------------------------------------------------- layer costs [A]
 
-/// Base layer costs. Echelon annual $150k is an assumption standing in for the owner's shared engineering
-/// capability (no ledger of Echelon cost exists in the repositories); 30% consumed by Unbound. Unbound minimum safe
-/// build from the development model at 2x productivity (about $1.6M) over 5 years; maintenance $300k a year (DEV floor of 1-2 engineers, $0.22-0.47M, whatever the multiple) [E, DEV]; non-production and CI
-/// environments $24k (production hosting is already in the servicing design's platform line); servicing-specific
-/// platform (SOC 1 platform scope, sponsor sandboxes beyond the per-sponsor $12k) $30k. [A]
+/// MSP platform base (ADV2-002: a base for the minimum servicing product scope, not an optimistic case). Echelon:
+/// $300k a year of shared capability with 45% caused by Unbound's use [A between the integrator's $45k and LYR's
+/// $0.27M caused cost]; a commercial licence for PolyForm-NC components at $60k a year, owner-set (CNV-GOV-009;
+/// ADV2-012) [A]. Unbound: the minimum safe build at 1.5x productivity (DEV planning range 1.5-3x; ADV2-007) over 5
+/// years; maintenance $300k a year (DEV floor of 1-2 engineers, $0.22-0.47M) [E, DEV]; non-production and CI
+/// environments $24k (production hosting is in the servicing design's platform line); servicing-specific platform
+/// (SOC 1 platform scope, sponsor sandboxes beyond the per-sponsor $12k) $30k. [A]
 let baseLayers =
-    { EchelonAnnual = 150000.0
-      EchelonShareToUnbound = 0.3
-      UnboundBuild = minimumProductCost unboundBaseline 2.0
+    { EchelonAnnual = 300000.0
+      EchelonShareToUnbound = 0.45
+      EchelonLicence = 60000.0
+      UnboundBuild = minimumProductCost unboundBaseline 1.5
       UnboundLifeYears = 5.0
       UnboundMaintenance = 300000.0
       UnboundPlatformOps = 24000.0
@@ -246,13 +255,14 @@ let baseLayers =
       ServicingShareOfUnbound = 1.0
       ServicingSpecificPlatform = 30000.0 }
 
-/// Conservative layer costs from the LYR pass (layer-costs.csv): build $4.6M amortised over 5 years ($920k), a platform
-/// team of technical lead plus three engineers ($789k), production and non-production hosting $60k, and Echelon
-/// reliance cost caused by Unbound (second maintainer, component security review, licence programme, licensor
-/// insurance, maintainer time) about $300k with 90% attributable to Unbound. [A, LYR]
+/// Full-scope platform base from the LYR pass (layer-costs.csv; ADV2-002: a base for the full Unbound scope, not a
+/// "conservative" case): build $4.6M amortised over 5 years ($920k), technical lead plus three engineers ($789k),
+/// hosting $60k, Echelon reliance cost caused by Unbound (second maintainer, component security review, licence
+/// programme, licensor insurance, maintainer time) about $300k with 90% attributable to Unbound, licence $60k. [A, LYR]
 let lyrLayers =
     { EchelonAnnual = 300000.0
       EchelonShareToUnbound = 0.9
+      EchelonLicence = 60000.0
       UnboundBuild = 4.6e6
       UnboundLifeYears = 5.0
       UnboundMaintenance = 222482.0 + 566874.0
@@ -260,3 +270,20 @@ let lyrLayers =
       UnboundExternalRevenue = 0.0
       ServicingShareOfUnbound = 1.0
       ServicingSpecificPlatform = 60000.0 }
+
+// ---------------------------------------------------------------- steady-state adjustments (ADV2-001, -022, -023)
+
+/// Plausible steady-state lines the base designs omit, each a separate switch [A, ADV2]: sales to the $250k of the
+/// previous study and LYR (the designs carry $62k); a reconciler outside the payment chain where none exists;
+/// turnover (recruiting and ramp, ~15% a year); replacement-sponsor onboarding (one sponsor in seven years at $105k
+/// plus lost implementation time) amortised.
+let adjustments =
+    [ "sales topped up to $250k", 188000.0
+      "staff turnover: recruiting and ramp", 35000.0
+      "replacement-sponsor onboarding amortised", 45000.0 ]
+
+let withAdjustments (d: Design) =
+    let reviewer = if d.ContractedIndependentReviewer || d.People |> List.exists (fun p -> p.Pool = "accounting" && not p.MoneyAuthority) then [] else [ "independent reconciler outside the payment chain", 50000.0 ]
+    { d with
+        Name = d.Name + " + steady-state adjustments"
+        NonPersonnel = d.NonPersonnel @ adjustments @ reviewer }

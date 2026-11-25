@@ -9,6 +9,7 @@ open ServicingEconomics.Parameters
 open CapitalMinimization.Design
 open CapitalMinimization.Designs
 open CapitalMinimization.Development
+open CapitalMinimization.Layers
 
 type Customer =
     { Sponsor: Sponsor
@@ -31,6 +32,10 @@ type Sequence =
       OtherIncome: (int * string * float) list
       /// Other recurring monthly costs outside the design (start month, name, monthly amount).
       Recurring: (int * string * float) list
+      /// Platform layers whose recurring cost the servicing company bears (ADV2-006): Echelon share and licence from
+      /// formation; non-production, servicing-specific platform and the maintenance gap not covered by the design's
+      /// own engineers from the first go-live. Build amortisation is excluded (the build is in OneTime).
+      Layers: LayerCosts
       PreLaunchFixedShare: float
       /// Month from which full fixed cost applies even before an administration go-live (e.g. a narrow service that
       /// needs SOC 2, insurance and support from its own launch).
@@ -56,25 +61,33 @@ let private firstLive (s: Sequence) = s.Customers |> List.map goLive |> List.sor
 let designAt (s: Sequence) m =
     s.Stages |> List.filter (fun (start, _) -> start <= m) |> List.sortBy fst |> List.last |> snd
 
-let private targetAt (s: Sequence) m =
-    match firstLive s with
-    | Some f when m < f + s.RedesignLagMonths -> s.EarlyTarget
-    | _ -> s.Target
+/// Each sponsor starts in pre-delegation (three-person release, full calibration) for RedesignLagMonths after its
+/// own go-live (ADV2-016; OPS): its minutes are scaled to the early target, later to the steady target.
+let private scaledLive (s: Sequence) m =
+    live s m
+    |> List.map (fun c -> withTarget (if m < goLive c + s.RedesignLagMonths then s.EarlyTarget else s.Target) c.Sponsor)
+
+let platformMonthly (s: Sequence) (d: Design) m =
+    let lc = s.Layers
+    let launched = live s m |> List.isEmpty |> not
+    let always = echelonToUnbound lc
+    let afterLaunch = lc.UnboundPlatformOps + lc.ServicingSpecificPlatform + max 0.0 (lc.UnboundMaintenance - embeddedEngineering d)
+    (always + (if launched then afterLaunch else 0.0)) / 12.0
 
 let private activePeople (d: Design) m = { d with People = d.People |> List.filter (fun p -> p.StartMonth <= m) }
 
 let private monthlyCosts (s: Sequence) m =
     let d = activePeople (designAt s m) m
     let payroll = d.People |> List.sumBy (fun p -> (if s.CashView then p.CashCost else p.LoadedCost) / 12.0)
-    let empty = evaluateDesign d (targetAt s m) s.Price noStress []
+    let empty = evaluateDesign d baseMarketMinutes s.Price noStress []
     let launched = live s m |> List.isEmpty |> not
     let early = s.FullFixedFrom |> Option.exists (fun f -> f <= m)
     let fixedShare = if launched || early then 1.0 else s.PreLaunchFixedShare
     let fixedEx = (empty.Base.TotalCost - empty.Base.CorePersonnel) * fixedShare / 12.0
-    let sponsors = live s m |> List.map (fun c -> c.Sponsor)
-    let withSponsors = evaluateDesign d (targetAt s m) s.Price noStress sponsors
+    // sponsors are pre-scaled to their own targets; evaluating at the market-mix minutes leaves them unchanged
+    let withSponsors = evaluateDesign d baseMarketMinutes s.Price noStress (scaledLive s m)
     let variable = (withSponsors.Base.TotalCost - empty.Base.TotalCost) / 12.0
-    let recurring = s.Recurring |> List.filter (fun (start, _, _) -> start <= m) |> List.sumBy (fun (_, _, v) -> v)
+    let recurring = (s.Recurring |> List.filter (fun (start, _, _) -> start <= m) |> List.sumBy (fun (_, _, v) -> v)) + platformMonthly s d m
     payroll, fixedEx, variable, recurring, withSponsors.Headcount
 
 let private feeCash (s: Sequence) m =
@@ -116,6 +129,20 @@ let simulate (s: Sequence) =
 
 let capitalRequired (rows: Row list) = rows |> List.map (fun r -> r.Cumulative) |> List.fold min 0.0 |> (~-)
 
+/// Equity need: the cash trough with no financing cost on the deficit (ADV2-009); capitalRequired with financing is
+/// the debt-financed case.
+let equityNeed (s: Sequence) = capitalRequired (simulate { s with FinancingRate = 0.0 })
+
+/// Net present value at an annual discount rate of the monthly net cash flows over the horizon (no financing), plus
+/// a terminal value of the final-year profit after a 21% tax rate as a perpetuity at the same rate. [A]
+let npv (rate: float) (s: Sequence) =
+    let rows = simulate { s with FinancingRate = 0.0 }
+    let monthly = (1.0 + rate) ** (1.0 / 12.0) - 1.0
+    let flows = rows |> List.sumBy (fun r -> (r.CashIn - r.CashOut) / ((1.0 + monthly) ** float (r.Month + 1)))
+    let p = rows |> List.rev |> List.truncate 12 |> List.sumBy (fun r -> r.AccruedProfit)
+    let terminal = (if p > 0.0 then p * (1.0 - 0.21) else p) / rate / ((1.0 + rate) ** (float s.Months / 12.0))
+    flows + terminal
+
 let monthsToProfit (rows: Row list) =
     match List.tryLast rows with
     | Some r when r.AccruedProfit >= 0.0 -> rows |> List.rev |> List.takeWhile (fun r -> r.AccruedProfit >= 0.0) |> List.tryLast |> Option.map (fun r -> r.Month)
@@ -148,9 +175,10 @@ let startup =
       3, "brand, website, collateral", 15000.0
       9, "implementation / migration tooling", 40000.0 ]
 
-/// Base productivity multiple for agent-assisted construction (2x) [A; unmeasured, see 05]; minimum safe servicing
+/// Base productivity multiple for agent-assisted construction 1.5x (DEV planning range 1.5-3x; 2-3x are upside to be
+/// earned by measurement, ADV2-007) [A; unmeasured, see 05]; minimum safe servicing
 /// product cost from the development model (Development.fs, Designs.unboundBaseline).
-let baseMultiple = 2.0
+let baseMultiple = 1.5
 let minimumBuild = minimumProductCost unboundBaseline baseMultiple
 
 /// Narrow non-custodial service (charity verification and grant-request processing, no money movement): 8% of the
@@ -165,6 +193,14 @@ let narrowServiceCostPerSponsor = 8000.0
 
 let recruiting hires month = [ month, $"recruiting ({hires} hires x $15k, CST-P16)", 15000.0 * float hires ]
 
+/// Deferred scope (ADV2-008): the minimum product is 44% of the conventional scope; DEV defers capabilities whose
+/// absence pushes labour to operations and sponsors. A tranche of 15% of the conventional scope is built over the
+/// 12 months after the second sponsor's go-live. [A]
+let deferredTranche (customers: Customer list) =
+    match customers |> List.map goLive |> List.sort with
+    | _ :: second :: _ -> spread "deferred scope build (tranche)" (effectiveCost unboundBaseline 0.15 baseMultiple) 12 second
+    | _ -> []
+
 let private baseSeq name stages customers oneTime =
     { Name = name
       Stages = stages
@@ -173,9 +209,10 @@ let private baseSeq name stages customers oneTime =
       EarlyTarget = 101.0 * 50.0 / baseMarketMinutes // AI-enhanced market mix (prior study) until gates are in place
       RedesignLagMonths = 12
       Customers = customers
-      OneTime = oneTime
+      OneTime = oneTime @ deferredTranche customers
       OtherIncome = []
       Recurring = []
+      Layers = baseLayers
       PreLaunchFixedShare = 0.4
       FullFixedFrom = None
       CollectionLagMonths = 1
@@ -192,6 +229,7 @@ let seqA =
         [ 0, staged f5 18 ]
         [ customer (sp "a1" 0.5e9) 18 6 50000.0; customer (sp "a2" 0.5e9) 28 6 50000.0; customer (sp "a3" 0.5e9) 36 6 50000.0 ]
         (startup @ recruiting 5 0 @ spread "build (Unbound base, contracted)" 5.0e6 24 0)
+    |> fun s -> { s with OneTime = s.OneTime |> List.filter (fun (_, n, _) -> not (n.StartsWith "deferred")) }
 
 /// B product-first: two founders build the minimum safe product with agents (development model cost at 2x, 12 months),
 /// sell from month 12, grow to five core at the first go-live.
@@ -263,8 +301,11 @@ let sequences = [ seqA; seqB; seqC; seqD; seqE; seqF; seqG ]
 
 let private isBuild (_, (n: string), _) = n.Contains "build"
 
+/// Build at 1x instead of the base multiple: build lines scale by the cost ratio (1.25 at 1.5x base). Sequence A's
+/// contracted $5M build is scaled by the same ratio for comparability.
 let productivityHalved (s: Sequence) =
-    { s with Name = s.Name + " | build cost x2 (productivity lower)"; OneTime = s.OneTime |> List.map (fun ((m, n, v) as x) -> if isBuild x then m, n, v * 2.0 else x) }
+    let ratio = minimumProductCost unboundBaseline 1.0 / minimumProductCost unboundBaseline baseMultiple
+    { s with Name = s.Name + " | build at 1x (no productivity gain)"; OneTime = s.OneTime |> List.map (fun ((m, n, v) as x) -> if isBuild x then m, n, v * ratio else x) }
 
 let developmentTwiceAsLong (s: Sequence) =
     let builds = s.OneTime |> List.filter isBuild
@@ -292,15 +333,20 @@ let securityIncident (s: Sequence) =
     { s with Name = s.Name + " | security incident $500k at month 30"; OneTime = s.OneTime @ [ 30, "security incident", 500000.0 ] }
 
 let echelonLicence (s: Sequence) =
-    { s with Name = s.Name + " | commercial Echelon licence $60k/yr"; Recurring = s.Recurring @ [ 0, "Echelon commercial licence", 5000.0 ] }
+    { s with Name = s.Name + " | Echelon licence at LYR cost-plus $350k/yr (base $60k)"; Layers = { s.Layers with EchelonLicence = 350843.0 } }
 
 let customisation (s: Sequence) =
     { s with
         Name = s.Name + " | customer customisation: onboarding x3, sponsor upkeep x2"
         Customers = s.Customers |> List.map (fun c -> { c with Sponsor = { c.Sponsor with OnboardingCost = c.Sponsor.OnboardingCost * 3.0; AnnualSponsorCost = c.Sponsor.AnnualSponsorCost * 2.0 } }) }
 
+/// Correlated failures (ADV2-027): low productivity and slow sales tend to arrive together, often with review that
+/// cannot be reduced.
+let jointBuildAndSales (s: Sequence) = s |> productivityHalved |> acquisitionTwiceAsLong
+let jointBuildSalesReview (s: Sequence) = s |> productivityHalved |> acquisitionTwiceAsLong |> humanReviewNotReduced
+
 let failures =
     [ productivityHalved; developmentTwiceAsLong; acquisitionTwiceAsLong; humanReviewNotReduced; partnerWithdraws
-      assuranceHigher; securityIncident; echelonLicence; customisation ]
+      assuranceHigher; securityIncident; echelonLicence; customisation; jointBuildAndSales; jointBuildSalesReview ]
 
 let economic (s: Sequence) = { s with Name = s.Name + " | economic view (founders at market)"; CashView = false }

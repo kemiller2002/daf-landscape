@@ -143,3 +143,19 @@ EV-LYR-026,LYR,CNV-LEG-001: Unbound shall not receive or hold donor or grant mon
 EV-LYR-027,LYR,ECH-01: one human maintainer plus Claude; no second maintainer; Foundry intended users 'not yet established',1,maintainers,data/commercial-opportunity/servicing-economics/echelon-capabilities.csv ECH-01,primary,2026-11-25,2026-11-25,A,[S]
 EV-LYR-028,LYR,Sponsor-level work ~324 h/yr AI-native per sponsor (160-830); December daily load 3.1-3.3x,324,h/sponsor-yr,research/commercial-opportunity/servicing-economics/04-activity-cost-and-capacity.md:269-277,primary,2026-11-25,2026-11-25,C,[S] derived from assumptions; no time study
 EV-LYR-029,LYR,"Echelon Foundry pilot rule: do not infer it is a validated discipline, method or product",,,echelon-foundry:README.md (Pilot rule),primary,2026-11-25,2026-11-25,A,[S]
+EV-ADV2-001,ADV,The copied model reproduces the committed results exactly,identical results.md,n/a,dotnet test (20/20 pass) and dotnet run on a copy; diff against model/out/results.md,M,n/a,2026-11-25,A,Commands in report Method section.
+EV-ADV2-002,ADV,Adjusted F5 standalone break-even after plausible omissions,1.57-1.99,USD B,adv/work/experiments.out E14,M,n/a,2026-11-25,A,Adjustments are [A]; see A-ADV2-001..005.
+EV-ADV2-003,ADV,December excess on employees raises F5 operating break-even,1.28 (half) / 1.48 (all) vs 1.12,USD B,adv/work/experiments.out E04,M,n/a,2026-11-25,A,
+EV-ADV2-004,ADV,Sequences omit recurring platform costs; capital with them,4.32-7.35 vs 3.75-6.22 (base layers),USD M,adv/work/experiments.out E06,M,n/a,2026-11-25,A,
+EV-ADV2-005,ADV,Capital without the 10% financing charge,3.14-8.64,USD M,adv/work/experiments.out E06 'no financing',M,n/a,2026-11-25,A,
+EV-ADV2-006,ADV,"CNV-GOV-003 requires three distinct persons until auditor and board accept the gate, and reconciliation outside the payment chain",clause text,n/a,unbound:requirements/convergence/2026-11-24-master/data/convergence-clauses.jsonl (id CNV-GOV-003),S,n/a,2026-11-25,A,
+EV-ADV2-007,ADV,CNV-GOV-004: reserved authority by sponsor board appointment; no person for more than one sponsor; surge reviewers covered,clause text,n/a,"same file, id CNV-GOV-004",S,n/a,2026-11-25,A,Statement truncated in the read; the surge-reviewer clause was read to 'SHALL each'.
+EV-ADV2-008,ADV,Combined scenario's break-even depends on a 50% licensee allocation,1.15 vs 1.35,USD B,adv/work/experiments.out E08,M,n/a,2026-11-25,A,
+EV-ADV2-009,ADV,The outcome-designed +3% productivity has no cost effect (bug),<= 0.01,USD M,"adv/work/experiments.out E03, E11",M,n/a,2026-11-25,A,
+EV-ADV2-010,ADV,F3 contracted FTE at break-even scale,4.2 at $1.45B; 7.3 at $3B,FTE,adv/work/experiments.out E05,M,n/a,2026-11-25,A,
+EV-ADV2-011,ADV,"Payment rails passed through at 4,000 accounts",84524,USD/yr,adv/scripts/pay.fsx output,M,n/a,2026-11-25,A,Previous model archetype Payments(AiNative).
+EV-ADV2-012,ADV,Rehearsal 4 outcome,1 PASS / 9 FAIL / 98 NOT_RUN of 108 P0; NOT ACCEPTED,count,echelon-engineering-system:docs/rehearsal-evidence.md:13-31 @4ca2f98,S,n/a,2026-11-25,B,Secondary summary; primary GitHub records not read.
+EV-ADV2-013,ADV,Clarity's own benchmark: no more accurate than no method; strength is making assumptions explicit,qualitative,n/a,clarity-framework:research/2026-framework-improvement/README.md:19-22,S,n/a,2026-11-25,A,
+EV-ADV2-014,ADV,The cost bridge attributes $0.26M of $1.08M to the organisational design,0.26 of 1.08,USD M,model/out/results.md section 12,M,n/a,2026-11-25,A,Reproduced.
+EV-ADV2-015,ADV,The layer-ordering test does not assert FA < standalone; F3 FA exceeds standalone,-$716k vs -$715k,USD,tests/CapitalMinimization.Tests/Tests.fs:112-120; results.md section 7,S,n/a,2026-11-25,A,
+EV-ADV2-016,ADV,EDF step 2 requires a factual outcome,spec text,n/a,echelon-diagnostic-framework:docs/edf/specification.md:39-70,S,n/a,2026-11-25,A,

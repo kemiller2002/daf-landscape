@@ -46,7 +46,7 @@ let ``empty portfolio has no revenue and only fixed cost`` () =
     close 1e-9 0.0 r.Base.Revenue
     let expected =
         (f5.People |> List.sumBy (fun p -> p.LoadedCost)) + (f5.Contracted |> List.sumBy snd) + (f5.NonPersonnel |> List.sumBy snd)
-        + 5.0 * f5.PerPersonOverhead + 10.0 * 0.5 * 48.0 * (f5.Pools |> List.averageBy (fun p -> p.LoadedHourly))
+        + 5.0 * f5.PerPersonOverhead + (10.0 - f5.CoordinationFreePairs) * 0.5 * 48.0 * (f5.Pools |> List.averageBy (fun p -> p.LoadedHourly))
         // named compliance owner floor: 0.25 FTE bought fractionally at the contract premium
         + 0.25 * f5.ProductiveHours * complianceLoaded / hours * 1.5
     close 1.0 expected r.Base.TotalCost
@@ -58,7 +58,7 @@ let ``coordination cost is zero for one person`` () =
 
 [<Fact>]
 let ``hiring waits until residual need reaches 0.75 FTE`` () =
-    let one = { f5 with People = []; Pools = [ { (List.head (pools false)) with Share = 1.0 } ]; SponsorMinutes = 0.0; RelationshipHours = 0.0; IntegrationFirstSponsorHours = 0.0 }
+    let one = { f5 with DecemberEmployeeShare = 0.0; People = []; Pools = [ { (List.head (pools false)) with Share = 1.0 } ]; SponsorMinutes = 0.0; RelationshipHours = 0.0; IntegrationFirstSponsorHours = 0.0 }
     let q = one.ProductiveHours * one.Utilisation
     // one sponsor whose account hours equal x FTE of queue capacity
     let withFte x =
@@ -79,8 +79,8 @@ let ``higher handling minutes never lower the break-even`` () =
 // ---------------------------------------------------------------- controls
 
 [<Fact>]
-let ``one founder cannot separate duties; three core with a reviewer can`` () =
-    let ss = five 250000.0 1.0e9
+let ``one or two founders cannot run live money; three core with hires and a reviewer can`` () =
+    let ss = five 250000.0 1.5e9
     Assert.False((evaluateDesign f1 50.0 (price 20.0) noStress ss).ControlFeasible)
     Assert.False((evaluateDesign f2 50.0 (price 20.0) noStress ss).ControlFeasible)
     Assert.True((evaluateDesign f3 50.0 (price 20.0) noStress ss).ControlFeasible)
@@ -110,14 +110,14 @@ let ``an investment below the safety floor delivers nothing safe`` () =
 // ---------------------------------------------------------------- layers
 
 [<Fact>]
-let ``layer views order incremental below fully allocated below standalone`` () =
+let ``incremental view is below fully allocated and standalone for each design`` () =
     let ss = five 250000.0 1.0e9
     let total d = (evaluateDesign d 50.0 (price 20.0) noStress ss).Base.TotalCost
-    let inc = servicingCost Incremental baseLayers total f5
-    let alloc = servicingCost FullyAllocated baseLayers total f5
-    let alone = servicingCost Standalone baseLayers total f3
-    Assert.True(inc < alloc)
-    Assert.True(inc < alone)
+    for d in [ f3; f5; f8 ] do
+        let inc = servicingCost Incremental baseLayers total d
+        Assert.True(inc < servicingCost FullyAllocated baseLayers total d, d.Name)
+        Assert.True(inc < servicingCost Standalone baseLayers total d, d.Name)
+    // Fully allocated can exceed standalone: Layer-B engineering is bought back fractionally at a premium (ADV2-020).
 
 [<Fact>]
 let ``consolidated view counts all of Echelon once and no internal charge`` () =
@@ -132,11 +132,31 @@ let ``every sequence needs capital`` () =
     sequences |> List.iter (fun s -> Assert.True(capitalRequired (simulate s) > 0.0, s.Name))
 
 [<Fact>]
-let ``lower productivity and longer sales cycles never reduce capital`` () =
+let ``lower productivity, longer sales cycles and joint failures never reduce capital`` () =
     for s in sequences do
         let c0 = capitalRequired (simulate s)
         Assert.True(capitalRequired (simulate (productivityHalved s)) >= c0 - 1.0, s.Name)
         Assert.True(capitalRequired (simulate (acquisitionTwiceAsLong s)) >= c0 - 1.0, s.Name)
+        Assert.True(capitalRequired (simulate (jointBuildSalesReview s)) >= c0 - 1.0, s.Name)
+
+[<Fact>]
+let ``equity need excludes financing and is never above the debt-financed trough`` () =
+    for s in sequences do
+        Assert.True(equityNeed s <= capitalRequired (simulate s) + 1.0, s.Name)
+
+[<Fact>]
+let ``three authorised people with reconciliation inside the payment chain fail CNV-GOV-003`` () =
+    let d = { f5 with ContractedIndependentReviewer = false }
+    let feasible, _ = controlCheck d 0.0 0.0
+    Assert.False(feasible)
+    Assert.True(fst (controlCheck f5 0.0 0.0))
+
+[<Fact>]
+let ``outcome-designed productivity gain lowers cost (ADV2-014)`` () =
+    let ss = five 250000.0 1.5e9
+    let a = (evaluateDesign f5 50.0 (price 20.0) noStress ss).Base.TotalCost
+    let b = (evaluateDesign { f5 with ProductiveHours = f5.ProductiveHours * 1.03 } 50.0 (price 20.0) noStress ss).Base.TotalCost
+    Assert.True(b <= a)
 
 [<Fact>]
 let ``economic view never needs less capital than cash view`` () =

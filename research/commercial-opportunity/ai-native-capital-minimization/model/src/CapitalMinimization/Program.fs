@@ -61,10 +61,10 @@ let designSection () =
         designRows () |> List.map (fun (d, r, one) ->
             [ d.Name; string (List.length d.People); money r.Base.CorePersonnel; money r.ContractedCost
               money (r.Base.NonPersonnelFixed - r.ContractedCost - r.PerPersonCost - r.CoordinationCost); money r.CoordinationCost
-              money r.Base.TotalCost; num 1 one.Headcount; num 1 one.ContractedFte; money one.Base.TotalCost; pct one.Base.OperatingMargin
+              money r.Base.TotalCost; num 1 one.Headcount; num 1 one.ContractedFte; num 1 (one.Headcount + one.ContractedFte); money one.Base.TotalCost; pct one.Base.OperatingMargin
               (if one.ControlFeasible then "yes" else "NO") + ": " + one.ControlNote ])
     section "2. Outcome-designed organizations: fixed cost and control feasibility (50 min/account-year, $1B in 5 sponsors at $250k)"
-        (table [ "Design"; "Core people"; "Core payroll (economic)"; "Contracted"; "Non-personnel"; "Coordination"; "Fixed total"; "Employees at $1B"; "Contracted FTE at $1B"; "Total cost at $1B"; "Margin at $1B"; "Separation of duties at $1B" ] rows)
+        (table [ "Design"; "Core people"; "Core payroll (economic)"; "Contracted"; "Non-personnel"; "Coordination"; "Fixed total"; "Employees at $1B"; "Contracted FTE at $1B"; "Total FTE at $1B"; "Total cost at $1B"; "Margin at $1B"; "Separation of duties at $1B" ] rows)
 
 // ---------------------------------------------------------------- 3 break-even by design and handling target
 
@@ -75,13 +75,18 @@ let breakEvenData () =
             let fl m =
                 let c = servicingCost Standalone baseLayers (fun x -> fixedCost x) d - fixedCost d
                 snd (assetsForMarginDesign d t (price 20.0) (charge c) (shape 5 250000.0) m)
-            yield d.Name, t, f 0.0, f 0.2, fl 0.0, fl 0.2 ]
+            let adj =
+                let a = withAdjustments d
+                let c = servicingCost Standalone baseLayers (fun x -> fixedCost x) a - fixedCost a
+                snd (assetsForMarginDesign a t (price 20.0) (charge c) (shape 5 250000.0) 0.0)
+            let admissible = (evaluateDesign d t (price 20.0) noStress ((shape 5 250000.0).Build 1.5e9)).ControlFeasible
+            yield (if admissible then d.Name else d.Name + " [NOT ADMISSIBLE with live money]"), t, f 0.0, f 0.2, fl 0.0, fl 0.2, adj ]
 
 let breakEvenSection data =
     section "3. Break-even assets by design and handling target (20 bps, 5 equal sponsors, $250k average balance)"
-        ("Operating = the design alone. Standalone = plus Unbound build amortisation, Echelon's Unbound share and maintenance not done by the design's own engineers (Layer views, section 7).\n\n"
-         + table [ "Design"; "Minutes/account-yr"; "Operating break-even"; "Operating 20% margin"; "Standalone break-even"; "Standalone 20% margin" ]
-            (data |> List.map (fun (n, t, a, b, c, e) -> [ n; num 0 t; optMoney a; optMoney b; optMoney c; optMoney e ])))
+        ("Operating = the design alone. Standalone = plus Unbound build amortisation (minimum product at 1.5x), Echelon's Unbound share and licence, and maintenance not done by the design's own engineers (section 7). Adjusted = standalone plus the steady-state adjustments (sales to $250k, reconciler outside the payment chain, turnover, replacement onboarding; ADV2-001). Admissibility is the CNV-GOV-003 check at $1.5B; F1 and F2 are pre-launch build organisations only (ADV2-005).\n\n"
+         + table [ "Design"; "Minutes/account-yr"; "Operating break-even"; "Operating 20% margin"; "Standalone break-even"; "Standalone 20% margin"; "Standalone + adjustments break-even" ]
+            (data |> List.map (fun (n, t, a, b, c, e, g) -> [ n; num 0 t; optMoney a; optMoney b; optMoney c; optMoney e; optMoney g ])))
 
 // ---------------------------------------------------------------- 4 handling targets at $1B
 
@@ -143,15 +148,10 @@ let layerSection () =
             for v, name in [ Standalone, "standalone"; Incremental, "incremental (Unbound and Echelon exist anyway)"; FullyAllocated, "fully allocated (servicing share 100%)" ] do
                 let c = servicingCost v baseLayers total d
                 yield [ d.Name; name; money c; money (revenue - c); pct ((revenue - c) / revenue) ] ]
-    let half = { baseLayers with ServicingShareOfUnbound = 0.5; UnboundExternalRevenue = 300000.0 }
     let lyrRows =
-        [ for v, name in [ Standalone, "standalone, conservative platform (LYR)"; Incremental, "incremental, conservative platform (LYR)" ] do
+        [ for v, name in [ Standalone, "standalone, full-scope platform base (LYR)"; Incremental, "incremental, full-scope platform base (LYR)" ] do
             let c = servicingCost v lyrLayers total f5
             yield [ f5.Name; name; money c; money (revenue - c); pct ((revenue - c) / revenue) ] ]
-    let rowsHalf =
-        [ for d in [ f5 ] do
-            let c = servicingCost FullyAllocated half total d
-            yield [ d.Name; "fully allocated, servicing 50% of Unbound use, $300k external licence revenue"; money c; money (revenue - c); pct ((revenue - c) / revenue) ] ]
     let consolidatedRow =
         let costEx = total (servicingOnly f5)
         [ "Consolidated A+B+C (F5 servicing-only + Unbound + all of Echelon)"; money (consolidated baseLayers revenue costEx) ]
@@ -160,11 +160,11 @@ let layerSection () =
           [ "Incremental annual cost of Unbound if it displaces other Echelon work"; money (unboundIncremental baseLayers true) ]
           [ "Incremental annual cost of servicing if Unbound exists (F5, $1B)"; money (servicingCost Incremental baseLayers total f5) ]
           consolidatedRow
-          [ "Consolidated A+B+C, conservative platform (LYR)"; money (consolidated lyrLayers revenue (total (servicingOnly f5))) ]
-          [ "Incremental annual cost of Unbound if Echelon exists, conservative (LYR)"; money (unboundIncremental lyrLayers false) ] ]
+          [ "Consolidated A+B+C, full-scope platform base (LYR)"; money (consolidated lyrLayers revenue (total (servicingOnly f5))) ]
+          [ "Incremental annual cost of Unbound if Echelon exists, full-scope platform base (LYR)"; money (unboundIncremental lyrLayers false) ] ]
     section "7. Three economic layers at $1B (5 sponsors, 50 min/account-year)"
         ($"Layer inputs [A]: Echelon {money baseLayers.EchelonAnnual}/yr with {pct baseLayers.EchelonShareToUnbound} to Unbound; Unbound build {money baseLayers.UnboundBuild} over {num 0 baseLayers.UnboundLifeYears} years, maintenance {money baseLayers.UnboundMaintenance}, non-production {money baseLayers.UnboundPlatformOps}; servicing-specific platform {money baseLayers.ServicingSpecificPlatform}.\n\n"
-         + table [ "Design"; "View"; "Servicing cost"; "Profit"; "Margin" ] (rows @ rowsHalf @ lyrRows)
+         + table [ "Design"; "View"; "Servicing cost"; "Profit"; "Margin" ] (rows @ lyrRows)
          + "\n\n" + table [ "Measure"; "Annual" ] incrementalUnbound)
 
 // ---------------------------------------------------------------- 8 development investment and productivity
@@ -189,15 +189,26 @@ let devSection data =
 let seqRow (s: Sequence) =
     let rows = simulate s
     let at h = rows |> List.tryFind (fun r -> r.Month = h - 1) |> Option.map (fun r -> money r.Cumulative) |> Option.defaultValue "n/a"
-    [ s.Name; money (capitalRequired rows); optMonth (monthsToProfit rows); at 24; at 36; at 60; money (finalYearProfit rows); optPct (roic rows) ]
+    [ s.Name; money (equityNeed s); money (capitalRequired rows); optMonth (monthsToProfit rows); at 24; at 36; at 60; money (finalYearProfit rows); optPct (roic rows); money (npv 0.15 s) ]
 
 let seqData () = sequences |> List.map (fun s -> s, seqRow s, seqRow (economic s))
 
+/// Growth variant: three more $500M sponsors sign at months 36, 42 and 48 ($3.0B by month 54). [A]
+let growth (s: Sequence) =
+    let extra = [ for i in 0 .. 2 -> { Sponsor = sponsor $"growth{i + 1}" (0.5e9 / 250000.0) 250000.0; SignMonth = 36 + 6 * i; OnboardingMonths = 6; ImplementationFee = 50000.0 } ]
+    { s with Name = s.Name + " | growth to $3.0B"; Customers = s.Customers @ extra }
+
+let growthSection () =
+    section "9b. Growth variant: three more $500M sponsors from month 36 ($3.0B by month 54)"
+        (table [ "Sequence"; "Equity need"; "Debt-financed trough"; "Month profitable"; "Cash month 24"; "Cash month 36"; "Cash month 60"; "Year-5 profit"; "Year-5 ROIC"; "NPV 15%" ]
+            (sequences |> List.map (growth >> seqRow)))
+
 let seqSection data =
     section "9. Sequences A-G (60 months, cash view; economic view below)"
-        (table [ "Sequence"; "Capital required"; "Month profitable"; "Cash month 24"; "Cash month 36"; "Cash month 60"; "Year-5 profit"; "Year-5 ROIC" ] (data |> List.map (fun (_, a, _) -> a))
+        ("Equity need = cash trough without financing cost; debt-financed = trough with 10% interest on the deficit (ADV2-009). Recurring platform cost (Echelon share and licence, non-production, servicing-specific platform, maintenance gap) is charged from formation or go-live; each sponsor is pre-delegation for 12 months after its own go-live; a deferred-scope build tranche follows the second go-live (ADV2-006, -016, -008). Year-5 ROIC is a one-year snapshot; NPV at 15% includes a terminal value of year-5 profit after tax.\n\n"
+         + table [ "Sequence"; "Equity need"; "Debt-financed trough"; "Month profitable"; "Cash month 24"; "Cash month 36"; "Cash month 60"; "Year-5 profit"; "Year-5 ROIC"; "NPV 15%" ] (data |> List.map (fun (_, a, _) -> a))
          + "\n\nEconomic view (founders at market):\n\n"
-         + table [ "Sequence"; "Capital required"; "Month profitable"; "Cash month 24"; "Cash month 36"; "Cash month 60"; "Year-5 profit"; "Year-5 ROIC" ] (data |> List.map (fun (_, _, e) -> e)))
+         + table [ "Sequence"; "Equity need"; "Debt-financed trough"; "Month profitable"; "Cash month 24"; "Cash month 36"; "Cash month 60"; "Year-5 profit"; "Year-5 ROIC"; "NPV 15%" ] (data |> List.map (fun (_, _, e) -> e)))
 
 let failureData () =
     [ for s in sequences do
@@ -261,15 +272,23 @@ let scenarios () =
     // Both multiples are unmeasured assumptions (report 05).
     let independent = { baseLayers with UnboundBuild = minimumProductCost unboundBaseline 1.5; EchelonAnnual = 0.0 }
     let echelonSupported = { baseLayers with UnboundBuild = minimumProductCost unboundBaseline 3.0 }
-    let combined = { echelonSupported with ServicingShareOfUnbound = 0.5; UnboundExternalRevenue = 300000.0 }
+    // Licensees bear platform cost only to the extent of their net contribution: $300k licence revenue less $250k
+    // licence sales and $35k licensee SOC 2 scope (ADV2-010). [A]
+    let netLicence = 300000.0 - 250000.0 - 35000.0
+    let combined =
+        { echelonSupported with
+            UnboundExternalRevenue = netLicence
+            ServicingShareOfUnbound = 1.0 - netLicence / (unboundAnnual echelonSupported + echelonToUnbound echelonSupported) }
     [ { Name = "Conventional (previous Model B, conventional minutes, fully loaded)"; Eval = fun p st sp -> evaluate (fullyLoaded modelB) sponsorActivities Conventional p st sp }
       { Name = "AI-assisted conventional (previous Model B, AI-enhanced, fully loaded)"; Eval = fun p st sp -> evaluate (fullyLoaded modelB) sponsorActivities AiEnhanced p st sp }
       { Name = "Previous AI-native (Model B, fully loaded; $5M build)"; Eval = fun p st sp -> evaluate (fullyLoaded modelB) sponsorActivities AiNative p st sp }
       designScenario "AI-native independent (F5, 50 min, standalone; minimum build at 1.5x, no Echelon)" f5 50.0 Standalone independent
       designScenario "Echelon-supported AI-native (F5, 50 min, fully allocated; minimum build at 3x)" f5 50.0 FullyAllocated echelonSupported
       designScenario "Founder-led staged (F3, 50 min, standalone)" f3 50.0 Standalone baseLayers
-      designScenario "AI-native F5, standalone, conservative platform (LYR: $4.6M build, 4-person platform team, Echelon reliance)" f5 50.0 Standalone lyrLayers
-      designScenario "Combined software + administration (F5, servicing 50% of Unbound, $300k licences)" f5 50.0 FullyAllocated combined
+      designScenario "AI-native F5, standalone, full-scope platform base (LYR: $4.6M build, 4-person platform team, Echelon reliance)" f5 50.0 Standalone lyrLayers
+      designScenario "AI-native F5, standalone + steady-state adjustments (ADV2-001)" (withAdjustments f5) 50.0 Standalone baseLayers
+      designScenario "AI-native F5, standalone + adjustments, full-scope platform base (LYR)" (withAdjustments f5) 50.0 Standalone lyrLayers
+      designScenario "Combined software + administration (F5; $300k licences net of licence sales and SOC 2 scope)" f5 50.0 FullyAllocated combined
       designScenario "Outcome-designed F5 (OPS: 30.1 min, sponsor work 12,720 min) [unproven], fully allocated" (outcomeDesigned f5) outcomeDesignedTarget FullyAllocated echelonSupported ]
 
 /// Cost bridge from the previous study's fully loaded AI-native Model B to F5 at a fixed portfolio ($1.5B, 5 sponsors
@@ -287,7 +306,7 @@ let bridgeSection () =
             [ [ "Previous Model B, AI-native, fully loaded ($1.0M build amortisation + $250k sales)"; money pFull; ""; "baseline" ]
               [ "Remove the fully loaded lines"; money pOp; money (pOp - pFull); "presentation: the lines are added back below at re-estimated values" ]
               [ "F5 workload-driven design, same minutes (pools, hiring threshold, coordination, itemised non-personnel)"; money fOp; money (fOp - pOp); "structural: ratio steps replaced by workload; partly offset by coordination, integration and relationship hours made explicit" ]
-              [ "Add standalone platform charge (minimum build at 2x over 5 years, Echelon share, maintenance gap)"; money fStand; money (fStand - fOp); "assumption: build cost from the development model, not measured" ]
+              [ "Add standalone platform charge (minimum build at 1.5x over 5 years, Echelon share and licence, maintenance gap)"; money fStand; money (fStand - fOp); "assumption: build cost from the development model, not measured" ]
               [ "Outcome-designed (OPS): 30.1 min, sponsor-level 12,720 min, +3% capacity [unproven]"; money fOut; money (fOut - fStand); "hypothesis: no observed operation" ] ])
 
 let scenarioSection () =
@@ -323,22 +342,22 @@ let cacSection () =
 
 // ---------------------------------------------------------------- outputs
 
-let csvOut (be: (string * float * float option * float option * float option * float option) list) dev seqs fails =
+let csvOut (be: (string * float * float option * float option * float option * float option * float option) list) dev seqs fails =
     let o = function Some (v: float) -> num 0 v | None -> ""
     let om = function Some (v: int) -> string v | None -> ""
     [ "design-breakeven.csv",
-      csv [ "design"; "minutes_per_account_year"; "operating_breakeven_assets"; "operating_20pct_margin_assets"; "standalone_breakeven_assets"; "standalone_20pct_margin_assets" ]
-          (be |> List.map (fun (n, t, a, b, c, e) -> [ n; num 0 t; o a; o b; o c; o e ]))
+      csv [ "design"; "minutes_per_account_year"; "operating_breakeven_assets"; "operating_20pct_margin_assets"; "standalone_breakeven_assets"; "standalone_20pct_margin_assets"; "standalone_adjusted_breakeven_assets" ]
+          (be |> List.map (fun (n, t, a, b, c, e, g) -> [ n; num 0 t; o a; o b; o c; o e; o g ]))
       "development-scenarios-model.csv",
       csv [ "investment_usd"; "productivity_multiple"; "share_of_full_scope"; "covers_minimum_safe_product"; "minimum_safe_product_cost" ]
           (dev |> List.map (fun (i, m, s, ok, c) -> [ num 0 i; num 1 m; num 3 s; (if ok then "Y" else "N"); num 0 c ]))
       "sequences.csv",
-      csv [ "sequence"; "view"; "capital_required"; "month_profitable"; "cash_m24"; "cash_m36"; "cash_m60"; "year5_profit"; "year5_roic" ]
+      csv [ "sequence"; "view"; "equity_need"; "capital_required_debt_financed"; "month_profitable"; "cash_m24"; "cash_m36"; "cash_m60"; "year5_profit"; "year5_roic" ]
           (seqs |> List.collect (fun (s: Sequence, _, _) ->
               [ s, "cash"; economic s, "economic" ] |> List.map (fun (x, v) ->
                   let rows = simulate x
                   let at h = rows |> List.tryFind (fun r -> r.Month = h - 1) |> Option.map (fun r -> num 0 r.Cumulative) |> Option.defaultValue ""
-                  [ s.Name; v; num 0 (capitalRequired rows); om (monthsToProfit rows); at 24; at 36; at 60; num 0 (finalYearProfit rows); (match roic rows with Some r -> num 3 r | None -> "") ])))
+                  [ s.Name; v; num 0 (equityNeed x); num 0 (capitalRequired rows); om (monthsToProfit rows); at 24; at 36; at 60; num 0 (finalYearProfit rows); (match roic rows with Some r -> num 3 r | None -> "") ])))
       "failure-costs.csv",
       csv [ "sequence"; "failure"; "base_capital"; "capital_if_wrong"; "extra_capital"; "base_month_profitable"; "month_profitable_if_wrong"; "year5_profit_if_wrong" ]
           (fails |> List.map (fun (s, f, c0, c1, m0, m1, p) -> [ s; f; num 0 c0; num 0 c1; num 0 (c1 - c0); om m0; om m1; num 0 p ])) ]
@@ -363,6 +382,7 @@ let main argv =
               layerSection ()
               devSection dev
               seqSection seqs
+              growthSection ()
               failureSection fails
               pricingSection ()
               bridgeSection ()
