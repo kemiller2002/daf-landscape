@@ -1,0 +1,327 @@
+# 16: Adversarial review
+
+**Pass:** ADV2, a hostile review of the model, the four passes and the integrator's conclusions. **Data:**
+- [`adversarial-findings.csv`](../../../data/commercial-opportunity/ai-native-capital-minimization/adversarial-findings.csv) (27 model findings: 1 critical, 12 major, 14 minor);
+- [`hidden-costs.csv`](../../../data/commercial-opportunity/ai-native-capital-minimization/hidden-costs.csv) (23);
+- [`framework-procedure.jsonl`](../../../data/commercial-opportunity/ai-native-capital-minimization/framework-procedure.jsonl) (26: Clarity procedure and decision records; EDF records);
+- [`nine-perspectives.csv`](../../../data/commercial-opportunity/ai-native-capital-minimization/nine-perspectives.csv);
+- [`falsification.csv`](../../../data/commercial-opportunity/ai-native-capital-minimization/falsification.csv);
+- [`adv-experiments.out`](../../../data/commercial-opportunity/ai-native-capital-minimization/adv-experiments.out).
+
+**Framework revisions:** Clarity `200a9eb`; EDF `710d54c`.
+
+**What is not claimed**
+- Clarity was applied with its decision record. Ownership acceptance, decision date, review cadence and outcome could not be performed. Under Clarity's readiness rule, all five decisions are therefore **"not ready"**.
+- EDF was applied only to observed outcomes: the Echelon development history, Rehearsal 4 and the ordo cost trial. It was **not** executed on the hypothetical company.
+- **Reviewer, passes and integrator are the same model family. This is not independent validation.**
+
+## Integrator disposition of the findings
+
+The model was corrected and every analysis re-run after this review (23/23 tests). Numbers quoted in the ADV2 sections below are **pre-fix** values.
+
+| Finding(s) | Disposition | Effect |
+|---|---|---|
+| ADV2-001 (critical) aggregate optimism | **Accepted.** Steady-state adjustments are an explicit switch (`withAdjustments`: sales to $250k, independent reconciler, turnover, replacement onboarding); build base 1.5x; Echelon charge raised; December carried by staff. Headline is now a range | F5 standalone break-even $1.39B → $1.67B base, $1.85B adjusted; full-scope platform $2.46-2.65B |
+| ADV2-002 LYR labelled "conservative" | **Accepted.** Renamed "full-scope platform base"; integrated MSP base Echelon charge $135k + $60k licence | Both bases reported side by side |
+| ADV2-003 no December capacity limit | **Accepted.** 50% of the December release excess carried by year-round release-capable employees; the rest at +50% | Workload staffing now costs more than ratios above 5,000 accounts (report 06) |
+| ADV2-004 CNV-GOV-003 three-person release, reconciliation outside chain | **Accepted.** `controlCheck` requires three authorised people and an out-of-chain reconciler; F3 hires; F5/F6 carry a contracted independent reviewer | F3 admissible only with hires; minimum safe organisation is three core plus hires (report 07) |
+| ADV2-005 F1/F2 admissibility | **Accepted.** Marked "NOT ADMISSIBLE with live money" in every break-even row | F1/F2 are pre-launch build organisations only |
+| ADV2-006 sequences omit recurring platform cost | **Accepted.** Echelon share and licence from formation; non-production, servicing-specific platform and maintenance gap from go-live | Capital +$0.5-1.0M |
+| ADV2-007 2x build base | **Accepted.** Base 1.5x; 2-3x is upside to be earned by measurement | Minimum build $1.70M → $1.94M |
+| ADV2-008 deferred scope | **Accepted.** 15%-of-scope tranche over 12 months after the second go-live | Capital +$0.5M |
+| ADV2-009 capital/ROIC definitions | **Accepted.** Equity need (no financing) and debt-financed trough both reported; NPV at 15% with terminal value; ROIC labelled a year-5 snapshot | Headline capital is the equity need |
+| ADV2-010 combined scenario | **Accepted.** Licensees bear cost only up to net licence contribution ($300k − $250k sales − $35k SOC 2) | Combined case ≈ standalone ($1.56B) |
+| ADV2-011 attribution | **Accepted.** Cost bridge leads report 14 | Most of the improvement is build and sales assumptions |
+| ADV2-012 Echelon licence | **Accepted.** $60k a year base (owner-set) + LYR cost-plus failure case ($351k) + go-live gate (RC-AN-009) | — |
+| ADV2-013 coordination double count | **Accepted.** Coordination costed beyond 6 pairs | Small favourable |
+| ADV2-014 productivity costing bug | **Fixed.** Hires costed on paid hours | Outcome-designed variant now gains its 3% |
+| ADV2-015 transfers not reported | **Accepted.** Transfer ledger in reports 02 and 14 | — |
+| ADV2-016 pre-delegation per sponsor | **Fixed.** Per-sponsor early target for 12 months after each go-live | Capital up |
+| ADV2-017 narrow-entry assurance | **Fixed.** CST-C04 kept | — |
+| ADV2-018 code approvers | **Fixed.** Moved to Layer B (platform control) | — |
+| ADV2-019 fixed layer charge | **Partly accepted.** Kept as a fixed amount for fixed lines; documented | Small |
+| ADV2-020 test | **Fixed.** Asserts per design; documents that fully allocated can exceed standalone | — |
+| ADV2-021 hidden contracted FTE | **Fixed.** Total FTE reported; F3 hires | — |
+| ADV2-022, -023 sales and steady-state omissions | **Accepted** via `withAdjustments` | — |
+| ADV2-024 price/segment condition | **Accepted.** Every break-even states 20 bps, 5 sponsors, $250k; model section 11 shows tariffs and balances | — |
+| ADV2-025 pre-launch assurance timing | **Open.** Pre-launch fixed share 0.4 kept; SOC 1 observation and insurance binding timing is a limitation | Capital understated by up to about $0.1M |
+| ADV2-026 sponsor-retained minutes (OPS 2.7 vs COM 7.0) | **Open.** Reported as a transferred-cost range, not carried by the model | Sponsor-side cost $0.17-1.30M a year at $1B ([`hidden-costs.csv`](../../../data/commercial-opportunity/ai-native-capital-minimization/hidden-costs.csv)) |
+| ADV2-027 correlated failures | **Accepted.** Two joint modifiers; staged gates (report 15) | Joint failure +$2.1-4.2M |
+
+**Does AI-native merely hide conventional costs?** Partly. At $1B, 5 sponsors and 4,000 accounts, the hidden-cost ledger finds:
+- $0.75-3.06M a year not counted in the model (base $1.66M);
+- $0.76M partly counted.
+
+The largest sinks:
+- **Sponsors:** oversight and appointees, migration, payment rails ($84.5k measured pass-through), the third release person, and audit evidence. Sponsor-side subset $0.17-1.30M.
+- **Deferred scope.**
+- **Echelon reliance**, now partly charged.
+
+Agent compute is small. Contractors are now visible as total FTE. These costs are real even where the servicer's P&L does not carry them; a sponsor CFO will price them.
+
+> The research-pass content below was produced by a role-separated agent pass from the same model family as the integrator; it is not independent validation. Labels: [S] sourced, [A] assumption, [D] derived, [E] estimate, [M] measured (the pass ran it). Figures quoted inside pass sections are the pass's own; where the integrated model differs, the preface says so and the model ([`model/out/results.md`](model/out/results.md)) governs.
+
+## ADV2 summary verdict
+
+**Group ADV2 (adversarial review), 2026-11-25.** I did not produce the work reviewed. Same model family as the producers, so this is **not independent validation**. Labels [S]/[A]/[D]/[E]/[M] as in the brief.
+
+**Verdict: no fundamentally different company emerges. What emerges is a somewhat cheaper, better-instrumented version of the same business.** The model has pessimistic errors too (coordination counted twice, financing in the capital figure, a cancelled productivity gain), but they are smaller than the optimistic ones, so the net error is optimistic.
+
+**Most of the improvement is assumption, not design.** About 75% of the cost reduction the model claims over the previous study (its own bridge: $0.81M of $1.08M at $1.5B) comes from replacing $1.0M/yr of build amortisation and $250k of sales with a 2x-productivity platform charge ($0.44M) and $62k of sales lines. Workload-driven staffing contributes $0.26M/yr, about $0.08B of break-even (ADV2-011).
+
+**Corrected figures:**
+- **Break-even.** The $1.2-1.4B headline is the floor of the plausible range. Restoring sales ($250k), an independent reconciler, turnover and churn onboarding, MSP at 1.5x with LYR's Echelon reliance cost, and half of December carried by employees moves F5 standalone from $1.39B to $1.57B, then $1.74B, then $1.99B [M, E14]. With LYR's platform team it is $2.73B. The previous study's fully loaded range was $1.8-2.3B, which overlaps.
+- **Capital.** Two correlated failures (build x2 + sales 2x) take it to $7.7-11.7M (ADV2-027). Separately, $3.7-6.2M becomes $4.3-7.4M once the sequences carry the recurring platform costs the annual view already charges [M, E06], or $7.2-11.2M on LYR's platform. Without the 10% financing charge the equity need is 16-24% lower, so the capital figure is partly pessimistic (ADV2-009).
+- **3-person organisation.** It conflicts with CNV-GOV-003: three distinct persons are required until the auditor and board accept the deterministic gate, and reconciliation must sit outside the payment chain. F3's third person is a sponsor appointee (a transfer), and F3 runs 4.2 contracted FTE at its break-even (ADV2-004, ADV2-021).
+- **Hidden costs.** Costs outside the servicer's P&L total $1.66M/yr at base ($748k-$3.06M) at a $1B / 5-sponsor / 4,000-account reference, plus $758k only partly counted. The largest items are sponsor oversight and appointees, sponsor migration, deferred scope and the labour it moves, Echelon reliance, and payment rails.
+
+**Findings:** 27 model findings (1 critical, 12 major, 14 minor). The model reproduces exactly (20/20 tests; results.md identical) [M]. Its arithmetic is mostly sound. The defects are in scope (what is charged where), in control feasibility, and in which pass's base is called the base.
+
+## Method and reproduction
+
+- **Copy and run** [M]. The model and the previous model were copied to `adv/work/` and left unmodified. Commands: `dotnet test tests/CapitalMinimization.Tests` (20 passed) and `dotnet run --project src/CapitalMinimization -c Release -- adv/out`. `adv/out/results.md` is identical to `model/out/results.md` after the timestamp line.
+- **Experiments** [M]. `adv/scripts/experiments.fsx` runs E01-E15 with `dotnet fsi`, referencing the copied Release DLLs; output is in `adv/work/experiments.out`. `adv/scripts/pay.fsx` computes the payment rails.
+- **Adjustment assumptions** A-ADV2-001..007 are [A]. Each was chosen as plausible rather than worst case, and each is a switch the integrator can drop.
+- **Inputs read.** Research pass outputs `dev/`, `ops/`, `com/`, `lyr/` (report.jsonl, assumptions, key CSVs); Unbound convergence clauses CNV-GOV-003, CNV-GOV-004 and CNV-PLT-010 (primary); the previous study's 08-adversarial-review.md and adversarial-findings.csv; Clarity and EDF docs at pinned revisions.
+- **Mission sections read.** Section 19 (cost of being wrong: lines 657-680) and section 20 (Clarity/EDF, the nine perspectives, and cost transfer to less visible categories: lines 682-722). Section 20's investigation items (hidden assumptions, mechanisms, alternative explanations, incentives, feedback loops, dependencies, second-order effects, counterfactuals, falsification) are fields of each Clarity decision record.
+- **Not done.** Primary Rehearsal 4 records (GitHub) were not read; the evidence-register cross-check of every cost line was not done.
+
+## Model defects
+
+Full table: `model-findings.csv`. Ordered by consequence.
+
+| ID | Severity | Area | Finding (short) | Effect |
+|---|---|---|---|---|
+| ADV2-001 | critical | headline (aggregate) | The $1.2-1.4B AI-native break-even is the floor of a plausible range, not its centre. Each plausible omission is small; together they move F5 standalone from $1.39B to ~$2.0B and F3 from $1.45B to ~$2.1B. | Headline break-even moves from $1.2-1.4B to about $1.6-2.0B (F5), overlapping the previous study's fully loaded $1.8-2.3B. |
+| ADV2-002 | major | layers / parameter consistency | Designs.fs labels the LYR pass's base platform as 'conservative' (lyrLayers) and uses a much lighter baseLayers for every headline: Echelon $150k x 30% = $45k vs LYR $0.27M caused + 40% usage share; maintenance $300k vs LYR lead + 3 engineers $789k. The two pa... | Break-even $1.39B (base) vs $2.22B (LYR); the capital trough in sequences rises by $3-5M with the LYR platform (E06). |
+| ADV2-003 | major | December / staffing | evaluateDesign buys any December excess as premium hours (+50%) with no capacity limit. OPS finds that above ~5,000 accounts December, not annual hours, sets core headcount: temps cannot release, and CNV-GOV-004 makes pre-contracted surge reviewers sponsor-app... | +$0.16-0.36B on operating break-even; +$0.2-1.0M/yr in cost at $1-2.5B. |
+| ADV2-004 | major | controls | controlCheck accepts two authorised people plus a contracted reconciliation reviewer (F3). CNV-GOV-003 requires three distinct persons for release until the external auditor and the board accept the deterministic gate. It also requires reconciliation outside t... | Small direct cost (+$40k/yr reviewer for F5/F6; F3 needs outsourced reconciliation, +$24-60k). Large effect on the claim: the '3-person minimum safe organisation' is safe only with a sponsor-provided third person and release suspended on absence. |
+| ADV2-005 | major | F1/F2 admissibility | Sections 2-3 and design-breakeven.csv report break-even and margins for F1 and F2 even though their controlCheck is NO. They cannot operate with live money. Their rows are the lowest in the tables ($0.84-1.01B operating), so they are easy to quote out of conte... | Risk of a sub-$1B headline taken from inadmissible designs. Among feasible designs the floor is F3 at $1.09B operating and F5 at $1.39B standalone. |
+| ADV2-006 | major | sequences / omitted recurring platform cost | Sequences charge the one-off build but no recurring platform cost: Echelon's Unbound share, non-production and CI environments, servicing-specific platform, or the maintenance gap after go-live (maintenance $300k less embedded engineering; F3's CTO covers $167... | Capital $3.7-6.2M becomes $4.3-7.4M (base layers), or $7.2-11.2M with LYR layers. |
+| ADV2-007 | major | sequences / build multiple | Every sequence uses the minimum servicing product at 2x ($1.70M), including D and G through extensionBuild and narrowBuild. DEV's planning range is 1.5-3x with 1x as the downside; 2x is 'consistent with Echelon's raw output but not with any measured accepted-c... | +$0.2-1.0M of capital at 1.5-1x; the failure modifier (build x2) is the only coverage. |
+| ADV2-008 | major | build scope vs handling minutes | The minimum servicing product is 44.2% of conventional scope, and DEV defers 17 capabilities, some by moving labour to operations or sponsors: manual custodian import, scripted migration, manual SOC evidence, sponsor staff approving. Sequences nonetheless appl... | Handling cost understated while scope is deferred: up to $0.33M/yr at $1B (F5: 100 min $2.51M vs 50 min $2.18M, section 4). Deferred build of $1.55-2.79M (3x-1x) is outside the plan. |
+| ADV2-009 | major | capital and ROIC definitions | 'Capital required' is the cash trough including 10%/yr financing on the negative balance. Year-5 profit excludes financing. ROIC = after-tax (21%) year-5 accrued profit / trough. That mixes equity and debt. If the capital is equity, the trough is overstated. I... | The capital headline is 16-24% overstated as equity need (pessimistic), or year-5 profit is ~40-60% overstated if the capital is debt (optimistic). The ROIC ranking is unaffected; its level is not meaningful. |
+| ADV2-010 | major | layers / combined scenario | The 'Combined software + administration' scenario allocates 50% of Unbound to external licensees who do not exist. It adds no licence sales, licensee SOC 2 or support cost, and ignores the $300k external revenue. It produces the lowest break-even in the matrix... | $0.20B of break-even rests on cost borne by hypothetical customers. |
+| ADV2-011 | major | attribution (cost bridge) | The model's own bridge shows the 'different company' is mostly a different build-cost and sales assumption, not a different organisation. At $1.5B, of the $1.08M fall from the previous fully loaded Model B ($3.88M) to F5 standalone ($2.80M), $0.26M comes from ... | About 75% of the claimed improvement is an unmeasured 2x build multiple and lower sales spend. Without them the organisation saves ~$0.26M/yr, about $0.08B of break-even. |
+| ADV2-012 | major | Echelon licence | 21 of 26 Echelon repos are PolyForm Noncommercial, and CNV-GOV-009 bars them from release 1 without a commercial licence. The base model carries $0. The only coverage is a $60k/yr failure modifier, while LYR's cost-plus transfer price is $0.13-0.67M/yr. The li... | Unknown cost; launch blocked until resolved. Each $100k/yr adds ~$65M of break-even (LYR rule of thumb). |
+| ADV2-013 | minor | coordination double count | Coordination of 0.5 h per pair per week is added on top of 1,520 productive hours, which already deduct ~15% for meetings and admin (previous report 03; OPS part 5). This double counts, and errs towards pessimism. | -$0.00-0.04B of break-even (model too pessimistic). |
+| ADV2-014 | minor | outcome-designed productivity bug | outcomeDesigned raises ProductiveHours by 3%, but the added-capacity cost is FTE x ProductiveHours x (Loaded/1,520). Each employee then costs 3% more ($102,462 vs $99,478), and fractional capacity cost does not change, so the coordination gain cancels. | The outcome-designed gain from coordination (~$33k/yr per OPS) is lost. The model is slightly pessimistic here. |
+| ADV2-015 | minor | outcome-designed transfers | The outcome-designed variant (30.1 min; 12,720 sponsor minutes) rightly excludes transferred work from servicer cost. But no output reports the 5.0 min/account and 600 min/sponsor-year moved to donors, charities, intermediaries, sponsors and auditors. S04's -1... | Servicer cost is fine. System cost is understated by ~$22k/yr of labour at $1B, plus unquantified fund-borne intermediary fees. Sponsor willingness to pay is affected. |
+| ADV2-016 | minor | pre-delegation per sponsor | EarlyTarget (~100 min) applies only for 12 months after the FIRST go-live. OPS says every new sponsor starts in pre-delegation (three-person release, 100% calibration, +~14 min; 45-75 min in year 1). | +$0.3M capital; year-5 profit lower whenever sponsors are added late. |
+| ADV2-017 | minor | narrow-entry assurance and revenue | narrowEntryNonPersonnel drops CST-C04 (compliance consultant: sanctions, due diligence, independent review) from a service whose product is charity verification and screening. COM says to sell only after sanctions recall is fixed (88/100 in the public replay).... | Assurance mis-scoped (+$25k missing, -$40k unneeded). Sequence D/G revenue of $240k/yr is speculative; at zero narrow revenue D's capital rises by ~$0.2M/yr of service life. |
+| ADV2-018 | minor | servicingOnly allocation | servicingOnly moves engineers and 'engineering' contracts to Layer B but keeps 'contracted independent code approvers' ($45-90k) in the servicing layer, while Layer B maintenance pays for the code they approve. This duplicates or misallocates the cost. | $45-90k/yr in the wrong layer; incremental/FA servicing cost overstated by that amount. |
+| ADV2-019 | minor | layer charge as fixed amount | Layer charges enter as a constant ExtraordinaryCost computed at the $1B reference. That is correct for fixed lines. But integration upkeep that servicingOnly makes fractional, and per-sponsor platform cost, are frozen at 5 sponsors. The same channel also carri... | Negligible at 5 sponsors; wrong for any sponsor-count or stress sensitivity. |
+| ADV2-020 | minor | tests | The test 'layer views order incremental below fully allocated below standalone' never asserts fully allocated < standalone, and it compares F5 fully allocated with F3 standalone. For F3, fully allocated ($2.716M) actually exceeds standalone ($2.715M). | None on the numbers; the test name misstates what is verified. |
+| ADV2-021 | minor | hiring threshold and hidden headcount | Hiring happens at floor(need + 0.25), i.e. once residual need reaches 0.75 FTE. F3's pools are Fractional, so it never hires: at its standalone break-even ($1.45B) it is 3 employees plus 4.2 contracted FTE, and 7.3 contracted FTE at $3B. The '3-person organisa... | Cost is counted, but the headcount claim is misleading. Access control and SoD over contractors is unpriced. |
+| ADV2-022 | minor | sales capacity | Sales lines are $62k (events, marketing, CRM) plus 30% of the founder; the previous study and LYR carry $250k. No time budget checks that the founder's queue share, MD role, 30% selling, governance and relationship work fit in one person. | +$0.11B of break-even at $250k sales. |
+| ADV2-023 | minor | steady-state omissions | Annual break-even omits replacement-sponsor onboarding (churn), recruiting and turnover, and the expected incident loss. They appear only in sequences or stresses. | +$0.1-0.2M/yr (churn ~0.5 sponsor/yr x $105k, turnover ~$40k, expected loss $25-100k): ~+$0.07-0.13B of break-even. |
+| ADV2-024 | minor | price and segment condition | Break-even assumes 5 equal sponsors at a $250k balance and 20 bps. COM finds 20 bps value-defensible only for small/mid-balance or already-outsourced books; equivalent-scope value is 5-10 bps for $1M+ books. F5 at 7 bps never breaks even below $3.3B. | The headline is valid only inside the segment where 20 bps holds, which is a handful of decision units (previous ADV-002). |
+| ADV2-025 | minor | pre-launch assurance timing | PreLaunchFixedShare 0.4 scales all non-personnel before the first go-live. But the SOC 1 Type 2 observation must start before the first staffed client goes live (OD-P-GOV), the pen test must precede live money, and insurance must be bound before contract. | ~+$50-100k of capital in the 6 months before go-live. |
+| ADV2-026 | minor | cross-pass inconsistency | Sponsor-retained time is 2.7 sponsor-appointed min/account-year in OPS but 7.0 sponsor-retained min/account-year in COM (A-COM-007). The model carries neither. | The buyer-side cost differs by 2.6x between passes, which affects value-based price. |
+| ADV2-027 | major | cost of being wrong (mission section 19) | Failure modifiers are applied one at a time, but the failures are correlated: low productivity, slow sales and unreduced review tend to arrive together. The model also gives no detection signal, contingency or recovery cost per failure, which section 19 asks f... | Two correlated failures double the capital need. A $3.7-6M raise has no buffer for them. |
+
+**Where the model is too pessimistic:**
+- coordination is counted on top of the productive-hours deduction (ADV2-013);
+- the financing charge inflates the equity need (ADV2-009);
+- the +3% productivity gain cancels itself (ADV2-014);
+- code approvers are duplicated across layers (ADV2-018);
+- LYR's 4-engineer team is sized for the full Unbound scope (ADV2-002).
+
+Together these are worth roughly $0.05-0.1B of break-even and $0.6-2.8M of capital trough (the latter only if the capital is equity). They do not offset ADV2-001/003/006/007.
+
+## Hidden cost ledger
+
+`hidden-costs.csv` has 23 items. Reference: $1B, 5 sponsors, 4,000 accounts, 50 minutes, unless an item says otherwise. 'Counted' means inside the model's servicer cost.
+
+**Totals.** HC-13 is an alternative to HC-12 and HC-10 is internal if owners are common; both are excluded from the totals.
+- Not counted (N): $748k / $1.66M / $3.06M low / base / high per year.
+- Partly counted: $77k / $758k / $1.15M.
+- Sponsor-side subtotal (HC-01/02/03/05/06): $166k / $616k / $1.30M.
+- Counted but invisible in the headcount label: $538k (F3's contracted queue FTE and agent compute).
+
+| ID | Item | Moved to | Low | Base | High | Counted |
+|---|---|---|---|---|---|---|
+| HC-01 | Sponsor oversight, vendor management and sponsor-appointed authorities (>=2 per sponsor, exclusive, board-appointed, D&O | sponsors | $18k | $330k | $660k | N |
+| HC-02 | Sponsor-side migration (parallel run, data clean-up, donor communication), amortised 5 years | sponsors | $83k | $166k | $440k | N |
+| HC-03 | Third distinct person for release until auditor and board accept the deterministic gate; release suspended on absence (F | sponsors (appointee) and customers (delay) | $0k | $25k | $75k | N |
+| HC-04 | Account-level work transferred to donors (attestations, self-service), charities (EFT enrolment) and intermediaries (for | donors, charities, intermediaries | $13k | $22k | $40k | N |
+| HC-05 | Sponsor-level work transferred to sponsors and their auditors (S02 configuration adoption, S04 audit evidence): 600 min/ | sponsors, sponsor auditors | $5k | $10k | $15k | N |
+| HC-06 | Payment rails passed through to sponsors at cost | sponsors | $60k | $85k | $110k | N |
+| HC-07 | Founders' below-market cash pay (cash view of F2/F3) | founders unpaid | $0k | $179k | $179k | partial |
+| HC-08 | Owner's Echelon principal-maintainer time attributable to Unbound/servicing | founders unpaid / Echelon | $57k | $111k | $191k | partial |
+| HC-09 | Echelon reliance costs caused by regulated production use (second maintainer, component security review, licence program | Echelon shared layer | $111k | $273k | $410k | N |
+| HC-10 | Commercial licence for PolyForm-NC Echelon components (launch blocker, CNV-GOV-009) | Echelon / owner | $0k | $60k | $670k | N |
+| HC-11 | Platform maintenance gap after go-live in sequences (DEV floor $0.22-0.47M vs embedded CTO time) | deferred maintenance | $53k | $133k | $303k | N |
+| HC-12 | Deferred 56% of Unbound conventional scope (not in the minimum servicing product), annualised over 5 years | deferred build | $310k | $372k | $558k | N |
+| HC-13 | Labour moved to operations and sponsors by deferred capabilities (manual custodian import, scripted migration, manual SO | operations / sponsors | $100k | $200k | $330k | N |
+| HC-14 | December capacity carried by employees rather than premium hours (temps cannot release; surge reviewers are sponsor-appo | contractors / sponsors | $0k | $210k | $420k | partial |
+| HC-15 | Deferred assurance: auditor evaluation of the deterministic gate and generated evidence (CNV-GOV-001/003); higher SOC fe | auditors / deferred | $20k | $50k | $115k | partial |
+| HC-16 | Sales effort below the previous study's $250k (founder time substitutes) | founders | $0k | $188k | $188k | partial |
+| HC-17 | Risk transferred to customers: grant delays when release is suspended, fraud losses above $5M crime cover, incident cost | customers (sponsors, donors, charities) | $25k | $50k | $100k | N |
+| HC-18 | Contracted queue capacity (hidden headcount): F3 3.3 contracted FTE at $1B at a 1.5x premium | contractors | $480k | $490k | $500k | Y |
+| HC-19 | Contracted independent code approvers and reconciliation reviewer: ramp-up and codebase knowledge | contractors | $0k | $20k | $60k | partial |
+| HC-20 | Agent compute for operations and continuous development | agent compute | $20k | $48k | $150k | Y |
+| HC-21 | Replacement-sponsor onboarding (churn) and recruiting/turnover in steady state | servicer (omitted) | $45k | $92k | $180k | N |
+| HC-22 | Echelon 0.x churn: upgrade work on weekly releases borne by Unbound engineers | Unbound engineers | $5k | $15k | $40k | N |
+| HC-23 | Entity separation and transfer-pricing administration (EO-LYR-05 servicing subsidiary) | corporate (deferred) | $20k | $90k | $130k | N |
+
+**Reading. Does the AI-native organisation move conventional costs into less visible categories? Partly, yes.**
+- **Sponsors are the main sink:** oversight and appointees ($0.33M base), migration ($0.17M), payment rails ($0.08M), the release third person, and audit evidence. COM puts sponsor-retained time at 7.0 min/account; OPS puts it at 2.7. The two passes have not reconciled this (ADV2-026).
+- **Deferral is the second sink.** The 56% of the conventional scope not built in the MSP is worth $0.31-0.56M/yr. While deferred, the labour it would have automated returns to operations and sponsors ($0.1-0.33M).
+- **Echelon is the third.** The model charges $45k; reliance costs $0.27M, plus a licence that does not yet exist.
+- **Not hidden:** agent compute is small (<5% of build; $48k/yr assumed for operations), and contractors are costed, though the headcount label hides them.
+- **Net.** Counting the base not-counted items as system cost would add more than the whole organisational saving ($0.26M) several times over. A large part of the leanness is relocation.
+
+## Clarity procedure
+
+**Revision:** clarity-framework @ 200a9ebf029c051eac625bb5185929b20c8d5aed (2026-11-16). The procedure was extracted from rules.md, assessor-guide.md, decision-record.md and decision-posture-model.md. Step IDs (PRE-01, CL-01..CL-16) are mine; Clarity does not number them. Records are in `framework-procedure.jsonl` (procedure_step x17, clarity_decision_assessment x5).
+
+| Step | Performed | Note |
+|---|---|---|
+| PRE-01 Pin revisions; files read | Y | clarity-framework @ 200a9ebf029c051eac625bb5185929b20c8d5aed (2026-11-16); echelon-diagnostic-framework @ 710d54c20e935db8b6f75f9c60ee7217f0cb0e32 (2026-11-17); |
+| CL-01 Decision readiness: what decision now, posture, owner | partial | Decision and posture stated. The owner is named as 'the owner (product owner)' by role only; no owner has accepted the record. By the record's own rule this mea |
+| CL-02 Admissibility lint of the claims as the research states them | Y | Applied to each decision's working claim. Main violations found: false precision or tidy-but-unearned models (point break-evens from [A] minutes); hidden prescr |
+| CL-03 Foundational commitments: mechanism, signal, incentives, bounds, tradeoffs, systems over heroes | Y | Recorded per decision. The 'Systems over heroes' commitment is directly engaged: F1-F3 and sequence F depend on one founder. |
+| CL-04 Operational test: survives incentives, time, pressure? | Y | Recorded per decision. |
+| CL-05 Assessment level (Progressive Commitment, smallest sufficient) | Y | Level 3 for D1, D2 and D5 (regulated, low correctability). Level 2 for D3 and D4. |
+| CL-06 Claim and posture (impact x correctability -> Fast/Experimental/Guardrail/Strategic) | Y | Recorded per decision. |
+| CL-07 Constraints | Y | Recorded per decision. |
+| CL-08 Admissible evidence (relevance, incentives, proximity, verifiability) | Y | Recorded per decision. All model evidence is same-model, built from [A] parameters (an incentive and independence weakness). |
+| CL-09 Assumptions, explicit and shadow | Y | Recorded per decision. |
+| CL-10 Confidence vs evidence; proportional certainty | Y | Recorded per decision, using EDF confidence labels. |
+| CL-11 Ownership | N | Cannot be performed by a research agent. A role is proposed; acceptance is absent. |
+| CL-12 Triggers: signal, threshold, trigger claim, owner, operational response, reassessment response, trigger reassessment | partial | Signals and thresholds defined. No monitoring exists to observe them, and the owner field is a proposal. |
+| CL-13 GO conditions, failure detection, boundaries | Y | Recorded per decision. |
+| CL-14 Commitment outcome (Commit / Continue Experiment / Delay / Escalate) and review | partial | Recommended outcome given. Neither decision date nor review cadence can be set without an owner. |
+| CL-15 Failure-pattern check (Confidence Debt core; Burden Externalization candidate) | Y | Recorded per decision. Burden Externalization is a Candidate concept (maturity table), so it is used as a lens, not as a verdict. |
+| CL-16 Outcome (completed later) | N | No outcome exists; none of the decisions has been taken. |
+
+| Decision | Level | Posture | Confidence | Commitment |
+|---|---|---|---|---|
+| D1 Organisation size at go-live with live money: F3 (founder, CTO, controller, plus contracte | 3 | Guardrail | Low (that F3 is safe at go-live); Medium-High (narrow negative: F3 does not meet CNV-GOV-0 | Delay (F3 for live money); Commit to F5-with-reviewer as the go-live floor; Continue Experiment on the deterministic gate acceptance. |
+| D2 Build investment level for the minimum servicing product: ~$1.0M (needs >=5x) vs ~$1.7-1.9 | 3 | Strategic (total budget) / Experimental (first 3-5 capabilities) | Low (2x); Medium (that $1.0M is unsafe at <5x); Medium (1x = $2.4M at base effort, same-mo | Continue Experiment ($100-250k on 3-5 capabilities under the DEV protocol); Delay commitment to the full MSP budget. |
+| D3 Entry sequence: A conventional / B product-first / C customer-funded / D narrow entry / E  | 2 | Strategic | Low. | Continue Experiment (customer discovery with a C/G structure); Delay the capital raise sizing until one LOI. |
+| D4 Pricing structure: flat 20 bps vs per-account-led hybrid (~$350/acct + 3 bps, capped 20 bp | 2 | Experimental | Medium (that flat 20 bps exceeds value at $1M+ balances); Low (that 20 bps is accepted any | Continue Experiment. |
+| D5 Reliance on Echelon: (a) runtime components in production, (b) development tooling and ven | 3 | Strategic | Medium-High (narrow negative: no runtime DAF capability exists in Echelon); Low (any opera | Commit to (b) tooling-only; Delay (a); Escalate the licence terms to counsel. |
+
+**Could not be performed:**
+- ownership acceptance (CL-11);
+- decision date and review cadence (part of CL-14);
+- outcome (CL-16);
+- live monitoring for triggers (CL-12 partial).
+
+By decision-record.md:7-17, a decision without an owner is not ready. **All five decisions are therefore 'not ready'** whatever the analysis says.
+
+**Clarity's own limit:** its 2026 benchmark found it no more accurate than the same model with no method; its strength is making assumptions explicit (README:19-22). That is how it was used here. The value it added was surfacing shadow assumptions: the sponsor provides the third person; the owner's Echelon time is free; the founder can sell while building.
+
+## EDF applicability
+
+**Revision:** echelon-diagnostic-framework @ 710d54c20e935db8b6f75f9c60ee7217f0cb0e32 (2026-11-17). The required sequence (specification.md:39-54) needs a factual outcome at step 2.
+
+| Subject | Applicable | Outcome / reason | Claim state | Confidence | Next responsible action |
+|---|---|---|---|---|---|
+| EDF-A Observed Echelon development history (26 component repos) | yes (EDF-1 standard) | 26 repos build; ~9,768 tests pass; 9,045 commits by 1 human identity plus agents over 105 commit days; no repo in production with external users; 0 of 1,687 Praxis execution records carry human time;  | Development cost reduction: unsupported. Output volume: internal-demonstration. | Medium | Instrument the next 3-5 Unbound capabilities with the DEV protocol before sizing D2. |
+| EDF-B Rehearsal 4 autonomous build (indy-init-rehearsal-004) | partially (EDF-0/1; primary records not read) | Independent verifier FAILED / NOT ACCEPTED; 1 PASS, 9 FAIL, 98 NOT_RUN of 108 P0 requirements; 296 of 420 minutes used (echelon-engineering-system/docs/rehearsal-evidence.md:13-31 @4ca2f98). | 'Autonomous agents deliver an accepted product in one rehearsal': contradicted (n=1). 'Multiple >= 5x for DAF build': co | Low-Medium | Treat 5-10x as contradicted in D2. Require a comparable accepted run before using any autonomous-build multiple. |
+| EDF-C Ordo controlled agent-cost trial EX-SDE-2026-0001/0002 | yes (EDF-0) | 11 runs at $12.00-27.15 each; 5 verified; 6 void; both agents' self-reported test results were wrong (dev/report.jsonl). | Compute cost per mission: internal-demonstration (one mission, one codebase). | Medium | Budget review time, not compute. |
+| EDF-N The five decisions and the model's headline claims (break-even, capital, MSP cost, 3-person organisation, 20 bps segments) | no | Prerequisite absent: EDF step 2 requires a factual outcome (specification.md:39-70), and the company does not exist. Steps 2-5 and 7-9 cannot be performed. Step 6 (separate observation from inference) | n/a | n/a | Run EDF on adjacent observed outcomes once they exist: a design-partner time study, the Unbound public-data replay (sanctions recall 88/100) |
+
+**Prerequisites absent for the five decisions and the headline claims:** there is no factual outcome, so EDF steps 2-5 and 7-9 cannot run. Only step 6 (separating observation from inference) and the claim-state vocabulary are used.
+
+Diagnostic Calibration does not apply: one model family and no cross-executor runs.
+
+The EDF results relevant to D2 are:
+- **EDF-A:** development cost reduction is unsupported; the control point is a timer plus independent acceptance.
+- **EDF-B:** at least 5x autonomous construction is contradicted at n=1, from a secondary summary (primary not read).
+
+## Nine perspectives
+
+Full text: `nine-perspectives.csv`.
+
+| Perspective | Strongest objection | Evidence that would answer it | Answered now? |
+|---|---|---|---|
+| Conventional enterprise executive | A 3-6 person core cannot run a regulated money operation through December, audits, incidents and absence at the same time. The org chart will be rebuilt after the first bad quarter. The model buys December at +50% premium hours with no capacity limit, and F3 suspends release when one person is absent. | A full operating year at a design partner covering December and at least one absence; a roster double-absence test (CNV-GOV-004); December interval arrival data. | Partly. The OPS December model and ADV2 E04 quantify the risk (+$0.2-1.0M/yr; break-even +$0.16-0.36B). Nothing has been observed. |
+| AI-native entrepreneur | The research is too pessimistic. It holds 30% incompressible effort, 1,520 productive hours, 7.5% contingency, 10% financing on capital, coordination counted twice, and human controls that a deterministic gate could replace. The build could be under $1M and operations under 30 minutes per account. | Measured accepted-capability rates under the DEV protocol; an accepted Rehearsal-type run; an auditor's acceptance of the deterministic gate (CNV-GOV-003) and of generated evidence (CNV-GOV-001). | Partly. Pessimistic biases are real but small: coordination -$0.00-0.04B of break-even (ADV2-013); financing overstates equity need by 16-24% (ADV2-009); the +3% productivity bug (ADV2-014). The only end-to-end trial failed (1/108), so the optimistic case is contradicted, not just unproven. |
+| Skeptical investor | Year-5 profit of $0.8-1.1M on $4.3-7.4M of capital, profitable only after 18-42 months, rests on 2-3 sponsors. Incumbents can copy most levers in 6-36 months (COM replication). There is no terminal value, exit evidence or comparable. ROIC is a one-year snapshot of a still-ramping company, and the key-person risk is the founder. | Signed LOIs with minimum fees; NPV/IRR with an explicit terminal value; comparable transactions; customer concentration limits. | No. The research reports ROIC on one year (ADV2-009) and does not value the company. |
+| Sponsor CFO | At $1M+ balances 20 bps costs more than my equivalent-scope in-house cost (COM: 5-10 bps). I still pay oversight ($60k + $7.5/acct), appointees, migration ($150k+), payment rails and the startup's risk. Why switch to an entrant with no SOC history? | My own activity costing; a value-share pilot with a measured baseline; the entrant's SOC 1 Type 2 report. | Partly. The COM sponsor-value model is modelled, not observed. Sponsor-side costs are excluded from the model (hidden-cost ledger HC-01/02/06). |
+| Financial controller | In F3/F5 the controller both releases and reconciles, but CNV-GOV-003 puts reconciliation outside the payment chain. A 200-hour fractional reviewer is thin independence for five sponsor books, and a month-end close across five books with three people has no slack. | A control matrix walkthrough by an audit firm; an ITGC design; a timed mock close across multiple books. | No. The model's control check is a head count (ADV2-004). |
+| Compliance professional | OFAC dispositions are never auto-closed. Sanctions recall in the public replay is 88/100. The compliance owner is a 0.25 FTE contractor, and the narrow service sells screening while dropping the compliance consultant. Who clears flags in peak December? | Replay recall >= 99% with documented false-negative handling; a named compliance officer; a counsel opinion on money transmission (CNV-LEG-002). | Partly. OPS states the human floors; recall and the opinion are open (ADV2-017). |
+| Incumbent competitor | We can re-tier selectively at renewal in 0-6 months, add AI triage to our operations, and we already have SOC history and integrations. You are selling to the same 2-5 decision units we serve, and switching is rare (COM: 8 migrations, 6 to Foundant). | Win/loss in competitive processes; renewal price moves by incumbents; switching rate history. | Partly. COM replication.csv gives judgement scores; there is no market test. |
+| Customer (donor/advisor) | Will my December grants clear on time if release stops when someone is absent, or if AI is down? Who do I talk to? Can I take my data with me? | A December SLA under an absence + AI outage stress (OPS scenario); service history at a design partner; an export test. | No. OPS models a backlog of 51,000 minutes at 31 December under annual sizing, and no SLA is evidenced. |
+| Independent auditor | I cannot rely on an AI-authored codebase with one human maintainer and no SAST or dependency scanning in any Echelon repo. A deterministic gate counts as releaser only with ITGCs effective over a period. Generated evidence needs IPE support. Type 2 needs 6-12 months of operation. | The auditor's planned-approach letter; an ITGC design walkthrough; a SOC readiness assessment focused on agent-made changes. | No. DEV and LYR list it as an evidence gap. |
+
+**Open objections:**
+- Fully unanswered: investor (P3), controller (P5), donor/advisor (P8) and auditor (P9). Each needs an external party: an auditor letter, a design-partner operating year, or a valuation.
+- Partly answered by modelling: P1, P2, P4, P6 and P7.
+
+## Falsification
+
+Full text: `falsification.csv`.
+
+| Claim | Falsifying observation | Cheapest way to obtain it | Status |
+|---|---|---|---|
+| Break-even ~$1.2-1.4B (AI-native lean platform, 20 bps, $250k balance) | Any one of: (a) all-in human minutes > 75/acct-yr after 12 months at a design partner (F5 standalone at 75 min = $1.54B); (b) December clearance needs > 1.5x the annual-sized releasers (ADV2-003: $1.28-1.48B operating); (c) platform maintenance + Echelon reliance > $0.6M/yr; (d) realised price < 17 bps book-weighted. | A 90-day shadow time study and replay on one sponsor's book, plus that sponsor's last three Decembers' daily arrivals; ~$25-60k [E]. Already decisive on paper: ADV2-001 places the adjusted range at $1.6-2.0B. | Already weakened (ADV2-001/002): the claim holds only if every favourable assumption holds. |
+| Capital $3.7-6M | First contract signs after month 18 (sales 2x: +$1.3-3.7M); MSP accepted-capability cost > $2.4M; or platform recurring costs included (E06: $4.3-7.4M). | Pursue three sponsor LOIs with minimum fees before spending > $0.5M (owner-led, low cost). Build one mandatory capability group (e.g. LEDGER) under the DEV protocol with a blind conventional estimate (~$50-150k). | Weakened: the corrected base is $4.3-7.4M; $3.75M needs the F3 control design that CNV-GOV-003 does not allow before acceptance. |
+| Minimum safe product $1.1-2.4M | Measured effective multiple < 1.2 on the first 3-5 capabilities (cost > $2.4M at base effort); the high-effort scope (216 person-months, $3.9M at 1x) materialises; or the auditor requires added assurance scope. | The DEV measurement protocol on 3 capabilities with timer hours and an independent oracle (~$100-250k of build that is needed anyway). | Open. The range is bounded honestly, but its lower half (< $1.6M) needs >= 2x, which is unmeasured. |
+| 3-person minimum safe organisation | An auditor or sponsor control review rejects 2 authorities + reviewer before gate acceptance (CNV-GOV-003 text already requires three distinct persons); or the December double-absence roster test fails. | A desk check of the clause (free; already done: ADV2-004), then a focused question in the planned $20k SOC readiness assessment. | Contradicted on the requirement text unless the third person is a sponsor appointee (a transfer). |
+| 20 bps defensible only for some segments | Optimistic falsifier: a sponsor with a $1M+ average balance signs >= 15 bps for equivalent scope. Pessimistic falsifier: small/mid-balance, already-outsourced sponsors decline 20 bps at renewal. | Side-by-side quotes (bps and $/account) in 5-10 owner-led conversations; watch next-year Form 990 vendor payments (public, free). | Supported by COM's modelled value; no buyer test yet. |
+| Meta-claim: an outcome-designed AI-native servicer is a fundamentally different company | Would be supported (the current verdict falsified) only if, together: measured accepted-capability multiple >= 2x with defect escape <= baseline; auditor and board accept the deterministic gate at go-live; observed account minutes <= 30 after the pre-delegation year; platform recurring <= $0.4M/yr. Then the F5 outcome-designed break-even approaches $1.2B and capital ~$4M. | Run the DEV protocol, the auditor letter and a shadow time study in parallel (~$0.2-0.4M, mostly spend needed anyway). | Not supported on current evidence. |
+
+**Cheapest decisive tests, in order:**
+1. Desk check of CNV-GOV-003 against F3. It is free and already done, and it contradicts the 3-person claim unless a sponsor appointee is counted.
+2. Owner-led quotes to 5-10 sponsors in bps and $/account side by side (low cost).
+3. The DEV measurement protocol on 3 capabilities (~$100-250k of build that is needed anyway).
+4. A 90-day shadow time study with December arrival data at one sponsor (~$25-60k [E]).
+5. The auditor's planned-approach letter, inside the planned $20k SOC readiness assessment.
+
+## Overall conclusion: does a fundamentally different company emerge?
+
+**No, on current evidence.** This is not pessimism for its own sake: the model's own numbers and the passes' own findings say so.
+
+1. **Fixed control, assurance, platform and sales cost sets break-even, not handling time.**
+   - Zero human minutes would lower break-even by ~7% (OPS).
+   - 50 to 30 minutes moves F5 operating break-even by $0.07B (results.md section 3).
+   - AI changes marginal cost (~$90 to ~$45 per account-year in the model) and evidence quality, not the fixed floor.
+2. **The apparent step change is a build-cost assumption.** About 75% of the claimed reduction is the 2x MSP multiple and lower sales spend. 2x is unmeasured; the only end-to-end trial failed (1/108).
+3. **The lean organisation is partly a relocation.** Sponsors (appointees, oversight, migration, rails, the third release person), deferred scope and its manual labour, and Echelon reliance absorb about $1.6M/yr at base that the servicer's P&L does not show (sponsor side alone about $0.6M).
+4. **Controls bind exactly where AI-native design claims to save.** Three distinct persons until the gate is accepted; reconciliation outside the payment chain; per-sponsor exclusive appointees and surge reviewers; December sizing above ~5,000 accounts.
+
+**What is genuinely different, and worth keeping:**
+- workload-driven staffing instead of ratio triggers (~$0.1-0.4M/yr at scale; section 6);
+- a single case/event/evidence model;
+- per-account pricing logic;
+- an explicit three-layer cost view;
+- an honest Amdahl bound on build cost.
+
+**What would change the verdict (falsifier F-06), all at once:** a measured >= 2x accepted-capability multiple with defect escape at or below baseline; auditor and board acceptance of the deterministic gate from go-live; <= 30 observed minutes after the pre-delegation year; platform recurring cost <= $0.4M/yr. None is evidenced today. All four can be tested for roughly $0.2-0.4M, mostly spend that is needed anyway.
+
+## Files, row counts, top findings and gaps
+
+| File | Rows/lines |
+|---|---|
+| model-findings.csv | 27 |
+| hidden-costs.csv | 23 |
+| framework-procedure.jsonl | 26 |
+| nine-perspectives.csv | 9 |
+| falsification.csv | 6 |
+| evidence.jsonl | 16 |
+| assumptions.jsonl | 7 |
+| report.jsonl | 10 |
+| work/experiments.out | E01-E15 [M] |
+| scripts/experiments.fsx, pay.fsx, build.py, *_data.py | sources |
+| out/ (re-run model outputs) | results.md + 4 CSV |
+
+**Top findings:**
+1. **ADV2-001 (critical).** Adjusted F5 break-even is $1.6-2.0B, not $1.2-1.4B.
+2. **ADV2-011.** About 75% of the improvement is the build/sales assumption; organisational design is worth ~$0.26M/yr.
+3. **ADV2-004.** The 3-person design conflicts with CNV-GOV-003; its safety is borrowed from sponsors.
+4. **ADV2-003.** The December capacity limit is absent (+$0.16-0.36B of break-even).
+5. **ADV2-006/007/027.** Sequences omit recurring platform cost and use an unmeasured 2x build. Capital is $4.3-7.4M, not $3.7-6M, and two correlated failures double it ($7.7-11.7M).
+
+**Largest gaps:**
+- no time study or December arrival data;
+- no measured accepted-capability rate or human time;
+- no auditor view of the deterministic gate or of AI-authored code;
+- no Echelon licence terms;
+- no buyer price test;
+- sponsor-retained time is unreconciled between OPS (2.7) and COM (7.0);
+- primary Rehearsal 4 records were not read.

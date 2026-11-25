@@ -257,6 +257,17 @@ Economic view (founders at market):
 | F founder-led: F1 then F3, $1.0B anchor + $500M \| growth to $3.0B | $4.74M | $6.26M | 30 | $-4.40M | $-5.15M | $-5.51M | $1.81M | 22.8% | $1.44M |
 | G hybrid: narrow service + design partner + staged F2/F3/F5 \| growth to $3.0B | $7.12M | $9.06M | 42 | $-5.02M | $-7.05M | $-8.78M | $1.46M | 12.7% | $-1.24M |
 
+## 9c. Incremental capital if Unbound already exists (servicing company only)
+
+| Sequence | Equity need | Debt-financed trough | Month profitable | Cash month 24 | Cash month 36 | Cash month 60 | Year-5 profit | Year-5 ROIC | NPV 15% |
+|---|---|---|---|---|---|---|---|---|---|
+| B product-first: F2 builds minimum product (12 months), F5 from first go-live \| on an existing Unbound | $2.31M | $2.70M | 30 | $-1.63M | $-2.52M | $-1.73M | $895k | 26.2% | $1.28M |
+| C customer-funded: design partner prepays $250k, F3 then F5 \| on an existing Unbound | $2.24M | $2.61M | 27 | $-1.77M | $-2.61M | $-1.43M | $895k | 27.1% | $1.43M |
+| D narrow entry: non-custodial service at $40k/sponsor, administration from month 24 \| on an existing Unbound | $2.68M | $3.23M | 42 | $-1.46M | $-2.62M | $-2.41M | $970k | 23.8% | $1.11M |
+| E provider partnership: partner programs at 14 bps net, F3 \| on an existing Unbound | $2.82M | $3.66M | 42 | $-2.04M | $-3.23M | $-3.66M | $168k | 3.6% | $-1.66M |
+| F founder-led: F1 then F3, $1.0B anchor + $500M \| on an existing Unbound | $1.35M | $1.53M | 18 | $-1.47M | $-1.45M | $220k | $1.13M | 58.4% | $2.96M |
+| G hybrid: narrow service + design partner + staged F2/F3/F5 \| on an existing Unbound | $2.59M | $3.10M | 39 | $-1.89M | $-2.82M | $-2.20M | $932k | 23.8% | $1.11M |
+
 ## 10. Cost of being wrong: failure modifiers on each sequence
 
 | Sequence | Failure | Base capital | Capital if wrong | Extra capital | Months to profit change | Year-5 profit if wrong |

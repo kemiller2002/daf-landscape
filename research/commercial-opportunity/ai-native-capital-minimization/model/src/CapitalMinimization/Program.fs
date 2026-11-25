@@ -198,6 +198,20 @@ let growth (s: Sequence) =
     let extra = [ for i in 0 .. 2 -> { Sponsor = sponsor $"growth{i + 1}" (0.5e9 / 250000.0) 250000.0; SignMonth = 36 + 6 * i; OnboardingMonths = 6; ImplementationFee = 50000.0 } ]
     { s with Name = s.Name + " | growth to $3.0B"; Customers = s.Customers @ extra }
 
+/// Incremental capital if Unbound already exists: no build or deferred tranche, engineering people in Layer B,
+/// and only the platform cost servicing causes (servicing-specific platform) charged. [A]
+let onExistingUnbound (s: Sequence) =
+    { s with
+        Name = s.Name + " | on an existing Unbound"
+        Stages = s.Stages |> List.map (fun (m, d) -> m, servicingOnly d)
+        OneTime = s.OneTime |> List.filter (fun (_, n, _) -> not (n.Contains "build"))
+        Layers = { baseLayers with EchelonAnnual = 0.0; EchelonLicence = 0.0; UnboundMaintenance = 0.0; UnboundPlatformOps = 0.0 } }
+
+let existingSection () =
+    section "9c. Incremental capital if Unbound already exists (servicing company only)"
+        (table [ "Sequence"; "Equity need"; "Debt-financed trough"; "Month profitable"; "Cash month 24"; "Cash month 36"; "Cash month 60"; "Year-5 profit"; "Year-5 ROIC"; "NPV 15%" ]
+            (sequences |> List.filter (fun s -> not (s.Name.StartsWith "A ")) |> List.map (onExistingUnbound >> seqRow)))
+
 let growthSection () =
     section "9b. Growth variant: three more $500M sponsors from month 36 ($3.0B by month 54)"
         (table [ "Sequence"; "Equity need"; "Debt-financed trough"; "Month profitable"; "Cash month 24"; "Cash month 36"; "Cash month 60"; "Year-5 profit"; "Year-5 ROIC"; "NPV 15%" ]
@@ -383,6 +397,7 @@ let main argv =
               devSection dev
               seqSection seqs
               growthSection ()
+              existingSection ()
               failureSection fails
               pricingSection ()
               bridgeSection ()
