@@ -223,7 +223,9 @@ let pricingSection () =
           "10 bps + $150/account", { price 10.0 with PerAccountFee = 150.0 }
           "20 bps, $250/account floor", { price 20.0 with PerAccountMinimum = 250.0 }
           "15 bps", price 15.0
-          "25 bps", price 25.0 ]
+          "25 bps", price 25.0
+          "$350/account + 3 bps (COM S6; 20 bps cap not applied)", { price 3.0 with PerAccountFee = 350.0 }
+          "7 bps (value-based ceiling at high balances, COM)", price 7.0 ]
     let rows =
         [ for name, p in prices do
             for b in [ 100000.0; 250000.0; 500000.0; 1000000.0 ] do
@@ -232,6 +234,85 @@ let pricingSection () =
                 yield [ name; money b; optMoney be; money r.Base.Revenue; pct r.Base.OperatingMargin ] ]
     section "11. Pricing structures on F5 (50 min, 5 sponsors)"
         (table [ "Price"; "Average balance"; "Operating break-even"; "Revenue at $1.5B"; "Margin at $1.5B" ] rows)
+
+// ---------------------------------------------------------------- 12 scenario matrix (mission section 18)
+
+/// A named annual evaluation: price -> stress -> sponsors -> result, with any layer charge already included.
+type Scenario = { Name: string; Eval: Price -> Stress -> Sponsor list -> Result }
+
+let private withCharge amount (st: Stress) = { st with ExtraordinaryCost = st.ExtraordinaryCost + amount }
+
+let private designScenario name d target view (lc: LayerCosts) =
+    let ss = (shape 5 250000.0).Build 1.0e9
+    let totalAt (x: Design) = (evaluateDesign x target (price 20.0) noStress ss).Base.TotalCost
+    // The layer charge is the view's cost less the design's own cost at the reference portfolio (a fixed annual amount).
+    let evalDesign = match view with Standalone -> d | _ -> servicingOnly d
+    let chargeAmount = servicingCost view lc totalAt d - totalAt evalDesign
+    { Name = name; Eval = fun p st sp -> evalD evalDesign target p (withCharge chargeAmount st) sp }
+
+let scenarios () =
+    // Independent: generic AI-assisted tooling (1.5x), no Echelon. Echelon-supported: 3x with Echelon's cost allocated.
+    // Both multiples are unmeasured assumptions (report 05).
+    let independent = { baseLayers with UnboundBuild = minimumProductCost unboundBaseline 1.5; EchelonAnnual = 0.0 }
+    let echelonSupported = { baseLayers with UnboundBuild = minimumProductCost unboundBaseline 3.0 }
+    let combined = { echelonSupported with ServicingShareOfUnbound = 0.5; UnboundExternalRevenue = 300000.0 }
+    [ { Name = "Conventional (previous Model B, conventional minutes, fully loaded)"; Eval = fun p st sp -> evaluate (fullyLoaded modelB) sponsorActivities Conventional p st sp }
+      { Name = "AI-assisted conventional (previous Model B, AI-enhanced, fully loaded)"; Eval = fun p st sp -> evaluate (fullyLoaded modelB) sponsorActivities AiEnhanced p st sp }
+      { Name = "Previous AI-native (Model B, fully loaded; $5M build)"; Eval = fun p st sp -> evaluate (fullyLoaded modelB) sponsorActivities AiNative p st sp }
+      designScenario "AI-native independent (F5, 50 min, standalone; minimum build at 1.5x, no Echelon)" f5 50.0 Standalone independent
+      designScenario "Echelon-supported AI-native (F5, 50 min, fully allocated; minimum build at 3x)" f5 50.0 FullyAllocated echelonSupported
+      designScenario "Founder-led staged (F3, 50 min, standalone)" f3 50.0 Standalone baseLayers
+      designScenario "Combined software + administration (F5, servicing 50% of Unbound, $300k licences)" f5 50.0 FullyAllocated combined
+      designScenario "Outcome-designed F5 at 30 min, sponsor work /2 [unproven], fully allocated" (outcomeDesigned f5) 30.0 FullyAllocated echelonSupported ]
+
+/// Cost bridge from the previous study's fully loaded AI-native Model B to F5 at a fixed portfolio ($1.5B, 5 sponsors
+/// at $250k): which changes move the cost, and which are assumptions rather than demonstrated savings.
+let bridgeSection () =
+    let ss = (shape 5 250000.0).Build 1.5e9
+    let pFull = (evaluate (fullyLoaded modelB) sponsorActivities AiNative (price 20.0) noStress ss).TotalCost
+    let pOp = (evaluate modelB sponsorActivities AiNative (price 20.0) noStress ss).TotalCost
+    let fOp = (evaluateDesign f5 50.0 (price 20.0) noStress ss).Base.TotalCost
+    let total (d: Design) = (evaluateDesign d 50.0 (price 20.0) noStress ss).Base.TotalCost
+    let fStand = servicingCost Standalone baseLayers total f5
+    let fOut = servicingCost Standalone baseLayers (fun d -> (evaluateDesign d 30.0 (price 20.0) noStress ss).Base.TotalCost) (outcomeDesigned f5)
+    section "12. Cost bridge: previous fully loaded AI-native Model B to F5 ($1.5B, 5 sponsors, $250k)"
+        (table [ "Step"; "Annual cost"; "Change"; "Nature of the change" ]
+            [ [ "Previous Model B, AI-native, fully loaded ($1.0M build amortisation + $250k sales)"; money pFull; ""; "baseline" ]
+              [ "Remove the fully loaded lines"; money pOp; money (pOp - pFull); "presentation: the lines are added back below at re-estimated values" ]
+              [ "F5 workload-driven design, same minutes (pools, hiring threshold, coordination, itemised non-personnel)"; money fOp; money (fOp - pOp); "structural: ratio steps replaced by workload; partly offset by coordination, integration and relationship hours made explicit" ]
+              [ "Add standalone platform charge (minimum build at 2x over 5 years, Echelon share, maintenance gap)"; money fStand; money (fStand - fOp); "assumption: build cost from the development model, not measured" ]
+              [ "Outcome-designed: 30 min, sponsor-level work halved, coordination halved [unproven]"; money fOut; money (fOut - fStand); "hypothesis: no observed operation" ] ])
+
+let scenarioSection () =
+    let sc = scenarios ()
+    let rows =
+        [ for s in sc do
+            let fixedC = (s.Eval (price 20.0) noStress []).TotalCost
+            let r1 = s.Eval (price 20.0) noStress ((shape 5 250000.0).Build 1.0e9)
+            let r2 = s.Eval (price 20.0) noStress ((shape 5 250000.0).Build 2.0e9)
+            let marginal = (r2.TotalCost - r1.TotalCost) / (r2.Accounts - r1.Accounts)
+            let be b bps st = optMoney (snd (assetsForMargin (s.Eval (price bps) st) (shape 5 b) 0.0))
+            let down = { noStress with Name = "market -30%"; AssetFactor = 0.7 }
+            let r3 = s.Eval (price 20.0) noStress ((shape 5 250000.0).Build 3.0e9)
+            yield [ s.Name; money fixedC; money marginal; be 250000.0 20.0 noStress; be 100000.0 20.0 noStress; be 500000.0 20.0 noStress
+                    be 250000.0 15.0 noStress; be 250000.0 25.0 noStress; be 250000.0 20.0 down; pct r3.OperatingMargin ] ]
+    section "13. Scenario matrix: conventional to outcome-designed (5 sponsors)"
+        ("Marginal cost is the cost per added account-year between $1B and $2B at a $250k balance. Break-even columns: average balance and price; the last break-even column is under a 30% market fall applied to the starting book. Layer charges are fixed annual amounts from section 7.\n\n"
+         + table [ "Scenario"; "Fixed cost"; "Marginal cost/account-yr"; "Break-even 20 bps $250k"; "20 bps $100k"; "20 bps $500k"; "15 bps $250k"; "25 bps $250k"; "20 bps, market -30%"; "Margin at $3B" ] rows)
+
+/// Customer acquisition cost: annual sales and marketing lines plus founder selling time (30% of loaded cost) per
+/// sponsor won, at an assumed win rate of sponsors per year. [A]
+let cacSection () =
+    let salesLines = salesAndGa |> List.filter (fun (n, _) -> n.StartsWith "CST-S") |> List.sumBy snd
+    let founderSelling = 0.3 * founderLoaded
+    let rows =
+        [ for wins in [ 1.0; 2.0; 3.0; 5.0 ] do
+            let cac = (salesLines + founderSelling) / wins
+            let fee = 0.5e9 * 0.002
+            yield [ num 0 wins; money cac; money (cac + onboardingBase - 50000.0); num 1 ((cac + onboardingBase - 50000.0) / fee * 12.0) ] ]
+    section "14. Customer acquisition cost (illustrative)"
+        ($"Sales lines {money salesLines} a year plus 30%% of the founder's loaded cost {money founderSelling}; onboarding {money onboardingBase} less a $50k implementation fee; payback against a $500M sponsor at 20 bps ($1.0M a year, before servicing cost).\n\n"
+         + table [ "Sponsors won per year"; "CAC per sponsor"; "CAC + net onboarding"; "Months of gross fee to recover" ] rows)
 
 // ---------------------------------------------------------------- outputs
 
@@ -276,7 +357,10 @@ let main argv =
               devSection dev
               seqSection seqs
               failureSection fails
-              pricingSection () ]
+              pricingSection ()
+              bridgeSection ()
+              scenarioSection ()
+              cacSection () ]
     File.WriteAllText(Path.Combine(outDir, "results.md"), md)
     csvOut be dev seqs fails |> List.iter (fun (n, t) -> File.WriteAllText(Path.Combine(outDir, n), t))
     printfn "wrote %s" outDir

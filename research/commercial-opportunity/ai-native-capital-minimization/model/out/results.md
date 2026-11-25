@@ -35,42 +35,42 @@ Operating = the design alone. Standalone = plus Unbound build amortisation, Eche
 
 | Design | Minutes/account-yr | Operating break-even | Operating 20% margin | Standalone break-even | Standalone 20% margin |
 |---|---|---|---|---|---|
-| F1 one founder + agents + contractors | 10 | $780.00M | $980.00M | $990.00M | $1.25B |
-| F1 one founder + agents + contractors | 20 | $810.00M | $1.03B | $1.02B | $1.31B |
-| F1 one founder + agents + contractors | 30 | $840.00M | $1.08B | $1.06B | $1.37B |
-| F1 one founder + agents + contractors | 50 | $910.00M | $1.20B | $1.15B | $1.52B |
-| F1 one founder + agents + contractors | 75 | $1.01B | $1.39B | $1.28B | $1.77B |
-| F1 one founder + agents + contractors | 100 | $1.14B | $1.66B | $1.45B | $2.10B |
-| F2 two founders | 10 | $810.00M | $1.02B | $990.00M | $1.25B |
-| F2 two founders | 20 | $840.00M | $1.07B | $1.02B | $1.31B |
-| F2 two founders | 30 | $870.00M | $1.12B | $1.06B | $1.37B |
-| F2 two founders | 50 | $940.00M | $1.24B | $1.15B | $1.52B |
-| F2 two founders | 75 | $1.05B | $1.44B | $1.28B | $1.77B |
-| F2 two founders | 100 | $1.19B | $1.72B | $1.45B | $2.11B |
-| F3 three core | 10 | $910.00M | $1.14B | $1.08B | $1.36B |
-| F3 three core | 20 | $930.00M | $1.19B | $1.11B | $1.42B |
-| F3 three core | 30 | $960.00M | $1.23B | $1.15B | $1.47B |
-| F3 three core | 50 | $1.03B | $1.36B | $1.23B | $1.63B |
-| F3 three core | 75 | $1.15B | $1.58B | $1.37B | $1.89B |
-| F3 three core | 100 | $1.30B | $1.88B | $1.55B | $2.25B |
-| F5 five core | 10 | $950.00M | $1.21B | $1.11B | $1.40B |
-| F5 five core | 20 | $980.00M | $1.25B | $1.14B | $1.46B |
-| F5 five core | 30 | $1.02B | $1.29B | $1.17B | $1.50B |
-| F5 five core | 50 | $1.08B | $1.43B | $1.26B | $1.65B |
-| F5 five core | 75 | $1.18B | $1.61B | $1.39B | $1.88B |
-| F5 five core | 100 | $1.32B | $1.86B | $1.53B | $2.17B |
-| F6 six core | 10 | $1.02B | $1.28B | $1.17B | $1.48B |
-| F6 six core | 20 | $1.04B | $1.33B | $1.20B | $1.53B |
-| F6 six core | 30 | $1.07B | $1.36B | $1.23B | $1.58B |
-| F6 six core | 50 | $1.13B | $1.49B | $1.31B | $1.71B |
-| F6 six core | 75 | $1.23B | $1.66B | $1.43B | $1.92B |
-| F6 six core | 100 | $1.36B | $1.89B | $1.56B | $2.17B |
-| F8+ nine core (specialised) | 10 | $1.21B | $1.52B | $1.36B | $1.71B |
-| F8+ nine core (specialised) | 20 | $1.21B | $1.53B | $1.37B | $1.73B |
-| F8+ nine core (specialised) | 30 | $1.23B | $1.58B | $1.39B | $1.79B |
-| F8+ nine core (specialised) | 50 | $1.30B | $1.68B | $1.46B | $1.90B |
-| F8+ nine core (specialised) | 75 | $1.39B | $1.85B | $1.56B | $2.12B |
-| F8+ nine core (specialised) | 100 | $1.50B | $2.13B | $1.73B | $2.44B |
+| F1 one founder + agents + contractors | 10 | $780.00M | $980.00M | $1.05B | $1.33B |
+| F1 one founder + agents + contractors | 20 | $810.00M | $1.03B | $1.09B | $1.39B |
+| F1 one founder + agents + contractors | 30 | $840.00M | $1.08B | $1.13B | $1.46B |
+| F1 one founder + agents + contractors | 50 | $910.00M | $1.20B | $1.23B | $1.62B |
+| F1 one founder + agents + contractors | 75 | $1.01B | $1.39B | $1.37B | $1.88B |
+| F1 one founder + agents + contractors | 100 | $1.14B | $1.66B | $1.55B | $2.24B |
+| F2 two founders | 10 | $810.00M | $1.02B | $1.05B | $1.33B |
+| F2 two founders | 20 | $840.00M | $1.07B | $1.09B | $1.39B |
+| F2 two founders | 30 | $870.00M | $1.12B | $1.13B | $1.46B |
+| F2 two founders | 50 | $940.00M | $1.24B | $1.23B | $1.62B |
+| F2 two founders | 75 | $1.05B | $1.44B | $1.37B | $1.88B |
+| F2 two founders | 100 | $1.19B | $1.72B | $1.55B | $2.24B |
+| F3 three core | 10 | $910.00M | $1.14B | $1.14B | $1.45B |
+| F3 three core | 20 | $930.00M | $1.19B | $1.18B | $1.50B |
+| F3 three core | 30 | $960.00M | $1.23B | $1.21B | $1.56B |
+| F3 three core | 50 | $1.03B | $1.36B | $1.31B | $1.73B |
+| F3 three core | 75 | $1.15B | $1.58B | $1.46B | $2.01B |
+| F3 three core | 100 | $1.30B | $1.88B | $1.65B | $2.39B |
+| F5 five core | 10 | $950.00M | $1.21B | $1.18B | $1.49B |
+| F5 five core | 20 | $980.00M | $1.25B | $1.21B | $1.54B |
+| F5 five core | 30 | $1.02B | $1.29B | $1.24B | $1.60B |
+| F5 five core | 50 | $1.08B | $1.43B | $1.34B | $1.75B |
+| F5 five core | 75 | $1.18B | $1.61B | $1.48B | $1.99B |
+| F5 five core | 100 | $1.32B | $1.86B | $1.62B | $2.32B |
+| F6 six core | 10 | $1.02B | $1.28B | $1.24B | $1.56B |
+| F6 six core | 20 | $1.04B | $1.33B | $1.27B | $1.61B |
+| F6 six core | 30 | $1.07B | $1.36B | $1.29B | $1.66B |
+| F6 six core | 50 | $1.13B | $1.49B | $1.39B | $1.81B |
+| F6 six core | 75 | $1.23B | $1.66B | $1.51B | $2.03B |
+| F6 six core | 100 | $1.36B | $1.89B | $1.65B | $2.33B |
+| F8+ nine core (specialised) | 10 | $1.21B | $1.52B | $1.42B | $1.79B |
+| F8+ nine core (specialised) | 20 | $1.21B | $1.53B | $1.43B | $1.81B |
+| F8+ nine core (specialised) | 30 | $1.23B | $1.58B | $1.46B | $1.87B |
+| F8+ nine core (specialised) | 50 | $1.30B | $1.68B | $1.53B | $2.00B |
+| F8+ nine core (specialised) | 75 | $1.39B | $1.85B | $1.64B | $2.23B |
+| F8+ nine core (specialised) | 100 | $1.50B | $2.13B | $1.82B | $2.57B |
 
 ## 4. Handling-time targets at $1B (5 sponsors, 4,000 accounts)
 
@@ -143,24 +143,24 @@ Previous step rules add an operations manager, integration engineer, implementat
 
 ## 7. Three economic layers at $1B (5 sponsors, 50 min/account-year)
 
-Layer inputs [A]: Echelon $150k/yr with 30.0% to Unbound; Unbound build $1.00M over 5 years, maintenance $200k, non-production $24k; servicing-specific platform $30k.
+Layer inputs [A]: Echelon $150k/yr with 30.0% to Unbound; Unbound build $1.62M over 5 years, maintenance $200k, non-production $24k; servicing-specific platform $30k.
 
 | Design | View | Servicing cost | Profit | Margin |
 |---|---|---|---|---|
-| F3 three core | standalone | $2.37M | $-369k | -18.4% |
+| F3 three core | standalone | $2.49M | $-492k | -24.6% |
 | F3 three core | incremental (Unbound and Echelon exist anyway) | $1.90M | $100k | 5.0% |
-| F3 three core | fully allocated (servicing share 100%) | $2.37M | $-369k | -18.5% |
-| F5 five core | standalone | $2.42M | $-417k | -20.8% |
+| F3 three core | fully allocated (servicing share 100%) | $2.49M | $-492k | -24.6% |
+| F5 five core | standalone | $2.54M | $-540k | -27.0% |
 | F5 five core | incremental (Unbound and Echelon exist anyway) | $1.84M | $161k | 8.1% |
-| F5 five core | fully allocated (servicing share 100%) | $2.31M | $-308k | -15.4% |
-| F5 five core | fully allocated, servicing 50% of Unbound use, $300k external licence revenue | $2.07M | $-73k | -3.7% |
+| F5 five core | fully allocated (servicing share 100%) | $2.43M | $-431k | -21.5% |
+| F5 five core | fully allocated, servicing 50% of Unbound use, $300k external licence revenue | $2.13M | $-135k | -6.7% |
 
 | Measure | Annual |
 |---|---|
-| Incremental annual cost of Unbound if Echelon exists (no displaced Echelon work) | $424k |
-| Incremental annual cost of Unbound if it displaces other Echelon work | $469k |
+| Incremental annual cost of Unbound if Echelon exists (no displaced Echelon work) | $547k |
+| Incremental annual cost of Unbound if it displaces other Echelon work | $592k |
 | Incremental annual cost of servicing if Unbound exists (F5, $1B) | $1.84M |
-| Consolidated A+B+C (F5 servicing-only + Unbound + all of Echelon) | $-413k |
+| Consolidated A+B+C (F5 servicing-only + Unbound + all of Echelon) | $-536k |
 
 ## 8. Development investment scenarios and productivity sensitivity
 
@@ -336,3 +336,47 @@ Economic view (founders at market):
 | 25 bps | $250k | $830.00M | $3.75M | 38.8% |
 | 25 bps | $500k | $790.00M | $3.75M | 44.0% |
 | 25 bps | $1.00M | $770.00M | $3.75M | 46.5% |
+| $350/account + 3 bps (COM S6; 20 bps cap not applied) | $100k | $560.00M | $5.70M | 52.4% |
+| $350/account + 3 bps (COM S6; 20 bps cap not applied) | $250k | $1.32B | $2.55M | 10.0% |
+| $350/account + 3 bps (COM S6; 20 bps cap not applied) | $500k | $2.29B | $1.50M | -39.9% |
+| $350/account + 3 bps (COM S6; 20 bps cap not applied) | $1.00M | $3.51B | $975k | -105.8% |
+| 7 bps (value-based ceiling at high balances, COM) | $100k | not reached ≤ $20B | $1.05M | -158.4% |
+| 7 bps (value-based ceiling at high balances, COM) | $250k | $4.89B | $1.05M | -118.5% |
+| 7 bps (value-based ceiling at high balances, COM) | $500k | $3.68B | $1.05M | -99.9% |
+| 7 bps (value-based ceiling at high balances, COM) | $1.00M | $3.17B | $1.05M | -91.1% |
+
+## 12. Cost bridge: previous fully loaded AI-native Model B to F5 ($1.5B, 5 sponsors, $250k)
+
+| Step | Annual cost | Change | Nature of the change |
+|---|---|---|---|
+| Previous Model B, AI-native, fully loaded ($1.0M build amortisation + $250k sales) | $3.88M |  | baseline |
+| Remove the fully loaded lines | $2.63M | $-1.25M | presentation: the lines are added back below at re-estimated values |
+| F5 workload-driven design, same minutes (pools, hiring threshold, coordination, itemised non-personnel) | $2.29M | $-330k | structural: ratio steps replaced by workload; partly offset by coordination, integration and relationship hours made explicit |
+| Add standalone platform charge (minimum build at 2x over 5 years, Echelon share, maintenance gap) | $2.72M | $422k | assumption: build cost from the development model, not measured |
+| Outcome-designed: 30 min, sponsor-level work halved, coordination halved [unproven] | $2.46M | $-262k | hypothesis: no observed operation |
+
+## 13. Scenario matrix: conventional to outcome-designed (5 sponsors)
+
+Marginal cost is the cost per added account-year between $1B and $2B at a $250k balance. Break-even columns: average balance and price; the last break-even column is under a 30% market fall applied to the starting book. Layer charges are fixed annual amounts from section 7.
+
+| Scenario | Fixed cost | Marginal cost/account-yr | Break-even 20 bps $250k | 20 bps $100k | 20 bps $500k | 15 bps $250k | 25 bps $250k | 20 bps, market -30% | Margin at $3B |
+|---|---|---|---|---|---|---|---|---|---|
+| Conventional (previous Model B, conventional minutes, fully loaded) | $2.99M | $423 | $7.84B | not reached ≤ $20B | $3.50B | not reached ≤ $20B | $3.83B | not reached ≤ $20B | -36.9% |
+| AI-assisted conventional (previous Model B, AI-enhanced, fully loaded) | $2.99M | $218 | $2.99B | $6.25B | $2.24B | $4.82B | $2.05B | $5.79B | 0.4% |
+| Previous AI-native (Model B, fully loaded; $5M build) | $2.99M | $132 | $2.09B | $2.67B | $1.83B | $3.04B | $1.56B | $3.34B | 24.2% |
+| AI-native independent (F5, 50 min, standalone; minimum build at 1.5x, no Echelon) | $2.02M | $87 | $1.32B | $1.58B | $1.22B | $1.88B | $1.01B | $2.07B | 46.8% |
+| Echelon-supported AI-native (F5, 50 min, fully allocated; minimum build at 3x) | $1.77M | $86 | $1.26B | $1.50B | $1.16B | $1.78B | $960.00M | $1.96B | 48.8% |
+| Founder-led staged (F3, 50 min, standalone) | $1.79M | $93 | $1.31B | $1.61B | $1.21B | $1.89B | $1.00B | $2.07B | 46.0% |
+| Combined software + administration (F5, servicing 50% of Unbound, $300k licences) | $1.48M | $86 | $1.08B | $1.29B | $1.01B | $1.54B | $830.00M | $1.68B | 53.6% |
+| Outcome-designed F5 at 30 min, sponsor work /2 [unproven], fully allocated | $1.76M | $45 | $1.13B | $1.24B | $1.09B | $1.56B | $890.00M | $1.68B | 56.1% |
+
+## 14. Customer acquisition cost (illustrative)
+
+Sales lines $62k a year plus 30% of the founder's loaded cost $60k; onboarding $105k less a $50k implementation fee; payback against a $500M sponsor at 20 bps ($1.0M a year, before servicing cost).
+
+| Sponsors won per year | CAC per sponsor | CAC + net onboarding | Months of gross fee to recover |
+|---|---|---|---|
+| 1 | $122k | $177k | 2.1 |
+| 2 | $61k | $116k | 1.4 |
+| 3 | $41k | $96k | 1.1 |
+| 5 | $24k | $79k | 1.0 |

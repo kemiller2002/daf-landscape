@@ -218,14 +218,14 @@ let productivityMultiples = [ 1.0; 1.5; 2.0; 3.0; 5.0; 10.0 ]
 // ---------------------------------------------------------------- layer costs [A]
 
 /// Base layer costs. Echelon annual $150k is an assumption standing in for the owner's shared engineering
-/// capability (no ledger of Echelon cost exists in the repositories); 30% consumed by Unbound. Unbound minimum build
-/// $1.0M over 5 years; maintenance $200k a year (one engineer-equivalent with agents) [A]; non-production and CI
+/// capability (no ledger of Echelon cost exists in the repositories); 30% consumed by Unbound. Unbound minimum safe
+/// build from the development model at 2x productivity (about $1.6M) over 5 years; maintenance $200k a year (one engineer-equivalent with agents) [A]; non-production and CI
 /// environments $24k (production hosting is already in the servicing design's platform line); servicing-specific
 /// platform (SOC 1 platform scope, sponsor sandboxes beyond the per-sponsor $12k) $30k. [A]
 let baseLayers =
     { EchelonAnnual = 150000.0
       EchelonShareToUnbound = 0.3
-      UnboundBuild = 1.0e6
+      UnboundBuild = minimumProductCost unboundBaseline 2.0
       UnboundLifeYears = 5.0
       UnboundMaintenance = 200000.0
       UnboundPlatformOps = 24000.0
