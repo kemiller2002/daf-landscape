@@ -1,0 +1,51 @@
+req_id,requirement,applies_sponsor,control_ids,status
+REG-001,IRC §4966 taxable distributions: 20% excise on the sponsor and 5% on a fund manager who kn,yes,CTL-001;CTL-009;CTL-011;CTL-014;CTL-050,mapped
+REG-002,Expenditure responsibility for non-excepted grantees (§4966(c)(1)(B)(ii) by reference to §,yes,CTL-060,mapped
+REG-003,"IRC §4967 prohibited benefits: 125% excise on a donor, donor-advisor or related person who",yes,CTL-007;CTL-008;CTL-049,mapped
+REG-004,"IRC §4958(c)(2) automatic excess benefit for DAF payments to donors/advisors: Any grant, l",yes,CTL-007;CTL-042,mapped
+REG-005,§4958(f)(1)/(f)(8): investment advisors as disqualified persons of sponsoring organization,yes,CTL-025;CTL-041;CTL-042,mapped
+REG-006,§4943(e) excess business holdings applied to DAFs: For §4943 purposes a DAF is treated as ,yes,CTL-021,mapped
+REG-008,§170(f)(18) DAF contribution acknowledgment (exclusive legal control): Donor deduction for,yes,CTL-020,mapped
+REG-009,§170(f)(8) contemporaneous written acknowledgment ($250+): Donor needs a CWA for any singl,yes,CTL-020,mapped
+REG-010,§6115 quid pro quo disclosure (>$75): A charity receiving a quid pro quo contribution over,conditional,CTL-020,mapped
+REG-011,§170(f)(11) qualified appraisal / Form 8283 Section B donee signature: Donor needs a quali,yes,CTL-022,mapped
+REG-012,Form 8282 donee information return (disposition within 3 years): A donee that sells/exchan,yes,CTL-022,mapped
+REG-013,§6033(k) sponsor reporting (Form 990 Schedule D Part I): Sponsors must report the number o,yes,CTL-055;CTL-038,mapped
+REG-014,"Form 4720 for §4966/§4967 excise taxes: Final regulations (2019, FR doc 2019-07010) prescr",conditional,CTL-038,mapped
+REG-015,§509(a)/§170(b)(1)(A)(vi) public support (Schedule A): A sponsor must not be a private fou,yes,CTL-056,mapped
+REG-016,"Notice 2017-73 §4: DAF grants and donor pledges: Taxpayers may rely, until further guidanc",yes,CTL-009,mapped
+REG-019,Rev. Proc. 2018-32: reliance on IRS lists (TEOS/Pub 78/BMF): Grantors and contributors may,yes,CTL-011;CTL-014;CTL-050,mapped
+REG-020,Foreign grantees: equivalency determination vs expenditure responsibility: Treas. Reg. §53,conditional,CTL-060,mapped
+REG-024,Form 990 Schedule B and public-inspection redaction (§6104(d)(3)(A)): 501(c)(3)s still rep,yes,CTL-057,mapped
+REG-026,IRS record retention (§6001; electronic records): Exempt organizations must keep records s,yes,CTL-058;CTL-019,mapped
+REG-027,Investment Company Act §3(c)(10) exclusion (Philanthropy Protection Act of 1995): (A) excl,yes,CTL-059,mapped
+REG-028,ICA §7(e) donor disclosure for §3(c)(10)(B) funds: Each fund excluded under §3(c)(10)(B) ',conditional,CTL-059,mapped
+REG-029,Securities Act §3(a)(4) exemption: Exempts securities issued by charitable non-profit orga,yes,CTL-059,mapped
+REG-030,Exchange Act §3(e) charitable broker/dealer exemption - no commission-based solicitation: ,yes,CTL-059,mapped
+REG-031,Advisers Act §203(b)(4) charity exemption; third-party advisers: A charitable organization,yes,CTL-059;CTL-025,mapped
+REG-032,PPA 1995 §6 state securities preemption: Interests in excluded charitable funds are exempt,yes,CTL-059,mapped
+REG-033,Reg BI / adviser fiduciary duty when recommending DAFs: Reg BI applies to broker-dealers r,no,CTL-025,mapped
+REG-035,Does sponsor asset pooling trigger fund registration?: Generally no if the sponsor maintai,no (if within exclusion),CTL-059,mapped
+REG-036,OFAC sanctions compliance (all U.S. persons; strict liability): U.S. persons may not deal ,yes,CTL-012;CTL-013,mapped
+REG-037,"OFAC reporting and 10-year recordkeeping (31 CFR 501.601, 501.603-604): Blocked-property r",yes,CTL-012;CTL-058,mapped
+REG-041,"Material support statutes (18 U.S.C. §§2339A, 2339B): Criminal prohibition on knowingly pr",yes,CTL-012;CTL-013;CTL-060,mapped
+REG-042,FinCEN money transmitter definition (31 CFR 1010.100(ff)(5)) - sponsor paying its own gran,no (inference),CTL-001;CTL-003,mapped
+REG-043,Provider that holds or moves funds for multiple sponsors: FinCEN MSB + state money transmi,no,CTL-003;CTL-032,mapped
+REG-044,"Nacha Operating Rules (ACH grant payments): Contractual rules binding originators, third-p",via contract,CTL-003;CTL-032,mapped
+REG-045,Unclaimed property / escheat of uncashed grant checks: State unclaimed property laws gener,conditional,CTL-044,mapped
+REG-046,California charitable fundraising platform law (AB 488; Gov. Code §12599.9) and similar (H,conditional,CTL-038,mapped
+REG-048,"State comprehensive privacy laws covering nonprofits (CO, OR, DE, NJ, MD, MN; others vary)",conditional,CTL-061,mapped
+REG-049,"State data breach notification laws: All 50 states, DC and territories require notice of b",yes,CTL-062,mapped
+REG-050,PCI DSS (if cards accepted): Card-brand rules imposed through the acquirer/processor contr,via contract,CTL-063,mapped
+REG-051,"SEC Regulation S-P (2024 amendments): Applies to SEC-registered brokers, dealers, investme",no (unless affiliated adviser/BD),,not applicable to sponsor
+REG-052,NY DFS Cybersecurity Regulation (23 NYCRR Part 500): Applies only to 'covered entities' op,no,,not applicable to sponsor
+REG-053,Charitable solicitation registration (about 40 states + DC; exemptions vary): States requi,yes,CTL-038,mapped
+REG-054,Independent audit / review thresholds (state-specific): California: charities required to ,conditional,CTL-038;CTL-048,mapped
+REG-055,"State AG oversight of charitable assets; donor standing limits (Pinkert, Fairbairn): State",yes,CTL-045;CTL-002,mapped
+REG-057,UPMIFA applicability to DAF assets (uncertain): UPMIFA (enacted in all states but PA [K]) ,conditional,CTL-023;CTL-024,mapped
+REG-058,"Board fiduciary duties (care, loyalty, obedience) under state nonprofit corporation/trust ",yes,CTL-024;CTL-041;CTL-042;CTL-047,mapped
+REG-060,"Colorado ADMT Act (SB 26-189, repeals/replaces SB 24-205): Signed 2026-05-14; most provisi",conditional (unlikely),CTL-008,mapped
+REG-061,NYC Local Law 144 (AEDT): Bias audits and notices for automated employment decision tools ,no,,not applicable to sponsor
+REG-062,EU AI Act: Applies to providers placing AI systems on the EU market or whose outputs are u,no,,not applicable to sponsor
+REG-064,E-SIGN Act (15 U.S.C. §7001 et seq.): Electronic signatures/records cannot be denied effec,yes,CTL-064,mapped
+REG-065,UETA (state law): Uniform act (1999) giving electronic records/signatures the effect of pa,yes,CTL-064,mapped

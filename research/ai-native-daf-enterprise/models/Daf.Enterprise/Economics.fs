@@ -53,6 +53,10 @@ type Parameters =
       IdentityPerNewAccount: Param
       CacPerNewAccount: Param
       AgentFamilies: Param
+      // B1: reusable determinations (foreign-charity equivalency, fiscal-sponsor and new-organization reviews)
+      DeterminationMinuteShare: Param
+      DeterminationReuseRate: Param
+      NetworkFeeShareOfSavings: Param
       // conventional comparators (FY2024 Form 990, repository dataset)
       ConvAccountsPerEmployeeEfficient: Param
       ConvAccountsPerEmployeeTypical: Param
@@ -87,7 +91,10 @@ let defaults =
       DataProvidersBase = p "charity data, sanctions screening, identity platform base" 100000m (Assumed "IRS bulk data is free; commercial enrichment is not")
       IdentityPerNewAccount = p "identity verification per new account" 3m (Assumed "")
       CacPerNewAccount = p "customer acquisition cost per new account" 400m (Assumed "advisor-channel; no public DAF CAC (GAP)")
-      AgentFamilies = p "agent families in production" 18m (Assumed "agent catalog in 05-agent-architecture")
+      AgentFamilies = p "agent families in production" 31m (Assumed "19 parent agents + 12 workflow-innovation agent opportunities (reconciled 2026-11-21, OUTSTANDING A2/A7)")
+      DeterminationMinuteShare = p "share of exception review minutes spent on recipient-level determinations another sponsor's record could replace" 0.30m (Assumed "unmeasured (GAP-001); E7 puts costly determinations at ~8% of recipients but 3-24x routine review time; sensitivity 0.15-0.60 (OUTSTANDING B1)")
+      DeterminationReuseRate = p "share of those determinations reused from a shared record" 0m (Assumed "0 = no network exists (base case unchanged); E2 ecosystem arm used 50%; sweep 0-80% (OUTSTANDING B1)")
+      NetworkFeeShareOfSavings = p "network fee as share of the labor value saved by reuse" 0.40m (Assumed "matches the operator fee in workflow-innovation 09 §4")
       ConvAccountsPerEmployeeEfficient = p "conventional accounts per employee, efficient (Vanguard Charitable FY2024)" 232.44m (Sourced efficiencyCsv)
       ConvAccountsPerEmployeeTypical = p "conventional accounts per employee, typical (AEF FY2024)" 107.03m (Sourced efficiencyCsv)
       ConvStaffCostPerEmployee = p "conventional staff cost per employee (Vanguard Charitable FY2024: $14,816,404 / 119)" 124507m (Sourced efficiencyCsv)
@@ -100,6 +107,7 @@ let register (ps: Parameters) : Param list =
       ps.AiInteractionsPerAccount; ps.InferencePerInteraction; ps.InfraBase; ps.InfraPerAccount; ps.CustodyBps
       ps.AchShare; ps.AchCost; ps.CheckCost; ps.InsuranceBase; ps.AuditBase; ps.AuditBpsOfAum; ps.LegalBase
       ps.DataProvidersBase; ps.IdentityPerNewAccount; ps.CacPerNewAccount; ps.AgentFamilies
+      ps.DeterminationMinuteShare; ps.DeterminationReuseRate; ps.NetworkFeeShareOfSavings
       ps.ConvAccountsPerEmployeeEfficient; ps.ConvAccountsPerEmployeeTypical; ps.ConvStaffCostPerEmployee; ps.ConvNonStaffOpexPerAccount; ps.FrontierAllInPerAccount ]
 
 // ---------- revenue: published admin-fee tiers ----------
@@ -130,18 +138,24 @@ type Role =
 
 let private ceilD (x: decimal) = Math.Ceiling x
 
+/// Exception review hours per year, before and after reusing shared determinations (B1).
+let exceptionHours (ps: Parameters) (s: Scenario) =
+    s.Accounts * s.GrantsPerAccount * s.ExceptionRate * ps.MinutesPerException.Value / 60m
+
+let reusedDeterminationHours (ps: Parameters) (s: Scenario) =
+    exceptionHours ps s * ps.DeterminationMinuteShare.Value * ps.DeterminationReuseRate.Value
+
 let fteByRole (ps: Parameters) (s: Scenario) : (Role * decimal) list =
     let hours = ps.ProductiveHoursPerFte.Value
     let grants = s.Accounts * s.GrantsPerAccount
     let contributions = s.Accounts * s.ContributionsPerAccount
-    let exceptions = grants * s.ExceptionRate
     let complex = contributions * s.ComplexAssetShare
     let breaks = (grants + contributions) * ps.BreakRate.Value
     let leadership =
         if s.Accounts < 5000m then 5m      // CEO, CFO/COO, CRCO/GC, CTO, head of grants & client ops
         elif s.Accounts < 50000m then 8m
         else 10m
-    let grantsCompliance = max 1m (ceilD (exceptions * ps.MinutesPerException.Value / 60m / hours))
+    let grantsCompliance = max 1m (ceilD ((exceptionHours ps s - reusedDeterminationHours ps s) / hours))
     let complexAssets = max 1m (ceilD (complex * ps.HoursPerComplexAsset.Value / hours))
     // Segregation of duties requires at least two people in finance/payments operations.
     let finance = max 2m (ceilD (breaks * ps.MinutesPerBreak.Value / 60m / hours) + 1m)
@@ -175,7 +189,9 @@ let aiNativeCosts (ps: Parameters) (s: Scenario) : CostLine list =
       { Line = "external audit"; Amount = ps.AuditBase.Value + a * ps.AuditBpsOfAum.Value / 10000m }
       { Line = "legal, compliance and filings"; Amount = ps.LegalBase.Value * (1m + decimal (Math.Log10(float (max 1000m s.Accounts) / 1000.0))) }
       { Line = "data providers and identity"; Amount = ps.DataProvidersBase.Value + newAccounts * ps.IdentityPerNewAccount.Value }
-      { Line = "customer acquisition"; Amount = newAccounts * ps.CacPerNewAccount.Value } ]
+      { Line = "customer acquisition"; Amount = newAccounts * ps.CacPerNewAccount.Value }
+      { Line = "verification network fees"
+        Amount = reusedDeterminationHours ps s * ps.LoadedCostPerFteAiNative.Value / ps.ProductiveHoursPerFte.Value * ps.NetworkFeeShareOfSavings.Value } ]
 
 let total (lines: CostLine list) = lines |> List.sumBy (fun l -> l.Amount)
 
@@ -278,6 +294,37 @@ let sensitivity (ps: Parameters) (s: Scenario) : Sensitivity list =
         let (pl, sl) = mk 0.5m
         let (ph, sh) = mk 2m
         { Factor = name; Low = run pl sl; High = run ph sh })
+
+/// B1: determination reuse sweep. Reuse rate x share of exception minutes that are reusable determinations.
+type ReuseRow =
+    { Accounts: decimal
+      MinuteShare: decimal
+      ReuseRate: decimal
+      GrantsComplianceFte: decimal
+      NetworkFees: decimal
+      AiNativeCost: decimal
+      SavingVsNoReuse: decimal }
+
+let reuseSweep (ps: Parameters) (accounts: decimal list) (shares: decimal list) (rates: decimal list) : ReuseRow list =
+    let withReuse share rate =
+        { ps with
+            DeterminationMinuteShare = { ps.DeterminationMinuteShare with Value = share }
+            DeterminationReuseRate = { ps.DeterminationReuseRate with Value = rate } }
+    let cost ps' s = aiNativeCosts ps' s |> total
+    [ for n in accounts do
+        let s = baseScenario n
+        let baseline = cost (withReuse 0m 0m) s
+        for share in shares do
+            for rate in rates do
+                let ps' = withReuse share rate
+                let lines = aiNativeCosts ps' s
+                let c = total lines
+                yield
+                    { Accounts = n; MinuteShare = share; ReuseRate = rate
+                      GrantsComplianceFte = fteByRole ps' s |> List.find (fst >> (=) GrantsCompliance) |> snd
+                      NetworkFees = lines |> List.filter (fun l -> l.Line = "verification network fees") |> total
+                      AiNativeCost = c
+                      SavingVsNoReuse = baseline - c } ]
 
 // ---------- Model C: infrastructure provider economics ----------
 /// Incumbent price reference: RCF paid Ren $19,225,546 in FY2024 (audited) for 25,824 accounts

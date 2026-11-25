@@ -73,8 +73,8 @@ At the parent model's 100k-account scale (30 grants-compliance FTE), smoothing a
 
 | Model | Workflows it removes or changes for the operator | New workflows it adds | Economics (source) |
 |---|---|---|---|
-| **B: AI-native sponsoring charity** | None removed; all redesigned | Sponsor governance, fundraising and distribution | Best steady-state margins; peak capital $12.8m calibrated ([parent 09](../../09-financial-models/financial-and-staffing-models.md) §7) |
-| **C: AI-native administration provider** | Board and investment-committee work stays with client sponsors | Multi-tenant onboarding; client contract management | Needs about $300 per account and ≥20k-account clients; peak $6.4m (parent 09 §7) |
+| **B: AI-native sponsoring charity** | None removed; all redesigned | Sponsor governance, fundraising and distribution | Best steady-state margins; peak capital $14.8m calibrated ([parent 09](../../09-financial-models/financial-and-staffing-models.md) §7) |
+| **C: AI-native administration provider** | Board and investment-committee work stays with client sponsors | Multi-tenant onboarding; client contract management | Needs about $300 per account and ≥20k-account clients; peak $7.4m (parent 09 §7) |
 | **Grantmaking infrastructure platform** (per-grant API: decision, eligibility, payment orchestration) | Everything except grants | API support; partner SLAs | Loses money at $1 per grant even with 30 customers × 80k grants (−$1.4m). At $3 per grant with 10 customers, −$0.5m ([results/infrastructure-models.csv](results/infrastructure-models.csv)) [S]. **Per-grant pricing is weak** because approval labor is a small share of per-grant cost (§2) |
 | **Charity verification network** | Duplicated recipient verification across members | Neutral governance; data-sharing agreements; dispute handling | See §4: **not viable on routine checks; viable on costly determinations** |
 | **Advisor-embedded philanthropic platform** | Donor acquisition and branded portals | Platform integrations; advisor support | Depends on revenue share with platforms and sponsors; no public pricing (GAP-014). Distribution leverage is high [I] (RCF–Ren spine) |
@@ -104,17 +104,35 @@ At the parent model's 100k-account scale (30 grants-compliance FTE), smoothing a
 1. The network effect is **real but conditional**. It is a data-network effect in *verification work*, with strong positive returns only after the largest sponsors join.
 2. **For routine eligibility it is economically thin**, because automated checks are already cheap. It **is worth building around costly determinations**: foreign equivalency, fiscal-sponsor diligence, new-organization review and payee verification. That is exactly where human work and fraud risk concentrate.
 3. **Cold start is the binding problem.** The sponsors who create the most value for others, the large nationals, gain least from joining, because their own records already cover most recipients. A neutral operator would need large sponsors as anchor members, for example by giving them governance rights, or would need to seed the network from public data plus its own platform clients (the Model C route). This is the classic data-network chicken-and-egg problem, now quantified.
-4. **The data cover only the top-50 itemizing sponsors.** The ~1,450 smaller sponsors are the ones with least verification capacity, and they would plausibly gain most per member. The public data cannot measure that (Schedule I of small sponsors would need a further harvest; listed as a next experiment).
+4. **The long tail was harvested (E7c, 2026-11-23).** It does **not** confirm that small sponsors gain most per member; they reuse *less* (median 38–55% against 76%). See §4b.
+
+### 4b. Small sponsors as network members (E7c, OUTSTANDING B2)
+
+Source: [`results/small-sponsor-network.csv`](results/small-sponsor-network.csv), for 1,285 itemising sponsors outside the top 50. The same valuation as §4 applies (8% of recipients need a determination; $15 payee verification; 40% fee; $1.2m operator fixed cost; all [A]).
+
+| Cost per determination | Small members' total savings (top-50-seeded network) | Median small member | Median, rank 501+ | Operator break-even (top 50 first, then small) | Small-only network break-even |
+|---|---|---|---|---|---|
+| $67.50 | $2.71m | $367 | $143 | **57th member** (was never with the top 48 alone) | never |
+| $270 | $4.86m | $659 | $256 | 9th member | never |
+| $1,080 | $13.47m | $1,825 | $710 | 3rd member | 96th member |
+
+**Conclusions**
+1. **The long tail roughly doubles total work avoided.** It adds $2.7m–$13.5m to the top 48's $2.9m–$14.3m. With it, even the routine-value network covers its fixed cost.
+2. **Per member, the value is too small to sell.** The median small member saves a few hundred dollars a year. A per-member subscription cannot be sold to them; the network must be **bundled into a platform** they already pay for. This supports the Model C route: the network is a feature of the multi-tenant platform.
+3. **A network of small sponsors alone does not work.** It never covers its fixed cost unless determinations are foreign-grade. The large sponsors are the necessary seed. The cold-start conclusion (item 3 above) is reinforced.
+4. **The costly cases split.**
+   - Fiscal-sponsor host diligence is 92% reusable from a top-50 record. Share it.
+   - Small sponsors' unlisted-recipient cases are only 25% reusable. Those stay local human work, and a network barely helps.
 
 ## 5. Break-even and sensitivity summary
 
 | Claim | Break-even or condition | Most sensitive assumption |
 |---|---|---|
 | AI-native approval beats manual on cost and control | Holds whenever human per-item catch rates on benefit and related-party defects are below the AI flagger's recall (E2) | Human catch rates (GAP-004) and AI recall under attack |
-| Shared determinations add savings | Reuse ≥ ~20% of non-routine reviews | Reuse factor (measure on partner history) |
+| Shared determinations add savings | Reuse ≥ ~20% of non-routine reviews, **and** a grants-compliance team big enough to cut whole FTE (≥ ~100k accounts; parent 09 B1 update: +$0.36m at 100k, −$30k at 10k for 50% reuse) | Reuse factor and determination minute share (measure on partner history) |
 | Grant ID in remittance | Always positive for recipients | Recipient bank passing addenda |
 | Netting | Positive if per-payment cost > ~$0.10 | Return rate × grants per payment |
-| Verification network | Determination value ≥ ~$270, or anchor members | Cost per determination; anchor participation |
+| Verification network | Determination value ≥ ~$270, or anchor members; with the long tail (E7c), routine value breaks even at the 57th member, but only bundled, since a median small member saves <$2k a year | Cost per determination; anchor participation |
 | Shared compliance provider | ≥ ~40 sponsors at $60k | Willingness to pay (GAP-014) |
 | Per-grant infrastructure API | ≥ $3 per grant and many customers | Approval labor share of cost |
 | Surge smoothing | Donor acceptance of execution windows | Behavior (untested) |

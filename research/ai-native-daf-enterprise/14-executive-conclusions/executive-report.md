@@ -147,7 +147,7 @@ There are 19 agents: 15 do assisted analysis (Category 2) and 4 are supervised e
 
 ## 8. Canonical data model
 
-There are 35 entities, each with one authoritative owner ([data model](../06-data-and-knowledge/canonical-data-model.md)), and 58 business events with producer, consumers, controls, exceptions and evidence ([`events.csv`](../06-data-and-knowledge/events.csv)).
+There are 36 entities, each with one authoritative owner ([data model](../06-data-and-knowledge/canonical-data-model.md)), and 99 business events with producer, consumers, controls, exceptions and evidence ([`events.csv`](../06-data-and-knowledge/events.csv)).
 - **The event ledger is the system of record.** It is bitemporal for eligibility and financial facts ("what did we know when we approved this grant?").
 - **Every external fact** carries provenance.
 - **Every decision** carries the policy and data versions.
@@ -182,9 +182,9 @@ From [`../09-financial-models/`](../09-financial-models/financial-and-staffing-m
 
 | | 1k accounts | 10k | 100k | 1m |
 |---|---|---|---|---|
-| AI-native FTE | 21 | 30 | 104 | 765 |
+| AI-native FTE | 24 | 33 | 107 | 768 |
 | Conventional FTE (Vanguard-calibrated / AEF-calibrated, FY2024 990s) | 8* / 10 | 44 / 94 | 431 / 935 | 4,303 / 9,344 |
-| AI-native cost per account [S, Low confidence] | $4,370 | $697 | $272 | $213 |
+| AI-native cost per account [S, Low confidence] | $4,865 | $747 | $277 | $214 |
 | Frontier (Fidelity FY2024 all-in, ~$790 per account) | $790 | $790 | $790 | $790 |
 | Break-even at $300k average balance | ≈3,000 accounts | | | |
 
@@ -192,7 +192,7 @@ From [`../09-financial-models/`](../09-financial-models/financial-and-staffing-m
 
 **Sensitivity:** loaded cost per FTE dominates (±95% swing at 100k), then customer acquisition, grants per account, exception rate and minutes per exception (about ±27–33%). Inference cost ×10 moves cost by 2.7%.
 
-**Average balance matters more than account count:** break-even is about 56,000 accounts at a $50k average balance against about 2,000 at $800k.
+**Average balance matters more than account count:** break-even is about 60,000 accounts at a $50k average balance against about 2,000 at $800k.
 
 **[Digital twin](../11-scenarios-and-validation/digital-twin.md)** findings. They are simulated on assumed parameters, so read them as *illustrations of mechanisms*, not predictions:
 - The December surge, not the average, sizes the human organization: 34 days over SLA when staffed for the average.
@@ -207,8 +207,8 @@ Compared on consistent criteria ([decision matrix](../10-market-and-business-mod
 | Model | Verdict | Why |
 |---|---|---|
 | **A: traditional sponsor plus AI** | Dominated | No structural change. Incumbents already market the enhancements, and the calibrated large-national AI value pool is $445k [S] (EV-107). Margin about 30–32% [S] |
-| **B: AI-native sponsoring charity** | Best terminal economics; worst risk-adjusted path | 85% margin at 100k accounts [S]. But it carries every sponsor burden (irrevocable assets, personal manager liability, governance, distribution) and gets evidence last. Calibrated to observed challenger growth, peak capital is $12.8m, still negative at year 5 [S] |
-| **C: AI-native infrastructure for existing sponsors and institutions** | First stage | Fastest to measured evidence; reversible; no sponsor liability. Works only at about $300 per account with clients of 20k+ accounts: peak capital $6.4m, positive by year 4 [S]. At $150 per account it never works |
+| **B: AI-native sponsoring charity** | Best terminal economics; worst risk-adjusted path | 85% margin at 100k accounts [S]. But it carries every sponsor burden (irrevocable assets, personal manager liability, governance, distribution) and gets evidence last. Calibrated to observed challenger growth, peak capital is $14.8m, still negative at year 5 [S] |
+| **C: AI-native infrastructure for existing sponsors and institutions** | First stage | Fastest to measured evidence; reversible; no sponsor liability. Works only at about $300 per account with clients of 20k+ accounts: peak capital $7.4m, positive by year 4 [S]. At $150 per account it never works |
 | **D: C plus a partner sponsor-of-record** | Second stage | Adds administration economics and system-of-record switching costs without the operator becoming a sponsor or holding funds |
 | Dc: captive sponsor owned by the operator | Rejected | Related-party risk (the RCF–Ren pattern) with no gain over D |
 
@@ -305,7 +305,7 @@ This is a count of activity *kinds*, not hours. The hours depend on unmeasured e
 **3. What is the smallest responsible human organization?**
 - A structural floor of about 8–10 people, below which segregation of duties fails.
 - On the order of 20 people to self-operate at 1k accounts, which is uneconomic; small sponsors should buy the infrastructure.
-- Roughly a few dozen at 10k accounts, about a hundred at 100k and several hundred at 1m. These are [S], orders of magnitude; the model outputs are 21, 30, 104 and 765.
+- Roughly a few dozen at 10k accounts, about a hundred at 100k and several hundred at 1m. These are [S], orders of magnitude; the model outputs are 24, 33, 107 and 768 (31 agent families; updated 2026-11-21, OUTSTANDING A7).
 
 At scale it is two specialist pools, grants compliance and complex assets, plus small finance, risk, engineering and partnership teams.
 

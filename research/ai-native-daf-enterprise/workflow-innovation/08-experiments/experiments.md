@@ -183,6 +183,40 @@ Foreign recipients **cannot be tested**: Schedule F Part II reports regions, not
 - **INN-02 is supported narrowly:** a shared network has evidence for *fiscal-sponsor host diligence* and partial evidence for *unlisted-recipient resolution*. It has no evidence for foreign equivalency.
 - The overlap premise for those classes moves to **L2**. Value per reuse remains assumed.
 
+## E7c: Do sponsors outside the top 50 gain more? (OUTSTANDING B2, run 2026-11-23)
+
+**Data.** The public FY2023 Schedule I returns (FY2024 as fallback) of every FY2024 DAF sponsor outside the top 50 that files a Form 990.
+- Universe: 1,464 sponsors.
+- **1,285 itemise Schedule I**, giving 224,271 sponsor–recipient pairs and 146,838 distinct recipients.
+- 308 have no itemised lines and 54 file Schedule I only as an attachment. These are mostly the smallest sponsors, so the results describe *itemising* small sponsors.
+
+**Script and outputs.**
+- Script: [`scripts/workflow_innovation_small_sponsor_overlap.py`](../../../../scripts/workflow_innovation_small_sponsor_overlap.py). It uses the same exclusions and keys as E7.
+- Data: [`data/workflow-innovation/small-sponsor-overlap-summary.csv`](../../../../data/workflow-innovation/small-sponsor-overlap-summary.csv) and the pair file `sponsor-recipient-edges-small-fy2023.csv`.
+- Economics: [`../09-economic-validation/results/small-sponsor-network.csv`](../09-economic-validation/results/small-sponsor-network.csv).
+
+**Share of a sponsor's distinct recipients already on another sponsor's Schedule I** (pooled across sponsors / median sponsor):
+
+| Group | Sponsors | Median recipients | On a top-50 record | On any other sponsor's record | On another *small* sponsor's record |
+|---|---|---|---|---|---|
+| Top 50 (reference, against the other top 50) | 48 | n/a | 71% / 76% | n/a | n/a |
+| Rank 51–200 | 141 | 362 | 62% / 64% | 71% / 73% | 56% / 57% |
+| Rank 201–500 | 292 | 118 | 42% / 55% | 51% / 65% | 40% / 48% |
+| Rank 501+ | 852 | 18 | 50% / 38% | 61% / 50% | 52% / 40% |
+| All small | 1,285 | 37 | 54% / 48% | 63% / 59% | 50% / 45% |
+
+**Costly classes (E7b repeated on small sponsors' recipients):**
+- **Fiscal sponsors** (433-EIN list): 1,051 small-sponsor pairs, of which **92% are already on a top-50 record**. Host diligence is highly reusable for the long tail.
+- **Recipients whose EIN is absent from the current IRS EO BMF**: 16,346 small-sponsor pairs, of which **only 25% are already on a top-50 record**.
+  - The BMF extract postdates the FY2023 returns, so some of these absences are later revocations, not unresolvable identities.
+  - The hard identity cases of small sponsors are mostly local and not shared.
+
+**Findings**
+1. **The hypothesis that small sponsors gain most per member is not supported in reuse share.** The median sponsor ranked 501+ finds 38% of its recipients on a top-50 record, against 76% for the median top-50 sponsor. Small sponsors fund more local recipients that no one else has verified.
+2. **Their gain may still matter more to them, but the data cannot show that.** They have the least verification capacity. That is a statement about the value of a reuse, which public data cannot measure.
+3. **In aggregate the long tail roughly doubles the network's work avoided** (09 §4b). However, the median small member saves only $370–$1,800 a year. Membership must therefore be near-free, or bundled into a platform, rather than sold.
+4. **Seeding from the top 50 matters.** Small sponsors reuse about 1.7× more joining a network the top 50 seeded than joining one of small sponsors only.
+
 ## E8: Migration, replay versus balance-forward (W8; INN-18): specification plus illustration
 
 Replay equality is determinism of one engine: a specification, not a test of migration across heterogeneous systems. The balance-forward comparison illustrates history loss (0.38 completeness, $185k of grant history not visible) against the pattern AEF donors experienced (EV-037). The baseline omits "history delivered as documents", a fairer comparator. INN-18 stays at **L2**: premise evidenced, prototype only by construction.

@@ -11,19 +11,20 @@
 
 | # | Item | Where | Done when | Status |
 |---|---|---|---|---|
-| A1 | Map each legal requirement (REG id) to at least one control (CTL id) | `08-governance-and-compliance/controls.csv`, `regulatory-applicability-matrix.csv` | A mapping file exists; every REG row with `obligation_type = legal` maps to ≥1 CTL, or is listed as a gap; test added | open |
-| A2 | Reconcile agent names used in functional areas, workflows and workflow-innovation with the 19-agent catalog | `05-agent-architecture/agent-catalog.csv`; `workflow-innovation/06-agent-opportunities/` | Every agent name maps to a catalog entry, a new agent, or "not an agent (deterministic job)" | open |
-| A3 | Map functional-area local workflow IDs (WF-A1…WF-N5) to WF-01…WF-24, or list them as sub-workflows | `02-business-capabilities/functional-areas/`, `03-workflow-redesign/workflows.csv` | Mapping table exists | open |
-| A4 | Decide on the ~40 proposed events and ~20 interface groups from the cross-enterprise workflows: add to the catalogs or reject with a reason | `workflow-innovation/04-cross-enterprise-workflows/README.md`; `06-data-and-knowledge/events.csv`; `04-enterprise-apis/api-catalog.csv` | Each proposal is marked added or rejected; coverage tests still pass | open |
-| A5 | Decide on the interface details raised earlier: batch recommendations, grant verification, party preferences, policy evaluate, shared-determination entity | `04-enterprise-apis/api-catalog.md` | Each is marked added or rejected | open |
-| A6 | Apply the adversarial review's design-level maturity downgrades to the design catalog | `workflow-innovation/03-alternative-designs/design-catalog.csv` vs `07-adversarial-reviews/verdicts.csv` | Catalog maturity matches the verdicts | open |
+| A1 | Map each legal requirement (REG id) to at least one control (CTL id) | `08-governance-and-compliance/reg-control-mapping.csv` | 46 of 50 legal requirements mapped; 4 do not apply to a sponsor; 10 missing controls added (CTL-055 to CTL-064); test added | **done** |
+| A2 | Reconcile agent names used in functional areas, workflows and workflow-innovation with the 19-agent catalog | `05-agent-architecture/agent-catalog.csv`; `workflow-innovation/06-agent-opportunities/` | A scan of every document found no unmapped agent name; 4 wordings were added to the mapping table (`workflow-innovation/06-agent-opportunities/agent-opportunity-catalog.md` §3) | **done** |
+| A3 | Map functional-area local workflow IDs (WF-A1…WF-N5) to WF-01…WF-24, or list them as sub-workflows | `02-business-capabilities/functional-areas/local-workflow-mapping.csv` | 73 local workflows: 58 mapped to a WF or XW workflow (same as, part of, related), 15 area-local | **done** |
+| A4 | Decide on the ~40 proposed events and ~20 interface groups from the cross-enterprise workflows: add to the catalogs or reject with a reason | `workflow-innovation/04-cross-enterprise-workflows/README.md`; `06-data-and-knowledge/events.csv`; `04-enterprise-apis/api-catalog.csv` | `04-enterprise-apis/a4-event-endpoint-decisions.csv`: 19 added, 19 deferred (tied to innovations rated insufficient evidence or watch), 4 rejected as duplicates or non-events, 5 already covered. Events 58 → 99, including 28 that API rows already published but the catalog lacked. Reverse test added | **done** |
+| A5 | Decide on the interface details raised earlier: batch recommendations, grant verification, party preferences, policy evaluate, shared-determination entity | `04-enterprise-apis/api-catalog.md` (decisions section) | 3 added as sub-resources or operations, 1 already covered, `Determination` entity added to the data model | **done** |
+| A6 | Apply the adversarial review's design-level maturity downgrades to the design catalog | `workflow-innovation/03-alternative-designs/design-catalog.csv` | Added `audit_verdict` and `maturity_after_audit` for all 45 reviewed designs; 8 downgrades applied; W1–W5 placeholders and 2 missing designs filled from the review | **done** |
+| A7 | Cost model assumes 18 agent families; the reconciled catalog has 31. Update `AgentFamilies` and regenerate outputs (agent-owner FTE rises from 4 to 7 at 6 families per owner), then update the headline staffing figures in 09- and 14- | `models/Daf.Enterprise/Economics.fs`; `09-financial-models/`; `14-executive-conclusions/` | `AgentFamilies` 18 → 31; outputs regenerated; 09- has a governing update section; headline figures updated inline in 10-, 12-, 13-, 14- and workflow-innovation (FTE 24/33/107/768; peak capital C $7.4m, B $14.8m). No conclusion changes | **done** |
 
 ## B. Analysis that public data or models can support (medium effort; no outside input)
 
 | # | Item | Done when | Status |
 |---|---|---|---|
-| B1 | Add a determination-reuse parameter (reusable foreign-charity and fiscal-sponsor reviews) to the cost model; rerun sensitivity | Parameter in `Economics.fs`, outputs regenerated, financial doc updated | open |
-| B2 | Small-sponsor Schedule I harvest (outside the top 50); rerun the overlap (E7/E7b) and network-economics analyses | New data and results; network conclusions updated | open |
+| B1 | Add a determination-reuse parameter (reusable foreign-charity and fiscal-sponsor reviews) to the cost model; rerun sensitivity | Parameter in `Economics.fs`, outputs regenerated, financial doc updated | done (09 update section; `outputs/determination-reuse.csv`) |
+| B2 | Small-sponsor Schedule I harvest (outside the top 50); rerun the overlap (E7/E7b) and network-economics analyses | New data and results; network conclusions updated | done (E7c in workflow-innovation 08; 09 §4b) |
 | B3 | Adversarial cases the review asked for: poisoned data load and name collision (E1); adaptive fraudster, correlated AI misses and reviewer automation bias (E2); payee-registry compromise blast radius (E3) | Each case is a test that can fail; results documented | open |
 | B4 | Build or explicitly drop the experiments cited but never built: complex-asset queue, contact-volume model, liquidity forecast, policy back-test | Built with results, or removed from the citing documents | open |
 | B5 | Charity vetting: improve candidate matching for "which charity is this" (abbreviations, nicknames, addresses) and rerun V1 | Higher share of true answers among candidates, documented | open |
@@ -49,4 +50,13 @@
 
 | Date | Item | Commit |
 |---|---|---|
-| 2026-11-21 | List created | (this commit) |
+| 2026-11-21 | List created | 2ffeb18 |
+| 2026-11-21 | A1 done | bb4f8da |
+| 2026-11-21 | A6 done | d00cc9b, 428542d |
+| 2026-11-21 | A2 done; A7 added | 215ee5e |
+| 2026-11-21 | A3 done | 131416a, 04fd899 |
+| 2026-11-21 | A5 done | aece741 |
+| 2026-11-21 | A4 done | 43b4661 |
+| 2026-11-21 | A7 done; group A complete | aa79d51 |
+| 2026-11-21 | B1 done | e234b67 |
+| 2026-11-23 | B2 done | 1ac2bbd |

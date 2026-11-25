@@ -1,5 +1,5 @@
 accounts,cost_line,usd_per_year
-1000,"staff",3465000
+1000,"staff",3960000
 1000,"AI inference",776
 1000,"infrastructure",253000
 1000,"custody and pool administration",15000
@@ -9,7 +9,8 @@ accounts,cost_line,usd_per_year
 1000,"legal, compliance and filings",200000
 1000,"data providers and identity",100450
 1000,"customer acquisition",60000
-10000,"staff",4950000
+1000,"verification network fees",0
+10000,"staff",5445000
 10000,"AI inference",7760
 10000,"infrastructure",280000
 10000,"custody and pool administration",150000
@@ -19,7 +20,8 @@ accounts,cost_line,usd_per_year
 10000,"legal, compliance and filings",400000
 10000,"data providers and identity",104500
 10000,"customer acquisition",600000
-100000,"staff",17160000
+10000,"verification network fees",0
+100000,"staff",17655000
 100000,"AI inference",77600
 100000,"infrastructure",550000
 100000,"custody and pool administration",1500000
@@ -29,7 +31,8 @@ accounts,cost_line,usd_per_year
 100000,"legal, compliance and filings",600000
 100000,"data providers and identity",145000
 100000,"customer acquisition",6000000
-1000000,"staff",126225000
+100000,"verification network fees",0
+1000000,"staff",126720000
 1000000,"AI inference",776000
 1000000,"infrastructure",3250000
 1000000,"custody and pool administration",15000000
@@ -39,3 +42,4 @@ accounts,cost_line,usd_per_year
 1000000,"legal, compliance and filings",800000
 1000000,"data providers and identity",550000
 1000000,"customer acquisition",60000000
+1000000,"verification network fees",0

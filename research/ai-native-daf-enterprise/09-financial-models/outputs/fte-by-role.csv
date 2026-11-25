@@ -5,7 +5,7 @@ accounts,role,fte
 1000,FinanceAndPaymentsOps,2
 1000,ServiceRecovery,1
 1000,Engineering,4
-1000,AgentOwnershipAndEvaluation,4
+1000,AgentOwnershipAndEvaluation,7
 1000,Security,1
 1000,Partnerships,1
 1000,PhilanthropicIntelligence,1
@@ -15,7 +15,7 @@ accounts,role,fte
 10000,FinanceAndPaymentsOps,2
 10000,ServiceRecovery,1
 10000,Engineering,6
-10000,AgentOwnershipAndEvaluation,4
+10000,AgentOwnershipAndEvaluation,7
 10000,Security,1
 10000,Partnerships,1
 10000,PhilanthropicIntelligence,1
@@ -25,7 +25,7 @@ accounts,role,fte
 100000,FinanceAndPaymentsOps,4
 100000,ServiceRecovery,7
 100000,Engineering,8
-100000,AgentOwnershipAndEvaluation,4
+100000,AgentOwnershipAndEvaluation,7
 100000,Security,3
 100000,Partnerships,5
 100000,PhilanthropicIntelligence,3
@@ -35,7 +35,7 @@ accounts,role,fte
 1000000,FinanceAndPaymentsOps,22
 1000000,ServiceRecovery,63
 1000000,Engineering,10
-1000000,AgentOwnershipAndEvaluation,4
+1000000,AgentOwnershipAndEvaluation,7
 1000000,Security,3
 1000000,Partnerships,50
 1000000,PhilanthropicIntelligence,3

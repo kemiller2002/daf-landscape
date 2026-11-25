@@ -108,6 +108,37 @@ let network (summaryPath: string) =
         |> csv "model,customers,revenue_usd,cost_usd,operating_result_usd,note"
     curveCsv, summary, models, (orders |> List.map (fun o -> o, total o))
 
+/// B2: small sponsors (outside the top 50) joining a verification network. Reads the small-sponsor summary
+/// (same column layout as the top-50 summary) plus the top-50 summary for sponsor sizes.
+let smallNetwork (topSummaryPath: string) (smallSummaryPath: string) =
+    let (_, topSponsors) = NetworkEconomics.load topSummaryPath
+    let (curve, smallSponsors) = NetworkEconomics.load smallSummaryPath
+    let sponsors = topSponsors @ smallSponsors
+    let rankOf = sponsors |> List.map (fun s -> s.Ein, s.Rank) |> Map.ofList
+    let smallSet = smallSponsors |> List.map (fun s -> s.Ein) |> Set.ofList
+    let band r = if r <= 200 then "rank 51-200" elif r <= 500 then "rank 201-500" else "rank 501+"
+    let cases = [ "routine $67.50, 8%", 67.5, 0.08; "diligence $270, 8%", 270.0, 0.08; "foreign-grade $1,080, 8%", 1080.0, 0.08 ]
+    let orders = [ "top50_then_small_by_rank"; "small_only_by_rank" ]
+    let rows =
+        [ for (label, v, h) in cases do
+            let p = { NetworkEconomics.defaults with CostPerDetermination = v; HumanDeterminationShare = h }
+            for o in orders do
+                let jr = NetworkEconomics.joinCurve p curve sponsors o
+                let ordered = curve |> List.filter (fun c -> c.Order = o) |> List.sortBy (fun c -> c.K)
+                let joined = List.zip ordered jr
+                let smallRows = joined |> List.filter (fun (c, _) -> smallSet.Contains c.SponsorEin)
+                let be = match NetworkEconomics.firstBreakEven jr with Some k -> string k | None -> "never"
+                for b in [ "rank 51-200"; "rank 201-500"; "rank 501+"; "all small" ] do
+                    let sel = smallRows |> List.filter (fun (c, _) -> b = "all small" || band (rankOf.[c.SponsorEin]) = b)
+                    let n = List.length sel
+                    let tot = sel |> List.sumBy (fun (_, r) -> r.MemberSavings)
+                    let mean = if n = 0 then 0.0 else tot / float n
+                    let sorted = sel |> List.map (fun (_, r) -> r.MemberSavings) |> List.sort
+                    let median = if n = 0 then 0.0 else sorted.[n / 2]
+                    let fees = tot * p.FeeShareOfSavings
+                    yield String.Join(",", [ q label; q o; q b; string n; f2 tot; f2 mean; f2 median; f2 fees; be ]) ]
+    csv "value_case,join_order,band,members,total_member_savings_usd,mean_savings_per_member_usd,median_savings_per_member_usd,operator_fees_from_band_usd,operator_break_even_k" rows
+
 // ---------------- charity-vetting-ai: public-data benchmarks ----------------
 let vettingResolution (bmfDir: string) (samplePath: string) =
     let orgs = Vetting.loadBmf bmfDir

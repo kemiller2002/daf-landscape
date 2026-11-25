@@ -1,0 +1,49 @@
+proposal,kind,decision,reason
+IdentityAttestationAccepted,event,deferred,INN-24 insufficient evidence (counsel and attestation standards first)
+RecipientPassportRefreshed,event,added,INN-01 survives
+NetworkMemberAdmitted; NetworkEvidencePublished; NetworkEvidenceAccepted; NetworkEvidenceDisputed,event,deferred,"INN-02 test only, scoped to costly determinations; counsel-gated"
+DeterminationApplied; DeterminationIssued; DeterminationExpiring,event,added,INN-04 adopted for ED and fiscal-sponsor host reviews
+SpecialistPoolCaseSubmitted,event,deferred,INN-28 reframed; E6 shows weak pooling benefit
+NettedPaymentProposed,event,deferred,INN-09 test; blast radius not yet modeled (B3)
+PayeeRegistryEnrollmentVerified,event,deferred,INN-07 insufficient evidence
+RecipientInboxNoticePosted; GrantClaimed,event,deferred,INN-10/INN-38 watch items
+IndicativeAcceptanceIssued; LiquidationBidRequested; LiquidationBidAccepted,event,deferred,INN-11 test; INN-12 watch
+ControllerAttestationSigned,event,rejected (duplicate),covered by CTL-048 evidence record; no separate event needed
+LiquidityForecastPublished,event,added,INN-27; twin liquidity findings
+CustodianFailoverActivated,event,added,XW-31 / scenario resilience
+DataNeeded,event,deferred,INN-25 test
+AdvisorEmbedSessionStarted,event,rejected (not a business event),"session telemetry, not authoritative state; covered by API-26 session records"
+TransferInitiated,event,rejected (duplicate),same as existing TransferOutRequested
+TransferRequestReceived; TransferAssetsDelivered; HistoryPackageDelivered,event,added,INN-17 portability; API-34
+SpendDownPlanAdopted,event,deferred,INN-19 field pilot only
+ExecutionWindowAssigned,event,deferred,INN-37 insufficient evidence (donor acceptance)
+PolicyCompiled; PolicyBackTestCompleted,event,added,INN-21; change control
+AuditPackageGenerated,event,added,INN-20
+ImprovementProposed,event,added,continuous improvement system (proposal only)
+ParameterExpiring; ParameterRenewed,event,added,CTL-047
+TwinForecastPublished,event,rejected (duplicate),covered by SimulationCompleted
+StaffingRecommendationIssued,event,deferred,INN-30 downgraded to L1
+RegulatoryInquiryOpened; InquiryEvidenceExported,event,added,WF-G3 / XW-28
+ReplayVerified; ReplayMismatch,event,added,INN-18
+WindDownPlanApproved,event,added,XW-30 governance
+POST /v1/attestations/identity,endpoint,deferred,INN-24
+GET /v1/recipients/{id}/passport,endpoint,added as sub-resource of API-11,INN-01
+/v1/network/evidence; /v1/network/members,endpoint,deferred,INN-02 counsel-gated
+GET/POST /v1/determinations,endpoint,already covered,API-35
+POST /v1/pool/cases,endpoint,deferred,INN-28
+internal POST /v1/payments (netted variant),endpoint,deferred,INN-09 pending B3
+/v1/payee-registry; /v1/recipients/{id}/attestations,endpoint,deferred,INN-07; INN-29 watch
+/v1/recipient-inbox; /claim,endpoint,deferred,INN-10/38 watch
+POST /v1/asset-classes/{id}/underwriting,endpoint,deferred,INN-11 test
+POST /v1/ledger/periods/{p}/attest,endpoint,added as internal operation of API-15,CTL-048
+GET /v1/positions/forecast,endpoint,already covered,API-27 treasury forecast
+/v1/parties/{id}/preferences,endpoint,added (A5),API-02
+POST /v1/embed/sessions,endpoint,added as operation of API-26 (partner embed session with token exchange),INN-15; DD-021
+POST/GET /v1/transfers,endpoint,already covered,API-34
+GET /v1/exports/event-log,endpoint,"added as operation of API-22 (scoped: donor own account, sponsor exit, auditor)",INN-18 portability
+POST /v1/schedules,endpoint,"added as operation of API-09 (recurring recommendations, WF-05)",existing recurring grants
+executionWindow field,endpoint,deferred,INN-37
+/v1/policies/{id}/evaluate; /compile; /backtest; /v1/policies/obligations,endpoint,evaluate covered (API-13); compile/backtest added as internal operations of API-13; obligations covered by API-30,INN-21
+/v1/evidence/packages; /v1/decisions/{id}/replay,endpoint,added as operations of API-20,INN-20; XW-28
+GET /v1/parameters,endpoint,already covered,API-30
+GET /v1/twin/forecasts,endpoint,already covered,API-32

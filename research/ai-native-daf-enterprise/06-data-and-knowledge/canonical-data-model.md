@@ -36,6 +36,7 @@
 | **Unit / NAV** | Unit price per pool per valuation date | C4.1 | pool, date, NAV, method version | Immutable per date |
 | **Recipient** | A charitable or other recipient organization | C3.1 | EIN or foreign identifier, legal name, aliases, payment profile reference | Versioned |
 | **EligibilityFact** | Status fact from a source: Pub 78 listing, BMF foundation code, revocation, OFAC listing, equivalency determination | C3.1 | recipient, fact type, value, source and version, effective date | Bitemporal |
+| **Determination** (added 2026-11-21) | A reusable judgment about a recipient: an equivalency determination, a fiscal-sponsor host review or a new-organization review. Not used for expenditure responsibility, which is per grant (REG-002) | C3.3 (grants compliance) | recipient, type (ED / FS-host / new-org), scope, valid from/to, invalidation triggers, author (person), evidence | Bitemporal |
 | **PaymentProfile** | Verified rail endpoint for a recipient | C3.4 | rail, account token (never the raw number in the operational store), verification evidence, change cooling-off end | Versioned |
 | **Recommendation** | Donor or advisor grant request | C3.2 | account, recipient candidate, amount, purpose, restrictions, recognition, channel, requesting party (incl. agent principal) | Lifecycle |
 | **Grant** | The sponsor's grant | C3.3 | recommendation, decision, purpose, restriction, ER requirement | Lifecycle (state machine) |

@@ -19,7 +19,7 @@
 | 03 | `03-workflow-redesign/` | done | 24 workflows (22 span ≥2 legacy departments; WF-11 and WF-23 are new capabilities, exempted); integration journey; 16 diagrams |
 | 04 | `04-enterprise-apis/` | done | 36 interface domains specified as requirements; 5 illustrative OpenAPI contracts kept as worked examples (no further contracts, per owner scope 2026-11-21) |
 | 05 | `05-agent-architecture/` | done | 19 agents; category model; authority boundaries INV-A1–A8 (tested in models/) |
-| 06 | `06-data-and-knowledge/` | done | 35 entities; 58 events (8 added after cross-deliverable review) |
+| 06 | `06-data-and-knowledge/` | done | 36 entities (Determination added 2026-11-21); 99 events (8 added after cross-deliverable review; 41 added 2026-11-21, OUTSTANDING A4) |
 | 07 | `07-technology-architecture/` | done | Technology architecture; Echelon component assessment (DD-014) |
 | 08 | `08-governance-and-compliance/` | done | 65 regulatory requirements; 50 controls (CTL-046–050 added from the Clarity review); governance; security; continuous compliance; continuous improvement |
 | 09 | `09-financial-models/` | done ([S]) | F# model outputs at 1k/10k/100k/1m; AUM variants; sensitivity; break-even; models A–D grid; 5-year ramps |

@@ -51,7 +51,7 @@ Summary of [`assumption-challenges.csv`](assumption-challenges.csv):
 | AC-16 | Model C buyers exist at ~$300 per account | unsupported | Low | Experimental | No ≥20k-account sponsor signs a paid design partnership in 12 months |
 | AC-17 | Advisors prefer embedded APIs | unsupported | Low-Medium | Experimental | ≥3 wealth firms choose white-label portals instead |
 | AC-18 | Absent tools prevent agent state changes | internal-demonstration | Medium | Guardrail | Reviewer override rate on agent dossiers <2% (complacency) |
-| AC-19 | Smallest organization ~21 FTE at 1k, ~104 at 100k | internal-demonstration (scenario) | Low | Experimental | Measured handling times differ >2× from assumed |
+| AC-19 | Smallest organization ~24 FTE at 1k, ~104 at 100k | internal-demonstration (scenario) | Low | Experimental | Measured handling times differ >2× from assumed |
 
 ### 1.1 Notes on the hardest cases
 
@@ -77,7 +77,7 @@ The posture is therefore **Guardrail**. The design must include the monthly QA s
 - a monthly controller variance attestation;
 - sampled human review of unflagged anomaly clusters.
 
-**AC-09: new sponsor vs infrastructure.** The 09 model shows how this is decided. On steady-state margins, B wins: about 85% at 100k accounts [S]. On a calibrated acquisition ramp, B needs about twice C's peak capital ($12.8m vs $6.4m [S]) and is still negative at year 5. The decisive variable is asset-acquisition speed, which no repository source measures for an AI-native entrant. Claim state **unsupported**; posture **Strategic**, because the choice is costly and slow to reverse.
+**AC-09: new sponsor vs infrastructure.** The 09 model shows how this is decided. On steady-state margins, B wins: about 85% at 100k accounts [S]. On a calibrated acquisition ramp, B needs about twice C's peak capital ($14.8m vs $7.4m [S]) and is still negative at year 5. The decisive variable is asset-acquisition speed, which no repository source measures for an AI-native entrant. Claim state **unsupported**; posture **Strategic**, because the choice is costly and slow to reverse.
 
 ## 2. EDF on observed industry outcomes
 
@@ -230,10 +230,10 @@ These are *design hypotheses about failure*, not observed outcomes, so EDF diagn
 
 | # | Conclusion | Evidence | Counterargument | Claim state / confidence | Falsification |
 |---|---|---|---|---|---|
-| MC-1 | Stage the business as infrastructure first (C), earn a partner sponsor-of-record hybrid (D), and keep owning a sponsor (B) as a later option | 10- scoring: C first in 63.4% and D in 36.5% of random weightings; A and B never first; 09 ramp peak capital C $6.4m vs B calibrated $12.8m [S]; data access closed (EV-122) | B has the best steady-state economics [S]; C depends on unproven willingness to pay (AC-16) and executed data rights (FM-16) | suggestive / Low-Medium | No paid ≥20k-account design partner within 12 months; executed contracts deny API or export |
+| MC-1 | Stage the business as infrastructure first (C), earn a partner sponsor-of-record hybrid (D), and keep owning a sponsor (B) as a later option | 10- scoring: C first in 63.4% and D in 36.5% of random weightings; A and B never first; 09 ramp peak capital C $7.4m vs B calibrated $14.8m [S]; data access closed (EV-122) | B has the best steady-state economics [S]; C depends on unproven willingness to pay (AC-16) and executed data rights (FM-16) | suggestive / Low-Medium | No paid ≥20k-account design partner within 12 months; executed contracts deny API or export |
 | MC-2 | About 29% of conventional activity kinds (23 of 80) are eliminated or reduced to a residual; 51% change mechanism; 20% stay human | Activity census (tested CSV) | An enumeration of activity *kinds*, not hours; built by the design team | internal-demonstration / Low-Medium | An independent practitioner re-classification differs on >15% of rows |
 | MC-3 | The smallest responsible organization is ~21 people at 1k accounts and ~104 at 100k **[S]** | 09 model; structural floor of ~8–10 for SoD and accountability | 23 of 30 parameters assumed; loaded cost swing 95% | internal-demonstration / Low | Measured handling times >2× assumed |
-| MC-4 | AI-native cost per account falls below the frontier (Fidelity ~$790 all-in) somewhere between 10k and 100k accounts **[S]** | 09: $697 at 10k, $272 at 100k | Fidelity's allocation differs (affiliate-staffed, EV-023/024); assumptions dominate | internal-demonstration / Low | Shadow-mode-measured parameters put the cost at 100k above $790 |
+| MC-4 | AI-native cost per account falls below the frontier (Fidelity ~$790 all-in) somewhere between 10k and 100k accounts **[S]** | 09: $747 at 10k, $277 at 100k | Fidelity's allocation differs (affiliate-staffed, EV-023/024); assumptions dominate | internal-demonstration / Low | Shadow-mode-measured parameters put the cost at 100k above $790 |
 | MC-5 | Humans own most decision *types* (33 of 81) but little decision *volume* | Decision census (tested) | Volume classes are design judgments, not measurements | suggestive / Medium | Pilot telemetry shows H decisions >10% of decision volume |
 | MC-6 | Inference cost is immaterial; supervision is the AI cost | EV-106; 09 inference 0.3% of cost; ×10 swing 2.7% | Agentic multi-step costs and evaluation infrastructure | suggestive / Medium-High | AI run cost >5% of staff cost per outcome |
 | MC-7 | The exception rate (and recipient-level reuse of determinations), not automation or headcount, is the economic lever | 09 sensitivity (exception rate and minutes ~27% swings each); twin: halving exceptions removes the surge breach | Exception rate is a recipient proxy (EV-079); reuse is unmeasured and its legality across sponsors unclear | suggestive / Medium | Measured reuse <1.5; exception rate insensitive to policy changes |

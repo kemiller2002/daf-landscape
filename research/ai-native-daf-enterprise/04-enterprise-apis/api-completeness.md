@@ -15,7 +15,7 @@ These are enforced by tests in `models/Daf.Enterprise.Tests/IdentityTests.fs`: e
 ## What was missing and was added (2026-11-21)
 
 **Before:** 23 API domains. 7 of 30 capabilities had no API, and 16 of 58 events were not published by any API.
-**After:** 36 domains. All 30 capabilities are covered and all 58 events are published.
+**After:** 36 domains. All 30 capabilities are covered and all 58 events are published. On 2026-11-21 (OUTSTANDING A4), 41 more events were added from the cross-enterprise workflows and the new domains, giving 99. All are published, and every event an API publishes exists in the catalog (both checks are tested). Decisions on every proposed event and endpoint are in [`a4-event-endpoint-decisions.csv`](a4-event-endpoint-decisions.csv): 19 added, 19 deferred, 4 rejected, 5 already covered.
 
 | New API | Domain | Fills the gap for | Exposure |
 |---|---|---|---|

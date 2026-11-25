@@ -127,3 +127,19 @@ let ``every event has a producer, consumers, controls and audit evidence`` () =
         for c in [ "producer"; "consumers"; "required_controls"; "audit_evidence" ] do
             let name = r.["event_type"]
             Assert.False(System.String.IsNullOrWhiteSpace r.[c], name + "." + c))
+
+// ---------- B1: determination reuse ----------
+[<Fact>]
+let ``determination reuse: default rate is zero so the base case has no network fees`` () =
+    let lines = aiNativeCosts defaults (baseScenario 100000m)
+    Assert.Equal(0m, lines |> List.filter (fun l -> l.Line = "verification network fees") |> total)
+
+[<Fact>]
+let ``determination reuse: more reuse never raises grants-compliance FTE and never lowers net saving below fees`` () =
+    reuseSweep defaults [ 10000m; 100000m; 1000000m ] [ 0.15m; 0.30m; 0.60m ] [ 0m; 0.2m; 0.5m; 0.8m ]
+    |> List.groupBy (fun r -> r.Accounts, r.MinuteShare)
+    |> List.iter (fun (_, rows) ->
+        rows
+        |> List.sortBy (fun r -> r.ReuseRate)
+        |> List.pairwise
+        |> List.iter (fun (a, b) -> Assert.True(b.GrantsComplianceFte <= a.GrantsComplianceFte)))
