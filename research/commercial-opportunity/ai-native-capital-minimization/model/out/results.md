@@ -154,6 +154,8 @@ Layer inputs [A]: Echelon $150k/yr with 30.0% to Unbound; Unbound build $1.62M o
 | F5 five core | incremental (Unbound and Echelon exist anyway) | $1.90M | $99k | 4.9% |
 | F5 five core | fully allocated (servicing share 100%) | $2.49M | $-493k | -24.7% |
 | F5 five core | fully allocated, servicing 50% of Unbound use, $300k external licence revenue | $2.20M | $-197k | -9.9% |
+| F5 five core | standalone, conservative platform (LYR) | $3.97M | $-1.97M | -98.4% |
+| F5 five core | incremental, conservative platform (LYR) | $1.93M | $69k | 3.4% |
 
 | Measure | Annual |
 |---|---|
@@ -161,6 +163,8 @@ Layer inputs [A]: Echelon $150k/yr with 30.0% to Unbound; Unbound build $1.62M o
 | Incremental annual cost of Unbound if it displaces other Echelon work | $592k |
 | Incremental annual cost of servicing if Unbound exists (F5, $1B) | $1.90M |
 | Consolidated A+B+C (F5 servicing-only + Unbound + all of Echelon) | $-598k |
+| Consolidated A+B+C, conservative platform (LYR) | $-2.00M |
+| Incremental annual cost of Unbound if Echelon exists, conservative (LYR) | $1.77M |
 
 ## 8. Development investment scenarios and productivity sensitivity
 
@@ -367,6 +371,7 @@ Marginal cost is the cost per added account-year between $1B and $2B at a $250k 
 | AI-native independent (F5, 50 min, standalone; minimum build at 1.5x, no Echelon) | $2.11M | $91 | $1.37B | $1.66B | $1.26B | $1.95B | $1.04B | $2.15B | 45.2% |
 | Echelon-supported AI-native (F5, 50 min, fully allocated; minimum build at 3x) | $1.86M | $90 | $1.30B | $1.56B | $1.20B | $1.85B | $990.00M | $2.03B | 47.2% |
 | Founder-led staged (F3, 50 min, standalone) | $1.92M | $98 | $1.38B | $1.72B | $1.27B | $2.00B | $1.05B | $2.19B | 43.7% |
+| AI-native F5, standalone, conservative platform (LYR: $4.6M build, 4-person platform team, Echelon reliance) | $3.49M | $91 | $2.22B | $2.67B | $2.05B | $3.16B | $1.69B | $3.46B | 22.1% |
 | Combined software + administration (F5, servicing 50% of Unbound, $300k licences) | $1.57M | $90 | $1.12B | $1.35B | $1.05B | $1.60B | $860.00M | $1.75B | 52.0% |
 | Outcome-designed F5 (OPS: 30.1 min, sponsor work 12,720 min) [unproven], fully allocated | $1.86M | $45 | $1.19B | $1.30B | $1.14B | $1.63B | $930.00M | $1.75B | 54.4% |
 

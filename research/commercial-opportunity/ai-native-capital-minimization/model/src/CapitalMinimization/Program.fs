@@ -144,6 +144,10 @@ let layerSection () =
                 let c = servicingCost v baseLayers total d
                 yield [ d.Name; name; money c; money (revenue - c); pct ((revenue - c) / revenue) ] ]
     let half = { baseLayers with ServicingShareOfUnbound = 0.5; UnboundExternalRevenue = 300000.0 }
+    let lyrRows =
+        [ for v, name in [ Standalone, "standalone, conservative platform (LYR)"; Incremental, "incremental, conservative platform (LYR)" ] do
+            let c = servicingCost v lyrLayers total f5
+            yield [ f5.Name; name; money c; money (revenue - c); pct ((revenue - c) / revenue) ] ]
     let rowsHalf =
         [ for d in [ f5 ] do
             let c = servicingCost FullyAllocated half total d
@@ -155,10 +159,12 @@ let layerSection () =
         [ [ "Incremental annual cost of Unbound if Echelon exists (no displaced Echelon work)"; money (unboundIncremental baseLayers false) ]
           [ "Incremental annual cost of Unbound if it displaces other Echelon work"; money (unboundIncremental baseLayers true) ]
           [ "Incremental annual cost of servicing if Unbound exists (F5, $1B)"; money (servicingCost Incremental baseLayers total f5) ]
-          consolidatedRow ]
+          consolidatedRow
+          [ "Consolidated A+B+C, conservative platform (LYR)"; money (consolidated lyrLayers revenue (total (servicingOnly f5))) ]
+          [ "Incremental annual cost of Unbound if Echelon exists, conservative (LYR)"; money (unboundIncremental lyrLayers false) ] ]
     section "7. Three economic layers at $1B (5 sponsors, 50 min/account-year)"
         ($"Layer inputs [A]: Echelon {money baseLayers.EchelonAnnual}/yr with {pct baseLayers.EchelonShareToUnbound} to Unbound; Unbound build {money baseLayers.UnboundBuild} over {num 0 baseLayers.UnboundLifeYears} years, maintenance {money baseLayers.UnboundMaintenance}, non-production {money baseLayers.UnboundPlatformOps}; servicing-specific platform {money baseLayers.ServicingSpecificPlatform}.\n\n"
-         + table [ "Design"; "View"; "Servicing cost"; "Profit"; "Margin" ] (rows @ rowsHalf)
+         + table [ "Design"; "View"; "Servicing cost"; "Profit"; "Margin" ] (rows @ rowsHalf @ lyrRows)
          + "\n\n" + table [ "Measure"; "Annual" ] incrementalUnbound)
 
 // ---------------------------------------------------------------- 8 development investment and productivity
@@ -262,6 +268,7 @@ let scenarios () =
       designScenario "AI-native independent (F5, 50 min, standalone; minimum build at 1.5x, no Echelon)" f5 50.0 Standalone independent
       designScenario "Echelon-supported AI-native (F5, 50 min, fully allocated; minimum build at 3x)" f5 50.0 FullyAllocated echelonSupported
       designScenario "Founder-led staged (F3, 50 min, standalone)" f3 50.0 Standalone baseLayers
+      designScenario "AI-native F5, standalone, conservative platform (LYR: $4.6M build, 4-person platform team, Echelon reliance)" f5 50.0 Standalone lyrLayers
       designScenario "Combined software + administration (F5, servicing 50% of Unbound, $300k licences)" f5 50.0 FullyAllocated combined
       designScenario "Outcome-designed F5 (OPS: 30.1 min, sponsor work 12,720 min) [unproven], fully allocated" (outcomeDesigned f5) outcomeDesignedTarget FullyAllocated echelonSupported ]
 

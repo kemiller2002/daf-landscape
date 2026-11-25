@@ -242,3 +242,18 @@ let baseLayers =
       UnboundExternalRevenue = 0.0
       ServicingShareOfUnbound = 1.0
       ServicingSpecificPlatform = 30000.0 }
+
+/// Conservative layer costs from the LYR pass (layer-costs.csv): build $4.6M amortised over 5 years ($920k), a platform
+/// team of technical lead plus three engineers ($789k), production and non-production hosting $60k, and Echelon
+/// reliance cost caused by Unbound (second maintainer, component security review, licence programme, licensor
+/// insurance, maintainer time) about $300k with 90% attributable to Unbound. [A, LYR]
+let lyrLayers =
+    { EchelonAnnual = 300000.0
+      EchelonShareToUnbound = 0.9
+      UnboundBuild = 4.6e6
+      UnboundLifeYears = 5.0
+      UnboundMaintenance = 222482.0 + 566874.0
+      UnboundPlatformOps = 59731.0
+      UnboundExternalRevenue = 0.0
+      ServicingShareOfUnbound = 1.0
+      ServicingSpecificPlatform = 60000.0 }
