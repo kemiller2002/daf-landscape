@@ -54,7 +54,7 @@ PREFACES = {
 
 ## Integrator disposition of the findings
 
-The model was corrected and every material analysis re-run after this review (`model/out/results.md` sha256 `b25b849b…`, 28/28 tests passed). The numbers quoted in the ADV sections below are the **pre-fix** values the reviewer computed, using a Python port of the F# core.
+The model was corrected and every material analysis re-run after this review (`model/out/results.md` sha256 `b8328e3b…`, 28/28 tests passed). The numbers quoted in the ADV sections below are the **pre-fix** values the reviewer computed, using a Python port of the F# core.
 
 | Finding(s) | Disposition | Effect on results |
 |---|---|---|

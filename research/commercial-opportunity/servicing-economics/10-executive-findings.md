@@ -87,7 +87,8 @@ Starting assets needed to stay at break-even after the stress (in brackets: to k
 | Market -50% | $4.48B | |
 | Combined: -30%, minutes x1.5, wages +10%, vendors +25% | $4.27B | |
 | Severe | $6.65B | |
-| Market -30%, fully loaded | About $3.3-3.8B [D, approximate] | |
+| Market -30%, fully loaded (build and sales carried) | $3.91B ($4.55B) | |
+| Combined, fully loaded | $6.82B | |
 
 **Per-account pricing halves the damage of a 30% fall** (report 05 §4). **Contractual minimums protect only small sponsors.** Asset-linked minimums do not fix the core exposure, and floors above about 1% of balance harm small funds.
 

@@ -4,7 +4,7 @@
 
 **Model:** [`model/`](model/), F# on .NET 10. It is research tooling, not product code.
 
-**Full generated results:** [`model/out/results.md`](model/out/results.md) (sha256 `b25b849b…`). Per-sponsor re-costing is in [`sponsor-model-economics.csv`](../../../data/commercial-opportunity/servicing-economics/sponsor-model-economics.csv).
+**Full generated results:** [`model/out/results.md`](model/out/results.md) (sha256 `b8328e3b…`). Per-sponsor re-costing is in [`sponsor-model-economics.csv`](../../../data/commercial-opportunity/servicing-economics/sponsor-model-economics.csv).
 
 **Status:** theoretical. Every output follows from labelled parameters in [`Parameters.fs`](model/src/ServicingEconomics/Parameters.fs) and the [assumptions register](../../../data/commercial-opportunity/servicing-economics/assumptions-register.csv). There is no time study, no signed contract and no measured operation. Nothing here is a forecast or a demonstration of commercial profitability.
 
@@ -152,7 +152,10 @@ Five sponsors, $150k balance:
 | Market -50% | $4.48B | $3.99B |
 | Combined | $4.27B | |
 | Severe | $6.65B | |
-| Fully loaded, market -30% | about $3.3-3.8B [D, approximate: adds $1.25M fixed at 14 bps effective less variable cost] | |
+| Fully loaded, market -30% | $3.91B ($4.55B) | |
+| Fully loaded, market -50% | $6.92B ($8.72B) | |
+| Fully loaded, combined | $6.82B | |
+| Fully loaded, severe | $9.84B | |
 
 **Contractual minimums.** A sponsor minimum protects only small sponsors, because every sponsor in the tables already exceeds any reasonable minimum. A per-sponsor break-even minimum fee is about $100-135k a year for sponsors below about $50-75M. Below that a sponsor is unprofitable at 20 bps.
 

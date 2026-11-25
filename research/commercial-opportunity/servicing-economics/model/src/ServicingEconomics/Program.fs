@@ -84,7 +84,7 @@ let anchorStressRows org =
     standardStresses |> List.map (fun st -> st, eval org AiNative (price 20.0) st anchorPortfolio)
 
 let surviveRows () =
-    [ for org in organizations do
+    [ for org in organizations @ [ fullyLoaded modelB ] do
         for st in standardStresses |> List.filter (fun s -> s.Name <> "base") do
             for target in [ 0.0; 0.10 ] do
                 let shape = shapeOf 5 150000.0
