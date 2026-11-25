@@ -1,15 +1,15 @@
 sequence,view,capital_required,month_profitable,cash_m24,cash_m36,cash_m60,year5_profit,year5_roic
 "A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",cash,11440995,36,-8097736,-10224092,-11440995,822434,0.057
 "A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",economic,11440995,36,-8097736,-10224092,-11440995,822434,0.057
-"B product-first: F2 builds minimum product (12 months), F5 from first go-live",cash,5285671,30,-3900053,-5140919,-4678736,822434,0.123
-"B product-first: F2 builds minimum product (12 months), F5 from first go-live",economic,5628830,30,-4203047,-5475641,-5087227,822434,0.115
-"C customer-funded: design partner prepays $250k, F3 then F5",cash,5083506,27,-4062947,-5083506,-4336350,822434,0.128
-"C customer-funded: design partner prepays $250k, F3 then F5",economic,5365854,27,-4318532,-5365854,-4680925,822434,0.121
-"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",cash,6048346,42,-3688791,-5308047,-5449321,1014434,0.132
-"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",economic,6621224,42,-4083134,-5839696,-6098141,1014434,0.121
-"E provider partnership: partner programs at 14 bps net, F3",cash,6098251,30,-4224346,-5354247,-6098251,180389,0.023
-"E provider partnership: partner programs at 14 bps net, F3",economic,7252896,30,-4618689,-5977245,-7252896,1460,0.000
-"F founder-led: F1 then F3, $1.0B anchor + $500M",cash,3643499,18,-3441529,-3617334,-2118394,1140492,0.247
-"F founder-led: F1 then F3, $1.0B anchor + $500M",economic,4145032,30,-3674930,-4062538,-3056060,961563,0.183
-G hybrid: narrow service + design partner + staged F2/F3/F5,cash,5783657,33,-4179647,-5482464,-5171758,918434,0.125
-G hybrid: narrow service + design partner + staged F2/F3/F5,economic,6292619,33,-4573991,-5966704,-5762720,918434,0.115
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",cash,5389891,30,-3992075,-5242577,-4802798,822434,0.121
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",economic,5733051,30,-4295069,-5577299,-5211289,822434,0.113
+"C customer-funded: design partner prepays $250k, F3 then F5",cash,5185163,27,-4154969,-5185163,-4460412,822434,0.125
+"C customer-funded: design partner prepays $250k, F3 then F5",economic,5467512,27,-4410554,-5467512,-4804987,822434,0.119
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",cash,6138935,42,-3764891,-5392116,-5551918,1014434,0.131
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",economic,6711813,42,-4159234,-5923765,-6200738,1014434,0.119
+"E provider partnership: partner programs at 14 bps net, F3",cash,6222313,30,-4316367,-5455904,-6222313,180389,0.023
+"E provider partnership: partner programs at 14 bps net, F3",economic,7376958,30,-4710711,-6078903,-7376958,1460,0.000
+"F founder-led: F1 then F3, $1.0B anchor + $500M",cash,3747719,18,-3533551,-3718992,-2242456,1140492,0.240
+"F founder-led: F1 then F3, $1.0B anchor + $500M",economic,4249252,30,-3766952,-4164196,-3180122,961563,0.179
+G hybrid: narrow service + design partner + staged F2/F3/F5,cash,5880184,33,-4262780,-5574302,-5283836,918434,0.123
+G hybrid: narrow service + design partner + staged F2/F3/F5,economic,6389146,33,-4657123,-6058542,-5874798,918434,0.114

@@ -93,8 +93,13 @@ let ``at 1x productivity the effective cost is the conventional cost`` () =
     close 1e-6 (5.0e6 * 0.35) (effectiveCost unboundBaseline 0.35 1.0)
 
 [<Fact>]
+let ``minimum servicing product at 1x matches the DEV bottom-up estimate of 2.43M`` () =
+    close 1000.0 2.43e6 (minimumProductCost unboundBaseline 1.0)
+
+[<Fact>]
 let ``savings are bounded by the construction share (Amdahl)`` () =
-    close 1e-9 (1.0 - (0.55 + 0.45 * 0.10)) (savingsCeiling unboundBaseline)
+    let b = unboundBaseline
+    close 1e-9 (1.0 - ((1.0 - b.ConstructionShare) + b.ConstructionShare * b.ComputeShareOfReplaced)) (savingsCeiling b)
     Assert.True(effectiveCost unboundBaseline 1.0 1000.0 > 5.0e6 * (1.0 - savingsCeiling unboundBaseline) - 1.0)
 
 [<Fact>]

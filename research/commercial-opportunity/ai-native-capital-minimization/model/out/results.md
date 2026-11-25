@@ -35,42 +35,42 @@ Operating = the design alone. Standalone = plus Unbound build amortisation, Eche
 
 | Design | Minutes/account-yr | Operating break-even | Operating 20% margin | Standalone break-even | Standalone 20% margin |
 |---|---|---|---|---|---|
-| F1 one founder + agents + contractors | 10 | $840.00M | $1.06B | $1.11B | $1.41B |
-| F1 one founder + agents + contractors | 20 | $870.00M | $1.11B | $1.15B | $1.47B |
-| F1 one founder + agents + contractors | 30 | $900.00M | $1.16B | $1.19B | $1.54B |
-| F1 one founder + agents + contractors | 50 | $970.00M | $1.29B | $1.29B | $1.72B |
-| F1 one founder + agents + contractors | 75 | $1.09B | $1.51B | $1.45B | $2.02B |
-| F1 one founder + agents + contractors | 100 | $1.25B | $1.83B | $1.66B | $2.44B |
-| F2 two founders | 10 | $870.00M | $1.10B | $1.11B | $1.41B |
-| F2 two founders | 20 | $900.00M | $1.15B | $1.15B | $1.47B |
-| F2 two founders | 30 | $930.00M | $1.20B | $1.19B | $1.54B |
-| F2 two founders | 50 | $1.01B | $1.34B | $1.30B | $1.72B |
-| F2 two founders | 75 | $1.13B | $1.57B | $1.46B | $2.02B |
-| F2 two founders | 100 | $1.29B | $1.89B | $1.66B | $2.44B |
-| F3 three core | 10 | $970.00M | $1.22B | $1.20B | $1.52B |
-| F3 three core | 20 | $990.00M | $1.26B | $1.24B | $1.58B |
-| F3 three core | 30 | $1.02B | $1.31B | $1.27B | $1.64B |
-| F3 three core | 50 | $1.09B | $1.45B | $1.38B | $1.83B |
-| F3 three core | 75 | $1.23B | $1.70B | $1.55B | $2.15B |
-| F3 three core | 100 | $1.40B | $2.06B | $1.77B | $2.59B |
-| F5 five core | 10 | $990.00M | $1.25B | $1.21B | $1.53B |
-| F5 five core | 20 | $1.02B | $1.30B | $1.25B | $1.59B |
-| F5 five core | 30 | $1.05B | $1.33B | $1.27B | $1.64B |
-| F5 five core | 50 | $1.12B | $1.48B | $1.38B | $1.81B |
-| F5 five core | 75 | $1.24B | $1.70B | $1.53B | $2.07B |
-| F5 five core | 100 | $1.39B | $1.97B | $1.70B | $2.42B |
-| F6 six core | 10 | $1.04B | $1.32B | $1.26B | $1.59B |
-| F6 six core | 20 | $1.07B | $1.36B | $1.30B | $1.65B |
-| F6 six core | 30 | $1.10B | $1.40B | $1.32B | $1.71B |
-| F6 six core | 50 | $1.17B | $1.54B | $1.43B | $1.87B |
-| F6 six core | 75 | $1.28B | $1.74B | $1.56B | $2.11B |
-| F6 six core | 100 | $1.42B | $1.99B | $1.72B | $2.44B |
-| F8+ nine core (specialised) | 10 | $1.21B | $1.52B | $1.42B | $1.79B |
-| F8+ nine core (specialised) | 20 | $1.22B | $1.53B | $1.44B | $1.82B |
-| F8+ nine core (specialised) | 30 | $1.24B | $1.58B | $1.47B | $1.88B |
-| F8+ nine core (specialised) | 50 | $1.31B | $1.70B | $1.55B | $2.02B |
-| F8+ nine core (specialised) | 75 | $1.41B | $1.89B | $1.66B | $2.28B |
-| F8+ nine core (specialised) | 100 | $1.54B | $2.25B | $1.87B | $2.68B |
+| F1 one founder + agents + contractors | 10 | $840.00M | $1.06B | $1.17B | $1.48B |
+| F1 one founder + agents + contractors | 20 | $870.00M | $1.11B | $1.21B | $1.55B |
+| F1 one founder + agents + contractors | 30 | $900.00M | $1.16B | $1.26B | $1.63B |
+| F1 one founder + agents + contractors | 50 | $970.00M | $1.29B | $1.37B | $1.82B |
+| F1 one founder + agents + contractors | 75 | $1.09B | $1.51B | $1.54B | $2.13B |
+| F1 one founder + agents + contractors | 100 | $1.25B | $1.83B | $1.75B | $2.57B |
+| F2 two founders | 10 | $870.00M | $1.10B | $1.17B | $1.49B |
+| F2 two founders | 20 | $900.00M | $1.15B | $1.22B | $1.55B |
+| F2 two founders | 30 | $930.00M | $1.20B | $1.26B | $1.63B |
+| F2 two founders | 50 | $1.01B | $1.34B | $1.37B | $1.82B |
+| F2 two founders | 75 | $1.13B | $1.57B | $1.54B | $2.13B |
+| F2 two founders | 100 | $1.29B | $1.89B | $1.75B | $2.57B |
+| F3 three core | 10 | $970.00M | $1.22B | $1.26B | $1.60B |
+| F3 three core | 20 | $990.00M | $1.26B | $1.30B | $1.66B |
+| F3 three core | 30 | $1.02B | $1.31B | $1.34B | $1.72B |
+| F3 three core | 50 | $1.09B | $1.45B | $1.45B | $1.93B |
+| F3 three core | 75 | $1.23B | $1.70B | $1.63B | $2.26B |
+| F3 three core | 100 | $1.40B | $2.06B | $1.86B | $2.73B |
+| F5 five core | 10 | $990.00M | $1.25B | $1.22B | $1.54B |
+| F5 five core | 20 | $1.02B | $1.30B | $1.26B | $1.60B |
+| F5 five core | 30 | $1.05B | $1.33B | $1.28B | $1.65B |
+| F5 five core | 50 | $1.12B | $1.48B | $1.39B | $1.82B |
+| F5 five core | 75 | $1.24B | $1.70B | $1.54B | $2.08B |
+| F5 five core | 100 | $1.39B | $1.97B | $1.71B | $2.44B |
+| F6 six core | 10 | $1.04B | $1.32B | $1.27B | $1.61B |
+| F6 six core | 20 | $1.07B | $1.36B | $1.31B | $1.66B |
+| F6 six core | 30 | $1.10B | $1.40B | $1.33B | $1.72B |
+| F6 six core | 50 | $1.17B | $1.54B | $1.44B | $1.88B |
+| F6 six core | 75 | $1.28B | $1.74B | $1.57B | $2.12B |
+| F6 six core | 100 | $1.42B | $1.99B | $1.73B | $2.46B |
+| F8+ nine core (specialised) | 10 | $1.21B | $1.52B | $1.43B | $1.80B |
+| F8+ nine core (specialised) | 20 | $1.22B | $1.53B | $1.44B | $1.83B |
+| F8+ nine core (specialised) | 30 | $1.24B | $1.58B | $1.48B | $1.89B |
+| F8+ nine core (specialised) | 50 | $1.31B | $1.70B | $1.56B | $2.03B |
+| F8+ nine core (specialised) | 75 | $1.41B | $1.89B | $1.68B | $2.30B |
+| F8+ nine core (specialised) | 100 | $1.54B | $2.25B | $1.88B | $2.69B |
 
 ## 4. Handling-time targets at $1B (5 sponsors, 4,000 accounts)
 
@@ -143,43 +143,43 @@ Previous step rules add an operations manager, integration engineer, implementat
 
 ## 7. Three economic layers at $1B (5 sponsors, 50 min/account-year)
 
-Layer inputs [A]: Echelon $150k/yr with 30.0% to Unbound; Unbound build $1.62M over 5 years, maintenance $200k, non-production $24k; servicing-specific platform $30k.
+Layer inputs [A]: Echelon $150k/yr with 30.0% to Unbound; Unbound build $1.70M over 5 years, maintenance $300k, non-production $24k; servicing-specific platform $30k.
 
 | Design | View | Servicing cost | Profit | Margin |
 |---|---|---|---|---|
-| F3 three core | standalone | $2.60M | $-599k | -30.0% |
+| F3 three core | standalone | $2.72M | $-715k | -35.8% |
 | F3 three core | incremental (Unbound and Echelon exist anyway) | $2.01M | $-8k | -0.4% |
-| F3 three core | fully allocated (servicing share 100%) | $2.60M | $-600k | -30.0% |
-| F5 five core | standalone | $2.60M | $-602k | -30.1% |
+| F3 three core | fully allocated (servicing share 100%) | $2.72M | $-716k | -35.8% |
+| F5 five core | standalone | $2.62M | $-618k | -30.9% |
 | F5 five core | incremental (Unbound and Echelon exist anyway) | $1.90M | $99k | 4.9% |
-| F5 five core | fully allocated (servicing share 100%) | $2.49M | $-493k | -24.7% |
-| F5 five core | fully allocated, servicing 50% of Unbound use, $300k external licence revenue | $2.20M | $-197k | -9.9% |
+| F5 five core | fully allocated (servicing share 100%) | $2.61M | $-609k | -30.5% |
+| F5 five core | fully allocated, servicing 50% of Unbound use, $300k external licence revenue | $2.26M | $-255k | -12.8% |
 | F5 five core | standalone, conservative platform (LYR) | $3.97M | $-1.97M | -98.4% |
 | F5 five core | incremental, conservative platform (LYR) | $1.93M | $69k | 3.4% |
 
 | Measure | Annual |
 |---|---|
-| Incremental annual cost of Unbound if Echelon exists (no displaced Echelon work) | $547k |
-| Incremental annual cost of Unbound if it displaces other Echelon work | $592k |
+| Incremental annual cost of Unbound if Echelon exists (no displaced Echelon work) | $663k |
+| Incremental annual cost of Unbound if it displaces other Echelon work | $708k |
 | Incremental annual cost of servicing if Unbound exists (F5, $1B) | $1.90M |
-| Consolidated A+B+C (F5 servicing-only + Unbound + all of Echelon) | $-598k |
+| Consolidated A+B+C (F5 servicing-only + Unbound + all of Echelon) | $-714k |
 | Consolidated A+B+C, conservative platform (LYR) | $-2.00M |
 | Incremental annual cost of Unbound if Echelon exists, conservative (LYR) | $1.77M |
 
 ## 8. Development investment scenarios and productivity sensitivity
 
-Savings ceiling as productivity → ∞: 40.5% of conventional cost (construction share 45.0%, compute 10.0% of replaced construction).
+Savings ceiling as productivity → ∞: 66.5% of conventional cost (construction share 70.0%, compute 5.0% of replaced construction).
 
 | Productivity multiple | Minimum safe servicing product | Full Unbound scope | Annual maintenance (minimum scope, 20%) |
 |---|---|---|---|
-| 1.0 | $1.97M | $5.22M | $350k |
-| 1.5 | $1.73M | $4.55M | $303k |
-| 2.0 | $1.62M | $4.21M | $279k |
-| 3.0 | $1.50M | $3.87M | $256k |
-| 5.0 | $1.40M | $3.60M | $237k |
-| 10.0 | $1.33M | $3.40M | $222k |
+| 1.0 | $2.43M | $5.22M | $442k |
+| 1.5 | $1.94M | $4.11M | $344k |
+| 2.0 | $1.70M | $3.56M | $295k |
+| 3.0 | $1.45M | $3.00M | $246k |
+| 5.0 | $1.25M | $2.56M | $207k |
+| 10.0 | $1.11M | $2.23M | $177k |
 
-Sequences use the minimum safe product at 2.0x: $1.62M; narrow non-custodial service $379k; extension to administration $1.30M.
+Sequences use the minimum safe product at 2.0x: $1.70M; narrow non-custodial service $327k; extension to administration $1.43M.
 
 | Investment | Multiple | Share of full Unbound scope deliverable | Covers minimum safe product? |
 |---|---|---|---|
@@ -190,29 +190,29 @@ Sequences use the minimum safe product at 2.0x: $1.62M; narrow non-custodial ser
 | $100k | 5.0 | 0.0% | no |
 | $100k | 10.0 | 0.0% | no |
 | $250k | 1.0 | 0.6% | no |
-| $250k | 1.5 | 0.7% | no |
-| $250k | 2.0 | 0.8% | no |
-| $250k | 3.0 | 0.8% | no |
-| $250k | 5.0 | 0.9% | no |
-| $250k | 10.0 | 0.9% | no |
+| $250k | 1.5 | 0.8% | no |
+| $250k | 2.0 | 0.9% | no |
+| $250k | 3.0 | 1.1% | no |
+| $250k | 5.0 | 1.3% | no |
+| $250k | 10.0 | 1.5% | no |
 | $500k | 1.0 | 5.6% | no |
-| $500k | 1.5 | 6.5% | no |
-| $500k | 2.0 | 7.0% | no |
-| $500k | 3.0 | 7.7% | no |
-| $500k | 5.0 | 8.3% | no |
-| $500k | 10.0 | 8.8% | no |
+| $500k | 1.5 | 7.2% | no |
+| $500k | 2.0 | 8.4% | no |
+| $500k | 3.0 | 10.1% | no |
+| $500k | 5.0 | 12.0% | no |
+| $500k | 10.0 | 13.9% | no |
 | $1.00M | 1.0 | 15.6% | no |
-| $1.00M | 1.5 | 18.0% | no |
-| $1.00M | 2.0 | 19.6% | no |
-| $1.00M | 3.0 | 21.4% | no |
-| $1.00M | 5.0 | 23.1% | no |
-| $1.00M | 10.0 | 24.5% | no |
+| $1.00M | 1.5 | 20.0% | no |
+| $1.00M | 2.0 | 23.4% | no |
+| $1.00M | 3.0 | 28.0% | no |
+| $1.00M | 5.0 | 33.3% | no |
+| $1.00M | 10.0 | 38.9% | no |
 | $1.80M | 1.0 | 31.6% | no |
-| $1.80M | 1.5 | 36.5% | yes |
-| $1.80M | 2.0 | 39.6% | yes |
-| $1.80M | 3.0 | 43.3% | yes |
-| $1.80M | 5.0 | 46.7% | yes |
-| $1.80M | 10.0 | 49.7% | yes |
+| $1.80M | 1.5 | 40.6% | no |
+| $1.80M | 2.0 | 47.3% | yes |
+| $1.80M | 3.0 | 56.8% | yes |
+| $1.80M | 5.0 | 67.5% | yes |
+| $1.80M | 10.0 | 78.7% | yes |
 | $5.00M | 1.0 | 95.6% | yes |
 | $5.00M | 1.5 | 100.0% | yes |
 | $5.00M | 2.0 | 100.0% | yes |
@@ -225,24 +225,24 @@ Sequences use the minimum safe product at 2.0x: $1.62M; narrow non-custodial ser
 | Sequence | Capital required | Month profitable | Cash month 24 | Cash month 36 | Cash month 60 | Year-5 profit | Year-5 ROIC |
 |---|---|---|---|---|---|---|---|
 | A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors | $11.44M | 36 | $-8.10M | $-10.22M | $-11.44M | $822k | 5.7% |
-| B product-first: F2 builds minimum product (12 months), F5 from first go-live | $5.29M | 30 | $-3.90M | $-5.14M | $-4.68M | $822k | 12.3% |
-| C customer-funded: design partner prepays $250k, F3 then F5 | $5.08M | 27 | $-4.06M | $-5.08M | $-4.34M | $822k | 12.8% |
-| D narrow entry: non-custodial service at $40k/sponsor, administration from month 24 | $6.05M | 42 | $-3.69M | $-5.31M | $-5.45M | $1.01M | 13.2% |
-| E provider partnership: partner programs at 14 bps net, F3 | $6.10M | 30 | $-4.22M | $-5.35M | $-6.10M | $180k | 2.3% |
-| F founder-led: F1 then F3, $1.0B anchor + $500M | $3.64M | 18 | $-3.44M | $-3.62M | $-2.12M | $1.14M | 24.7% |
-| G hybrid: narrow service + design partner + staged F2/F3/F5 | $5.78M | 33 | $-4.18M | $-5.48M | $-5.17M | $918k | 12.5% |
+| B product-first: F2 builds minimum product (12 months), F5 from first go-live | $5.39M | 30 | $-3.99M | $-5.24M | $-4.80M | $822k | 12.1% |
+| C customer-funded: design partner prepays $250k, F3 then F5 | $5.19M | 27 | $-4.15M | $-5.19M | $-4.46M | $822k | 12.5% |
+| D narrow entry: non-custodial service at $40k/sponsor, administration from month 24 | $6.14M | 42 | $-3.76M | $-5.39M | $-5.55M | $1.01M | 13.1% |
+| E provider partnership: partner programs at 14 bps net, F3 | $6.22M | 30 | $-4.32M | $-5.46M | $-6.22M | $180k | 2.3% |
+| F founder-led: F1 then F3, $1.0B anchor + $500M | $3.75M | 18 | $-3.53M | $-3.72M | $-2.24M | $1.14M | 24.0% |
+| G hybrid: narrow service + design partner + staged F2/F3/F5 | $5.88M | 33 | $-4.26M | $-5.57M | $-5.28M | $918k | 12.3% |
 
 Economic view (founders at market):
 
 | Sequence | Capital required | Month profitable | Cash month 24 | Cash month 36 | Cash month 60 | Year-5 profit | Year-5 ROIC |
 |---|---|---|---|---|---|---|---|
 | A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors \| economic view (founders at market) | $11.44M | 36 | $-8.10M | $-10.22M | $-11.44M | $822k | 5.7% |
-| B product-first: F2 builds minimum product (12 months), F5 from first go-live \| economic view (founders at market) | $5.63M | 30 | $-4.20M | $-5.48M | $-5.09M | $822k | 11.5% |
-| C customer-funded: design partner prepays $250k, F3 then F5 \| economic view (founders at market) | $5.37M | 27 | $-4.32M | $-5.37M | $-4.68M | $822k | 12.1% |
-| D narrow entry: non-custodial service at $40k/sponsor, administration from month 24 \| economic view (founders at market) | $6.62M | 42 | $-4.08M | $-5.84M | $-6.10M | $1.01M | 12.1% |
-| E provider partnership: partner programs at 14 bps net, F3 \| economic view (founders at market) | $7.25M | 30 | $-4.62M | $-5.98M | $-7.25M | $1k | 0.0% |
-| F founder-led: F1 then F3, $1.0B anchor + $500M \| economic view (founders at market) | $4.15M | 30 | $-3.67M | $-4.06M | $-3.06M | $962k | 18.3% |
-| G hybrid: narrow service + design partner + staged F2/F3/F5 \| economic view (founders at market) | $6.29M | 33 | $-4.57M | $-5.97M | $-5.76M | $918k | 11.5% |
+| B product-first: F2 builds minimum product (12 months), F5 from first go-live \| economic view (founders at market) | $5.73M | 30 | $-4.30M | $-5.58M | $-5.21M | $822k | 11.3% |
+| C customer-funded: design partner prepays $250k, F3 then F5 \| economic view (founders at market) | $5.47M | 27 | $-4.41M | $-5.47M | $-4.80M | $822k | 11.9% |
+| D narrow entry: non-custodial service at $40k/sponsor, administration from month 24 \| economic view (founders at market) | $6.71M | 42 | $-4.16M | $-5.92M | $-6.20M | $1.01M | 11.9% |
+| E provider partnership: partner programs at 14 bps net, F3 \| economic view (founders at market) | $7.38M | 30 | $-4.71M | $-6.08M | $-7.38M | $1k | 0.0% |
+| F founder-led: F1 then F3, $1.0B anchor + $500M \| economic view (founders at market) | $4.25M | 30 | $-3.77M | $-4.16M | $-3.18M | $962k | 17.9% |
+| G hybrid: narrow service + design partner + staged F2/F3/F5 \| economic view (founders at market) | $6.39M | 33 | $-4.66M | $-6.06M | $-5.87M | $918k | 11.4% |
 
 ## 10. Cost of being wrong: failure modifiers on each sequence
 
@@ -257,60 +257,60 @@ Economic view (founders at market):
 | A conventional | security incident $500k at month 30 | $11.44M | $12.08M | $636k | +0 | $822k |
 | A conventional | commercial Echelon licence $60k/yr | $11.44M | $11.83M | $387k | +6 | $762k |
 | A conventional | customer customisation: onboarding x3, sponsor upkeep x2 | $11.44M | $12.34M | $894k | +0 | $786k |
-| B product-first | build cost x2 (productivity lower) | $5.29M | $7.40M | $2.12M | +0 | $822k |
-| B product-first | development 2x longer (go-lives later, burn continues) | $5.29M | $9.36M | $4.07M | +12 | $822k |
-| B product-first | sales cycles 2x | $5.29M | $8.43M | $3.15M | +24 | $-356k |
-| B product-first | handling stays AI-enhanced (101 min) | $5.29M | $5.90M | $617k | +6 | $352k |
-| B product-first | first customer (design partner) withdraws: never signs | $5.29M | $7.19M | $1.90M | +12 | $56k |
-| B product-first | assurance +$150k/yr from month 12 | $5.29M | $5.66M | $377k | +6 | $672k |
-| B product-first | security incident $500k at month 30 | $5.29M | $5.82M | $534k | +0 | $822k |
-| B product-first | commercial Echelon licence $60k/yr | $5.29M | $5.51M | $229k | +6 | $762k |
-| B product-first | customer customisation: onboarding x3, sponsor upkeep x2 | $5.29M | $6.03M | $741k | +0 | $786k |
-| C customer-funded | build cost x2 (productivity lower) | $5.08M | $7.15M | $2.06M | +0 | $822k |
-| C customer-funded | development 2x longer (go-lives later, burn continues) | $5.08M | $9.10M | $4.02M | +12 | $822k |
-| C customer-funded | sales cycles 2x | $5.08M | $7.83M | $2.74M | +21 | $56k |
-| C customer-funded | handling stays AI-enhanced (101 min) | $5.08M | $5.71M | $626k | +6 | $352k |
-| C customer-funded | first customer (design partner) withdraws: never signs | $5.08M | $7.40M | $2.32M | +12 | $56k |
-| C customer-funded | assurance +$150k/yr from month 12 | $5.08M | $5.41M | $331k | +6 | $672k |
-| C customer-funded | security incident $500k at month 30 | $5.08M | $5.60M | $521k | +0 | $822k |
-| C customer-funded | commercial Echelon licence $60k/yr | $5.08M | $5.29M | $209k | +6 | $762k |
-| C customer-funded | customer customisation: onboarding x3, sponsor upkeep x2 | $5.08M | $5.83M | $748k | +0 | $786k |
-| D narrow entry | build cost x2 (productivity lower) | $6.05M | $8.20M | $2.15M | +0 | $1.01M |
-| D narrow entry | development 2x longer (go-lives later, burn continues) | $6.05M | $11.48M | $5.43M | never (within 60) | $-370k |
-| D narrow entry | sales cycles 2x | $6.05M | $9.74M | $3.69M | never (within 60) | $-1.10M |
-| D narrow entry | handling stays AI-enhanced (101 min) | $6.05M | $6.22M | $174k | +0 | $544k |
-| D narrow entry | first customer (design partner) withdraws: never signs | $6.05M | $7.38M | $1.33M | +6 | $248k |
-| D narrow entry | assurance +$150k/yr from month 12 | $6.05M | $6.52M | $473k | +0 | $864k |
-| D narrow entry | security incident $500k at month 30 | $6.05M | $6.61M | $562k | +0 | $1.01M |
-| D narrow entry | commercial Echelon licence $60k/yr | $6.05M | $6.32M | $272k | +0 | $954k |
-| D narrow entry | customer customisation: onboarding x3, sponsor upkeep x2 | $6.05M | $6.77M | $722k | +0 | $978k |
-| E provider partnership | build cost x2 (productivity lower) | $6.10M | $8.62M | $2.52M | +0 | $180k |
-| E provider partnership | development 2x longer (go-lives later, burn continues) | $6.10M | $9.44M | $3.34M | +12 | $180k |
-| E provider partnership | sales cycles 2x | $6.10M | $7.74M | $1.64M | +24 | $-33k |
-| E provider partnership | handling stays AI-enhanced (101 min) | $6.10M | $7.59M | $1.50M | never (within 60) | $-348k |
-| E provider partnership | first customer (design partner) withdraws: never signs | $6.10M | $7.25M | $1.15M | never (within 60) | $-246k |
-| E provider partnership | assurance +$150k/yr from month 12 | $6.10M | $6.83M | $734k | +0 | $30k |
-| E provider partnership | security incident $500k at month 30 | $6.10M | $6.73M | $636k | +0 | $180k |
-| E provider partnership | commercial Echelon licence $60k/yr | $6.10M | $6.49M | $387k | +0 | $120k |
-| E provider partnership | customer customisation: onboarding x3, sponsor upkeep x2 | $6.10M | $7.09M | $994k | +0 | $144k |
-| F founder-led | build cost x2 (productivity lower) | $3.64M | $5.76M | $2.12M | +0 | $1.14M |
-| F founder-led | development 2x longer (go-lives later, burn continues) | $3.64M | $7.07M | $3.43M | +12 | $1.14M |
-| F founder-led | sales cycles 2x | $3.64M | $4.89M | $1.24M | +12 | $400k |
-| F founder-led | handling stays AI-enhanced (101 min) | $3.64M | $3.94M | $300k | +0 | $612k |
-| F founder-led | first customer (design partner) withdraws: never signs | $3.64M | $7.01M | $3.37M | never (within 60) | $-449k |
-| F founder-led | assurance +$150k/yr from month 12 | $3.64M | $4.02M | $377k | +12 | $990k |
-| F founder-led | security incident $500k at month 30 | $3.64M | $4.18M | $534k | +0 | $1.14M |
-| F founder-led | commercial Echelon licence $60k/yr | $3.64M | $3.87M | $229k | +0 | $1.08M |
-| F founder-led | customer customisation: onboarding x3, sponsor upkeep x2 | $3.64M | $4.14M | $501k | +0 | $1.12M |
-| G hybrid | build cost x2 (productivity lower) | $5.78M | $7.96M | $2.18M | +0 | $918k |
-| G hybrid | development 2x longer (go-lives later, burn continues) | $5.78M | $11.67M | $5.88M | +18 | $109k |
-| G hybrid | sales cycles 2x | $5.78M | $8.92M | $3.13M | never (within 60) | $-672k |
-| G hybrid | handling stays AI-enhanced (101 min) | $5.78M | $6.25M | $466k | +6 | $448k |
-| G hybrid | first customer (design partner) withdraws: never signs | $5.78M | $8.27M | $2.49M | +12 | $152k |
-| G hybrid | assurance +$150k/yr from month 12 | $5.78M | $6.21M | $424k | +6 | $768k |
-| G hybrid | security incident $500k at month 30 | $5.78M | $6.33M | $548k | +0 | $918k |
-| G hybrid | commercial Echelon licence $60k/yr | $5.78M | $6.03M | $250k | +6 | $858k |
-| G hybrid | customer customisation: onboarding x3, sponsor upkeep x2 | $5.78M | $6.53M | $748k | +0 | $882k |
+| B product-first | build cost x2 (productivity lower) | $5.39M | $7.61M | $2.22M | +0 | $822k |
+| B product-first | development 2x longer (go-lives later, burn continues) | $5.39M | $9.59M | $4.20M | +12 | $822k |
+| B product-first | sales cycles 2x | $5.39M | $8.56M | $3.17M | +24 | $-356k |
+| B product-first | handling stays AI-enhanced (101 min) | $5.39M | $6.03M | $637k | +6 | $352k |
+| B product-first | first customer (design partner) withdraws: never signs | $5.39M | $7.31M | $1.92M | +12 | $56k |
+| B product-first | assurance +$150k/yr from month 12 | $5.39M | $5.77M | $377k | +6 | $672k |
+| B product-first | security incident $500k at month 30 | $5.39M | $5.92M | $534k | +0 | $822k |
+| B product-first | commercial Echelon licence $60k/yr | $5.39M | $5.62M | $229k | +6 | $762k |
+| B product-first | customer customisation: onboarding x3, sponsor upkeep x2 | $5.39M | $6.13M | $741k | +0 | $786k |
+| C customer-funded | build cost x2 (productivity lower) | $5.19M | $7.35M | $2.17M | +0 | $822k |
+| C customer-funded | development 2x longer (go-lives later, burn continues) | $5.19M | $9.34M | $4.15M | +12 | $822k |
+| C customer-funded | sales cycles 2x | $5.19M | $7.95M | $2.76M | +21 | $56k |
+| C customer-funded | handling stays AI-enhanced (101 min) | $5.19M | $5.83M | $649k | +6 | $352k |
+| C customer-funded | first customer (design partner) withdraws: never signs | $5.19M | $7.53M | $2.34M | +12 | $56k |
+| C customer-funded | assurance +$150k/yr from month 12 | $5.19M | $5.52M | $331k | +6 | $672k |
+| C customer-funded | security incident $500k at month 30 | $5.19M | $5.71M | $521k | +0 | $822k |
+| C customer-funded | commercial Echelon licence $60k/yr | $5.19M | $5.39M | $209k | +6 | $762k |
+| C customer-funded | customer customisation: onboarding x3, sponsor upkeep x2 | $5.19M | $5.93M | $748k | +0 | $786k |
+| D narrow entry | build cost x2 (productivity lower) | $6.14M | $8.38M | $2.24M | +0 | $1.01M |
+| D narrow entry | development 2x longer (go-lives later, burn continues) | $6.14M | $11.67M | $5.53M | never (within 60) | $-370k |
+| D narrow entry | sales cycles 2x | $6.14M | $9.84M | $3.70M | never (within 60) | $-1.10M |
+| D narrow entry | handling stays AI-enhanced (101 min) | $6.14M | $6.32M | $181k | +0 | $544k |
+| D narrow entry | first customer (design partner) withdraws: never signs | $6.14M | $7.48M | $1.34M | +6 | $248k |
+| D narrow entry | assurance +$150k/yr from month 12 | $6.14M | $6.61M | $473k | +0 | $864k |
+| D narrow entry | security incident $500k at month 30 | $6.14M | $6.70M | $562k | +0 | $1.01M |
+| D narrow entry | commercial Echelon licence $60k/yr | $6.14M | $6.41M | $272k | +0 | $954k |
+| D narrow entry | customer customisation: onboarding x3, sponsor upkeep x2 | $6.14M | $6.86M | $722k | +0 | $978k |
+| E provider partnership | build cost x2 (productivity lower) | $6.22M | $8.87M | $2.64M | +0 | $180k |
+| E provider partnership | development 2x longer (go-lives later, burn continues) | $6.22M | $9.67M | $3.45M | +12 | $180k |
+| E provider partnership | sales cycles 2x | $6.22M | $7.87M | $1.64M | +24 | $-33k |
+| E provider partnership | handling stays AI-enhanced (101 min) | $6.22M | $7.72M | $1.50M | never (within 60) | $-348k |
+| E provider partnership | first customer (design partner) withdraws: never signs | $6.22M | $7.37M | $1.15M | never (within 60) | $-246k |
+| E provider partnership | assurance +$150k/yr from month 12 | $6.22M | $6.96M | $734k | +0 | $30k |
+| E provider partnership | security incident $500k at month 30 | $6.22M | $6.86M | $636k | +0 | $180k |
+| E provider partnership | commercial Echelon licence $60k/yr | $6.22M | $6.61M | $387k | +0 | $120k |
+| E provider partnership | customer customisation: onboarding x3, sponsor upkeep x2 | $6.22M | $7.22M | $994k | +0 | $144k |
+| F founder-led | build cost x2 (productivity lower) | $3.75M | $5.97M | $2.22M | +0 | $1.14M |
+| F founder-led | development 2x longer (go-lives later, burn continues) | $3.75M | $7.29M | $3.54M | +12 | $1.14M |
+| F founder-led | sales cycles 2x | $3.75M | $5.01M | $1.26M | +12 | $400k |
+| F founder-led | handling stays AI-enhanced (101 min) | $3.75M | $4.05M | $300k | +0 | $612k |
+| F founder-led | first customer (design partner) withdraws: never signs | $3.75M | $7.13M | $3.39M | never (within 60) | $-449k |
+| F founder-led | assurance +$150k/yr from month 12 | $3.75M | $4.12M | $377k | +12 | $990k |
+| F founder-led | security incident $500k at month 30 | $3.75M | $4.28M | $534k | +0 | $1.14M |
+| F founder-led | commercial Echelon licence $60k/yr | $3.75M | $3.98M | $229k | +0 | $1.08M |
+| F founder-led | customer customisation: onboarding x3, sponsor upkeep x2 | $3.75M | $4.25M | $501k | +0 | $1.12M |
+| G hybrid | build cost x2 (productivity lower) | $5.88M | $8.16M | $2.28M | +0 | $918k |
+| G hybrid | development 2x longer (go-lives later, burn continues) | $5.88M | $11.88M | $6.00M | +18 | $109k |
+| G hybrid | sales cycles 2x | $5.88M | $9.03M | $3.15M | never (within 60) | $-672k |
+| G hybrid | handling stays AI-enhanced (101 min) | $5.88M | $6.36M | $482k | +6 | $448k |
+| G hybrid | first customer (design partner) withdraws: never signs | $5.88M | $8.38M | $2.50M | +12 | $152k |
+| G hybrid | assurance +$150k/yr from month 12 | $5.88M | $6.30M | $424k | +6 | $768k |
+| G hybrid | security incident $500k at month 30 | $5.88M | $6.43M | $548k | +0 | $918k |
+| G hybrid | commercial Echelon licence $60k/yr | $5.88M | $6.13M | $250k | +6 | $858k |
+| G hybrid | customer customisation: onboarding x3, sponsor upkeep x2 | $5.88M | $6.63M | $748k | +0 | $882k |
 
 ## 11. Pricing structures on F5 (50 min, 5 sponsors)
 
@@ -356,8 +356,8 @@ Economic view (founders at market):
 | Previous Model B, AI-native, fully loaded ($1.0M build amortisation + $250k sales) | $3.88M |  | baseline |
 | Remove the fully loaded lines | $2.63M | $-1.25M | presentation: the lines are added back below at re-estimated values |
 | F5 workload-driven design, same minutes (pools, hiring threshold, coordination, itemised non-personnel) | $2.37M | $-260k | structural: ratio steps replaced by workload; partly offset by coordination, integration and relationship hours made explicit |
-| Add standalone platform charge (minimum build at 2x over 5 years, Echelon share, maintenance gap) | $2.79M | $422k | assumption: build cost from the development model, not measured |
-| Outcome-designed (OPS): 30.1 min, sponsor-level 12,720 min, +3% capacity [unproven] | $2.54M | $-244k | hypothesis: no observed operation |
+| Add standalone platform charge (minimum build at 2x over 5 years, Echelon share, maintenance gap) | $2.80M | $438k | assumption: build cost from the development model, not measured |
+| Outcome-designed (OPS): 30.1 min, sponsor-level 12,720 min, +3% capacity [unproven] | $2.56M | $-244k | hypothesis: no observed operation |
 
 ## 13. Scenario matrix: conventional to outcome-designed (5 sponsors)
 
@@ -368,12 +368,12 @@ Marginal cost is the cost per added account-year between $1B and $2B at a $250k 
 | Conventional (previous Model B, conventional minutes, fully loaded) | $2.99M | $423 | $7.84B | not reached ≤ $20B | $3.50B | not reached ≤ $20B | $3.83B | not reached ≤ $20B | -36.9% |
 | AI-assisted conventional (previous Model B, AI-enhanced, fully loaded) | $2.99M | $218 | $2.99B | $6.25B | $2.24B | $4.82B | $2.05B | $5.79B | 0.4% |
 | Previous AI-native (Model B, fully loaded; $5M build) | $2.99M | $132 | $2.09B | $2.67B | $1.83B | $3.04B | $1.56B | $3.34B | 24.2% |
-| AI-native independent (F5, 50 min, standalone; minimum build at 1.5x, no Echelon) | $2.11M | $91 | $1.37B | $1.66B | $1.26B | $1.95B | $1.04B | $2.15B | 45.2% |
-| Echelon-supported AI-native (F5, 50 min, fully allocated; minimum build at 3x) | $1.86M | $90 | $1.30B | $1.56B | $1.20B | $1.85B | $990.00M | $2.03B | 47.2% |
-| Founder-led staged (F3, 50 min, standalone) | $1.92M | $98 | $1.38B | $1.72B | $1.27B | $2.00B | $1.05B | $2.19B | 43.7% |
+| AI-native independent (F5, 50 min, standalone; minimum build at 1.5x, no Echelon) | $2.15M | $91 | $1.39B | $1.68B | $1.28B | $1.99B | $1.06B | $2.19B | 44.5% |
+| Echelon-supported AI-native (F5, 50 min, fully allocated; minimum build at 3x) | $1.95M | $90 | $1.35B | $1.63B | $1.25B | $1.93B | $1.03B | $2.12B | 45.7% |
+| Founder-led staged (F3, 50 min, standalone) | $2.04M | $98 | $1.45B | $1.81B | $1.34B | $2.10B | $1.11B | $2.31B | 41.7% |
 | AI-native F5, standalone, conservative platform (LYR: $4.6M build, 4-person platform team, Echelon reliance) | $3.49M | $91 | $2.22B | $2.67B | $2.05B | $3.16B | $1.69B | $3.46B | 22.1% |
-| Combined software + administration (F5, servicing 50% of Unbound, $300k licences) | $1.57M | $90 | $1.12B | $1.35B | $1.05B | $1.60B | $860.00M | $1.75B | 52.0% |
-| Outcome-designed F5 (OPS: 30.1 min, sponsor work 12,720 min) [unproven], fully allocated | $1.86M | $45 | $1.19B | $1.30B | $1.14B | $1.63B | $930.00M | $1.75B | 54.4% |
+| Combined software + administration (F5, servicing 50% of Unbound, $300k licences) | $1.62M | $90 | $1.15B | $1.39B | $1.07B | $1.64B | $880.00M | $1.80B | 51.2% |
+| Outcome-designed F5 (OPS: 30.1 min, sponsor work 12,720 min) [unproven], fully allocated | $1.95M | $45 | $1.24B | $1.36B | $1.19B | $1.69B | $970.00M | $1.83B | 52.9% |
 
 ## 14. Customer acquisition cost (illustrative)
 

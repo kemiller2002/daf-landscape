@@ -208,19 +208,22 @@ let handlingTargets = [ 10.0; 20.0; 30.0; 50.0; 75.0; 100.0 ]
 
 // ---------------------------------------------------------------- development baselines [A]
 
-/// Unbound's $5M base build (simplification model parameters) as the conventional full scope. Minimum safe servicing
-/// scope 35% of it [A]; construction 45% of conventional effort [A: requirements, design, review, testing
-/// strategy, certification, migration and assurance make up the rest]; agent compute 10% of the human construction
-/// cost it replaces [A]; safety floor $220k (pen test $20k, SOC readiness $20k, accessibility audit $15k,
-/// bank/custodian certification and payment-flow legal review $65k, migration rehearsal tooling $40k, independent
-/// code/security review $60k) [A from CST lines].
+/// Unbound's $5M base build (simplification model parameters.json:509-516, itself an unsupported assumption per the
+/// DEV pass) as the conventional full-scope reference. Minimum servicing product (MSP) from the DEV bottom-up estimate:
+/// 132 conventional person-months after a 4 person-month Echelon reuse credit at $120/h, $2.43M at 1x including
+/// verification [E, DEV]; here the $220k safety floor is separated, so the MSP construction-and-design scope is
+/// $2.21M = 44.2% of $5M [D]. 30% of effort cannot be compressed (decisions, review, integrations, accessibility and
+/// security verification) [A, DEV], so the construction share is 70%; agent compute stays under 5% of replaced
+/// construction [M/E, DEV: ordo trial $12-27 per feature mission]. Safety floor $220k (pen test $20k, SOC readiness
+/// $20k, accessibility audit $15k, bank/custodian certification and payment-flow legal review $65k, migration
+/// rehearsal $40k, independent code/security review $60k). [A from CST lines]
 let unboundBaseline =
-    { Name = "Unbound $5M conventional scope"
+    { Name = "Unbound $5M conventional scope; DEV minimum servicing product"
       ConventionalFullScope = 5.0e6
-      MinimumScopeShare = 0.35
-      ConstructionShare = 0.45
+      MinimumScopeShare = 2.21e6 / 5.0e6
+      ConstructionShare = 0.70
       SafetyFloor = 220000.0
-      ComputeShareOfReplaced = 0.10 }
+      ComputeShareOfReplaced = 0.05 }
 
 let investmentScenarios = [ 100000.0; 250000.0; 500000.0; 1.0e6; 1.8e6; 5.0e6 ]
 let productivityMultiples = [ 1.0; 1.5; 2.0; 3.0; 5.0; 10.0 ]
@@ -229,7 +232,7 @@ let productivityMultiples = [ 1.0; 1.5; 2.0; 3.0; 5.0; 10.0 ]
 
 /// Base layer costs. Echelon annual $150k is an assumption standing in for the owner's shared engineering
 /// capability (no ledger of Echelon cost exists in the repositories); 30% consumed by Unbound. Unbound minimum safe
-/// build from the development model at 2x productivity (about $1.6M) over 5 years; maintenance $200k a year (one engineer-equivalent with agents) [A]; non-production and CI
+/// build from the development model at 2x productivity (about $1.6M) over 5 years; maintenance $300k a year (DEV floor of 1-2 engineers, $0.22-0.47M, whatever the multiple) [E, DEV]; non-production and CI
 /// environments $24k (production hosting is already in the servicing design's platform line); servicing-specific
 /// platform (SOC 1 platform scope, sponsor sandboxes beyond the per-sponsor $12k) $30k. [A]
 let baseLayers =
@@ -237,7 +240,7 @@ let baseLayers =
       EchelonShareToUnbound = 0.3
       UnboundBuild = minimumProductCost unboundBaseline 2.0
       UnboundLifeYears = 5.0
-      UnboundMaintenance = 200000.0
+      UnboundMaintenance = 300000.0
       UnboundPlatformOps = 24000.0
       UnboundExternalRevenue = 0.0
       ServicingShareOfUnbound = 1.0
