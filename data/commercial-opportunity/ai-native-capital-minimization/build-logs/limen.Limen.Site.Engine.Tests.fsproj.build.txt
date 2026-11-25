@@ -1,0 +1,15 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/limen/guests/fsharp/Limen.Guest/Limen.Guest.fsproj (in 234 ms).
+  Restored scratch:aincm/build/limen/site/fsharp/tests/Limen.Site.Engine.Tests/Limen.Site.Engine.Tests.fsproj (in 234 ms).
+  Restored scratch:aincm/build/limen/site/fsharp/Limen.Site.Engine/Limen.Site.Engine.fsproj (in 234 ms).
+  1 of 4 projects are up-to-date for restore.
+  Limen.Contract -> scratch:aincm/build/limen/guests/fsharp/Limen.Contract/bin/Release/net8.0/Limen.Contract.dll
+  Limen.Guest -> scratch:aincm/build/limen/guests/fsharp/Limen.Guest/bin/Release/net8.0/Limen.Guest.dll
+  Limen.Site.Engine -> scratch:aincm/build/limen/site/fsharp/Limen.Site.Engine/bin/Release/net8.0/Limen.Site.Engine.dll
+  Limen.Site.Engine.Tests -> scratch:aincm/build/limen/site/fsharp/tests/Limen.Site.Engine.Tests/bin/Release/net8.0/Limen.Site.Engine.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:05.94

@@ -1,0 +1,13 @@
+REV f9b7291
+CMD dotnet build Fides.slnx -c Release
+BUILD_RC 0 SECS 16
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+CMD dotnet run --project tests/Fides.Acceptance/Fides.Acceptance.fsproj -c Release --no-build
+RUN_RC Fides.Acceptance.fsproj 1 SECS 0 :: Ensure you have a runnable project type. A runnable project should target a runnable TFM (for instance, net10.0) and have OutputType 'Exe'. The current OutputType is 'Library'. 
+CMD dotnet test tests/Fides.Hosting.Aws.Tests/Fides.Hosting.Aws.Tests.fsproj -c Release --no-build
+TEST_RC Fides.Hosting.Aws.Tests.fsproj 0 SECS 2 :: Passed!  - Failed:     0, Passed:    90, Skipped:     0, Total:    90, Duration: 576 ms - Fides.Hosting.Aws.Tests.dll (net10.0) 
+CMD dotnet test tests/Fides.Tests/Fides.Tests.fsproj -c Release --no-build
+TEST_RC Fides.Tests.fsproj 0 SECS 3 :: Passed!  - Failed:     0, Passed:   241, Skipped:     0, Total:   241, Duration: 1 s - Fides.Tests.dll (net10.0) 
+DONE

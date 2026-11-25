@@ -1,0 +1,643 @@
+TAP version 13
+# Subtest: finding 1: whitespace, case or Unicode width variants of the author cannot self-certify
+ok 1 - finding 1: whitespace, case or Unicode width variants of the author cannot self-certify
+  ---
+  duration_ms: 5.11069
+  type: 'test'
+  ...
+# Subtest: finding 2: agents cannot dodge the retry budget by omitting actorKind or disabling the policy
+ok 2 - finding 2: agents cannot dodge the retry budget by omitting actorKind or disabling the policy
+  ---
+  duration_ms: 1.083799
+  type: 'test'
+  ...
+# Subtest: finding 3: forged, truncated or discontinuous history is refused
+ok 3 - finding 3: forged, truncated or discontinuous history is refused
+  ---
+  duration_ms: 0.456052
+  type: 'test'
+  ...
+# Subtest: finding 4: attempt IDs are compared normalized, and non-text fields never reach history
+ok 4 - finding 4: attempt IDs are compared normalized, and non-text fields never reach history
+  ---
+  duration_ms: 1.131801
+  type: 'test'
+  ...
+# Subtest: finding 5: credentials in URLs or identifiers and internal evidence hosts are refused
+ok 5 - finding 5: credentials in URLs or identifiers and internal evidence hosts are refused
+  ---
+  duration_ms: 2.079576
+  type: 'test'
+  ...
+# Subtest: validation errors never echo large attacker-chosen key names
+ok 6 - validation errors never echo large attacker-chosen key names
+  ---
+  duration_ms: 0.207345
+  type: 'test'
+  ...
+# Subtest: finding 6: malformed Retry-After or policy values never crash the producer
+ok 7 - finding 6: malformed Retry-After or policy values never crash the producer
+  ---
+  duration_ms: 0.738114
+  type: 'test'
+  ...
+# Subtest: outbox refuses envelopes without an eventId and counts dropped events as undelivered
+ok 8 - outbox refuses envelopes without an eventId and counts dropped events as undelivered
+  ---
+  duration_ms: 0.176849
+  type: 'test'
+  ...
+# Subtest: finding 7: schema encodes the runtime's cross-field rules
+ok 9 - finding 7: schema encodes the runtime's cross-field rules
+  ---
+  duration_ms: 0.743946
+  type: 'test'
+  ...
+# Subtest: finding 8: a pass reported by the submitting workload is flagged and cannot be accepted
+ok 10 - finding 8: a pass reported by the submitting workload is flagged and cannot be accepted
+  ---
+  duration_ms: 0.495968
+  type: 'test'
+  ...
+# Subtest: minor: Reopen and resume cannot be redirected to other states or reuse old evidence
+ok 11 - minor: Reopen and resume cannot be redirected to other states or reuse old evidence
+  ---
+  duration_ms: 0.734193
+  type: 'test'
+  ...
+# Subtest: canonical public origin is exact in SEO metadata and deployment contract
+ok 12 - canonical public origin is exact in SEO metadata and deployment contract
+  ---
+  duration_ms: 0.771169
+  type: 'test'
+  ...
+# Subtest: Conditor manifest declares exactly qualified initial lifecycle versions
+ok 13 - Conditor manifest declares exactly qualified initial lifecycle versions
+  ---
+  duration_ms: 0.608781
+  type: 'test'
+  ...
+# Subtest: report form retains explicit public-data and GitHub handoff disclosures
+ok 14 - report form retains explicit public-data and GitHub handoff disclosures
+  ---
+  duration_ms: 0.174244
+  type: 'test'
+  ...
+# Subtest: reporting remains accessible to keyboard-driven and machine-driven clients
+ok 15 - reporting remains accessible to keyboard-driven and machine-driven clients
+  ---
+  duration_ms: 0.297856
+  type: 'test'
+  ...
+# Subtest: deployment instructions do not confuse GitHub Actions and branch-hosted CNAME files
+ok 16 - deployment instructions do not confuse GitHub Actions and branch-hosted CNAME files
+  ---
+  duration_ms: 0.117594
+  type: 'test'
+  ...
+# Subtest: committed Conditor lock exists and binds the committed manifest
+ok 17 - committed Conditor lock exists and binds the committed manifest
+  ---
+  duration_ms: 0.534812
+  type: 'test'
+  ...
+# Subtest: lock binding rejects a missing lock, a changed manifest and a rewritten declaration
+ok 18 - lock binding rejects a missing lock, a changed manifest and a rewritten declaration
+  ---
+  duration_ms: 0.279263
+  type: 'test'
+  ...
+# Subtest: lock records every declared component at its declared version with immutable authority
+ok 19 - lock records every declared component at its declared version with immutable authority
+  ---
+  duration_ms: 0.381695
+  type: 'test'
+  ...
+# Subtest: lock component check rejects drifted, missing, extra and unpinned entries
+ok 20 - lock component check rejects drifted, missing, extra and unpinned entries
+  ---
+  duration_ms: 1.427263
+  type: 'test'
+  ...
+# Subtest: component installation records and toolchain pins agree with conditor.json
+ok 21 - component installation records and toolchain pins agree with conditor.json
+  ---
+  duration_ms: 0.368281
+  type: 'test'
+  ...
+# Subtest: installation record check rejects missing records and disagreeing versions
+ok 22 - installation record check rejects missing records and disagreeing versions
+  ---
+  duration_ms: 0.342463
+  type: 'test'
+  ...
+# Subtest: generated lifecycle state carries no local absolute paths or credentials
+ok 23 - generated lifecycle state carries no local absolute paths or credentials
+  ---
+  duration_ms: 0.992742
+  type: 'test'
+  ...
+# Subtest: accepted private intake is durable before a receipt is returned
+ok 24 - accepted private intake is durable before a receipt is returned
+  ---
+  duration_ms: 3.478334
+  type: 'test'
+  ...
+# Subtest: same request is idempotent without creating a second report
+ok 25 - same request is idempotent without creating a second report
+  ---
+  duration_ms: 0.653393
+  type: 'test'
+  ...
+# Subtest: reuse of idempotency key with different report content is a conflict
+ok 26 - reuse of idempotency key with different report content is a conflict
+  ---
+  duration_ms: 0.615812
+  type: 'test'
+  ...
+# Subtest: challenge failure blocks storage; provider outage returns retryable error
+ok 27 - challenge failure blocks storage; provider outage returns retryable error
+  ---
+  duration_ms: 0.417735
+  type: 'test'
+  ...
+# Subtest: durability failure refuses acknowledgement and does not leak infrastructure errors
+ok 28 - durability failure refuses acknowledgement and does not leak infrastructure errors
+  ---
+  duration_ms: 0.319387
+  type: 'test'
+  ...
+# Subtest: server rejects secrets, unauthorized URL forms and invalid products
+ok 29 - server rejects secrets, unauthorized URL forms and invalid products
+  ---
+  duration_ms: 1.157127
+  type: 'test'
+  ...
+# Subtest: origin, method, type, invalid json, large input, idempotency and short challenge are refused
+ok 30 - origin, method, type, invalid json, large input, idempotency and short challenge are refused
+  ---
+  duration_ms: 0.905706
+  type: 'test'
+  ...
+# Subtest: no report is persisted if client changes after validation fails
+ok 31 - no report is persisted if client changes after validation fails
+  ---
+  duration_ms: 0.181897
+  type: 'test'
+  ...
+# Subtest: parallel deliveries with same identifier converge to one stored receipt
+ok 32 - parallel deliveries with same identifier converge to one stored receipt
+  ---
+  duration_ms: 0.536022
+  type: 'test'
+  ...
+# Subtest: machine observation schema and runtime validator share every enumeration
+ok 33 - machine observation schema and runtime validator share every enumeration
+  ---
+  duration_ms: 2.945449
+  type: 'test'
+  ...
+# Subtest: schema-required envelope fields are exactly those the validator refuses to omit
+ok 34 - schema-required envelope fields are exactly those the validator refuses to omit
+  ---
+  duration_ms: 1.671695
+  type: 'test'
+  ...
+# Subtest: defect schema describes exactly the lifecycle event the transition module produces
+ok 35 - defect schema describes exactly the lifecycle event the transition module produces
+  ---
+  duration_ms: 0.928749
+  type: 'test'
+  ...
+# Subtest: no machine endpoint is deployed or reachable from the public site
+ok 36 - no machine endpoint is deployed or reachable from the public site
+  ---
+  duration_ms: 1.180788
+  type: 'test'
+  ...
+# Subtest: documentation does not claim the machine API, producers or Ordo authority are deployed
+ok 37 - documentation does not claim the machine API, producers or Ordo authority are deployed
+  ---
+  duration_ms: 0.288191
+  type: 'test'
+  ...
+# Subtest: VIT-AC-032: an authenticated failure is stored privately as an untriaged observation with provenance
+ok 38 - VIT-AC-032: an authenticated failure is stored privately as an untriaged observation with provenance
+  ---
+  duration_ms: 2.801865
+  type: 'test'
+  ...
+# Subtest: spec test 1: identical deliveries give one observation and two acknowledgments
+ok 39 - spec test 1: identical deliveries give one observation and two acknowledgments
+  ---
+  duration_ms: 1.805949
+  type: 'test'
+  ...
+# Subtest: spec test 2: same fingerprint on distinct commits/runs keeps two occurrences of one candidate
+ok 40 - spec test 2: same fingerprint on distinct commits/runs keeps two occurrences of one candidate
+  ---
+  duration_ms: 0.680662
+  type: 'test'
+  ...
+# Subtest: replayed eventId with different content or a different workload identity conflicts
+ok 41 - replayed eventId with different content or a different workload identity conflicts
+  ---
+  duration_ms: 1.312206
+  type: 'test'
+  ...
+# Subtest: spec test 3: forged identity, repository scope, expired or long-lived tokens fail safely
+ok 42 - spec test 3: forged identity, repository scope, expired or long-lived tokens fail safely
+  ---
+  duration_ms: 0.746038
+  type: 'test'
+  ...
+# Subtest: identity verifier outage is distinguishable from bad credentials
+ok 43 - identity verifier outage is distinguishable from bad credentials
+  ---
+  duration_ms: 0.188661
+  type: 'test'
+  ...
+# Subtest: malformed, unsafe, stale and self-classified envelopes are refused before storage
+ok 44 - malformed, unsafe, stale and self-classified envelopes are refused before storage
+  ---
+  duration_ms: 0.90346
+  type: 'test'
+  ...
+# Subtest: security findings are routed as restricted, never as ordinary private or public records
+ok 45 - security findings are routed as restricted, never as ordinary private or public records
+  ---
+  duration_ms: 0.230531
+  type: 'test'
+  ...
+# Subtest: spec test 8: Vitium's own CI cannot create a reporting feedback loop
+ok 46 - spec test 8: Vitium's own CI cannot create a reporting feedback loop
+  ---
+  duration_ms: 0.45974
+  type: 'test'
+  ...
+# Subtest: storage failures never acknowledge receipt
+ok 47 - storage failures never acknowledge receipt
+  ---
+  duration_ms: 0.504649
+  type: 'test'
+  ...
+# Subtest: machine HTTP boundary is separate from the public Turnstile route and refuses browsers
+ok 48 - machine HTTP boundary is separate from the public Turnstile route and refuses browsers
+  ---
+  duration_ms: 1.501754
+  type: 'test'
+  ...
+# Subtest: the .NET wire format (+00:00 offsets, 7 fractional digits) is accepted and stored in UTC
+ok 49 - the .NET wire format (+00:00 offsets, 7 fractional digits) is accepted and stored in UTC
+  ---
+  duration_ms: 0.294443
+  type: 'test'
+  ...
+# Subtest: receipts match the F\# Receipt contract and are stable across replays
+ok 50 - receipts match the F\# Receipt contract and are stable across replays
+  ---
+  duration_ms: 0.179425
+  type: 'test'
+  ...
+# Subtest: an Idempotency-Key that disagrees with the eventId is refused, and a matching one is accepted
+ok 51 - an Idempotency-Key that disagrees with the eventId is refused, and a matching one is accepted
+  ---
+  duration_ms: 0.200776
+  type: 'test'
+  ...
+# Subtest: verification results are stored as evidence under the binding's verification scope
+ok 52 - verification results are stored as evidence under the binding's verification scope
+  ---
+  duration_ms: 0.823373
+  type: 'test'
+  ...
+# Subtest: spec test 4: an outage never changes the producer's failed build result
+ok 53 - spec test 4: an outage never changes the producer's failed build result
+  ---
+  duration_ms: 1.366088
+  type: 'test'
+  ...
+# Subtest: retries back off, honour Retry-After, and dead-letter after the bounded attempt limit
+ok 54 - retries back off, honour Retry-After, and dead-letter after the bounded attempt limit
+  ---
+  duration_ms: 0.24978
+  type: 'test'
+  ...
+# Subtest: expiry dead-letters before an unbounded wait
+ok 55 - expiry dead-letters before an unbounded wait
+  ---
+  duration_ms: 0.144992
+  type: 'test'
+  ...
+# Subtest: non-retryable refusals are dead-lettered immediately, not retried forever
+ok 56 - non-retryable refusals are dead-lettered immediately, not retried forever
+  ---
+  duration_ms: 0.336317
+  type: 'test'
+  ...
+# Subtest: acknowledged, replayed and suppressed deliveries all clear the outbox
+ok 57 - acknowledged, replayed and suppressed deliveries all clear the outbox
+  ---
+  duration_ms: 0.254631
+  type: 'test'
+  ...
+# Subtest: the outbox is bounded, deduplicated and refuses Vitium echoes visibly
+ok 58 - the outbox is bounded, deduplicated and refuses Vitium echoes visibly
+  ---
+  duration_ms: 0.212386
+  type: 'test'
+  ...
+# Subtest: outbox values are immutable
+ok 59 - outbox values are immutable
+  ---
+  duration_ms: 0.329979
+  type: 'test'
+  ...
+# Subtest: public and private report contracts use the same product and impact names
+ok 60 - public and private report contracts use the same product and impact names
+  ---
+  duration_ms: 0.957842
+  type: 'test'
+  ...
+# Subtest: direct reporting defaults to disabled until private infrastructure is verified
+ok 61 - direct reporting defaults to disabled until private infrastructure is verified
+  ---
+  duration_ms: 0.135082
+  type: 'test'
+  ...
+# Subtest: browser only shows private confirmation after verified service receipt
+ok 62 - browser only shows private confirmation after verified service receipt
+  ---
+  duration_ms: 0.386534
+  type: 'test'
+  ...
+# Subtest: AWS adapter rejects service invocation without deployment configuration
+ok 63 - AWS adapter rejects service invocation without deployment configuration
+  ---
+  duration_ms: 0.240341
+  type: 'test'
+  ...
+# Subtest: infrastructure candidate grants write and single-record lookup, not public browse
+ok 64 - infrastructure candidate grants write and single-record lookup, not public browse
+  ---
+  duration_ms: 0.184084
+  type: 'test'
+  ...
+# Subtest: requirements and scenario identifiers are unique to prevent accidental overwriting
+ok 65 - requirements and scenario identifiers are unique to prevent accidental overwriting
+  ---
+  duration_ms: 0.519174
+  type: 'test'
+  ...
+# Subtest: all product requirement groups are covered
+ok 66 - all product requirement groups are covered
+  ---
+  duration_ms: 0.18355
+  type: 'test'
+  ...
+# Subtest: requirement rows declare a delivery stage and a verifiable obligation
+ok 67 - requirement rows declare a delivery stage and a verifiable obligation
+  ---
+  duration_ms: 0.640241
+  type: 'test'
+  ...
+# Subtest: acceptance contract covers each mandatory release stage with negative checks
+ok 68 - acceptance contract covers each mandatory release stage with negative checks
+  ---
+  duration_ms: 0.134949
+  type: 'test'
+  ...
+# Subtest: unapproved security and architectural decisions remain visibly open
+ok 69 - unapproved security and architectural decisions remain visibly open
+  ---
+  duration_ms: 0.126543
+  type: 'test'
+  ...
+# Subtest: requirements are not mislabeled as deployed product functionality
+ok 70 - requirements are not mislabeled as deployed product functionality
+  ---
+  duration_ms: 0.21567
+  type: 'test'
+  ...
+# Subtest: VIT-AC-033: two failed independent verifications and rework before a passing one
+ok 71 - VIT-AC-033: two failed independent verifications and rework before a passing one
+  ---
+  duration_ms: 2.665973
+  type: 'test'
+  ...
+# Subtest: failed verification requires evidence, a reason and the submitted attempt; it never resolves
+ok 72 - failed verification requires evidence, a reason and the submitted attempt; it never resolves
+  ---
+  duration_ms: 1.576132
+  type: 'test'
+  ...
+# Subtest: attempt IDs are distinct per submission; reuse after a failure is refused
+ok 73 - attempt IDs are distinct per submission; reuse after a failure is refused
+  ---
+  duration_ms: 0.318514
+  type: 'test'
+  ...
+# Subtest: stale, out-of-order and old-candidate verification results are refused
+ok 74 - stale, out-of-order and old-candidate verification results are refused
+  ---
+  duration_ms: 0.418491
+  type: 'test'
+  ...
+# Subtest: VIT-AC-036: the author cannot certify its own candidate, and forged outcomes are refused
+ok 75 - VIT-AC-036: the author cannot certify its own candidate, and forged outcomes are refused
+  ---
+  duration_ms: 0.444896
+  type: 'test'
+  ...
+# Subtest: inconclusive (flaky/infrastructure) runs neither resolve nor count as rework failures
+ok 76 - inconclusive (flaky/infrastructure) runs neither resolve nor count as rework failures
+  ---
+  duration_ms: 0.425219
+  type: 'test'
+  ...
+# Subtest: agent retry budget stops autonomous rework and requires human escalation
+ok 77 - agent retry budget stops autonomous rework and requires human escalation
+  ---
+  duration_ms: 0.514468
+  type: 'test'
+  ...
+# Subtest: VIT-AC-034: regression after resolution reopens, reworks and re-verifies with full lineage
+ok 78 - VIT-AC-034: regression after resolution reopens, reworks and re-verifies with full lineage
+  ---
+  duration_ms: 0.525294
+  type: 'test'
+  ...
+# Subtest: closed defects reopen under policy and reproduction may precede work
+ok 79 - closed defects reopen under policy and reproduction may precede work
+  ---
+  duration_ms: 0.403111
+  type: 'test'
+  ...
+# Subtest: Reopen and resume applies both guarded events atomically or neither
+ok 80 - Reopen and resume applies both guarded events atomically or neither
+  ---
+  duration_ms: 0.644113
+  type: 'test'
+  ...
+# Subtest: spec test 7: green builds, stale or forged machine results can only propose, never close
+ok 81 - spec test 7: green builds, stale or forged machine results can only propose, never close
+  ---
+  duration_ms: 0.69852
+  type: 'test'
+  ...
+# Subtest: a machine verification result computed against an older defect revision only yields a stale refusal
+ok 82 - a machine verification result computed against an older defect revision only yields a stale refusal
+  ---
+  duration_ms: 0.226407
+  type: 'test'
+  ...
+# Subtest: versioned defect schema admits every candidate lifecycle state including reopened
+ok 83 - versioned defect schema admits every candidate lifecycle state including reopened
+  ---
+  duration_ms: 1.117069
+  type: 'test'
+  ...
+# Subtest: classified observation is not confused with confirmed defect
+ok 84 - classified observation is not confused with confirmed defect
+  ---
+  duration_ms: 0.938357
+  type: 'test'
+  ...
+# Subtest: failed verification preserves an auditable event and does not imply resolved
+ok 85 - failed verification preserves an auditable event and does not imply resolved
+  ---
+  duration_ms: 0.781221
+  type: 'test'
+  ...
+# Subtest: normalization trims values, accepts known products and strips URL secrets
+ok 86 - normalization trims values, accepts known products and strips URL secrets
+  ---
+  duration_ms: 1.101035
+  type: 'test'
+  ...
+# Subtest: all required user statements and impact are validated
+ok 87 - all required user statements and impact are validated
+  ---
+  duration_ms: 0.378418
+  type: 'test'
+  ...
+# Subtest: invalid URL schemes and invalid URLs are rejected
+ok 88 - invalid URL schemes and invalid URLs are rejected
+  ---
+  duration_ms: 1.035888
+  type: 'test'
+  ...
+# Subtest: input size limits are enforced without silent truncation
+ok 89 - input size limits are enforced without silent truncation
+  ---
+  duration_ms: 0.25502
+  type: 'test'
+  ...
+# Subtest: report body preserves evidence, including multiline input, but not URL tokens
+ok 90 - report body preserves evidence, including multiline input, but not URL tokens
+  ---
+  duration_ms: 0.30145
+  type: 'test'
+  ...
+# Subtest: issue link points to the public intake repo with populated content
+ok 91 - issue link points to the public intake repo with populated content
+  ---
+  duration_ms: 0.368874
+  type: 'test'
+  ...
+# Subtest: too-large encoded links are rejected, not silently shortened
+ok 92 - too-large encoded links are rejected, not silently shortened
+  ---
+  duration_ms: 0.481918
+  type: 'test'
+  ...
+# Subtest: empty optional steps and URL are allowed
+ok 93 - empty optional steps and URL are allowed
+  ---
+  duration_ms: 0.091391
+  type: 'test'
+  ...
+# Subtest: an observation needs classification, not automatic defect promotion
+ok 94 - an observation needs classification, not automatic defect promotion
+  ---
+  duration_ms: 2.620914
+  type: 'test'
+  ...
+# Subtest: authorization, stale writes and missing rationale fail closed
+ok 95 - authorization, stale writes and missing rationale fail closed
+  ---
+  duration_ms: 0.278913
+  type: 'test'
+  ...
+# Subtest: defect must be independently verified to reach resolution
+ok 96 - defect must be independently verified to reach resolution
+  ---
+  duration_ms: 0.361309
+  type: 'test'
+  ...
+# Subtest: reproduction and closure dispositions require evidence and retain history
+ok 97 - reproduction and closure dispositions require evidence and retain history
+  ---
+  duration_ms: 0.188488
+  type: 'test'
+  ...
+# Subtest: invalid cross-kind transitions are rejected
+ok 98 - invalid cross-kind transitions are rejected
+  ---
+  duration_ms: 0.199493
+  type: 'test'
+  ...
+# Subtest: verification failure loops back to rework and preserves each attempt
+ok 99 - verification failure loops back to rework and preserves each attempt
+  ---
+  duration_ms: 0.402146
+  type: 'test'
+  ...
+# Subtest: resolved regression is reopened before rework, preserving old passing evidence
+ok 100 - resolved regression is reopened before rework, preserving old passing evidence
+  ---
+  duration_ms: 0.245292
+  type: 'test'
+  ...
+# Subtest: a stale concurrent verifier result cannot overwrite a new work attempt
+ok 101 - a stale concurrent verifier result cannot overwrite a new work attempt
+  ---
+  duration_ms: 0.123997
+  type: 'test'
+  ...
+# node:internal/modules/package_json_reader:314
+#   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+#         ^
+# Error [ERR_MODULE_NOT_FOUND]: Cannot find package '@playwright/test' imported from scratch:aincm/build/vitium/tests/ui-conformance/ui-conformance-helpers.mjs
+#     at Object.getPackageJSONURL (node:internal/modules/package_json_reader:314:9)
+#     at packageResolve (node:internal/modules/esm/resolve:772:81)
+#     at moduleResolve (node:internal/modules/esm/resolve:859:18)
+#     at defaultResolve (node:internal/modules/esm/resolve:989:11)
+#     at \#cachedDefaultResolve (node:internal/modules/esm/loader:747:20)
+#     at ModuleLoader.resolve (node:internal/modules/esm/loader:724:38)
+#     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:320:38)
+#     at ModuleJob._link (node:internal/modules/esm/module_job:182:49) {
+#   code: 'ERR_MODULE_NOT_FOUND'
+# }
+# Node.js v22.23.5
+# Subtest: tests/ui-conformance-helpers.test.mjs
+not ok 13 - tests/ui-conformance-helpers.test.mjs
+  ---
+  duration_ms: 29.279977
+  type: 'test'
+  location: 'scratch:aincm/build/vitium/tests/ui-conformance-helpers.test.mjs:1:1'
+  failureType: 'testCodeFailure'
+  exitCode: 1
+  signal: ~
+  error: 'test failed'
+  code: 'ERR_TEST_FAILURE'
+  ...
+1..102
+# tests 102
+# suites 0
+# pass 101
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 238.551254

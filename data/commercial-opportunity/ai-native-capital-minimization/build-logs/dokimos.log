@@ -1,0 +1,19 @@
+REV 6ea8624
+CMD dotnet build Dokimos.sln -c Release
+BUILD_RC 0 SECS 36
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+CMD dotnet test experiments/rule-provenance/tests/RuleProvenance.Tests/RuleProvenance.Tests.fsproj -c Release --no-build
+TEST_RC RuleProvenance.Tests.fsproj 1 SECS 0 :: 
+CMD dotnet test experiments/verification-benchmarks/B1-approval/tests/Approval.Tests/Approval.Tests.fsproj -c Release --no-build
+TEST_RC Approval.Tests.fsproj 0 SECS 1 :: 
+CMD dotnet test experiments/verification-benchmarks/B2-evidence/tests/Evidence.Tests/Evidence.Tests.fsproj -c Release --no-build
+TEST_RC Evidence.Tests.fsproj 0 SECS 0 :: 
+CMD dotnet test tests/Dokimos.Cli.Tests/Dokimos.Cli.Tests.fsproj -c Release --no-build
+TEST_RC Dokimos.Cli.Tests.fsproj 0 SECS 60 :: Passed!  - Failed:     0, Passed:   157, Skipped:     0, Total:   157, Duration: 58 s - Dokimos.Cli.Tests.dll (net8.0) 
+CMD dotnet test tests/Dokimos.Core.Tests/Dokimos.Core.Tests.fsproj -c Release --no-build
+TEST_RC Dokimos.Core.Tests.fsproj 0 SECS 2 :: Passed!  - Failed:     0, Passed:   436, Skipped:     0, Total:   436, Duration: 1 s - Dokimos.Core.Tests.dll (net8.0) 
+CMD dotnet test tests/Dokimos.Domain.Tests/Dokimos.Domain.Tests.fsproj -c Release --no-build
+TEST_RC Dokimos.Domain.Tests.fsproj 0 SECS 2 :: Passed!  - Failed:     0, Passed:     4, Skipped:     0, Total:     4, Duration: 10 ms - Dokimos.Domain.Tests.dll (net8.0) 
+DONE

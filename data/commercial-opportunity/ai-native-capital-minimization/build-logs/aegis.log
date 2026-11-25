@@ -1,0 +1,11 @@
+REV 711e026
+CMD dotnet build Aegis.sln -c Release
+BUILD_RC 0 SECS 3
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+CMD dotnet test tests/Aegis.Core.CSharpTests/Aegis.Core.CSharpTests.csproj -c Release --no-build
+TEST_RC Aegis.Core.CSharpTests.csproj 0 SECS 3 :: Passed!  - Failed:     0, Passed:     8, Skipped:     0, Total:     8, Duration: 219 ms - Aegis.Core.CSharpTests.dll (net8.0) 
+CMD dotnet test tests/Aegis.Core.Tests/Aegis.Core.Tests.fsproj -c Release --no-build
+TEST_RC Aegis.Core.Tests.fsproj 1 SECS 163 :: Failed!  - Failed:     2, Passed:   339, Skipped:     0, Total:   341, Duration: 2 m 41 s - Aegis.Core.Tests.dll (net8.0) 
+DONE

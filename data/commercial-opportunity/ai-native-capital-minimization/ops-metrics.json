@@ -1,0 +1,278 @@
+{
+ "typical_base": 38.03,
+ "typical_after": 23.14,
+ "typical_elim": 11.15,
+ "typical_trans": 3.74,
+ "prior_elim_typical": 27.34,
+ "ratio_typical": 0.6084669997370497,
+ "mix_base": 50.722,
+ "mix_after": 30.1120366755073,
+ "mix_trans": 4.988174599000789,
+ "arch_after": {
+  "inactive": 2.054287801192876,
+  "small_recurring": 14.048577391681807,
+  "typical": 23.121745990007888,
+  "high_frequency": 80.06877079432986,
+  "high_value": 63.89370672276273,
+  "complex_asset": 188.28602043499492
+ },
+ "arch_after_high": {
+  "inactive": 6.299815923658153,
+  "small_recurring": 45.804896518925325,
+  "typical": 82.50812516434392,
+  "high_frequency": 288.9307964067846,
+  "high_value": 227.279042485256,
+  "complex_asset": 481.6765492130901
+ },
+ "s_base_yr": 19440.0,
+ "s_after_yr": 12720,
+ "floor_servicer": 11.653,
+ "floor_legal": 8.993,
+ "floor_sponsor": 2.7005,
+ "mix_grants": 9.100000000000001,
+ "pre_deleg_add": 13.830000000000002,
+ "queue_min_fte_yr": 82080.0,
+ "usd_per_min": 1.0907675438596491,
+ "be_prior": 984265342.1546199,
+ "be_after": 956531935.6368325,
+ "be_zero": 918710951.1370065,
+ "be_floor": 932986951.1829643,
+ "be_75": 1019070504.4437706,
+ "peaks": [
+  [
+   "average working day (annual sizing)",
+   "",
+   1408.0,
+   4.29,
+   5,
+   "none"
+  ],
+  [
+   "December, no disruption",
+   83867.3,
+   5903.3,
+   10,
+   5,
+   "backlog 51,035 min at 31 Dec; 107.3 January working days to clear"
+  ],
+  [
+   "December with 2 prep-only surge",
+   83867.3,
+   5903.3,
+   9,
+   5,
+   "backlog 37,902 min at 31 Dec; 79.7 January working days to clear"
+  ],
+  [
+   "December + 2-day AI outage in peak week",
+   90707.03,
+   9323.17,
+   10,
+   5,
+   "backlog 44,742 min at 31 Dec; 94.0 January working days to clear"
+  ],
+  [
+   "December + AI outage + one core ops absent for peak week",
+   90707.03,
+   9323.17,
+   11,
+   5,
+   "backlog 47,040 min at 31 Dec; 98.9 January working days to clear"
+  ],
+  [
+   "December + AI outage + absence + 5-day feed incident",
+   94707.03,
+   10123.17,
+   12,
+   5,
+   "backlog 51,040 min at 31 Dec; 107.3 January working days to clear"
+  ]
+ ],
+ "base_fte": 5,
+ "staff_grid": [
+  {
+   "accounts": 3000,
+   "sponsors": 2,
+   "min_per_acct": 30.11,
+   "servicing_fte_annual_sizing": 2,
+   "servicing_fte_december_sizing": 3,
+   "recon_break_fte": 0.02,
+   "independent_review_fte": 0.05,
+   "implementation_fte": 0.3
+  },
+  {
+   "accounts": 5000,
+   "sponsors": 3,
+   "min_per_acct": 30.11,
+   "servicing_fte_annual_sizing": 3,
+   "servicing_fte_december_sizing": 5,
+   "recon_break_fte": 0.04,
+   "independent_review_fte": 0.07,
+   "implementation_fte": 0.3
+  },
+  {
+   "accounts": 10000,
+   "sponsors": 4,
+   "min_per_acct": 30.11,
+   "servicing_fte_annual_sizing": 5,
+   "servicing_fte_december_sizing": 9,
+   "recon_break_fte": 0.07,
+   "independent_review_fte": 0.09,
+   "implementation_fte": 0.3
+  },
+  {
+   "accounts": 20000,
+   "sponsors": 6,
+   "min_per_acct": 30.11,
+   "servicing_fte_annual_sizing": 10,
+   "servicing_fte_december_sizing": 18,
+   "recon_break_fte": 0.14,
+   "independent_review_fte": 0.14,
+   "implementation_fte": 0.59
+  },
+  {
+   "accounts": 50000,
+   "sponsors": 10,
+   "min_per_acct": 30.11,
+   "servicing_fte_annual_sizing": 23,
+   "servicing_fte_december_sizing": 46,
+   "recon_break_fte": 0.35,
+   "independent_review_fte": 0.23,
+   "implementation_fte": 0.87
+  },
+  {
+   "accounts": 5000,
+   "sponsors": 3,
+   "min_per_acct": 50.72,
+   "servicing_fte_annual_sizing": 5,
+   "servicing_fte_december_sizing": 8,
+   "recon_break_fte": 0.04,
+   "independent_review_fte": 0.07,
+   "implementation_fte": 0.3
+  },
+  {
+   "accounts": 10000,
+   "sponsors": 4,
+   "min_per_acct": 50.72,
+   "servicing_fte_annual_sizing": 8,
+   "servicing_fte_december_sizing": 15,
+   "recon_break_fte": 0.07,
+   "independent_review_fte": 0.09,
+   "implementation_fte": 0.3
+  },
+  {
+   "accounts": 20000,
+   "sponsors": 6,
+   "min_per_acct": 50.72,
+   "servicing_fte_annual_sizing": 16,
+   "servicing_fte_december_sizing": 31,
+   "recon_break_fte": 0.14,
+   "independent_review_fte": 0.14,
+   "implementation_fte": 0.59
+  }
+ ],
+ "ovh_conv": 12.0,
+ "ovh_res": 4.75,
+ "sample_n": 59,
+ "written": [
+  [
+   "outcomes.csv",
+   27
+  ],
+  [
+   "responsibility-matrix.csv",
+   83
+  ],
+  [
+   "work-elimination.csv",
+   33
+  ],
+  [
+   "handling-targets.csv",
+   32
+  ],
+  [
+   "workload-tails.csv",
+   17
+  ],
+  [
+   "staffing-capacity.csv",
+   11
+  ],
+  [
+   "overhead.csv",
+   14
+  ],
+  [
+   "ai-capabilities.csv",
+   16
+  ]
+ ],
+ "transfers": [
+  [
+   "ACT-A01",
+   0.04,
+   "advisor/custodian (KYC reliance work they already perform; needs reliance agreement)"
+  ],
+  [
+   "ACT-A02",
+   0.02,
+   "donor (enters fund reference)"
+  ],
+  [
+   "ACT-A03",
+   0.08,
+   "donor (re-initiates as ACH)"
+  ],
+  [
+   "ACT-A04",
+   0.2,
+   "donor and donor's broker (pre-announcement form, memo field)"
+  ],
+  [
+   "ACT-A05",
+   0.3,
+   "external intermediary (fund-borne fee $150-1,500 [A]); appraiser (donor-borne)"
+  ],
+  [
+   "ACT-A07",
+   0.15,
+   "donor/advisor (attestation fields at entry)"
+  ],
+  [
+   "ACT-A12",
+   0.2,
+   "donor/advisor (attestation)"
+  ],
+  [
+   "ACT-A13",
+   2.2,
+   "US intermediary / ED provider (fee borne by fund or charity)"
+  ],
+  [
+   "ACT-A15",
+   0.4,
+   "charity (EFT enrollment and bank-detail upkeep)"
+  ],
+  [
+   "ACT-A21",
+   0.1,
+   "donor (self-service navigation effort)"
+  ],
+  [
+   "ACT-A25",
+   0.05,
+   "donor (self-service, step-up)"
+  ],
+  [
+   "ACT-S02",
+   300,
+   "sponsor (policy-pack adoption review)"
+  ],
+  [
+   "ACT-S04",
+   300,
+   "sponsor's external auditor (testing generated evidence, sponsor-borne)"
+  ]
+ ]
+}

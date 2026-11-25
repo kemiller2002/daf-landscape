@@ -1,0 +1,77 @@
+Test run for scratch:aincm/build/summa/tests/Summa.Web.Tests/bin/Release/net10.0/Summa.Web.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.23]     Summa.Web.Tests.ArchitectureTests.INV-ARCH-007: Forma presents the editor, tables, dialogs and fields, and holds none of Summa's rules [FAIL]
+  Failed Summa.Web.Tests.ArchitectureTests.INV-ARCH-007: Forma presents the editor, tables, dialogs and fields, and holds none of Summa's rules [18 ms]
+  Error Message:
+   Forma is not installed
+  Stack Trace:
+     at Summa.Web.Tests.ArchitectureTests.INV-ARCH-007: Forma presents the editor, tables, dialogs and fields, and holds none of Summa's rules() in scratch:aincm/build/summa/tests/Summa.Web.Tests/ArchitectureTests.fs:line 88
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:01.16]     Summa.Web.Tests.FoundationsConformanceTests.the engine answers the Limen contracts the installed kernel offers [FAIL]
+  Failed Summa.Web.Tests.FoundationsConformanceTests.the engine answers the Limen contracts the installed kernel offers [< 1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/summa/node_modules/@echelon-foundry/limen/dist/generated/core.js'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Summa.Web.Tests.FoundationsConformanceTests.generated@170(String relative) in scratch:aincm/build/summa/tests/Summa.Web.Tests/FoundationsConformanceTests.fs:line 170
+   at Summa.Web.Tests.FoundationsConformanceTests.the engine answers the Limen contracts the installed kernel offers() in scratch:aincm/build/summa/tests/Summa.Web.Tests/FoundationsConformanceTests.fs:line 176
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:01.19]     Summa.Web.Tests.FoundationsConformanceTests.the npm foundations are pinned to immutable releases and locked [FAIL]
+[xUnit.net 00:00:01.19]     Summa.Web.Tests.FoundationsConformanceTests.each page takes Forma and Folio from the installed packages [FAIL]
+[xUnit.net 00:00:01.19]     Summa.Web.Tests.FoundationsConformanceTests.the shared kernel registers Folio and starts Limen from the installed packages [FAIL]
+  Failed Summa.Web.Tests.FoundationsConformanceTests.the npm foundations are pinned to immutable releases and locked [< 1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/summa/node_modules/@echelon-foundry/design-system/package.json'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Summa.Web.Tests.FoundationsConformanceTests.the npm foundations are pinned to immutable releases and locked() in scratch:aincm/build/summa/tests/Summa.Web.Tests/FoundationsConformanceTests.fs:line 53
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Summa.Web.Tests.FoundationsConformanceTests.each page takes Forma and Folio from the installed packages [< 1 ms]
+  Error Message:
+   web: ../node_modules/@echelon-foundry/design-system/dist/all.css is not installed
+  Stack Trace:
+     at Summa.Web.Tests.FoundationsConformanceTests.each page takes Forma and Folio from the installed packages() in scratch:aincm/build/summa/tests/Summa.Web.Tests/FoundationsConformanceTests.fs:line 74
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Summa.Web.Tests.FoundationsConformanceTests.the shared kernel registers Folio and starts Limen from the installed packages [< 1 ms]
+  Error Message:
+   ../node_modules/@echelon-foundry/print-components/src/components/register.js
+  Stack Trace:
+     at Summa.Web.Tests.FoundationsConformanceTests.the shared kernel registers Folio and starts Limen from the installed packages() in scratch:aincm/build/summa/tests/Summa.Web.Tests/FoundationsConformanceTests.fs:line 93
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:01.44]     Summa.Web.Tests.RoutesTests.the committed route inventory is valid against Limen's echelon.routes v1 schema [FAIL]
+  Failed Summa.Web.Tests.RoutesTests.the committed route inventory is valid against Limen's echelon.routes v1 schema [1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/summa/node_modules/@echelon-foundry/limen/contract/routes.schema.json'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Summa.Web.Tests.RoutesTests.routesSchema@349.Invoke(Unit unitVar) in scratch:aincm/build/summa/tests/Summa.Web.Tests/RoutesTests.fs:line 349
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Summa.Web.Tests.RoutesTests.validates(String document) in scratch:aincm/build/summa/tests/Summa.Web.Tests/RoutesTests.fs:line 353
+   at Summa.Web.Tests.RoutesTests.the committed route inventory is valid against Limen's echelon.routes v1 schema() in scratch:aincm/build/summa/tests/Summa.Web.Tests/RoutesTests.fs:line 357
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+Failed!  - Failed:     6, Passed:   247, Skipped:     0, Total:   253, Duration: 7 s - Summa.Web.Tests.dll (net10.0)
+VSTEST_ARTIFACTS_DIRECTORY environment variable was not found, falling back to a user-private temporary directory. This is most likely caused by an outdated Microsoft.NET.Test.Sdk package reference in the test project.

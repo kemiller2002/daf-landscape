@@ -11,6 +11,12 @@
 
 **Start here:** [10-executive-findings.md](10-executive-findings.md).
 
+**Follow-on (2026-11-25):** [ai-native-capital-minimization/](../ai-native-capital-minimization/README.md) reuses this model unchanged as its baseline. It corrects four items here and leaves this study's files as they are; see its [00-source-baseline.md](../ai-native-capital-minimization/00-source-baseline.md):
+- the minimum capital, because the $0.72M build is below a safe minimum product;
+- the ratio staffing triggers, which understated December release capacity;
+- the 33.8-minute elimination scenario, which included transfers;
+- the $150 + 7.5 bps tariff.
+
 ## Reports
 
 | # | Report | Content |

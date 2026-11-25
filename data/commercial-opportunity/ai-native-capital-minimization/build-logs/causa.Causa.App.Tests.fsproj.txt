@@ -1,0 +1,5 @@
+Test run for scratch:aincm/build/causa/tests/Causa.App.Tests/bin/Release/net10.0/Causa.App.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:   106, Skipped:     0, Total:   106, Duration: 10 s - Causa.App.Tests.dll (net10.0)
+VSTEST_ARTIFACTS_DIRECTORY environment variable was not found, falling back to a user-private temporary directory. This is most likely caused by an outdated Microsoft.NET.Test.Sdk package reference in the test project.

@@ -1,0 +1,10 @@
+REV c6a384e
+CMD dotnet build Strata.sln -c Release
+BUILD_RC 0 SECS 25
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+CMD dotnet test tests/Strata.Tests/Strata.Tests.fsproj -c Release --no-build
+TEST_RC Strata.Tests.fsproj 0 SECS 3 :: Passed!  - Failed:     0, Passed:   743, Skipped:    41, Total:   784, Duration: 2 s - Strata.Tests.dll (net8.0) 
+DONE
+NOTE global.json rollForward added in scratch clone (pinned SDK not installed; 10.0.404 used)

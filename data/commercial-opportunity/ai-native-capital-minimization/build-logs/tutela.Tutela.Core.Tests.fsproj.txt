@@ -1,0 +1,1 @@
+Tutela.Core tests: 246 checks, 246 passed, 0 failed

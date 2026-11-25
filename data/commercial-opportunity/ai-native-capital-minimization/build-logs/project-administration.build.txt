@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/project-administration/src/Administration.Cli/Administration.Cli.fsproj (in 321 ms).
+  Restored scratch:aincm/build/project-administration/src/Administration.Installations/Administration.Installations.fsproj (in 322 ms).
+  Restored scratch:aincm/build/project-administration/tests/Administration.Tests/Administration.Tests.fsproj (in 320 ms).
+  Administration.Installations -> scratch:aincm/build/project-administration/src/Administration.Installations/bin/Release/net10.0/Administration.Installations.dll
+  Administration.Cli -> scratch:aincm/build/project-administration/src/Administration.Cli/bin/Release/net10.0/administration.dll
+  Administration.Tests -> scratch:aincm/build/project-administration/tests/Administration.Tests/bin/Release/net10.0/Administration.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:10.77

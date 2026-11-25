@@ -1,0 +1,21 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/chrona/src/Chrona.Application/Chrona.Application.fsproj (in 1.12 sec).
+  Restored scratch:aincm/build/chrona/src/Chrona.Integration/Chrona.Integration.fsproj (in 1.11 sec).
+  Restored scratch:aincm/build/chrona/src/Chrona.Engine/Chrona.Engine.fsproj (in 1.12 sec).
+  Restored scratch:aincm/build/chrona/tests/Chrona.Tests/Chrona.Tests.fsproj (in 1.12 sec).
+  Restored scratch:aincm/build/chrona/src/Chrona.Domain/Chrona.Domain.fsproj (in 2 ms).
+  Restored scratch:aincm/build/chrona/src/Chrona.Summa/Chrona.Summa.fsproj (in 3 ms).
+  Restored scratch:aincm/build/chrona/src/Chrona.Wasm/Chrona.Wasm.csproj (in 1.32 sec).
+  Chrona.Integration -> scratch:aincm/build/chrona/src/Chrona.Integration/bin/Release/net10.0/Chrona.Integration.dll
+  Chrona.Domain -> scratch:aincm/build/chrona/src/Chrona.Domain/bin/Release/net10.0/Chrona.Domain.dll
+  Chrona.Summa -> scratch:aincm/build/chrona/src/Chrona.Summa/bin/Release/net10.0/Chrona.Summa.dll
+  Chrona.Engine -> scratch:aincm/build/chrona/src/Chrona.Engine/bin/Release/net10.0/Chrona.Engine.dll
+  Chrona.Application -> scratch:aincm/build/chrona/src/Chrona.Application/bin/Release/net10.0/Chrona.Application.dll
+  Chrona.Wasm -> scratch:aincm/build/chrona/src/Chrona.Wasm/bin/Release/net10.0/Chrona.Wasm.dll
+  Chrona.Tests -> scratch:aincm/build/chrona/tests/Chrona.Tests/bin/Release/net10.0/Chrona.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:33.73

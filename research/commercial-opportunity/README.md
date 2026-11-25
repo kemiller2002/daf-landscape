@@ -21,6 +21,7 @@
 | [clarity-edf-analysis/](clarity-edf-analysis/assumption-tests.md) | Eight conventional assumptions tested; EDF diagnoses of two observed commercial outcomes |
 | [evidence/](evidence/evidence-ledger.md) | Evidence ledger; [Phase 0 repository inventory](evidence/phase0-repository-inventory.md) |
 | [research-backlog.md](research-backlog.md) | Backlog (CO-01 to CO-19) and progress log |
+| [ai-native-capital-minimization/](ai-native-capital-minimization/README.md) | Capital minimization and AI-native enterprise design (2026-11-25): outcome-designed organization, workload staffing, three economic layers, development cost reconstruction, Echelon verification, pricing reassessment, sequences A-G, failure costs, adversarial review. Extends the servicing-economics model; corrects its minimum capital, staffing ratios, elimination scenario and tariff |
 | [servicing-economics/](servicing-economics/README.md) | DAF servicing economics at 20 bps (2026-11-25): pricing, the whole sponsor market, organization, activity cost, F# financial model, capital, entry strategy, adversarial review. Supersedes the break-even and budget figures in the two 2026-11-25 memos below |
 | [daf-servicing-20bps-market-entry-2026-11-25.md](daf-servicing-20bps-market-entry-2026-11-25.md), [daf-servicer-bottom-up-operating-budget-2026-11-25.md](daf-servicer-bottom-up-operating-budget-2026-11-25.md) | Initial 20 bps memos (preserved; corrected by servicing-economics) |
 

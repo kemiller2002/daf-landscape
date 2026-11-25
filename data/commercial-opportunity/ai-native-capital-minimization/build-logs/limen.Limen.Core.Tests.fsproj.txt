@@ -1,0 +1,5 @@
+Test run for scratch:aincm/build/limen/cli/tests/Limen.Core.Tests/bin/Release/net8.0/Limen.Core.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+
+Passed!  - Failed:     0, Passed:   166, Skipped:     0, Total:   166, Duration: 160 ms - Limen.Core.Tests.dll (net8.0)
+VSTEST_ARTIFACTS_DIRECTORY environment variable was not found, falling back to a user-private temporary directory. This is most likely caused by an outdated Microsoft.NET.Test.Sdk package reference in the test project.

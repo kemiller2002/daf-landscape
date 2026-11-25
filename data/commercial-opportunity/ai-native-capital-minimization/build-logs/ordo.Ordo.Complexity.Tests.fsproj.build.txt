@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/ordo/tools/Ordo.Complexity/Ordo.Complexity.fsproj (in 2.06 sec).
+  Restored scratch:aincm/build/ordo/tests/Ordo.Complexity.Tests/Ordo.Complexity.Tests.fsproj (in 2.06 sec).
+  Ordo.Complexity -> scratch:aincm/build/ordo/tools/Ordo.Complexity/bin/Release/net8.0/ordo-complexity.dll
+  Ordo.Complexity.Tests -> scratch:aincm/build/ordo/tests/Ordo.Complexity.Tests/bin/Release/net8.0/Ordo.Complexity.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:07.45

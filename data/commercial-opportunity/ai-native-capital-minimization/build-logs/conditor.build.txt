@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/conditor/src/Conditor.Core/Conditor.Core.fsproj (in 294 ms).
+  Restored scratch:aincm/build/conditor/src/Conditor.Cli/Conditor.Cli.fsproj (in 1.03 sec).
+  Restored scratch:aincm/build/conditor/tests/Conditor.Tests/Conditor.Tests.fsproj (in 1.08 sec).
+  Conditor.Core -> scratch:aincm/build/conditor/src/Conditor.Core/bin/Release/net10.0/Conditor.Core.dll
+  Conditor.Cli -> scratch:aincm/build/conditor/src/Conditor.Cli/bin/Release/net10.0/conditor.dll
+  Conditor.Tests -> scratch:aincm/build/conditor/tests/Conditor.Tests/bin/Release/net10.0/Conditor.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:22.13

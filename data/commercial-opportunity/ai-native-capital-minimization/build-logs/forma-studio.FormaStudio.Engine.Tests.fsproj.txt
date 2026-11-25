@@ -1,0 +1,118 @@
+ok     Layout proof: stack, heading, edit, reorder, spacing, undo, redo, save, reload
+ok     Layout rejects properties, slots and components absent from the Forma contract
+ok     Layout icon IDs are typed, undoable, forward-compatible and survive save/reload
+ok     Flow proof: nodes, connect, move, label, metadata, color, undo, redo, save, reload
+ok     Layout and Flow share one dispatcher, one history and one selection model
+ok     Rejected commands leave the session unchanged
+ok     Geometry: whole-unit rounding, legal negatives, invalid values rejected
+ok     Deleting a connected node surfaces incident connectors (FDA-025)
+ok     Workflow profile: illegal connections rejected, decisions and lanes validated
+ok     Metadata distinguishes explicit, default, derived, conflict, unknown, unavailable and invalid
+ok     Field rename keeps its key; removal of a used field is blocked
+ok     Metadata values normalize deterministically and unsafe URLs are rejected
+ok     Appearance cascade: default < profile < style < mapping < override, and reset reveals the next layer
+ok     Styles and palettes propagate by reference and never silently break
+ok     Color never implies status: same status may differ in color and different statuses may share one
+ok     Mappings may not derive appearance from source-only fields (FDA-1260..1268)
+ok     Literal colors normalize to #rrggbb; alpha and non-public tokens are rejected
+ok     Typed references block deletion of their targets and reject unsafe URLs
+ok     A v1 page-only project migrates without gaining diagrams and keeps legacy metadata
+ok     A diagram-only project needs no page
+ok     A newer schema version is refused with an explanation, not partially read
+ok     Serialization is deterministic and independent of edit order
+ok     Unknown profiles and undefined metadata fields are preserved, never flattened or rendered
+ok     The canonical Workflow sample meets FDA-890..892 and validates
+ok     Studio's accepted Forma tokens and shapes match the pinned Forma diagram contract
+ok     Agent export exposes topology, metadata status, references and color provenance
+ok     Projection emits only public Forma diagram contracts and a text relationship per connector
+ok     Projection escapes untrusted text and never emits executable content
+ok     Source-only metadata and derived presentation from withheld fields never reach the projection
+ok     Manifest carries source identity, bounds, provenance and object linkage
+ok     Projection is deterministic, and a changed diagram makes an old projection stale
+ok     Strict projection refuses unavailable profiles; diagnostic output is labelled invalid
+ok     Every node states its kind in text and every colored category has a text legend entry
+ok     Committed purchase-request fixtures match what the engine generates today
+ok     Editor: selection is view state; one gesture event is one command and one history entry
+ok     Editor: illegal and malformed input leave the project unchanged with a visible reason
+ok     Editor: save and load are Limen storage effects; loading resets undo history
+ok     Editor: the canvas shows only rendered-scope metadata; the inspector marks the rest
+ok     Editor characterization: every event has at least one scenario
+ok     Editor characterization: every handled event name is recognized by the engine
+ok     Editor characterization: every scenario's outcome matches the checked-in golden
+ok     Event contract: every EditorEvent case round-trips to a unique kebab-case wire name
+ok     Event contract: the union keeps every wire name characterized before the extraction
+ok     Event contract: src/kernel/editor-events.js is generated from the union and current
+ok     Event contract: every event name the page binds, the scripts emit and the browser tests select is a case
+ok     Event contract: every case is bound on the page or documented as agent-only
+ok     Conformance: no kernel script, engine or WebAssembly source names an event by string literal
+ok     Conformance: no engine source matches on a raw event name instead of the parsed union
+ok     Conformance: editor modules depend in one direction (intents <- state <- interaction <- app)
+ok     Conformance: composite (Batch) commands are built in the intent and command layers, not in UI orchestration
+ok     Conformance: the ratchet rejects growth, loosening, stale entries and lapsed exceptions
+       ratchet: compared limits with origin/main
+ok     Conformance: editor and command module sizes stay within the checked-in ratchet
+ok     Conformance: the canvas binds no inline style and the stylesheet maps every color token in every slot
+ok     Every built-in template inserts into an empty diagram of its profile as one undoable step
+ok     Merge review: per-item choices, integrity re-checked after choosing, adopted as one history entry
+ok     State profile: one initial state, triggers on transitions, unreachable states reported
+ok     Architecture profile: typed relationships, explicit boundaries, no inferred security
+ok     Semantic diff separates movement, semantics, metadata, color, definitions, reconnection, topology and routing
+ok     Merge: independent edits on both sides combine without conflict
+ok     Merge: a node deleted on one side and an edge added to it on the other is a conflict
+ok     Merge: reconnecting to a node the other side deleted is a conflict
+ok     Merge: concurrent different edits to one style conflict; identical edits agree
+ok     Merge: a palette edit and an object override compose; the override still wins
+ok     Merge: a profile migration against a profile-specific edit surfaces the illegal combination
+ok     Collaboration readiness: selection and other session state never enter the project or its revision
+ok     Fragments carry their dependency closure and reuse or import by stable id
+ok     Conflicting dependencies are remapped or rejected, never matched by name
+       large graph: validate 0.25s, round trip 0.20s, command 0.33s, projection 0.70s
+ok     Large graph: 2,000 nodes and 3,000 edges stay lossless and responsive
+ok     An externally produced workflow opens as a first-class document and keeps everything Studio does not understand
+ok     A semantically invalid workflow still opens with its findings, without deleting data
+ok     Non-workflow input is refused with Forma's reason
+ok     Lifecycle: external producer, Forma validation, Studio open, Studio edit, save, external consumer
+ok     Extensions survive a Studio edit session unchanged
+ok     The workflow library persists documents themselves under the Forma file convention
+ok     Opening and switching documents asks the component to load; adopting its change does not
+ok     Workflow export runs Forma's layout check: authored geometry that cannot hold its text is reported, fixtures are clean
+ok     HTML export is deterministic for the same design and options
+ok     Static designs export as HTML and CSS only, with public Forma classes and nothing from Studio
+ok     Fragments declare their assets; documents are complete and link exactly the declared assets
+ok     Accessibility semantics survive export: labels, descriptions, headings, landmarks and names
+ok     Authored values are escaped and unsafe links are not emitted
+ok     A workflow exports through Forma's renderer, identical to Forma's own output
+ok     Content without a public Forma contract is reported, never faked
+ok     Interactive workflow export is opt-in, uses only the public runtime and declares it
+ok     A component hierarchy exports on its own, with its children and nothing else
+ok     Icon names follow the registry grammar; everything else is not a name
+ok     A stored icon is read without rejection: names as names, anything else kept verbatim
+ok     Icons round-trip through save and reload; node icons are schema 3, Layout icons the schema 2 icon property
+ok     Malformed and injected icon values are kept as inert data: never rejected, dropped, rewritten or blocking
+ok     SetIcon is one undoable command on supported components and nodes, and refused elsewhere
+ok     Icon changes appear in review and merge like other presentation edits
+ok     The committed test fixture verifies: every SVG matches its registry digest and its snippet
+ok     Tampered, unsafe or mismatched icon files are refused one by one; nothing executable passes
+ok     A malformed or unsafe registry makes icons unavailable instead of half-loading
+       pinned package: node_modules/@echelon-foundry/design-system is not installed here (npm install); CI installs it before these tests
+ok     The pinned Forma package: icons are unavailable without a registry, and every packaged icon verifies when present
+ok     HTML export inlines the release's own decorative SVG, stamped with its Forma version, and round-trips the names
+ok     Without an icon collection (an icon-less release) the export fabricates no SVG, keeps the static output and says why
+ok     Unknown, malformed and misplaced icons are never exported as markup, and their values are never echoed
+ok     The editor fetches the pinned collection through Limen Http effects and verifies it before offering it
+ok     With the icon-less pin the picker reports icons unavailable and changes nothing
+ok     The picker sets and clears a node icon through one command, and the view offers native, named choices
+ok     A Layout item's icon is chosen by keyboard-reachable buttons, saved through Limen storage and reopened
+ok     An alignment declaration serializes, loads unchanged, and is edited and cleared through one command each
+ok     Only declared edges are accepted, and only on containers whose contract has an alignment
+ok     HTML export carries the declared group on the row and a peer mark on each field's control
+ok     Exporting a declared row twice gives identical HTML
+ok     A declared actions row marks each button as a peer (ULI-L10)
+ok     A well-formed declared row has no layout findings
+ok     Pre-export checks name the rule: staggered peers, mixed rows, long labels, placeholder links, missing names, overflow
+ok     A declared row that mixes input types is advised under ULI-L02 (Forma's intrinsic control heights differ)
+ok     A declared group with fewer than two peers is reported, not silently passed
+ok     A new link button gets no placeholder href, so it exports as text and is flagged until it has a destination (ULI-A01)
+ok     Components inside a container reorder among their siblings (no root-only editing)
+
+113 passed, 0 failed, 113 total
