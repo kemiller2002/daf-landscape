@@ -1,4 +1,7 @@
 # DAF servicing market entry at 20 basis points
+
+> **Correction notice (2026-11-25).** Figures in this memo are superseded by [servicing-economics/](servicing-economics/README.md). In particular: the fixed budget is a low case ($1.66M base for the same roles; $1.74M with dual control); labour is $65.45/h, not $50; break-even is about $1.1-1.5B operating and $1.8-2.3B including build and sales, not $725M; outsourced administration is 18.5 bps (Ren at MS GIFT) to 38-40 bps on average assets, not "33-37 bps". See [00-source-baseline.md](servicing-economics/00-source-baseline.md) for the correction table. The original text is preserved below.
+
 Date: 2026-11-25. Status: initial research synthesis and reproducible scenario analysis; not a validated price quote or business forecast.
 
 ## Decision and scope

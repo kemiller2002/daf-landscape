@@ -1,0 +1,28 @@
+parameter,low,base,high,unit,label,basis
+fixed_per_sponsor_usd,10000.0,25000.0,50000.0,USD/sponsor/yr,[A],"Relationship management, sponsor reporting, reconciliation sign-off, audit support per sponsor. Placeholder for activity-cost agent."
+per_account_usd,15.0,25.0,45.0,USD/account/yr,[A],"Account maintenance: statements, donor service contacts, identity/KYC refresh, data. Base chosen so base per-account total (~$75 at 7 grants + 1 contribution) reconciles to the $75/fund-yr hypothesis in daf-servicer-bottom-up-operating-budget-2026-11-25.md:34 (not validation)."
+per_grant_usd,4.0,6.0,12.0,USD/grant,[A],"Charity validation, payment, acknowledgement, exception share per grant."
+per_contribution_usd,5.0,10.0,20.0,USD/contribution,[A],"Receipt, asset receipt and gift acknowledgement per contribution (cash/securities)."
+grant_dollar_review_bps,0.0,0.5,1.0,bps of grant USD,[A],"Value-scaled review effort (large-grant due diligence, expenditure responsibility) as bps of grant dollars."
+grants_per_account,4.0,7.0,11.0,grants/account/yr,[A],Used only when no sponsor-published grant count exists. Calibration [D]: published counts / Schedule D accounts for 10 sponsors give ~5.6-18.5 (median ~7); see summary-stats.json grant_count_calibration.
+contributions_per_account,0.5,1.0,2.0,contributions/account/yr,[A],No public contribution-count source found in repo; pure assumption (evidence gap).
+uplift_cf_nondaf_funds,0.15,0.25,0.4,multiplier add-on,[A],"Applied when sponsor is a community foundation (or other) with DAF share of total assets < nondaf_share_threshold: fund-accounting integration, mixed fund types."
+nondaf_share_threshold,0.5,0.5,0.5,share,[A],DAF assets / total assets below which non-DAF complexity uplift applies.
+uplift_faith,0.05,0.1,0.2,multiplier add-on,[A],"Religiously-affiliated sponsor: recipient eligibility screens, church/ministry recipients."
+uplift_international,0.1,0.25,0.5,multiplier add-on,[A],International grantmaking vehicle (equivalency determination / expenditure responsibility).
+uplift_complex_assets,0.1,0.25,0.5,multiplier add-on,[A],Non-cash / complex-asset processor or Dechomai inflow share >= complex_asset_share_threshold.
+complex_asset_share_threshold,0.05,0.05,0.05,share,[A],Dechomai share of DAF contributions at/above which complex-asset uplift applies.
+uplift_pass_through_processor,0.25,0.5,1.0,multiplier add-on,[A],"Donation-processor / pass-through sponsors (very high volume, tiny balances)."
+onboarding_fixed_usd,50000.0,100000.0,200000.0,USD one-time,[A],"Implementation, configuration, controls set-up per sponsor."
+onboarding_per_account_usd,5.0,15.0,30.0,USD/account one-time,[A],"Data conversion, reconciliation and donor re-onboarding per account."
+onboarding_custom_platform_uplift,0.25,0.5,1.0,multiplier add-on,[A],Sponsor on in-house / custom / unknown platform (no known export path).
+concentration_reference_revenue_usd,5000000.0,5000000.0,5000000.0,USD/yr,[A],Size of the hypothetical servicer business X for concentration exposure.
+downturn_shock,0.3,0.3,0.3,share of AUA,[A],Full-year asset shock; accounts and costs unchanged (mirrors budget doc stress).
+self_sustain_fixed_cost_usd,1177750.0,1177750.0,1177750.0,USD/yr,[S],"Lean servicer fixed budget hypothesis: daf-servicer-bottom-up-operating-budget-2026-11-25.md fixed budget total (a hypothesis under test, not a measured cost)."
+self_sustain_bps,20.0,20.0,20.0,bps,[A],Price at which self-sustaining test is run.
+large_aua_threshold_usd,1000000000.0,1000000000.0,1000000000.0,USD EOY DAF assets,[A],Threshold for 'large AUA' in unattractive-large screen.
+recent_migration_months,24.0,24.0,24.0,months before 2026-11-25,[A],"Platform migration completed within this window => likely new multi-year contract, low near-term switch probability."
+addressable_min_latest_fy,2023.0,2023.0,2023.0,fiscal year,[A],Sponsors whose latest DAF data is older are treated as inactive for scoring.
+small_account_balance_usd,50000.0,50000.0,50000.0,USD,[A],Average balance below which a sponsor counts as small-account tail.
+high_value_balance_usd,1000000.0,1000000.0,1000000.0,USD,[A],Average balance above which a sponsor counts as concentrated high-value.
+top_n_hypotheses,25.0,25.0,25.0,count,[A],Number of hypotheses.

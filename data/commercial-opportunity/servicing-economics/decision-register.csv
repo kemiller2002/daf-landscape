@@ -1,0 +1,11 @@
+decision_id,date,decision,type,made_by,basis,alternatives,reversible,status
+D-SE-001,2026-11-25,Use 20 bps on average billable AUA as the working price; test 5-35 bps,pricing,owner (mission brief),owner assumption; tested in reports 01 and 05,flat per-account pricing; hybrid,Y,owner-set
+D-SE-002,2026-11-25,Build the research model in F# (.NET 10) with xUnit tests; Python for pass scripts,method,integrator,mission asks for F# where practical; matches Unbound replay tool,Python only,Y,integrator
+D-SE-003,2026-11-25,Use the activity pass's archetype workloads (AI-native base) as model inputs; low/high as minutes factor 0.35x/3.33x,method,integrator,no time study exists; ACT pass is the most detailed public-evidence model,prior $75 per account,Y,integrator (provisional)
+D-SE-004,2026-11-25,Price added operations labour at $65.45/h loaded (1520 productive hours),method,integrator,CST pass from OEWS and ECEC,$50/h prior memo,Y,integrator
+D-SE-005,2026-11-25,Require a minimum second operations person (Model B) and two (Model A) once live for separation of duties,controls,integrator,CST finding: one ops person cannot cover absence without the controller preparing and releasing the same item,sponsor co-approval of payments,Y,integrator (recommendation)
+D-SE-006,2026-11-25,Treat sponsor-retained reserved decisions ($42-43 per account) as sponsor cost and exclude them from servicer cost,boundary,integrator,SPD-ADV-001 per-sponsor decisions; CST-SR1,include in servicer price,Y,integrator
+D-SE-007,2026-11-25,Use (BOY+EOY)/2 as the average-assets proxy and label it; never use Schedule I rows as grant counts,method,integrator,mission rule; data availability,year-end assets,N,integrator
+D-SE-008,2026-11-25,Re-cost every sponsor through the F# model; SPN placeholder cost parameters superseded,method,integrator,consistency of one cost model,keep SPN parameters,Y,integrator
+D-SE-009,2026-11-25,Model December excess hours at the loaded rate (no temp premium; agency temps cost $39/h but need supervision),method,integrator,CST-P14 and ACT-9,premium 50%,Y,integrator
+D-SE-010,2026-11-25,Treat Clarity as structured challenge and EDF as applicable only to observed outcomes; no formal certified review claimed,method,integrator,ECH pass reading of the frameworks,claim formal execution,N,integrator

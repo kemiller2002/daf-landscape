@@ -1,0 +1,338 @@
+[
+{
+"soc": "11-1011",
+"title": "Chief Executives",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+75700,
+129540,
+213990,
+356200,
+507730
+]
+},
+{
+"soc": "11-1021",
+"title": "General and Operations Managers Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+50090,
+72320,
+105770,
+167280,
+253390
+]
+},
+{
+"soc": "11-2021",
+"title": "Marketing Managers Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+90260,
+123020,
+166790,
+216410,
+293610
+]
+},
+{
+"soc": "11-2022",
+"title": "Sales Managers Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+73170,
+100360,
+148270,
+207340,
+290540
+]
+},
+{
+"soc": "11-3021",
+"title": "Computer and Information Systems Managers Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+107550,
+138060,
+175140,
+220730,
+297510
+]
+},
+{
+"soc": "11-3031",
+"title": "Financial Managers Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+94310,
+125490,
+166570,
+219980,
+323270
+]
+},
+{
+"soc": "13-1041",
+"title": "Compliance Officers",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+48220,
+61280,
+80730,
+109010,
+133720
+]
+},
+{
+"soc": "13-1071",
+"title": "Human Resources Specialists Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+47180,
+58610,
+75940,
+99380,
+128720
+]
+},
+{
+"soc": "13-1111",
+"title": "Management Analysts Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+60640,
+77950,
+101860,
+133370,
+171640
+]
+},
+{
+"soc": "13-1131",
+"title": "Fundraisers Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+46630,
+57480,
+72550,
+92180,
+115820
+]
+},
+{
+"soc": "13-2011",
+"title": "Accountants and Auditors Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+56020,
+67020,
+83680,
+109810,
+144090
+]
+},
+{
+"soc": "13-2051",
+"title": "Financial and Investment Analysts Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+63720,
+79290,
+102740,
+133340,
+180860
+]
+},
+{
+"soc": "13-2099",
+"title": "Financial Specialists, All Other",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+48460,
+61290,
+81100,
+110410,
+151490
+]
+},
+{
+"soc": "15-1212",
+"title": "Information Security Analysts Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+75090,
+97810,
+129180,
+163500,
+199850
+]
+},
+{
+"soc": "15-1232",
+"title": "Computer User Support Specialists",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+40980,
+49000,
+61860,
+79040,
+100540
+]
+},
+{
+"soc": "15-1242",
+"title": "Database Administrators",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+60230,
+79610,
+104620,
+135460,
+163320
+]
+},
+{
+"soc": "15-1244",
+"title": "Network and Computer Systems Administrators",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+62640,
+78010,
+99130,
+126640,
+155050
+]
+},
+{
+"soc": "15-1252",
+"title": "Software Developers Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+82460,
+105210,
+135980,
+171980,
+214670
+]
+},
+{
+"soc": "15-1253",
+"title": "Software Quality Assurance Analysts and Testers Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+61440,
+80310,
+104300,
+133180,
+167010
+]
+},
+{
+"soc": "15-2051",
+"title": "Data Scientists Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+67240,
+85660,
+120230,
+158880,
+199130
+]
+},
+{
+"soc": "23-1011",
+"title": "Lawyers Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+78360,
+102990,
+159670,
+221370,
+351600
+]
+},
+{
+"soc": "23-2011",
+"title": "Paralegals and Legal Assistants",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+44740,
+50340,
+62890,
+80080,
+101500
+]
+},
+{
+"soc": "41-3091",
+"title": "Sales Representatives of Services, Except Advertising, Insurance, Financial Services, and Travel Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+37980,
+47670,
+69990,
+100480,
+148840
+]
+},
+{
+"soc": "43-3031",
+"title": "Bookkeeping, Accounting, and Auditing Clerks Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+36000,
+43520,
+50670,
+61470,
+74550
+]
+},
+{
+"soc": "43-3099",
+"title": "Financial Clerks, All Other",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+40360,
+47510,
+53830,
+62310,
+76290
+]
+},
+{
+"soc": "43-4011",
+"title": "Brokerage Clerks",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+50260,
+58620,
+65750,
+79800,
+102010
+]
+},
+{
+"soc": "43-4051",
+"title": "Customer Service Representatives Bright Outlook &nbsp;",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+31750,
+36870,
+44770,
+51780,
+63590
+]
+},
+{
+"soc": "43-6011",
+"title": "Executive Secretaries and Executive Administrative Assistants",
+"year": "2025",
+"p10_p25_p50_p75_p90": [
+50560,
+61390,
+76590,
+94390,
+109850
+]
+}
+]
