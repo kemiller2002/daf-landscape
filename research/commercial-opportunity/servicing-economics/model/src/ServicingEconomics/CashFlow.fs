@@ -27,6 +27,9 @@ type Plan =
       FinancingRate: float
       /// Use cash compensation (founders may be unpaid) instead of full economic cost.
       CashView: bool
+      /// Months after the first go-live during which handling runs AI-enhanced (sponsor delegations and other
+      /// activation gates not yet in place; Unbound EV-08) before the plan's approach applies.
+      RedesignLagMonths: int
       Months: int }
 
 type MonthRow =
@@ -49,11 +52,16 @@ let accruedRevenue (plan: Plan) month =
     |> List.sumBy (fun c -> let a, t, o = sponsorRevenue plan.Price 1.0 c.Sponsor in (a + t + o) / 12.0)
 
 /// Monthly variable, step and sponsor-specific cost of the live sponsors (core payroll and fixed excluded).
+let private approachAt (plan: Plan) month =
+    match plan.Customers |> List.map goLive |> List.sort with
+    | first :: _ when month < first + plan.RedesignLagMonths -> AiEnhanced
+    | _ -> plan.Approach
+
 let private variableMonthly (plan: Plan) month =
     match liveAt month plan with
     | [] -> 0.0
     | live ->
-        let r = evaluate plan.Org plan.Activities plan.Approach plan.Price noStress (live |> List.map (fun c -> c.Sponsor))
+        let r = evaluate plan.Org plan.Activities (approachAt plan month) plan.Price noStress (live |> List.map (fun c -> c.Sponsor))
         (r.TotalCost - r.CorePersonnel - r.NonPersonnelFixed) / 12.0
 
 let private payrollMonthly (plan: Plan) month =

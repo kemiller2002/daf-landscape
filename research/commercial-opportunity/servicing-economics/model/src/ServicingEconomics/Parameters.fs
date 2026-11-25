@@ -7,7 +7,7 @@ open ServicingEconomics.Domain
 // ---------------------------------------------------------------- prices
 
 let price bps =
-    { Bps = bps; MinimumAnnualFee = 0.0; ImplementationFeePerSponsor = 0.0; ExceptionalFeesPerAccountYear = 0.0; PerAccountMinimum = 0.0; PaymentsPassThrough = false }
+    { Bps = bps; MinimumAnnualFee = 0.0; ImplementationFeePerSponsor = 0.0; ExceptionalFeesPerAccountYear = 0.0; PerAccountMinimum = 0.0; PerAccountMaximum = 0.0; PerAccountFee = 0.0; PaymentsPassThrough = true }
 
 let pricePoints = [ 5.0; 10.0; 15.0; 20.0; 25.0; 30.0; 35.0 ]
 
@@ -20,6 +20,7 @@ let h0Org =
       NonPersonnelFixed = [ "prior fixed budget", 1177750.0 ]
       StepRules = []
       ProductiveHours = 1600.0
+      Utilisation = 1.0
       MinimumAddedServicingFte = 0.0
       ServicingHourlyLoaded = 0.0
       DecemberShare = 0.0
@@ -72,7 +73,7 @@ let archetypeTable =
         DecemberShare = 0.26 }
       { Name = "complex_asset"; ShareOfAccounts = 0.03; AverageBalance = 1.5e+06
         Minutes = (function | Conventional -> 1010.2 | AiEnhanced -> 618.7 | AiNative -> 359 | AiNativeWithElimination -> 166)
-        External = (function | Conventional -> 357.26 | AiEnhanced -> 358.91 | AiNative -> 358.64 | AiNativeWithElimination -> 358.29)
+        External = (function | Conventional -> 8.27 | AiEnhanced -> 9.92 | AiNative -> 9.65 | AiNativeWithElimination -> 9.33)
         Payments = (function | Conventional -> 40.43 | AiEnhanced -> 40.43 | AiNative -> 40.43 | AiNativeWithElimination -> 30)
         DecemberShare = 0.333 }
     ]
@@ -80,10 +81,22 @@ let archetypeTable =
 /// Mix average balance of the archetype table (438,600 at the assumed balances). [D]
 let archetypeMixBalance = archetypeTable |> List.sumBy (fun a -> a.ShareOfAccounts * a.AverageBalance)
 
-/// The archetype mix rescaled so that its average balance equals a sponsor's observed average balance,
-/// keeping relative balances and workloads. [D]
+/// Workload elasticity to balance: activity rises sub-linearly with balance. ln(105/38) / ln(3,000,000/150,000)
+/// = 0.34 from the high-value vs typical archetypes (AI-native). [D from A] (ADV-009)
+let workloadElasticity = 0.34
+
+/// The archetype mix rescaled so that its average balance equals a sponsor's observed average balance; minutes
+/// and vendor cost scale by (b / mix balance)^0.34 so very high-balance books are not treated as nearly free. [D]
 let mixWithAverageBalance (b: float) =
-    archetypeTable |> List.map (fun a -> { a with AverageBalance = a.AverageBalance * b / archetypeMixBalance })
+    let k = b / archetypeMixBalance
+    let w = k ** workloadElasticity
+    archetypeTable
+    |> List.map (fun a ->
+        { a with
+            AverageBalance = a.AverageBalance * k
+            Minutes = (fun ap -> a.Minutes ap * w)
+            External = (fun ap -> a.External ap * w)
+            Payments = (fun ap -> a.Payments ap * w) })
 
 /// Market-mix minutes per account-year low/high relative to base (AI-native: 17.6 / 50.7 / 168.7). [D]
 let minutesLowFactor = 17.6 / 50.7
@@ -120,12 +133,19 @@ let sponsor name (accounts: float) (averageBalance: float) =
       AnnualSponsorCost = annualSponsorCostBase
       OnboardingCost = onboardingBase }
 
+/// Complex-asset intermediary fees are fund-borne (OD-M-09) and payment rails are sponsor-originated and passed
+/// through at cost in the base price (ADV-020; CST, ACT). The complex-asset External line keeps only data, cloud
+/// and typical other cost. [A]
+
 // ---------------------------------------------------------------- organizations (CST pass)
 
 let private role title loaded cash share start = { Title = title; LoadedCost = loaded; CashCost = cash; ServicingShare = share; StartMonth = start }
 
 /// Productive hours per FTE-year: 2,080 less ~12% leave/training less ~15% meetings and admin (CST). [A]
 let productiveHours = 1520.0
+
+/// Share of productive hours usable for queue work: 1,368 of 1,520 hours (ADV-006). [A]
+let queueUtilisation = 0.9
 
 /// Loaded hourly rate of an added grant & client operations specialist: $99,478 / 1,520 h. [D from S: OEWS, ECEC]
 let opsHourly = 99478.0 / productiveHours
@@ -145,10 +165,11 @@ let modelA =
       Core =
         [ role "Founder / managing director" 200142.0 116255.0 0.05 0
           role "CTO / technical lead" 222482.0 127440.0 0.0 0
-          role "Controller / head of financial operations" 183365.0 183365.0 0.3 0 ]
+          role "Controller / head of financial operations" 183365.0 183365.0 0.0 0 ]
       NonPersonnelFixed = [ "non-personnel and contracted (ex December temps)", 598363.0; "contingency 7.5%", 91262.0 ]
-      StepRules = steps @ [ { Name = "compliance officer above $1B average assets"; On = AssetsUsd; Free = 1.0e9; Size = 1.0e15; CostPerStep = 121848.0 } ]
+      StepRules = steps @ [ { Name = "compliance officer above 10,000 accounts (ADV-008: not asset-triggered)"; On = Accounts; Free = 10000.0; Size = 1.0e12; CostPerStep = 121848.0 } ]
       ProductiveHours = productiveHours
+      Utilisation = queueUtilisation
       MinimumAddedServicingFte = 2.0
       ServicingHourlyLoaded = opsHourly
       DecemberShare = 0.10
@@ -161,11 +182,12 @@ let modelB =
         [ role "Founder / managing director" 200142.0 200142.0 0.05 0
           role "CTO / technical lead" 222482.0 222482.0 0.0 0
           role "Senior software engineer" 188958.0 188958.0 0.0 0
-          role "Controller / head of financial operations" 183365.0 183365.0 0.3 0
+          role "Controller / head of financial operations" 183365.0 183365.0 0.0 0
           role "Grant & client operations specialist" 99478.0 99478.0 0.8 0 ]
       NonPersonnelFixed = [ "non-personnel and contracted (ex December temps)", 631048.0; "contingency 7.5%", 115814.0 ]
-      StepRules = steps @ [ { Name = "compliance officer above $1B average assets"; On = AssetsUsd; Free = 1.0e9; Size = 1.0e15; CostPerStep = 121848.0 } ]
+      StepRules = steps @ [ { Name = "compliance officer above 10,000 accounts (ADV-008: not asset-triggered)"; On = Accounts; Free = 10000.0; Size = 1.0e12; CostPerStep = 121848.0 } ]
       ProductiveHours = productiveHours
+      Utilisation = queueUtilisation
       MinimumAddedServicingFte = 1.0
       ServicingHourlyLoaded = opsHourly
       DecemberShare = 0.10
@@ -180,7 +202,7 @@ let modelC =
           role "Senior software engineer" 188958.0 188958.0 0.0 0
           role "Senior software engineer" 188958.0 188958.0 0.0 0
           role "Security / infrastructure engineer" 177772.0 177772.0 0.0 0
-          role "Controller / head of financial operations" 183365.0 183365.0 0.3 0
+          role "Controller / head of financial operations" 183365.0 183365.0 0.0 0
           role "Fund / grant accountant" 110662.0 110662.0 0.7 0
           role "Grant operations manager" 149810.0 149810.0 0.5 0
           role "Grant & client operations specialist" 99478.0 99478.0 0.8 0
@@ -194,11 +216,21 @@ let modelC =
           { Name = "implementation analyst per 8 live sponsors beyond 8"; On = Sponsors; Free = 8.0; Size = 8.0; CostPerStep = 127440.0 }
           { Name = "fund accountant per 15,000 accounts beyond 15,000"; On = Accounts; Free = 15000.0; Size = 15000.0; CostPerStep = 110662.0 } ]
       ProductiveHours = productiveHours
+      Utilisation = queueUtilisation
       MinimumAddedServicingFte = 0.0
       ServicingHourlyLoaded = opsHourly
       DecemberShare = 0.10
       PeakPremium = 0.0 }
 
+/// The controller reviews and releases, so its hours are not counted as preparation capacity (ADV-023). [A]
+
 /// December: archetype December shares are already in the table; temporary staff for the excess cost
 /// $39/h agency (CST-P14) against $65.45/h loaded: no premium over the loaded rate is applied. [A]
 let organizations = [ modelA; modelB; modelC ]
+
+/// Fully loaded variant: adds platform build amortisation ($1.0M a year: Unbound's $5M base over 5 years) and
+/// sales/customer acquisition ($250k a year). [A] (ADV, ECH)
+let fullyLoaded (org: Organization) =
+    { org with
+        Name = org.Name + " + build amortisation and sales"
+        NonPersonnelFixed = org.NonPersonnelFixed @ [ "platform build amortisation", 1.0e6; "sales and customer acquisition", 250000.0 ] }

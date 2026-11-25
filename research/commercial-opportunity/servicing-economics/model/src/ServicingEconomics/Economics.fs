@@ -53,7 +53,10 @@ let sponsorRevenue (price: Price) (assetFactor: float) (s: Sponsor) =
     // asset fee per archetype, each account paying at least the per-account floor
     let assetFee =
         s.Mix
-        |> List.sumBy (fun a -> s.Accounts * a.ShareOfAccounts * max (a.AverageBalance * assetFactor * price.Bps / 10000.0) price.PerAccountMinimum)
+        |> List.sumBy (fun a ->
+            s.Accounts * a.ShareOfAccounts
+            * (max (a.AverageBalance * assetFactor * price.Bps / 10000.0) price.PerAccountMinimum + price.PerAccountFee))
+        |> fun fee -> if price.PerAccountMaximum > 0.0 then min fee (s.Accounts * price.PerAccountMaximum) else fee
     let topUp = max 0.0 (price.MinimumAnnualFee - assetFee)
     let other = s.Accounts * price.ExceptionalFeesPerAccountYear
     assetFee, topUp, other
@@ -88,13 +91,14 @@ let evaluate (org: Organization) (activities: Activity list) (approach: Approach
     let accounts = sponsors |> List.sumBy (fun s -> s.Accounts)
     let hours = sponsors |> List.sumBy (sponsorHours approach stress activities)
     let external = sponsors |> List.sumBy (sponsorExternalCost approach price.PaymentsPassThrough stress activities)
-    let coreHours = org.Core |> List.sumBy (fun r -> r.ServicingShare * org.ProductiveHours)
-    let addedFte = max org.MinimumAddedServicingFte (ceilSteps hours coreHours org.ProductiveHours)
+    let queueHours = org.ProductiveHours * org.Utilisation
+    let coreHours = org.Core |> List.sumBy (fun r -> r.ServicingShare * queueHours)
+    let addedFte = max org.MinimumAddedServicingFte (ceilSteps hours coreHours queueHours)
     let hourly = org.ServicingHourlyLoaded * stress.WageFactor
     let addedCost = addedFte * org.ProductiveHours * hourly
     // December: demand above one month of total capacity is bought at a premium (temporary staff or overtime).
     let decemberDemand = sponsors |> List.sumBy (sponsorDecemberHours org.DecemberShare approach stress activities)
-    let monthlyCapacity = (coreHours + addedFte * org.ProductiveHours) / 12.0
+    let monthlyCapacity = (coreHours + addedFte * queueHours) / 12.0
     let peakCost = max 0.0 (decemberDemand - monthlyCapacity) * hourly * (1.0 + org.PeakPremium)
     let corePersonnel = org.Core |> List.sumBy (fun r -> r.LoadedCost) |> (*) stress.WageFactor
     let nonPersonnel = org.NonPersonnelFixed |> List.sumBy snd |> (*) stress.VendorFactor
@@ -135,7 +139,11 @@ let sponsorContribution (org: Organization) (activities: Activity list) (approac
     let s = applyAccounts stress s0
     let a, t, o = sponsorRevenue price stress.AssetFactor s
     let hours = sponsorHours approach stress activities s
-    let cost = sponsorExternalCost approach price.PaymentsPassThrough stress activities s + hours * org.ServicingHourlyLoaded * stress.WageFactor + s.AnnualSponsorCost
+    // hours valued at the loaded cost of queue capacity (utilisation-adjusted); per-sponsor share of
+    // sponsor-driven step costs (one step per Size sponsors) added
+    let hourCost = hours * org.ServicingHourlyLoaded / org.Utilisation * stress.WageFactor
+    let stepShare = org.StepRules |> List.filter (fun r -> r.On = Sponsors) |> List.sumBy (fun r -> r.CostPerStep / r.Size)
+    let cost = sponsorExternalCost approach price.PaymentsPassThrough stress activities s + hourCost + stepShare * stress.WageFactor + s.AnnualSponsorCost
     a + t + o, cost, a + t + o - cost
 
 /// Hours and external cost per account-year for a sponsor (diagnostic).

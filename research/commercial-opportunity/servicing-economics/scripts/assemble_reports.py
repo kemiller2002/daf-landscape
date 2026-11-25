@@ -37,6 +37,53 @@ def doc(title, preface, body):
 
 
 PREFACES = {
+    "08-adversarial-review.md": ("08: Adversarial review", """
+**Date:** 2026-11-25. **Pass:** ADV, an adversarial review of the model, the five research passes and the integrator's conclusions. It covers nine perspectives, the Clarity-structured challenge and the incentive and competitive reviews.
+
+**Data:**
+- [`adversarial-findings.csv`](../../../data/commercial-opportunity/servicing-economics/adversarial-findings.csv): 38 findings.
+- [`assumption-challenge-adv.csv`](../../../data/commercial-opportunity/servicing-economics/assumption-challenge-adv.csv): 13 assumptions challenged with the Clarity fields.
+- [`framework-procedure.jsonl`](../../../data/commercial-opportunity/servicing-economics/framework-procedure.jsonl): the Clarity and EDF procedure as the framework documents define it.
+
+**Framework revisions:** Clarity `200a9eb`, EDF `710d54c` (v0.3).
+
+**What is not claimed:**
+- Clarity is applied as a structured challenge, not a certified review.
+- EDF was not executed: it requires an observed outcome, and these are hypotheses about a company that does not exist. Each challenge row instead names an adjacent observed outcome that could be diagnosed.
+- **The reviewer, the five passes and the integrator are all from the same model family. This is not independent validation (ADV-036).**
+
+## Integrator disposition of the findings
+
+The model was corrected and every material analysis re-run after this review (`model/out/results.md` sha256 `b25b849b…`, 28/28 tests passed). The numbers quoted in the ADV sections below are the **pre-fix** values the reviewer computed, using a Python port of the F# core.
+
+| Finding(s) | Disposition | Effect on results |
+|---|---|---|
+| ADV-001, 026, 028, 029 (20 bps is not per-account parity with Ren at high balances; fee is large relative to sponsor opex) | **Accepted.** A buyer-cap scenario (lesser of 20 bps or $737 per account, as an average) was added; the cost-reflective tariff recommendation changed (reports 05, 07). | Sponsors covering fixed cost alone fall from 19 to 5 under the cap. 20 bps is credible only around $250-400k average balances. |
+| ADV-002, 035 (single-sponsor sustainers overstated; captives and competitors in counts) | **Accepted.** Counts filter `captive_status`; NPT, AEF, Dechomai and the GKCCF group are excluded by name in reports 02, 05 and 10. | About 2-4 realistic decision units. |
+| ADV-003 (AI-native from day one) | **Fixed.** Cash plans run AI-enhanced for 12 live months (`RedesignLagMonths`). | Anchor capital $3.40M → $3.56M (AI-native-from-go-live variant $3.35M). |
+| ADV-004, 005 (build and sales uncosted) | **Fixed.** Fully loaded variant (+$1.0M build amortisation, +$0.25M sales) and an Unbound-scale $5M build plan. | Fully loaded break-even $1.83-2.29B; capital up to $8.5-11.4M with a $5M build. |
+| ADV-006 (no utilisation) | **Fixed.** 90% queue utilisation. | Slightly more added staff. |
+| ADV-007 (December overflow paid twice) | **Kept, documented as conservative** (about $0.1M a year high). Release authority cannot be bought from temps, so buffer capacity is retained. | None. |
+| ADV-008 (compliance officer triggered by assets) | **Fixed.** Now triggered by accounts above 10,000; a test asserts costs do not fall when only assets fall. | Stress results no longer show cost relief in downturns. |
+| ADV-009 (one mix, workload independent of balance) | **Fixed.** Workload scales with balance^0.34, derived from the archetypes. | High-balance sponsors are costlier per account (SVCF 158 min per account-year); SVCF's marginal break-even moves from 0.2 to 0.4 bps because its $8.5B balance dwarfs its cost. |
+| ADV-010, 025 (sponsor contribution boundary) | **Fixed in part.** A per-sponsor step share (about $40k) was added and hours are valued at utilisation-adjusted cost. The double count of the minimum operations person in "covers fixed" is documented. | Positive sponsors 292 → 224 at base. |
+| ADV-011 (outflow vs payout) | **Documented** as a limitation; payout-neutral pricing recommended (report 07). | None in model. |
+| ADV-012 (concentration stress only on equal sponsors) | **Fixed.** Stress table for the anchor portfolio. | Losing the anchor: margin 47.9% → 2.8%. |
+| ADV-013 (strategies confounded) | **Fixed.** Normalized plans ($1.5B, $250k balance). | Anchor advantage is mostly timing. |
+| ADV-014 (partnership terms) | **Accepted.** Partnership-first not recommended. | None. |
+| ADV-015, 016, 017 (no ramp or attrition; financing in capital; December cash timing) | **Documented** as limitations in reports 05 and 06. | Capital ±$0.1-0.4M. |
+| ADV-018, 019, 024 (floor semantics, effective bps, inert minimum) | **Accepted.** Effective bps reported for every structure; floor capped at 1% of balance in the recommended tariff. | Recommended tariff changed to per-account fee + low bps. |
+| ADV-020, 022 (payments and intermediary boundary) | **Fixed.** Payments pass through at cost and complex-asset intermediary fees are fund-borne in the base; servicer-pays variants retained. | +$0.1-0.2M a year in base. |
+| ADV-021 (no activity fees) | **Accepted** in the recommended tariff (activity fees for complex gifts, international grants, wires). | Not modelled numerically. |
+| ADV-023 (controller counted as preparer) | **Fixed.** Controller servicing share set to 0. | More added staff at small scale. |
+| ADV-027 (anchor existence) | **Accepted.** Anchor-only not recommended; two or three large sponsors instead (report 07). | None. |
+| ADV-030 (incentive conflicts) | **Accepted.** Safeguards adopted (report 07 §4; RC-SE-001, 002, 007). | None. |
+| ADV-031 (redesign is temporary) | **Accepted** (report 07 §3). | None. |
+| ADV-032 (money transmission) | **Accepted** as an activation gate (report 07 §5). | None. |
+| ADV-033, 037, 038 (December roster, flat sponsor-level work, flat onboarding) | **Documented**; ranges given (onboarding $35-325k). | Sensitivity only. |
+| ADV-034 (tests) | **Fixed.** 8 tests added (28 total). | n/a |
+| ADV-036 (independence) | **Accepted.** Stated throughout. | n/a |
+"""),
     "01-pricing-and-scope.md": ("01: Pricing and scope", """
 **Date:** 2026-11-25. **Pass:** PRC. **Data:** [`price-observations.csv`](../../../data/commercial-opportunity/servicing-economics/price-observations.csv) (59 observations); evidence EV-PRC-001..031 in the [evidence register](../../../data/commercial-opportunity/servicing-economics/evidence-register.csv).
 
@@ -69,9 +116,10 @@ PREFACES = {
    - In-house captives (Fidelity, Schwab, Vanguard) hold 43.1% of active DAF assets, and everything non-addressable holds 45.3%.
    - Wealth-firm affiliates mostly already outsource to Ren.
    - The addressable universe is **1,430 active, non-captive sponsors with about $151B of average assets** (proxy).
-2. **Re-costed through the F# model** (Model B, AI-native base; marginal contribution = fees less vendor cost, servicing hours at $65.45/h, $12k sponsor cost and onboarding over five years):
-   - **292 of 1,430 sponsors cover their own incremental cost at 20 bps.** The count is 171 if handling minutes are at the high case, and 227 if only AI-enhanced (not redesigned) handling is achieved.
-   - **20 sponsors could alone cover the lean organization's fixed cost** of $1.74M (Model B including the minimum second ops person); 17 at high minutes.
+2. **Re-costed through the F# model** (Model B, AI-native base; marginal contribution = fees less vendor cost with payments passed through, servicing hours at $65.45/h over 90% utilisation, a per-sponsor step share, $12k sponsor cost and onboarding over five years; revised after the adversarial review):
+   - **224 of 1,430 sponsors cover their own incremental cost at 20 bps.** The count is 141 if handling minutes are at the high case, 182 if only AI-enhanced handling is achieved, and 171 if buyers cap the price at Ren's $737 per account on average.
+   - **By size:** no sponsor below $50M is positive (1,179 sponsors, $9B of assets); $50-100M is marginal (median +$17k); every sponsor at $100M or more is positive (156 sponsors, $135B).
+   - **19 sponsors could alone cover the lean organization's fixed cost** of $1.74M (Model B including the minimum second ops person). That falls to 10 once build amortisation and sales are carried, and to 5 under the $737 per-account cap.
 3. **The largest names are mostly not realistic customers.**
    - National Philanthropic Trust ($49B) is itself a competitor, selling private-label and outsourced services.
    - American Endowment Foundation migrated recently.
@@ -182,6 +230,7 @@ PREFACES = {
 }
 
 BODIES = {
+    "08-adversarial-review.md": (["adv", "ech"], lambda name: name.startswith(("ADV-", "CL-", "EDF", "Framework"))),
     "01-pricing-and-scope.md": ("prc", None),
     "02-sponsor-market-analysis.md": ("spn", None),
     "03-organization-and-budget.md": (["cst", "ech"], lambda name: not name.startswith(("CL-", "EDF", "Framework"))),

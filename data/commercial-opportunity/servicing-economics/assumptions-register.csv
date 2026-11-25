@@ -79,3 +79,11 @@ A-ECH-005,ech,Platform build capex,5000000,USD one-off,3000000,15000000,Unbound 
 A-ECH-006,ech,Independent security review of Echelon-derived dependencies,0-40000,USD/yr,0,40000,Placeholder; no quote,"[""EV-ECH-007"", ""EV-ECH-009""]",low
 A-ECH-007,ech,Commercial licence cost for PolyForm-NC components,0-50000,USD/yr,0,50000,Placeholder; terms 'forthcoming',"[""EV-ECH-005""]",medium
 A-ECH-008,ech,Public-data screening reuse reduces data/identity variable cost,0-5,USD/account-yr,0,5,Placeholder,"[""EV-ECH-016"", ""EV-ECH-017""]",low
+A-ADV-001,adv,"A buyer of staffed DAF administration anchors on $/account-year, not bps, once balances exceed ~$400k",$737,USD/account-year reference (Ren at MS GIFT),$400,$815,PRC (b): per-account price more stable than bps; observed band $389-815,"[""EV-PRC-003"", ""EV-ADV-003""]",high
+A-ADV-002,adv,Redesigned (AI-native) handling is not available until sponsor delegations exist,12,months after go-live,6,24,Unbound EV-08; ACT RC-ACT-007,"[""EV-ADV-013""]",high
+A-ADV-003,adv,Platform build attributable to the servicer,"5,000,000","USD capex, 5-year amortisation","720,000","15,000,000",Strategies.fs base vs Unbound parameters (ECH-3),"[""EV-ADV-006""]",high
+A-ADV-004,adv,Sales/CAC not in the model,"250,000",USD/yr,"100,000","500,000",One BD hire plus RFP/security-review effort [A]; no public CAC data used,"[""EV-ADV-006""]",medium
+A-ADV-005,adv,Queue utilisation of added servicing staff,0.85,share of productive hours,0.8,0.92,"ACT-8 uses 1,600 x 0.85","[""EV-ADV-008""]",medium
+A-ADV-006,adv,Maximum acceptable per-account floor as share of fund balance,1%,of balance per year,0.5%,2%,Market minimums $100-360 on small funds (PRC (d)); fairness judgment [A],"[""EV-ADV-002""]",medium
+A-ADV-007,adv,Anchor share of AUA in the anchor plan,60%,of AUA,40%,100%,Strategies.fs:84-86,"[""EV-ADV-011""]",high
+A-ADV-008,adv,Sponsor avoided DAF-admin cost is a fraction of its non-investment operating cost,25%,of operating_cost_ex_invest_mgmt,10%,50%,"CFs run programs, development and community grantmaking beside DAFs [A]; to be replaced by 990 Part IX allocation + interviews","[""EV-ADV-004""]",high

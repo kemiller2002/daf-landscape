@@ -16,9 +16,10 @@
    - In-house captives (Fidelity, Schwab, Vanguard) hold 43.1% of active DAF assets, and everything non-addressable holds 45.3%.
    - Wealth-firm affiliates mostly already outsource to Ren.
    - The addressable universe is **1,430 active, non-captive sponsors with about $151B of average assets** (proxy).
-2. **Re-costed through the F# model** (Model B, AI-native base; marginal contribution = fees less vendor cost, servicing hours at $65.45/h, $12k sponsor cost and onboarding over five years):
-   - **292 of 1,430 sponsors cover their own incremental cost at 20 bps.** The count is 171 if handling minutes are at the high case, and 227 if only AI-enhanced (not redesigned) handling is achieved.
-   - **20 sponsors could alone cover the lean organization's fixed cost** of $1.74M (Model B including the minimum second ops person); 17 at high minutes.
+2. **Re-costed through the F# model** (Model B, AI-native base; marginal contribution = fees less vendor cost with payments passed through, servicing hours at $65.45/h over 90% utilisation, a per-sponsor step share, $12k sponsor cost and onboarding over five years; revised after the adversarial review):
+   - **224 of 1,430 sponsors cover their own incremental cost at 20 bps.** The count is 141 if handling minutes are at the high case, 182 if only AI-enhanced handling is achieved, and 171 if buyers cap the price at Ren's $737 per account on average.
+   - **By size:** no sponsor below $50M is positive (1,179 sponsors, $9B of assets); $50-100M is marginal (median +$17k); every sponsor at $100M or more is positive (156 sponsors, $135B).
+   - **19 sponsors could alone cover the lean organization's fixed cost** of $1.74M (Model B including the minimum second ops person). That falls to 10 once build amortisation and sales are carried, and to 5 under the $737 per-account cap.
 3. **The largest names are mostly not realistic customers.**
    - National Philanthropic Trust ($49B) is itself a competitor, selling private-label and outsourced services.
    - American Endowment Foundation migrated recently.

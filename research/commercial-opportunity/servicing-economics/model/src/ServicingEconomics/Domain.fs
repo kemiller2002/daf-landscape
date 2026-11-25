@@ -75,6 +75,8 @@ type Organization =
       NonPersonnelFixed: (string * float) list
       StepRules: StepRule list
       ProductiveHours: float
+      /// Share of productive hours usable for queue work (the rest is handoffs, training, idle between items).
+      Utilisation: float
       /// Added operations staff required for separation of duties regardless of workload.
       MinimumAddedServicingFte: float
       ServicingHourlyLoaded: float
@@ -89,6 +91,11 @@ type Price =
       ExceptionalFeesPerAccountYear: float
       /// Per-account annual floor: each account pays the greater of its asset fee and this amount.
       PerAccountMinimum: float
+      /// Buyer reference price as an average per account; 0 = none. A sponsor's asset fee is capped at accounts x this
+      /// amount (e.g. Ren's $737 per account-year at MS GIFT).
+      PerAccountMaximum: float
+      /// Flat per-account annual fee added to the asset fee (hybrid pricing).
+      PerAccountFee: float
       /// Payment-rail costs billed to the sponsor at cost (excluded from both revenue and cost).
       PaymentsPassThrough: bool }
 

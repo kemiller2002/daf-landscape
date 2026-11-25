@@ -78,6 +78,11 @@ let stressRows org ap b bps assets n =
     let ss = (shapeOf n b).Build assets
     standardStresses |> List.map (fun st -> st, eval org ap (price bps) st ss)
 
+let anchorPortfolio = [ sponsor "anchor" 5000.0 300000.0; sponsor "second" 2500.0 200000.0; sponsor "third" 2500.0 200000.0 ]
+
+let anchorStressRows org =
+    standardStresses |> List.map (fun st -> st, eval org AiNative (price 20.0) st anchorPortfolio)
+
 let surviveRows () =
     [ for org in organizations do
         for st in standardStresses |> List.filter (fun s -> s.Name <> "base") do
@@ -127,8 +132,11 @@ let sponsorEconomicsCsv (rows: SponsorRow list) =
         [ "ein"; "name"; "segment"; "status"; "captive_status"; "recent_migration"; "avg_assets_proxy"; "accounts_for_cost"; "avg_balance_proxy"
           "complexity_multiplier"; "minutes_per_account_ai_native"; "annual_cost_ai_native_base"; "annual_cost_ai_native_high"; "annual_cost_ai_enhanced"
           "fee_10bps"; "fee_15bps"; "fee_20bps"; "fee_25bps"; "contribution_20bps_base"; "contribution_20bps_high"; "contribution_20bps_ai_enhanced"
-          "breakeven_bps_base"; "breakeven_bps_high"; "minimum_fee_for_zero_contribution_20bps"; "covers_model_b_fixed_alone_20bps"; "basis" ]
+          "breakeven_bps_base"; "breakeven_bps_high"; "minimum_fee_for_zero_contribution_20bps"; "covers_model_b_fixed_alone_20bps"
+          "contribution_20bps_capped_737"; "covers_model_b_fixed_alone_capped_737"; "covers_model_b_fully_loaded_alone_20bps"; "basis" ]
     let modelBFixed = (evaluate modelB sponsorActivities AiNative (price 20.0) noStress []).TotalCost
+    let modelBLoaded = (evaluate (fullyLoaded modelB) sponsorActivities AiNative (price 20.0) noStress []).TotalCost
+    let capped = { price 20.0 with PerAccountMaximum = 737.0 }
     let body =
         [ for r in rows do
             match numField r "avg_assets_proxy", numField r "accounts_for_cost" with
@@ -152,7 +160,10 @@ let sponsorEconomicsCsv (rows: SponsorRow list) =
                       (match beBps noStress with Some v -> num 1 v | None -> ">100"); (match beBps high with Some v -> num 1 v | None -> ">100")
                       (match minFee with Some v -> num 0 v | None -> ">2000000")
                       (if con AiNative noStress 20.0 >= modelBFixed then "yes" else "no")
-                      "marginal contribution: fees less vendor cost, servicing hours at $65.45/h, $12k sponsor cost and onboarding/5; fixed and step costs excluded; avg assets are the (BOY+EOY)/2 proxy" ]
+                      num 0 (let _, _, c = contrib AiNative noStress capped in c)
+                      (if (let _, _, c = contrib AiNative noStress capped in c) >= modelBFixed then "yes" else "no")
+                      (if con AiNative noStress 20.0 >= modelBLoaded then "yes" else "no")
+                      "marginal contribution: fees less vendor cost (payments passed through), servicing hours at $65.45/h over 90% utilisation, per-sponsor step share, $12k sponsor cost and onboarding/5; fixed costs excluded; avg assets are the (BOY+EOY)/2 proxy" ]
             | _ -> () ]
     csv header body, modelBFixed
 
@@ -168,14 +179,16 @@ let hybridRows () =
           "20 bps, $250 per-account floor", { price 20.0 with PerAccountMinimum = 250.0 }
           "15 bps, $250 per-account floor", { price 15.0 with PerAccountMinimum = 250.0 }
           "20 bps, $150k sponsor minimum", { price 20.0 with MinimumAnnualFee = 150000.0 }
-          "20 bps, payments passed through at cost", { price 20.0 with PaymentsPassThrough = true }
-          "20 bps + $250 floor + payments passed through", { price 20.0 with PerAccountMinimum = 250.0; PaymentsPassThrough = true } ]
+          "20 bps, servicer pays payment rails", { price 20.0 with PaymentsPassThrough = false }
+          "10 bps + $150 per account", { price 10.0 with PerAccountFee = 150.0 }
+          "15 bps + $100 per account", { price 15.0 with PerAccountFee = 100.0 }
+          "buyer cap: lesser of 20 bps or $737/account", { price 20.0 with PerAccountMaximum = 737.0 } ]
     [ for b in [ 75000.0; 150000.0; 300000.0 ] do
         for assets in [ 750e6; 1.5e9; 3e9 ] do
             for name, pr in structures do
                 let r = eval modelB AiNative pr noStress ((shapeOf 5 b).Build assets)
                 let shocked = eval modelB AiNative pr { noStress with AssetFactor = 0.7 } ((shapeOf 5 b).Build assets)
-                yield [ money b; money assets; name; money r.Revenue; money r.OperatingProfit; pct r.OperatingMargin; money shocked.OperatingProfit; pct shocked.OperatingMargin ] ]
+                yield [ money b; money assets; name; num 1 (r.Revenue / r.AverageAssets * 10000.0); money r.Revenue; money r.OperatingProfit; pct r.OperatingMargin; money shocked.OperatingProfit; pct shocked.OperatingMargin ] ]
 
 let strategyRows () =
     let plans =
@@ -184,7 +197,13 @@ let strategyRows () =
             Strategies.costlyBuild Strategies.anchor; Strategies.costlyBuild Strategies.softwareFirst
             Strategies.economicView Strategies.anchorFounderLed
             Strategies.aiEnhancedOnly Strategies.anchor; Strategies.aiEnhancedOnly Strategies.multipleSmaller
+            Strategies.noRedesignLag Strategies.anchor
+            Strategies.unboundScaleBuild Strategies.anchor; Strategies.unboundScaleBuild Strategies.multipleSmaller
+            Strategies.servicerPaysRails Strategies.anchor
+            Strategies.renCapped Strategies.anchor; Strategies.renCapped Strategies.multipleSmaller
+            Strategies.perAccountPriced Strategies.multipleSmaller; Strategies.perAccountPriced Strategies.adminFirst
             Strategies.hybridPriced Strategies.multipleSmaller; Strategies.hybridPriced Strategies.adminFirst ]
+        @ Strategies.normalized
     [ for p in plans do
         let rows = CashFlow.simulate p
         let cap = CashFlow.capitalRequired rows
@@ -222,8 +241,14 @@ let renderAll () =
               for ap in [ AiNative; AiEnhanced; Conventional ] do
                   yield section $"Break-even and target-margin AUA: {org.Name}, {approachName ap}, one sponsor" (beTable org.Name ap 1)
               yield section $"Break-even and target-margin AUA: {org.Name}, AI-native, five equal sponsors" (beTable org.Name AiNative 5)
+          for org in [ fullyLoaded modelA; fullyLoaded modelB ] do
+              yield section $"Break-even and target-margin AUA: {org.Name}, AI-native, five equal sponsors" (table ("Average balance" :: "bps" :: (margins |> List.map (fun m -> $"AUA at {pct m} margin")))
+                  [ for b in balances do
+                      for bps in pricePoints do
+                          yield money b :: num 0 bps :: (margins |> List.map (fun m -> optMoney (snd (assetsForMargin (eval org AiNative (price bps) noStress) (shapeOf 5 b) m)))) ])
           for org in organizations do
               yield section $"Scale: {org.Name}, AI-native, 20 bps, average balance $150k" (scaleTable org AiNative 150000.0 20.0)
+          yield section "Scale: Model B, AI-native, 20 bps, average balance $300k" (scaleTable modelB AiNative 300000.0 20.0)
           yield section "Scale: Model B, AI-enhanced, 20 bps, average balance $150k" (scaleTable modelB AiEnhanced 150000.0 20.0)
           yield section "Scale: Model B, AI-native, 20 bps, average balance $75k" (scaleTable modelB AiNative 75000.0 20.0)
           yield section "Minimum viable price (bps) for five equal sponsors"
@@ -231,10 +256,13 @@ let renderAll () =
                   [ for (o, ap, a, b, z, t20, t30) in mp -> [ o; approachName ap; money a; money b; optBps z; optBps t20; optBps t30 ] ])
           for org in organizations do
               yield section $"Stress test: {org.Name}, AI-native, 20 bps, $1.5B AUA, five sponsors, average balance $150k" (stressTable org AiNative 150000.0 20.0 1.5e9 5)
+          yield section "Stress test: anchor portfolio ($1.5B anchor at $300k + two $500M at $200k), Model B, AI-native, 20 bps"
+              (table [ "Stress"; "Revenue"; "Total cost"; "Operating profit"; "Margin" ]
+                  [ for (st, r) in anchorStressRows modelB -> [ st.Name; money r.Revenue; money r.TotalCost; money r.OperatingProfit; pct r.OperatingMargin ] ])
           yield section "Starting AUA needed to stay at or above the margin after each stress (AI-native, 20 bps, five sponsors, $150k)"
               (table [ "Organization"; "Stress"; "Margin floor"; "Starting AUA" ] [ for (o, s, t, a) in sv -> [ o; s; pct t; optMoney a ] ])
           yield section "Pricing structures: Model B, AI-native, five equal sponsors (operating profit, and after a 30% asset fall)"
-              (table [ "Average balance"; "AUA"; "Structure"; "Revenue"; "Operating profit"; "Margin"; "Profit after -30%"; "Margin after -30%" ] (hybridRows ()))
+              (table [ "Average balance"; "AUA"; "Structure"; "Effective bps"; "Revenue"; "Operating profit"; "Margin"; "Profit after -30%"; "Margin after -30%" ] (hybridRows ()))
           yield section "Market-entry strategies: monthly cash flow over 60 months (capital = deepest cumulative cash trough; +25% buffer shown)"
               (table [ "Plan"; "Capital required"; "With 25% buffer"; "Cash at m6"; "m12"; "m18"; "m24"; "m36"; "m60"; "Month profit turns sustainably positive"; "Run-rate annual profit at m60" ] (strategyRows ()))
           yield section "Contractual minimum fee that stops a single sponsor losing money (Model B, AI-native, 20 bps, onboarding amortised over 5 years)"

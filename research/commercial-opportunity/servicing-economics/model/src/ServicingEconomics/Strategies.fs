@@ -75,6 +75,7 @@ let private basePlan name org price customers =
       CollectionLagMonths = 1
       FinancingRate = 0.10
       CashView = true
+      RedesignLagMonths = 12
       Months = 60 }
 
 /// Strategy C (anchor): one $1.5B sponsor (5,000 accounts) signs at month 12, live after 6 months; two $500M
@@ -137,3 +138,24 @@ let costlyBuild (p: Plan) =
 let economicView (p: Plan) = { p with Name = p.Name + " | economic cost (founders at market)"; CashView = false }
 let aiEnhancedOnly (p: Plan) = { p with Name = p.Name + " | AI-enhanced only (redesign not achieved)"; Approach = AiEnhanced }
 let hybridPriced (p: Plan) = { p with Name = p.Name + " | 20 bps + $250/account floor, payments passed through"; Price = { p.Price with PerAccountMinimum = 250.0; PaymentsPassThrough = true } }
+let unboundScaleBuild (p: Plan) =
+    { p with
+        Name = p.Name + " | Unbound-scale build $5M over 24 months"
+        OneTime = startupOneTime @ [ for m in 0 .. 23 -> m, "product build (Unbound base $5M)", 5.0e6 / 24.0 ] }
+let noRedesignLag (p: Plan) = { p with Name = p.Name + " | AI-native from first go-live (no gate lag)"; RedesignLagMonths = 0 }
+let servicerPaysRails (p: Plan) = { p with Name = p.Name + " | servicer pays payment rails"; Price = { p.Price with PaymentsPassThrough = false } }
+let perAccountPriced (p: Plan) = { p with Name = p.Name + " | 10 bps + $150 per account"; Price = { p.Price with Bps = 10.0; PerAccountFee = 150.0 } }
+let renCapped (p: Plan) = { p with Name = p.Name + " | buyer cap: lesser of 20 bps or $737/account"; Price = { p.Price with PerAccountMaximum = 737.0 } }
+
+/// Normalized comparison (ADV-013): every administration plan reaches $1.5B of average assets at a $250k average
+/// balance, so differences reflect sponsor count and timing only.
+let normalized =
+    let sp name assets = sponsor name (assets / 250000.0) 250000.0
+    [ basePlan "N-C anchor: $1.0B anchor + one $500M" stagedModelB (price 20.0)
+        [ customer (sp "anchor" 1.0e9) 12 6 100000.0; customer (sp "second" 0.5e9) 24 6 50000.0 ]
+      basePlan "N-B three $500M sponsors" stagedModelB (price 20.0)
+        [ for i in 0 .. 2 -> customer (sp $"b{i + 1}" 0.5e9) (12 + 8 * i) 6 50000.0 ]
+      basePlan "N-D five $300M sponsors" stagedModelB (price 20.0)
+        [ for i in 0 .. 4 -> customer (sp $"d{i + 1}" 0.3e9) (12 + 5 * i) 6 30000.0 ]
+      basePlan "N-E partnership: three $500M programs at 14 bps net" stagedModelB (price 14.0)
+        [ for i in 0 .. 2 -> customer (sp $"p{i + 1}" 0.5e9) (12 + 8 * i) 6 0.0 ] ]
