@@ -35,3 +35,7 @@ Started 2026-11-26. This ledger records repository baselines, dependencies, deci
 | 1 | Repositories discovered, attached and cloned; baselines and open PRs recorded | this ledger | `git rev-parse`; GitHub PR lists |
 | 2 | Owner approval recorded without changing the original proposals | [25](25-owner-approval-record.md), [decision-approvals.csv](data/registers/decision-approvals.csv), note in [23](23-executive-decision-register.md) | `validate`; ladder tests |
 | 3 | Validator extended: approval coverage, ladder order, XRI disposition vocabulary and coverage | `model/src/CompetitiveDisplacement/Validate.fs`, 4 new tests | `dotnet test`: 20/20 |
+| 4 | Stage I agents finish: Transitus (`36e9e55`), organization administration (`dede008`), echelon-foundry (`fec24fe`), Praxis (`ce7eca2`), Unbound (`17bfe50`) | [26](26-cross-repository-dispositions.md) | Each repository's own validators (see 26 §1) |
+| 5 | Owner decisions OD-P3-01..03 (IP ownership; kill rule does not stop Transitus; kill-rule start) recorded in all affected repositories | [25](25-owner-approval-record.md) | `validate` |
+| 6 | Report 18 annotated: DF-TRN-2026-0014 superseded; the DF-0016 kill criterion has no gating successor | [18](18-transitus-implications.md) | — |
+| 7 | XRI dispositions complete (18/18); decision-to-requirement trace | [xri-dispositions.csv](data/registers/xri-dispositions.csv) | `validate OK: 48 CSV, 37 Markdown`; 20/20 tests; `check` reproduces |
