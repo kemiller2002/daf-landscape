@@ -1,0 +1,31 @@
+parameter,low,mode,high,unit,basis,source
+loaded_cost_per_fte,124507,165000,250000,USD per FTE-year,sourced (low) / assumed (mode and high),"low: Vanguard Charitable FY2024 Form 990 staff cost per employee (research/ai-native-daf-enterprise/09-financial-models/financial-and-staffing-models.md); mode and high: the simplification model's assumed range (repository unbound, requirements/discovery/2026-11-24-simplification-economics/08-ENTERPRISE-SIMULATION-SPECIFICATION.md)"
+productive_hours_per_fte,1600,1600,1400,hours per year,assumed,[A] aligned with the simplification model's 1400-1600 range (review R3-08)
+minutes_per_exception,30,45,135,minutes per investigation,assumed,"[A] inherited from the simplification model's assumed range for grant-policy exceptions (itself labelled [A]); not measured for ingestion (gap G2)"
+minutes_per_file_exception,10,20,45,minutes,assumed,[A] triage of a held or rejected file (contact the source; decide release or reject)
+file_exception_share,0.005,0.02,0.05,share of data files,assumed,"[A] late, missing, drift or control-total failures are rarer than record mismatches (review R3-07)"
+investigation_share_observation,0.002,0.01,0.03,share of automatable observation records,assumed,"[A] aligned with the simplification model's reconciliation-break rate 0.2-1-3% (review R3-08)"
+investigation_share_other,0.01,0.02,0.05,share of automatable records,assumed,[A] orphan receipts and mismatches in command batches and reference data; adjacent-industry tail 5-20% (FIE-B-009 and FIE-B-066) includes routine touches modelled separately
+prevention_share,0.3,0.5,0.6,share of investigations prevented,scenario,"[S] effect of upstream prevention (reference-carrying contribution instructions, authoritative data replacing documents); unmeasured, applied only in the prevention scenario"
+prevention_cost_per_fund_usd,0.5,1,3,USD per fund per year,assumed,"[A] donor- and institution-facing reference issuance, outreach and support for prevention"
+ai_assist_factor,0.6,0.75,1.0,multiplier on human decision minutes,assumed,[A] review time with an AI-prepared dossier versus unassisted; 1.0 = no benefit (high case)
+grants_per_fund,6.2,8,13,grants per fund per year,sourced,"FY2024 Form 990 range RCF 6.2 to Fidelity Charitable 13.0, mode 8 (research/ai-native-daf-enterprise/09-financial-models)"
+advisor_managed_share,0.05,0.1,0.2,share of funds,assumed,[A] funds whose investments are held in advisor-managed custody accounts
+mb_per_document,0.5,1,3,MB per document,assumed,[A] scanned PDF or phone image
+mb_per_data_file,0.5,2,10,MB per data file,assumed,[A]
+pages_per_document,2,4,8,pages,assumed,[A]
+retention_years,10,10,10,years retained (steady state),decision,"a product decision used as an input, not external evidence: the release-1 retention floor for transaction records in the platform studied (see cross-repository link in README)"
+storage_usd_per_gb_month,0.0208,0.023,0.026,USD per GB-month,measured,"Azure Blob Hot LRS / S3 Standard / Azure ZRS, AWS Price List API and Azure Retail Prices API read 2026-11-26 (FIE-C-020, FIE-C-021)"
+scan_usd_per_gb,0.09,0.09,0.15,USD per GB scanned,measured,"GuardDuty Malware Protection for S3 $0.09/GB; Defender for Storage $0.15/GB (FIE-C-001, FIE-C-006)"
+scan_usd_per_1000_objects,0,0.215,0.215,USD per 1000 objects,measured,GuardDuty Malware Protection for S3 $0.215 per 1000 objects (FIE-C-002); Azure has no per-object meter
+ai_usd_per_1000_pages,1.5,10,30,USD per 1000 pages,measured,"Textract/Azure OCR $1.50; prebuilt models $10; custom extraction $30 (FIE-C-041, FIE-C-042)"
+ai_passes_per_page,1,1.5,3,passes,assumed,[A] re-extraction after model or prompt upgrades and retries
+run_cost_per_sponsor_usd,5000,15000,40000,USD per sponsor per year,assumed,"[A] fixed run cost not in metered prices: storage account meters (e.g. ~$9.78/month Defender account meter, FIE-C-006), monitoring, key management, transfer endpoints, format churn (annual IRS and partner layout changes)"
+institutions_per_sponsor,4,6,8,institutions,assumed,"[A] operating bank (reporting, lockbox, returns), custodian or manager, payment partner, check vendor or positive pay (review R3-04)"
+amortisation_years,5,4,3,years,assumed,[A] period over which one-off onboarding is recovered
+standalone_min_fte,0.5,0.5,1.0,FTE,assumed,"[A] minimum staffing for a sponsor operating alone: dual control needs two trained people with business-day cover (e.g. 2 x 0.25 FTE)"
+servicing_fee_bps,20,20,20,basis points of AUM per year,scenario,mission reference price (approximately 20 bps of servicing revenue)
+onboarding_days_bespoke,15,30,50,engineer-days per institution,assumed,"[A] includes testing and certification but not partner wait time; anchored on vendor-reported EDI onboarding of 8-12 weeks elapsed and 7-10 days of mapping (FIE-B-021, vendor-sourced second hand)"
+onboarding_days_new_profile,8,15,25,engineer-days per institution,assumed,[A] new mapping for an unseen format on shared ingestion infrastructure
+onboarding_days_reused_profile,1,3,6,engineer-days per institution,assumed,[A] institution whose format matches an existing mapping (configuration plus shadow review)
+shadow_run_business_days,10,20,40,business days elapsed,assumed,[A] parallel processing before activation (covers at least one month-end)
