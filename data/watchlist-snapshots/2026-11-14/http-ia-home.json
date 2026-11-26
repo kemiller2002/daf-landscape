@@ -1,0 +1,71 @@
+{
+  "check_id": "http-ia-home",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://impactassets.org/"
+      }
+    ],
+    "final_url": "https://impactassets.org/",
+    "form_actions": [],
+    "meta": {
+      "description": "ImpactAssets is the preeminent partner for impact investing and philanthropic giving for individuals, families and a range of organizations that want to create positive change for the world. Get started!",
+      "generator": "All in One SEO (AIOSEO) 5.0.5",
+      "keywords": "impactassets,donor advised fund,impact investing,philanthropy",
+      "msapplication-tileimage": "https://impactassets.org/wp-content/uploads/2021/07/cropped-IA_LOGO_IconTmp-1-270x270.jpg",
+      "og:description": "ImpactAssets is the preeminent partner for impact investing and philanthropic giving for individuals, families and a range of organizations that want to create positive change for the world.",
+      "og:image": "https://impactassets.org/wp-content/uploads/2021/07/hompage_hero.jpg",
+      "og:image:height": "855",
+      "og:image:secure_url": "https://impactassets.org/wp-content/uploads/2021/07/hompage_hero.jpg",
+      "og:image:width": "1500",
+      "og:locale": "en_US",
+      "og:site_name": "ImpactAssets - Invest with Meaning",
+      "og:title": "ImpactAssets - Invest with Meaning",
+      "og:type": "website",
+      "og:url": "https://impactassets.org/",
+      "robots": "max-image-preview:large",
+      "twitter:card": "summary",
+      "twitter:creator": "@ImpactAssets",
+      "twitter:description": "ImpactAssets is the preeminent partner for impact investing and philanthropic giving for individuals, families and a range of organizations that want to create positive change for the world.",
+      "twitter:image": "https://impactassets.org/wp-content/uploads/2021/10/IAlogo_RGB_Big.png",
+      "twitter:site": "@ImpactAssets",
+      "twitter:title": "ImpactAssets - Invest with Meaning",
+      "viewport": "width=device-width, initial-scale=1.0"
+    },
+    "raw_sha256": "5460494101852fb999ff9e5ba76f1246d72af03d6f507090e9234988e2b0c2f5",
+    "text_chars": 3233,
+    "text_sha256": "76c21057cad9d1e1a1dcd4b4dccc1f4e632f6cb3386d80b55883ce14724fc7fe"
+  },
+  "entity": "ImpactAssets",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:26Z",
+  "ok": true,
+  "queue_items": "P-GIV-01",
+  "source_url": "https://impactassets.org/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "impactassets.org"
+    ],
+    "final_host": "impactassets.org",
+    "final_status": "200",
+    "footers": [
+      "Copyright 2026 ImpactAssets. All rights Reserved."
+    ],
+    "links": [
+      "https://iphi.stellartechsol.com/calvert/LogIn/tabid/444/Default.aspx | CLIENT LOGIN",
+      "https://iphi.stellartechsol.com/calvert/LogIn/tabid/444/Default.aspx | Client Login"
+    ],
+    "title": "ImpactAssets",
+    "watch_hits_urls": [
+      "iphi.stellartechsol.com"
+    ],
+    "watch_sentences": []
+  },
+  "target": "https://impactassets.org/",
+  "watch_regex": "(?i)iphi\\.stellartechsol\\.com|giveinteractive\\.com|DAF Hub"
+}

@@ -1,0 +1,159 @@
+# DAF Evidence Quadrant: methodology (v1.0, 2026-11-14)
+
+**Purpose.** Position providers within defined DAF market areas on two axes, using only cited public evidence. Every cell of the score traces to a source URL. Unknowns are shown as uncertainty, not guessed.
+
+**Naming.** This is the repository's own method. It is **not** a Gartner Magic Quadrant, it is not affiliated with Gartner, and it does not use Gartner's criteria or labels. "Magic Quadrant" is a Gartner trademark. Analyst coverage of DAF platforms is surveyed separately in `analyst-and-education-landscape.md`.
+
+**Frameworks.** The method follows Clarity and EDF as pinned in [clarity-edf-application-guide.md](clarity-edf-application-guide.md).
+- **Clarity admissibility applies.** No false precision: positions are bands, not points. Scores are bounded truth: they hold within one market area and one date. Incentives are scored, not intent.
+- **Scores are claims under the EDF claim policy.** A position is at most *internal-demonstration* until an independent scorer reproduces it (see the calibration section).
+- **Positioning is a Clarity *Experimental* posture output.** It informs where to look. It is not a procurement verdict.
+
+## 1. Market areas (each scored separately; never compare across areas)
+
+| Area ID | Area | Who is in scope | Who is out of scope |
+|---|---|---|---|
+| A1 | DAF platform and administration (system of record) | Ren (incl. iPhi/DFX), Foundation Source (DAF OS / Vennfi), TIFIN Give, Give Interactive, Givinga, Foundant CommunitySuite, NPact (FIMS), Blackbaud Financial Edge NXT for foundations, sponsor-built platforms where evidenced (e.g. NCF/SVCF Salesforce, Fidelity in-house) | Pure CRMs with no DAF ledger |
+| A2 | Grant disbursement and nonprofit-side DAF rails | Chariot (DAFpay, Disbursements), PayPal Grant Payments, Ren Rapid Disbursement Engine, Fidelity Charitable EFT, DAF Direct, Every.org, Stripe-based sponsor rails where evidenced | General card processors with no DAF function |
+| A3 | DAF sponsors for the adviser / wealth channel | Fidelity Charitable, DAFgiving360, Vanguard Charitable, NPT, RCF, AEF, GiveClear, Charityvest, Goldman Sachs PF, MS GIFT, BofA CGF, NCF | Pass-through donation processors (scored in A3b only if needed) |
+| A4 | Consumer and digital-first DAF sponsors | Daffy, Charityvest (direct), Endaoment, Fidelity Charitable (direct), DAFgiving360 (direct), Every.org, Givinga (consumer accounts) | Adviser-only programs |
+| A5 | Charity eligibility and verification data | Candid (GuideStar APIs / Charity Check), IRS BMF/Pub 78/TEOS (public baseline), Goodstack, Chariot verification, Benevity validation, CharityCheck-type services | General KYC vendors |
+
+An **AI-governance overlay** is reported for every area as a flag, not an axis. It is a flag on provider rows scored in A1–A5 only; vendor products outside those areas get product-level readings (see §7, “AI overlay scope”) (b4301-05). [V wave 43A] It records evidenced AI capabilities and whether they respect "AI may add a flag, never clear one" ([ai-governance-failure-modes.md](ai-governance-failure-modes.md)).
+
+## 2. Axes and criteria
+
+Each criterion is scored **0–4** on the rubric below, or **U (unknown)** when no admissible evidence exists. Weights sum to 1.0 per axis and are the same across areas unless an area note overrides them.
+
+### Axis X: Evidenced Execution (what the provider demonstrably does today)
+
+| ID | Criterion | Weight | 0 | 2 | 4 |
+|---|---|---|---|---|---|
+| X1 | Evidenced scale | 0.25 | no verifiable customers/assets | verifiable mid-tier footprint (e.g. a few named customers, or <$5bn related assets) | dominant verifiable footprint in the area (named customers/assets from filings, portals, audits) |
+| X2 | Delivery record | 0.20 | announcements mostly lack delivery evidence | mixed | announcements consistently followed by docs / customer use (`announced-vs-delivered.csv`) |
+| X3 | Assurance and control evidence | 0.15 | none / contradictory | vendor-stated SOC 2 without scope | SOC report scope documented and consistent, or audited control disclosures |
+| X4 | Distribution and channel reach | 0.20 | no confirmed channels | some confirmed channel edges | many confirmed channel / customer edges (`relationship-graph-edges.csv`) |
+| X5 | Durability | 0.10 | distress signals, single-customer dependence | private, some funding/ownership clarity | audited financials or long operating history plus diversified customers |
+| X6 | Customer experience signal | 0.10 | complaint pattern of severe, fixable failures | mixed | low severe-complaint rate relative to scale; documented service metrics |
+
+### Axis Y: Evidenced Forward Capability (how well positioned for a redesigned, AI-era DAF stack)
+
+| ID | Criterion | Weight | 0 | 2 | 4 |
+|---|---|---|---|---|---|
+| Y1 | Openness and data rights | 0.25 | no API / no export rights documented | partial API or contractual export | public API plus documented data-export/portability rights (`vendor-data-rights-matrix.csv`) |
+| Y2 | Redesign capability | 0.25 | inherits per-grant manual, check-based workflow | some electronic or continuous features | continuous eligibility, electronic-first rails, event or state tracking shared with nonprofits |
+| Y3 | Governed automation / AI | 0.15 | AI claims without controls, or none | evidenced automation; AI announced | deployed automation with documented controls (flag-only, authority separation, audit trail) |
+| Y4 | Segment breadth | 0.15 | one narrow segment | two segments | serves several segments (wealth, community, faith, consumer, corporate) with evidence |
+| Y5 | Interoperability and portability | 0.20 | lock-in signals (history loss, no transfer terms) | partial | documented migration/transition support; history export; multi-rail or multi-sponsor interoperability |
+
+## 3. Evidence admissibility (a score needs at least one of these)
+
+1. Primary sources: audited statements, IRS filings, statutes, contracts, official docs and API references, live portal footers or DNS (first-party "powered by").
+2. Independent corroboration: validation-register rows marked `confirmed`.
+3. Vendor self-claims are admissible **only** with `evidence_class = vendor_claim`. They cap the criterion at 2 unless corroborated.
+4. Absence of evidence yields **U**, never 0. A score of 0 needs positive evidence of the deficiency (e.g. contradicted claims, documented history loss).
+
+## 4. Computation (`scripts/mission_quadrants.py`)
+
+- **Point estimate** per axis: the weighted mean of scored criteria, renormalized over scored weight.
+- **Uncertainty band** per axis: unknown criteria are set to 0 for the lower bound and 4 for the upper bound, giving a box, not a point.
+- **Evidence coverage** = scored weight ÷ total weight. Providers with coverage below 0.5 on either axis are plotted hollow and labelled "insufficient evidence".
+- **Quadrants** (midline at 2.0 on each axis):
+  - **Proven Leaders**: high execution, high forward capability.
+  - **Scale Operators**: high execution, lower forward capability.
+  - **Forward Builders**: lower execution, high forward capability.
+  - **Focused Specialists**: lower on both.
+
+  A provider whose band crosses a midline is reported as "boundary".
+
+## 5. Calibration and independence
+
+- **Two-scorer rule.** Each area is scored by one agent and re-scored blind by a second agent from the same evidence base. Disagreements of more than 1 point on any criterion are adjudicated in `quadrant-calibration.md`.
+- **Independent status.** Scores are labelled *internal-demonstration* until a second scorer reproduces the quadrant assignment.
+- **Re-scoring triggers** (Clarity reconsideration criteria):
+  - new filings or audited statements;
+  - a validation result changing an input;
+  - a vendor publishing APIs or SOC scope;
+  - a complaint-pattern change;
+  - acquisition or ownership change.
+
+## 6. Data files
+
+| File | Purpose |
+|---|---|
+| `data/mission-2026-11-14/quadrant-scores-<area>.csv` | Scores. Columns: `area_id,provider,criterion_id,score,evidence_class,evidence_summary,source_url,source_date,scorer,notes`. `score` is 0–4 or U. `evidence_class` is one of primary, validated, vendor_claim, secondary. |
+| `data/mission-2026-11-14/quadrant-positions.csv` | Output: point estimates, bands, coverage and quadrant per provider and area. |
+| `research/mission-2026-11-14/quadrants/<area>.svg` | Rendered charts: point, uncertainty box, hollow marker when coverage is below 0.5. |
+
+## 7. Version 1.1 area notes (2026-11-14, from calibration P-QCAL-07)
+
+The calibration ([quadrant-calibration.md](quadrant-calibration.md)) showed that most one-point gaps between scorers came from different readings of the rubric, not from different evidence. The following notes are binding from v1.1 onward. They apply at the next re-score; the v1.0 consensus positions stand until then.
+
+**Sponsor areas A3 and A4, X1 (evidenced scale).** Use FY2024 DAF assets, period-aligned: the DAFRC FY2024 row equals June-2024 values for sponsors with a June fiscal year end. Where a filed Form 990 Schedule D or an audit exists, it replaces the imputed DAFRC value.
+
+| Score | FY2024 DAF assets |
+|---|---|
+| 0 | positive evidence of negligible scale |
+| 1 | under $0.5bn |
+| 2 | $0.5–5bn |
+| 3 | $5–20bn |
+| 4 | at least $20bn |
+
+**Sponsor X3 (assurance and control).**
+- A Form 990 alone, or a 2-page summary with no auditor's report, scores **U**.
+- Audited financial statements with an auditor's opinion that the scorer has read score **3**.
+- A scoped SOC 1 or SOC 2 report covering the sponsor's DAF system (sponsor's or administrator's, with scope matching) scores **4**.
+- Contradictory vendor assurance statements score **1**.
+
+**Y5 (interoperability and portability) for sponsors.**
+- Published *inbound*-only transfer pages ("recommend a closing grant from your old sponsor") score at most **1**.
+- Published *outbound* transfer terms score **2**.
+- Outbound terms plus a history export score **3**.
+- Documented in-kind transfer plus a history export scores **4**.
+- Documented history loss on a platform migration (e.g. AEF's two-year window) caps the score at **1**.
+
+**Scope rule for A1 sponsor-built platforms.** A platform evidenced as built or hosted by a vendor is scored under that vendor, not as "sponsor-built". Example: NPT GivingPoint runs on Ren iPhi ([validation wave 3](validation-wave3-report.md)). At the next re-score, merge the NPT GivingPoint row into Ren and record NPT as a Ren customer edge.
+
+**Entity scope rule.** Evidence about a vendor is not evidence about a sponsor, and the reverse also holds, unless a source ties the capability to that sponsor's program. Examples: the vendor's API does not prove a sponsor offers donors data export; a sponsor's audit does not prove the vendor's SOC scope.
+
+**AI overlay vocabulary.**
+- **GREEN:** controls documented, including flag-only and authority separation.
+- **AMBER:** capability live with undocumented limits, but sponsor approval remains.
+- **RED:** AI can complete a money-moving or status-clearing action without documented sponsor or human approval.
+- **None:** no AI capability is evidenced. This is not evidence of absence (as used in the v1.1 consensus, quadrant-v11-blind-and-calibration.md §6).
+
+**AI overlay scope (§7a; proposed 2026-11-20 in b4301-05, binding from the next re-score, like the other §7 notes).**
+1. The overlay is a flag on provider rows scored in an area A1–A5. Only those rows carry an area overlay, and only they count in area totals.
+2. A vendor product outside A1–A5 may be read with the same GREEN, AMBER and RED tests. The result is a product-level reading, written against the product (for example in the AI product census). It is not an area overlay.
+3. A product-level reading enters a provider row only as a component under §7b, and only on a documented tie: T1, the capability is documented in the scored offering; T2, it runs on a vendor-wide AI platform or agent channel that its source does not confine to another product, or that a source says reaches the scored offering; T3, it performs the scored offering’s own function (moves its grants or sets its eligibility status); T4, a source ties a vendor capability to the sponsor’s program (entity scope rule).
+4. Ties are asymmetric, so the overlay can add a flag but never clear one. An AMBER or RED component counts on any of T1–T4. A GREEN component counts only on T1: it must be live in the scored offering, with its controls documented there. Evidence that would lower a flag must meet the same T1 test.
+5. A capability that its source confines to another product is not counted unless it also meets T1, T3 or T4. If it is AMBER or RED, the provider row shows it as “adjacent product AMBER/RED: <product>”, so the flag stays visible.
+6. The entity scope rule applies unchanged: a vendor’s, parent’s or owner’s capability is not a sponsor’s capability, and the reverse also holds, unless T4 is met.
+7. A flag that both scorers agreed is not removed on a confinement reading alone: it stands, with a pending note, until adjudicated (§5).
+
+**AI overlay components (§7b).**
+1. Count each live AI component tied under §7a. Live means GA, beta, or a preview open to customers. Announced or roadmap items are WATCH and do not count. Automation or navigation that its source does not describe as AI is not an AI component.
+2. The provider’s flag is its most severe counted component: RED, then AMBER, then GREEN. A component whose controls could not be read counts as AMBER (unverified).
+3. A provider is GREEN only if every counted component is GREEN. A GREEN component never offsets, lowers or clears another component’s AMBER or RED.
+4. When counted components differ, write the flag and then the split: “AMBER (mixed: GREEN <component>; AMBER <component>)”. Product rows keep their own readings.
+5. With no counted component, the flag is None, with its existing qualifier.
+
+**“First GREEN” (§7c).** “First GREEN”, “only GREEN” and “no provider earns GREEN” refer to area overlays only. A first GREEN needs all four of the following:
+1. A provider row scored in A1–A5 under v1.1 or later. v1.0 had no written GREEN test. Its labels (GREEN for Fidelity Charitable; “GREEN / none” for Ren, Ren RDE, RCF and AEF) were withdrawn by the v1.1 consensus and are history, not precedent.
+2. At least one counted AI component. “None” can never be GREEN, and neither can rule-based or navigation-only automation.
+3. Every counted component GREEN under §7b, on admissible first-party evidence (§3, §8) for the scored offering.
+4. The two-scorer rule (§5): the GREEN must be reproduced by the blind scorer or upheld in an adjudication. A single-scorer or provisional label is written “GREEN (provisional)” and is not a first GREEN.
+The claim names the version and date (“first GREEN area overlay under §7, v1.x, <date>”). A product-level reading outside A1–A5 is a “GREEN-eligible product reading”, never a first GREEN. If a first GREEN is withdrawn, later claims must say so (b4301-05) [V wave 43A]
+
+## 8. Recency rule (owner direction, 2026-11-14) — binding from v1.2
+
+Evidence older than five years (dated before 2021-11-14) is **not admissible for scoring current capability or terms**. Older material may be cited only as dated historical context, and the affected criterion scores **U** unless current evidence exists.
+
+Example: Goldman Sachs Philanthropy Fund's 2008, 2012 and 2017 circulars cannot score its payment-rail or portability criteria, so GS PF stays "insufficient evidence" until a 2021+ source is found. Audited financials and Form 990 data for FY2021+ remain admissible.
+
+## Validation corrections (wave 18, 2026-11-15) — governing
+Source: [validation-wave18-report.md](validation-wave18-report.md); register `data/mission-2026-11-14/validation-register-wave18.csv`.
+
+1. **§8, example.**
+   - **Find:** "Example: Goldman Sachs Philanthropy Fund's 2008, 2012 and 2017 circulars cannot score its payment-rail or portability criteria, so GS PF stays \"insufficient evidence\" until a 2021+ source is found."
+   - **Replace with:** "Example: Goldman Sachs Philanthropy Fund's 2008, 2012 and 2017 circulars cannot score its payment-rail or portability criteria. A 2021+ source has since been found: the GS DAF circular with ratios as of 2024-09-30, reproduced in FireAid's Sept 2025 report (V15-09, V18-01). Criteria it covers (for example, check or wire payment) may be scored from it; criteria it does not cover stay U."

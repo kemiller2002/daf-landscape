@@ -1,0 +1,133 @@
+area_id,provider,criterion_id,score,evidence_class,evidence_summary,source_url,source_date,scorer,notes
+A3,AEF,X1,3,primary,Filed CY2024 Sch D $8.38bn (replaces DAFRC imputed $9.48bn),https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513219349310376_public.xml,2025-11-17,v11consensus,agree
+A3,AEF,X2,3,primary,Ren migration completed (Apr-2026); DonorCentral sunset delivered 2026-10-31,https://engage.aefonline.org/dc-sunset/,2026-10-31,v11consensus,agree
+A3,AEF,X3,U,,"990 says audited; statements on request only, not read",https://www.aefonline.org/about-aef/,2026-11-14,v11consensus,agree (both U)
+A3,AEF,X4,2.5,primary,"Adviser-required model; Ren (admin/tech), historic NPact, Pershing",https://www.aefonline.org/thought-leadership/transferring-donor-advised-funds-to-aef/,2026-11-14,v11consensus,agree (1-point gap: mean)
+A3,AEF,X5,3,primary,Long-operating national sponsor; steady 990 growth,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513219349310376_public.xml,2025-11-17,v11consensus,agree
+A3,AEF,X6,1.5,primary,Migration blackout and two-year history window in new portal,https://engage.aefonline.org/dc-sunset/,2026-10-31,v11consensus,agree (1-point gap: mean)
+A3,AEF,Y1,U,,Not documented at sponsor level,,2026-11-14,v11consensus,agree (both U)
+A3,AEF,Y2,2,primary,Ren platform with rapid disbursement cited in AEF release,https://www.aefonline.org/thought-leadership/ren-brings-american-endowment-foundation-fully-onto-its-technology-platform-powering-philanthropy-at-scale/,2026-04-08,v11consensus,agree
+A3,AEF,Y3,U,,Not documented,,2026-11-14,v11consensus,agree (both U)
+A3,AEF,Y4,2,primary,Wealth adviser channel; broad asset acceptance,https://www.aefonline.org/thought-leadership/transferring-donor-advised-funds-to-aef/,2026-11-14,v11consensus,agree
+A3,AEF,Y5,1,primary,Inbound closing-grant pages; migration kept only two prior years of history (v1.1 cap 1),https://engage.aefonline.org/dc-sunset/,2026-10-31,v11consensus,agree
+A3,BofA Charitable Gift Fund,X1,2,primary,Filed CY2024 Sch D $4.73bn (replaces imputed $5.11bn),https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503219349318170_public.xml,2025-11-17,v11consensus,agree
+A3,BofA Charitable Gift Fund,X2,U,,No tracked announcements,,2026-11-14,v11consensus,agree (both U)
+A3,BofA Charitable Gift Fund,X3,U,,No posted audit; parent auditor not imputed,https://projects.propublica.org/nonprofits/organizations/046010342,2026-11-14,v11consensus,agree (both U)
+A3,BofA Charitable Gift Fund,X4,2,primary,Bank of America Private Bank/Merrill distribution; Ren technology,https://projects.propublica.org/nonprofits/organizations/046010342,2026-11-14,v11consensus,agree
+A3,BofA Charitable Gift Fund,X5,3,primary,Long-operating bank-affiliated fund; 990s filed,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503219349318170_public.xml,2025-11-17,v11consensus,agree
+A3,BofA Charitable Gift Fund,X6,U,,No records,,2026-11-14,v11consensus,agree (both U)
+A3,BofA Charitable Gift Fund,Y1,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,BofA Charitable Gift Fund,Y2,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,BofA Charitable Gift Fund,Y3,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,BofA Charitable Gift Fund,Y4,1,primary,Single-firm client base,https://projects.propublica.org/nonprofits/organizations/046010342,2026-11-14,v11consensus,agree
+A3,BofA Charitable Gift Fund,Y5,U,,No transfer terms found,,2026-11-14,v11consensus,agree (both U)
+A3,Charityvest (adviser programs),X1,1,primary,Filed CY2024 Sch D $98.6m,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513189349315961_public.xml,2025-11-14,v11consensus,agree
+A3,Charityvest (adviser programs),X2,2.5,primary,Larger-balance tiers and TIAA/Temple programs delivered; Chariot switch completion unconfirmed,https://foundationsource.com/newsroom/press-releases/charityvest-reports-record-2025-charitable-giving-more-th,2026-02-11,v11consensus,agree (1-point gap: mean)
+A3,Charityvest (adviser programs),X3,3,primary,"Smith & Howard audit FY2024, unmodified, read",https://guide.charityvest.org/governance-and-legal/financial-reporting,2025-12-01,v11consensus,agree
+A3,Charityvest (adviser programs),X4,3,primary,"TIAA, Temple, OneGive programs via Foundation Source; Chariot",https://www.tiaa.org/public/about-tiaa/news-press/press-releases/2026/09-28,2026-09-28,v11consensus,agree
+A3,Charityvest (adviser programs),X5,2.5,primary,Audited; Foundation Source-affiliated services agreement,https://guide.charityvest.org/governance-and-legal/financial-reporting,2025-12-01,v11consensus,agree (1-point gap: mean)
+A3,Charityvest (adviser programs),X6,3,primary,'95% of checks deposited within 35 days'; few low-severity complaints,https://guide.charityvest.org/for-donors/getting-started/grants-to-charity.md,2026-11-14,v11consensus,adjudicated: Entity-level metric '95% of checks deposited within 35 days' applies to all Charityvest grants
+A3,Charityvest (adviser programs),Y1,U,,Not documented,,2026-11-14,v11consensus,agree (both U)
+A3,Charityvest (adviser programs),Y2,3,primary,Chariot Disbursements from Aug-2026 (previously PayPal daily),https://www.givechariot.com/resources/insights/getting-to-know-charityvest-a-new-chariot-disbursements-partner,2026-07-29,v11consensus,agree
+A3,Charityvest (adviser programs),Y3,U,,Not documented,,2026-11-14,v11consensus,agree (both U)
+A3,Charityvest (adviser programs),Y4,3.5,primary,"Consumer direct, wealth turnkey (TIAA), faith-based adviser (OneAscent), university (Temple)",https://www.tiaa.org/public/about-tiaa/news-press/press-releases/2026/09-28,2026-09-28,v11consensus,agree (1-point gap: mean)
+A3,Charityvest (adviser programs),Y5,1,primary,Inbound transfer page only,https://www.charityvest.org/transfer-a-daf,2026-11-14,v11consensus,agree
+A3,DAFgiving360,X1,4,primary,FY ending 2024-06-30 Sch D $40.94bn,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202541069349300729_public.xml,2025-04-16,v11consensus,agree
+A3,DAFgiving360,X2,2,primary,Rebrand delivered; no EFT option documented; DAF Direct,https://static1.squarespace.com/static/557c669ae4b0e197d11bcb11/t/67c50d53d910296aef195450/1740967255089/DAFgiving360-2024-Program-Policies.pdf,2025-03,v11consensus,adjudicated: Rebrand delivered; no EFT option documented
+A3,DAFgiving360,X3,U,,Financials page 403; statements not read,https://www.dafgiving360.org/about-dafgiving360/financials,2026-11-14,v11consensus,agree (both U)
+A3,DAFgiving360,X4,3,primary,"Schwab subsidiaries, DAF Direct, Chariot edge",https://www.dafdirect.org/about-daf-direct/index.html,2026-11-14,v11consensus,"adjudicated: 7 confirmed graph edges incl. Schwab brokerage/RIA administration (Schedule L), DAF Direct and DAFpay: more than 'some' but fewer named channel partners than RCF/NPT"
+A3,DAFgiving360,X5,3.5,primary,Operating since 1999; 990 Part XII audited; 128k accounts,https://projects.propublica.org/nonprofits/organizations/311640316/202611199349300601/full,2026-04-29,v11consensus,agree (1-point gap: mean)
+A3,DAFgiving360,X6,2,primary,"Complaints: slow grants, paper checks, fees; SPLC hold",https://static1.squarespace.com/static/557c669ae4b0e197d11bcb11/t/67c50d53d910296aef195450/1740967255089/DAFgiving360-2024-Program-Policies.pdf,2025-03,v11consensus,agree
+A3,DAFgiving360,Y1,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,DAFgiving360,Y2,1,primary,Mailed check is the only documented rail (7-10 business days),https://static1.squarespace.com/static/557c669ae4b0e197d11bcb11/t/67c50d53d910296aef195450/1740967255089/DAFgiving360-2024-Program-Policies.pdf,2025-03,v11consensus,agree
+A3,DAFgiving360,Y3,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,DAFgiving360,Y4,2.5,primary,Retail and adviser clients,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202541069349300729_public.xml,2025-04-16,v11consensus,agree (1-point gap: mean)
+A3,DAFgiving360,Y5,1,primary,Inbound transfer page only,https://www.dafgiving360.org/transfer-donor-advised-fund,2026-11-14,v11consensus,agree
+A3,Fidelity Charitable,X1,4,primary,FY ending 2024-06-30 Sch D $66.20bn,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601389349301700_public.xml,2025-05-14,v11consensus,agree
+A3,Fidelity Charitable,X2,2.5,primary,EFT 67%; EFT-only date not implemented,https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2026-giving-report.pdf,2026,v11consensus,agree (1-point gap: mean)
+A3,Fidelity Charitable,X3,3,primary,"PwC audit FY2025, unmodified, read",https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/audited-financial-statements-2025-2024.pdf,2025-10-29,v11consensus,agree
+A3,Fidelity Charitable,X4,3.5,primary,"FMR, UBS white-label, DAF Direct, Stripe",https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/audited-financial-statements-2025-2024.pdf,2025-10-29,v11consensus,agree (1-point gap: mean)
+A3,Fidelity Charitable,X5,4,primary,Audited; since 1991; $86.3bn total assets,https://www.fidelitycharitable.org/content/dam/fc-public/docs/fc/audited-financial-statements-2025-2024.pdf,2025-10-29,v11consensus,agree
+A3,Fidelity Charitable,X6,1.5,primary,Pattern of high-severity fixable complaints (app/account access); SPLC/UNRWA discretion items,https://apps.apple.com/us/app/fidelity-charitable/id1027425014,2026-11-14,v11consensus,agree (1-point gap: mean)
+A3,Fidelity Charitable,Y1,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Fidelity Charitable,Y2,3,primary,"Stripe/ACH 1-2 days, 67% EFT",https://www.fidelitycharitable.org/nonprofits/nonprofits-frequently-asked-questions.html,2026-11-14,v11consensus,agree
+A3,Fidelity Charitable,Y3,1,primary,Website 'Virtual Assistant' navigation only; no governed automation documented,https://www.fidelitycharitable.org/nonprofits/nonprofits-frequently-asked-questions.html,2026-11-14,v11consensus,agree
+A3,Fidelity Charitable,Y4,3,primary,"Consumers, advisers, corporate/foundation users",https://www.fidelitycharitable.org/content/dam/fc-public/docs/insights/2026-giving-report.pdf,2026,v11consensus,agree
+A3,Fidelity Charitable,Y5,1,primary,Inbound transfer page only,https://www.fidelitycharitable.org/faqs/all/transfer-to-giving-account.html,2026-11-14,v11consensus,agree
+A3,GiveClear,X1,1,primary,Filed CY2024 Sch D $215.3m (imputed $33.1m superseded),https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202533199349302978_public.xml,2025-11-15,v11consensus,agree
+A3,GiveClear,X2,2,primary,SEI program launched; GiveClear Direct (planned 2026) not launched,https://www.giveclear.org/reports-and-financials,2026-11-14,v11consensus,adjudicated: SEI launched; GiveClear Direct not yet launched
+A3,GiveClear,X3,3,primary,"Capin Crouse audit CY2024/2023, unmodified, dated 2025-11-06, read",https://irp.cdn-website.com/5c4108df/files/uploaded/GiveClear+24+Consolidated+FS+Final.pdf,2025-11-06,v11consensus,adjudicated: Verified: Capin Crouse unmodified opinion on CY2024 consolidated statements dated 2025-11-06 (read)
+A3,GiveClear,X4,3,primary,"AssetMark, SEI, Zions, Blue Trust, Ingalls & Snyder, TIFIN Give",https://www.giveclear.org/reports-and-financials,2026-11-14,v11consensus,agree
+A3,GiveClear,X5,3,primary,Audited; rapid growth ($83.2m grants 2025),https://irp.cdn-website.com/5c4108df/files/uploaded/GiveClear+24+Consolidated+FS+Final.pdf,2025-11-06,v11consensus,adjudicated: Now audited; young but diversified programs
+A3,GiveClear,X6,3,primary,AssetMark Charitable median 2 days to funds,https://intercom.help/assetmark-help-center/en/articles/13931838-how-grant-payments-are-delivered-electronic-check,2026-11-14,v11consensus,adjudicated: AssetMark Charitable median 2 days submission-to-funds (TIFIN/GiveClear-administered program)
+A3,GiveClear,Y1,1,primary,TIFIN terms on program help center restrict downloads and automated access,https://intercom.help/give-ria/en/articles/10092486-terms-of-use,2025-02-19,v11consensus,adjudicated: TIFIN terms on the program help center bind GiveClear program users and restrict downloads/automated access
+A3,GiveClear,Y2,3,primary,Chariot electronic payments; 48-hour review,https://intercom.help/give-ria/en/articles/10924803-tifin-give-donor-advised-fund-program-guidelines,2025-08-12,v11consensus,agree
+A3,GiveClear,Y3,1,primary,Louise AI on TIFIN Give programs; controls undocumented; 48h sponsor review for grants,https://www.prnewswire.com/news-releases/tifin-give-launches-louise-ai-capabilities-for-philanthropy-302595069.html,2025-10-27,v11consensus,agree
+A3,GiveClear,Y4,3,primary,"RIA, bank/trust, faith-based wealth, single-charity",https://www.giveclear.org/reports-and-financials,2026-11-14,v11consensus,"adjudicated: Program list includes RIA, bank/trust (SEI, Zions), faith-based wealth (Blue Trust), single-charity funds"
+A3,GiveClear,Y5,1,primary,Inbound only; no outbound/history terms,https://intercom.help/give-ria/en/articles/10924803-tifin-give-donor-advised-fund-program-guidelines,2025-08-12,v11consensus,agree
+A3,Goldman Sachs Philanthropy Fund,X1,3,primary,No filed CY2024 return in harvest; DAFRC imputed $11.84bn; program CY2024 Sch D $12.64bn per validation V3,https://projects.propublica.org/nonprofits/organizations/311774905,2026-11-14,v11consensus,agree
+A3,Goldman Sachs Philanthropy Fund,X2,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Goldman Sachs Philanthropy Fund,X3,U,,No posted audit,https://projects.propublica.org/nonprofits/organizations/311774905,2026-11-14,v11consensus,agree (both U)
+A3,Goldman Sachs Philanthropy Fund,X4,2,primary,"GS Trust Co, GS & Co, Ayco, Ren iPhi portal, Sapient",https://gspf.goldman.com/gspf/,2026-11-14,v11consensus,agree
+A3,Goldman Sachs Philanthropy Fund,X5,3,primary,"Long-operating, bank-affiliated",https://projects.propublica.org/nonprofits/organizations/311774905,2026-11-14,v11consensus,agree
+A3,Goldman Sachs Philanthropy Fund,X6,U,,Listed in SPLC hold list only,https://www.splcenter.org/resources/hopewatch/president-ceo-donor-advised-funds/,2026-11-14,v11consensus,agree (both U)
+A3,Goldman Sachs Philanthropy Fund,Y1,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Goldman Sachs Philanthropy Fund,Y2,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Goldman Sachs Philanthropy Fund,Y3,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Goldman Sachs Philanthropy Fund,Y4,1,primary,Single-firm private wealth clients,https://gspf.goldman.com/gspf/,2026-11-14,v11consensus,agree
+A3,Goldman Sachs Philanthropy Fund,Y5,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Morgan Stanley GIFT,X1,3,primary,Filed CY2024 Sch D $9.11bn (replaces imputed $9.43bn),https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503239349300435_public.xml,2025-11-19,v11consensus,agree
+A3,Morgan Stanley GIFT,X2,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Morgan Stanley GIFT,X3,U,,Impact report only; no audit posted,https://www.morganstanley.com/content/dam/msdotcom/what-we-do/wealth-management/gift/ms-gift-impact-report.pdf,2024-12-31,v11consensus,agree (both U)
+A3,Morgan Stanley GIFT,X4,2,primary,"Morgan Stanley distribution, RenPSG administration ($14.93m), CapShift",https://projects.propublica.org/nonprofits/organizations/527082731/202503239349300435/full,2025-11-19,v11consensus,agree
+A3,Morgan Stanley GIFT,X5,3,primary,"Long-operating, bank-affiliated",https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503239349300435_public.xml,2025-11-19,v11consensus,agree
+A3,Morgan Stanley GIFT,X6,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Morgan Stanley GIFT,Y1,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Morgan Stanley GIFT,Y2,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Morgan Stanley GIFT,Y3,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Morgan Stanley GIFT,Y4,1,primary,Single-firm clients,https://www.morganstanley.com/content/dam/msdotcom/what-we-do/wealth-management/gift/ms-gift-impact-report.pdf,2024-12-31,v11consensus,agree
+A3,Morgan Stanley GIFT,Y5,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,NCF,X1,3,primary,Filed CY2024 Sch D $5.68bn,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513109349303201_public.xml,2025-11-06,v11consensus,agree
+A3,NCF,X2,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,NCF,X3,3,primary,"Capin Crouse audit FY2025, unmodified (other-auditor reliance for 4 SOs), read",https://site.ncfgiving.com//wp-content/uploads/2026/07/NCF-25-Consolidated-FS-Final.pdf,2026-07-08,v11consensus,agree
+A3,NCF,X4,2,primary,"Salesforce/Skuid, Stellar; adviser and church networks",https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513109349303201_public.xml,2025-11-06,v11consensus,agree
+A3,NCF,X5,3.5,primary,Audited; long history; 5 donors 14% of support,https://site.ncfgiving.com//wp-content/uploads/2026/07/NCF-25-Consolidated-FS-Final.pdf,2026-07-08,v11consensus,agree (1-point gap: mean)
+A3,NCF,X6,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,NCF,Y1,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,NCF,Y2,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,NCF,Y3,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,NCF,Y4,1.5,primary,Faith segment,https://site.ncfgiving.com//wp-content/uploads/2026/07/NCF-25-Consolidated-FS-Final.pdf,2026-07-08,v11consensus,agree (1-point gap: mean)
+A3,NCF,Y5,U,,No transfer page found,,2026-11-14,v11consensus,agree (both U)
+A3,NPT,X1,4,primary,FY ending 2024-06-30 Sch D $42.12bn,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml,2025-05-13,v11consensus,agree
+A3,NPT,X2,3,primary,PayPal Grant Payments (2022) delivered; GivingPoint portal live,https://www.nptrust.org/wp-content/uploads/2022/08/Grant-Payments-NPT.pdf,2022-08,v11consensus,adjudicated: PayPal Grant Payments (2022) delivered; GivingPoint live
+A3,NPT,X3,U,,Two-page summary without auditor's report,https://www.nptrust.org/fy25-ar-consolidated-financials-npt/,2026-11-14,v11consensus,agree (both U)
+A3,NPT,X4,3.5,primary,"UBS, Wells Fargo, J.P. Morgan programs; PayPal; Ren hosting",https://www.nptrust.org/wp-content/uploads/2024/09/A-Guide-to-your-Donor-Advised-Fund-NPT.pdf,2024-09,v11consensus,agree (1-point gap: mean)
+A3,NPT,X5,3.5,primary,Long-operating national sponsor; $57.3bn total assets,https://www.nptrust.org/fy25-ar-consolidated-financials-npt/,2026-11-14,v11consensus,agree (1-point gap: mean)
+A3,NPT,X6,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,NPT,Y1,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,NPT,Y2,3,primary,PayPal electronic with 14-day check fallback; weekly processing,https://www.nptrust.org/wp-content/uploads/2022/08/Grant-Payments-NPT.pdf,2022-08,v11consensus,"adjudicated: PayPal electronic with 14-day check fallback, same treatment as Vanguard"
+A3,NPT,Y3,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,NPT,Y4,3.5,primary,"Wealth white-labels, family offices, international affiliates",https://www.nptrust.org/wp-content/uploads/2024/09/A-Guide-to-your-Donor-Advised-Fund-NPT.pdf,2024-09,v11consensus,agree (1-point gap: mean)
+A3,NPT,Y5,U,,No transfer page found,https://www.nptrust.org/donor-advised-funds/faq/,2026-11-14,v11consensus,agree (both U)
+A3,Renaissance Charitable Foundation,X1,3,primary,Filed CY2024 Sch D $5.91bn (replaces imputed $5.63bn),https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543189349301959_public.xml,2025-11-14,v11consensus,agree
+A3,Renaissance Charitable Foundation,X2,3,primary,Ren-administered programs live across 16+ channels,https://www.reninc.com/rcf-daf/,2026-11-14,v11consensus,adjudicated: Programs announced with partners are live across 16+ channels
+A3,Renaissance Charitable Foundation,X3,3,primary,"Blue & Co audit CY2024, unmodified, read",https://renaissancecharitable.org/wp-content/uploads/2026/01/2024RCFAuditedFinancialStatements.pdf,2025-09-05,v11consensus,agree
+A3,Renaissance Charitable Foundation,X4,4,primary,"Edward Jones, Ameriprise, RBC, Janney, LPL, NWM, UBS, SEI, Franklin, Fisher, Pershing, MDRT, First Citizens",https://www.reninc.com/rcf-daf/,2026-11-14,v11consensus,agree
+A3,Renaissance Charitable Foundation,X5,4,primary,Audited; long operating history; diversified program partners,https://renaissancecharitable.org/wp-content/uploads/2026/01/2024RCFAuditedFinancialStatements.pdf,2025-09-05,v11consensus,agree
+A3,Renaissance Charitable Foundation,X6,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Renaissance Charitable Foundation,Y1,2,primary,RCF sponsor-facing MSA: customer may obtain Customer Materials on termination or request,https://www.reninc.com/wp-content/uploads/2025/08/Online-RAC-MSA_v1.pdf,2025-08,v11consensus,agree
+A3,Renaissance Charitable Foundation,Y2,2,primary,Ren RDE electronic rails; rules-based approvals,https://www.reninc.com/payments/,2026-11-14,v11consensus,agree
+A3,Renaissance Charitable Foundation,Y3,3,primary,"RCF Grantmaking Due Diligence Policy: Charity Check (incl. OFAC) for routine grants, officer review above $500k",https://renaissancecharitable.org/wp-content/uploads/2026/02/Grantmaking-Due-Diligence-Policy.pdf,2026-02,v11consensus,adjudicated: Verified: RCF Grantmaking Due Diligence Policy relies on Charity Check (incl. OFAC) for routine grants; officer review above $500k (authority separation)
+A3,Renaissance Charitable Foundation,Y4,3,primary,"Wealth, bank, insurance-agent, professional-association programs",https://www.reninc.com/rcf-daf/,2026-11-14,v11consensus,agree
+A3,Renaissance Charitable Foundation,Y5,1,primary,Inbound closing-grant process only,https://www.reninc.com/rcf-daf/,2026-11-14,v11consensus,agree
+A3,Vanguard Charitable,X1,4,primary,FY ending 2024-06-30 Sch D $21.95bn,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511349349313096_public.xml,2025-05-14,v11consensus,agree
+A3,Vanguard Charitable,X2,3,primary,PayPal electronic granting delivered; Give Interactive implementation in progress,https://prnewswire.com/news-releases/vanguard-charitable-launches-electronic-granting-solution-surpassing-100-million-in-electronic-grants-to-more-than-400-charities-in-first-4-months-301932762.html,2023-09-20,v11consensus,agree
+A3,Vanguard Charitable,X3,3,primary,"PwC audit FY2026, unmodified, read",https://www.vanguardcharitable.org/sites/default/files/2026-11/VCEP_Financial_Statements_2026.pdf,2026-10-05,v11consensus,agree
+A3,Vanguard Charitable,X4,3,primary,"Vanguard, PayPal, Give Interactive, Salesforce, RhumbLine, Hamilton Lane",https://www.vanguardcharitable.org/sites/default/files/2026-11/VCEP_Financial_Statements_2026.pdf,2026-10-05,v11consensus,agree
+A3,Vanguard Charitable,X5,4,primary,Audited; long history,https://www.vanguardcharitable.org/sites/default/files/2026-11/VCEP_Financial_Statements_2026.pdf,2026-10-05,v11consensus,agree
+A3,Vanguard Charitable,X6,2,primary,"Complaints: $500 grant minimum, $25K threshold, SPLC hold",https://www.vanguardcharitable.org/company-policies/policies-and-guidelines,2026-01-09,v11consensus,agree
+A3,Vanguard Charitable,Y1,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Vanguard Charitable,Y2,3,primary,PayPal funds within a day; grants processed in a few days,https://www.vanguardcharitable.org/nonprofit-organizations,2026-11-14,v11consensus,agree
+A3,Vanguard Charitable,Y3,U,,No admissible evidence found,,2026-11-14,v11consensus,agree (both U)
+A3,Vanguard Charitable,Y4,2,primary,Retail and adviser clients,https://www.vanguardcharitable.org/company-policies/policies-and-guidelines,2026-01-09,v11consensus,agree
+A3,Vanguard Charitable,Y5,1,primary,Inbound grants accepted; only closure term is a final closing-grant exception,https://www.vanguardcharitable.org/company-policies/policies-and-guidelines,2026-01-09,v11consensus,agree

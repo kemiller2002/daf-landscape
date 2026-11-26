@@ -1,0 +1,9 @@
+REV 8cfa064
+CMD dotnet build Arca.slnx -c Release
+BUILD_RC 0 SECS 29
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+CMD dotnet test tests/Arca.Tests/Arca.Tests.fsproj -c Release --no-build
+TEST_RC Arca.Tests.fsproj 0 SECS 15 :: Passed!  - Failed:     0, Passed:   415, Skipped:     0, Total:   415, Duration: 13 s - Arca.Tests.dll (net10.0) 
+DONE

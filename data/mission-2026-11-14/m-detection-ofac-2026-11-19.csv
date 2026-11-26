@@ -1,0 +1,386 @@
+record_type,id,entity,metric,value,unit,basis,assumption,source,note
+meta,run,,draws,10000.0,count,,,,imports scripts/mission_escaped_error_cost.py unchanged; route rows only with --route
+irs_exam,FY2021,,returns_examined_990_990EZ_990N,1383.0,returns,F,,https://www.irs.gov/pub/irs-soi/21dbs03t21eo.xlsx,"Data Book Table 3-5 (FY2021-24: Table 21), Forms 990, 990-EZ and 990-N"
+irs_exam,FY2021,,returns_examined_990PF_1041A_1120POL_5227,203.0,returns,F,,https://www.irs.gov/pub/irs-soi/21dbs03t21eo.xlsx,
+irs_exam,FY2021,,returns_examined_form_4720,301.0,returns,F,,https://www.irs.gov/pub/irs-soi/21dbs03t21eo.xlsx,related taxable returns: Form 4720 (excise taxes on exempt orgs and related persons)
+irs_exam,FY2021,,returns_examined_tege_total,9067.0,returns,F,,https://www.irs.gov/pub/irs-soi/21dbs03t21eo.xlsx,"all TE/GE incl. employee plans, employment tax, bonds"
+irs_filed,FY2021,,tax_exempt_org_returns_filed,1722803.0,returns,F,,https://www.irs.gov/pub/irs-soi/21dbs01t02nr.xlsx,"Table 1-2 (FY2021-24: Table 2); incl. 990-N, 990-PF, 990-T, 4720"
+irs_filed,FY2021,,recognized_501c3_orgs,1431266.0,organizations,F,,https://www.irs.gov/pub/irs-soi/21dbs02t14eo.xlsx,Table 2-6 (FY2021-24: Table 14); incl. private foundations
+irs_exam,FY2022,,returns_examined_990_990EZ_990N,1343.0,returns,F,,https://www.irs.gov/pub/irs-soi/22dbs03t21eo.xlsx,"Data Book Table 3-5 (FY2021-24: Table 21), Forms 990, 990-EZ and 990-N"
+irs_exam,FY2022,,returns_examined_990PF_1041A_1120POL_5227,170.0,returns,F,,https://www.irs.gov/pub/irs-soi/22dbs03t21eo.xlsx,
+irs_exam,FY2022,,returns_examined_form_4720,292.0,returns,F,,https://www.irs.gov/pub/irs-soi/22dbs03t21eo.xlsx,related taxable returns: Form 4720 (excise taxes on exempt orgs and related persons)
+irs_exam,FY2022,,returns_examined_tege_total,9185.0,returns,F,,https://www.irs.gov/pub/irs-soi/22dbs03t21eo.xlsx,"all TE/GE incl. employee plans, employment tax, bonds"
+irs_filed,FY2022,,tax_exempt_org_returns_filed,1751682.0,returns,F,,https://www.irs.gov/pub/irs-soi/22dbs01t02nr.xlsx,"Table 1-2 (FY2021-24: Table 2); incl. 990-N, 990-PF, 990-T, 4720"
+irs_filed,FY2022,,recognized_501c3_orgs,1480565.0,organizations,F,,https://www.irs.gov/pub/irs-soi/22dbs02t14eo.xlsx,Table 2-6 (FY2021-24: Table 14); incl. private foundations
+irs_exam,FY2023,,returns_examined_990_990EZ_990N,1029.0,returns,F,,https://www.irs.gov/pub/irs-soi/23dbs03t21eo.xlsx,"Data Book Table 3-5 (FY2021-24: Table 21), Forms 990, 990-EZ and 990-N"
+irs_exam,FY2023,,returns_examined_990PF_1041A_1120POL_5227,81.0,returns,F,,https://www.irs.gov/pub/irs-soi/23dbs03t21eo.xlsx,
+irs_exam,FY2023,,returns_examined_form_4720,231.0,returns,F,,https://www.irs.gov/pub/irs-soi/23dbs03t21eo.xlsx,related taxable returns: Form 4720 (excise taxes on exempt orgs and related persons)
+irs_exam,FY2023,,returns_examined_tege_total,7666.0,returns,F,,https://www.irs.gov/pub/irs-soi/23dbs03t21eo.xlsx,"all TE/GE incl. employee plans, employment tax, bonds"
+irs_filed,FY2023,,tax_exempt_org_returns_filed,1789884.0,returns,F,,https://www.irs.gov/pub/irs-soi/23dbs01t02nr.xlsx,"Table 1-2 (FY2021-24: Table 2); incl. 990-N, 990-PF, 990-T, 4720"
+irs_filed,FY2023,,recognized_501c3_orgs,1514558.0,organizations,F,,https://www.irs.gov/pub/irs-soi/23dbs02t14eo.xlsx,Table 2-6 (FY2021-24: Table 14); incl. private foundations
+irs_exam,FY2024,,returns_examined_990_990EZ_990N,666.0,returns,F,,https://www.irs.gov/pub/irs-soi/24dbs03t21eo.xlsx,"Data Book Table 3-5 (FY2021-24: Table 21), Forms 990, 990-EZ and 990-N"
+irs_exam,FY2024,,returns_examined_990PF_1041A_1120POL_5227,72.0,returns,F,,https://www.irs.gov/pub/irs-soi/24dbs03t21eo.xlsx,
+irs_exam,FY2024,,returns_examined_form_4720,210.0,returns,F,,https://www.irs.gov/pub/irs-soi/24dbs03t21eo.xlsx,related taxable returns: Form 4720 (excise taxes on exempt orgs and related persons)
+irs_exam,FY2024,,returns_examined_tege_total,7013.0,returns,F,,https://www.irs.gov/pub/irs-soi/24dbs03t21eo.xlsx,"all TE/GE incl. employee plans, employment tax, bonds"
+irs_filed,FY2024,,tax_exempt_org_returns_filed,1805833.0,returns,F,,https://www.irs.gov/pub/irs-soi/24dbs01t02nr.xlsx,"Table 1-2 (FY2021-24: Table 2); incl. 990-N, 990-PF, 990-T, 4720"
+irs_filed,FY2024,,recognized_501c3_orgs,1548798.0,organizations,F,,https://www.irs.gov/pub/irs-soi/24dbs02t14eo.xlsx,Table 2-6 (FY2021-24: Table 14); incl. private foundations
+irs_exam,FY2025,,returns_examined_990_990EZ_990N,889.0,returns,F,,https://www.irs.gov/pub/irs-soi/25db-3-05-eo.xlsx,"Data Book Table 3-5 (FY2021-24: Table 21), Forms 990, 990-EZ and 990-N"
+irs_exam,FY2025,,returns_examined_990PF_1041A_1120POL_5227,77.0,returns,F,,https://www.irs.gov/pub/irs-soi/25db-3-05-eo.xlsx,
+irs_exam,FY2025,,returns_examined_form_4720,188.0,returns,F,,https://www.irs.gov/pub/irs-soi/25db-3-05-eo.xlsx,related taxable returns: Form 4720 (excise taxes on exempt orgs and related persons)
+irs_exam,FY2025,,returns_examined_tege_total,7914.0,returns,F,,https://www.irs.gov/pub/irs-soi/25db-3-05-eo.xlsx,"all TE/GE incl. employee plans, employment tax, bonds"
+irs_filed,FY2025,,tax_exempt_org_returns_filed,1798413.0,returns,F,,https://www.irs.gov/pub/irs-soi/25db-1-02-nr.xlsx,"Table 1-2 (FY2021-24: Table 2); incl. 990-N, 990-PF, 990-T, 4720"
+irs_filed,FY2025,,recognized_501c3_orgs,1596231.0,organizations,F,,https://www.irs.gov/pub/irs-soi/25db-2-06-eo.xlsx,Table 2-6 (FY2021-24: Table 14); incl. private foundations
+efile,PY2021,,efile_index_rows_990,305173.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2021/index_2021.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2021,,efile_index_rows_990EZ,164035.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2021/index_2021.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2021,,efile_index_rows_990PF,108644.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2021/index_2021.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2022,,efile_index_rows_990,325555.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2022/index_2022.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2022,,efile_index_rows_990EZ,189690.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2022/index_2022.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2022,,efile_index_rows_990PF,117073.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2022/index_2022.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2023,,efile_index_rows_990,347337.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2023/index_2023.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2023,,efile_index_rows_990EZ,209957.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2023/index_2023.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2023,,efile_index_rows_990PF,124666.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2023/index_2023.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2024,,efile_index_rows_990,363100.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2024/index_2024.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2024,,efile_index_rows_990EZ,215355.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2024/index_2024.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2024,,efile_index_rows_990PF,126982.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2024/index_2024.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2025,,efile_index_rows_990,376920.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2025/index_2025.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2025,,efile_index_rows_990EZ,217102.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2025/index_2025.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+efile,PY2025,,efile_index_rows_990PF,130347.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2025/index_2025.csv,rows by RETURN_TYPE in the IRS e-file index (processing year)
+tege_exam,FY2021,,eo_filings_examined_closed,3249.0,filings,F,,https://www.irs.gov/pub/irs-prior/p5329--2021.pdf,TE/GE Accomplishments Letter; change rate 82.3%; incl. related employment and excise returns
+tege_exam,FY2022,,eo_filings_examined_closed,3425.0,filings,F,,https://www.irs.gov/pub/irs-prior/p5329--2022.pdf,TE/GE Accomplishments Letter; change rate 77.5%; incl. related employment and excise returns
+tege_exam,FY2023,,eo_filings_examined_closed,2464.0,filings,F,,https://www.irs.gov/pub/irs-prior/p5329--2023.pdf,TE/GE Accomplishments Letter; change rate 75.7%; incl. related employment and excise returns
+tege_exam,FY2024,,eo_filings_examined_closed,1955.0,filings,F,,https://www.irs.gov/pub/irs-access/p5329_accessible.pdf,TE/GE Accomplishments Letter; change rate 74.5%; incl. related employment and excise returns
+tege_exam,FY2025,,eo_filings_examined_closed,2762.0,filings,C,,https://www.tigta.gov/sites/default/files/reports/2026-08/20261S0042fr.pdf,"FY2021 x (1 - 15%); TIGTA 2026-1S0-042 (19 Aug 2026): ""the Exempt Organizations and Employee Plans functions completed fewer examinations in FY 2025 compared to FY 2021, by 15 and 16 percent, respectively"" (rounded percent)"
+coverage,FY2021,,exam_rate_990_990EZ,0.002948,share of filers,C,Data Book 990/990-EZ/990-N exams / e-filed 990 + 990-EZ (same processing year),,"990-N exams in the numerator, not the denominator: slight overstatement"
+coverage,FY2021,,exam_rate_990series_per_501c3_org,0.000966,share of orgs,C,Data Book 990-series exams / recognized 501(c)(3) organizations,,
+coverage,FY2021,,exam_rate_eo_filings_broad,0.005623,share of filers,C,TE/GE EO filings examined (incl. related returns) / e-filed 990 + 990-EZ + 990-PF,,upper-side: numerator counts related employment/excise returns as separate filings; numerator basis F
+coverage,FY2021,,form4720_exams_per_eo_return_filed,0.000175,ratio,C,,,
+coverage,FY2022,,exam_rate_990_990EZ,0.002607,share of filers,C,Data Book 990/990-EZ/990-N exams / e-filed 990 + 990-EZ (same processing year),,"990-N exams in the numerator, not the denominator: slight overstatement"
+coverage,FY2022,,exam_rate_990series_per_501c3_org,0.000907,share of orgs,C,Data Book 990-series exams / recognized 501(c)(3) organizations,,
+coverage,FY2022,,exam_rate_eo_filings_broad,0.005417,share of filers,C,TE/GE EO filings examined (incl. related returns) / e-filed 990 + 990-EZ + 990-PF,,upper-side: numerator counts related employment/excise returns as separate filings; numerator basis F
+coverage,FY2022,,form4720_exams_per_eo_return_filed,0.000167,ratio,C,,,
+coverage,FY2023,,exam_rate_990_990EZ,0.001846,share of filers,C,Data Book 990/990-EZ/990-N exams / e-filed 990 + 990-EZ (same processing year),,"990-N exams in the numerator, not the denominator: slight overstatement"
+coverage,FY2023,,exam_rate_990series_per_501c3_org,0.000679,share of orgs,C,Data Book 990-series exams / recognized 501(c)(3) organizations,,
+coverage,FY2023,,exam_rate_eo_filings_broad,0.003613,share of filers,C,TE/GE EO filings examined (incl. related returns) / e-filed 990 + 990-EZ + 990-PF,,upper-side: numerator counts related employment/excise returns as separate filings; numerator basis F
+coverage,FY2023,,form4720_exams_per_eo_return_filed,0.000129,ratio,C,,,
+coverage,FY2024,,exam_rate_990_990EZ,0.001151,share of filers,C,Data Book 990/990-EZ/990-N exams / e-filed 990 + 990-EZ (same processing year),,"990-N exams in the numerator, not the denominator: slight overstatement"
+coverage,FY2024,,exam_rate_990series_per_501c3_org,0.00043,share of orgs,C,Data Book 990-series exams / recognized 501(c)(3) organizations,,
+coverage,FY2024,,exam_rate_eo_filings_broad,0.002771,share of filers,C,TE/GE EO filings examined (incl. related returns) / e-filed 990 + 990-EZ + 990-PF,,upper-side: numerator counts related employment/excise returns as separate filings; numerator basis F
+coverage,FY2024,,form4720_exams_per_eo_return_filed,0.000116,ratio,C,,,
+coverage,FY2025,,exam_rate_990_990EZ,0.001497,share of filers,C,Data Book 990/990-EZ/990-N exams / e-filed 990 + 990-EZ (same processing year),,"990-N exams in the numerator, not the denominator: slight overstatement"
+coverage,FY2025,,exam_rate_990series_per_501c3_org,0.000557,share of orgs,C,Data Book 990-series exams / recognized 501(c)(3) organizations,,
+coverage,FY2025,,exam_rate_eo_filings_broad,0.003813,share of filers,C,TE/GE EO filings examined (incl. related returns) / e-filed 990 + 990-EZ + 990-PF,,upper-side: numerator counts related employment/excise returns as separate filings; numerator basis C (TIGTA %)
+coverage,FY2025,,form4720_exams_per_eo_return_filed,0.000105,ratio,C,,,
+soi_4966,CY2021,,returns_reporting_4966_sponsor_tax,7.0,returns,F,,https://www.irs.gov/pub/irs-soi/21pf00et.xlsx,SOI Form 4720 study Table 1: 'Tax on taxable distributions of sponsoring organizations'
+soi_4966,CY2021,,4966_sponsor_tax_usd,112913.0,usd,F,,https://www.irs.gov/pub/irs-soi/21pf00et.xlsx,
+soi_4966,CY2021,,4966_tax_per_return,16130.428571,usd,C,,https://www.irs.gov/pub/irs-soi/21pf00et.xlsx,
+soi_4966,CY2021,,implied_taxable_distribution_per_return,80652.142857,usd,C,tax / 20% (IRC 4966(a)(1)),https://www.irs.gov/pub/irs-soi/21pf00et.xlsx,
+soi_4966,CY2021,,share_of_daf_sponsors_reporting_4966,0.00463,share,C,"returns / 1,512 sponsors (FY2024); one return per sponsor",https://www.irs.gov/pub/irs-soi/21pf00et.xlsx; https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx,
+soi_4966,CY2021,,form4720_total_org_tax_returns,1547.0,returns,F,,https://www.irs.gov/pub/irs-soi/21pf00et.xlsx,
+soi_4966,CY2021,,form4720_total_org_tax_usd,291129057.0,usd,F,,https://www.irs.gov/pub/irs-soi/21pf00et.xlsx,
+soi_4966,CY2022,,returns_reporting_4966_sponsor_tax,15.0,returns,F,,https://www.irs.gov/pub/irs-soi/22pf00et.xlsx,SOI Form 4720 study Table 1: 'Tax on taxable distributions of sponsoring organizations'
+soi_4966,CY2022,,4966_sponsor_tax_usd,179819.0,usd,F,,https://www.irs.gov/pub/irs-soi/22pf00et.xlsx,
+soi_4966,CY2022,,4966_tax_per_return,11987.933333,usd,C,,https://www.irs.gov/pub/irs-soi/22pf00et.xlsx,
+soi_4966,CY2022,,implied_taxable_distribution_per_return,59939.666667,usd,C,tax / 20% (IRC 4966(a)(1)),https://www.irs.gov/pub/irs-soi/22pf00et.xlsx,
+soi_4966,CY2022,,share_of_daf_sponsors_reporting_4966,0.009921,share,C,"returns / 1,512 sponsors (FY2024); one return per sponsor",https://www.irs.gov/pub/irs-soi/22pf00et.xlsx; https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx,
+soi_4966,CY2022,,form4720_total_org_tax_returns,4524.0,returns,F,,https://www.irs.gov/pub/irs-soi/22pf00et.xlsx,
+soi_4966,CY2022,,form4720_total_org_tax_usd,956547432.0,usd,F,,https://www.irs.gov/pub/irs-soi/22pf00et.xlsx,
+soi_4966,CY2023,,returns_reporting_4966_sponsor_tax,10.0,returns,F,,https://www.irs.gov/pub/irs-soi/23pf00et.xlsx,SOI Form 4720 study Table 1: 'Tax on taxable distributions of sponsoring organizations'
+soi_4966,CY2023,,4966_sponsor_tax_usd,1150071.0,usd,F,,https://www.irs.gov/pub/irs-soi/23pf00et.xlsx,
+soi_4966,CY2023,,4966_tax_per_return,115007.1,usd,C,,https://www.irs.gov/pub/irs-soi/23pf00et.xlsx,
+soi_4966,CY2023,,implied_taxable_distribution_per_return,575035.5,usd,C,tax / 20% (IRC 4966(a)(1)),https://www.irs.gov/pub/irs-soi/23pf00et.xlsx,
+soi_4966,CY2023,,share_of_daf_sponsors_reporting_4966,0.006614,share,C,"returns / 1,512 sponsors (FY2024); one return per sponsor",https://www.irs.gov/pub/irs-soi/23pf00et.xlsx; https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx,
+soi_4966,CY2023,,form4720_total_org_tax_returns,3708.0,returns,F,,https://www.irs.gov/pub/irs-soi/23pf00et.xlsx,
+soi_4966,CY2023,,form4720_total_org_tax_usd,994744987.0,usd,F,,https://www.irs.gov/pub/irs-soi/23pf00et.xlsx,
+soi_4966,CY2024,,returns_reporting_4966_sponsor_tax,6.0,returns,F,,https://www.irs.gov/pub/irs-soi/24pf00et.xlsx,SOI Form 4720 study Table 1: 'Tax on taxable distributions of sponsoring organizations'
+soi_4966,CY2024,,4966_sponsor_tax_usd,101894.0,usd,F,,https://www.irs.gov/pub/irs-soi/24pf00et.xlsx,
+soi_4966,CY2024,,4966_tax_per_return,16982.333333,usd,C,,https://www.irs.gov/pub/irs-soi/24pf00et.xlsx,
+soi_4966,CY2024,,implied_taxable_distribution_per_return,84911.666667,usd,C,tax / 20% (IRC 4966(a)(1)),https://www.irs.gov/pub/irs-soi/24pf00et.xlsx,
+soi_4966,CY2024,,share_of_daf_sponsors_reporting_4966,0.003968,share,C,"returns / 1,512 sponsors (FY2024); one return per sponsor",https://www.irs.gov/pub/irs-soi/24pf00et.xlsx; https://www.dafresearchcollaborative.org/s/Annual-DAF-Report-2025-Updated-Analysis-Dataset.xlsx,
+soi_4966,CY2024,,form4720_total_org_tax_returns,3099.0,returns,F,,https://www.irs.gov/pub/irs-soi/24pf00et.xlsx,
+soi_4966,CY2024,,form4720_total_org_tax_usd,733556694.0,usd,F,,https://www.irs.gov/pub/irs-soi/24pf00et.xlsx,
+soi_4966,CY2025,,returns_reporting_4966_sponsor_tax,d,returns,F,,https://www.irs.gov/pub/irs-soi/25pf00et.xlsx,deleted to avoid disclosure; included in totals
+soi_4966,CY2025,,4966_sponsor_tax_usd_upper_bound,264759.0,usd,C,,https://www.irs.gov/pub/irs-soi/25pf00et.xlsx,total organizational taxes minus all disclosed rows; shared with 3 other 'd' rows
+soi_4966,CY2025,,form4720_total_org_tax_returns,3027.0,returns,F,,https://www.irs.gov/pub/irs-soi/25pf00et.xlsx,
+soi_4966,CY2025,,form4720_total_org_tax_usd,844996874.0,usd,F,,https://www.irs.gov/pub/irs-soi/25pf00et.xlsx,
+p_detect,low,,p_detected_and_taxed,0.001151,prob,C,min FY2021-25 exam_rate_990_990EZ; q=1,,replaces the unsourced 0.01 / 0.1 / 1 sweep; q = P(exam finds and taxes the error | exam) set to 1
+p_detect,central,,p_detected_and_taxed,0.001846,prob,C,median FY2021-25 exam_rate_990_990EZ; q=1,,replaces the unsourced 0.01 / 0.1 / 1 sweep; q = P(exam finds and taxes the error | exam) set to 1
+p_detect,high,,p_detected_and_taxed,0.009921,prob,C,"max(max broad EO exam rate, max sponsors reporting 4966 / 1,512); q=1",,replaces the unsourced 0.01 / 0.1 / 1 sweep; q = P(exam finds and taxes the error | exam) set to 1
+p_detect,sponsor_incidence_max,,p_detected_and_taxed,0.009921,prob,C,"15 returns / 1,512 sponsors; an upper bound on P if every sponsor has >= 1 escaped taxable distribution a year [I]",,replaces the unsourced 0.01 / 0.1 / 1 sweep; q = P(exam finds and taxes the error | exam) set to 1
+p_detect,fidelity_grant_check,,taxed_4966_returns_per_fidelity_grant,6e-06,ratio,C,,data/mission-2026-11-14/grant-rail-shares-panel-2026.csv (Fidelity Charitable 2024),all sponsors' max yearly 4966 returns / Fidelity's 'nearly 2.7m' 2024 grants alone; an upper bound on taxed events per grant across the industry
+ofac_scope,2021,,release_rows_read,19.0,releases,F,,https://ofac.treasury.gov/civil-penalties-and-enforcement-information/2021-enforcement-information,"no release names a charity, foundation, DAF sponsor or donor platform"
+ofac_scope,2022,,release_rows_read,16.0,releases,F,,https://ofac.treasury.gov/civil-penalties-and-enforcement-information/2022-enforcement-information,"no release names a charity, foundation, DAF sponsor or donor platform"
+ofac_scope,2023,,release_rows_read,16.0,releases,F,,https://ofac.treasury.gov/civil-penalties-and-enforcement-information/2023-enforcement-information,"no release names a charity, foundation, DAF sponsor or donor platform"
+ofac_scope,2024,,release_rows_read,12.0,releases,F,,https://ofac.treasury.gov/civil-penalties-and-enforcement-information/2024-enforcement-information,"no release names a charity, foundation, DAF sponsor or donor platform"
+ofac_scope,2025,,release_rows_read,14.0,releases,F,,https://ofac.treasury.gov/civil-penalties-and-enforcement-information/2025-enforcement-information,"no release names a charity, foundation, DAF sponsor or donor platform"
+ofac_scope,2026 YTD,,release_rows_read,10.0,releases,F,,https://ofac.treasury.gov/civil-penalties-and-enforcement-information,"no release names a charity, foundation, DAF sponsor or donor platform"
+ofac,BITPAY_2021,"BitPay, Inc.",penalty_usd,507375.0,usd,F,,https://ofac.treasury.gov/media/54341/download?inline,2021-02-18; crypto payment processor for merchants; VSD no; egregious no
+ofac,BITPAY_2021,"BitPay, Inc.",apparent_violations,2102.0,count,F,,https://ofac.treasury.gov/media/54341/download?inline,group processor; count basis: stated
+ofac,BITPAY_2021,"BitPay, Inc.",usd_per_violation,241.37726,usd,C,,https://ofac.treasury.gov/media/54341/download?inline,
+ofac,BITPAY_2021,"BitPay, Inc.",m_conditional_P14_units,17.412246,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/54341/download?inline,
+ofac,BITPAY_2021,"BitPay, Inc.",violating_value_usd,129000.0,usd,F,,https://ofac.treasury.gov/media/54341/download?inline,
+ofac,BITPAY_2021,"BitPay, Inc.",statutory_max_usd,619689816.0,usd,F,,https://ofac.treasury.gov/media/54341/download?inline,
+ofac,BITPAY_2021,"BitPay, Inc.",base_penalty_usd,2255000.0,usd,F,,https://ofac.treasury.gov/media/54341/download?inline,
+ofac,BITPAY_2021,"BitPay, Inc.",penalty_per_usd_violating_value,3.93314,ratio,C,,https://ofac.treasury.gov/media/54341/download?inline,
+ofac,BITPAY_2021,"BitPay, Inc.",penalty_share_of_base,0.225,ratio,C,,https://ofac.treasury.gov/media/54341/download?inline,
+ofac,MONEYGRAM_2021,"MoneyGram Payment Systems, Inc.",penalty_usd,34328.78,usd,F,,https://ofac.treasury.gov/media/97356/download?inline,2021-04-29; money transmitter; VSD yes; egregious no
+ofac,MONEYGRAM_2021,"MoneyGram Payment Systems, Inc.",apparent_violations,359.0,count,F,,https://ofac.treasury.gov/media/97356/download?inline,group processor; count basis: stated
+ofac,MONEYGRAM_2021,"MoneyGram Payment Systems, Inc.",usd_per_violation,95.623343,usd,C,,https://ofac.treasury.gov/media/97356/download?inline,
+ofac,MONEYGRAM_2021,"MoneyGram Payment Systems, Inc.",m_conditional_P14_units,6.897987,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/97356/download?inline,
+ofac,MONEYGRAM_2021,"MoneyGram Payment Systems, Inc.",statutory_max_usd,302938437.0,usd,F,,https://ofac.treasury.gov/media/97356/download?inline,
+ofac,MONEYGRAM_2021,"MoneyGram Payment Systems, Inc.",base_penalty_usd,52813.5,usd,F,,https://ofac.treasury.gov/media/97356/download?inline,
+ofac,MONEYGRAM_2021,"MoneyGram Payment Systems, Inc.",penalty_share_of_base,0.65,ratio,C,,https://ofac.treasury.gov/media/97356/download?inline,
+ofac,PAYONEER_2021,Payoneer Inc.,penalty_usd,1385901.4,usd,F,,https://ofac.treasury.gov/media/911571/download?inline,"2021-07-23; online money transmitter and prepaid access; VSD partly (19 of 2,220); egregious no"
+ofac,PAYONEER_2021,Payoneer Inc.,apparent_violations,2220.0,count,F,,https://ofac.treasury.gov/media/911571/download?inline,group processor; count basis: stated
+ofac,PAYONEER_2021,Payoneer Inc.,usd_per_violation,624.27991,usd,C,,https://ofac.treasury.gov/media/911571/download?inline,
+ofac,PAYONEER_2021,Payoneer Inc.,m_conditional_P14_units,45.033718,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/911571/download?inline,
+ofac,PAYONEER_2021,Payoneer Inc.,violating_value_usd,793950.7,usd,F,,https://ofac.treasury.gov/media/911571/download?inline,
+ofac,PAYONEER_2021,Payoneer Inc.,statutory_max_usd,654357316.0,usd,F,,https://ofac.treasury.gov/media/911571/download?inline,
+ofac,PAYONEER_2021,Payoneer Inc.,base_penalty_usd,3849726.0,usd,F,,https://ofac.treasury.gov/media/911571/download?inline,
+ofac,PAYONEER_2021,Payoneer Inc.,penalty_per_usd_violating_value,1.745576,ratio,C,,https://ofac.treasury.gov/media/911571/download?inline,
+ofac,PAYONEER_2021,Payoneer Inc.,penalty_share_of_base,0.36,ratio,C,,https://ofac.treasury.gov/media/911571/download?inline,
+ofac,AIRBNB_2022,"Airbnb Payments, Inc.",penalty_usd,91172.29,usd,F,,https://ofac.treasury.gov/media/917236/download?inline,2022-01-03; payments subsidiary (registered MSB); VSD yes; egregious no
+ofac,AIRBNB_2022,"Airbnb Payments, Inc.",apparent_violations,6584.0,count,C,,https://ofac.treasury.gov/media/917236/download?inline,"group processor; count basis: sum (3,464 + 3,076 extrapolated, 44 confirmed; 3,076 are record-keeping)"
+ofac,AIRBNB_2022,"Airbnb Payments, Inc.",usd_per_violation,13.847553,usd,C,,https://ofac.treasury.gov/media/917236/download?inline,
+ofac,AIRBNB_2022,"Airbnb Payments, Inc.",m_conditional_P14_units,0.998922,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/917236/download?inline,
+ofac,AIRBNB_2022,"Airbnb Payments, Inc.",statutory_max_usd,600601408.0,usd,F,,https://ofac.treasury.gov/media/917236/download?inline,
+ofac,AIRBNB_2022,"Airbnb Payments, Inc.",base_penalty_usd,364689.0,usd,F,,https://ofac.treasury.gov/media/917236/download?inline,
+ofac,AIRBNB_2022,"Airbnb Payments, Inc.",penalty_share_of_base,0.25,ratio,C,,https://ofac.treasury.gov/media/917236/download?inline,
+ofac,AMEX_2022,American Express National Bank,penalty_usd,430500.0,usd,F,,https://ofac.treasury.gov/media/924406/download?inline,2022-07-15; card issuer; one high-confidence screening alert closed in error; VSD no; egregious no
+ofac,AMEX_2022,American Express National Bank,apparent_violations,214.0,count,F,,https://ofac.treasury.gov/media/924406/download?inline,group processor; count basis: stated
+ofac,AMEX_2022,American Express National Bank,usd_per_violation,2011.682243,usd,C,,https://ofac.treasury.gov/media/924406/download?inline,
+ofac,AMEX_2022,American Express National Bank,m_conditional_P14_units,145.116843,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/924406/download?inline,
+ofac,AMEX_2022,American Express National Bank,violating_value_usd,155189.42,usd,F,,https://ofac.treasury.gov/media/924406/download?inline,
+ofac,AMEX_2022,American Express National Bank,statutory_max_usd,331288050.0,usd,F,,https://ofac.treasury.gov/media/924406/download?inline,
+ofac,AMEX_2022,American Express National Bank,base_penalty_usd,574000.0,usd,F,,https://ofac.treasury.gov/media/924406/download?inline,
+ofac,AMEX_2022,American Express National Bank,penalty_per_usd_violating_value,2.774029,ratio,C,,https://ofac.treasury.gov/media/924406/download?inline,
+ofac,AMEX_2022,American Express National Bank,penalty_share_of_base,0.75,ratio,C,,https://ofac.treasury.gov/media/924406/download?inline,
+ofac,AMEX_2022,American Express National Bank,usd_per_missed_alert,430500.0,usd,C,,https://ofac.treasury.gov/media/924406/download?inline,one high-confidence alert closed by an analyst; 214 violations followed
+ofac,AMEX_2022,American Express National Bank,m_conditional_P14_units_per_missed_alert,31055.004509,handling units,C,,https://ofac.treasury.gov/media/924406/download?inline,
+ofac,TANGO_2022,"Tango Card, Inc.",penalty_usd,116048.6,usd,F,,https://ofac.treasury.gov/media/928326/download?inline,2022-09-30; electronic rewards / stored value; VSD yes; egregious no
+ofac,TANGO_2022,"Tango Card, Inc.",apparent_violations,27720.0,count,F,,https://ofac.treasury.gov/media/928326/download?inline,"group processor; count basis: stated ('at least 27,720 stored value products')"
+ofac,TANGO_2022,"Tango Card, Inc.",usd_per_violation,4.186457,usd,C,,https://ofac.treasury.gov/media/928326/download?inline,
+ofac,TANGO_2022,"Tango Card, Inc.",m_conditional_P14_units,0.301999,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/928326/download?inline,
+ofac,TANGO_2022,"Tango Card, Inc.",violating_value_usd,386828.65,usd,F,,https://ofac.treasury.gov/media/928326/download?inline,
+ofac,TANGO_2022,"Tango Card, Inc.",statutory_max_usd,9168949062.0,usd,F,,https://ofac.treasury.gov/media/928326/download?inline,
+ofac,TANGO_2022,"Tango Card, Inc.",base_penalty_usd,193414.33,usd,F,,https://ofac.treasury.gov/media/928326/download?inline,
+ofac,TANGO_2022,"Tango Card, Inc.",penalty_per_usd_violating_value,0.3,ratio,C,,https://ofac.treasury.gov/media/928326/download?inline,
+ofac,TANGO_2022,"Tango Card, Inc.",penalty_share_of_base,0.6,ratio,C,,https://ofac.treasury.gov/media/928326/download?inline,
+ofac,DAVINCI_2023,"Swift Prepaid Solutions, Inc. d/b/a daVinci Payments",penalty_usd,206213.0,usd,F,,https://ofac.treasury.gov/media/932276/download?inline,"2023-11-06; prepaid reward card programmes (corporate, non-profit, government clients); VSD yes; egregious no"
+ofac,DAVINCI_2023,"Swift Prepaid Solutions, Inc. d/b/a daVinci Payments",apparent_violations,12391.0,count,F,,https://ofac.treasury.gov/media/932276/download?inline,group processor; count basis: stated
+ofac,DAVINCI_2023,"Swift Prepaid Solutions, Inc. d/b/a daVinci Payments",usd_per_violation,16.64216,usd,C,,https://ofac.treasury.gov/media/932276/download?inline,
+ofac,DAVINCI_2023,"Swift Prepaid Solutions, Inc. d/b/a daVinci Payments",m_conditional_P14_units,1.200516,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/932276/download?inline,
+ofac,DAVINCI_2023,"Swift Prepaid Solutions, Inc. d/b/a daVinci Payments",violating_value_usd,549134.89,usd,F,,https://ofac.treasury.gov/media/932276/download?inline,
+ofac,DAVINCI_2023,"Swift Prepaid Solutions, Inc. d/b/a daVinci Payments",statutory_max_usd,4399759685.0,usd,F,,https://ofac.treasury.gov/media/932276/download?inline,
+ofac,DAVINCI_2023,"Swift Prepaid Solutions, Inc. d/b/a daVinci Payments",base_penalty_usd,274950.0,usd,F,,https://ofac.treasury.gov/media/932276/download?inline,
+ofac,DAVINCI_2023,"Swift Prepaid Solutions, Inc. d/b/a daVinci Payments",penalty_per_usd_violating_value,0.375523,ratio,C,,https://ofac.treasury.gov/media/932276/download?inline,
+ofac,DAVINCI_2023,"Swift Prepaid Solutions, Inc. d/b/a daVinci Payments",penalty_share_of_base,0.750002,ratio,C,,https://ofac.treasury.gov/media/932276/download?inline,
+ofac,UPHOLD_2023,Uphold HQ Inc.,penalty_usd,72230.32,usd,F,,https://ofac.treasury.gov/media/931556/download?inline,2023-03-31; money services business; cross-border remittance and multi-asset platform; VSD yes; egregious no
+ofac,UPHOLD_2023,Uphold HQ Inc.,apparent_violations,152.0,count,F,,https://ofac.treasury.gov/media/931556/download?inline,group processor; count basis: stated (152 transactions)
+ofac,UPHOLD_2023,Uphold HQ Inc.,usd_per_violation,475.199474,usd,C,,https://ofac.treasury.gov/media/931556/download?inline,
+ofac,UPHOLD_2023,Uphold HQ Inc.,m_conditional_P14_units,34.279493,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/931556/download?inline,
+ofac,UPHOLD_2023,Uphold HQ Inc.,violating_value_usd,180575.8,usd,F,,https://ofac.treasury.gov/media/931556/download?inline,
+ofac,UPHOLD_2023,Uphold HQ Inc.,statutory_max_usd,44468494.0,usd,F,,https://ofac.treasury.gov/media/931556/download?inline,
+ofac,UPHOLD_2023,Uphold HQ Inc.,base_penalty_usd,90288.9,usd,F,,https://ofac.treasury.gov/media/931556/download?inline,
+ofac,UPHOLD_2023,Uphold HQ Inc.,penalty_per_usd_violating_value,0.4,ratio,C,,https://ofac.treasury.gov/media/931556/download?inline,
+ofac,UPHOLD_2023,Uphold HQ Inc.,penalty_share_of_base,0.799991,ratio,C,,https://ofac.treasury.gov/media/931556/download?inline,
+ofac,KRAKEN_2022,"Payward, Inc. d/b/a Kraken",penalty_usd,362158.7,usd,F,,https://ofac.treasury.gov/media/929541/download?inline,2022-11-28; virtual currency exchange; VSD yes; egregious no
+ofac,KRAKEN_2022,"Payward, Inc. d/b/a Kraken",apparent_violations,826.0,count,F,,https://ofac.treasury.gov/media/929541/download?inline,group crypto; count basis: stated
+ofac,KRAKEN_2022,"Payward, Inc. d/b/a Kraken",usd_per_violation,438.448789,usd,C,,https://ofac.treasury.gov/media/929541/download?inline,
+ofac,KRAKEN_2022,"Payward, Inc. d/b/a Kraken",m_conditional_P14_units,31.628407,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/929541/download?inline,
+ofac,KRAKEN_2022,"Payward, Inc. d/b/a Kraken",violating_value_usd,1680577.1,usd,F,,https://ofac.treasury.gov/media/929541/download?inline,
+ofac,KRAKEN_2022,"Payward, Inc. d/b/a Kraken",statutory_max_usd,272228964.0,usd,F,,https://ofac.treasury.gov/media/929541/download?inline,
+ofac,KRAKEN_2022,"Payward, Inc. d/b/a Kraken",base_penalty_usd,840288.55,usd,F,,https://ofac.treasury.gov/media/929541/download?inline,
+ofac,KRAKEN_2022,"Payward, Inc. d/b/a Kraken",penalty_per_usd_violating_value,0.215497,ratio,C,,https://ofac.treasury.gov/media/929541/download?inline,
+ofac,KRAKEN_2022,"Payward, Inc. d/b/a Kraken",penalty_share_of_base,0.430993,ratio,C,,https://ofac.treasury.gov/media/929541/download?inline,
+ofac,BITTREX_2022,"Bittrex, Inc.",penalty_usd,24280829.2,usd,F,,https://ofac.treasury.gov/media/928746/download?inline,2022-10-11; virtual currency exchange and hosted wallet; VSD no; egregious no
+ofac,BITTREX_2022,"Bittrex, Inc.",apparent_violations,116421.0,count,F,,https://ofac.treasury.gov/media/928746/download?inline,group crypto; count basis: stated
+ofac,BITTREX_2022,"Bittrex, Inc.",usd_per_violation,208.560562,usd,C,,https://ofac.treasury.gov/media/928746/download?inline,
+ofac,BITTREX_2022,"Bittrex, Inc.",m_conditional_P14_units,15.044946,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/928746/download?inline,
+ofac,BITTREX_2022,"Bittrex, Inc.",violating_value_usd,263451600.13,usd,F,,https://ofac.treasury.gov/media/928746/download?inline,
+ofac,BITTREX_2022,"Bittrex, Inc.",statutory_max_usd,35773364108.57,usd,F,,https://ofac.treasury.gov/media/928746/download?inline,
+ofac,BITTREX_2022,"Bittrex, Inc.",base_penalty_usd,485616584.0,usd,F,,https://ofac.treasury.gov/media/928746/download?inline,
+ofac,BITTREX_2022,"Bittrex, Inc.",penalty_per_usd_violating_value,0.092164,ratio,C,,https://ofac.treasury.gov/media/928746/download?inline,
+ofac,BITTREX_2022,"Bittrex, Inc.",penalty_share_of_base,0.05,ratio,C,,https://ofac.treasury.gov/media/928746/download?inline,
+ofac,POLONIEX_2023,"Poloniex, LLC",penalty_usd,7591630.0,usd,F,,https://ofac.treasury.gov/media/931701/download?inline,2023-05-01; digital asset trading platform; VSD no; egregious no
+ofac,POLONIEX_2023,"Poloniex, LLC",apparent_violations,65942.0,count,F,,https://ofac.treasury.gov/media/931701/download?inline,group crypto; count basis: stated
+ofac,POLONIEX_2023,"Poloniex, LLC",usd_per_violation,115.125868,usd,C,,https://ofac.treasury.gov/media/931701/download?inline,
+ofac,POLONIEX_2023,"Poloniex, LLC",m_conditional_P14_units,8.304842,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/931701/download?inline,
+ofac,POLONIEX_2023,"Poloniex, LLC",violating_value_usd,15335349.0,usd,F,,https://ofac.treasury.gov/media/931701/download?inline,
+ofac,POLONIEX_2023,"Poloniex, LLC",statutory_max_usd,19692872800.0,usd,F,,https://ofac.treasury.gov/media/931701/download?inline,
+ofac,POLONIEX_2023,"Poloniex, LLC",base_penalty_usd,99237000.0,usd,F,,https://ofac.treasury.gov/media/931701/download?inline,
+ofac,POLONIEX_2023,"Poloniex, LLC",penalty_per_usd_violating_value,0.495041,ratio,C,,https://ofac.treasury.gov/media/931701/download?inline,
+ofac,POLONIEX_2023,"Poloniex, LLC",penalty_share_of_base,0.0765,ratio,C,,https://ofac.treasury.gov/media/931701/download?inline,
+ofac,COINLIST_2023,CoinList Markets LLC,penalty_usd,1207830.0,usd,F,,https://ofac.treasury.gov/media/932406/download?inline,2023-12-13; virtual currency exchange; VSD no; egregious no
+ofac,COINLIST_2023,CoinList Markets LLC,apparent_violations,989.0,count,F,,https://ofac.treasury.gov/media/932406/download?inline,group crypto; count basis: stated
+ofac,COINLIST_2023,CoinList Markets LLC,usd_per_violation,1221.263903,usd,C,,https://ofac.treasury.gov/media/932406/download?inline,
+ofac,COINLIST_2023,CoinList Markets LLC,m_conditional_P14_units,88.098388,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/932406/download?inline,
+ofac,COINLIST_2023,CoinList Markets LLC,violating_value_usd,1252280.0,usd,F,,https://ofac.treasury.gov/media/932406/download?inline,
+ofac,COINLIST_2023,CoinList Markets LLC,statutory_max_usd,327306583.0,usd,F,,https://ofac.treasury.gov/media/932406/download?inline,
+ofac,COINLIST_2023,CoinList Markets LLC,base_penalty_usd,3097000.0,usd,F,,https://ofac.treasury.gov/media/932406/download?inline,
+ofac,COINLIST_2023,CoinList Markets LLC,penalty_per_usd_violating_value,0.964505,ratio,C,,https://ofac.treasury.gov/media/932406/download?inline,
+ofac,COINLIST_2023,CoinList Markets LLC,penalty_share_of_base,0.39,ratio,C,,https://ofac.treasury.gov/media/932406/download?inline,
+ofac,BINANCE_2023,"Binance Holdings, Ltd.",penalty_usd,968618825.0,usd,F,,https://ofac.treasury.gov/media/932351/download?inline,2023-11-21; virtual currency exchange; VSD no; egregious yes
+ofac,BINANCE_2023,"Binance Holdings, Ltd.",apparent_violations,1667153.0,count,F,,https://ofac.treasury.gov/media/932351/download?inline,group crypto; count basis: stated
+ofac,BINANCE_2023,"Binance Holdings, Ltd.",usd_per_violation,581.001759,usd,C,,https://ofac.treasury.gov/media/932351/download?inline,
+ofac,BINANCE_2023,"Binance Holdings, Ltd.",m_conditional_P14_units,41.911759,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/932351/download?inline,
+ofac,BINANCE_2023,"Binance Holdings, Ltd.",violating_value_usd,706068127.0,usd,F,,https://ofac.treasury.gov/media/932351/download?inline,
+ofac,BINANCE_2023,"Binance Holdings, Ltd.",statutory_max_usd,592133829398.0,usd,F,,https://ofac.treasury.gov/media/932351/download?inline,
+ofac,BINANCE_2023,"Binance Holdings, Ltd.",penalty_per_usd_violating_value,1.371849,ratio,C,,https://ofac.treasury.gov/media/932351/download?inline,
+ofac,SHAPESHIFT_2025,ShapeShift AG,penalty_usd,750000.0,usd,F,,https://ofac.treasury.gov/media/934641/download?inline,2025-09-22; digital asset exchange (defunct; ability to pay considered); VSD no; egregious no
+ofac,SHAPESHIFT_2025,ShapeShift AG,apparent_violations,17183.0,count,C,,https://ofac.treasury.gov/media/934641/download?inline,"group crypto; count basis: sum (39 CACR + 16,839 ITSR + 33 SSR + 272 SySR = '17,183 instances')"
+ofac,SHAPESHIFT_2025,ShapeShift AG,usd_per_violation,43.647791,usd,C,,https://ofac.treasury.gov/media/934641/download?inline,
+ofac,SHAPESHIFT_2025,ShapeShift AG,m_conditional_P14_units,3.148623,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/934641/download?inline,
+ofac,SHAPESHIFT_2025,ShapeShift AG,violating_value_usd,12570956.0,usd,F,,https://ofac.treasury.gov/media/934641/download?inline,
+ofac,SHAPESHIFT_2025,ShapeShift AG,base_penalty_usd,39515000.0,usd,F,,https://ofac.treasury.gov/media/934641/download?inline,
+ofac,SHAPESHIFT_2025,ShapeShift AG,penalty_per_usd_violating_value,0.059661,ratio,C,,https://ofac.treasury.gov/media/934641/download?inline,
+ofac,SHAPESHIFT_2025,ShapeShift AG,penalty_share_of_base,0.01898,ratio,C,,https://ofac.treasury.gov/media/934641/download?inline,
+ofac,EXODUS_2025,"Exodus Movement, Inc.",penalty_usd,3103360.0,usd,F,,https://ofac.treasury.gov/media/934831/download?inline,2025-12-16; self-custody wallet software; staff advised Iran users on VPNs; VSD no; egregious 12 of 254
+ofac,EXODUS_2025,"Exodus Movement, Inc.",apparent_violations,254.0,count,F,,https://ofac.treasury.gov/media/934831/download?inline,group crypto; count basis: stated
+ofac,EXODUS_2025,"Exodus Movement, Inc.",usd_per_violation,12217.952756,usd,C,,https://ofac.treasury.gov/media/934831/download?inline,
+ofac,EXODUS_2025,"Exodus Movement, Inc.",m_conditional_P14_units,881.367196,handling units,C,P14 base handling 15 min x $55.45/h; P(enforce)=1,https://ofac.treasury.gov/media/934831/download?inline,
+ofac,EXODUS_2025,"Exodus Movement, Inc.",base_penalty_usd,4774400.0,usd,F,,https://ofac.treasury.gov/media/934831/download?inline,
+ofac,EXODUS_2025,"Exodus Movement, Inc.",penalty_share_of_base,0.65,ratio,C,,https://ofac.treasury.gov/media/934831/download?inline,
+ofac_range,processor_min,,usd_per_violation,4.186457,usd,C,,,n=8
+ofac_range,processor_median,,usd_per_violation,168.500301,usd,C,,,n=8
+ofac_range,processor_max,,usd_per_violation,2011.682243,usd,C,,,n=8
+ofac_range,processor_min,,m_conditional_P14_units,0.301999,handling units,C,P(enforce)=1,,
+ofac_range,processor_median,,m_conditional_P14_units,12.155116,handling units,C,P(enforce)=1,,
+ofac_range,processor_max,,m_conditional_P14_units,145.116843,handling units,C,P(enforce)=1,,
+ofac_range,crypto_min,,usd_per_violation,43.647791,usd,C,,,n=7
+ofac_range,crypto_median,,usd_per_violation,438.448789,usd,C,,,n=7
+ofac_range,crypto_max,,usd_per_violation,12217.952756,usd,C,,,n=7
+ofac_range,crypto_min,,m_conditional_P14_units,3.148623,handling units,C,P(enforce)=1,,
+ofac_range,crypto_median,,m_conditional_P14_units,31.628407,handling units,C,P(enforce)=1,,
+ofac_range,crypto_max,,m_conditional_P14_units,881.367196,handling units,C,P(enforce)=1,,
+ofac_range,all_min,,usd_per_violation,4.186457,usd,C,,,n=15
+ofac_range,all_median,,usd_per_violation,241.37726,usd,C,,,n=15
+ofac_range,all_max,,usd_per_violation,12217.952756,usd,C,,,n=15
+ofac_range,all_min,,m_conditional_P14_units,0.301999,handling units,C,P(enforce)=1,,
+ofac_range,all_median,,m_conditional_P14_units,17.412246,handling units,C,P(enforce)=1,,
+ofac_range,all_max,,m_conditional_P14_units,881.367196,handling units,C,P(enforce)=1,,
+m_process,w38b_baseline_low,,m_P01,1.0,handling units,C+I,P07 p=0.01; P08=correction unit; P01/P14 bank p=0.01; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_process,w38b_baseline_low,,m_P07,1.012023,handling units,C+I,P07 p=0.01; P08=correction unit; P01/P14 bank p=0.01; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_process,w38b_baseline_low,,m_P08,1.0,handling units,C+I,P07 p=0.01; P08=correction unit; P01/P14 bank p=0.01; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_process,w38b_baseline_low,,m_P14,1.0,handling units,C+I,P07 p=0.01; P08=correction unit; P01/P14 bank p=0.01; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_composite,w38b_baseline_low,,m_weighted_P01_P15,1.004222,handling units,C+I,P07 p=0.01; P08=correction unit; P01/P14 bank p=0.01; grant=500; m_oper=1; t=0; alloc=0.25,,AI-amenable-pool-weighted (ee.weights); P08 at its correction unit per wave 38B
+m_process,irs_bounded_low,,m_P01,1.0,handling units,C+I,P07 p=0.0011513; P08=correction unit; P01/P14 bank p=0.01; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_process,irs_bounded_low,,m_P07,1.001384,handling units,C+I,P07 p=0.0011513; P08=correction unit; P01/P14 bank p=0.01; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_process,irs_bounded_low,,m_P08,1.0,handling units,C+I,P07 p=0.0011513; P08=correction unit; P01/P14 bank p=0.01; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_process,irs_bounded_low,,m_P14,1.0,handling units,C+I,P07 p=0.0011513; P08=correction unit; P01/P14 bank p=0.01; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_composite,irs_bounded_low,,m_weighted_P01_P15,1.000486,handling units,C+I,P07 p=0.0011513; P08=correction unit; P01/P14 bank p=0.01; grant=500; m_oper=1; t=0; alloc=0.25,,AI-amenable-pool-weighted (ee.weights); P08 at its correction unit per wave 38B
+m_process,irs_bounded_ofac_low,,m_P01,1.00302,handling units,C+I,P07 p=0.0011513; P08=correction unit; P01/P14 ofac p=0.01 usd=4.19; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_process,irs_bounded_ofac_low,,m_P07,1.001384,handling units,C+I,P07 p=0.0011513; P08=correction unit; P01/P14 ofac p=0.01 usd=4.19; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_process,irs_bounded_ofac_low,,m_P08,1.0,handling units,C+I,P07 p=0.0011513; P08=correction unit; P01/P14 ofac p=0.01 usd=4.19; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_process,irs_bounded_ofac_low,,m_P14,1.00302,handling units,C+I,P07 p=0.0011513; P08=correction unit; P01/P14 ofac p=0.01 usd=4.19; grant=500; m_oper=1; t=0; alloc=0.25,,
+m_composite,irs_bounded_ofac_low,,m_weighted_P01_P15,1.000609,handling units,C+I,P07 p=0.0011513; P08=correction unit; P01/P14 ofac p=0.01 usd=4.19; grant=500; m_oper=1; t=0; alloc=0.25,,AI-amenable-pool-weighted (ee.weights); P08 at its correction unit per wave 38B
+m_process,w38b_baseline_central,,m_P01,7.33901,handling units,C+I,P07 p=0.1; P08=correction unit; P01/P14 bank p=0.1; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_process,w38b_baseline_central,,m_P07,2.22633,handling units,C+I,P07 p=0.1; P08=correction unit; P01/P14 bank p=0.1; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_process,w38b_baseline_central,,m_P08,1.0,handling units,C+I,P07 p=0.1; P08=correction unit; P01/P14 bank p=0.1; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_process,w38b_baseline_central,,m_P14,7.33901,handling units,C+I,P07 p=0.1; P08=correction unit; P01/P14 bank p=0.1; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_composite,w38b_baseline_central,,m_weighted_P01_P15,2.195914,handling units,C+I,P07 p=0.1; P08=correction unit; P01/P14 bank p=0.1; grant=5100; m_oper=2; t=0.01; alloc=0.5,,AI-amenable-pool-weighted (ee.weights); P08 at its correction unit per wave 38B
+m_process,irs_bounded_central,,m_P01,7.33901,handling units,C+I,P07 p=0.0018464; P08=correction unit; P01/P14 bank p=0.1; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_process,irs_bounded_central,,m_P07,1.022643,handling units,C+I,P07 p=0.0018464; P08=correction unit; P01/P14 bank p=0.1; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_process,irs_bounded_central,,m_P08,1.0,handling units,C+I,P07 p=0.0018464; P08=correction unit; P01/P14 bank p=0.1; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_process,irs_bounded_central,,m_P14,7.33901,handling units,C+I,P07 p=0.0018464; P08=correction unit; P01/P14 bank p=0.1; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_composite,irs_bounded_central,,m_weighted_P01_P15,1.773189,handling units,C+I,P07 p=0.0018464; P08=correction unit; P01/P14 bank p=0.1; grant=5100; m_oper=2; t=0.01; alloc=0.5,,AI-amenable-pool-weighted (ee.weights); P08 at its correction unit per wave 38B
+m_process,irs_bounded_ofac_central,,m_P01,2.215512,handling units,C+I,P07 p=0.0018464; P08=correction unit; P01/P14 ofac p=0.1 usd=168.50; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_process,irs_bounded_ofac_central,,m_P07,1.022643,handling units,C+I,P07 p=0.0018464; P08=correction unit; P01/P14 ofac p=0.1 usd=168.50; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_process,irs_bounded_ofac_central,,m_P08,1.0,handling units,C+I,P07 p=0.0018464; P08=correction unit; P01/P14 ofac p=0.1 usd=168.50; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_process,irs_bounded_ofac_central,,m_P14,2.215512,handling units,C+I,P07 p=0.0018464; P08=correction unit; P01/P14 ofac p=0.1 usd=168.50; grant=5100; m_oper=2; t=0.01; alloc=0.5,,
+m_composite,irs_bounded_ofac_central,,m_weighted_P01_P15,1.564377,handling units,C+I,P07 p=0.0018464; P08=correction unit; P01/P14 ofac p=0.1 usd=168.50; grant=5100; m_oper=2; t=0.01; alloc=0.5,,AI-amenable-pool-weighted (ee.weights); P08 at its correction unit per wave 38B
+m_process,w38b_baseline_high,,m_P01,1268.802082,handling units,C+I,P07 p=1; P08=correction unit; P01/P14 bank p=1; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_process,w38b_baseline_high,,m_P07,97.182747,handling units,C+I,P07 p=1; P08=correction unit; P01/P14 bank p=1; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_process,w38b_baseline_high,,m_P08,1.0,handling units,C+I,P07 p=1; P08=correction unit; P01/P14 bank p=1; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_process,w38b_baseline_high,,m_P14,1268.802082,handling units,C+I,P07 p=1; P08=correction unit; P01/P14 bank p=1; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_composite,w38b_baseline_high,,m_weighted_P01_P15,88.476181,handling units,C+I,P07 p=1; P08=correction unit; P01/P14 bank p=1; grant=40000; m_oper=5; t=0.1; alloc=1,,AI-amenable-pool-weighted (ee.weights); P08 at its correction unit per wave 38B
+m_process,irs_bounded_high,,m_P01,1268.802082,handling units,C+I,P07 p=0.0099206; P08=correction unit; P01/P14 bank p=1; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_process,irs_bounded_high,,m_P07,1.954194,handling units,C+I,P07 p=0.0099206; P08=correction unit; P01/P14 bank p=1; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_process,irs_bounded_high,,m_P08,1.0,handling units,C+I,P07 p=0.0099206; P08=correction unit; P01/P14 bank p=1; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_process,irs_bounded_high,,m_P14,1268.802082,handling units,C+I,P07 p=0.0099206; P08=correction unit; P01/P14 bank p=1; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_composite,irs_bounded_high,,m_weighted_P01_P15,55.032686,handling units,C+I,P07 p=0.0099206; P08=correction unit; P01/P14 bank p=1; grant=40000; m_oper=5; t=0.1; alloc=1,,AI-amenable-pool-weighted (ee.weights); P08 at its correction unit per wave 38B
+m_process,irs_bounded_ofac_high,,m_P01,146.116843,handling units,C+I,P07 p=0.0099206; P08=correction unit; P01/P14 ofac p=1 usd=2011.68; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_process,irs_bounded_ofac_high,,m_P07,1.954194,handling units,C+I,P07 p=0.0099206; P08=correction unit; P01/P14 ofac p=1 usd=2011.68; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_process,irs_bounded_ofac_high,,m_P08,1.0,handling units,C+I,P07 p=0.0099206; P08=correction unit; P01/P14 ofac p=1 usd=2011.68; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_process,irs_bounded_ofac_high,,m_P14,146.116843,handling units,C+I,P07 p=0.0099206; P08=correction unit; P01/P14 ofac p=1 usd=2011.68; grant=40000; m_oper=5; t=0.1; alloc=1,,
+m_composite,irs_bounded_ofac_high,,m_weighted_P01_P15,9.276974,handling units,C+I,P07 p=0.0099206; P08=correction unit; P01/P14 ofac p=1 usd=2011.68; grant=40000; m_oper=5; t=0.1; alloc=1,,AI-amenable-pool-weighted (ee.weights); P08 at its correction unit per wave 38B
+meta,efile_recount_PY2021,,efile_index_rows_990,305173.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2021/index_2021.csv,
+meta,efile_recount_PY2021,,efile_index_rows_990EZ,164035.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2021/index_2021.csv,
+meta,efile_recount_PY2021,,efile_index_rows_990PF,108644.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2021/index_2021.csv,
+meta,efile_recount_PY2022,,efile_index_rows_990,325555.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2022/index_2022.csv,
+meta,efile_recount_PY2022,,efile_index_rows_990EZ,189690.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2022/index_2022.csv,
+meta,efile_recount_PY2022,,efile_index_rows_990PF,117073.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2022/index_2022.csv,
+meta,efile_recount_PY2023,,efile_index_rows_990,347337.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2023/index_2023.csv,
+meta,efile_recount_PY2023,,efile_index_rows_990EZ,209957.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2023/index_2023.csv,
+meta,efile_recount_PY2023,,efile_index_rows_990PF,124666.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2023/index_2023.csv,
+meta,efile_recount_PY2024,,efile_index_rows_990,363100.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2024/index_2024.csv,
+meta,efile_recount_PY2024,,efile_index_rows_990EZ,215355.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2024/index_2024.csv,
+meta,efile_recount_PY2024,,efile_index_rows_990PF,126982.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2024/index_2024.csv,
+meta,efile_recount_PY2025,,efile_index_rows_990,376920.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2025/index_2025.csv,
+meta,efile_recount_PY2025,,efile_index_rows_990EZ,217102.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2025/index_2025.csv,
+meta,efile_recount_PY2025,,efile_index_rows_990PF,130347.0,returns,C,,https://apps.irs.gov/pub/epostcard/990/xml/2025/index_2025.csv,
+route,CAL_CENTRAL|NAT_LARGE|assist|calibrated,,sponsor_ai_gross_value_p50,444899.340812,usd/yr,S,,,p25=144745; p75=1062982
+route,CAL_CENTRAL|NAT_LARGE|assist|calibrated,,mean_p_C_rank_first_gross_P01_P15,0.002113,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|assist|calibrated,,P07_p_C_net_positive,0.307,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|m=1,,sponsor_ai_gross_value_p50,1364949.077639,usd/yr,S,,,p25=723892; p75=2609093
+route,CAL_CENTRAL|NAT_LARGE|route|m=1,,mean_p_C_rank_first_gross_P01_P15,0.01234,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|m=1,,P07_p_C_net_positive,0.6352,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|m=2.2,,sponsor_ai_gross_value_p50,1273475.022546,usd/yr,S,,,p25=676235; p75=2439507
+route,CAL_CENTRAL|NAT_LARGE|route|m=2.2,,mean_p_C_rank_first_gross_P01_P15,0.009453,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|m=2.2,,P07_p_C_net_positive,0.6115,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_low,,sponsor_ai_gross_value_p50,1364880.306374,usd/yr,S,,,p25=723874; p75=2609000
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_low,,mean_p_C_rank_first_gross_P01_P15,0.01234,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_low,,P07_p_C_net_positive,0.6352,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_ofac_low,,sponsor_ai_gross_value_p50,1364862.894595,usd/yr,S,,,p25=723869; p75=2608976
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_ofac_low,,mean_p_C_rank_first_gross_P01_P15,0.01234,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_ofac_low,,P07_p_C_net_positive,0.6352,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_w38b_baseline_central,,sponsor_ai_gross_value_p50,1274002.459092,usd/yr,S,,,p25=676388; p75=2440467
+route,CAL_CENTRAL|NAT_LARGE|route|composite_w38b_baseline_central,,mean_p_C_rank_first_gross_P01_P15,0.009467,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_w38b_baseline_central,,P07_p_C_net_positive,0.6118,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_central,,sponsor_ai_gross_value_p50,1305559.971375,usd/yr,S,,,p25=692624; p75=2495810
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_central,,mean_p_C_rank_first_gross_P01_P15,0.010313,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_central,,P07_p_C_net_positive,0.6207,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_ofac_central,,sponsor_ai_gross_value_p50,1321026.673731,usd/yr,S,,,p25=700424; p75=2528326
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_ofac_central,,mean_p_C_rank_first_gross_P01_P15,0.010867,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_ofac_central,,P07_p_C_net_positive,0.6249,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_high,,sponsor_ai_gross_value_p50,0.0,usd/yr,S,,,p25=0; p75=0
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_high,,mean_p_C_rank_first_gross_P01_P15,0.0005,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_high,,P07_p_C_net_positive,0.0687,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_ofac_high,,sponsor_ai_gross_value_p50,687994.849594,usd/yr,S,,,p25=320922; p75=1428875
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_ofac_high,,mean_p_C_rank_first_gross_P01_P15,0.00268,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|composite_irs_bounded_ofac_high,,P07_p_C_net_positive,0.4058,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_w38b_baseline_central,,sponsor_ai_gross_value_p50,1267323.69987,usd/yr,S,,,p25=672831; p75=2425921
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_w38b_baseline_central,,mean_p_C_rank_first_gross_P01_P15,0.009573,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_w38b_baseline_central,,P07_p_C_net_positive,0.6106,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_w38b_baseline_central,,sponsor_ai_gross_value_p50,1694109.246699,usd/yr,S,,,p25=915413; p75=3253150
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_w38b_baseline_central,,mean_p_C_rank_first_gross_P01_P15,0.032013,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_w38b_baseline_central,,P07_p_C_net_positive,0.7099,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_central,,sponsor_ai_gross_value_p50,1297171.968336,usd/yr,S,,,p25=689810; p75=2492079
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_central,,mean_p_C_rank_first_gross_P01_P15,0.01066,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_central,,P07_p_C_net_positive,0.635,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_central,,sponsor_ai_gross_value_p50,1729866.19434,usd/yr,S,,,p25=934193; p75=3306475
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_central,,mean_p_C_rank_first_gross_P01_P15,0.033887,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_central,,P07_p_C_net_positive,0.7268,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_ofac_central,,sponsor_ai_gross_value_p50,1319149.186155,usd/yr,S,,,p25=700586; p75=2525176
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_ofac_central,,mean_p_C_rank_first_gross_P01_P15,0.0108,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_ofac_central,,P07_p_C_net_positive,0.635,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_ofac_central,,sponsor_ai_gross_value_p50,1751682.276063,usd/yr,S,,,p25=945152; p75=3340549
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_ofac_central,,mean_p_C_rank_first_gross_P01_P15,0.035347,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_ofac_central,,P07_p_C_net_positive,0.7268,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_w38b_baseline_high,,sponsor_ai_gross_value_p50,634379.341937,usd/yr,S,,,p25=304216; p75=1262970
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_w38b_baseline_high,,mean_p_C_rank_first_gross_P01_P15,0.003,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_w38b_baseline_high,,P07_p_C_net_positive,0.0375,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_w38b_baseline_high,,sponsor_ai_gross_value_p50,902091.885909,usd/yr,S,,,p25=453984; p75=1772498
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_w38b_baseline_high,,mean_p_C_rank_first_gross_P01_P15,0.012907,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_w38b_baseline_high,,P07_p_C_net_positive,0.0615,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_high,,sponsor_ai_gross_value_p50,1113294.269448,usd/yr,S,,,p25=576813; p75=2142198
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_high,,mean_p_C_rank_first_gross_P01_P15,0.006947,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_high,,P07_p_C_net_positive,0.6167,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_high,,sponsor_ai_gross_value_p50,1515209.457131,usd/yr,S,,,p25=811531; p75=2908815
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_high,,mean_p_C_rank_first_gross_P01_P15,0.024907,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_high,,P07_p_C_net_positive,0.7136,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_ofac_high,,sponsor_ai_gross_value_p50,1115307.279941,usd/yr,S,,,p25=577999; p75=2148709
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_ofac_high,,mean_p_C_rank_first_gross_P01_P15,0.006947,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|route|process_specific_irs_bounded_ofac_high,,P07_p_C_net_positive,0.6167,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_ofac_high,,sponsor_ai_gross_value_p50,1517885.76126,usd/yr,S,,,p25=813735; p75=2917900
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_ofac_high,,mean_p_C_rank_first_gross_P01_P15,0.024953,prob,S,,,
+route,CAL_CENTRAL|NAT_LARGE|hybrid|process_specific_irs_bounded_ofac_high,,P07_p_C_net_positive,0.7136,prob,S,,,

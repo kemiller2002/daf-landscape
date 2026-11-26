@@ -1,0 +1,17 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/vitium/src/Vitium.Client/Vitium.Client.fsproj (in 258 ms).
+  Restored scratch:aincm/build/vitium/src/Vitium.Contracts/Vitium.Contracts.fsproj (in 258 ms).
+  Restored scratch:aincm/build/vitium/tests/Vitium.Interop/Vitium.Interop.fsproj (in 258 ms).
+  Restored scratch:aincm/build/vitium/tests/Vitium.Client.Smoke/Vitium.Client.Smoke.fsproj (in 258 ms).
+  Vitium.Contracts -> scratch:aincm/build/vitium/src/Vitium.Contracts/bin/Release/net10.0/Vitium.Contracts.dll
+  Vitium.Client -> scratch:aincm/build/vitium/tests/Vitium.Client.Smoke/Program.fs(137,1): warning FS0524: 'use' bindings are not permitted in modules and are treated as 'let' bindings [scratch:aincm/build/vitium/tests/Vitium.Client.Smoke/Program.fs(150,1): warning FS0524: 'use' bindings are not permitted in modules and are treated as 'let' bindings [scratch:aincm/build/vitium/tests/Vitium.Client.Smoke/Vitium.Client.Smoke.fsproj]
+  Vitium.Interop -> scratch:aincm/build/vitium/tests/Vitium.Interop/bin/Release/net10.0/Vitium.Interop.dll
+  Vitium.Client.Smoke -> scratch:aincm/build/vitium/tests/Vitium.Client.Smoke/bin/Release/net10.0/Vitium.Client.Smoke.dll
+
+Build succeeded.
+
+scratch:aincm/build/vitium/tests/Vitium.Client.Smoke/Program.fs(137,1): warning FS0524: 'use' bindings are not permitted in modules and are treated as 'let' bindings [scratch:aincm/build/vitium/tests/Vitium.Client.Smoke/Program.fs(150,1): warning FS0524: 'use' bindings are not permitted in modules and are treated as 'let' bindings [scratch:aincm/build/vitium/tests/Vitium.Client.Smoke/Vitium.Client.Smoke.fsproj]
+    2 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:07.13

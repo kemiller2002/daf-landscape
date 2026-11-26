@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-label="DAF Evidence Quadrant A3">
+<style>:root{--fg:#1f2328;--muted:#59636e;--grid:#d0d7de;--box:rgba(9,105,218,.12);--dot:#0969da}@media (prefers-color-scheme: dark){:root{--fg:#e6edf3;--muted:#9198a1;--grid:#3d444d;--box:rgba(88,166,255,.18);--dot:#58a6ff}}text{fill:var(--fg);font:12px system-ui,sans-serif}.m{fill:var(--muted)}</style>
+<rect x="70" y="70" width="580" height="580" fill="none" stroke="var(--grid)"/>
+<line x1="360.0" y1="70" x2="360.0" y2="650" stroke="var(--grid)"/>
+<line x1="70" y1="360.0" x2="650" y2="360.0" stroke="var(--grid)"/>
+<text x="360.0" y="30" text-anchor="middle" style="font-weight:600">DAF Evidence Quadrant — Sponsors for the adviser / wealth channel (blind)</text>
+<text x="360.0" y="695" text-anchor="middle" class="m">Evidenced Execution →</text>
+<text x="22" y="360.0" text-anchor="middle" class="m" transform="rotate(-90 22 360.0)">Evidenced Forward Capability →</text>
+<text x="505.0" y="91.75" text-anchor="middle" class="m">Proven Leaders</text>
+<text x="215.0" y="91.75" text-anchor="middle" class="m">Forward Builders</text>
+<text x="505.0" y="628.25" text-anchor="middle" class="m">Scale Operators</text>
+<text x="215.0" y="628.25" text-anchor="middle" class="m">Focused Specialists</text>
+<rect x="396.25" y="403.5" width="58.0" height="87.0" fill="var(--box)"/>
+<circle cx="432.5" cy="462.95" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="441.5" y="454.95">AEF</text>
+<rect x="316.5" y="135.25" width="174.0" height="493.0" fill="var(--box)"/>
+<circle cx="422.35" cy="505.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="431.35" y="497.0">BofA Charitable Gift Fund</text>
+<rect x="302.0" y="360.0" width="58.0" height="87.0" fill="var(--box)"/>
+<circle cx="328.1" cy="410.75" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="337.1" y="402.75">Charityvest (adviser programs)</text>
+<rect x="519.5" y="316.5" width="0.0" height="87.0" fill="var(--box)"/>
+<circle cx="519.5" cy="360.0" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="528.5" y="352.0">DAFgiving360</text>
+<rect x="534.0" y="360.0" width="0.0" height="87.0" fill="var(--box)"/>
+<circle cx="534.0" cy="410.75" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="543.0" y="402.75">Fidelity Charitable</text>
+<rect x="323.75" y="418.0" width="58.0" height="87.0" fill="var(--box)"/>
+<circle cx="351.3" cy="478.9" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="360.3" y="470.9">GiveClear</text>
+<rect x="316.5" y="135.25" width="174.0" height="493.0" fill="var(--box)"/>
+<circle cx="422.35" cy="505.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="431.35" y="497.0">Goldman Sachs Philanthropy Fund</text>
+<rect x="316.5" y="135.25" width="174.0" height="493.0" fill="var(--box)"/>
+<circle cx="422.35" cy="505.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="431.35" y="497.0">Morgan Stanley GIFT</text>
+<rect x="302.0" y="113.5" width="290.0" height="493.0" fill="var(--box)"/>
+<circle cx="534.0" cy="360.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="543.0" y="352.0">NCF</text>
+<rect x="512.25" y="251.25" width="58.0" height="232.0" fill="var(--box)"/>
+<circle cx="561.55" cy="371.6" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="570.55" y="363.6">NPT</text>
+<rect x="512.25" y="360.0" width="58.0" height="0.0" fill="var(--box)"/>
+<circle cx="561.55" cy="360.0" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="570.55" y="352.0">Renaissance Charitable Foundation</text>
+<rect x="534.0" y="381.75" width="0.0" height="87.0" fill="var(--box)"/>
+<circle cx="534.0" cy="436.85" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="543.0" y="428.85">Vanguard Charitable</text>
+<text x="70" y="712" class="m">Boxes = range if unknown criteria scored 0–4; hollow = evidence coverage &lt; 0.5. Not a Gartner Magic Quadrant.</text></svg>

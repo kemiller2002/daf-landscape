@@ -1,0 +1,76 @@
+sample,sponsor_ein,fiscal_year,line_index,hand_class,hand_org,hand_note
+np60,943007979,2023,501,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,416029402,2023,1162,host_alias,yes,"dba of host; another filer wrote ""THE PERFORMANCE ZONE INC AKA THE FIELD"""
+np60,527082731,2023,3958,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,527082731,2023,15993,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,846048381,2024,130,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,527082731,2024,13035,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,416029402,2024,1161,host_alias,yes,"dba of host; another filer wrote ""THE PERFORMANCE ZONE INC AKA THE FIELD"""
+np60,593652538,2023,3321,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,953510055,2024,1518,host_alias,yes,Former name of the host (Q-B15 list keyed this EIN from Schedule I lines filed as Trust for Conservation Innovation; BMF now MULTIPLIER)
+np60,846048381,2024,373,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,527082731,2024,7889,project_likely,yes,"Same-name BMF entity (CA) ruled 2024-10, at or after the grant year end; host is a directory fiscal sponsor"
+np60,916013536,2023,3461,host_alias,yes,Host full name (RVC = Rainier Valley Corps acronym); purpose text names a host program
+np60,916013536,2023,105,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,916013536,2023,1675,project_likely,yes,Named in the task brief as a Fractured Atlas project; purpose text consistent; not on a fetchable host directory (none public)
+np60,916013536,2023,1029,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,593652538,2024,4264,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,362167000,2023,2823,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,916013536,2023,3463,host_alias,yes,Host full name (RVC = Rainier Valley Corps acronym); purpose text names a host program
+np60,846048381,2023,1099,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,527082731,2023,7495,project_confirmed,yes,Listed on host directory tsne.org/our-fiscally-sponsored-projects-and-organizations (fetched 2026-11-20)
+np60,916013536,2023,4601,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,846048381,2023,206,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,846048381,2023,987,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,846048381,2024,594,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,916013536,2023,104,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,916013536,2023,1992,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,916013536,2023,5072,project_confirmed,yes,Listed on host fiscal-sponsorship page nwfilmforum.org (fetched 2026-11-20)
+np60,527082731,2023,6107,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,232888152,2023,10163,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,916013536,2023,253,project_own_ein,yes,"Separate BMF entity of the same name (WA, ruling 2022-12) predates the grant year: graduated project or misattributed EIN"
+np60,593001853,2023,231,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,527082731,2023,10670,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,916013536,2023,4143,project_likely,yes,"Same-name BMF entity (WA) ruled 2025-04, after the grant: plausibly a project that later gained its own exemption"
+np60,846048381,2024,415,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,846048381,2024,576,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,527082731,2024,185,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,846048381,2024,227,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,362167000,2024,633,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,237174183,2023,2311,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,042104021,2024,985,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,916013536,2023,79,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,311663020,2024,3595,host_program,yes,"Host own publication; NPT filed ""FOUNDATION FOR NATIONAL PROGRESS DBA MOTHER JONES"""
+np60,953510055,2023,497,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,846048381,2023,627,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,916013536,2023,4390,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,527082731,2023,15864,project_confirmed,yes,"Filed name itself names the host ""(TIDES CENTER)""; FBO rule also detects AROC as a Tides Center project (g0503-03 sample #20)"
+np60,916013536,2023,5180,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,846048381,2024,500,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,527082731,2024,822,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,593001853,2024,268,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,846048381,2023,121,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,916013536,2023,80,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,846048381,2023,21,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,311709466,2024,1182,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+np60,916013536,2023,2601,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,846048381,2024,53,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,846048381,2023,922,project_likely,yes,Named in the task brief as a Fractured Atlas project; purpose text consistent; not on a fetchable host directory (none public)
+np60,133062214,2023,1904,project_likely,yes,Distinct organisational name on a keyed fiscal-sponsor EIN; filing text consistent; no host-alias evidence; host directory not available for the grant year
+np60,362167000,2024,3772,host_program,yes,"Host own publication; NPT filed ""FOUNDATION FOR NATIONAL PROGRESS DBA MOTHER JONES"""
+np60,527082731,2023,320,host_alias,yes,"Former name of the host (KBFUS renamed Myriad USA); kbfus.org redirects to myriadusa.org; NPT filed ""MYRIAD USA AKA KING BAUDOUIN FOUNDATION UNITED STATES"""
+hx15,956111928,2023,255,host_alias,yes,Current name of the host (PHFE renamed Heluna Health)
+hx15,416029402,2024,442,project_likely,yes,Philanthropy Together named after host name on a Global Impact line
+hx15,916013536,2023,3691,project_likely,yes,Distinct project name; host is a fiscal sponsor (Sustainable Seattle)
+hx15,010679337,2023,160,host_alias,yes,"Host name variant, dba, aka or truncation"
+hx15,237825575,2024,5991,host_alias,yes,"Host name variant, dba, aka or truncation"
+hx15,311640316,2023,26916,host_alias,yes,"Host name variant, dba, aka or truncation"
+hx15,237825575,2023,8826,host_alias,yes,"Host name variant, dba, aka or truncation"
+hx15,916013536,2023,3697,project_likely,yes,Distinct project name; host is a fiscal sponsor (Sustainable Seattle)
+hx15,222281783,2023,1041,host_alias,yes,"Host name variant, dba, aka or truncation"
+hx15,237825575,2023,7806,host_alias,yes,"Host name variant, dba, aka or truncation"
+hx15,527082731,2023,1028,host_alias,yes,"Host name variant, dba, aka or truncation"
+hx15,311640316,2024,14687,host_alias,yes,"Host name variant, dba, aka or truncation"
+hx15,232888152,2023,11225,host_alias,yes,"Host name variant, dba, aka or truncation"
+hx15,311640316,2024,44393,host_alias,yes,"Host name variant, dba, aka or truncation"
+hx15,110303001,2024,76211,host_alias,yes,"Host name variant, dba, aka or truncation"

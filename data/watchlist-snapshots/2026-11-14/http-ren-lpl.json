@@ -1,0 +1,91 @@
+{
+  "check_id": "http-ren-lpl",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://www.reninc.com/lpl-rcf-daf/"
+      }
+    ],
+    "final_url": "https://www.reninc.com/lpl-rcf-daf/",
+    "form_actions": [],
+    "meta": {
+      "article:modified_time": "2026-11-13T20:06:14+00:00",
+      "description": "Learn how to establish a Renaissance Charitable donor-advised fund through LPL and prepare it for granting.",
+      "google-site-verification": "F8pluCabv1da3BcIgl5A9evYrVw-QQefwF81M7vTD_0",
+      "msapplication-tileimage": "https://www.reninc.com/wp-content/uploads/2025/08/cropped-ren_favicon-270x270.webp",
+      "og:description": "Learn how to establish a Renaissance Charitable donor-advised fund through LPL and prepare it for granting.",
+      "og:image": "https://www.reninc.com/wp-content/uploads/2025/11/og_1200x630-scaled.jpg",
+      "og:image:height": "1344",
+      "og:image:type": "image/jpeg",
+      "og:image:width": "2560",
+      "og:locale": "en_US",
+      "og:site_name": "REN",
+      "og:title": "Open an LPL donor-advised fund | Ren",
+      "og:type": "article",
+      "og:url": "https://www.reninc.com/lpl-rcf-daf/",
+      "robots": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      "theme-color": "#FFFFFF",
+      "twitter:card": "summary_large_image",
+      "viewport": "width=device-width, initial-scale=1"
+    },
+    "raw_sha256": "0b2f9a816eebe8ed75d14d1c69c878994928dc66b7d2596fe9b7386f0e535709",
+    "text_chars": 6328,
+    "text_sha256": "518979d01b7bc93a07f9c7a1f68005ff23dfdf85b667b37fd0b20dc628684545"
+  },
+  "entity": "Ren LPL RCF advisor page",
+  "error": "",
+  "observed_at_utc": "2026-11-14T13:50:41Z",
+  "ok": true,
+  "queue_items": "P-PRC-05",
+  "source_url": "https://www.reninc.com/lpl-rcf-daf/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "www.reninc.com"
+    ],
+    "final_host": "www.reninc.com",
+    "final_status": "200",
+    "footers": [
+      "\u00a9 2026 Ren. All rights reserved."
+    ],
+    "links": [
+      "https://rcf.donorfirstx.com/ | Log-in",
+      "https://rcf.donorfirstx.com/ | log-in",
+      "https://rcf.donorfirstx.com/ | rcf.donorfirstx.com",
+      "https://rcf.donorfirstx.com/account-application | start the application here",
+      "https://renaissancecharitable.org/wp-content/uploads/2026/01/Renaissance-Charitable-Foundation-Amended-and-Restated-Articles-of-Incorporation.pdf | Articles of Incorporation",
+      "https://www.reninc.com/wp-content/uploads/2025/09/LPL_Open-a-Donor-Advised-Fund_Clientworks.pdf | Review instructions",
+      "https://www.reninc.com/wp-content/uploads/2025/09/RCF-Investment-Policy-Statement_2025.pdf | Investment Policy Statement",
+      "https://www.reninc.com/wp-content/uploads/2026/05/2309-RCF-FRM-DAF-LPLCircular.pdf | LPL DAF Program Circular",
+      "https://www.reninc.com/wp-content/uploads/2026/07/LPL-Account-Application-Advisory-EXAMPLE.pdf | Account Application Advisory",
+      "https://www.reninc.com/wp-content/uploads/2026/07/LPL-Account-Application-Non-Retirement-EXAMPLE.pdf | Account Application Non Retirement",
+      "https://www.reninc.com/wp-content/uploads/2026/07/LPL-Beneficial-Ownership-Form-EXAMPLE.pdf | Beneficial Ownership-Legal Entity Owner by Individuals",
+      "https://www.reninc.com/wp-content/uploads/2026/07/LPL-Electronic-Prospectus-and-Shareholder-Communication-Preference-EXAMPLE.pdf | Account Features-Electronic Prospectus Delivery",
+      "https://www.reninc.com/wp-content/uploads/2026/07/LPL-Entity-Information-Form-EXAMPLE.pdf | Entity Information",
+      "https://www.reninc.com/wp-content/uploads/2026/07/LPL-Move-Money-Form-EXAMPLE.pdf | Move Money \u2013 Non-Retirement ACH",
+      "https://www.reninc.com/wp-content/uploads/2026/07/RCF-Corporate-Resolution-6.16.26-II.docx.pdf | Corporate Resolution",
+      "https://www.reninc.com/wp-content/uploads/2026/09/DATA-FEED-Pershing.pdf | Pershing",
+      "https://www.reninc.com/wp-content/uploads/2026/09/DATA-FEED-Schwab.pdf | Schwab",
+      "https://www.reninc.com/wp-content/uploads/2026/09/POF_External-User-Guide-1.pdf | Download How To Guide",
+      "https://www.reninc.com/wp-content/uploads/2026/11/Client-Explainer-Transfer-Existing-DAF.pdf | DAF to DAF Transfer",
+      "https://www.reninc.com/wp-content/uploads/2026/11/Donor-Portal-DAF-Application.pdf | Download the step-by-step guide (PDF)"
+    ],
+    "title": "Open an LPL donor-advised fund | Ren",
+    "watch_hits_urls": [
+      "LPL",
+      "lpl"
+    ],
+    "watch_sentences": [
+      "A simple guide to getting started with a Renaissance Charitable donor-advised fund through LPL.",
+      "Completed examples of LPL application and paperwork can be found here:",
+      "How to Open an LPL Renaissance Charitable Donor-Advised Fund",
+      "Review and provide the LPL DAF Program Circular to your client."
+    ]
+  },
+  "target": "https://www.reninc.com/lpl-rcf-daf/",
+  "watch_regex": "(?i)Commonwealth|CFN|LPL"
+}

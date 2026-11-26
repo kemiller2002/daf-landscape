@@ -1,0 +1,29 @@
+{
+  "content_type": "application/pdf; charset=utf-8",
+  "document": "Master Subscription Agreement (FT MSA v01-2024 PDF)",
+  "extractor": "pdftotext",
+  "fetched_at_utc": "2026-11-14T11:03:18Z",
+  "final_url": "https://info.foundant.com/rs/356-VHW-319/images/FT%20MSA%20-%20Final%20-%20v012024.pdf",
+  "format": "pdf",
+  "http_status": "200",
+  "raw_bytes": 724525,
+  "raw_sha256": "d24a13eae1b8878012363e7941d8bad5fe72f8d754f6c754cad7fcf32a7c6726",
+  "slug": "foundant-msa-v012024",
+  "text_chars": 43795,
+  "text_sha256": "af28fcb8df5fabd32f6cae59b7e77dae605d9f8d8ca2878c38d4819e632ceffd",
+  "url": "https://info.foundant.com/rs/356-VHW-319/images/FT%20MSA%20-%20Final%20-%20v012024.pdf",
+  "vendor": "Foundant Technologies",
+  "watch_counts": {
+    "agent": 2,
+    "aggregator": 1,
+    "api": 0,
+    "artificial_intelligence": 0,
+    "automated": 1,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 5,
+    "pass_through": 0,
+    "third_party": 20
+  }
+}

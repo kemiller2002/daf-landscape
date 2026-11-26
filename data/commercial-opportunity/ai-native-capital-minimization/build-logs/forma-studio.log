@@ -1,0 +1,6 @@
+REV bcc6eb0
+DONE
+PASS2 REV bcc6eb0
+CMD dotnet build tests/FormaStudio.Engine.Tests/FormaStudio.Engine.Tests.fsproj -c Release => BUILD_RC 0 SECS 21
+RUN_RC FormaStudio.Engine.Tests.fsproj 0 SECS 8 :: pass_lines=113 fail_lines=0 tail= 113 passed, 0 failed, 113 total 
+DONE2

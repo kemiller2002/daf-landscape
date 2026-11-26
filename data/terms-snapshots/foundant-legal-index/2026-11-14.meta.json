@@ -1,0 +1,29 @@
+{
+  "content_type": "text/html; charset=UTF-8",
+  "document": "Legal index page (links to current MSA and policies)",
+  "extractor": "html-parser",
+  "fetched_at_utc": "2026-11-14T11:03:18Z",
+  "final_url": "https://www.foundant.com/legal/",
+  "format": "html",
+  "http_status": "200",
+  "raw_bytes": 135711,
+  "raw_sha256": "d68dc49e66069b09a01bca9bea31f13b78b2d34a315c9a742783e503a5385baf",
+  "slug": "foundant-legal-index",
+  "text_chars": 4321,
+  "text_sha256": "4cd5f8557f2d31dd593c1f879f1d7f19f87fc00721cd5bdd5a923ba55346abc4",
+  "url": "https://www.foundant.com/legal/",
+  "vendor": "Foundant Technologies",
+  "watch_counts": {
+    "agent": 0,
+    "aggregator": 0,
+    "api": 0,
+    "artificial_intelligence": 4,
+    "automated": 0,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 0,
+    "pass_through": 0,
+    "third_party": 0
+  }
+}

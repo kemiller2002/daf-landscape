@@ -1,0 +1,35 @@
+REV 33347c1
+CMD dotnet build Causa.slnx -c Release
+BUILD_RC 155 SECS 0
+CMD dotnet test tests/App.Engine.Tests/App.Engine.Tests.fsproj -c Release --no-build
+TEST_RC App.Engine.Tests.fsproj 155 SECS 0 :: 
+CMD dotnet test tests/Causa.Acceptance/Causa.Acceptance.fsproj -c Release --no-build
+TEST_RC Causa.Acceptance.fsproj 155 SECS 0 :: 
+CMD dotnet test tests/Causa.App.Tests/Causa.App.Tests.fsproj -c Release --no-build
+TEST_RC Causa.App.Tests.fsproj 155 SECS 0 :: 
+CMD dotnet test tests/Causa.Contract.Tests/Causa.Contract.Tests.fsproj -c Release --no-build
+TEST_RC Causa.Contract.Tests.fsproj 155 SECS 0 :: 
+CMD dotnet test tests/Causa.Domain.Tests/Causa.Domain.Tests.fsproj -c Release --no-build
+TEST_RC Causa.Domain.Tests.fsproj 155 SECS 0 :: 
+CMD dotnet test tests/Causa.Invariants/Causa.Invariants.fsproj -c Release --no-build
+TEST_RC Causa.Invariants.fsproj 155 SECS 0 :: 
+CMD dotnet test tests/Causa.Persistence.Tests/Causa.Persistence.Tests.fsproj -c Release --no-build
+TEST_RC Causa.Persistence.Tests.fsproj 155 SECS 0 :: 
+DONE
+PASS2 REV 33347c1
+NOTE global.json rollForward added in scratch clone (pinned SDK not installed; 10.0.404 used)
+CMD dotnet build tests/App.Engine.Tests/App.Engine.Tests.fsproj -c Release => BUILD_RC 0 SECS 4
+TEST_RC App.Engine.Tests.fsproj 0 SECS 1 :: Passed!  - Failed:     0, Passed:     5, Skipped:     0, Total:     5, Duration: 18 ms - App.Engine.Tests.dll (net10.0) 
+CMD dotnet build tests/Causa.Acceptance/Causa.Acceptance.fsproj -c Release => BUILD_RC 0 SECS 31
+TEST_RC Causa.Acceptance.fsproj 1 SECS 7 :: Failed!  - Failed:   130, Passed:    70, Skipped:     0, Total:   200, Duration: 5 s - Causa.Acceptance.dll (net10.0) 
+CMD dotnet build tests/Causa.App.Tests/Causa.App.Tests.fsproj -c Release => BUILD_RC 0 SECS 6
+TEST_RC Causa.App.Tests.fsproj 0 SECS 12 :: Passed!  - Failed:     0, Passed:   106, Skipped:     0, Total:   106, Duration: 10 s - Causa.App.Tests.dll (net10.0) 
+CMD dotnet build tests/Causa.Contract.Tests/Causa.Contract.Tests.fsproj -c Release => BUILD_RC 0 SECS 5
+TEST_RC Causa.Contract.Tests.fsproj 0 SECS 2 :: Passed!  - Failed:     0, Passed:    67, Skipped:     0, Total:    67, Duration: 356 ms - Causa.Contract.Tests.dll (net10.0) 
+CMD dotnet build tests/Causa.Domain.Tests/Causa.Domain.Tests.fsproj -c Release => BUILD_RC 0 SECS 4
+TEST_RC Causa.Domain.Tests.fsproj 0 SECS 2 :: Passed!  - Failed:     0, Passed:    31, Skipped:     0, Total:    31, Duration: 173 ms - Causa.Domain.Tests.dll (net10.0) 
+CMD dotnet build tests/Causa.Invariants/Causa.Invariants.fsproj -c Release => BUILD_RC 0 SECS 4
+TEST_RC Causa.Invariants.fsproj 1 SECS 2 :: Failed!  - Failed:     1, Passed:     7, Skipped:     0, Total:     8, Duration: 1 s - Causa.Invariants.dll (net10.0) 
+CMD dotnet build tests/Causa.Persistence.Tests/Causa.Persistence.Tests.fsproj -c Release => BUILD_RC 0 SECS 5
+TEST_RC Causa.Persistence.Tests.fsproj 0 SECS 1 :: Passed!  - Failed:     0, Passed:    71, Skipped:     0, Total:    71, Duration: 285 ms - Causa.Persistence.Tests.dll (net10.0) 
+DONE2

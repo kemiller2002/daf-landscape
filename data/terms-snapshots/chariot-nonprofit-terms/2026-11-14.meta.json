@@ -1,0 +1,29 @@
+{
+  "content_type": "text/html; charset=utf-8",
+  "document": "Nonprofit terms (legal-nonprofit)",
+  "extractor": "html-parser",
+  "fetched_at_utc": "2026-11-14T11:03:21Z",
+  "final_url": "https://www.givechariot.com/legal-nonprofit",
+  "format": "html",
+  "http_status": "200",
+  "raw_bytes": 734985,
+  "raw_sha256": "20d909ca2503fff7980aedaced3ec92c030a2c3b8fbe6368320bb9c3d5462ac8",
+  "slug": "chariot-nonprofit-terms",
+  "text_chars": 54173,
+  "text_sha256": "9a2188bd53bd473578961f1bb37d7fa2c681ae9e8be7540d7f6265b4350b0724",
+  "url": "https://www.givechariot.com/legal-nonprofit",
+  "vendor": "Chariot",
+  "watch_counts": {
+    "agent": 6,
+    "aggregator": 2,
+    "api": 5,
+    "artificial_intelligence": 1,
+    "automated": 4,
+    "bot_scrape": 0,
+    "initiate": 15,
+    "mcp": 0,
+    "on_behalf_of": 8,
+    "pass_through": 1,
+    "third_party": 20
+  }
+}

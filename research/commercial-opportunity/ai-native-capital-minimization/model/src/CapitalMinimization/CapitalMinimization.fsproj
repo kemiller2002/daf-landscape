@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Design.fs" />
+    <Compile Include="Layers.fs" />
+    <Compile Include="Development.fs" />
+    <Compile Include="Designs.fs" />
+    <Compile Include="Sequences.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- The previous study's model, reused unchanged as the baseline (read-only from this project). -->
+    <ProjectReference Include="../../../../servicing-economics/model/src/ServicingEconomics/ServicingEconomics.fsproj" />
+  </ItemGroup>
+</Project>

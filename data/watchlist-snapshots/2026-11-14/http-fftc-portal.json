@@ -1,0 +1,70 @@
+{
+  "check_id": "http-fftc-portal",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "https://daf.fftc.org/m/login",
+        "status": "302",
+        "url": "https://daf.fftc.org/"
+      },
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://daf.fftc.org/m/login"
+      }
+    ],
+    "final_url": "https://daf.fftc.org/m/login",
+    "form_actions": [
+      "https://daf.fftc.org/m/logout",
+      "https://daf.fftc.org/m/login"
+    ],
+    "meta": {
+      "author": "alkeshkumar@gmail.com",
+      "csrf-token": "wwd4v4qoncvyaEjI9pu1f1XsVccp9Fa9aNVooWbC",
+      "description": "",
+      "og:description": "Foundation for the Carolinas",
+      "og:title": "Foundation for the Carolinas",
+      "og:type": "website",
+      "robots": "noindex",
+      "twitter:description": "Foundation for the Carolinas",
+      "twitter:title": "Foundation for the Carolinas",
+      "viewport": "width=device-width, initial-scale=1"
+    },
+    "raw_sha256": "0a9e2bb1d92f04bb0336577d9b591b456ea3605b6d7cf05d614490ca2227fafa",
+    "text_chars": 894,
+    "text_sha256": "129dd7f5e9aa06cfce72c7a513cc81bf7bc675e7459ea71123f91d468f4fcff3"
+  },
+  "entity": "Foundation for the Carolinas donor portal (MyFFTC)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T13:50:54Z",
+  "ok": true,
+  "queue_items": "P-PRC-04",
+  "source_url": "https://daf.fftc.org/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "daf.fftc.org",
+      "daf.fftc.org"
+    ],
+    "final_host": "daf.fftc.org",
+    "final_status": "200",
+    "footers": [
+      "Powered by GiftingNetwork"
+    ],
+    "links": [
+      "https://giftingnetwork.com/ | Powered by GiftingNetwork"
+    ],
+    "title": "Foundation for the Carolinas",
+    "watch_hits_urls": [
+      "GiftingNetwork",
+      "giftingnetwork"
+    ],
+    "watch_sentences": [
+      "Powered by GiftingNetwork"
+    ]
+  },
+  "target": "https://daf.fftc.org/",
+  "watch_regex": "(?i)GiftingNetwork|giveinteractive"
+}

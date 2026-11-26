@@ -1,0 +1,144 @@
+Blackbaud AI Terms
+The following Blackbaud AI Terms apply to Your access and use of AI (as defined below)
+in addition to those terms set forth in your contract with Blackbaud, including the
+Blackbaud Solutions Agreement and other applicable terms and conditions maintained
+online at https://www.blackbaud.com/terms-and-conditions (collectively "Contract") .
+". Definitions. Any capitalized terms used but not defined herein shall have the
+meanings defined in the Contract.
+A. "AI" means any artificial intelligence capability contained in or comprising a
+Solution or Service provided to You belonging to the class of AI models that
+emulate the structure and characteristics of input data in order to generate
+derived synthetic content.
+B. "AI Avatars" means any digitally-generated persona powered by AI that can
+interact with users in a human-like way taking the form of visual characters,
+voices, and/or text-based agents.
+C. "Input" means any data, prompts, or other content You or Your Users submit to
+the AI, or which Blackbaud submits on your behalf, when requested by You or
+Your Users, including any biometric, audio, or visual data used to create AI
+Avatars.
+D. "Output" means any data or content generated or actions taken by the AI in
+response to Your Input, including recommendations, predictions, lists, workflows,
+task allocation, prescribed actions, new data, text, or other content.
+K. Intellectual Property. As between You and Blackbaud, You have all rights (including
+intellectual property rights), title and interest in and to the Inputs and Outputs, subject to
+any limitations herein. You grant to Blackbaud a nonexclusive, fully paid-up license to use,
+reproduce, store, modify, distribute, and display your Inputs and Outputs for the purposes
+of providing and improving the AI or the Solutions or Services, or to provide or propose
+assistance or services to You. In using the AI, You acknowledge that Outputs may not be
+unique to You, the AI may generate the same or similar Outputs for You and other
+customers, and that Outputs may not be protectable under applicable intellectual property
+laws. Blackbaud retains all ownership in and to the AI, including all algorithms, models,
+embedded prompts, avatar templates, animation engines, and prompt design contained
+therein. Any comments, feedback, suggestions, and "thumbs-up" or "thumbs-down"
+reactions you provide to Blackbaud AI shall constitute "Feedback" as defined in the
+Contract. You may not use the AI or Output to develop, train, or improve any other AI
+services or models. Unless explicitly permitted, You may not use web scraping, web
+1
+June 2026
+harvesting, or web data extraction methods to extract data from the AI.
+P. AI Opt In. AI features must be turned on by Your organization by such means
+directed by Blackbaud, such as participating in an AI pilot, purchasing a standalone AI
+feature, instructing Blackbaud to enable an AI feature in your Solution, or having an
+authorized user (such as a database administrator) turn on the AI within your Solution prior
+to use. If Customer enables an AI feature in an instance of the Solution, such AI feature may
+be enabled across applicable subscriptions in such instance and may process Customer Data
+associated with such subscriptions. If Your authorized user enables an AI feature in one
+Solution that is interoperable with another Solution, you acknowledge the AI feature may
+process Customer Data in both Solutions.
+Q. Third Party Services. We may use large language models or other artificial
+intelligence models or services provided by third parties in the AI and Blackbaud is not
+responsible for any outages or nonavailability such third parties may cause. Unless explicitly
+stated, AI that incorporates any such third-party models or services is not subject to any
+service level agreements with Blackbaud contained in any applicable Subscription
+Description, SOW, or other agreement. In the event that Blackbaud leverages a large
+language model or other artificial intelligence model or service provided by a third party in
+the AI, Your Inputs or Outputs will not be used to fine-tune or improve such models. To the
+extent that any such third-party processes your Personal Data included in any Inputs, it shall
+be considered a "Sub-Processor" under the terms of Blackbaud's Data Processing
+Addendum.
+V. Inputs and Outputs.
+A. You must not provide Inputs that violate any individual's or third-party's rights or
+applicable laws.
+B. You must not include any of the following in your Inputs: an individual's social
+security number, national government issued identification number, such as
+passport and visa number, state- or province-issued identification number,
+driver's license number, tax identification number, date of birth, bank account
+number, credit card number, debit card information, medical information and
+customer authentication credentials.
+C. You are responsible for your use of any Output, including reviewing such Output
+for accuracy and determining whether such Output is appropriate for that use.
+D. Solely for the improvement of Your instance of the AI, Blackbaud may use Inputs
+and Outputs containing Your Confidential Information to fine-tune or train
+Blackbaud-developed artificial intelligence models used in Your instance of the
+AI. Blackbaud may use de-identified Inputs and Outputs that do not identify You
+2
+June 2026
+or any User to fine-tune or train such models holistically.
+X. Prohibited Actions. You shall not use the AI to do any of the following:
+A. Make decisions with legal or similarly significant effects on an individual (e.g.
+their legal or financial position, employment or educational opportunities, human
+rights etc.) based solely on a recommendation from the AI, without meaningful
+human involvement.
+B. Infer or predict protected characteristics about individuals without their explicit
+consent except where used in a lawful manner by a law enforcement entity, court,
+or government official subject to judicial oversight in a jurisdiction that maintains
+a fair and independent judiciary. Protected characteristics include race, color,
+religion, sex, sexual orientation, gender identity, gender reassignment, national
+origin, age, disability, genetic information, familial status, and pregnancy.
+C. Create content that attacks, denigrates, intimidates, degrades, targets, or
+excludes individuals or groups on the basis of protected characteristics.
+D. Create content that is intentionally deceptive or likely to adversely affect the
+public interest, including deceptive or untrue content relating to health, safety,
+election integrity, or civic participation.
+E. Falsely mislead individuals that any unedited Outputs were created by a human.
+F. Violate the Contract or any applicable law.
+\. Disclaimer and Additional Responsibilities. You understand and acknowledge that
+Outputs are created by artificial intelligence, which may produce unpredicted results and
+You may be held accountable by third parties for actions taken by AI acting on Your behalf.
+Outputs may contain errors, inappropriate responses, and/or irrelevant content. Outputs do
+not reflect the views of Blackbaud. You are responsible for reviewing all Outputs prior to
+use, dissemination, or publication and for monitoring any actions or proposed actions taken
+on Your behalf to ensure they are appropriate. Notwithstanding anything to the contrary in
+these AI Terms or the Contract, Blackbaud bears no liability to You arising from or relating
+to Your use of any of the Outputs or any actions taken by the AI based on Your Inputs.
+BLACKBAUD EXPRESSLY DISCLAIMS REPRESENTATIONS OR WARRANTIES THAT THE
+OUTPUTS WILL BE ACCURATE, COMPLETE, RELIABLE, OR FIT FOR PURPOSE.
+c. AI Avatars. This section shall apply to Blackbaud's provision of AI Avatars to You.
+A. Customization. You may customize AI Avatars using permitted tools and
+templates. All customizations must comply with Blackbaud's AI Avatar content
+guidelines.
+B. Prohibitions for AI Avatars. We reserve the right to remove or restrict AI Avatars
+that violate the AUP, AI Avatar content guidelines, or applicable laws. You shall
+3
+June 2026
+not use AI Avatars to impersonate individuals without consent or violate
+individuals' rights of publicity.
+C. Consents and Rights. You are solely responsible for ensuring that all required
+notices are given and all required consents, rights and authorizations in
+connection with the Inputs are obtained for Blackbaud to create and for You to
+use the AI Avatars, including individuals' express consent to create the AI Avatars
+using their likeness, voices, or biometric identifiers.
+D. Responsibility for Use. You are solely responsible for all uses or misuses of the AI
+Avatar by You and Your Users, including any consequences of Your creation, use,
+sharing, display or distribution and Blackbaud bears no liability for claims any AI
+Avatar You create, or We create based on Your Inputs, causes harm or violates
+any third party's rights.
+E. Portability. You acknowledge that although AI Avatars may be created using your
+Inputs, AI Avatars operate solely within environments and platforms provided by
+Blackbaud or its service providers and are not transferable to services outside of
+these environments and platforms.
+d. Availability and Modifications. The Parties acknowledge that the legal and
+regulatory landscape governing artificial intelligence is subject to change. In the event of
+any new laws, regulations, or governmental policies that impact Your use of or Blackbaud's
+provision of the AI, Blackbaud shall have the right to modify the AI, at its sole discretion, to
+ensure compliance. In addition to the foregoing, if there is not a separate fee for an AI
+feature within a Solution or Service, Blackbaud shall have the right to make any and all
+changes to the AI at any time in our sole discretion, which may include removing availability
+for customers in certain geographies, introducing request limits, making modifications that
+materially reduce the functionality of the AI, or ceasing to provide the AI feature entirely.
+"e. Changes to these terms
+These AI Terms are subject to change in Blackbaud's sole discretion. In the event of any such
+change, We will post a revision of this Addendum at https://www.blackbaud.com/terms-
+and-conditions.
+4
+June 2026

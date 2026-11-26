@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/limen/cli/tests/Limen.Core.Tests/Limen.Core.Tests.fsproj (in 279 ms).
+  Restored scratch:aincm/build/limen/cli/Limen.Core/Limen.Core.fsproj (in 279 ms).
+  Restored scratch:aincm/build/limen/cli/Limen.Cli/Limen.Cli.fsproj (in 279 ms).
+  Limen.Core -> scratch:aincm/build/limen/cli/Limen.Core/bin/Release/net8.0/Limen.Core.dll
+  Limen.Cli -> scratch:aincm/build/limen/cli/Limen.Cli/bin/Release/net8.0/linux-x64/limen.dll
+  Limen.Core.Tests -> scratch:aincm/build/limen/cli/tests/Limen.Core.Tests/bin/Release/net8.0/Limen.Core.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:08.50

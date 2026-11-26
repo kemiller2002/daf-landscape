@@ -1,0 +1,16 @@
+REV db6d39e
+DONE
+PASS2 REV db6d39e
+CMD dotnet build tests/Ordo.Churn.Tests/Ordo.Churn.Tests.fsproj -c Release => BUILD_RC 0 SECS 5
+TEST_RC Ordo.Churn.Tests.fsproj 0 SECS 4 :: Passed!  - Failed:     0, Passed:     9, Skipped:     0, Total:     9, Duration: 2 s - Ordo.Churn.Tests.dll (net8.0) 
+CMD dotnet build tests/Ordo.Complexity.Tests/Ordo.Complexity.Tests.fsproj -c Release => BUILD_RC 0 SECS 7
+TEST_RC Ordo.Complexity.Tests.fsproj 0 SECS 2 :: Passed!  - Failed:     0, Passed:    28, Skipped:     0, Total:    28, Duration: 900 ms - Ordo.Complexity.Tests.dll (net8.0) 
+CMD dotnet build tests/Ordo.Construction.Tests/Ordo.Construction.Tests.fsproj -c Release => BUILD_RC 0 SECS 19
+TEST_RC Ordo.Construction.Tests.fsproj 0 SECS 17 :: Passed!  - Failed:     0, Passed:   129, Skipped:     0, Total:   129, Duration: 15 s - Ordo.Construction.Tests.dll (net8.0) 
+CMD dotnet build tests/Ordo.Site.Tests/Ordo.Site.Tests.fsproj -c Release => BUILD_RC 0 SECS 11
+TEST_RC Ordo.Site.Tests.fsproj 0 SECS 2 :: Passed!  - Failed:     0, Passed:    65, Skipped:     0, Total:    65, Duration: 356 ms - Ordo.Site.Tests.dll (net8.0) 
+CMD dotnet build tests/Ordo.Tests/Ordo.Tests.fsproj -c Release => BUILD_RC 0 SECS 17
+TEST_RC Ordo.Tests.fsproj 0 SECS 15 :: Passed!  - Failed:     0, Passed:   575, Skipped:     1, Total:   576, Duration: 13 s - Ordo.Tests.dll (net8.0) 
+CMD dotnet build tests/Sde.Core.Tests/Sde.Core.Tests.fsproj -c Release => BUILD_RC 0 SECS 7
+TEST_RC Sde.Core.Tests.fsproj 1 SECS 1 :: Failed!  - Failed:    95, Passed:    70, Skipped:     0, Total:   165, Duration: 278 ms - Sde.Core.Tests.dll (net8.0) 
+DONE2

@@ -1,0 +1,41 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+    <GenerateProgramFile>false</GenerateProgramFile>
+    <IsTestProject>true</IsTestProject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Fixtures.fs" />
+    <Compile Include="PolicyTests.fs" />
+    <Compile Include="JourneyTests.fs" />
+    <Compile Include="AuthorityInvariantTests.fs" />
+    <Compile Include="EconomicsTwinCensusTests.fs" />
+    <Compile Include="ExperimentTests.fs" />
+    <Compile Include="VettingTests.fs" />
+    <Compile Include="IdentityTests.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.0" />
+    <PackageReference Include="xunit" Version="2.4.2" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.5">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="coverlet.collector" Version="6.0.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Daf.Enterprise\Daf.Enterprise.fsproj" />
+    <ProjectReference Include="..\Daf.Experiments\Daf.Experiments.fsproj" />
+  </ItemGroup>
+
+</Project>

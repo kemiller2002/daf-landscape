@@ -1,0 +1,102 @@
+PASS the markup-level checks pass
+PASS scrollable regions can be reached and scrolled from the keyboard
+PASS aria-label is only used where the role allows it
+PASS hover never reveals anything focus does not
+PASS interactive controls meet the 44px target in the main flows
+PASS reduced motion removes motion rather than shortening it
+PASS the page ships no script, so nothing it needs depends on one
+PASS the ledger is exactly what the renderer produces from the snapshot
+PASS no row claims completion the snapshot does not record
+PASS the self-correction story matches Git history
+PASS deployment is not claimed as a record
+PASS the closing states the spec's lines and call to action
+PASS attribution enforcement is described with its leniency while work is open
+PASS handoff copy matches resume semantics: rejoin if open, new child only after finalize
+PASS the GH-84 story discloses that the same session resumed
+PASS token and cost totals are reported from the total metrics, not their components
+PASS test evidence is described as a named file, not proof that tests passed
+PASS event attribution is not claimed for legacy events
+PASS hero states the claim and the demand
+PASS the page never borrows from the film it was inspired by
+PASS the claim is complete without JavaScript
+PASS the claim needs no script hook and no script-only styles
+PASS the problem precedes the proposition, which precedes the verification
+PASS the execution chain runs from requirement to verified history in order
+PASS every command the chain names exists in the CLI
+PASS Git and Praxis are compared as complements, in an accessible table
+PASS agent accountability distinguishes every quality of knowledge
+PASS the runtimes the page says are detected are the ones the CLI detects
+PASS the GH-84 handoff is rendered from real records only
+PASS unattributed changes: the message shown is the one the CLI prints
+PASS resilience presents native and fallback execution as available entry paths
+PASS the record locations the page names exist in this repository
+PASS integrations listed as available are backed by CLI commands
+PASS each principle links to the section that explains it
+PASS get started uses only commands and installers that exist, and names the ROS transition
+PASS primary navigation is the six specified destinations and needs no script
+PASS the footer connects Praxis to Echelon Foundry and states the privacy facts
+PASS no broken entities or duplicated sentences
+PASS core Echelon Foundry tokens are defined exactly
+PASS charcoal on parchment meets 4.5:1
+PASS charcoal on stone meets 4.5:1
+PASS forged-iron on parchment meets 4.5:1
+PASS oxide-bronze on parchment meets 4.5:1
+PASS verdigris on parchment meets 4.5:1
+PASS graphite on parchment meets 4.5:1
+PASS parchment on carbon meets 4.5:1
+PASS stone on carbon meets 4.5:1
+PASS parchment on charcoal meets 4.5:1
+PASS parchment on forged-iron meets 4.5:1
+PASS carbon on parchment meets 4.5:1
+PASS bronze-on-dark on carbon meets 4.5:1
+PASS verdigris-on-dark on carbon meets 4.5:1
+PASS graphite-on-dark on carbon meets 4.5:1
+PASS oxide-bronze on parchment meets 3:1
+PASS oxide-bronze on stone meets 3:1
+PASS bronze-on-dark on carbon meets 3:1
+PASS geometry stays square: no border-radius other than zero
+PASS no forbidden visual effects
+PASS every font family has a local fallback and no font binaries are referenced
+PASS reduced motion is respected
+PASS focus is always visible
+PASS small labels on stone use a colour that meets AA there
+PASS the committed snapshot is consistent with the records
+PASS every data-evidence value on the page matches the snapshot
+PASS a value that disagrees with the snapshot is caught
+PASS a snapshot that rewrites identity or runs ahead of the record is caught
+PASS unknown model stays unknown, never guessed
+PASS the snapshot never carries private identifiers
+PASS the ledger renderer fills an empty ledger and is idempotent
+PASS the snapshot is written in the committed format
+PASS first-party transfer stays inside budget
+PASS the page loads no script at all
+PASS the only third party is Google Fonts, linked as a plain stylesheet
+PASS no analytics, trackers, or embedded frames
+PASS no images, fonts, scripts or bundles are shipped
+PASS the page has at least one execution record and every record declares its kind
+PASS illustrative records say so in the header and in the caption
+PASS real records cite the snapshot for every value
+PASS illustrative identifiers cannot be mistaken for real ones
+PASS no fixed width can force a 320px viewport to scroll
+PASS the viewport is declared and the layout has intentional breakpoints
+PASS navigation needs no script and wraps instead of hiding
+PASS long identifiers wrap instead of overflowing
+PASS a strict content security policy is declared
+PASS there are no inline event handlers and no script blocks
+PASS external links are https to known hosts and never open new windows
+PASS nothing private crosses the public boundary
+PASS PRAXIS-SITE-01: the committed public site passes every site check
+PASS PRAXIS-SITE-01: the preview server never serves outside site/
+PASS PRAXIS-SITE-01: the preview server labels what it serves
+PASS PRAXIS-SITE-01: the boundary check rejects loopback hosts, operational API paths, local paths, session ids and credentials
+PASS PRAXIS-SITE-01: references must be relative and resolve
+PASS PRAXIS-SITE-17: structural and accessibility rules catch common defects
+PASS the site workflow checks, assembles and uploads with read-only permissions
+PASS no site file can trigger a release workflow on main
+PASS release workflows do not know about the site
+PASS the release payload does not ship the public site
+PASS assembly refuses to write outside the repository
+PASS the assembled artifact is exactly the checked site
+PASS the Pages workflow mirrors echelon-foundry's deploy-pages.yml and deploys only the checked artifact
+PASS the deployment document never reports a deployment that has not happened
+101 test(s); 101 passed; 0 failed

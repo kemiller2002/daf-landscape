@@ -1,0 +1,17 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/arca/src/Arca.Core/Arca.Core.fsproj (in 429 ms).
+  Restored scratch:aincm/build/arca/src/Arca.GitHub/Arca.GitHub.fsproj (in 797 ms).
+  Restored scratch:aincm/build/arca/src/Arca.Limen/Arca.Limen.fsproj (in 1.25 sec).
+  Restored scratch:aincm/build/arca/verification/browser/Arca.Browser.Engine/Arca.Browser.Engine.fsproj (in 1.24 sec).
+  Restored scratch:aincm/build/arca/tests/Arca.Tests/Arca.Tests.fsproj (in 1.35 sec).
+  Arca.Core -> scratch:aincm/build/arca/src/Arca.Core/bin/Release/net10.0/Arca.Core.dll
+  Arca.GitHub -> scratch:aincm/build/arca/src/Arca.GitHub/bin/Release/net10.0/Arca.GitHub.dll
+  Arca.Limen -> scratch:aincm/build/arca/src/Arca.Limen/bin/Release/net10.0/Arca.Limen.dll
+  Arca.Browser.Engine -> scratch:aincm/build/arca/verification/browser/Arca.Browser.Engine/bin/Release/net10.0/Arca.Browser.Engine.dll
+  Arca.Tests -> scratch:aincm/build/arca/tests/Arca.Tests/bin/Release/net10.0/Arca.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:28.99

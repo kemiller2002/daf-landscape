@@ -1,0 +1,17 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/causa/src/Causa.App/Causa.App.fsproj (in 998 ms).
+  Restored scratch:aincm/build/causa/src/Causa.Persistence/Causa.Persistence.fsproj (in 998 ms).
+  Restored scratch:aincm/build/causa/tests/Causa.TestSupport/Causa.TestSupport.fsproj (in 998 ms).
+  Restored scratch:aincm/build/causa/tests/Causa.Acceptance/Causa.Acceptance.fsproj (in 998 ms).
+  Restored scratch:aincm/build/causa/src/Causa.Domain/Causa.Domain.fsproj (in 2 ms).
+  Causa.Domain -> scratch:aincm/build/causa/src/Causa.Domain/bin/Release/net10.0/Causa.Domain.dll
+  Causa.Persistence -> scratch:aincm/build/causa/src/Causa.Persistence/bin/Release/net10.0/Causa.Persistence.dll
+  Causa.App -> scratch:aincm/build/causa/src/Causa.App/bin/Release/net10.0/Causa.App.dll
+  Causa.TestSupport -> scratch:aincm/build/causa/tests/Causa.TestSupport/bin/Release/net10.0/Causa.TestSupport.dll
+  Causa.Acceptance -> scratch:aincm/build/causa/tests/Causa.Acceptance/bin/Release/net10.0/Causa.Acceptance.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:30.47

@@ -1,0 +1,29 @@
+{
+  "content_type": "text/html; charset=utf-8",
+  "document": "TIFIN Terms and Conditions (TIFIN Give help center)",
+  "extractor": "html-parser",
+  "fetched_at_utc": "2026-11-14T11:03:21Z",
+  "final_url": "https://intercom.help/give-ria/en/articles/10092486-terms-of-use",
+  "format": "html",
+  "http_status": "200",
+  "raw_bytes": 342685,
+  "raw_sha256": "94dd31381464a6521c4f10eb28e2a3b54dd06ed34e3b073c0ed109f6193ad452",
+  "slug": "tifin-give-terms-of-use",
+  "text_chars": 67411,
+  "text_sha256": "531dff41447aac578de886f3129081b3f1fe7c0d29b85ae8c10e61f064214ec4",
+  "url": "https://intercom.help/give-ria/en/articles/10092486-terms-of-use",
+  "vendor": "TIFIN Give (The TIFIN Group LLC)",
+  "watch_counts": {
+    "agent": 8,
+    "aggregator": 2,
+    "api": 1,
+    "artificial_intelligence": 12,
+    "automated": 4,
+    "bot_scrape": 5,
+    "initiate": 2,
+    "mcp": 0,
+    "on_behalf_of": 1,
+    "pass_through": 0,
+    "third_party": 59
+  }
+}

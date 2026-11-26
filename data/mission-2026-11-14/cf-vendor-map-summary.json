@@ -1,0 +1,313 @@
+{
+ "universe_cfs": 803,
+ "universe_daf_assets_usd": 66140388531,
+ "homepages_found": 766,
+ "crawl_status": [
+  [
+   "ok",
+   697
+  ],
+  [
+   "homepage_error",
+   64
+  ],
+  [
+   "no_homepage",
+   37
+  ],
+  [
+   "robots_disallowed",
+   5
+  ]
+ ],
+ "confidence": [
+  [
+   "high",
+   477
+  ],
+  [
+   "none",
+   317
+  ],
+  [
+   "low",
+   5
+  ],
+  [
+   "medium",
+   4
+  ]
+ ],
+ "evidence_type_of_decision": [
+  [
+   "homepage_link_vendor_host",
+   412
+  ],
+  [
+   "",
+   315
+  ],
+  [
+   "site_link_vendor_host",
+   61
+  ],
+  [
+   "repo_v2_manual_check",
+   4
+  ],
+  [
+   "homepage_link_redirect_vendor_host",
+   4
+  ],
+  [
+   "portal_fetch",
+   2
+  ],
+  [
+   "dns_cname",
+   2
+  ],
+  [
+   "portal_response_header",
+   1
+  ],
+  [
+   "portal_page_marker",
+   1
+  ],
+  [
+   "portal_redirect_vendor_host",
+   1
+  ]
+ ],
+ "shares_high_medium": [
+  {
+   "vendor_family": "Foundant",
+   "cfs": 361,
+   "share_cfs": 0.4496,
+   "daf_assets_usd": 21613338093,
+   "share_daf_assets": 0.3268
+  },
+  {
+   "vendor_family": "Salesforce",
+   "cfs": 19,
+   "share_cfs": 0.0237,
+   "daf_assets_usd": 15654431347,
+   "share_daf_assets": 0.2367
+  },
+  {
+   "vendor_family": "GiftingNetwork",
+   "cfs": 2,
+   "share_cfs": 0.0025,
+   "daf_assets_usd": 7598116467,
+   "share_daf_assets": 0.1149
+  },
+  {
+   "vendor_family": "Unmapped",
+   "cfs": 315,
+   "share_cfs": 0.3923,
+   "daf_assets_usd": 4022015702,
+   "share_daf_assets": 0.0608
+  },
+  {
+   "vendor_family": "Ren / Stellar iPhi",
+   "cfs": 22,
+   "share_cfs": 0.0274,
+   "daf_assets_usd": 3903712057,
+   "share_daf_assets": 0.059
+  },
+  {
+   "vendor_family": "donor-portal.org (unidentified white-label)",
+   "cfs": 1,
+   "share_cfs": 0.0012,
+   "daf_assets_usd": 2574010894,
+   "share_daf_assets": 0.0389
+  },
+  {
+   "vendor_family": "Foundation Cloud (spectrumportal.net; NPact [R])",
+   "cfs": 14,
+   "share_cfs": 0.0174,
+   "daf_assets_usd": 2358004535,
+   "share_daf_assets": 0.0357
+  },
+  {
+   "vendor_family": "Unidentified portal",
+   "cfs": 2,
+   "share_cfs": 0.0025,
+   "daf_assets_usd": 2129182770,
+   "share_daf_assets": 0.0322
+  },
+  {
+   "vendor_family": "akoyaGO",
+   "cfs": 48,
+   "share_cfs": 0.0598,
+   "daf_assets_usd": 2126489738,
+   "share_daf_assets": 0.0322
+  },
+  {
+   "vendor_family": "DonorSphere / FidTech",
+   "cfs": 3,
+   "share_cfs": 0.0037,
+   "daf_assets_usd": 1310607970,
+   "share_daf_assets": 0.0198
+  },
+  {
+   "vendor_family": "SmartSimple",
+   "cfs": 1,
+   "share_cfs": 0.0012,
+   "daf_assets_usd": 1097047767,
+   "share_daf_assets": 0.0166
+  },
+  {
+   "vendor_family": "Blackbaud",
+   "cfs": 7,
+   "share_cfs": 0.0087,
+   "daf_assets_usd": 864022728,
+   "share_daf_assets": 0.0131
+  },
+  {
+   "vendor_family": "Microsoft Power Pages",
+   "cfs": 1,
+   "share_cfs": 0.0012,
+   "daf_assets_usd": 687723877,
+   "share_daf_assets": 0.0104
+  },
+  {
+   "vendor_family": "Unmapped (low-confidence signal only)",
+   "cfs": 5,
+   "share_cfs": 0.0062,
+   "daf_assets_usd": 106480934,
+   "share_daf_assets": 0.0016
+  },
+  {
+   "vendor_family": "Fund-Miner",
+   "cfs": 2,
+   "share_cfs": 0.0025,
+   "daf_assets_usd": 95203652,
+   "share_daf_assets": 0.0014
+  }
+ ],
+ "shares_high_only": [
+  {
+   "vendor_family": "Foundant",
+   "cfs": 361,
+   "share_cfs": 0.4496,
+   "daf_assets_usd": 21613338093,
+   "share_daf_assets": 0.3268
+  },
+  {
+   "vendor_family": "Salesforce",
+   "cfs": 19,
+   "share_cfs": 0.0237,
+   "daf_assets_usd": 15654431347,
+   "share_daf_assets": 0.2367
+  },
+  {
+   "vendor_family": "GiftingNetwork",
+   "cfs": 2,
+   "share_cfs": 0.0025,
+   "daf_assets_usd": 7598116467,
+   "share_daf_assets": 0.1149
+  },
+  {
+   "vendor_family": "Unmapped",
+   "cfs": 315,
+   "share_cfs": 0.3923,
+   "daf_assets_usd": 4022015702,
+   "share_daf_assets": 0.0608
+  },
+  {
+   "vendor_family": "Ren / Stellar iPhi",
+   "cfs": 22,
+   "share_cfs": 0.0274,
+   "daf_assets_usd": 3903712057,
+   "share_daf_assets": 0.059
+  },
+  {
+   "vendor_family": "donor-portal.org (unidentified white-label)",
+   "cfs": 1,
+   "share_cfs": 0.0012,
+   "daf_assets_usd": 2574010894,
+   "share_daf_assets": 0.0389
+  },
+  {
+   "vendor_family": "Foundation Cloud (spectrumportal.net; NPact [R])",
+   "cfs": 14,
+   "share_cfs": 0.0174,
+   "daf_assets_usd": 2358004535,
+   "share_daf_assets": 0.0357
+  },
+  {
+   "vendor_family": "Unidentified portal",
+   "cfs": 2,
+   "share_cfs": 0.0025,
+   "daf_assets_usd": 2129182770,
+   "share_daf_assets": 0.0322
+  },
+  {
+   "vendor_family": "akoyaGO",
+   "cfs": 44,
+   "share_cfs": 0.0548,
+   "daf_assets_usd": 2100849221,
+   "share_daf_assets": 0.0318
+  },
+  {
+   "vendor_family": "DonorSphere / FidTech",
+   "cfs": 3,
+   "share_cfs": 0.0037,
+   "daf_assets_usd": 1310607970,
+   "share_daf_assets": 0.0198
+  },
+  {
+   "vendor_family": "SmartSimple",
+   "cfs": 1,
+   "share_cfs": 0.0012,
+   "daf_assets_usd": 1097047767,
+   "share_daf_assets": 0.0166
+  },
+  {
+   "vendor_family": "Blackbaud",
+   "cfs": 7,
+   "share_cfs": 0.0087,
+   "daf_assets_usd": 864022728,
+   "share_daf_assets": 0.0131
+  },
+  {
+   "vendor_family": "Microsoft Power Pages",
+   "cfs": 1,
+   "share_cfs": 0.0012,
+   "daf_assets_usd": 687723877,
+   "share_daf_assets": 0.0104
+  },
+  {
+   "vendor_family": "Unmapped (low-confidence signal only)",
+   "cfs": 9,
+   "share_cfs": 0.0112,
+   "daf_assets_usd": 132121451,
+   "share_daf_assets": 0.002
+  },
+  {
+   "vendor_family": "Fund-Miner",
+   "cfs": 2,
+   "share_cfs": 0.0025,
+   "daf_assets_usd": 95203652,
+   "share_daf_assets": 0.0014
+  }
+ ],
+ "ct_tenants_2021plus": {
+  "Foundant": 11,
+  "Ren / Stellar iPhi": 7,
+  "Foundation Cloud (spectrumportal.net; NPact [R])": 2,
+  "DonorSphere / FidTech": 31,
+  "Give Interactive": 138,
+  "donor-portal.org (unidentified white-label)": 0
+ },
+ "v2_agreement": {
+  "v2_rows_with_vendor": 35,
+  "crawl_found": 32,
+  "crawl_agrees": 32,
+  "disagreements": []
+ },
+ "edges_written": 440,
+ "edges_confirmed": 417
+}

@@ -1,0 +1,212 @@
+Test run for scratch:aincm/build/signal/tests/Echelon.Signal.Tests/bin/Release/net10.0/Echelon.Signal.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:04.59]     Echelon.Signal.Tests.RouteSchemaTests..echelon/routes.json validates against Limen's routes.schema.json [FAIL]
+[xUnit.net 00:00:04.60]     Echelon.Signal.Tests.RouteSchemaTests.the schema refuses documents that are not an inventory [FAIL]
+[xUnit.net 00:00:04.60]     Echelon.Signal.Tests.RouteSchemaTests.the evaluator covers every keyword the shipped schema uses [FAIL]
+  Failed Echelon.Signal.Tests.RouteSchemaTests..echelon/routes.json validates against Limen's routes.schema.json [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Echelon-Signal-Tests>.$Echelon.Signal.Tests.RouteSchemaTests' threw an exception.
+---- System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/signal/node_modules/@echelon-foundry/limen/contract/routes.schema.json'.
+  Stack Trace:
+     at Echelon.Signal.Tests.RouteSchemaTests.get_schema()
+   at Echelon.Signal.Tests.RouteSchemaTests..echelon/routes.json validates against Limen's routes.schema.json() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/RouteSchemaTests.fs:line 120
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at <StartupCode$Echelon-Signal-Tests>.$Echelon.Signal.Tests.RouteSchemaTests..cctor() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/RouteSchemaTests.fs:line 15
+  Failed Echelon.Signal.Tests.RouteSchemaTests.the schema refuses documents that are not an inventory [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Echelon-Signal-Tests>.$Echelon.Signal.Tests.RouteSchemaTests' threw an exception.
+---- System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/signal/node_modules/@echelon-foundry/limen/contract/routes.schema.json'.
+  Stack Trace:
+     at Echelon.Signal.Tests.RouteSchemaTests.get_schema()
+   at Echelon.Signal.Tests.RouteSchemaTests.changed@124(FSharpFunc`2 edit) in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/RouteSchemaTests.fs:line 127
+   at Echelon.Signal.Tests.RouteSchemaTests.the schema refuses documents that are not an inventory() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/RouteSchemaTests.fs:line 129
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at <StartupCode$Echelon-Signal-Tests>.$Echelon.Signal.Tests.RouteSchemaTests..cctor() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/RouteSchemaTests.fs:line 15
+  Failed Echelon.Signal.Tests.RouteSchemaTests.the evaluator covers every keyword the shipped schema uses [< 1 ms]
+  Error Message:
+   System.TypeInitializationException : The type initializer for '<StartupCode$Echelon-Signal-Tests>.$Echelon.Signal.Tests.RouteSchemaTests' threw an exception.
+---- System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/signal/node_modules/@echelon-foundry/limen/contract/routes.schema.json'.
+  Stack Trace:
+     at Echelon.Signal.Tests.RouteSchemaTests.get_schema()
+   at Echelon.Signal.Tests.RouteSchemaTests.the evaluator covers every keyword the shipped schema uses() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/RouteSchemaTests.fs:line 115
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+----- Inner Stack Trace -----
+   at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at <StartupCode$Echelon-Signal-Tests>.$Echelon.Signal.Tests.RouteSchemaTests..cctor() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/RouteSchemaTests.fs:line 15
+[xUnit.net 00:00:21.31]     Echelon.Signal.Tests.OperationsFollowUpTests.the engine selects the focus pack at the installed contract's fingerprint [FAIL]
+  Failed Echelon.Signal.Tests.OperationsFollowUpTests.the engine selects the focus pack at the installed contract's fingerprint [< 1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/signal/node_modules/@echelon-foundry/limen/dist/capabilities/focus/generated/focus.js'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Echelon.Signal.Tests.OperationsFollowUpTests.the engine selects the focus pack at the installed contract's fingerprint() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/OperationsFollowUpTests.fs:line 280
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:22.71]     Echelon.Signal.Tests.FoundationsConformanceTests.the kernel registers Folio and starts Limen from the installed packages [FAIL]
+  Failed Echelon.Signal.Tests.FoundationsConformanceTests.the kernel registers Folio and starts Limen from the installed packages [< 1 ms]
+  Error Message:
+   ../node_modules/@echelon-foundry/print-components/src/components/register.js
+  Stack Trace:
+     at Echelon.Signal.Tests.FoundationsConformanceTests.the kernel registers Folio and starts Limen from the installed packages() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/FoundationsConformanceTests.fs:line 289
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:22.87]     Echelon.Signal.Tests.FoundationsConformanceTests.the page takes Forma and Folio from the installed packages [FAIL]
+[xUnit.net 00:00:22.88]     Echelon.Signal.Tests.FoundationsConformanceTests.the Echelon fonts are self-hosted WOFF2 files installed beside the fonts stylesheet [FAIL]
+  Failed Echelon.Signal.Tests.FoundationsConformanceTests.the page takes Forma and Folio from the installed packages [1 ms]
+  Error Message:
+   ../node_modules/@echelon-foundry/design-system/dist/all.css is not installed
+  Stack Trace:
+     at Echelon.Signal.Tests.FoundationsConformanceTests.the page takes Forma and Folio from the installed packages() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/FoundationsConformanceTests.fs:line 81
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Echelon.Signal.Tests.FoundationsConformanceTests.the Echelon fonts are self-hosted WOFF2 files installed beside the fonts stylesheet [< 1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/signal/node_modules/@echelon-foundry/echelon-theme/dist/echelon-fonts.css'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Echelon.Signal.Tests.FoundationsConformanceTests.the Echelon fonts are self-hosted WOFF2 files installed beside the fonts stylesheet() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/FoundationsConformanceTests.fs:line 156
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:22.89]     Echelon.Signal.Tests.FoundationsConformanceTests.every page preloads the Echelon body and display faces from the site [FAIL]
+[xUnit.net 00:00:22.89]     Echelon.Signal.Tests.FoundationsConformanceTests.the engine answers the Limen contract the installed kernel offers [FAIL]
+[xUnit.net 00:00:22.90]     Echelon.Signal.Tests.FoundationsConformanceTests.the npm foundations are pinned to immutable releases and locked [FAIL]
+[xUnit.net 00:00:22.90]     Echelon.Signal.Tests.FoundationsConformanceTests.the Forma 0.x guard recognises every 0.x form and exempts only Folio's elements [FAIL]
+[xUnit.net 00:00:22.91]     Echelon.Signal.Tests.FoundationsConformanceTests.every page is branded Echelon, loading the theme after Forma [FAIL]
+  Failed Echelon.Signal.Tests.FoundationsConformanceTests.every page preloads the Echelon body and display faces from the site [< 1 ms]
+  Error Message:
+   web/index.html: manrope-latin-wght-normal.woff2 is not installed at the preloaded address
+  Stack Trace:
+     at Echelon.Signal.Tests.FoundationsConformanceTests.every page preloads the Echelon body and display faces from the site() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/FoundationsConformanceTests.fs:line 145
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Echelon.Signal.Tests.FoundationsConformanceTests.the engine answers the Limen contract the installed kernel offers [< 1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/signal/node_modules/@echelon-foundry/limen/dist/generated/core.js'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Echelon.Signal.Tests.FoundationsConformanceTests.the engine answers the Limen contract the installed kernel offers() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/FoundationsConformanceTests.fs:line 364
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Echelon.Signal.Tests.FoundationsConformanceTests.the npm foundations are pinned to immutable releases and locked [< 1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/signal/node_modules/@echelon-foundry/design-system/package.json'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Echelon.Signal.Tests.FoundationsConformanceTests.the npm foundations are pinned to immutable releases and locked() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/FoundationsConformanceTests.fs:line 58
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Echelon.Signal.Tests.FoundationsConformanceTests.the Forma 0.x guard recognises every 0.x form and exempts only Folio's elements [1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/signal/node_modules/@echelon-foundry/print-components/src/components/register.js'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Echelon.Signal.Tests.FoundationsConformanceTests.the Forma 0.x guard recognises every 0.x form and exempts only Folio's elements() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/FoundationsConformanceTests.fs:line 275
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Echelon.Signal.Tests.FoundationsConformanceTests.every page is branded Echelon, loading the theme after Forma [8 ms]
+  Error Message:
+   web/styles.css: ../node_modules/@echelon-foundry/design-system/dist/all.css is not installed
+  Stack Trace:
+     at Echelon.Signal.Tests.FoundationsConformanceTests.every page is branded Echelon, loading the theme after Forma() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/FoundationsConformanceTests.fs:line 125
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:24.37]     Echelon.Signal.Tests.FormaOverrideGuardTests.no Signal class sets what the Forma or theme class on the same element sets [FAIL]
+[xUnit.net 00:00:24.38]     Echelon.Signal.Tests.FormaOverrideGuardTests.no Signal id selector sets what Forma sets on that element [FAIL]
+  Failed Echelon.Signal.Tests.FormaOverrideGuardTests.no Signal class sets what the Forma or theme class on the same element sets [1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/signal/node_modules/@echelon-foundry/design-system/dist/all.css'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Echelon.Signal.Tests.FormaOverrideGuardTests.no Signal class sets what the Forma or theme class on the same element sets() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/FormaOverrideGuardTests.fs:line 101
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Echelon.Signal.Tests.FormaOverrideGuardTests.no Signal id selector sets what Forma sets on that element [< 1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/signal/node_modules/@echelon-foundry/design-system/dist/all.css'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Echelon.Signal.Tests.FormaOverrideGuardTests.no Signal id selector sets what Forma sets on that element() in scratch:aincm/build/signal/tests/Echelon.Signal.Tests/FormaOverrideGuardTests.fs:line 146
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+
+Failed!  - Failed:    14, Passed:   718, Skipped:     0, Total:   732, Duration: 30 s - Echelon.Signal.Tests.dll (net10.0)
+VSTEST_ARTIFACTS_DIRECTORY environment variable was not found, falling back to a user-private temporary directory. This is most likely caused by an outdated Microsoft.NET.Test.Sdk package reference in the test project.

@@ -1,0 +1,5 @@
+"component","hypothetical_invested_balance_usd","disclosed_annual_fee_bps_if_elected","hypothetical_annual_adviser_fee_if_elected_usd","hypothetical_fee_if_waived_usd","limits","source_id"
+"OneGive disclosed waivable adviser fee","10000","55","55","0","Annual straight-line illustration on constant balance; any adviser may waive, actual accounts/amounts unknown; exclude sponsor/investment/technology fees","G17"
+"OneGive disclosed waivable adviser fee","100000","55","550","0","Annual straight-line illustration on constant balance; any adviser may waive, actual accounts/amounts unknown; exclude sponsor/investment/technology fees","G17"
+"OneGive disclosed waivable adviser fee","500000","55","2750","0","Annual straight-line illustration on constant balance; any adviser may waive, actual accounts/amounts unknown; exclude sponsor/investment/technology fees","G17"
+"OneGive disclosed waivable adviser fee","1000000","55","5500","0","Annual straight-line illustration on constant balance; any adviser may waive, actual accounts/amounts unknown; exclude sponsor/investment/technology fees","G17"

@@ -1,0 +1,5 @@
+design,payments,payment_cost_usd,recipient_hours,expected_uncaught_fraudulent_payee_changes,grants_affected_by_returns
+"PerGrantBaseline",100000,152100,8333.33,14.4,500
+"PerGrantWithKey",100000,152100,833.33,14.4,500
+"DailyNettingWithKey",61367,93339.21,833.33,14.4,500
+"RegistryNettingWithKey",61367,41115.89,833.33,2.4,500

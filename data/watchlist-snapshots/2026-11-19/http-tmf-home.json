@@ -1,0 +1,71 @@
+{
+  "check_id": "http-tmf-home",
+  "check_type": "http",
+  "date": "2026-11-19",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://www.minneapolisfoundation.org/"
+      }
+    ],
+    "final_url": "https://www.minneapolisfoundation.org/",
+    "form_actions": [
+      "https://www.minneapolisfoundation.org"
+    ],
+    "meta": {
+      "apple-mobile-web-app-capable": "yes",
+      "apple-mobile-web-app-status-bar-style": "black",
+      "description": "We are a community foundation that partners with nonprofits, facilitates grantmaking, drives research and advocacy, and provides services to donors.",
+      "mobile-web-app-capable": "yes",
+      "og:description": "We are a community foundation that partners with nonprofits, facilitates grantmaking, drives research and advocacy, and provides services to donors.",
+      "og:image": "https://www.minneapolisfoundation.org/wp-content/uploads/2026/06/DSC06464.jpg",
+      "og:image:height": "1000",
+      "og:image:type": "image/jpeg",
+      "og:image:width": "2000",
+      "og:site_name": "Minneapolis Foundation",
+      "og:title": "The Minneapolis Foundation | Cultivating Change Together",
+      "og:type": "Website",
+      "og:url": "https://www.minneapolisfoundation.org/",
+      "robots": "max-image-preview:large",
+      "theme-color": "#000000",
+      "twitter:card": "summary_large_image",
+      "twitter:description": "We are a community foundation that partners with nonprofits, facilitates grantmaking, drives research and advocacy, and provides services to donors.",
+      "twitter:image": "https://www.minneapolisfoundation.org/wp-content/uploads/2026/06/DSC06464.jpg",
+      "twitter:title": "The Minneapolis Foundation | Cultivating Change Together",
+      "viewport": "width=device-width, initial-scale=1"
+    },
+    "raw_sha256": "93cfb6f5f9fb4cb33a489b3212872cf1ec4ce50bb22fcf127ba1715c6d9b888c",
+    "text_chars": 3075,
+    "text_sha256": "d008555f7f026722e11fc7cc952e53f85c0b7dd042e0268c52fe3f72d029adc1"
+  },
+  "entity": "Minneapolis Foundation",
+  "error": "",
+  "observed_at_utc": "2026-11-19T15:56:00Z",
+  "ok": true,
+  "queue_items": "P-GIV-02",
+  "source_url": "https://www.minneapolisfoundation.org/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "www.minneapolisfoundation.org"
+    ],
+    "final_host": "www.minneapolisfoundation.org",
+    "final_status": "200",
+    "footers": [
+      "Powered by IRAs"
+    ],
+    "links": [
+      "https://tmf.iphiview.com/tmf/ | Donor Login",
+      "https://tmf.iphiview.com/tmf/LogIn/tabid/54/Default.aspx | Log in"
+    ],
+    "title": "The Minneapolis Foundation | Cultivating Change Together",
+    "watch_hits_urls": [
+      "iphiview"
+    ],
+    "watch_sentences": []
+  },
+  "target": "https://www.minneapolisfoundation.org/",
+  "watch_regex": "(?i)iphiview|giveinteractive"
+}

@@ -1,0 +1,26 @@
+PASS fresh init apply
+PASS fresh init verifies
+PASS fresh init writes lifecycle manifest
+PASS fresh init writes AGENTS region
+PASS idempotent first init apply
+PASS second init plans zero changes
+PASS idempotent second init apply
+PASS second init manifest byte stable
+PASS second init AGENTS byte stable
+PASS preserve shared AGENTS apply
+PASS existing AGENTS prefix preserved
+PASS Percepta region appended
+PASS edit guard setup apply
+PASS local managed-region edit blocks init
+PASS deletion repair setup apply
+PASS missing managed region plans one write
+PASS missing region repair apply
+PASS repaired installation verifies
+PASS orphan noncanonical region blocks adoption
+PASS legacy installation requires upgrade
+PASS legacy upgrade includes manifest reconciliation
+PASS legacy upgrade apply
+PASS upgraded installation verifies
+PASS upgrade edit setup apply
+PASS upgrade refuses locally edited prior region
+All Percepta repository lifecycle tests passed.

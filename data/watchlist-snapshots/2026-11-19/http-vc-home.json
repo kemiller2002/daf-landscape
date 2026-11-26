@@ -1,0 +1,58 @@
+{
+  "check_id": "http-vc-home",
+  "check_type": "http",
+  "date": "2026-11-19",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://www.vanguardcharitable.org/"
+      }
+    ],
+    "final_url": "https://www.vanguardcharitable.org/",
+    "form_actions": [
+      "/search/results"
+    ],
+    "meta": {
+      "description": "With the highest-value donor-advised fund, make tax-deductible charitable investments and support the charities you care about.",
+      "handheldfriendly": "true",
+      "keywords": "Vanguard Charitable, donor-advised fund, DAF, vanguard DAF, vanguard donor-advised fund, vanguard charitable endowment program, tax-deductible charity, philanthropic fund, tax-efficient, donate appreciated assets, vanguard investments, charitable giving",
+      "mobileoptimized": "width",
+      "og:description": "With the highest-value donor-advised fund, make tax-deductible charitable investments and support the charities you care about.",
+      "og:site_name": "Vanguard Charitable",
+      "og:title": "Home",
+      "og:url": "https://www.vanguardcharitable.org/home-0",
+      "viewport": "width=device-width, initial-scale=1.0"
+    },
+    "raw_sha256": "32bf5c9b45abc4cd67cc3ed8ff71e9e55c1076172f519202567490650292d8fe",
+    "text_chars": 9140,
+    "text_sha256": "ef2eb34763fcb33ac77402571d78ca3ab9ed305ff7f6bd4c5b0dd13e0e33c210"
+  },
+  "entity": "Vanguard Charitable",
+  "error": "",
+  "observed_at_utc": "2026-11-19T15:55:56Z",
+  "ok": true,
+  "queue_items": "P-VEN-02",
+  "source_url": "https://www.vanguardcharitable.org/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "www.vanguardcharitable.org"
+    ],
+    "final_host": "www.vanguardcharitable.org",
+    "final_status": "200",
+    "footers": [
+      "\u00a9 2026 Vanguard Charitable Endowment Program",
+      "\u00a9 2026 Vanguard Charitable Endowment Program. VANGUARD is a trademark of The Vanguard Group, Inc."
+    ],
+    "links": [
+      "https://www.vanguardcharitable.org/#login | Login"
+    ],
+    "title": "Home | Vanguard Charitable",
+    "watch_hits_urls": [],
+    "watch_sentences": []
+  },
+  "target": "https://www.vanguardcharitable.org/",
+  "watch_regex": "(?i)giveinteractive|client\\.vanguardcharitable\\.org|account\\.vanguardcharitable\\.org"
+}

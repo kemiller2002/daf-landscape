@@ -1,0 +1,139 @@
+{
+  "schema": "daf-decision-intelligence-candidate-v0",
+  "asOf": "2026-11-11",
+  "status": "manual_analyst_prototypes_not_automated",
+  "pins": {
+    "clarity": {
+      "repository": "kemiller2002/clarity-framework",
+      "commit": "8cd48019b893a4ce42fe4c9dcc81dd81fb12d1ea",
+      "files": [
+        "README.md",
+        "docs/framework-interactions.md",
+        "decision-posture-model.md",
+        "docs/templates/clarity-result-template.md"
+      ]
+    },
+    "edf": {
+      "repository": "kemiller2002/echelon-diagnostic-framework",
+      "commit": "41fea6ffc764adc69643d5ee2940916592486f84",
+      "files": [
+        "docs/edf/specification.md",
+        "docs/edf/operating-cycle.md",
+        "docs/edf/complexity-levels.md",
+        "docs/edf/diagnostic-calibration.md"
+      ]
+    },
+    "evidence": {
+      "repository": "kemiller2002/daf-landscape",
+      "commit": "4a024333c5b0710a68a7aefdc21829d8a50da1fc",
+      "scope": "pre-pilot main research sources as of Nov 11 2026"
+    }
+  },
+  "results": [
+    {
+      "caseId": "DI-001",
+      "title": "Should we prioritize AI grant vetting?",
+      "claim": "AI grant vetting is the most attractive first DAF technology differentiation",
+      "claimStatus": "provisional_not_established",
+      "conclusion": "Test donor engagement and end-to-end workflow exceptions before committing to standalone AI grant vetting.",
+      "strengthOfDescriptiveEvidence": "moderate_for_selected_2023_survey_sample",
+      "strengthOfProductInference": "low",
+      "frameworkUse": {
+        "edfLevel": "EDF-1",
+        "reason": "observable survey outcomes; causal origins remain hypothetical",
+        "diagnosticSufficiency": "yes_for_bounded_research_no_for_product_investment",
+        "clarityPosture": "Experimental"
+      },
+      "evidence": [
+        "M19",
+        "M20",
+        "M21",
+        "M22",
+        "M23"
+      ],
+      "sourceIds": [
+        "B05"
+      ],
+      "counterargument": "Self-rated grant review effectiveness could coexist with high handling cost, errors, and unmet buyer demand.",
+      "action": "Conduct consented sponsor buyer discovery and cost/exception measurement; compare grant vetting with donor engagement.",
+      "monitor": [
+        "manual exception cost per completed grant",
+        "qualified buyer procurement/ROI evidence",
+        "actual donor engagement outcome"
+      ],
+      "reassessWhen": "Current buyer interviews or independent measurements find larger validated grant-vetting costs or willingness-to-pay than engagement workflow.",
+      "responsibleOwner": "unassigned",
+      "committedInvestment": "none"
+    },
+    {
+      "caseId": "DI-002",
+      "title": "Are 3.59 million DAF accounts the software TAM?",
+      "claim": "DAFRC's FY2024 3.59 million DAF accounts represent distinct paying enterprise DAF platform customers",
+      "claimStatus": "contradicted_by_unit",
+      "conclusion": "The national account total cannot be used directly to calculate enterprise platform TAM; segment processor accounts and verify paid vendor contracts.",
+      "strengthOfDescriptiveEvidence": "high_for_published_revised_FY2024_count_with_scope",
+      "strengthOfProductInference": "insufficient_for_TAM",
+      "frameworkUse": {
+        "edfLevel": "EDF-0",
+        "reason": "known report aggregation and classification heterogeneity",
+        "diagnosticSufficiency": "yes_to_reject_naive_TAM_no_to_publish_numeric_TAM",
+        "clarityPosture": "Strategic_for_capital_allocation"
+      },
+      "evidence": [
+        "M01",
+        "M02",
+        "M03",
+        "M07",
+        "M08",
+        "M09"
+      ],
+      "sourceIds": [
+        "B01"
+      ],
+      "counterargument": "Donation processors can still pay software vendors; classify buyers rather than excluding a segment categorically.",
+      "action": "Download revised sponsor-level DAFRC data and map sponsoring entities to actual vendor contract types.",
+      "monitor": [
+        "sponsor subtype and processor counts",
+        "paying contract cohort coverage",
+        "fee base by product"
+      ],
+      "reassessWhen": "A versioned sponsor-year dataset and comparable contractual vendor/customer monetization allow an audited serviceable-market estimate.",
+      "responsibleOwner": "unassigned",
+      "committedInvestment": "none"
+    },
+    {
+      "caseId": "DI-003",
+      "title": "Does a disclosed Ren service payment prove margin superiority over Foundation Source?",
+      "claim": "Ren has higher profit margin than Foundation Source based on audited RCF payments and Charityvest expenses",
+      "claimStatus": "insufficient",
+      "conclusion": "RCF has an audited $19,225,546 FY2024 payment to Ren; this does not establish either vendor's profitability or support a Ren-versus-Foundation-Source margin ranking.",
+      "strengthOfDescriptiveEvidence": "high_for_narrow_RCF_audited_fee_payment",
+      "strengthOfProductInference": "insufficient_for_vendor_margin_comparison",
+      "frameworkUse": {
+        "edfLevel": null,
+        "reason": "no observed company-profit outcome to diagnose; measurement comparability problem only",
+        "diagnosticSufficiency": "not_applicable",
+        "clarityPosture": "Strategic_for_investment_commitment"
+      },
+      "evidence": [
+        "2024_RCF_Ren_19225546",
+        "Charityvest_non_grant_expenses_811940"
+      ],
+      "sourceIds": [
+        "F01",
+        "V03",
+        "V04"
+      ],
+      "counterargument": "Either vendor could be more profitable after accounting for unrelated customers, labor, tech costs, acquisition accounting, and fee recognition; comparisons are not supported.",
+      "action": "Obtain comparable payee-identified sponsor-to-vendor fee amounts and same-period recognized vendor revenue plus cost-to-serve records.",
+      "monitor": [
+        "named payee audit note",
+        "company recognized revenue",
+        "full service cost and margin per comparable product"
+      ],
+      "reassessWhen": "Reconciled audited vendor revenues and operating costs for comparable 2024–2026 service scopes are obtained.",
+      "responsibleOwner": "unassigned",
+      "committedInvestment": "none"
+    }
+  ]
+}

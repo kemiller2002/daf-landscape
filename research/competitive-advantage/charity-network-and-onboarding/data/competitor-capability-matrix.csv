@@ -1,0 +1,110 @@
+provider,capability_area,capability,status,evidence_class,confidence,source_ids,notes
+Ren (summary only),directory_size_and_sources,Charity network size,vendor-claim-only,VENDOR-CLAIM,Low,research/ai-native-daf-enterprise/00-research-inventory/research-inventory.md,"Network described as 140k (2023), 93k 'in network' (2026) and '>1 million charities annually' (2026); no denominator; see 02 (REN agent)"
+Ren (summary only),vetting_and_reuse,Vetting reused across sponsor programs; sponsor staff approve,partially-documented,VENDOR-CLAIM,Medium,research/batch-2b-ren-tifin-chariot-charity-vetting-infrastructure-2026-11-12.md;research/ren-tifin-chariot-deep-dive-2026-11-11.md,Product description separates vetting from sponsor approval/denial; RCF 2023 policy relied on GuideStar Charity Check for >98% of historical grants
+Ren (summary only),charity_portal_profile,Ren for Charities multi-program charity portal,documented,VENDOR-CLAIM,Medium,research/ren-tifin-chariot-deep-dive-2026-11-11.md,Charity-side ACH onboarding and grant data across Ren programs
+Ren (summary only),electronic_payment_enrollment_coverage,Enrolment count,not-publicly-documented,INFERENCE,Low,research/ren-tifin-chariot-deep-dive-2026-11-11.md,No public count of Ren for Charities ACH enrolments
+Ren (summary only),payment_partners,Rapid Disbursement Engine on sponsor's own bank rails,documented,VENDOR-CLAIM,Medium,research/ren-tifin-chariot-deep-dive-2026-11-11.md,ACH/check/positive pay originated on program's bank; no public Chariot integration
+Ren (summary only),sponsor_onboarding,Branded program and back-office administration models,documented,VERIFIED-FACT,High,research/ren-distribution-network-institutional-program-comparison-2026-11-12.md,"RCF-sponsored white label and administration for independent sponsors (e.g., MS GIFT)"
+Ren (summary only),white_label,White-label donor/adviser portals,documented,VERIFIED-FACT,High,research/ren-distribution-network-institutional-program-comparison-2026-11-12.md,edwardjones.donorfirstx.com etc.
+TIFIN Give / GiveClear,directory_size_and_sources,Charity directory,not-publicly-documented,INFERENCE,Low,CMP-021,Product page does not describe charity search source or size
+TIFIN Give / GiveClear,vetting_and_reuse,Grant approval by GiveClear; vetting sources,partially-documented,VERIFIED-FACT,Medium,research/ren-tifin-chariot-deep-dive-2026-11-11.md,GiveClear approves/rejects; Chariot verifies recipient; TIFIN-side screening data sources not published
+TIFIN Give / GiveClear,charity_portal_profile,Charity-facing portal,partially-documented,VERIFIED-FACT,Medium,research/ren-tifin-chariot-deep-dive-2026-11-11.md,Uses Chariot account/claim experience rather than own charity portal (per Chariot partner record)
+TIFIN Give / GiveClear,electronic_payment_enrollment_coverage,Electronic share,vendor-claim-only,VENDOR-CLAIM,Low,research/mission-2026-11-14/queue-batch36-metrics-rails.md,Chariot-reported 82% of dollars electronic in first 4 months
+TIFIN Give / GiveClear,payment_partners,Chariot Disbursements,documented,VERIFIED-FACT,High,research/ren-tifin-chariot-deep-dive-2026-11-11.md,Announced 2025-12-02; Chariot documented role split
+TIFIN Give / GiveClear,international_grantmaking,International grants,not-publicly-documented,INFERENCE,Low,CMP-021,Not on product page
+TIFIN Give / GiveClear,sponsor_onboarding,"Program launches (SEI, Confluence, AssetMark); timeline",partially-documented,VENDOR-CLAIM,Medium,CMP-021;research/ren-tifin-chariot-deep-dive-2026-11-11.md,Launches documented; implementation duration and fees not public
+TIFIN Give / GiveClear,integration_apis,"Wealth, CRM, planning integrations; multi-custody",vendor-claim-only,VENDOR-CLAIM,Medium,CMP-021,No public API schema
+TIFIN Give / GiveClear,white_label,White-label multi-custody platform,documented,VENDOR-CLAIM,High,CMP-021,
+GiftingNetwork,directory_size_and_sources,Charity directory,not-publicly-documented,INFERENCE,Low,CMP-029,No public documentation found
+GiftingNetwork,sponsor_onboarding,Community-foundation and advisor-channel deployments,partially-documented,VERIFIED-FACT,Medium,research/DAF-INDUSTRY-REPORT-2026-11.md;CMP-029,'Powered by GiftingNetwork' portals at Chicago Community Trust and Foundation For The Carolinas; Orion distribution (internal)
+GiftingNetwork,integration_apis,Envestnet advisor-workflow integration,vendor-claim-only,VENDOR-CLAIM,Low,CMP-029,Page 403; search-index only
+GiftingNetwork,white_label,Sponsor-branded portals,documented,VERIFIED-FACT,Medium,research/DAF-INDUSTRY-REPORT-2026-11.md,Portals carry sponsor brand with 'Powered by' footer
+GiftingNetwork,electronic_payment_enrollment_coverage,Charity EFT enrolment,not-publicly-documented,INFERENCE,Low,,Not found
+GivingTech DAFtech,directory_size_and_sources,Global charity search synced with five government registries,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-024,"US, UK, Canada, Israel, France"
+GivingTech DAFtech,vetting_and_reuse,Recipient due diligence and policy enforcement,vendor-claim-only,VENDOR-CLAIM,Low,CMP-024,No method detail
+GivingTech DAFtech,payment_partners,Digital grant disbursement with payout tracking,vendor-claim-only,VENDOR-CLAIM,Low,CMP-024,Rail/partner not named
+GivingTech DAFtech,international_grantmaking,Via America Gives (US 501(c)(3)),vendor-claim-only,VENDOR-CLAIM,Medium,CMP-024,Intermediary model
+GivingTech DAFtech,sponsor_onboarding,8-week implementation; licence (tech-only) or revenue share (full service),vendor-claim-only,VENDOR-CLAIM,Medium,CMP-024,Only public week-by-week plan found in scope
+GivingTech DAFtech,integration_apis,Zapier/Make/API,vendor-claim-only,VENDOR-CLAIM,Low,CMP-024,
+GivingTech DAFtech,white_label,White-label portal on sponsor subdomain; optional sponsoring charity,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-024;data/expanded-daf-market-map-2026.csv,Sponsor EIN unverified
+Fidelity Charitable,directory_size_and_sources,Recipients per year,documented,VENDOR-CLAIM,High,CMP-005;data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,"~227,000 charities supported 2025; 213,000 unique nonprofits CY2024 (2,664,446 grants)"
+Fidelity Charitable,vetting_and_reuse,In-house grant review,partially-documented,VERIFIED-FACT,Medium,research/daf-grant-tracking-payment-rails-comparison-2026-11-11.md,Some recommendations take 10+ business days; vetting sources not published
+Fidelity Charitable,charity_portal_profile,Nonprofit enrolment forms and Stripe dashboard,documented,VERIFIED-FACT,High,CMP-005,Bank changes via Stripe dashboard or resubmitted ACH form
+Fidelity Charitable,electronic_payment_enrollment_coverage,67% of grants by EFT,documented,VENDOR-CLAIM,High,research/mission-2026-11-14/queue-batch36-metrics-rails.md;CMP-005,2026 Giving Report (3m grants in 2025); unenrolled get checks
+Fidelity Charitable,payment_partners,Stripe and direct ACH,documented,VERIFIED-FACT,High,CMP-005,Free to nonprofits; enrolment not portable to other sponsors (inference)
+Fidelity Charitable,international_grantmaking,Via intermediaries such as CAF America,partially-documented,VENDOR-CLAIM,Low,CMP-015,ED fee page via search index
+Fidelity Charitable,white_label,Platform offered to other sponsors,not-publicly-documented,INFERENCE,Medium,data/expanded-daf-market-map-2026.csv,No public sponsor-platform offering
+DAFgiving360,directory_size_and_sources,Recipients per year,vendor-claim-only,VENDOR-CLAIM,Low,CMP-028;data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,"141,000 (FY2024); 155,000+ (FY2025); >165,000 (CY2025); >170,000 (FY2026) per releases; not fetched directly"
+DAFgiving360,electronic_payment_enrollment_coverage,Nonprofit EFT rail and share,not-publicly-documented,INFERENCE,Low,research/daf-grant-tracking-payment-rails-comparison-2026-11-11.md,Site robots-blocked; not verified
+DAFgiving360,directory_size_and_sources,Charity research links to Candid and Charity Navigator,partially-documented,VENDOR-CLAIM,Low,data/mission-2026-11-14/charity-data-provider-integrations-2026.csv,Snippet only
+DAFgiving360,white_label,Platform offered to other sponsors,not-publicly-documented,INFERENCE,Medium,data/expanded-daf-market-map-2026.csv,
+National Philanthropic Trust,directory_size_and_sources,Recipients per year,documented,VERIFIED-FACT,High,data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,"Form 990 Part III statement (regulatory filing; kept VERIFIED-FACT); 990 FY2024: >129,000 grants to >41,000 organizations"
+National Philanthropic Trust,vetting_and_reuse,GuideStar embedded in GivingPoint search,partially-documented,VENDOR-CLAIM,Low,research/mission-2026-11-14/queue-payment-rails-cluster.md,Internal note; NPT verifies EFT status before paying
+National Philanthropic Trust,electronic_payment_enrollment_coverage,"EFT status check, check fallback",documented,VERIFIED-FACT,Medium,research/mission-2026-11-14/queue-batch33-voids-exports-rails.md,Donor text: NPT verifies active EFT status else issues check
+National Philanthropic Trust,payment_partners,PayPal Grant Payments launch partner; NPT-paid EFT/wire,documented,VERIFIED-FACT,Medium,CMP-007;research/mission-2026-11-14/queue-batch33-voids-exports-rails.md,No Ren RDE value in GivingPoint payment enum
+National Philanthropic Trust,international_grantmaking,International and specialized grantmaking,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-019,
+National Philanthropic Trust,sponsor_onboarding,Private-label onboarding ~14-16 weeks under SLA,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-019,Pricing not public
+National Philanthropic Trust,integration_apis,SSO and advisor/client workflow,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-019,
+National Philanthropic Trust,white_label,"Private-label DAF (GivingPoint, e.g., jpmgiving.org)",documented,VERIFIED-FACT,High,CMP-019;research/mission-2026-11-14/queue-batch33-voids-exports-rails.md,
+Vanguard Charitable,directory_size_and_sources,Unique recipients,documented,VENDOR-CLAIM,High,CMP-031;CMP-026,"66,785 unique charities CY2025; '130,000+ since inception'"
+Vanguard Charitable,vetting_and_reuse,"Status, purpose and impermissible-benefit review",documented,VERIFIED-FACT,High,CMP-026,Extra info for religious/government/supporting orgs
+Vanguard Charitable,charity_portal_profile,Relies on Candid profile and PayPal account,documented,VERIFIED-FACT,High,CMP-026,No own charity portal; email support
+Vanguard Charitable,electronic_payment_enrollment_coverage,PayPal Grant Payments enrolment,documented,VERIFIED-FACT,High,CMP-026;research/DAF-INDUSTRY-REPORT-2026-11.md,">$1bn electronically to >13,000 charities by Nov 2024 (trade press, internal)"
+Vanguard Charitable,payment_partners,PayPal Grant Payments,documented,VERIFIED-FACT,High,CMP-026;CMP-007,
+Vanguard Charitable,international_grantmaking,Grants reached 34 countries,partially-documented,VERIFIED-FACT,Medium,CMP-026,Mechanism not described
+Foundation Source / Charityvest,payment_partners,Charityvest moving to Chariot Disbursements from Aug 2026,documented,VENDOR-CLAIM,Medium,research/startups-and-emerging-competitors-2026-11-12.md,Chariot partner post
+Foundation Source / Charityvest,sponsor_onboarding,"Turnkey DAF via Charityvest for wealth firms (TIAA, OneAscent)",documented,VERIFIED-FACT,High,data/expanded-daf-market-map-2026.csv,Launch dates in ADV/press; implementation time not public
+Foundation Source / Charityvest,integration_apis,Multi-custody via BridgeFT,partially-documented,VENDOR-CLAIM,Medium,data/expanded-daf-market-map-2026.csv,
+Foundation Source / Charityvest,international_grantmaking,Equivalency via NGOsource relationship,vendor-claim-only,VENDOR-CLAIM,Low,,Search snippet only; not verified
+Foundation Source / Charityvest,white_label,White-label DAFs and sponsor admin software,documented,VENDOR-CLAIM,Medium,data/expanded-daf-market-map-2026.csv,
+Foundation Source / Charityvest,directory_size_and_sources,Charity directory,not-publicly-documented,INFERENCE,Low,,
+Daffy,directory_size_and_sources,IRS-based directory,partially-documented,VENDOR-CLAIM,Medium,data/mission-2026-11-14/charity-data-provider-integrations-2026.csv,'every US not-for-profit in good standing with the IRS'; houses of worship added manually (days-weeks)
+Daffy,electronic_payment_enrollment_coverage,Chariot claim required for EFT,documented,VERIFIED-FACT,High,CMP-027,Unclaimed: US Mail
+Daffy,payment_partners,Chariot,documented,VERIFIED-FACT,High,CMP-027;CMP-012,
+Daffy,integration_apis,Public REST API and MCP,documented,VERIFIED-FACT,Medium,data/expanded-daf-market-map-2026.csv,Keys carry no documented scope (internal)
+Daffy,white_label,Enterprise white label,not-publicly-documented,INFERENCE,Low,data/expanded-daf-market-map-2026.csv,
+Chariot,directory_size_and_sources,Proprietary verified database from six sources,partially-documented,VENDOR-CLAIM,Medium,research/batch-2b-ren-tifin-chariot-charity-vetting-infrastructure-2026-11-12.md,"Public page lists IRS BMF, 990, Pub 78, OFAC"
+Chariot,vetting_and_reuse,One-time nonprofit verification reused across all DAF partners; no grant approval,documented,VERIFIED-FACT,High,CMP-011;research/batch-2b-ren-tifin-chariot-charity-vetting-infrastructure-2026-11-12.md,Sponsor retains approval; Chariot status is input evidence
+Chariot,charity_portal_profile,Claimed nonprofit account with Control Person KYC,documented,VERIFIED-FACT,High,CMP-011,
+Chariot,electronic_payment_enrollment_coverage,Network reach,vendor-claim-only,VENDOR-CLAIM,Low,CMP-012;CMP-013,"DAFpay on 60,000+ then 100,000+ nonprofit forms; no claimed-account count; 94.57% of payments electronic"
+Chariot,payment_partners,Chariot Deposit Account at Column N.A.; check fallback,documented,VERIFIED-FACT,High,CMP-011,
+Chariot,integration_apis,Versioned DAFpay and Disbursements APIs,documented,VERIFIED-FACT,High,research/ren-tifin-chariot-deep-dive-2026-11-11.md,
+Chariot,international_grantmaking,International recipients,not-publicly-documented,INFERENCE,Low,CMP-011,US bank verification only
+Benevity / AOGF,directory_size_and_sources,2M+ validated nonprofits built from government registries,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-001;CMP-003,
+Benevity / AOGF,vetting_and_reuse,"Validation/verification/vetting/investigation tiers; daily sanctions; shared across ~1,000 corporate clients",vendor-claim-only,VENDOR-CLAIM,Medium,CMP-002;CMP-003;research/mission-2026-11-14/breadth-community-faith-infrastructure-emerging.md,"Internal repo also records '2.5 million nonprofits continuously validated' and nearly 1,000 companies (earlier vendor page)"
+Benevity / AOGF,charity_portal_profile,"Causes Portal: claim profile with documents, bank details, disbursement reports",documented,VENDOR-CLAIM,Medium,CMP-004,Unlisted nonprofits cannot receive disbursements
+Benevity / AOGF,electronic_payment_enrollment_coverage,EFT share,vendor-claim-only,VENDOR-CLAIM,Low,CMP-004,"Guide: 90% domestic, 100% international by EFT"
+Benevity / AOGF,payment_partners,"Disbursing foundations (AOGF US, UKOGF)",documented,VERIFIED-FACT,High,CMP-003;research/mission-2026-11-14/queue-bdc-fix-labour-benevity.md,2.99% cause support fee capped $500
+Benevity / AOGF,international_grantmaking,Global disbursement; in-house vetting outside core registries,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-002,
+Benevity / AOGF,integration_apis,Claude/MCP integration over cause database,documented,VENDOR-CLAIM,Medium,CMP-001,
+"Bonterra (CyberGrants, Network for Good, Deed)",directory_size_and_sources,190K+ pre-vetted (Nonprofit Hub/Network); 10M+ searchable (Deed),vendor-claim-only,VENDOR-CLAIM,Medium,CMP-016;CMP-017;CMP-018,Different units
+"Bonterra (CyberGrants, Network for Good, Deed)",vetting_and_reuse,CyberGrants vetting and compliance; watchlist scanning,vendor-claim-only,VENDOR-CLAIM,Low,CMP-018,
+"Bonterra (CyberGrants, Network for Good, Deed)",charity_portal_profile,Nonprofit Hub (free nonprofit tools; banking details in records),vendor-claim-only,VENDOR-CLAIM,Low,CMP-016,
+"Bonterra (CyberGrants, Network for Good, Deed)",payment_partners,"Disbursement services; For Good (Network for Good DAF) disbursed to >22,000 nonprofits 2024",documented,VERIFIED-FACT,High,data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv;CMP-018,ForGood charges 1.5% on Every.org route
+"Bonterra (CyberGrants, Network for Good, Deed)",international_grantmaking,170+ countries (Deed),vendor-claim-only,VENDOR-CLAIM,Medium,CMP-018,
+PayPal Giving Fund / Grant Payments,directory_size_and_sources,Directory sourced from Candid database plus charities,documented,VERIFIED-FACT,High,CMP-006,Includes unenrolled charities in some programs
+PayPal Giving Fund / Grant Payments,vetting_and_reuse,"Candid status, OFAC, PayPal AUP; reused across grantmakers",documented,VERIFIED-FACT,High,CMP-006;CMP-007,
+PayPal Giving Fund / Grant Payments,charity_portal_profile,PayPal business account with confirmed charity status; accept/decline grants,documented,VERIFIED-FACT,High,CMP-006;CMP-007,
+PayPal Giving Fund / Grant Payments,electronic_payment_enrollment_coverage,Confirmed charities,vendor-claim-only,VENDOR-CLAIM,Low,CMP-007;CMP-030,"200,000+ (2022); current count not found"
+PayPal Giving Fund / Grant Payments,payment_partners,Used by NPT and Vanguard,documented,VERIFIED-FACT,High,CMP-007;CMP-026,
+Every.org,directory_size_and_sources,1M+ 501(c)(3) searchable,documented,VERIFIED-FACT,High,CMP-009,
+Every.org,charity_portal_profile,Claimable nonprofit profile and admin dashboard,vendor-claim-only,VENDOR-CLAIM,Low,CMP-010,
+Every.org,payment_partners,"Stripe, PayPal Grants, ForGood",vendor-claim-only,VENDOR-CLAIM,Low,CMP-010,
+Every.org,integration_apis,Free nonprofit search API; no disbursement API,documented-absent,VERIFIED-FACT,High,CMP-009,Disbursement API documented-absent
+CAF America,vetting_and_reuse,Risk-based validation reused by any CAF America donor for 1-3 years,documented,VERIFIED-FACT,High,CMP-014,Closest public analogue to cross-sponsor vetting reuse
+CAF America,international_grantmaking,Equivalency determination; certificate or CAF-managed grant,documented,VENDOR-CLAIM,Medium,CMP-014;CMP-015,
+CAF America,directory_size_and_sources,Validated organization count,not-publicly-documented,INFERENCE,Low,CMP-014,
+Candid,directory_size_and_sources,1.8-1.9M organization profiles,partially-documented,VENDOR-CLAIM,Medium,data/mission-2026-11-14/charity-data-provider-integrations-2026.csv,
+Candid,vetting_and_reuse,"Charity Check: BMF, Pub 78, revocations, IRB, OFAC; IRS polled every 20 min",documented,VERIFIED-FACT,High,CMP-020,
+Candid,charity_portal_profile,Self-maintained profiles and Seals shared to 200+ sites,partially-documented,VENDOR-CLAIM,Medium,data/mission-2026-11-14/charity-data-provider-integrations-2026.csv,
+Candid,integration_apis,Licensed APIs; AI/LLM use needs written consent; delete on termination,documented,VERIFIED-FACT,High,research/mission-2026-11-14/b43n26-03-charity-data-terms-ai.md,Constrains any runtime dependency
+Goodstack,directory_size_and_sources,9M+ global causes,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-008,
+Goodstack,vetting_and_reuse,API validation in minutes; validates unlisted on request,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-008,
+Goodstack,integration_apis,Validation API and hosted flow,documented,VENDOR-CLAIM,Medium,CMP-008,
+Pledge,directory_size_and_sources,Verified 501(c)(3) database,vendor-claim-only,VENDOR-CLAIM,Low,CMP-023,No count
+Pledge,integration_apis,Free search API; Donate API (5%); webhooks; MCP,documented,VERIFIED-FACT,High,CMP-023,
+Groundswell,directory_size_and_sources,1.8M+ 'vetted' via Candid GuideStar,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-022,
+Groundswell,payment_partners,Chariot default source,partially-documented,VENDOR-CLAIM,Low,research/mission-2026-11-14/queue-bank-programs-and-eft-providers.md,Distribution within 24h claimed
+Overflow,payment_partners,DAF gifts through Chariot since 2023,partially-documented,VENDOR-CLAIM,Low,research/DAF-INDUSTRY-REPORT-2026-11.md,"Nonprofit-side integrator, not sponsor"
+GoFundMe Giving Funds,directory_size_and_sources,'Verified charities',vendor-claim-only,VENDOR-CLAIM,Low,CMP-025,Launched 2025-06-30; independent 501(c)(3) sponsor
+Blackbaud Giving Fund (YourCause),directory_size_and_sources,Recipients per year,documented,VENDOR-CLAIM,Medium,data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,">123,000 nonprofits worldwide 2024"

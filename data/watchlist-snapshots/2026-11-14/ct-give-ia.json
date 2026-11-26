@@ -1,0 +1,110 @@
+{
+  "check_id": "ct-give-ia",
+  "check_type": "ct_crtsh",
+  "date": "2026-11-14",
+  "detail": {
+    "names": {
+      "ia-bugs.giveinteractive.com": {
+        "certs": 5,
+        "first_not_before": "2026-04-10",
+        "last_not_before": "2026-07-24"
+      },
+      "ia-detailed-holdings.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-06-29",
+        "last_not_before": "2026-06-29"
+      },
+      "ia-dyn-bolding-balance.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-03-26",
+        "last_not_before": "2026-03-26"
+      },
+      "ia-dyn-holding-balance.giveinteractive.com": {
+        "certs": 8,
+        "first_not_before": "2026-03-27",
+        "last_not_before": "2026-07-26"
+      },
+      "ia-implement-inv-fee.giveinteractive.com": {
+        "certs": 5,
+        "first_not_before": "2026-03-27",
+        "last_not_before": "2026-05-30"
+      },
+      "ia-privateequity.giveinteractive.com": {
+        "certs": 6,
+        "first_not_before": "2026-03-31",
+        "last_not_before": "2026-05-31"
+      },
+      "ia-restrictinvestments.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-02-24",
+        "last_not_before": "2026-02-24"
+      },
+      "ia-reverse-rebook.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-01",
+        "last_not_before": "2026-09-01"
+      },
+      "ia-staging-k8s.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-01-06",
+        "last_not_before": "2026-01-06"
+      },
+      "ia-vp-phase4.giveinteractive.com": {
+        "certs": 6,
+        "first_not_before": "2026-02-24",
+        "last_not_before": "2026-05-30"
+      },
+      "impactassets-sandbox.giveinteractive.com": {
+        "certs": 12,
+        "first_not_before": "2025-11-21",
+        "last_not_before": "2026-10-12"
+      },
+      "impactassets-staging-legacy.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-01-08",
+        "last_not_before": "2026-01-08"
+      },
+      "impactassets-staging.giveinteractive.com": {
+        "certs": 19,
+        "first_not_before": "2025-04-29",
+        "last_not_before": "2026-10-06"
+      },
+      "impactassets.giveinteractive.com": {
+        "certs": 8,
+        "first_not_before": "2026-01-28",
+        "last_not_before": "2026-08-28"
+      }
+    }
+  },
+  "entity": "ImpactAssets",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:25:06Z",
+  "ok": true,
+  "queue_items": "P-GIV-01;P-GIV-02",
+  "source_url": "https://crt.sh/?q=%25.giveinteractive.com",
+  "status": "200",
+  "summary": {
+    "name_count": 14,
+    "names": [
+      "ia-bugs.giveinteractive.com",
+      "ia-detailed-holdings.giveinteractive.com",
+      "ia-dyn-bolding-balance.giveinteractive.com",
+      "ia-dyn-holding-balance.giveinteractive.com",
+      "ia-implement-inv-fee.giveinteractive.com",
+      "ia-privateequity.giveinteractive.com",
+      "ia-restrictinvestments.giveinteractive.com",
+      "ia-reverse-rebook.giveinteractive.com",
+      "ia-staging-k8s.giveinteractive.com",
+      "ia-vp-phase4.giveinteractive.com",
+      "impactassets-sandbox.giveinteractive.com",
+      "impactassets-staging-legacy.giveinteractive.com",
+      "impactassets-staging.giveinteractive.com",
+      "impactassets.giveinteractive.com"
+    ],
+    "watch_hits": [
+      "impactassets.giveinteractive.com"
+    ]
+  },
+  "target": "%.giveinteractive.com",
+  "watch_regex": "^impactassets\\.giveinteractive\\.com$"
+}

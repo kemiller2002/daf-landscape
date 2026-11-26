@@ -1,0 +1,61 @@
+{
+  "check_id": "http-ia-calvert-login",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://iphi.stellartechsol.com/calvert/LogIn/tabid/444/Default.aspx"
+      }
+    ],
+    "final_url": "https://iphi.stellartechsol.com/calvert/LogIn/tabid/444/Default.aspx",
+    "form_actions": [
+      "/calvert/LogIn/tabid/444/Default.aspx"
+    ],
+    "meta": {
+      "author": "ImpactAssets",
+      "copyright": "Copyright 2022 by ImpactAssets",
+      "description": "ImpactAssets",
+      "distribution": "GLOBAL",
+      "keywords": "philanthropy, donor advised fund, impact investing, ImpactAssets, account, portal, login",
+      "rating": "GENERAL",
+      "resource-type": "DOCUMENT",
+      "revisit-after": "1 DAYS",
+      "robots": "INDEX, FOLLOW",
+      "viewport": "width=device-width"
+    },
+    "raw_sha256": "0a0f01b29d844b0697d9a413ef6c373aa81d08ea81c5e32d47fe26fe3e860f9c",
+    "text_chars": 648,
+    "text_sha256": "bba18b4b6b12dbb6c6cebd36fb8a40ffd776828f51a1e7ebfc273492e90ca1d1"
+  },
+  "entity": "ImpactAssets (iPhi login)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:28Z",
+  "ok": true,
+  "queue_items": "P-GIV-01",
+  "source_url": "https://iphi.stellartechsol.com/calvert/LogIn/tabid/444/Default.aspx",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "iphi.stellartechsol.com"
+    ],
+    "final_host": "iphi.stellartechsol.com",
+    "final_status": "200",
+    "footers": [],
+    "links": [],
+    "title": "Account Login - The ImpactAssets Donor Advised Fund",
+    "watch_hits_urls": [
+      "calvert",
+      "stellar"
+    ],
+    "watch_sentences": [
+      "Please contact us at 855-482-2946 or clientservice@impactassets.org if",
+      "The ImpactAssets 50",
+      "The ImpactAssets Donor Advised Fund"
+    ]
+  },
+  "target": "https://iphi.stellartechsol.com/calvert/LogIn/tabid/444/Default.aspx",
+  "watch_regex": "(?i)ImpactAssets|Calvert|Stellar|Copyright"
+}

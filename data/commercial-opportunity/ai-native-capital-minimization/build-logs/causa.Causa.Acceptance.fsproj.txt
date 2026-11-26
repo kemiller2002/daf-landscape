@@ -1,0 +1,1997 @@
+Test run for scratch:aincm/build/causa/tests/Causa.Acceptance/bin/Release/net10.0/Causa.Acceptance.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.25]     Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O1 [FAIL]
+[xUnit.net 00:00:00.25]     Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O5 [FAIL]
+[xUnit.net 00:00:00.25]     Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O4 [FAIL]
+[xUnit.net 00:00:00.26]     Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O3 [FAIL]
+[xUnit.net 00:00:00.26]     Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O2 [FAIL]
+  Failed Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O1 [40 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST009Tests.fs:line 25
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O5 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O5() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST009Tests.fs:line 69
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O4 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST009Tests.fs:line 54
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST009Tests.fs:line 39
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST009Tests.PERSIST-009-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST009Tests.fs:line 32
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.59]     Causa.Acceptance.Live.EXTDATA005Tests.EXT-DATA-005-O1 [FAIL]
+[xUnit.net 00:00:00.60]     Causa.Acceptance.Live.EXTDATA005Tests.EXT-DATA-005-O2 [FAIL]
+[xUnit.net 00:00:00.60]     Causa.Acceptance.Live.PF016Tests.PF-016-O1 [FAIL]
+[xUnit.net 00:00:00.60]     Causa.Acceptance.Live.PF016Tests.PF-016-O2 [FAIL]
+[xUnit.net 00:00:00.61]     Causa.Acceptance.Live.EXTDATA011Tests.EXT-DATA-011-O2 [FAIL]
+[xUnit.net 00:00:00.61]     Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O3 [FAIL]
+  Failed Causa.Acceptance.Live.EXTDATA005Tests.EXT-DATA-005-O1 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA005Tests.EXT-DATA-005-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA005Tests.fs:line 24
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA005Tests.EXT-DATA-005-O2 [3 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA005Tests.EXT-DATA-005-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA005Tests.fs:line 38
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF016Tests.PF-016-O1 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF016Tests.PF-016-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF016Tests.fs:line 42
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF016Tests.PF-016-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF016Tests.PF-016-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF016Tests.fs:line 65
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA011Tests.EXT-DATA-011-O2 [4 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA011Tests.EXT-DATA-011-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA011Tests.fs:line 32
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O3 [4 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST008Tests.fs:line 80
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.63]     Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O4 [FAIL]
+[xUnit.net 00:00:00.63]     Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O2 [FAIL]
+[xUnit.net 00:00:00.64]     Causa.Acceptance.Live.EXTDATA011Tests.EXT-DATA-011-O1 [FAIL]
+[xUnit.net 00:00:00.64]     Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O1 [FAIL]
+[xUnit.net 00:00:00.64]     Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O1 [FAIL]
+[xUnit.net 00:00:00.64]     Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O2 [FAIL]
+[xUnit.net 00:00:00.64]     Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O4 [FAIL]
+[xUnit.net 00:00:00.64]     Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O3 [FAIL]
+  Failed Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O4 [21 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST008Tests.fs:line 100
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O2 [2 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST008Tests.fs:line 55
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA011Tests.EXT-DATA-011-O1 [21 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA011Tests.EXT-DATA-011-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA011Tests.fs:line 21
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O1 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST013Tests.fs:line 27
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O1 [3 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST008Tests.PERSIST-008-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST008Tests.fs:line 44
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O2 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST013Tests.fs:line 37
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O4 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST013Tests.fs:line 76
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O3 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST013Tests.PERSIST-013-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST013Tests.fs:line 50
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.64]     Causa.Acceptance.Live.PF003Tests.PF-003-O1 [FAIL]
+[xUnit.net 00:00:00.65]     Causa.Acceptance.Live.PF003Tests.PF-003-O3 [FAIL]
+[xUnit.net 00:00:00.65]     Causa.Acceptance.Live.PF003Tests.PF-003-O4 [FAIL]
+[xUnit.net 00:00:00.66]     Causa.Acceptance.Live.PF004Tests.PF-004-O2 [FAIL]
+[xUnit.net 00:00:00.66]     Causa.Acceptance.Live.PF004Tests.PF-004-O3 [FAIL]
+  Failed Causa.Acceptance.Live.PF003Tests.PF-003-O1 [4 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF003Tests.PF-003-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF003Tests.fs:line 33
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF003Tests.PF-003-O3 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF003Tests.PF-003-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF003Tests.fs:line 58
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF003Tests.PF-003-O4 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF003Tests.PF-003-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF003Tests.fs:line 75
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF004Tests.PF-004-O2 [4 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF004Tests.PF-004-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF004Tests.fs:line 40
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF004Tests.PF-004-O3 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF004Tests.PF-004-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF004Tests.fs:line 72
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.66]     Causa.Acceptance.Deterministic.VER004Tests.VER-004-O1 [FAIL]
+[xUnit.net 00:00:00.67]     Causa.Acceptance.Live.PF004Tests.PF-004-O1 [FAIL]
+[xUnit.net 00:00:00.67]     Causa.Acceptance.Live.EXTDATA006Tests.EXT-DATA-006-O1 [FAIL]
+[xUnit.net 00:00:00.69]     Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O1 [FAIL]
+  Failed Causa.Acceptance.Deterministic.VER004Tests.VER-004-O1 [3 ms]
+  Error Message:
+   the dependency manifest:
+  global.json lets the SDK roll forward
+  Stack Trace:
+     at Causa.Acceptance.Deterministic.Gate.assertNoDefects(String what, FSharpList`1 defects) in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER001Tests.fs:line 336
+   at Causa.Acceptance.Deterministic.VER004Tests.VER-004-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER004Tests.fs:line 92
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF004Tests.PF-004-O1 [9 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF004Tests.PF-004-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF004Tests.fs:line 23
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA006Tests.EXT-DATA-006-O1 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA006Tests.EXT-DATA-006-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA006Tests.fs:line 20
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O1 [4 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST025Tests.fs:line 35
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.69]     Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O3 [FAIL]
+[xUnit.net 00:00:00.69]     Causa.Acceptance.Live.EXTDATA006Tests.EXT-DATA-006-O2 [FAIL]
+[xUnit.net 00:00:00.69]     Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O4 [FAIL]
+[xUnit.net 00:00:00.70]     Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O5 [FAIL]
+[xUnit.net 00:00:00.72]     Causa.Acceptance.Live.PF005Tests.PF-005-O1 [FAIL]
+[xUnit.net 00:00:00.72]     Causa.Acceptance.Live.PF005Tests.PF-005-O2 [FAIL]
+[xUnit.net 00:00:00.72]     Causa.Acceptance.Live.PF001Tests.PF-001-O2 [FAIL]
+  Failed Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST025Tests.fs:line 79
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA006Tests.EXT-DATA-006-O2 [22 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA006Tests.EXT-DATA-006-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA006Tests.fs:line 36
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O4 [4 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST025Tests.fs:line 95
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O5 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST025Tests.PERSIST-025-O5() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST025Tests.fs:line 105
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF005Tests.PF-005-O1 [4 ms]
+  Error Message:
+   scratch:aincm/build/causa/tests/Causa.App.Tests/DeployConnectionTests.fs depends on api.github.com
+  Stack Trace:
+     at Causa.Acceptance.Live.PF005Tests.PF-005-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF005Tests.fs:line 41
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF005Tests.PF-005-O2 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF005Tests.PF-005-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF005Tests.fs:line 54
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF001Tests.PF-001-O2 [2 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.Acceptance.Live.PF001Tests.liveProbes() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF001Tests.fs:line 13
+   at Causa.Acceptance.Live.PF001Tests.PF-001-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF001Tests.fs:line 37
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.73]     Causa.Acceptance.Live.PF001Tests.PF-001-O3 [FAIL]
+[xUnit.net 00:00:00.73]     Causa.Acceptance.Live.PF001Tests.PF-001-O1 [FAIL]
+[xUnit.net 00:00:00.77]     Causa.Acceptance.Live.PF018Tests.PF-018-O1 [FAIL]
+  Failed Causa.Acceptance.Live.PF001Tests.PF-001-O3 [6 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.Acceptance.Live.PF001Tests.liveProbes() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF001Tests.fs:line 13
+   at Causa.Acceptance.Live.PF001Tests.PF-001-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF001Tests.fs:line 52
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF001Tests.PF-001-O1 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF001Tests.PF-001-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF001Tests.fs:line 26
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF018Tests.PF-018-O1 [34 ms]
+  Error Message:
+   dotnet:Causa.Acceptance.Live.PERSIST007Tests.ReadBackOfFileOver1MB is not named for an obligation
+  Stack Trace:
+     at Causa.Acceptance.Live.PF018Tests.PF-018-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF018Tests.fs:line 30
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.92]     Causa.Acceptance.Live.PF018Tests.PF-018-O2 [FAIL]
+[xUnit.net 00:00:00.93]     Causa.Acceptance.Live.EXTDATA003Tests.EXT-DATA-003-O1 [FAIL]
+[xUnit.net 00:00:00.94]     Causa.Acceptance.Live.EXTDATA003Tests.EXT-DATA-003-O2 [FAIL]
+[xUnit.net 00:00:00.94]     Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O5 [FAIL]
+[xUnit.net 00:00:00.94]     Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O6 [FAIL]
+[xUnit.net 00:00:00.94]     Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O2 [FAIL]
+  Failed Causa.Acceptance.Live.PF018Tests.PF-018-O2 [155 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF018Tests.PF-018-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF018Tests.fs:line 59
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA003Tests.EXT-DATA-003-O1 [17 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA003Tests.EXT-DATA-003-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA003Tests.fs:line 24
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA003Tests.EXT-DATA-003-O2 [2 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA003Tests.EXT-DATA-003-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA003Tests.fs:line 41
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O5 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O5() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST006Tests.fs:line 54
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O6 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O6() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST006Tests.fs:line 66
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST006Tests.fs:line 23
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.94]     Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O1 [FAIL]
+[xUnit.net 00:00:00.94]     Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O7 [FAIL]
+[xUnit.net 00:00:00.94]     Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O4 [FAIL]
+[xUnit.net 00:00:00.94]     Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O3 [FAIL]
+[xUnit.net 00:00:00.95]     Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O2 [FAIL]
+[xUnit.net 00:00:00.95]     Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O3 [FAIL]
+[xUnit.net 00:00:00.95]     Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O4 [FAIL]
+[xUnit.net 00:00:00.95]     Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O1 [FAIL]
+[xUnit.net 00:00:00.95]     Causa.Acceptance.Live.PERSIST007Tests.ReadBackOfFileOver1MB [FAIL]
+  Failed Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O1 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST006Tests.fs:line 15
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O7 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O7() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST006Tests.fs:line 80
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O4 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST006Tests.fs:line 45
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST006Tests.PERSIST-006-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST006Tests.fs:line 35
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST007Tests.fs:line 31
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O3 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST007Tests.fs:line 46
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O4 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST007Tests.fs:line 59
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O1 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST007Tests.PERSIST-007-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST007Tests.fs:line 17
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST007Tests.ReadBackOfFileOver1MB [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST007Tests.ReadBackOfFileOver1MB() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST007Tests.fs:line 68
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.95]     Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O2 [FAIL]
+[xUnit.net 00:00:00.95]     Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O3 [FAIL]
+[xUnit.net 00:00:00.95]     Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O4 [FAIL]
+[xUnit.net 00:00:00.95]     Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O1 [FAIL]
+[xUnit.net 00:00:00.96]     Causa.Acceptance.Live.EXTDATA007Tests.EXT-DATA-007-O1 [FAIL]
+[xUnit.net 00:00:00.96]     Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O5 [FAIL]
+[xUnit.net 00:00:00.97]     Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O4 [FAIL]
+  Failed Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST021Tests.fs:line 25
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST021Tests.fs:line 37
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O4 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST021Tests.fs:line 50
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O1 [2 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST021Tests.PERSIST-021-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST021Tests.fs:line 15
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA007Tests.EXT-DATA-007-O1 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA007Tests.EXT-DATA-007-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA007Tests.fs:line 30
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O5 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O5() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST005Tests.fs:line 89
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O4 [4 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST005Tests.fs:line 76
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.97]     Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O3 [FAIL]
+[xUnit.net 00:00:00.97]     Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O1 [FAIL]
+[xUnit.net 00:00:00.97]     Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O2 [FAIL]
+[xUnit.net 00:00:00.97]     Causa.Acceptance.Live.EXTDATA007Tests.EXT-DATA-007-O2 [FAIL]
+[xUnit.net 00:00:00.99]     Causa.Acceptance.Live.PF017Tests.PF-017-O2 [FAIL]
+  Failed Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST005Tests.fs:line 67
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O1 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST005Tests.fs:line 46
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST005Tests.PERSIST-005-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST005Tests.fs:line 57
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA007Tests.EXT-DATA-007-O2 [11 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA007Tests.EXT-DATA-007-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA007Tests.fs:line 43
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF017Tests.PF-017-O2 [14 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF017Tests.PF-017-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF017Tests.fs:line 70
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:01.02]     Causa.Acceptance.Live.EXTDATA013Tests.EXT-DATA-013-O3 [FAIL]
+[xUnit.net 00:00:01.05]     Causa.Acceptance.Live.EXTDATA013Tests.EXT-DATA-013-O2 [FAIL]
+[xUnit.net 00:00:01.05]     Causa.Acceptance.Live.EXTDATA013Tests.EXT-DATA-013-O1 [FAIL]
+[xUnit.net 00:00:01.09]     Causa.Acceptance.Live.EXTDATA008Tests.EXT-DATA-008-O1 [FAIL]
+[xUnit.net 00:00:01.10]     Causa.Acceptance.Live.EXTDATA008Tests.EXT-DATA-008-O2 [FAIL]
+[xUnit.net 00:00:01.10]     Causa.Acceptance.Deterministic.VER006Tests.VER-006-O1 [FAIL]
+[xUnit.net 00:00:01.10]     Causa.Acceptance.Live.PF017Tests.PF-017-O1 [FAIL]
+[xUnit.net 00:00:01.13]     Causa.Acceptance.Deterministic.VER006Tests.VER-006-O2 [FAIL]
+  Failed Causa.Acceptance.Live.EXTDATA013Tests.EXT-DATA-013-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA013Tests.EXT-DATA-013-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA013Tests.fs:line 48
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA013Tests.EXT-DATA-013-O2 [22 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA013Tests.EXT-DATA-013-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA013Tests.fs:line 31
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA013Tests.EXT-DATA-013-O1 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA013Tests.EXT-DATA-013-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA013Tests.fs:line 20
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA008Tests.EXT-DATA-008-O1 [9 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA008Tests.EXT-DATA-008-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA008Tests.fs:line 32
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA008Tests.EXT-DATA-008-O2 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA008Tests.EXT-DATA-008-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA008Tests.fs:line 38
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Deterministic.VER006Tests.VER-006-O1 [3 ms]
+  Error Message:
+   System.Exception : BLOCKED: node_modules is not installed (run npm ci from package-lock.json); the installed artifacts cannot be verified
+  Stack Trace:
+     at Causa.Acceptance.Deterministic.Tooling.requireNodeModules() in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER004Tests.fs:line 59
+   at Causa.Acceptance.Deterministic.CrossSystem.formaCss() in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER006Tests.fs:line 15
+   at Causa.Acceptance.Deterministic.VER006Tests.VER-006-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER006Tests.fs:line 69
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF017Tests.PF-017-O1 [112 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF017Tests.PF-017-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF017Tests.fs:line 40
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Deterministic.VER006Tests.VER-006-O2 [27 ms]
+  Error Message:
+   System.Exception : BLOCKED: node_modules is not installed (run npm ci from package-lock.json); the installed artifacts cannot be verified
+  Stack Trace:
+     at Causa.Acceptance.Deterministic.Tooling.requireNodeModules() in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER004Tests.fs:line 59
+   at Causa.Acceptance.Deterministic.Tooling.node(String script) in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER004Tests.fs:line 63
+   at Causa.Acceptance.Deterministic.CrossSystem.limenDecode(String decoder, FSharpList`1 messages) in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER006Tests.fs:line 46
+   at Causa.Acceptance.Deterministic.VER006Tests.VER-006-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER006Tests.fs:line 126
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:01.51]     Causa.Acceptance.Live.PF009Tests.PF-009-O1 [FAIL]
+[xUnit.net 00:00:01.51]     Causa.Acceptance.Live.PF009Tests.PF-009-O3 [FAIL]
+[xUnit.net 00:00:01.51]     Causa.Acceptance.Live.PF009Tests.PF-009-O2 [FAIL]
+[xUnit.net 00:00:01.52]     Causa.Acceptance.Live.PF014Tests.PF-014-O3 [FAIL]
+[xUnit.net 00:00:01.52]     Causa.Acceptance.Live.PF014Tests.PF-014-O4 [FAIL]
+[xUnit.net 00:00:01.52]     Causa.Acceptance.Live.PF014Tests.PF-014-O2 [FAIL]
+[xUnit.net 00:00:01.52]     Causa.Acceptance.Live.PF014Tests.PF-014-O1 [FAIL]
+[xUnit.net 00:00:01.54]     Causa.Acceptance.Live.PF019Tests.PF-019-O2 [FAIL]
+  Failed Causa.Acceptance.Live.PF009Tests.PF-009-O1 [7 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF009Tests.PF-009-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF009Tests.fs:line 68
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF009Tests.PF-009-O3 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF009Tests.PF-009-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF009Tests.fs:line 103
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF009Tests.PF-009-O2 [4 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF009Tests.PF-009-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF009Tests.fs:line 86
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF014Tests.PF-014-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF014Tests.PF-014-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF014Tests.fs:line 60
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF014Tests.PF-014-O4 [2 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF014Tests.PF-014-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF014Tests.fs:line 82
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF014Tests.PF-014-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF014Tests.PF-014-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF014Tests.fs:line 37
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF014Tests.PF-014-O1 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF014Tests.PF-014-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF014Tests.fs:line 22
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF019Tests.PF-019-O2 [22 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF019Tests.PF-019-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF019Tests.fs:line 40
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:01.56]     Causa.Acceptance.Live.PF019Tests.PF-019-O1 [FAIL]
+[xUnit.net 00:00:01.56]     Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O2 [FAIL]
+[xUnit.net 00:00:01.57]     Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O3 [FAIL]
+[xUnit.net 00:00:01.57]     Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O4 [FAIL]
+[xUnit.net 00:00:01.57]     Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O1 [FAIL]
+[xUnit.net 00:00:01.59]     Causa.Acceptance.Live.EXTDATA002Tests.EXT-DATA-002-O1 [FAIL]
+[xUnit.net 00:00:01.59]     Causa.Acceptance.Live.EXTDATA002Tests.EXT-DATA-002-O2 [FAIL]
+[xUnit.net 00:00:01.59]     Causa.Acceptance.Live.PF002Tests.PF-002-O2 [FAIL]
+[xUnit.net 00:00:01.59]     Causa.Acceptance.Live.PF002Tests.PF-002-O1 [FAIL]
+  Failed Causa.Acceptance.Live.PF019Tests.PF-019-O1 [13 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF019Tests.PF-019-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF019Tests.fs:line 28
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST014Tests.fs:line 28
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST014Tests.fs:line 41
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O4 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST014Tests.fs:line 54
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O1 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PERSIST014Tests.PERSIST-014-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PERSIST014Tests.fs:line 21
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA002Tests.EXT-DATA-002-O1 [17 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA002Tests.EXT-DATA-002-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA002Tests.fs:line 25
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA002Tests.EXT-DATA-002-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA002Tests.EXT-DATA-002-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA002Tests.fs:line 39
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF002Tests.PF-002-O2 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF002Tests.liveCase() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF002Tests.fs:line 23
+   at Causa.Acceptance.Live.PF002Tests.PF-002-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF002Tests.fs:line 54
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF002Tests.PF-002-O1 [4 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF002Tests.liveCase() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF002Tests.fs:line 23
+   at Causa.Acceptance.Live.PF002Tests.PF-002-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF002Tests.fs:line 40
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:01.60]     Causa.Acceptance.Live.PF007Tests.PF-007-O2 [FAIL]
+[xUnit.net 00:00:01.60]     Causa.Acceptance.Live.PF007Tests.PF-007-O1 [FAIL]
+[xUnit.net 00:00:01.61]     Causa.Acceptance.Live.EXTDATA012Tests.EXT-DATA-012-O2 [FAIL]
+[xUnit.net 00:00:01.61]     Causa.Acceptance.Live.EXTDATA012Tests.EXT-DATA-012-O1 [FAIL]
+  Failed Causa.Acceptance.Live.PF007Tests.PF-007-O2 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF007Tests.PF-007-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF007Tests.fs:line 62
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF007Tests.PF-007-O1 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF007Tests.PF-007-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF007Tests.fs:line 37
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA012Tests.EXT-DATA-012-O2 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA012Tests.EXT-DATA-012-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA012Tests.fs:line 42
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA012Tests.EXT-DATA-012-O1 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA012Tests.EXT-DATA-012-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA012Tests.fs:line 25
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:03.31]     Causa.Acceptance.Live.EXTDATA001Tests.EXT-DATA-001-O2 [FAIL]
+[xUnit.net 00:00:03.31]     Causa.Acceptance.Live.EXTDATA001Tests.EXT-DATA-001-O1 [FAIL]
+  Failed Causa.Acceptance.Live.EXTDATA001Tests.EXT-DATA-001-O2 [3 s]
+  Error Message:
+   System.Exception : exit 1
+build: clean dist/
+build: compose index.html
+build: copy web assets
+build: vendor Forma
+
+build FAILED at vendor Forma: scratch:aincm/build/causa/node_modules/@echelon-foundry/design-system/dist is missing (run npm ci first)
+
+  Stack Trace:
+     at Microsoft.FSharp.Core.PrintfModule.PrintFormatToStringThenFail@1447.Invoke(String message)
+   at Causa.Acceptance.Deterministic.Tooling.build(FSharpList`1 arguments) in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER004Tests.fs:line 54
+   at Causa.Acceptance.Live.EXTDATA001Tests.EXT-DATA-001-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA001Tests.fs:line 197
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.EXTDATA001Tests.EXT-DATA-001-O1 [8 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA001Tests.EXT-DATA-001-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA001Tests.fs:line 182
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:03.41]     Causa.Acceptance.Live.PF013Tests.PF-013-O4 [FAIL]
+[xUnit.net 00:00:03.41]     Causa.Acceptance.Live.PF013Tests.PF-013-O3 [FAIL]
+[xUnit.net 00:00:03.41]     Causa.Acceptance.Live.PF013Tests.PF-013-O2 [FAIL]
+[xUnit.net 00:00:03.42]     Causa.Acceptance.Live.PF013Tests.PF-013-O1 [FAIL]
+  Failed Causa.Acceptance.Live.PF013Tests.PF-013-O4 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.Acceptance.Live.PF013Tests.liveProbes() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF013Tests.fs:line 14
+   at Causa.Acceptance.Live.PF013Tests.PF-013-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF013Tests.fs:line 73
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF013Tests.PF-013-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF013Tests.PF-013-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF013Tests.fs:line 61
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF013Tests.PF-013-O2 [3 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.Acceptance.Live.PF013Tests.liveProbes() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF013Tests.fs:line 14
+   at Causa.Acceptance.Live.PF013Tests.PF-013-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF013Tests.fs:line 49
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF013Tests.PF-013-O1 [3 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF013Tests.PF-013-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF013Tests.fs:line 34
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:03.44]     Causa.Acceptance.Live.EXTDATA010Tests.EXT-DATA-010-O2 [FAIL]
+[xUnit.net 00:00:03.44]     Causa.Acceptance.Live.EXTDATA010Tests.EXT-DATA-010-O3 [FAIL]
+[xUnit.net 00:00:03.45]     Causa.Acceptance.Live.EXTDATA010Tests.EXT-DATA-010-O1 [FAIL]
+[xUnit.net 00:00:03.46]     Causa.Acceptance.Deterministic.VER008Tests.VER-008-O1 [FAIL]
+[xUnit.net 00:00:03.46]     Causa.Acceptance.Live.PF012Tests.PF-012-O2 [FAIL]
+[xUnit.net 00:00:03.47]     Causa.Acceptance.Live.PF012Tests.PF-012-O3 [FAIL]
+  Failed Causa.Acceptance.Live.EXTDATA010Tests.EXT-DATA-010-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA010Tests.EXT-DATA-010-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA010Tests.fs:line 34
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.EXTDATA010Tests.EXT-DATA-010-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA010Tests.EXT-DATA-010-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA010Tests.fs:line 55
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.EXTDATA010Tests.EXT-DATA-010-O1 [7 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA010Tests.EXT-DATA-010-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA010Tests.fs:line 22
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Deterministic.VER008Tests.VER-008-O1 [1 ms]
+  Error Message:
+   System.Exception : BLOCKED: node_modules is not installed (run npm ci from package-lock.json); the installed artifacts cannot be verified
+  Stack Trace:
+     at Causa.Acceptance.Deterministic.Tooling.requireNodeModules() in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER004Tests.fs:line 59
+   at Causa.Acceptance.Deterministic.VER008Tests.VER-008-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER008Tests.fs:line 69
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF012Tests.PF-012-O2 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF012Tests.PF-012-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF012Tests.fs:line 47
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF012Tests.PF-012-O3 [6 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF012Tests.PF-012-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF012Tests.fs:line 61
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:03.49]     Causa.Acceptance.Live.PF012Tests.PF-012-O1 [FAIL]
+[xUnit.net 00:00:03.51]     Causa.Acceptance.Live.PF015Tests.PF-015-O1 [FAIL]
+[xUnit.net 00:00:03.51]     Causa.Acceptance.Live.PF015Tests.PF-015-O3 [FAIL]
+  Failed Causa.Acceptance.Live.PF012Tests.PF-012-O1 [23 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF012Tests.PF-012-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF012Tests.fs:line 33
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF015Tests.PF-015-O1 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF015Tests.PF-015-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF015Tests.fs:line 46
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF015Tests.PF-015-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.Acceptance.Live.PF015Tests.liveProbes() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF015Tests.fs:line 14
+   at Causa.Acceptance.Live.PF015Tests.PF-015-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF015Tests.fs:line 66
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:03.52]     Causa.Acceptance.Live.PF015Tests.PF-015-O4 [FAIL]
+[xUnit.net 00:00:03.52]     Causa.Acceptance.Live.PF015Tests.PF-015-O2 [FAIL]
+[xUnit.net 00:00:03.52]     Causa.Acceptance.Live.PF015Tests.PF-015-O5 [FAIL]
+[xUnit.net 00:00:03.52]     Causa.Acceptance.Live.PF011Tests.PF-011-O4 [FAIL]
+[xUnit.net 00:00:03.52]     Causa.Acceptance.Live.PF011Tests.PF-011-O3 [FAIL]
+[xUnit.net 00:00:03.53]     Causa.Acceptance.Live.PF011Tests.PF-011-O5 [FAIL]
+[xUnit.net 00:00:03.54]     Causa.Acceptance.Live.PF011Tests.PF-011-O6 [FAIL]
+  Failed Causa.Acceptance.Live.PF015Tests.PF-015-O4 [3 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF015Tests.PF-015-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF015Tests.fs:line 83
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF015Tests.PF-015-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.Acceptance.Live.PF015Tests.liveProbes() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF015Tests.fs:line 14
+   at Causa.Acceptance.Live.PF015Tests.PF-015-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF015Tests.fs:line 55
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF015Tests.PF-015-O5 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF015Tests.PF-015-O5() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF015Tests.fs:line 98
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF011Tests.PF-011-O4 [2 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF011Tests.PF-011-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF011Tests.fs:line 83
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF011Tests.PF-011-O3 [2 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF011Tests.PF-011-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF011Tests.fs:line 74
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF011Tests.PF-011-O5 [2 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF011Tests.PF-011-O5() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF011Tests.fs:line 107
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF011Tests.PF-011-O6 [2 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF011Tests.PF-011-O6() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF011Tests.fs:line 127
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:03.54]     Causa.Acceptance.Live.PF008Tests.PF-008-O1 [FAIL]
+[xUnit.net 00:00:03.54]     Causa.Acceptance.Live.PF008Tests.PF-008-O2 [FAIL]
+[xUnit.net 00:00:03.55]     Causa.Acceptance.Live.EXTDATA009Tests.EXT-DATA-009-O1 [FAIL]
+[xUnit.net 00:00:03.93]     Causa.Acceptance.Deterministic.VER006Tests.VER-006-O3 [FAIL]
+[xUnit.net 00:00:03.93]     Causa.Acceptance.Live.PF006Tests.PF-006-O2 [FAIL]
+[xUnit.net 00:00:03.94]     Causa.Acceptance.Live.PF006Tests.PF-006-O1 [FAIL]
+[xUnit.net 00:00:03.94]     Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O2 [FAIL]
+[xUnit.net 00:00:03.99]     Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O1 [FAIL]
+  Failed Causa.Acceptance.Live.PF008Tests.PF-008-O1 [5 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.Acceptance.Live.PF008Tests.liveProbes() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF008Tests.fs:line 20
+   at Causa.Acceptance.Live.PF008Tests.PF-008-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF008Tests.fs:line 50
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF008Tests.PF-008-O2 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF008Tests.PF-008-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF008Tests.fs:line 79
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.EXTDATA009Tests.EXT-DATA-009-O1 [8 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA009Tests.EXT-DATA-009-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA009Tests.fs:line 22
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Deterministic.VER006Tests.VER-006-O3 [2 s]
+  Error Message:
+   System.Exception : exit 1
+build: clean dist/
+build: compose index.html
+build: copy web assets
+build: vendor Forma
+
+build FAILED at vendor Forma: scratch:aincm/build/causa/node_modules/@echelon-foundry/design-system/dist is missing (run npm ci first)
+
+  Stack Trace:
+     at Microsoft.FSharp.Core.PrintfModule.PrintFormatToStringThenFail@1447.Invoke(String message)
+   at Causa.Acceptance.Deterministic.Tooling.build(FSharpList`1 arguments) in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER004Tests.fs:line 54
+   at Causa.Acceptance.Deterministic.VER006Tests.VER-006-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER006Tests.fs:line 148
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Causa.Acceptance.Live.PF006Tests.PF-006-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF006Tests.read() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF006Tests.fs:line 16
+   at Causa.Acceptance.Live.PF006Tests.PF-006-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF006Tests.fs:line 48
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF006Tests.PF-006-O1 [1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF006Tests.read() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF006Tests.fs:line 16
+   at Causa.Acceptance.Live.PF006Tests.PF-006-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF006Tests.fs:line 29
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O2 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA004Tests.fs:line 50
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O1 [54 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA004Tests.fs:line 38
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+[xUnit.net 00:00:03.99]     Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O3 [FAIL]
+[xUnit.net 00:00:03.99]     Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O4 [FAIL]
+[xUnit.net 00:00:04.00]     Causa.Acceptance.Live.PF020Tests.PF-020-O2 [FAIL]
+[xUnit.net 00:00:04.00]     Causa.Acceptance.Live.PF020Tests.PF-020-O1 [FAIL]
+[xUnit.net 00:00:04.41]     Causa.Acceptance.Live.EXTDATA012Tests.EXT-DATA-012-O3 [FAIL]
+  Failed Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O3 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA004Tests.fs:line 58
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O4 [< 1 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA004Tests.EXT-DATA-004-O4() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA004Tests.fs:line 73
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF020Tests.PF-020-O2 [6 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF020Tests.PF-020-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF020Tests.fs:line 56
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.PF020Tests.PF-020-O1 [3 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.PF020Tests.PF-020-O1() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/PF020Tests.fs:line 33
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+  Failed Causa.Acceptance.Live.EXTDATA012Tests.EXT-DATA-012-O3 [2 s]
+  Error Message:
+   System.Exception : exit 1
+build: clean dist/
+build: compose index.html
+build: copy web assets
+build: vendor Forma
+
+build FAILED at vendor Forma: scratch:aincm/build/causa/node_modules/@echelon-foundry/design-system/dist is missing (run npm ci first)
+
+  Stack Trace:
+     at Microsoft.FSharp.Core.PrintfModule.PrintFormatToStringThenFail@1447.Invoke(String message)
+   at Causa.Acceptance.Deterministic.Tooling.build(FSharpList`1 arguments) in scratch:aincm/build/causa/tests/Causa.Acceptance/Deterministic/VER004Tests.fs:line 54
+   at Causa.Acceptance.Live.EXTDATA012Tests.EXT-DATA-012-O3() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA012Tests.fs:line 52
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:06.13]     Causa.Acceptance.Live.EXTDATA009Tests.EXT-DATA-009-O2 [FAIL]
+  Failed Causa.Acceptance.Live.EXTDATA009Tests.EXT-DATA-009-O2 [2 s]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+--- End of stack trace from previous location ---
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Acceptance.Live.EXTDATA009Tests.EXT-DATA-009-O2() in scratch:aincm/build/causa/tests/Causa.Acceptance/Live/EXTDATA009Tests.fs:line 56
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.RuntimeMethodHandle.InvokeMethod(ObjectHandleOnStack target, Void** arguments, ObjectHandleOnStack sig, BOOL isConstructor, ObjectHandleOnStack result)
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.RuntimeMethodInfo.Invoke(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+
+Failed!  - Failed:   130, Passed:    70, Skipped:     0, Total:   200, Duration: 5 s - Causa.Acceptance.dll (net10.0)
+VSTEST_ARTIFACTS_DIRECTORY environment variable was not found, falling back to a user-private temporary directory. This is most likely caused by an outdated Microsoft.NET.Test.Sdk package reference in the test project.

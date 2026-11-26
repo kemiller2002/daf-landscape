@@ -1,0 +1,17 @@
+REV 8b0e93e
+CMD dotnet build Summa.sln -c Release
+BUILD_RC 0 SECS 48
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+CMD dotnet test tests/Summa.Contracts.Tests/Summa.Contracts.Tests.fsproj -c Release --no-build
+TEST_RC Summa.Contracts.Tests.fsproj 0 SECS 1 :: Passed!  - Failed:     0, Passed:    64, Skipped:     0, Total:    64, Duration: 172 ms - Summa.Contracts.Tests.dll (net10.0) 
+CMD dotnet test tests/Summa.Storage.Tests/Summa.Storage.Tests.fsproj -c Release --no-build
+TEST_RC Summa.Storage.Tests.fsproj 0 SECS 14 :: Passed!  - Failed:     0, Passed:   151, Skipped:     0, Total:   151, Duration: 12 s - Summa.Storage.Tests.dll (net10.0) 
+CMD dotnet test tests/Summa.Tests/Summa.Tests.fsproj -c Release --no-build
+TEST_RC Summa.Tests.fsproj 0 SECS 2 :: Passed!  - Failed:     0, Passed:   199, Skipped:     0, Total:   199, Duration: 581 ms - Summa.Tests.dll (net10.0) 
+CMD dotnet test tests/Summa.Web.Tests/Summa.Web.Tests.fsproj -c Release --no-build
+TEST_RC Summa.Web.Tests.fsproj 1 SECS 9 :: Failed!  - Failed:     6, Passed:   247, Skipped:     0, Total:   253, Duration: 7 s - Summa.Web.Tests.dll (net10.0) 
+DONE
+PASS2 CMD npm ci --ignore-scripts => RC 0 SECS 2 :: 
+PASS2 TEST_RC(after npm ci) Summa.Web.Tests.fsproj 0 SECS 8 :: Passed!  - Failed:     0, Passed:   253, Skipped:     0, Total:   253, Duration: 6 s - Summa.Web.Tests.dll (net10.0) 

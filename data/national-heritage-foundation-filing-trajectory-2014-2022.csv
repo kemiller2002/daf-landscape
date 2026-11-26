@@ -1,0 +1,6 @@
+"fiscal_year_end","NHF_total_assets_usd","data_basis","source_ids","limitations"
+"2014","45720907","2014 IRS-based public Form 990 extract","HL17","Historical sponsor total assets not donor-specific DAF assets; 2014 recognition on file"
+"2017","15689792","2017 IRS-based public Form 990 extract","HL17","Historical sponsor total assets, not proof of charity loss or sponsor operating model"
+"2020","4627829","2020 IRS-based public Form 990 extract","HL17","Historical sponsor total assets, not source cash flow adjustment"
+"2021","4189529","2021 IRS-based public Form 990 extract","HL17","Historical sponsor total assets, 2021 donor funds not fully identifiable"
+"2022","0","2022 IRS-based public Form 990 extract","HL17;HL18;HL19","Reported year-end zero assets; roughly $4.04m grants (including $3.843846m to United Charitable) not 1:1 proven DAF transfer"

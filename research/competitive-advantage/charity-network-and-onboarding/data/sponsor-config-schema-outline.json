@@ -1,0 +1,129 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:unbound:research:scp:0.1-outline",
+  "title": "Sponsor Configuration Package (outline, research draft 2026-11-26)",
+  "description": "Illustrative outline only; not a normative Unbound schema. Each module lists the existing requirement IDs it binds. See 12-declarative-sponsor-configuration.md.",
+  "type": "object",
+  "required": ["manifest", "modules", "references"],
+  "additionalProperties": false,
+  "$defs": {
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "item": {
+      "type": "object",
+      "required": ["itemId", "value", "source", "overrideDirection", "assistanceContractId"],
+      "properties": {
+        "itemId": { "type": "string", "description": "Configuration Register key (UNB-SMP-CFG-003)" },
+        "value": {},
+        "source": { "enum": ["derived", "default", "sponsorChoice", "counselDeviation"] },
+        "derivationRuleId": { "type": "string", "description": "UNB-SMP-CFG-001 derivation trace" },
+        "legalBasis": { "type": "string" },
+        "overrideDirection": { "enum": ["tightenOnly", "lengthenOnly", "sponsorChoice", "none"] },
+        "nonRemovable": { "type": "boolean", "description": "CNV-GOV-006; UNB-XIN-SAS-001" },
+        "assistanceContractId": { "type": "string", "description": "CNV-AIO-001; RR-REQ-X-051-r1" }
+      }
+    },
+    "reference": {
+      "type": "object",
+      "required": ["refId", "kind", "sha256"],
+      "properties": {
+        "refId": { "type": "string" },
+        "kind": { "enum": ["OdfiAgreement", "RailPartnerAgreement", "CustodianAgreement", "InvestmentManagerAgreement", "SponsorOperatingAgreement", "BoardResolution", "Appointment", "CounselDetermination", "IntegrationCertificate", "TenantIsolationDecision", "RetentionSchedule", "DestinationEvidenceTable", "ScreeningScope", "BrandKit"] },
+        "status": { "enum": ["Draft", "InNegotiation", "Executed", "Expired", "Revoked"] },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "expires": { "type": "string", "format": "date" }
+      }
+    },
+    "module": {
+      "type": "object",
+      "required": ["moduleId", "version", "materiality", "items"],
+      "properties": {
+        "moduleId": { "type": "string" },
+        "version": { "type": "string" },
+        "materiality": { "enum": ["Material", "NonMaterial", "MaterialIfChanged"], "description": "CNV-GOV-005: ambiguous or mixed treated as Material" },
+        "owners": { "type": "array", "items": { "type": "string" } },
+        "requirementIds": { "type": "array", "items": { "type": "string" } },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/item" } }
+      }
+    }
+  },
+  "properties": {
+    "manifest": {
+      "type": "object",
+      "required": ["packageId", "tenantId", "legalSponsorId", "version", "schemaVersion", "platformReleaseRange", "effectiveFrom", "sha256"],
+      "properties": {
+        "packageId": { "type": "string" },
+        "tenantId": { "type": "string", "description": "Immutable; UNB-TEN-001" },
+        "legalSponsorId": { "type": "string", "description": "Tenant unit is the legal sponsor; CNV-ARC-002" },
+        "version": { "type": "string" },
+        "parentVersion": { "type": ["string", "null"] },
+        "schemaVersion": { "const": "scp/0.1" },
+        "platformReleaseRange": { "type": "string", "description": "One codebase; RR-REQ-X-057-r1" },
+        "effectiveFrom": { "type": "string", "format": "date-time", "description": "CNV-GOV-005 effective dating" },
+        "derivation": { "type": "object", "properties": { "questionnaireRunId": { "type": "string" } } },
+        "sha256": { "$ref": "#/$defs/sha256" }
+      }
+    },
+    "modules": {
+      "type": "object",
+      "description": "Module ids and the requirement IDs each binds (informative).",
+      "properties": {
+        "identity.legalEntities": { "$ref": "#/$defs/module", "x-requirementIds": ["UNB-RCN-PLT-001", "UNB-TEN-020", "RR-UNB-PLAT-008-r1"] },
+        "brand": { "$ref": "#/$defs/module", "x-requirementIds": ["REQ-X-030", "CNV-EXP-001"] },
+        "terminology": { "$ref": "#/$defs/module", "x-requirementIds": ["UNB-RCN-PLT-007"] },
+        "policies.grants": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-GRT-001", "CNV-GRT-002", "CNV-GRT-003", "CNV-GRT-010", "CNV-GRT-011"] },
+        "policies.contributions": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-FIN-003", "UNB-RCN-FIN-012", "CNV-PAY-008"] },
+        "restrictions": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-GRT-009", "CNV-EXP-003"] },
+        "fees": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-FIN-002", "UNB-XIN-ERP-001", "ADM-028"] },
+        "accounting": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-FIN-012", "CNV-FIN-007", "ACC-MDL-001"] },
+        "investments": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-LEG-001", "UNB-XIN-REG-002", "UNB-CUST-006", "UNB-CUST-014"] },
+        "payments": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-PAY-001", "CNV-PAY-002", "CNV-PLT-012", "UNB-RCN-GRT-017"] },
+        "integrations": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-ECO-005", "UNB-CUST-018", "UNB-XIN-SAS-006"] },
+        "identity.providers": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-PLT-003", "UNB-XIN-IAM-001", "UNB-XIN-IAM-003", "AUTH-I8"] },
+        "network": { "$ref": "#/$defs/module", "x-requirementIds": ["INT-015", "UNB-XIN-SAS-004"] },
+        "authority": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-GOV-003", "CNV-GOV-004", "CNV-GOV-007", "CNV-GOV-010"] },
+        "workflows": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-SVC-001", "CNV-GOV-005", "CNV-ARC-005"] },
+        "communications": { "$ref": "#/$defs/module", "x-requirementIds": ["RR-REQ-X-029-r1", "CNV-PLT-001", "UNB-XIN-CRM-003"] },
+        "reporting": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-PLT-005", "CNV-GOV-008"] },
+        "retention": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-PLT-004", "UNB-TEN-008"] },
+        "regulatory": { "$ref": "#/$defs/module", "x-requirementIds": ["CNV-LEG-002", "CNV-GRT-006", "CNV-GRT-015", "UNB-RCN-GRT-007"] },
+        "serviceLevels": { "$ref": "#/$defs/module", "x-requirementIds": ["UNB-XIN-SAS-008", "CNV-SVC-002", "CNV-ARC-001"] },
+        "entitlements": { "$ref": "#/$defs/module", "x-requirementIds": ["UNB-XIN-SAS-001"] }
+      },
+      "additionalProperties": false
+    },
+    "references": { "type": "array", "items": { "$ref": "#/$defs/reference" } },
+    "dependencies": {
+      "type": "array",
+      "description": "Derived DAG edges; unresolved mandatory edge blocks activation (CNV-GOV-005, CNV-ECO-005).",
+      "items": {
+        "type": "object",
+        "required": ["from", "to", "mandatory"],
+        "properties": {
+          "from": { "type": "string", "description": "itemId" },
+          "to": { "type": "string", "description": "decisionId | refId | integrationId" },
+          "mandatory": { "type": "boolean" }
+        }
+      }
+    },
+    "lifecycle": {
+      "type": "object",
+      "properties": {
+        "state": { "enum": ["Draft", "SchemaValid", "SemanticallyValid", "PerimeterCleared", "Simulated", "ApprovalPending", "Approved", "Scheduled", "Active", "Superseded", "Rejected", "Withdrawn", "Expired", "RolledBack"] },
+        "simulationReportSha256": { "$ref": "#/$defs/sha256" },
+        "approvals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["principalId", "role", "packageSha256", "at"],
+            "properties": {
+              "principalId": { "type": "string" },
+              "role": { "enum": ["Author", "IndependentApprover", "SponsorOfficerA4", "CounselDeviation", "PlatformSafety"] },
+              "packageSha256": { "$ref": "#/$defs/sha256" },
+              "at": { "type": "string", "format": "date-time" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

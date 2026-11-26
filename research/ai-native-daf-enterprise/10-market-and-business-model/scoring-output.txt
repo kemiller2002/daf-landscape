@@ -1,0 +1,40 @@
+weight_set,rank,model,weighted_score
+W1_equal,1,C,3.6
+W1_equal,2,D,3.5
+W1_equal,3,Dc,3.0
+W1_equal,4,A,2.5
+W1_equal,5,B,2.3
+W2_investor,1,D,3.6
+W2_investor,2,C,3.2
+W2_investor,3,Dc,3.2
+W2_investor,4,B,2.35
+W2_investor,5,A,2.0
+W3_mission_and_risk,1,C,3.6
+W3_mission_and_risk,2,D,3.55
+W3_mission_and_risk,3,Dc,3.05
+W3_mission_and_risk,4,B,2.4
+W3_mission_and_risk,5,A,2.35
+W4_evidence_first,1,C,4.0
+W4_evidence_first,2,D,3.55
+W4_evidence_first,3,Dc,2.75
+W4_evidence_first,4,A,2.35
+W4_evidence_first,5,B,1.95
+W5_distribution_and_moat,1,D,3.55
+W5_distribution_and_moat,2,Dc,3.25
+W5_distribution_and_moat,3,C,2.9
+W5_distribution_and_moat,4,B,2.35
+W5_distribution_and_moat,5,A,1.9
+
+single_score_perturbation(+/-1)_that_changes_rank_first
+W1_equal: base_first=C; flips=0: 
+W2_investor: base_first=D; flips=0: 
+W3_mission_and_risk: base_first=C; flips=10: C.economics-1->D; C.regulatory-1->D; C.operational_feasibility-1->D; C.philanthropic-1->D; C.reversibility-1->D; D.economics+1->D; D.regulatory+1->D; D.operational_feasibility+1->D; D.philanthropic+1->D; D.reversibility+1->D
+W4_evidence_first: base_first=C; flips=0: 
+W5_distribution_and_moat: base_first=D; flips=0: 
+
+monte_carlo_rank_first_probability(n=20000,seed=20261120)
+C,0.634
+D,0.365
+A,0.001
+B,0.0
+Dc,0.0

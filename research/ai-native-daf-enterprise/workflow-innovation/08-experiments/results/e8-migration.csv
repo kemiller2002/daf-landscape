@@ -1,0 +1,4 @@
+method,grants_visible,contributions_visible,fund_balance,schedule_d_grants_paid_visible,history_completeness
+"source system",60,20,300000,300000,1
+"replay migration (event log)",60,20,300000,300000,1
+"balance-forward migration (2-year history)",23,7,300000,115000,0.38

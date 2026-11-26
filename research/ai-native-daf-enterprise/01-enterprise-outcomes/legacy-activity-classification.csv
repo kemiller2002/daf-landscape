@@ -1,0 +1,81 @@
+activity_id,legacy_department,activity,basis_category,disposition,replacement,outcome_ids,evidence_or_reasoning
+ACT-001,Marketing,Mass-market brand advertising to donors,convention,reduce,channel-embedded distribution through advisors and platforms,O-14,fastest-growing sponsors are channel- or platform-led [I] (direction-sponsor-marketing-spend.md)
+ACT-002,Marketing,Lead scoring from purchased third-party wealth data,convention,eliminate,donor-initiated and advisor-initiated intake; no covert profiling,O-14,privacy risk; not required by any outcome
+ACT-003,Marketing,Producing generic tax-benefit marketing claims,convention,transform,cited educational content that includes the direct-giving comparison,O-09,DAF not tax-superior for itemizers; loses for non-itemizers 2026 (direction-donor-tax-scenarios-2026.md)
+ACT-004,Sales,Advisor wholesaling visits to explain program features,convention,reduce,advisor API sandbox and embedded workflows; relationship managers for institutions only,O-14,
+ACT-005,Onboarding,Paper or PDF application forms,legacy_technology,eliminate,progressive structured intake via API or conversation,O-02,no legal requirement for a form; E-SIGN/UETA permit electronic agreements
+ACT-006,Onboarding,Re-keying application data into the recordkeeping system,legacy_technology,eliminate,single structured intake writes canonical record,O-02,
+ACT-007,Onboarding,Manual identity document review for every applicant,legacy_technology,automate_deterministic,identity provider result plus rule; human only for exceptions,O-02;O-08,
+ACT-008,Onboarding,Program agreement acceptance and versioning,legal_obligation,automate_deterministic,versioned agreement acceptance event with E-SIGN consent,O-02,contractual basis of advisory privileges
+ACT-009,Onboarding,Welcome kit mailing,convention,eliminate,event-driven digital confirmation,O-09,
+ACT-010,Contributions,Manual matching of incoming stock transfers to donors (orphan deposits),legacy_technology,transform,pre-registered transfer intents with unique references; agent proposes residual matches,O-01;O-05,
+ACT-011,Contributions,Producing contribution acknowledgment letters,legal_obligation,automate_deterministic,generated from settlement event with schema-tested content,O-01,IRC 170(f)(8) and 170(f)(18)
+ACT-012,Contributions,Signing Form 8283 Part V donee acknowledgment for noncash gifts over $5000,legal_obligation,retain_human_accountable,officer signs; agent pre-validates,O-01;O-07,IRC 170(f)(11) regime
+ACT-013,Contributions,Filing Form 8282 on disposition within 3 years,legal_obligation,automate_deterministic,triggered by disposition event of tracked noncash asset,O-07,
+ACT-014,Contributions,Complex asset acceptance review (private stock real estate LP interests),risk_control,retain_human_accountable,specialist decides with agent-prepared dossier,O-01;O-04,excess business holdings; liabilities; environmental
+ACT-015,Contributions,Year-end contribution surge staffing,legacy_technology,reduce,elastic deterministic processing; specialist surge only for complex assets,O-01,
+ACT-016,Contributions,Liquidating every contributed security immediately by default,convention,transform,policy choice per asset; liquidation is an option not a requirement,O-04,
+ACT-017,Grants,Manual review of every grant recommendation,convention,eliminate,deterministic approval of routine grants; exception-only human review,O-06,blanket manual review classified mixed; statutory exposure narrow for listed public charities (industry report §3 §4)
+ACT-018,Grants,Per-grant IRS status lookup by a person,legacy_technology,eliminate,continuous eligibility monitoring of payee universe,O-06,BMF/Pub78/revocation refreshes
+ACT-019,Grants,Per-grant OFAC search by a person,legacy_technology,automate_deterministic,automated screening with list-version evidence; human only on potential match,O-06;O-07,OFAC applies; method is not prescribed
+ACT-020,Grants,Expenditure responsibility for non-charity grants,legal_obligation,retain_human_accountable,specialist with agent-drafted agreements and report tracking,O-06;O-07,IRC 4966(c)(1)(B) via 4945(h)
+ACT-021,Grants,Equivalency determination or ER for foreign grants,legal_obligation,retain_human_accountable,specialist; shared determinations reused across accounts,O-06;O-07,
+ACT-022,Grants,Prohibited-benefit review of flagged grants,legal_obligation,retain_human_accountable,agent flags; specialist decides,O-06;O-08,IRC 4967
+ACT-023,Grants,Calling charities to confirm they will accept the grant,legacy_technology,transform,recipient enrollment and payment-profile verification once per recipient,O-15,
+ACT-024,Grants,Printing and mailing grant checks,legacy_technology,reduce,electronic rails default; checks only where recipient cannot receive electronically,O-15,no rule requires checks (strategic synthesis A7)
+ACT-025,Grants,Mailing grant cover letters with donor information,legacy_technology,transform,machine-readable remittance with donor-chosen sharing,O-15,
+ACT-026,Grants,Voiding and reissuing stale checks,legacy_technology,reduce,aging automation; fewer checks,O-15;O-05,
+ACT-027,Grants,Escheat analysis of uncashed checks,legal_obligation,automate_deterministic,aging rules per state; human sign-off on filings,O-07,state unclaimed property law
+ACT-028,Grants,Batching grants into weekly or monthly payment runs,legacy_technology,eliminate,continuous event-driven disbursement,O-06;O-15,batching is a rail and staffing convention
+ACT-029,Grants,Sponsor discretionary holds (reputational),risk_control,retain_human_accountable,board-approved policy with recorded decisions,O-06;O-10,2026 SPLC holds (industry report §4)
+ACT-030,Grants,Grant status inquiries from donors and charities,legacy_technology,eliminate,shared grant state machine visible to donor advisor and recipient,O-09;O-15,
+ACT-031,Grants,Grant recommendation data entry from emails or faxes,legacy_technology,eliminate,structured channels only (API portal conversation-to-structure with confirmation),O-06,
+ACT-032,Investments,Investment committee oversight and IPS,legal_obligation,retain_human_accountable,committee with continuously refreshed evidence pack,O-04;O-10,fiduciary duty
+ACT-033,Investments,Manual rebalancing spreadsheet,legacy_technology,automate_deterministic,band-based rebalancer with pre-trade checks,O-04,
+ACT-034,Investments,Advisor-managed account trade review after the fact,legacy_technology,transform,pre-trade mandate checks via API,O-04,
+ACT-035,Investments,Cash forecasting by spreadsheet,legacy_technology,automate_deterministic,forecast from recommendation pipeline and contribution intents,O-04,
+ACT-036,Investments,Manager due diligence,risk_control,retain_human_accountable,agent-prepared analysis; committee decides,O-04,
+ACT-037,Accounting,Daily unitization performed by recordkeeper batch,legacy_technology,automate_deterministic,event-driven valuation,O-05,
+ACT-038,Accounting,Manual custodian-to-ledger reconciliation,legacy_technology,transform,continuous three-way reconciliation; agent triages breaks,O-05,
+ACT-039,Accounting,Month-end close as a multi-day project,legacy_technology,transform,continuous close; month-end is a verification checkpoint,O-05;O-12,
+ACT-040,Accounting,Fee calculation in spreadsheets,legacy_technology,automate_deterministic,fee engine with versioned schedules,O-05,
+ACT-041,Accounting,Audit sample pulling (PBC lists),legacy_technology,eliminate,auditor read access to evidence ledger,O-12,
+ACT-042,Accounting,Independent annual financial statement audit,legal_obligation,retain_human_accountable,external auditor; evidence produced continuously,O-05;O-12,state thresholds and governance practice
+ACT-043,Accounting,Segregation of duties between payment creation and approval,risk_control,transform,enforced by authorization model and deterministic gates,O-05;O-08,
+ACT-044,Accounting,Form 990 preparation including Schedule D Part I,legal_obligation,automate_deterministic,generated from ledger; officer signs,O-12,IRC 6033(k)
+ACT-045,Compliance,Policy manuals as prose documents only,legacy_technology,transform,policy-as-code with prose generated from or linked to rules,O-07,
+ACT-046,Compliance,Periodic compliance attestations by staff survey,convention,eliminate,continuous control evidence,O-07,
+ACT-047,Compliance,State charitable solicitation registrations,legal_obligation,automate_deterministic,deadline tracking and filing assembly; officer signs,O-07,state law (b50-02-state-registration.md)
+ACT-048,Compliance,Treating bank-style BSA/AML program as mandatory,convention,transform,risk-based AML and sanctions program sized to actual obligations,O-07;O-08,charity is generally not a BSA financial institution (verify in regulatory map)
+ACT-049,Compliance,Conflict of interest annual disclosures,risk_control,automate_deterministic,continuous relationship graph plus annual attestation,O-10,Form 990 Part VI
+ACT-050,Compliance,Regulatory change monitoring by reading newsletters,legacy_technology,transform,obligation register with monitored sources; agent drafts impact analysis,O-07,
+ACT-051,Donor services,Phone and email handling of routine questions,legacy_technology,transform,grounded self-service and AI answers from authoritative state; humans for exceptions,O-09,
+ACT-052,Donor services,Statement production and mailing,legacy_technology,reduce,on-demand statements; mailed only on request,O-09,
+ACT-053,Donor services,Address and profile change processing,legacy_technology,automate_deterministic,self-service with step-up authentication,O-02;O-17,
+ACT-054,Donor services,Death and successor processing,risk_control,retain_human_accountable,document-driven workflow; human for disputes,O-16,
+ACT-055,Donor services,Outbound transfer to another sponsor processed manually,legacy_technology,transform,standard transfer with full history export,O-16,no top-12 sponsor publishes outbound policy
+ACT-056,Advisor services,Advisor access set up by paper LOA,legacy_technology,eliminate,delegated permission grants via API with donor consent,O-02,
+ACT-057,Advisor services,Advisor fee billing reconciliation,legacy_technology,automate_deterministic,fee engine with published caps,O-04;O-05,
+ACT-058,Technology,Nightly batch file exchanges with custodians,legacy_technology,reduce,event APIs where available; files reconciled continuously where not,O-05;O-11,
+ACT-059,Technology,Multiple copies of donor data across CRM recordkeeping and portal,legacy_technology,eliminate,canonical entity ownership with projections,O-02;O-17,
+ACT-060,Technology,Manual user access reviews from spreadsheets,legacy_technology,automate_deterministic,continuous entitlement analytics; human attestation,O-17,
+ACT-061,Governance,Board packs assembled manually each quarter,legacy_technology,transform,evidence-backed live dashboards with approved snapshots,O-10,
+ACT-062,Governance,Board approval of strategy policy delegations auditor,legal_obligation,retain_human_accountable,board,O-10,state nonprofit law
+ACT-063,Governance,Internal audit,risk_control,retain_human_accountable,independent internal audit using evidence ledger,O-10,
+ACT-064,Vendor mgmt,Annual vendor questionnaires,convention,transform,continuous telemetry plus SOC report analysis,O-11,
+ACT-065,Vendor mgmt,Contract negotiation for data rights and exit,risk_control,retain_human_accountable,counsel; standard data-portability clauses,O-11,Q-N04 open gap
+ACT-066,Impact,Annual donor impact reports built by hand,legacy_technology,transform,generated from grant ledger with evidence grades,O-13,
+ACT-067,Impact,Charity curation lists by staff,convention,transform,transparent recipient information with disclosed criteria,O-13,
+ACT-068,Finance,Treasury cash sweeps by hand,legacy_technology,automate_deterministic,rules-based sweeps with limits,O-04;O-05,
+ACT-069,Finance,Payment approval by two people for every routine grant,convention,transform,deterministic gates plus human dual control only for exceptions and limits,O-05;O-08,dual control retained for material and exception payments
+ACT-070,Finance,Positive pay and payee change controls,risk_control,automate_deterministic,payee verification and cooling-off rules,O-08,
+ACT-071,HR,Large tier-1 service and operations teams,legacy_technology,reduce,specialist-led organization,O-14,
+ACT-072,HR,Training staff on many manual procedures,legacy_technology,reduce,training on judgment domains and supervising systems,O-18,
+ACT-073,Risk,Annual risk assessment workshop only,convention,transform,continuous risk telemetry plus annual board review,O-10,
+ACT-074,Compliance,Inactive account outreach letters,risk_control,automate_deterministic,event-driven engagement with policy default,O-16,
+ACT-075,Grants,Grant purpose text manual review for every grant,convention,eliminate,agent flags purpose risk; human only for flagged,O-06,
+ACT-076,Contributions,Crypto contribution acceptance through a broker intermediary,risk_control,retain_human_accountable,policy-defined accepted assets; specialist for others,O-01,
+ACT-077,Accounting,Reconciling grant payments to recipient bank confirmations by hand,legacy_technology,automate_deterministic,settlement events with grant IDs in remittance,O-05;O-15,no top-10 sponsor states grant ID in ACH addenda (b4013-02)
+ACT-078,Donor services,Complaint handling and dispute resolution,risk_control,retain_human_accountable,service recovery team with full event history,O-09,
+ACT-079,Compliance,Responding to regulator and AG inquiries,legal_obligation,retain_human_accountable,counsel with evidence ledger queries,O-07,
+ACT-080,Technology,Disaster recovery testing,risk_control,automate_deterministic,scheduled restore tests with evidence,O-11;O-17,

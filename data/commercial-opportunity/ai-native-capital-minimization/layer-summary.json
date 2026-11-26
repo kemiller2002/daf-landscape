@@ -1,0 +1,133 @@
+{
+ "cases": {
+  "lo": {
+   "direct_incremental": {
+    "A": 171788,
+    "B": 961478,
+    "C": 1106972
+   },
+   "direct_standalone": {
+    "A": 212856,
+    "B": 1371478,
+    "C": 1426972
+   },
+   "shared_total": 132392,
+   "contingency": 60212,
+   "fully_allocated": {
+    "A": 187435.2607833632,
+    "B": 1025478.5548705092,
+    "C": 1219928.1843461276
+   },
+   "standalone_total": {
+    "A": 240677.4807142857,
+    "B": 1562202.2857142857,
+    "C": 1650044.9585714284
+   },
+   "group_total": 2432842,
+   "check_alloc_equals_group": 0.0
+  },
+  "base": {
+   "direct_incremental": {
+    "A": 401199,
+    "B": 2126445,
+    "C": 2068476
+   },
+   "direct_standalone": {
+    "A": 303482,
+    "B": 2501795,
+    "C": 4029871
+   },
+   "shared_total": 273767,
+   "contingency": 115814,
+   "fully_allocated": {
+    "A": 433669.95406330307,
+    "B": 2262997.4662196436,
+    "C": 2289033.5797170536
+   },
+   "standalone_total": {
+    "A": 350281.7164285714,
+    "B": 2871174.3464285713,
+    "C": 4569396.812142857
+   },
+   "group_total": 4985701,
+   "check_alloc_equals_group": 0.0
+  },
+  "hi": {
+   "direct_incremental": {
+    "A": 656307,
+    "B": 5506711,
+    "C": 4733272
+   },
+   "direct_standalone": {
+    "A": 597952,
+    "B": 5756711,
+    "C": 8724267
+   },
+   "shared_total": 573732,
+   "contingency": 231238,
+   "fully_allocated": {
+    "A": 717134.8481736183,
+    "B": 5801909.156884932,
+    "C": 5182215.99494145
+   },
+   "standalone_total": {
+    "A": 693215.7771428572,
+    "B": 6568096.582142857,
+    "C": 9871910.790714284
+   },
+   "group_total": 11701260,
+   "check_alloc_equals_group": 0.0
+  }
+ },
+ "q1_servicing_given_unbound": {
+  "lo": 1219928.1843461276,
+  "base": 2289033.5797170536,
+  "hi": 5182215.99494145
+ },
+ "q2_unbound_given_echelon": {
+  "lo": 1025478.5548705092,
+  "base": 2262997.4662196436,
+  "hi": 5801909.156884932
+ },
+ "echelon_caused_by_B": {
+  "lo": 111181,
+  "base": 273958,
+  "hi": 409876
+ },
+ "echelon_running": {
+  "lo": 60607,
+  "base": 127241,
+  "hi": 246431
+ },
+ "T01_cost_plus_echelon": {
+  "lo": 129467.52,
+  "base": 350842.75200000004,
+  "hi": 667722.8800000001
+ },
+ "T02_cost_plus_unbound": {
+  "lo": 1212693.3786140345,
+  "base": 2822947.435677215,
+  "hi": 7116595.240573426
+ },
+ "T03_market_unbound": {
+  "lo": 490000,
+  "base": 910000,
+  "hi": 2290000
+ },
+ "cash_view": {
+  "lo": {
+   "group_cash": 2340222,
+   "founder_opportunity_cost": 92620
+  },
+  "base": {
+   "group_cash": 4790573,
+   "founder_opportunity_cost": 195128
+  },
+  "hi": {
+   "group_cash": 11358820,
+   "founder_opportunity_cost": 342440
+  }
+ },
+ "model_R_total": 2916936,
+ "model_R_revenue": 3000000
+}

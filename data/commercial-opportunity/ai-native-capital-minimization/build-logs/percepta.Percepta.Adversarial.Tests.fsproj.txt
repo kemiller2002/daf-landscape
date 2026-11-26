@@ -1,0 +1,23 @@
+Canonical control complete: true
+missing-observation-region         machine-addressable    expected=structural         observed=Failed             complete=false
+deleted-falsified-hypothesis       machine-addressable    expected=state-projection   observed=Failed             complete=false
+hidden-blocking-unknown            machine-addressable    expected=state-projection   observed=Failed             complete=false
+illegal-action-enabled             machine-addressable    expected=interaction        observed=Failed             complete=false
+unavailable-reason-missing         machine-addressable    expected=interaction        observed=Failed             complete=false
+blocker-navigation-missing         machine-addressable    expected=interaction        observed=Failed             complete=false
+color-only-state                   machine-addressable    expected=structural         observed=Failed             complete=false
+inaccessible-action-name           machine-addressable    expected=accessibility      observed=Failed             complete=false
+horizontal-overflow                machine-addressable    expected=responsive         observed=Failed             complete=false
+optimistic-persistence-success     machine-addressable    expected=state-projection   observed=Failed             complete=false
+chat-only-primary                  machine-addressable    expected=structural         observed=Failed             complete=false
+unsupported-confidence             machine-addressable    expected=structural         observed=Failed             complete=false
+linearized-competing-hypotheses    machine-addressable    expected=structural         observed=Failed             complete=false
+wrong-primary-question             semantic-substitution  expected=escape-candidate   observed=Escaped            complete=true
+misleading-unknowns-content        semantic-substitution  expected=escape-candidate   observed=Escaped            complete=true
+
+Machine-addressable detection: 13/13 (100.0%)
+Machine-addressable false completions: 0
+Semantic substitutions escaping deterministic checks: 2/2
+HY-PERCEPTA-2026-0001 supported: true
+HY-PERCEPTA-2026-0002 supported: true
+Results: scratch:aincm/build/percepta/artifacts/percepta/adversarial/experiment-results.json

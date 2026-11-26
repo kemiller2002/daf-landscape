@@ -1,0 +1,49 @@
+Test run for scratch:aincm/build/chrona/tests/Chrona.Tests/bin/Release/net10.0/Chrona.Tests.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.55]     Chrona.Tests.FoundationsConformanceTests.the kernel registers Folio and starts Limen and its packs from the installed packages [FAIL]
+  Failed Chrona.Tests.FoundationsConformanceTests.the kernel registers Folio and starts Limen and its packs from the installed packages [< 1 ms]
+  Error Message:
+   ../node_modules/@echelon-foundry/print-components/src/components/register.js
+  Stack Trace:
+     at Chrona.Tests.FoundationsConformanceTests.the kernel registers Folio and starts Limen and its packs from the installed packages() in scratch:aincm/build/chrona/tests/Chrona.Tests/FoundationsConformanceTests.fs:line 107
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+[xUnit.net 00:00:00.55]     Chrona.Tests.FoundationsConformanceTests.the engine answers the Limen contract the installed kernel offers [FAIL]
+[xUnit.net 00:00:00.55]     Chrona.Tests.FoundationsConformanceTests.both pages take Forma and Folio from the installed packages [FAIL]
+[xUnit.net 00:00:00.55]     Chrona.Tests.FoundationsConformanceTests.the npm foundations are pinned to immutable releases and locked [FAIL]
+  Failed Chrona.Tests.FoundationsConformanceTests.the engine answers the Limen contract the installed kernel offers [< 1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/chrona/node_modules/@echelon-foundry/limen/dist/generated/core.js'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Chrona.Tests.FoundationsConformanceTests.the engine answers the Limen contract the installed kernel offers() in scratch:aincm/build/chrona/tests/Chrona.Tests/FoundationsConformanceTests.fs:line 219
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Chrona.Tests.FoundationsConformanceTests.both pages take Forma and Folio from the installed packages [< 1 ms]
+  Error Message:
+   ../node_modules/@echelon-foundry/design-system/dist/all.css is not installed
+  Stack Trace:
+     at Chrona.Tests.FoundationsConformanceTests.both pages take Forma and Folio from the installed packages() in scratch:aincm/build/chrona/tests/Chrona.Tests/FoundationsConformanceTests.fs:line 84
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+  Failed Chrona.Tests.FoundationsConformanceTests.the npm foundations are pinned to immutable releases and locked [< 1 ms]
+  Error Message:
+   System.IO.DirectoryNotFoundException : Could not find a part of the path 'scratch:aincm/build/chrona/node_modules/@echelon-foundry/design-system/package.json'.
+  Stack Trace:
+     at Interop.ThrowExceptionForIoErrno(ErrorInfo errorInfo, String path, Boolean isDirError)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String path, OpenFlags flags, Int32 mode, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, UnixFileMode openPermissions, Int64& fileLength, UnixFileMode& filePermissions, Boolean failForSymlink, Boolean& wasSymlink, Func`4 createOpenException)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.StreamReader.ValidateArgsAndOpenPath(String path, Int32 bufferSize)
+   at System.IO.File.ReadAllText(String path, Encoding encoding)
+   at Chrona.Tests.FoundationsConformanceTests.the npm foundations are pinned to immutable releases and locked() in scratch:aincm/build/chrona/tests/Chrona.Tests/FoundationsConformanceTests.fs:line 54
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+Failed!  - Failed:     4, Passed:   457, Skipped:     0, Total:   461, Duration: 9 s - Chrona.Tests.dll (net10.0)
+VSTEST_ARTIFACTS_DIRECTORY environment variable was not found, falling back to a user-private temporary directory. This is most likely caused by an outdated Microsoft.NET.Test.Sdk package reference in the test project.

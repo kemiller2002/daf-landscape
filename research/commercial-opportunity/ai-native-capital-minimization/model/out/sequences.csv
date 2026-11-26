@@ -1,0 +1,15 @@
+sequence,view,equity_need,capital_required_debt_financed,month_profitable,cash_m24,cash_m36,cash_m60,year5_profit,year5_roic
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",cash,10066487,14180003,46,-8556609,-11194358,-14180003,193958,0.011
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",economic,10066487,14180003,46,-8556609,-11194358,-14180003,193958,0.011
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",cash,6520757,8840366,42,-4818252,-7007168,-8840366,314123,0.028
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",economic,6789151,9248857,42,-5121246,-7341890,-9248857,314123,0.027
+"C customer-funded: design partner prepays $250k, F3 then F5",cash,6361472,8634797,39,-5038535,-7313262,-8634797,314123,0.029
+"C customer-funded: design partner prepays $250k, F3 then F5",economic,6585133,8979373,39,-5294120,-7595610,-8979373,314123,0.028
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",cash,7044290,9179988,48,-4503458,-6539969,-9179988,385958,0.033
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",economic,7491613,9828808,48,-4897801,-7071618,-9828808,385958,0.031
+"E provider partnership: partner programs at 14 bps net, F3",cash,7150065,10063024,,-5123791,-7695730,-10063024,-263225,-0.026
+"E provider partnership: partner programs at 14 bps net, F3",economic,8044710,11217669,,-5518134,-8318729,-11217669,-442154,-0.039
+"F founder-led: F1 then F3, $1.0B anchor + $500M",cash,4539287,6031242,30,-4402354,-5145032,-5905607,698174,0.091
+"F founder-led: F1 then F3, $1.0B anchor + $500M",economic,5112440,6843273,36,-4635756,-5590236,-6843273,519245,0.060
+G hybrid: narrow service + design partner + staged F2/F3/F5,cash,6883181,9161732,45,-5021333,-7046413,-9161732,350040,0.030
+G hybrid: narrow service + design partner + staged F2/F3/F5,economic,7285771,9752695,45,-5415676,-7530653,-9752695,350040,0.028

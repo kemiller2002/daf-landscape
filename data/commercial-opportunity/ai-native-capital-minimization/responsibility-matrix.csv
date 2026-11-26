@@ -1,0 +1,84 @@
+outcome_id,outcome,element_type,element,performer_type,authority,independence_needed,evidence_produced,escalation,failure_behavior,basis,human_required
+O01,Accurate financial records,action,post transactions and compute balances/fees server-side,deterministic_software,A2 execute by rule,n,"append-only entries, digest anchor",invariant breach -> integrity hold,fail closed; integrity hold never auto-releases,CNV-PLT-010; CNV-PLT-007,n
+O01,Accurate financial records,decision,correction class and period,human_decision_maker,staff (controller approval for prior-period),y: approver != preparer,correction record with relates_to_period,material -> controller,correction waits; no back-dating,CNV-FIN-011,y
+O01,Accurate financial records,decision,recognition point and accounting treatment policy,sponsor_appointed_authority,sponsor CFO/board,y,effective-dated policy record,auditor,platform default applies,CNV-FIN-007/008,y
+O01,Accurate financial records,control,ICFR evidence for user auditors,deterministic_software,n/a,n,IPE-supported reports,missing -> control exception,manual procedures continue,CNV-GOV-001,n
+O02,"Timely, lawful grants",information,structured recommendation with purpose and attestations,deterministic_software,n/a,n,recommendation record,invalid -> donor correction,rejected at entry,CNV-AIO-001,n
+O02,"Timely, lawful grants",decision,approve conforming grants under board delegation,deterministic_software,delegated policy version under named delegate,y: policy approved independently of authors,"policy version, inputs, outcome",non-conforming -> exception queue,without delegation: ApproveRecommended only,IRC 4966/4967; CNV-GRT-001,n
+O02,"Timely, lawful grants",action,prepare exception dossier,ai_agent,A1 prepare,n,dossier with locked deterministic section,unresolved trigger -> no batch,human prepares from deterministic section,CNV-AIO-002,n
+O02,"Timely, lawful grants",decision,review dossier and recommend,human_decision_maker,staff A2 recommend,y: not the decider,review note,doubt -> sponsor decider,item stays Held,CNV-GOV-010,y
+O02,"Timely, lawful grants",decision,decide exception grants,sponsor_appointed_authority,"reserved (A3+) by board resolution, one sponsor only",y: exclusive to sponsor; not vendor staff,signed decision with rationale,sponsor board/committee,Held; CoverageGap if no appointee within SLA,SPD-ADV-001; CNV-GOV-004; IRC 4966(d)(3) managers,y
+O02,"Timely, lawful grants",control,release payment batch,deterministic_software,release gate counts as releaser only with auditor/board acceptance,y: three distinct persons until accepted,"release log, fencing token",gate failure -> human release,three-distinct-person rule,CNV-GOV-003; CNV-ARC-003,n
+O02,"Timely, lawful grants",action,originate ACH/check/wire,external_provider,sponsor is Originator; ODFI,n,"bank files, positive pay",returns -> case,sponsor can pay via own bank channel,NACHA via CNV-PAY-001/005,n
+O02,"Timely, lawful grants",control,quarterly decision-quality sampling,independent_reviewer,attest only,"y: independent of preparer, releaser, policy author","sample, findings","material error -> increase n, notify board",delegation not renewed,CNV-GRT-011; CNV-GOV-008,y
+O03,Charity verification,information,status from IRS lists with posting dates,deterministic_software,n/a,n,"source, posting date, retrieval time",stale -> block,fail safe when stale,CNV-GRT-003,n
+O03,Charity verification,action,continuous monitoring and event invalidation,deterministic_software,A2,n,invalidation events,adverse -> review case,release blocked for affected recipient,CNV-GRT-003,n
+O03,Charity verification,action,adverse-news triage,ai_agent,A1 flag only,n,flag with quoted source,flag -> compliance,no flag cleared by AI,CNV-AIO-001; CNV-GRT-004,n
+O03,Charity verification,decision,eligibility on mismatch/absence/group exemption,human_decision_maker,staff recommend; sponsor decides if exception,y,determination record,-> sponsor decider,grant held,CNV-GRT-002/003,y
+O03,Charity verification,decision,equivalency determination / expenditure responsibility,contracted_specialist,qualified reviewer under sponsor reliance,y: independent of donor,ED/ER file,-> sponsor decider,route via intermediary or decline,CNV-GRT-008; CNV-GRT-011,y
+O04,Contribution processing,action,match and post contributions,deterministic_software,A2,n,"four dates, match evidence",unmatched -> queue,"item queued, not posted",CNV-FIN-003,n
+O04,Contribution processing,action,read check images / transfer memos,ai_agent,A1 suggest,n,extraction with image ref,low confidence -> human,human identification,activities.csv ACT-A03,n
+O04,Contribution processing,action,"lockbox, custody of paper, DTC receipt",external_provider,vendor contract,n,"lockbox files, custodian feeds",vendor SLA breach,fallback provider,CNV-PAY-007; CNV-FIN-013,n
+O04,Contribution processing,decision,accept complex gift,sponsor_appointed_authority,reserved: gift acceptance policy,y,"acceptance record, 8283 Part V",board/committee,gift declined,CNV-GRT-013; Form 8283/8282,y
+O04,Contribution processing,action,complex-asset diligence and liquidation,external_provider,agent intermediary,n,intermediary report,-> sponsor,gift not credited,CNV-GRT-013,n
+O04,Contribution processing,action,issue s170(f)(8)/(18) acknowledgments,deterministic_software,A2,n,acknowledgment with date,correction -> alert,manual issuance,s170(f)(8)/(18) via activities.csv ACT-A20,n
+O05,Customer service,information,status projection for every state combination,deterministic_software,n/a,n,StatusProjection version,unmapped state -> staff label,generic status,CNV-EXP-003,n
+O05,Customer service,action,grounded answers,ai_agent,A1 informational,n,answer with citations,complaint/human request/low confidence -> human,human queue,CNV-AIO-001; CNV-GRT-014,n
+O05,Customer service,decision,complaint handling and remedies,human_decision_maker,staff; sponsor for fund remedies,y for complaints about own work,"complaint record, 2-day acknowledgment",-> sponsor,clock never pauses,CNV-PLT-005; CNV-SVC-001,y
+O06,Sponsor reporting,action,generate reports from ledger and cases,deterministic_software,A2,n,IPE support,mismatch -> block,manual report,CNV-GOV-001,n
+O06,Sponsor reporting,action,draft narrative,ai_agent,A1,n,labelled AI narrative,figure mismatch -> block,report without narrative,CNV-AIO-002,n
+O06,Sponsor reporting,decision,approve and deliver sponsor reports,human_decision_maker,controller,y,sign-off,-> sponsor CFO,delayed delivery with notice,CNV-GOV-008,y
+O07,"Regulatory compliance (tax, sanctions, communications)",action,"screen at onboarding, list delta and release",deterministic_software,A2; fail closed,n,"list version, fetch time",match -> compliance,block release when list stale,31 CFR 501; CNV-GRT-006,n
+O07,"Regulatory compliance (tax, sanctions, communications)",decision,disposition of potential matches,human_decision_maker,compliance officer,y: independent of grant preparer,disposition with reasons,true match -> sponsor officer,never auto-closed,CNV-GRT-006,y
+O07,"Regulatory compliance (tax, sanctions, communications)",decision,block/reject and OFAC report,sponsor_appointed_authority,sponsor officer files (servicer prepares),y,501.603/604 report data within 10 business days,counsel,precautionary report default,31 CFR 501.603/604 via CNV-GRT-006,y
+O07,"Regulatory compliance (tax, sanctions, communications)",action,regulatory change watch,ai_agent,A1,n,"source, effective date",-> compliance owner,manual watch,CNV-GOV-005,n
+O07,"Regulatory compliance (tax, sanctions, communications)",decision,tax-content and legal interpretation,contracted_specialist,outside counsel,y,opinion memo,-> sponsor,content withheld,CNV-GRT-014,y
+O08,Reconciliation,action,continuous matching; exact matches auto-pass,deterministic_software,A2,n,match log,non-exact -> queue,new source: zero tolerance,CNV-FIN-004,n
+O08,Reconciliation,action,suggest non-exact matches,ai_agent,A1,n,proposal with differences,all -> human,human match,CNV-FIN-004,n
+O08,Reconciliation,decision,resolve breaks,human_decision_maker,reconciliation accountant (outside payment chain),y: no payment rights,break resolution,unattributable -> controller,statements blocked for affected funds,CNV-GOV-003; CNV-FIN-004,y
+O08,Reconciliation,control,attest risk-stratified sample of auto-passed items,independent_reviewer,attest,y,sample workpapers,"error -> resample, controller",sign-off withheld,CNV-FIN-004,y
+O08,Reconciliation,decision,monthly completeness sign-off; tolerance approval,human_decision_maker,controller,y,sign-off record,-> sponsor CFO,statements provisional/withheld per rule,CNV-FIN-004,y
+O09,Investment and custody coordination,action,ingest positions/valuations; relay allocation choices,deterministic_software,A2,n,raw feed + normalized,unmatched -> queue,relay paused,CNV-LEG-001; CNV-FIN-013,n
+O09,Investment and custody coordination,decision,"select manager, investment policy",sponsor_appointed_authority,sponsor board / investment committee,y,board minutes,n/a,n/a (servicer barred),CNV-LEG-001 (UPMIFA s5 interpretation),y
+O09,Investment and custody coordination,action,investment management and custody,external_provider,registered manager/custodian,n,statements,-> sponsor,n/a,CNV-LEG-001,n
+O09,Investment and custody coordination,decision,publish out-of-tolerance NAV,human_decision_maker,per investment-committee delegation,y,NAV exception record,-> committee,NAV withheld,CNV-FIN-005,y
+O10,Fraud prevention,action,anomaly triage,ai_agent,A1,n,signals and threshold,-> restricted fraud queue,deterministic cooling-off/callback,CNV-PLT-011,n
+O10,Fraud prevention,action,protective hold,deterministic_software,"sponsor-adopted hold policy, time-bounded",n,hold record actor/reason/expiry,-> sponsor officer immediately,converts to sponsor decision; sponsor can pay via own bank,CNV-PLT-007,n
+O10,Fraud prevention,decision,investigate and conclude,human_decision_maker,staff (restricted routing),y,investigation file,"-> sponsor, law enforcement",hold remains,CNV-SVC-001,y
+O11,Security,control,two approvers on control-relevant change,human_decision_maker,engineers (not author),y,"PR approvals, signed build",-> CTO/CISO,change blocked,CNV-PLT-010,y
+O11,Security,action,access review and logging,deterministic_software,A2,n,access logs,anomaly -> CISO,deny by default,CNV-ARC-002,n
+O11,Security,control,"penetration test, vCISO review",contracted_specialist,contract,y,reports,-> audit committee,finding remediation,CNV-GOV-003 (CISO access to audit committee),y
+O12,Accessibility,control,WCAG 2.2 AA conformance testing,deterministic_software,CI gate,n,test results,fail -> release blocked,release blocked,CNV-EXP-001,n
+O12,Accessibility,decision,individual accommodation,human_decision_maker,staff,n,accommodation record,-> manager,alternative channel at no extra cost,CNV-ECO-002; CNV-GOV-006,y
+O12,Accessibility,control,assistive-technology user testing,contracted_specialist,contract,y,audit report,-> product owner,remediation,CNV-EXP-001,y
+O13,Business continuity,decision,invoke DR/suspension mode,human_decision_maker,incident commander (CTO),n,incident record,-> sponsors,status-only channel; no unsafe promises,CNV-SVC-002,y
+O13,Business continuity,action,surge activation before 1 December,human_decision_maker,ops manager/founder,n,December readiness gate record,-> sponsors,SLA floor breach notified,CNV-SVC-002,y
+O13,Business continuity,action,pre-appointed surge reviewers,sponsor_appointed_authority,one sponsor each,y,appointment,n/a,backlog grows,CNV-GOV-004,y
+O14,Customer acquisition,decision,pursue sponsor and price,human_decision_maker,founder,n,pipeline record,-> board,n/a,CNV-ECO-004,y
+O14,Customer acquisition,action,prospect research and proposal drafting,ai_agent,A1,n,drafts,-> founder,manual,proposal,n
+O15,Sponsor onboarding and migration,action,data mapping and validation,ai_agent,A1,n,mapping diff,unmapped -> analyst,manual mapping,CNV-EXP-002,n
+O15,Sponsor onboarding and migration,decision,adopt configuration and activation gates,sponsor_appointed_authority,sponsor board/CFO,y,adoption records,-> board,pre-delegation operation,CNV-ECO-005; CNV-GOV-005,y
+O15,Sponsor onboarding and migration,decision,approve opening balances,human_decision_maker,controller,y,reconciliation report,-> sponsor CFO,go-live delayed,CNV-EXP-002,y
+O16,Software maintenance,action,build and test,ai_agent,A1 prepare code,n,PR with provenance,-> human approvers,human authorship,CNV-PLT-010,n
+O16,Software maintenance,decision,approve and release,human_decision_maker,two engineers not author,y,"approvals, release notice to sponsors",material gate change -> sponsor acceptance,revert to three-person rule for that sponsor,CNV-PLT-010; CNV-GOV-003,y
+O17,Continuous improvement,action,recurring-problem detection,ai_agent,A1,n,clusters,-> owner,periodic manual review,CNV-GOV-006,n
+O17,Continuous improvement,decision,change process or human step,human_decision_maker,process owner; sponsor if policy,n,justification record,-> sponsor,step stays until reviewed (never auto-bypass),CNV-GOV-006,y
+O18,"Audit and assurance (SOC 1/2, sponsor audits)",control,SOC 1 type 2 / SOC 2 examination,external_provider,CPA firm,y,SOC reports,-> sponsors' auditors,bridge letter,AT-C 320 via CNV-GOV-001,n
+O18,"Audit and assurance (SOC 1/2, sponsor audits)",action,evidence assembly,ai_agent,A1,n,IPE packs,-> controller,deterministic queries,CNV-GOV-001,n
+O19,Records retention and privacy,action,retention classes and disposal,deterministic_software,A2,n,retention log,legal hold -> counsel,retain,CNV-PLT-004,n
+O20,"Succession, disputes and entitlements",decision,recognise successor / dispute handling,sponsor_appointed_authority,sponsor (servicer prepares),y,"documents, decision",-> counsel,protective suspension,CNV-ENT-001/002,y
+O20,"Succession, disputes and entitlements",action,verify documents,human_decision_maker,staff,n,verification record,-> sponsor,suspension continues,CNV-ENT-001,y
+O21,Sponsor governance support (delegation),action,generate quarterly board report and samples,deterministic_software,A2,n,report with sampled reviews,-> board,delegation lapses,CNV-GOV-008,n
+O21,Sponsor governance support (delegation),decision,adopt/renew delegation,sponsor_appointed_authority,board or committee,y,resolution,n/a,recommend-only mode,CNV-GRT-001; CNV-GOV-008,y
+O22,Payment exceptions and unclaimed property,decision,void disposition / escheat,human_decision_maker,staff under state rule table; sponsor for re-credit,y,VoidDisposition record,-> sponsor,hold as payable,CNV-PAY-003,y
+O22,Payment exceptions and unclaimed property,action,bank traces for unknown outcomes,external_provider,ODFI,n,trace response,-> ops,aging tier escalation,CNV-PAY-004,n
+O23,Policy configuration and change control,action,draft policy-pack change and impact,ai_agent,A1,n,"diff, impact",-> compliance,no change,CNV-GOV-005,n
+O23,Policy configuration and change control,decision,adopt material change,sponsor_appointed_authority,sponsor,y,adoption record,deadline missed -> feature fails safe,previous version,CNV-GOV-008; CNV-GOV-005,y
+O24,Third-party and vendor management,action,vendor SOC gap monitoring,deterministic_software,A2,n,gap computation,-> request bridge letter,manual tracking,CNV-GOV-002,n
+O24,Third-party and vendor management,decision,accept vendor / fallback,human_decision_maker,CTO/controller,n,integration register,-> sponsor,activation not ready,CNV-ECO-005,y
+O25,Donor disclosures and communications compliance,action,generate tax content from verified authority,deterministic_software,A2 with owner/version,n,"citations, effective dates",-> counsel,content withheld,CNV-GRT-014,n
+O25,Donor disclosures and communications compliance,control,message classification before activation,human_decision_maker,compliance,n,template classification,-> counsel,template inactive,CNV-PLT-001,y
+O26,Workforce capacity and coverage,action,forecast workload and roster coverage,deterministic_software,A2,n,"roster, forecast",gap -> manager,manual roster,CNV-SVC-002; CNV-GOV-004,n
+O26,Workforce capacity and coverage,decision,hire/contract/appoint backup,human_decision_maker,founder/manager,n,staffing decision,-> board,coverage gap disclosed,CNV-SVC-002,y
+O27,Servicer's own finance and billing,action,meter and bill,deterministic_software,A2,n,metered events reconciled to invoices,residual > tolerance -> controller,manual invoice,CNV-ECO-001,n
+O27,Servicer's own finance and billing,action,company bookkeeping and payroll,external_provider,outsourced provider,n,books,-> controller,fallback provider,prior cost register,n

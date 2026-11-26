@@ -1,0 +1,1 @@
+Vitium NuGet consumer contract smoke tests passed.

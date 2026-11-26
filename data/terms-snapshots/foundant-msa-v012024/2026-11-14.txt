@@ -1,0 +1,488 @@
+MASTER SUBSCRIPTION AGREEMENT
+Foundant Technologies, Inc.
+This Master Subscription Agreement ("MSA") is effective as of the Effective Date by and between Client
+(hereinafter referred to as "Client") and Foundant Technologies, Inc. ("Foundant Technologies" or
+"Service Provider") (singularly, a "Party" and collectively, the "Parties"). Client desires to use Service
+Provider's Platform and the Services as outlined in the Client Order Form and elsewhere in the Agreement
+pursuant to the terms and conditions of the Client Order Form, this MSA, the Data Processing Agreement,
+the Service Level Agreement. the Professional Services Agreement, and any related Statements of Work
+(collectively, the "Agreement").
+The Parties agree as follows:
+1. DEFINITIONS.
+1.1 "Affiliate" means, with respect to a Party, any other individual, corporation, partnership (formal or
+informal), joint venture, limited liability entity, foundation, governmental authority, unincorporated
+organization, trust, association, component funds, or other entity that directly or indirectly controls,
+is controlled by, or is under common control with such entity, through one or more intermediaries
+or contractual relationships, where "control" means the possession, directly or indirectly, of the
+power to direct or cause the direction of the management and policies of such entity.
+1.2 "Client Data" means the electronic data and information that is: (a) input into the Platform by or on
+behalf of Client; or, (b) provided by a User in connection with the use of the Platform and may
+include, but is not limited to, names and email addresses. Client Data does not include Usage Data.
+1.3 "Content" means content, data, and information that is owned or licensed by Service Provider or
+any of its licensors that is provided or made available by Service Provider through use of the
+Platform or as part of or in connection with Service Provider's provision of Services. Content does
+not include Client Data.
+1.4 "Documentation" means any user materials, instructions, and specifications, written or otherwise,
+made available by Foundant Technologies to Client for the Software and Services.
+1.5 "Platform" means the Service Provider's proprietary Software identified in the Client Order Form
+and any Updates associated therewith. The Platform does not include Client's connectivity
+equipment, internet and network connections, hardware, software, and other equipment as may
+be necessary for Client and its Users to connect to and obtain access to the Platform or to utilize the
+Services.
+1.6 "Prohibited Data" means any of the following: (i) "protected health information" or "individually
+identifiable health information" as defined under 45 C.F.R. § 160.103 or similar state laws; (ii) any
+information deemed to be special categories of data as set forth in Article 9 of the EU General Data
+Protection Regulation or similar data protection laws or regulations; (iii) "nonpublic personal
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 1 of 12
+information" as defined under the Gramm-Leach-Bliley Act; and/or, (iv) children's personal
+information protected by the Children's Online Privacy Protection Act.
+1.7 "Professional Services" means the migration, training, implementation, integration, and
+configuration services to be performed by Service Provider as listed in the Client Order Form.
+1.8 "Services" means, collectively, Professional Services, Support Services, and any other sub-processor
+services made available on, by, or through the Platform as described in this Agreement.
+1.9 "Software" means Service Provider's proprietary software-as-a-service ("SAAS") subscription(s)
+identified in the Software and Services Chart shown in the Client Order Form.
+1.10 "Support Services" means the technical support and Software maintenance as described in the
+Service Level Agreement located at: https://www.foundant.com/legal/.
+1.11 "Third Party Services" means services provided by a third party.
+1.12 "User/s" means Client's employees, independent contractors, donors, grant or scholarship
+applicants, and other individuals who are authorized by Client to use the Software or receive the
+Services on behalf of Client.
+1.13 "Usage Data" means any content, data, or information that is collected or produced by the Platform
+in connection with the use of the Services in an anonymized, aggregated format that is not
+identifiable to Client or a particular User, and may include, but is not limited to, usage patterns,
+traffic logs and user conduct associated with the Platform.
+2. SERVICES.
+2.1 Provision of Services. Subject to the terms and conditions of this Agreement, Service Provider shall
+provide the Services or enable the Services to be provided to Client and its Users.
+2.2 Cooperation. Client shall supply to Service Provider the Client Data for input into the Platform.
+Client shall also provide Service Provider with access and personnel resources reasonably requested
+by Service Provider to enable Service Provider to provide the Services and Software functionality as
+set forth in this Agreement and the Documentation.
+2.3 Resources. Client is solely responsible for, at its own expense, acquiring, installing, and maintaining
+all connectivity equipment, internet and network connections, hardware, software, and other
+equipment as may be necessary for its Users to connect to and access the Platform.
+3. GRANT OF RIGHTS.
+3.1 Access Rights; Client's Use of the Platform. Subject to the terms and conditions of this Agreement,
+Service Provider hereby grants to Client and Users, during the Order Term (as defined below), a non-
+exclusive, non-sublicensable right to remotely access and use the Platform for Client's, and its
+Affiliates', internal business purposes in accordance with the Documentation and the terms and
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 2 of 12
+conditions of this Agreement. Service Provider reserve all rights in and to the Platform not expressly
+granted to Client under this Agreement. Client may use reports generated from the Platform solely
+for Client's lawful internal purposes and in accordance with this Agreement.
+3.2 Restrictions on Use. Client shall not: (a) reproduce, display, download, modify, rent, license, sell,
+assign, distribute, outsource, sublicense, share, transfer, lease, create derivative works of, or
+distribute the Platform; (b) attempt to reverse engineer, decompile, disassemble, de-encrypt,
+access, or the like, the source code for the Platform or any component thereof; (c) use the Platform,
+or any component thereof, in the operation of a service bureau or to support or process any content,
+data, or information of any party other than Client or Client Affiliates; (d) permit any party, other than
+the then-currently authorized Users to independently access the Platform; (e) interfere with or
+disrupt the integrity or performance of the Platform or the data contained therein; (f) attempt to
+gain unauthorized access to the Platform or its related systems or networks; (g) access or use the
+Services to build or support, directly or indirectly, products, or services competitive to the Service
+Provider; (h) provide or make available Prohibited Data to Service Provider; or, (i) use the Platform
+or Services to collect or otherwise process Prohibited Data.
+3.3 Users. Under the rights granted to Client under this Agreement, Client may permit independent
+contractors and employees of its Affiliates to become Users in order to access and use the Platform
+in accordance with this Agreement; provided that Client will be liable for the acts and omissions of
+all contractors, Affiliates and Users to the extent any of such acts or omissions, if performed by
+Client, would constitute a breach of, or otherwise give rise to liability to Client under, this
+Agreement. Client shall not, and shall not permit any User to, use the Platform, Software, or
+Documentation except as expressly permitted under this Agreement. Client shall be fully
+responsible for Users' compliance with this Agreement.
+4. FEES AND PAYMENT TERMS.
+4.1 Price. Client shall pay Service Provider the Price(s) in the Software and Services Chart of the Client
+Order Form ("Fees") in accordance with the terms of this Agreement. The Fees associated with the
+Software in the Software and Services Chart comprise Software Fees ("Software Fees"). Fees are
+exclusive of, and Client shall pay, all taxes, fees, duties, levies and other governmental charges of
+any nature, including, for example, value-added, sales use, or withholding taxes, assessable by any
+jurisdiction arising from the payment of any Fees or any amounts owed to Service Provider under
+this Agreement (excluding any taxes arising from Service Provider's income or any employment
+taxes). Fees for any Services requested by Client that are not set forth in Client Order Form will be
+charged as mutually agreed to by the parties in writing.
+4.2 Payment. Except as otherwise set forth in Client Order Form Client shall pay to Service Provider all
+Fees within thirty (30) days from the invoice date. If Client disagrees with any Fees set forth in an
+invoice, it shall notify Service Provider of the dispute within thirty (30) days after receipt of such
+invoice. Client's failure to provide Service Provider with notice of disputed invoiced amounts within
+the timeframe noted shall be deemed to be Client's acceptance of the content of such invoice. All
+payments received by Service Provider are non-refundable except as otherwise expressly provided
+in this Agreement. Client shall make all payments in United States dollars.
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 3 of 12
+4.3 Charges. Client shall pay a finance charge on any undisputed overdue payment hereunder of one
+percent (1%) for each month or portion thereof that such undisputed payment is overdue, or the
+highest interest rate permitted by applicable law, whichever is the lower. Interest shall compound
+monthly.
+4.4 Suspension. If any undisputed charge owing by Client under this Agreement is thirty (30) days or more
+overdue, Service Provider may, without limiting its other rights and remedies, suspend Services and
+access to the Platform until such amounts are paid in full on the condition that Service Provider
+provides Client with at least ten (10) days' prior notice that its account is overdue before suspending
+Services to Client.
+5. TERM, TERMINATION & SUSPENSION.
+5.1 Term. As noted in the Client Order Form, the Term of this Agreement commences on the Effective
+Date. The Term continues until the Subscription Term(s) in the Client Order Form has terminated.
+The Term will automatically renew ("Renewal Term"), unless a Party gives the other Party written
+notice of its intent not to renew at least thirty (30) days prior to the end of the Term or the then-
+current Renewal Term ("Notice Period"). Prior to each Notice Period, updated pricing and
+Subscription Term(s) will be communicated to the Client with an updated Client Order Form. Such
+updated Client Order Form will become part of the Agreement. The Term and each Renewal Term
+are collectively referred to as the ("Order Term").
+5.2 Suspension. In addition to any of its other rights or remedies (including, without limitation, any
+termination rights) set forth in this Agreement, Service Provider reserves the right to suspend
+provision of the Services and access to the Platform: (i) if Service Provider determines Client has
+breached Section 6; (ii) to avoid material harm to Client or Client's customers, as determined by
+Service Provider, including if the Platform is experiencing denial of service attacks, mail flooding, or
+other attacks or disruptions outside of Service Provider's control; (iii) as required by law or at the
+request of governmental entities; or, (iv) if Client uses the Services or Platform in association with
+illegal activity, harassment of any kind, or Software testing. Client acknowledges that if access to
+the Services or Platform is suspended, Client may no longer have access to the Client Data or may
+experience a decrease in the performance level of the Services or Platform.
+5.3 Service Provider Termination for Cause. Service Provider may terminate this Agreement upon
+notice if the Client breaches any material provision of this Agreement and does not cure such breach
+(provided that such breach is capable of cure) within thirty (30) days after being provided with
+written notice of such breach.
+5.4 Effects of Service Provider Termination for Cause. Upon termination of this Agreement under
+Section 5.3: (a) all amounts owed to Service Provider under this Agreement before such termination
+will be due and payable; (b) all rights granted in this Agreement will immediately cease; (c) Client
+shall promptly discontinue all access and use of the Platform and return or erase, all copies of the
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 4 of 12
+Documentation in Client's possession or control; and, (d) Service Provider shall return or erase all
+Client Data in accordance with the Data Processing Agreement.
+5.5 Client Termination for Convenience. Client may terminate this Agreement upon thirty (30) day
+notice to Service Provider for any reason.
+5.6 Effects of Client Termination.
+For products other than GrantHub and GrantHub Pro:
+If Client termination occurs within the first ninety (90) days of the Term, Service Provider will refund
+one hundred percent (100%) of the paid Software Fees. If Client termination occurs subsequent to
+the first ninety (90) days or during a Renewal Term, Service Provider will refund a prorated amount
+of the unused portion of the paid Software Fees. Furthermore, upon Client termination of this
+Agreement: (a) all rights granted in this Agreement will immediately cease; (b) Client shall promptly
+discontinue all access and use of the Platform and verify the return or erasing of all copies of the
+Documentation in Client's possession or control; and, (c) Service Provider shall return or erase all
+Client Data within thirty (30) days of termination, subject to Service Provider's standard back-up
+retention schedules.
+For the GrantHub Pro product:
+Client may request termination at any time. Such termination shall be effective at the end of the
+current Subscription Term and Client will retain access to the Software until the end of the
+Subscription Term. Client will remain obligated to pay any outstanding fees to Service Provider
+pursuant to the terms of this agreement the Client Order Form. No refund will be payable.
+If Client upgraded from GrantHub to GrantHub Pro in the 30 days prior to termination, Client may
+return to GrantHub upon signing a new Client Order Form. Any unused paid GrantHub Pro
+Subscription Fees will be applied to the GrantHub Subscription Term. In such case, the GrantHub Pro
+Subscription Term shall terminate immediately.
+For the GrantHub product:
+Client termination of GrantHub is governed by the terms and conditions set out at
+https://grantseekers.foundant.com/terms-and-conditions.
+5.7 Return of Client Data. In the event that Client submits a written request to Service Provider to
+return Client Data at the time of termination, Service Provider will provide Client with commercially
+reasonable assistance in extracting requested Client Data via reporting tool functionalities of the
+Platform. Client Data will be provided to Client in the same format as such data is stored by Service
+Provider in one or more comma delimited text files (i.e., .CSV format) or another format reasonably
+determined by Service Provider. Service Provider shall have no other obligation to maintain any
+Client Data stored in the Platform following any termination of this Agreement, or to forward any
+Client Data to Client. Any requests for a customized export of Client Data will be considered
+additional Professional Services, and the fees and scope must be mutually agreed by the parties in
+a separate Client Order Form or statement of work.
+6. PROPRIETARY RIGHTS.
+6.1 Client. As between the Parties, Client owns all right, title, and interest in Client Data, including all
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 5 of 12
+intellectual property rights therein. Any rights in Client Data not expressly granted to Service
+Provider hereunder are reserved by Client, its licensors, and suppliers.
+6.2 Client Data License Grant. Client hereby grants to Service Provider, during the Order Term, a
+limited, non-exclusive, non-transferable (except as provided in this Agreement), non-sublicensable
+license to use the Client Data to: (a) provide the Platform and the Services to Client; (b) perform its
+obligations and exercise its rights under this Agreement; and, (c) generate Usage Data.
+6.3 Service Provider. All proprietary technology utilized by Service Provider to perform its obligations
+under this Agreement, including, but not limited to, the Software, and all intellectual property rights
+in and to the foregoing are the exclusive property of Service Provider. Any and all derivative works
+to the proprietary technology including the Software, Content, Documentation, and/or any other
+similar information shall be owned by Service Provider and Client shall have the same rights and
+licenses to such derivative works as Client has to the Software. Service Provider or its third party
+licensors retain ownership of all right, title, and interest to all copyrights, patents, trademarks, trade
+secrets, and other intellectual property rights in and to the Content and the Platform, including,
+without limitation, the Software, Service Provider's database (and all data therein except for Client
+Data), Documentation, customizations, enhancements, and all processes, know-how, and the like
+utilized by or created by Service Provider in performing under this Agreement. Any rights not
+expressly granted to Client hereunder are reserved by Service Provider. Client shall not at any time,
+directly or indirectly, challenge the scope, validity, or ownership of Service Provider's, or its
+licensors', rights in the Software or do any act that could reasonably be expected to impair the
+scope, validity, or ownership of such rights. Each Party agrees to promptly notify, in writing, the
+other Party upon gaining knowledge of any infringement, dilution, or similar harm to the other
+Party's intellectual property or related rights or information.
+6.4 Usage Data. Service Provider owns all right, title, and interest in and to Usage Data and may use
+Usage Data in connection with its performance of its obligations in this Agreement and for any other
+lawful business purpose, including, but not limited to, benchmarking, data analysis, and to improve
+Service Provider's services, systems, and algorithms.
+7. WARRANTY & DISCLAIMERS.
+7.1 Access to the Platform. Service Provider warrants that the Platform will perform in accordance with
+the Documentation and this Agreement. Service Provider does not warrant that the Platform will
+be completely error-free or uninterrupted. If Client notifies Service Provider of a reproducible error
+in the Platform that indicates a breach of the foregoing warranty (each, an "Error") within thirty (30)
+days after Client experiences such Error, Service Provider shall, at its own expense and as its sole
+obligation and Client's exclusive remedy: (a) use commercially reasonable efforts to correct or
+provide a workaround for any Error; or, (b) if Service Provider is unable to provide a correction or
+workaround for any such Error in a commercially reasonable manner after receiving notice of an
+Error from Client, Client may terminate this Agreement upon notice to Service Provider and, Service
+Provider shall refund the amounts paid by Client for access to the Platform for the period during
+which the Platform was not usable by Client. The warranties set forth in this Section 7.1 do not
+cover or apply to: (i) any Error caused by Client or its Users; (ii) any Error or unavailability of the
+Platform caused by use of the Platform in any manner or in any environment inconsistent with its
+intended purpose; (iii) any of Client's hardware or software if modified or repaired in any manner
+which materially adversely affects the operation or reliability of the Platform; or, (iv) any equipment
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 6 of 12
+or software or other material utilized in connection with the Platform used by Client contrary to
+manufacturer's instructions.
+7.2 Right to Client Data. Client represents and warrants that it has the right to: (a) use the Client Data
+as contemplated by this Agreement; and, (b) grant Service Provider the licenses as contemplated by
+this Agreement.
+7.3 Disclaimer. EXCEPT AS EXPRESSLY PROVIDED IN THIS SECTION 7 AND SECTION 7.1 OF THE PSA, THE
+PLATFORM, PROFESSIONAL SERVICES, AND DELIVERABLES ARE PROVIDED "AS IS" AND NEITHER
+PARTY MAKES ANY WARRANTIES OF ANY KIND OR ANY REPRESENTATIONS TO THE OTHER PARTY
+OR ANY THIRD PARTY AND EACH PARTY SPECIFICALLY DISCLAIMS ALL OTHER WARRANTIES,
+WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING, WITHOUT LIMITATION, ALL IMPLIED
+WARRANTIES OF MERCHANTABILITY, USABILITY, CONDITION, OPERATION, OR FITNESS FOR A
+PARTICULAR PURPOSE, TITLE, NON-INFRINGEMENT, COMPATIBILITY, SECURITY, ACCURACY AND
+ANY WARRANTIES ARISING FROM COURSE OF DEALING OR COURSE OF PERFORMANCE.
+8. INDEMNIFICATION.
+8.1 Claims Against Client. Service Provider shall defend any claim, suit, or action against Client brought
+by a third party to the extent based on an allegation that the Software infringes any intellectual
+property rights of such third party (each, a "Client Claim"), and Service Provider shall indemnify and
+hold Client harmless, from and against damages, losses, liabilities, and expenses (including
+reasonable attorneys' fees and other legal expenses) (collectively, "Losses") that are specifically
+attributable to such Client Claim or those costs and damages agreed to in a settlement of such Client
+Claim. The foregoing obligations are conditioned on Client: (a) promptly notifying Service Provider
+in writing of such Client Claim; (b) giving Service Provider sole control of the defense thereof and
+any related settlement negotiations; and, (c) cooperating and, at Service Provider's request and
+expense, assisting in such defense. In the event that the use of the Platform is enjoined, Service
+Provider shall, at its option and at its own expense either: (a) procure for Client the right to continue
+using the Platform; (b) replace the Software with a non-infringing but functionally equivalent
+product; (c) modify the Software so it becomes non-infringing; or, (d) terminate this Agreement and
+refund the amounts Client paid for access to the Platform that relate to the period during which
+Client was not able to use the Platform. Notwithstanding the foregoing, Service Provider will have
+no obligation under this Section 8.1 with respect to any infringement claim based upon: (1) any use
+of the Platform not in accordance with this Agreement; (2) any use of the Platform in combination
+with products, equipment, software, or data that Service Provider did not supply or approve of; or,
+(3) any modification of the Platform by any person other than Service Provider or its authorized
+agents or subcontractors. This Section 8.1 states Service Provider's entire liability and Client's sole
+and exclusive remedy for Client Claims.
+8.2 Claims Against Service Provider. Client shall defend, any claim, suit, or action against Service
+Provider brought by a third party to the extent that such claim, suit or action is based upon Client's
+or Service Provider's use of any Client Data in accordance with this Agreement ("Service Provider
+Claim") and Client shall indemnify and hold Service Provider harmless, from and against Losses that
+are specifically attributable to such Service Provider Claim or those costs and damages agreed to in
+a settlement of such Service Provider Claim, provided that any such settlement shall (i) not
+compromise any rights or interests of Service Provider, and (ii) require Service Provider's express
+written consent. The foregoing obligations are conditioned on Service Provider: (a) promptly
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 7 of 12
+notifying Client in writing of such Service Provider Claim; (b) giving Client sole control of the defense
+thereof and any related settlement negotiations; and, (c) cooperating and, at Client's request and
+expense, assisting in such defense. Notwithstanding the foregoing, Client will have no obligation
+under this Section 8.2 or otherwise with respect to any Service Provider Claim to the extent based
+upon Service Provider's use of the Client Data in violation of this Agreement.
+9. LIMITATIONS OF LIABILITY.
+9.1 IN NO EVENT WILL EITHER PARTY BE LIABLE FOR ANY CONSEQUENTIAL, INDIRECT, PUNITIVE,
+EXEMPLARY, COVER, RELIANCE, SPECIAL, OR INCIDENTAL DAMAGES OF ANY TYPE OR KIND, OR FOR
+ANY LOST DATA, LOST PROFITS, REVENUE OR COSTS OF PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES, ARISING FROM OR RELATING TO THIS AGREEMENT, HOWEVER CAUSED AND UNDER ANY
+THEORY OF LIABILITY (INCLUDING NEGLIGENCE, BREACH OR REPUDIATION OF CONTRACT, BREACH
+OF WARRANTY, OR OTHERWISE), EVEN IF SUCH PARTY HAS BEEN ADVISED OF THE POSSIBILITY OF
+SUCH DAMAGES. EACH PARTY'S TOTAL CUMULATIVE LIABILITY IN CONNECTION WITH THIS
+AGREEMENT, WHETHER IN CONTRACT OR TORT OR OTHERWISE, WILL NOT EXCEED ONE TIMES (1X)
+THE AMOUNT OF FEES PAID OR OWED BY CLIENT TO SERVICE PROVIDER UNDER THE CURRENT
+CLIENT ORDER FORM, AS THE CASE MAY BE, DURING WHICH THE EVENTS GIVING RISE TO SUCH
+LIABILITY OCCURRED. BOTH PARTIES ACKNOWLEDGE THAT THE FEES REFLECT THE ALLOCATION OF
+RISK SET FORTH IN THIS AGREEMENT AND THAT THE PARTIES WOULD NOT ENTER INTO THIS
+AGREEMENT WITHOUT THESE LIMITATIONS ON THEIR LIABILITY. NOTWITHSTANDING ANYTHING
+TO THE CONTRARY IN THIS SECTION, NEITHER PARTY SHALL BE LIABLE TO THE OTHER PARTY TO THE
+EXTENT SUCH LIABILITY WOULD NOT HAVE OCCURRED BUT FOR THE OTHER PARTY'S FAILURE TO
+COMPLY WITH THE TERMS OF THIS AGREEMENT. THE LIMITATION OF LIABILITIES SET FORTH IN THIS
+SECTION 9 SHALL NOT APPLY TO A PARTY'S OBLIGATIONS UNDER SECTION 8, OR TO LIABILITY
+ARISING FROM CLIENT'S BREACH OF SECTION 3.2.
+9.2 IN NO EVENT WILL SERVICE PROVIDER BE LIABLE IN CONNECTION WITH ANY PROHIBITED DATA: (A)
+PROVIDED OR MADE AVAILABLE TO SERVICE PROVIDER BY OR ON BEHALF OF CLIENT; OR, (B) STORED IN,
+COLLECTED THROUGH, OR OTHERWISE PROCESSED ON THE PLATFORM OR VIA THE SERVICES.
+10. CONFIDENTIALITY.
+10.1 Definitions. "Confidential Information" means all information disclosed by one party ("Discloser")
+to the other party ("Recipient") under this Agreement during the Term. Confidential Information
+includes information that is marked or identified as confidential and, if not marked or identified as
+confidential, information that should reasonably have been understood by Recipient to be
+proprietary and confidential to Discloser or to a third party, whether or not such information is
+designated as confidential. Service Provider's Confidential Information includes Software,
+Deliverables, and Documentation. Client's Confidential Information includes Controller Data,
+Personal Data, and Client Data. Client's Confidential Information does not include Usage Data.
+10.2 Protection. Recipient shall not use any Confidential Information for any purpose not expressly
+permitted by this Agreement and shall not disclose Confidential Information to anyone other than
+Recipient's employees and independent contractors who have a need to know such Confidential
+Information for purposes of this Agreement and who are subject to confidentiality obligations no
+less restrictive than Recipient's obligations under this Section 10. Recipient shall protect
+Confidential Information from unauthorized use, access, and disclosure in the same manner as
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 8 of 12
+Recipient protects its own confidential or proprietary information of a similar nature and with no
+less than reasonable care.
+10.3 Exceptions. Recipient shall have no confidentiality obligations under Section 10.2 above with
+respect to any information of Discloser that Recipient can document: (a) was already known to
+Recipient prior to Discloser's disclosure; (b) is disclosed to Recipient by a third party who had the
+right to make such disclosure without violating any confidentiality Agreement with or other
+obligation to the party who disclosed the information; (c) is, or through no fault of Recipient has
+become, generally available to the public; or, (d) is independently developed by Recipient without
+access to or use of Confidential Information. Recipient may disclose Confidential Information if so
+required as part of a judicial process, government investigation, legal proceeding, or other similar
+process, provided that, to the extent permitted by applicable law, Recipient gives prior written
+notice of such requirement to Discloser. Recipient shall take reasonable efforts to provide this
+notice in sufficient time to allow Discloser to seek an appropriate confidentiality Agreement,
+protective order, or modification of any disclosure, and Recipient shall reasonably cooperate in such
+efforts at the expense of Discloser.
+11. RELATIONSHIP OF PARTIES
+11.1 Independent Contractor. Service Provider acknowledges that it is an independent contractor and
+neither Client nor Service Provider is intended to be or should be construed to be an agent,
+subsidiary, partner, joint venture, affiliate, or employee of the other for any purpose, including
+reporting to any governmental authority. Neither Party shall become liable for any representation,
+act, or omission of the other Party or have the authority to bind or otherwise obligate the other
+Party in any manner, and neither Party may represent to anyone that it has a right to do so. Any
+Fees, expenses or other amounts paid by Client to Service Provider hereunder shall not be
+considered salary for pension or wage tax purposes and neither Service Provider nor its Professional
+Services Personnel will be entitled to any fringe benefits, including sick or vacation pay, or other
+supplemental benefits of Client, unless otherwise required by law.
+11.2 Subcontractors. Nothing in this Agreement shall prevent a Party from utilizing the services of any
+subcontractor as it deems appropriate to perform its obligations under this Agreement; provided,
+however, that each Party shall require its subcontractors to comply with all applicable terms and
+conditions of this Agreement in providing such services and each Party shall remain primarily liable
+to the other Party for the performance of such subcontractor. For the purposes of this Agreement,
+Sub processors are not subcontractors.
+11.3 Non-solicitation. Both Parties recognize and understand that they will be interacting with each
+other's employees when performing under this Agreement, and that it may cause irreparable harm
+to a Party should one or more of employees be directly or indirectly solicited to work for the other
+Party. Because of this, each Party agrees that it shall not, directly or indirectly, personally or through
+others, solicit or encourage, or attempt to solicit or encourage, on its own behalf or on behalf of any
+other person or entity, to hire or use the work of any employee of the other Party. Each Party agrees
+to adhere to this requirement for one year following termination of this Agreement. This provision
+shall survive termination of this Agreement.
+11.4 Professional and business-like manner. A Party's personnel shall interact with the other Party's
+personnel in a professional and businesslike manner at all times. Unprofessional and unbusinesslike
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 9 of 12
+interactions may occur through direct verbal and non-verbal interactions, digital interactions via
+email, chat, etc., and other forms of communications. If a Party's personnel interaction with the
+other Party's personnel is neither professional nor businesslike, the other Party will provide the
+Party with a notice within ten (10) days of such incident informing the Party of such interaction and
+stating that such interaction must cease immediately. If unprofessional and unbusinesslike
+interaction continues by the Party's personnel towards the other Party's personnel, the other party
+is entitled to hold the Party in breach of the Agreement and is entitled to cancel the Agreement
+for cause by providing thirty (30) days' notice to the Party of such cancellation. The Party will have
+no recourse if the Agreement is canceled for such cause.
+12. GENERAL.
+12.1 Third Party Services. Certain Third-Party Services may be integrated into or provided in connection
+with the Software. Service Provider does not control or otherwise influence any Third-Party
+Services, makes no claim or representation regarding the Third-Party services and accepts no
+responsibility or liability for the quality, content, nature, privacy, security, or reliability of the Third-
+Party Services. Foundant does not warrant that the provision of the Third-Party Services will be
+uninterrupted, error free, timely, complete, or accurate, nor does Foundant make any warranties
+as to the results to be obtained from use of the same. Client expressly agrees that Client's use of
+the Third-Party Services is at Client's own risk and that Foundant will not in any way be liable to
+Client or any other entity for any inaccuracies, errors, omissions, delays, damages, claims, liabilities
+or losses, regardless of cause, in or arising from the use of the Third-Party Services. There is no
+implied affiliation, endorsement, or adoption by Service Provider of these Third-Party Services and
+Service Provider shall not be responsible for any content provided on or through these Third-Party
+Services.
+12.2 Assignment. Neither Party may assign or transfer, by operation of law or otherwise, this Agreement
+or any of its rights under this Agreement to any third party without the other Party's prior written
+consent, such consent shall not be unreasonably withheld or delayed; except that a Party may assign
+this Agreement, without consent from the other Party by operation of law or otherwise if notice is
+provided to the other Party, to: (a) an Affiliate; or, (b) any successor to its business or assets to which
+this Agreement relates, whether by merger, sale of assets, sale of stock, reorganization, or
+otherwise. Any attempted assignment or transfer in violation of the foregoing will be void. This
+Agreement does not confer any rights or remedies upon any person or entity not a party hereto.
+12.3 Force Majeure. The performance of the Agreement by either Party shall be subject to force
+majeure, including, but not limited to: acts of God; fire; flood; natural disaster; war; acts of
+terrorism; riots; civil disorder; unauthorized strikes; governmental regulation or advisory;
+recognized health threats as determined by the World Health Organization, the Centers for Disease
+Control, or local government authority or health agencies; curtailment of transportation facilities;
+or, other similar occurrence beyond the control of the Parties, where any of those factors,
+circumstances, situations, or conditions or similar ones make it illegal, impossible, or commercially
+impracticable to fully perform under the terms of the Agreement, except for the payment of the
+Fees. In such a case, the Agreement may be canceled by either Party, without liability, damages,
+fees, or penalty, and any unused deposits or amounts paid shall be refunded, for any one or more
+of the above reasons, by written notice to the other Party.
+12.4 Notices. Notices under this Agreement that do not relate to Agreement updates must be delivered
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 10 of 12
+in writing by electronic mail, courier, or certified or registered mail, (postage prepaid and return
+receipt requested) to the other Party at the address for each Party set forth on the Client Order
+Form and will be effective upon receipt. Electronic mail may only be used to distribute routine
+communications (e.g., change in sub processors) and to obtain approvals and consents and shall not
+be used for material notices that do not relate to Agreement updates, including under Section 11.4.
+Client agrees that Foundant Technologies may modify this Agreement by notice to Client at least
+thirty (30) days before the change will take effect by either: (a) providing notice in accordance with
+the Agreement; or (b) alerting Client via the Services or Platform. If Client objects to any such
+modification, Client may immediately terminate this Agreement for convenience by giving written
+notice to Foundant Technologies within forty-five (45) days of being informed by Foundant
+Technologies of the modification.
+12.5 Governing Law. This Agreement will be governed by and interpreted in accordance with the laws
+of the State of Montana without reference to its choice of law rules. The Parties hereby submit to
+the exclusive jurisdiction of, and waive any venue objections against, state or federal courts sitting
+in the State of Montana in any litigation arising out of this Agreement or the Services. Each Party
+also hereby waives any right to jury trial in connection with any action or litigation in any way arising
+out of or related to this Agreement.
+12.6 Remedies. Except as otherwise expressly provided in this Agreement, the Parties' rights and
+remedies under this Agreement are cumulative. Each Party acknowledges and agrees that any
+actual or threatened breach of Sections 3.1 or 10 will constitute immediate, irreparable harm to the
+non-breaching Party for which monetary damages would be an inadequate remedy, that injunctive
+relief is an appropriate remedy for such breach, and that if granted, the breaching Party agrees to
+waive any bond that would otherwise be required. If any legal action is brought by a Party to enforce
+this Agreement, the prevailing Party will be entitled to receive its attorneys' fees, court costs, and
+other legal expenses, in addition to any other relief it may receive from the non-prevailing Party.
+12.7 Compliance with Laws. Each Party shall comply with all laws applicable to such Party, including, but
+not limited to, all applicable anti-corruption laws and regulations ("Anti-Corruption Laws"). Anti-
+Corruption Laws include but are not limited to the United States Foreign Corrupt Practices Act and
+the UK Bribery Act, irrespective of whether either Party is legally subject to it. Neither Party shall
+engage in any deceptive or unethical trade practices or any act which might harm the other Party's
+reputation. Neither Party shall cause the other Party to violate any Anti-Corruption Laws in
+connection with the activities conducted under the Agreement or any other activities involving the
+other Party (collectively, the "Activities"). Neither Party shall, in connection with the Activities, pay,
+offer, promise, or authorize the payment or transfer of anything of value, directly or indirectly, to
+any other person or entity for the purpose of improperly obtaining or retaining business, for any
+other advantage, or for any other purpose prohibited by any Anti-Corruption Laws.
+12.8 Export Controls. Service Provider's Services and Platform are of United States origin and are
+provided subject to the U.S. Export Administration Regulations and the regulations of other
+jurisdictions. Diversion contrary to applicable law is prohibited. Without limiting the foregoing,
+each Party agrees that: (i) it is not, and is not acting on behalf of, any person who is a citizen,
+national, or resident of, or who is controlled by the government of any country to which the United
+States or other applicable government body has prohibited export transactions (Iran, North Korea,
+etc.); (ii) it is not and is not acting on behalf of, any person or entity listed on a relevant list of persons
+to whom export is prohibited (the U.S. Treasury Department list of Specially Designated Nationals
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 11 of 12
+and Blocked Persons, the U.S. Commerce Department Denied Persons List or Entity List, etc.); and,
+(iii) it will not use any Service Provider's Services or the Platform for, and will not permit any Service
+Provider's Services or the Platform to be used for, any purpose prohibited by applicable law.
+12.9 Waivers. To be effective, any waivers must be in writing and signed by the Party to be charged. Any
+waiver or failure to enforce any provision of this Agreement on one occasion will not be deemed a
+waiver of any other provision or of such provision on any other occasion.
+12.10 Severability. If any provision of this Agreement is, for any reason, held to be unenforceable, the
+other provisions of this Agreement will be unimpaired, and the invalid or unenforceable provision
+will be deemed modified so that it is valid and enforceable to the maximum extent permitted by
+law (unless such modification is not permitted by law, in which case such provision will be
+disregarded).
+12.11 Counterparts. This Agreement may be executed in counterparts, each of which will be considered
+an original, but all of which together will constitute the same instrument.
+12.12 Publicity. Service Provider shall have the right to list Client as a client on Foundant Technologies'
+website, on publicly available client lists, or in media releases unless Client specifically requests, in
+writing, to not be listed. Client, at its sole discretion, shall cooperate with any reasonable request
+by Service Provider for assistance in the preparation of a case study, testimonials, or quotes
+documenting Client's experience in using the Services. The final text of the case study shall be
+subject to Client's written approval before publication.
+12.13 Survival. Those provisions of this Agreement that by their nature should survive expiration or earlier
+termination will remain in effect following expiration or termination. These provisions include the
+provisions under Sections 5.3 through 5.7, 6, 7, 8, 9, and 10 as well as other identified Sections in
+the Agreement including payment and any Statements of Work and Client Order Forms.
+12.14 Verification. At the Service Provider's discretion, Service Provider shall have the right to virtually
+audit Client's implementation of the Services and Platform for verification of compliance with the
+terms set forth in this Agreement.
+12.15 Entire Agreement. This Agreement, including any Client Order Form, Data Processing Agreement,
+Services Level Agreement, Professional Services Agreement, any exhibits or attachments thereto,
+and Statements of Work constitute the final and entire Agreement between the parties regarding
+the subject hereof and supersedes all other Agreements, whether written or oral, between the
+parties concerning such subject matter. No terms and conditions proposed by either party shall be
+binding on the other party unless accepted in writing by both parties, and each party hereby objects
+to and rejects all terms and conditions not so accepted. In the event of a conflict or inconsistency
+between any of the documents included in this Agreement, the following order of precedence shall
+apply: (1) Data Processing Agreement; (2) Service Level Agreement; (3) Client Order Form; (4) Master
+Subscription Agreement; (5) Statement(s) of Work; and, (6) Professional Services Agreement.
+Foundant Technologies, Inc. Master Subscription Agreement (MSA) v012024 Page 12 of 12

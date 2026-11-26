@@ -1,0 +1,55 @@
+
+> @echelon-foundry/print-components@0.4.2 test
+> npm run runtime:check && node --test tests/runtime-version.test.mjs && node tests/run-primitive-component-tests.mjs && npm run test:ui-conformance:rules && node tests/machine-operability-audit.test.mjs && npm run machine:audit:check && node tests/run-machine-operability-tests.mjs && node tests/run-tutela-security-record-tests.mjs && node tests/run-print-experiments.mjs && node tests/run-report-fixture-tests.mjs && node tests/run-profile-fixture-tests.mjs && node tests/run-journal-fixture-tests.mjs && node tests/run-diagram-projection-tests.mjs && npm run test:forma-icons && npm run test:forma-icon-print
+
+
+> @echelon-foundry/print-components@0.4.2 runtime:check
+> node tools/build-runtime-version.mjs --check
+
+TAP version 13
+# Subtest: generated Folio runtime version matches package metadata
+ok 1 - generated Folio runtime version matches package metadata
+  ---
+  duration_ms: 0.698732
+  type: 'test'
+  ...
+# Subtest: ECHELON-RUNTIME-1 is independent, idempotent, and order-insensitive
+ok 2 - ECHELON-RUNTIME-1 is independent, idempotent, and order-insensitive
+  ---
+  duration_ms: 1.047159
+  type: 'test'
+  ...
+# Subtest: conflicting registration warns and preserves the first version
+ok 3 - conflicting registration warns and preserves the first version
+  ---
+  duration_ms: 0.241679
+  type: 'test'
+  ...
+1..3
+# tests 3
+# suites 0
+# pass 3
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 55.373637
+node:internal/modules/run_main:123
+    triggerUncaughtException(
+    ^
+
+browserType.launch: Executable doesn't exist at /opt/pw-browsers/firefox-1543/firefox/firefox
+╔════════════════════════════════════════════════════════════╗
+║ Looks like Playwright was just installed or updated.       ║
+║ Please run the following command to download new browsers: ║
+║                                                            ║
+║     npx playwright install                                 ║
+║                                                            ║
+║ <3 Playwright Team                                         ║
+╚════════════════════════════════════════════════════════════╝
+    at scratch:aincm/build/folio/tests/run-primitive-component-tests.mjs:84:34 {
+  log: [],
+  name: 'Error'
+}
+
+Node.js v22.23.5

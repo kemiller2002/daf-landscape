@@ -1,0 +1,82 @@
+TAP version 13
+# Subtest: Carbon / Parchment passes normal-text contrast
+ok 1 - Carbon / Parchment passes normal-text contrast
+  ---
+  duration_ms: 1.095742
+  type: 'test'
+  ...
+# Subtest: Foundry Charcoal / Parchment passes normal-text contrast
+ok 2 - Foundry Charcoal / Parchment passes normal-text contrast
+  ---
+  duration_ms: 0.12415
+  type: 'test'
+  ...
+# Subtest: Forged Iron / Parchment passes normal-text contrast
+ok 3 - Forged Iron / Parchment passes normal-text contrast
+  ---
+  duration_ms: 0.061268
+  type: 'test'
+  ...
+# Subtest: Graphite / Parchment passes normal-text contrast
+ok 4 - Graphite / Parchment passes normal-text contrast
+  ---
+  duration_ms: 0.058209
+  type: 'test'
+  ...
+# Subtest: Oxide Bronze / Parchment passes normal-text contrast
+ok 5 - Oxide Bronze / Parchment passes normal-text contrast
+  ---
+  duration_ms: 0.725955
+  type: 'test'
+  ...
+# Subtest: Verdigris / Parchment passes normal-text contrast
+ok 6 - Verdigris / Parchment passes normal-text contrast
+  ---
+  duration_ms: 0.076286
+  type: 'test'
+  ...
+# Subtest: Parchment / Foundry Charcoal passes normal-text contrast
+ok 7 - Parchment / Foundry Charcoal passes normal-text contrast
+  ---
+  duration_ms: 0.097815
+  type: 'test'
+  ...
+# Subtest: Parchment / Forged Iron passes normal-text contrast
+ok 8 - Parchment / Forged Iron passes normal-text contrast
+  ---
+  duration_ms: 0.056186
+  type: 'test'
+  ...
+# Subtest: Oxide Bronze / Stone remains prohibited for normal text
+ok 9 - Oxide Bronze / Stone remains prohibited for normal text
+  ---
+  duration_ms: 0.238798
+  type: 'test'
+  ...
+# Subtest: Verdigris / Stone remains prohibited for normal text
+ok 10 - Verdigris / Stone remains prohibited for normal text
+  ---
+  duration_ms: 0.235796
+  type: 'test'
+  ...
+# Subtest: Oxide Bronze / Foundry Charcoal remains prohibited for normal text
+ok 11 - Oxide Bronze / Foundry Charcoal remains prohibited for normal text
+  ---
+  duration_ms: 0.08226
+  type: 'test'
+  ...
+# Subtest: Verdigris / Foundry Charcoal remains prohibited for normal text
+ok 12 - Verdigris / Foundry Charcoal remains prohibited for normal text
+  ---
+  duration_ms: 0.042507
+  type: 'test'
+  ...
+1..12
+# tests 12
+# suites 0
+# pass 12
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 43.089478

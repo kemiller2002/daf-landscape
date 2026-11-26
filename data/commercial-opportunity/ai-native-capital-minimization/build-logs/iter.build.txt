@@ -1,0 +1,11 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/iter/tests/Iter.Tests/Iter.Tests.fsproj (in 217 ms).
+  Restored scratch:aincm/build/iter/src/Iter/Iter.fsproj (in 217 ms).
+  Iter -> scratch:aincm/build/iter/src/Iter/bin/Release/net10.0/Iter.dll
+  Iter.Tests -> scratch:aincm/build/iter/tests/Iter.Tests/bin/Release/net10.0/Iter.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:03.92

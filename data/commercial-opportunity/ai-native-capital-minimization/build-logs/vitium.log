@@ -1,0 +1,14 @@
+REV 02730f8
+CMD dotnet build Vitium.slnx -c Release
+BUILD_RC 0 SECS 8
+    0 Error(s)
+    2 Warning(s)
+Build succeeded.
+CMD dotnet run --project tests/Vitium.Client.Smoke/Vitium.Client.Smoke.fsproj -c Release --no-build
+RUN_RC Vitium.Client.Smoke.fsproj 0 SECS 0 :: Vitium NuGet consumer contract smoke tests passed. 
+CMD dotnet run --project tests/Vitium.Interop/Vitium.Interop.fsproj -c Release --no-build
+RUN_RC Vitium.Interop.fsproj 134 SECS 1 ::    at System.Uri..ctor(String uriString)    at Program.clientWith(String token) in scratch:aincm/build/vitium/tests/Vitium.Interop/Program.fs:line 20    at <StartupCode$Vitium-Interop>.$Program.main@() in /tmp/claude-0/-home-user/45711
+DONE
+PASS2 REV 02730f8
+CMD node --test tests/*.test.mjs => NODE_RC 1 SECS 1 :: # tests 102 # pass 101 # fail 1 
+DONE2
