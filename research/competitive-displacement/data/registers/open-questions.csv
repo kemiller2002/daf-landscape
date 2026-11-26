@@ -1,0 +1,21 @@
+question_id,question,why_it_matters,how_to_resolve,cost_estimate,blocking_decision,source_ids
+OQ-001,Why did the 6 iPhi sponsors that left choose their destinations?,Tests HYP-001/002 and the whole displacement thesis,Interviews with switchers and with sponsors that evaluated and stayed,$5-20k,DEC-001,SRC-011
+OQ-002,What will a mid-size sponsor pay per account for software and for administration?,Determines licensing vs administration economics,Price test with 5-10 sponsors,$20-60k,DEC-006,SRC-002
+OQ-003,What is the measured eligibility-relevant change rate and exception handling time?,Sets the registry run cost,Public-data replay harness over 12 archived releases,$30-80k,DEC-003,SRC-001
+OQ-004,Will an auditor accept change-driven re-vetting as meeting a 180-day policy?,Removes periodic re-review cost,Auditor walkthrough,$0-30k,DEC-003,SRC-001
+OQ-005,Can an incumbent export be obtained under NDA and loaded with full reconciliation?,Validates migration claims,One authorised export and rehearsal,$40-160k,DEC-010,SRC-001
+OQ-006,Is there a distributor or administrator willing to license and resell?,Gates ER-7 the cheapest self-sustaining route,5 partner conversations,$5-15k,DEC-001,SRC-067
+OQ-007,Who buys charity eligibility evidence and at what price outside DAF sponsors?,Determines whether charity intelligence is a standalone product,Price test across CSR platforms administrators payment networks,$10-30k,DEC-004,SRC-064
+OQ-008,What does Candid Charity Check cost and what are its redistribution terms?,Main incumbent for paid eligibility evidence,Request public pricing; review terms,$0,DEC-004,SRC-001
+OQ-009,Does a Unbound-type vendor become a Nacha TPSP in the chosen architecture?,$44k registry line and payments obligations,Counsel opinion,$15-100k,DEC-009,SRC-001
+OQ-010,Can sponsor-confirmed identity resolutions be shared across sponsors?,Compounding of ADV-003,Counsel and model contract terms,$10-30k,DEC-005,SRC-001
+OQ-011,What is the real AI handling-time reduction on DAF exceptions?,Tests HYP-008; AI contribution to economics,Time study,$20-60k,DEC-006,SRC-002
+OQ-012,How many sponsor contract-end windows occur in the next 24 months?,Timing of entry,Public notices; 990 vendor payments; DNS changes,$5-15k,DEC-007,SRC-011
+OQ-013,What is the actual CAC and sales cycle for DAF technology?,Capital requirement swings most on it,Track own pipeline; ask channel partners,$0,DEC-008,SRC-067
+OQ-014,Do community foundations need an integrated fund-accounting suite rather than a DAF module?,Determines whether CF re-platforming is addressable,Interview 5 CF switchers; analyse Foundant wins,$5-15k,DEC-001,SRC-012
+OQ-015,What is Ren's real security assurance status (Type 1 vs Type 2) and scope?,Procurement positioning,Request reports under NDA via a prospect,$0,DEC-006,SRC-017
+OQ-016,Is the UBS DAF programme sponsored by NPT or RCF or both?,Reconciles prior repository classification,Primary documents,$0,none,SRC-065
+OQ-017,Will Echelon components be licensed commercially for a production product?,PolyForm-NC dependency risk (PR #87 RC-AN-009),Licence terms decision,$10-50k,DEC-008,SRC-002
+OQ-018,How much of a migration mapping is reusable from a package versus sponsor-specific?,Tests ADV-004,Measure on first two migrations,$0 (instrumentation),DEC-007,SRC-066
+OQ-019,What share of contributions can be converted to notification-first structured intents?,Largest prevention lever on attribution,Design-partner pilot,$20-50k,DEC-012,SRC-004
+OQ-020,Do donors or advisors switch sponsors for faster grants or fewer checks (donor-level churn)?,Donor-level pain versus institution-level purchasing,Survey or public complaint analysis,$5-20k,none,SRC-014
