@@ -1,0 +1,4 @@
+case,bespoke_days,bespoke_usd,new_profile_days,new_profile_usd,reused_profile_days,reused_profile_usd,shadow_run_days_elapsed,input_basis
+low,15.0,9338,8.0,4980,1.0,623,10.0,engineer-days assumed; anchored on vendor-reported EDI onboarding time
+mode,30.0,24750,15.0,12375,3.0,2475,20.0,engineer-days assumed; anchored on vendor-reported EDI onboarding time
+high,50.0,71429,25.0,35714,6.0,8571,40.0,engineer-days assumed; anchored on vendor-reported EDI onboarding time
