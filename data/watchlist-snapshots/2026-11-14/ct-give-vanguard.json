@@ -1,0 +1,56 @@
+{
+  "check_id": "ct-give-vanguard",
+  "check_type": "ct_crtsh",
+  "date": "2026-11-14",
+  "detail": {
+    "names": {
+      "vanguard-sandbox-k8s.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-01-23",
+        "last_not_before": "2026-01-23"
+      },
+      "vanguard-sandbox.giveinteractive.com": {
+        "certs": 13,
+        "first_not_before": "2025-08-06",
+        "last_not_before": "2026-09-01"
+      },
+      "vanguard-staging.giveinteractive.com": {
+        "certs": 12,
+        "first_not_before": "2025-10-02",
+        "last_not_before": "2026-08-29"
+      },
+      "vanguardcharitable.giveinteractive.com": {
+        "certs": 14,
+        "first_not_before": "2026-01-28",
+        "last_not_before": "2026-09-01"
+      },
+      "vc-innov.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-09",
+        "last_not_before": "2026-10-09"
+      }
+    }
+  },
+  "entity": "Vanguard Charitable",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:25:07Z",
+  "ok": true,
+  "queue_items": "P-GIV-02;P-VEN-02",
+  "source_url": "https://crt.sh/?q=%25.giveinteractive.com",
+  "status": "200",
+  "summary": {
+    "name_count": 5,
+    "names": [
+      "vanguard-sandbox-k8s.giveinteractive.com",
+      "vanguard-sandbox.giveinteractive.com",
+      "vanguard-staging.giveinteractive.com",
+      "vanguardcharitable.giveinteractive.com",
+      "vc-innov.giveinteractive.com"
+    ],
+    "watch_hits": [
+      "vanguardcharitable.giveinteractive.com"
+    ]
+  },
+  "target": "%.giveinteractive.com",
+  "watch_regex": "^vanguardcharitable\\.giveinteractive\\.com$"
+}

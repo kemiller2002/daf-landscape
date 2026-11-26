@@ -1,0 +1,31 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/summa/src/Summa.Storage/Summa.Storage.fsproj (in 298 ms).
+  Restored scratch:aincm/build/summa/src/Summa.Ledger/Summa.Ledger.fsproj (in 293 ms).
+  Restored scratch:aincm/build/summa/src/Summa.Wasm/Summa.Wasm.csproj (in 293 ms).
+  Restored scratch:aincm/build/summa/src/Summa.Operations/Summa.Operations.fsproj (in 294 ms).
+  Restored scratch:aincm/build/summa/src/Summa.Access/Summa.Access.fsproj (in 1 ms).
+  Restored scratch:aincm/build/summa/src/Summa.Contracts/Summa.Contracts.fsproj (in 1 ms).
+  Restored scratch:aincm/build/summa/tests/Summa.Contracts.Tests/Summa.Contracts.Tests.fsproj (in 16 ms).
+  Restored scratch:aincm/build/summa/tests/Summa.Tests/Summa.Tests.fsproj (in 17 ms).
+  Restored scratch:aincm/build/summa/tests/Summa.Storage.Tests/Summa.Storage.Tests.fsproj (in 21 ms).
+  Restored scratch:aincm/build/summa/src/Summa.Web.Engine/Summa.Web.Engine.fsproj (in 2 ms).
+  Restored scratch:aincm/build/summa/src/Summa.Web.Application/Summa.Web.Application.fsproj (in 3 ms).
+  Restored scratch:aincm/build/summa/tests/Summa.Web.Tests/Summa.Web.Tests.fsproj (in 897 ms).
+  Summa.Access -> scratch:aincm/build/summa/src/Summa.Access/bin/Release/net10.0/Summa.Access.dll
+  Summa.Contracts -> scratch:aincm/build/summa/src/Summa.Contracts/bin/Release/net10.0/Summa.Contracts.dll
+  Summa.Contracts.Tests -> scratch:aincm/build/summa/tests/Summa.Contracts.Tests/bin/Release/net10.0/Summa.Contracts.Tests.dll
+  Summa.Ledger -> scratch:aincm/build/summa/src/Summa.Ledger/bin/Release/net10.0/Summa.Ledger.dll
+  Summa.Storage -> scratch:aincm/build/summa/src/Summa.Storage/bin/Release/net10.0/Summa.Storage.dll
+  Summa.Tests -> scratch:aincm/build/summa/tests/Summa.Tests/bin/Release/net10.0/Summa.Tests.dll
+  Summa.Operations -> scratch:aincm/build/summa/src/Summa.Operations/bin/Release/net10.0/Summa.Operations.dll
+  Summa.Storage.Tests -> scratch:aincm/build/summa/tests/Summa.Storage.Tests/bin/Release/net10.0/Summa.Storage.Tests.dll
+  Summa.Web.Engine -> scratch:aincm/build/summa/src/Summa.Web.Engine/bin/Release/net10.0/Summa.Web.Engine.dll
+  Summa.Web.Application -> scratch:aincm/build/summa/src/Summa.Web.Application/bin/Release/net10.0/Summa.Web.Application.dll
+  Summa.Wasm -> scratch:aincm/build/summa/src/Summa.Wasm/bin/Release/net10.0/Summa.Wasm.dll
+  Summa.Web.Tests -> scratch:aincm/build/summa/tests/Summa.Web.Tests/bin/Release/net10.0/Summa.Web.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:47.67

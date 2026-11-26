@@ -34,7 +34,7 @@ flowchart TD
 
 ## Three concrete public observations
 
-1. **AEF and Ren:** [AEF describes its platform migration](https://engage.aefonline.org/dc-sunset/) to a Ren-powered DAF portal. This is a sponsor–technology dependency, not identical legal entities or transferable attestations.
+1. **AEF and Ren:** [AEF describes its platform migration](https://engage.aefonline.org/dc-sunset/) ([archived copy](http://web.archive.org/web/20261003000017/https://engage.aefonline.org/dc-sunset/)) to a Ren-powered DAF portal. This is a sponsor–technology dependency, not identical legal entities or transferable attestations.
 2. **Chariot's DAFpay:** [Documentation](https://docs.givechariot.com/guides/dafpay/integrating-dafpay/transactions) distinguishes the status **Initiated** from **Received**. A successfully created grant recommendation must not be represented as settled payment. [Donor Accounts](https://docs.givechariot.com/guides/dafpay/donor-accounts/overview) places grant decision actions with the integrated DAF provider.
 3. **Greater Horizons:** [Advisor FAQ](https://www.greaterhorizons.org/professional-advisors/charitable-giving-solutions/daf-financial-advisor-managed-account-faqs/) explicitly describes monthly reconciliation for advisor-managed investments and payment from a separate liquidity account. Portal balances and custodial balances can therefore differ for operational reasons.
 

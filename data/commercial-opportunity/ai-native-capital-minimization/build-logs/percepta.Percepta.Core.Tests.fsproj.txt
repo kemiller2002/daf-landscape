@@ -1,0 +1,1 @@
+Percepta.Core.Tests: all checks passed.

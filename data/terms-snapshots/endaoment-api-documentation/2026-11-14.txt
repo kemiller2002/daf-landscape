@@ -1,0 +1,36 @@
+> ## Documentation Index
+> Fetch the complete documentation index at: https://docs.endaoment.org/llms.txt
+> Use this file to discover all available pages before exploring further.
+# API Documentation
+![](https://mintcdn.com/endaoment/5D8ZfO22P1Kor1jn/images/brand-assets/api-readme-cover.png?fit=max\&auto=format\&n=5D8ZfO22P1Kor1jn\&q=85\&s=d4393ccb2baba632063e29bf70fddb48)
+# Endaoment API
+Use the Endaoment API to authenticate donors, open and fund DAFs, search nonprofits, and submit grants. Everything is REST over HTTPS.
+> [!NOTE]
+> See [Rate limiting](https://docs.endaoment.org/developers/quickstart/error-handling.md#rate-limiting) for current limits by environment and how to request more headroom.
+## Quickstart
+> [card] [Overview](https://docs.endaoment.org/developers/quickstart/overview.md)
+> Pick your path - OAuth or partner - and see the full journey at a glance.
+> [card] [Integration Patterns](https://docs.endaoment.org/developers/quickstart/integration-patterns.md)
+> Auth, proxying, idempotency, and amount conventions you'll use across every step.
+> [card] [API Reference](https://docs.endaoment.org/developers/api/authentication/start-oauth-authorization.md)
+> Every endpoint, grouped by Partner Endpoints, Authentication, Funds, Donations, and more.
+### User Journey Steps
+> [card] [Authenticate](https://docs.endaoment.org/developers/quickstart/login-user.md)
+> OAuth 2.0 Authorization Code + PKCE
+> [card] [Open a Fund](https://docs.endaoment.org/developers/quickstart/create-daf.md)
+> Create a donor-advised fund for an authenticated user
+> [card] [Fund a DAF](https://docs.endaoment.org/developers/quickstart/donate-to-daf.md)
+> Submit a wire donation pledge
+> [card] [Find a Nonprofit](https://docs.endaoment.org/developers/quickstart/search-for-org.md)
+> Search organizations for grant recommendations
+> [card] [Recommend a Grant](https://docs.endaoment.org/developers/quickstart/grant-from-daf.md)
+> Submit an async grant from a fund
+> [card] [Partner Journey](https://docs.endaoment.org/developers/quickstart/partner-journey.md)
+> Server-to-server flow for tech-platform partners
+> [card] [Error Handling](https://docs.endaoment.org/developers/quickstart/error-handling.md)
+> Server error shapes, retries, and the production rate limit
+> [card] [Going to Production](https://docs.endaoment.org/developers/quickstart/going-to-prod.md)
+> Validate on dev or staging, then request production credentials
+> [card] [Collaboration](https://docs.endaoment.org/advisors/collaboration/manage-collaborators)
+> Add or remove fund collaborators (optional)
+This documentation is built and hosted on [Mintlify](https://mintlify.com), a developer documentation platform.

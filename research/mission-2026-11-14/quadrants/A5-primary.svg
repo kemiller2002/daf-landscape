@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-label="DAF Evidence Quadrant A5">
+<style>:root{--fg:#1f2328;--muted:#59636e;--grid:#d0d7de;--box:rgba(9,105,218,.12);--dot:#0969da}@media (prefers-color-scheme: dark){:root{--fg:#e6edf3;--muted:#9198a1;--grid:#3d444d;--box:rgba(88,166,255,.18);--dot:#58a6ff}}text{fill:var(--fg);font:12px system-ui,sans-serif}.m{fill:var(--muted)}</style>
+<rect x="70" y="70" width="580" height="580" fill="none" stroke="var(--grid)"/>
+<line x1="360.0" y1="70" x2="360.0" y2="650" stroke="var(--grid)"/>
+<line x1="70" y1="360.0" x2="650" y2="360.0" stroke="var(--grid)"/>
+<text x="360.0" y="30" text-anchor="middle" style="font-weight:600">DAF Evidence Quadrant — Charity eligibility &amp; verification data (primary)</text>
+<text x="360.0" y="695" text-anchor="middle" class="m">Evidenced Execution →</text>
+<text x="22" y="360.0" text-anchor="middle" class="m" transform="rotate(-90 22 360.0)">Evidenced Forward Capability →</text>
+<text x="505.0" y="91.75" text-anchor="middle" class="m">Proven Leaders</text>
+<text x="215.0" y="91.75" text-anchor="middle" class="m">Forward Builders</text>
+<text x="505.0" y="628.25" text-anchor="middle" class="m">Scale Operators</text>
+<text x="215.0" y="628.25" text-anchor="middle" class="m">Focused Specialists</text>
+<rect x="367.25" y="381.75" width="87.0" height="0.0" fill="var(--box)"/>
+<circle cx="419.45000000000005" cy="381.75" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="428.45000000000005" y="373.75">Benevity validation</text>
+<rect x="418.0" y="265.75" width="145.0" height="0.0" fill="var(--box)"/>
+<circle cx="534.0" cy="265.75" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="543.0" y="257.75">Candid (GuideStar APIs / Charity Check)</text>
+<rect x="360.0" y="222.25" width="58.0" height="116.0" fill="var(--box)"/>
+<circle cx="391.90000000000003" cy="259.95" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="400.90000000000003" y="251.95">Chariot verification</text>
+<rect x="113.5" y="222.25" width="493.0" height="203.0" fill="var(--box)"/>
+<circle cx="360.0" cy="304.90000000000003" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="369.0" y="296.90000000000003">Goodstack</text>
+<rect x="570.25" y="200.5" width="0.0" height="87.0" fill="var(--box)"/>
+<circle cx="570.25" cy="223.7" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="579.25" y="215.7">IRS BMF / Pub 78 / TEOS (public baseline)</text>
+<text x="70" y="712" class="m">Boxes = range if unknown criteria scored 0–4; hollow = evidence coverage &lt; 0.5. Not a Gartner Magic Quadrant.</text></svg>

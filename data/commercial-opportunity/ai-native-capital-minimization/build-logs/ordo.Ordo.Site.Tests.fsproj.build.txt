@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/ordo/src/Ordo.Site/Ordo.Site.fsproj (in 307 ms).
+  Restored scratch:aincm/build/ordo/src/Sde.Core/Sde.Core.fsproj (in 308 ms).
+  Restored scratch:aincm/build/ordo/tests/Ordo.Site.Tests/Ordo.Site.Tests.fsproj (in 307 ms).
+  Sde.Core -> scratch:aincm/build/ordo/src/Sde.Core/bin/Release/net8.0/Sde.Core.dll
+  Ordo.Site -> scratch:aincm/build/ordo/src/Ordo.Site/bin/Release/net8.0/ordo-site.dll
+  Ordo.Site.Tests -> scratch:aincm/build/ordo/tests/Ordo.Site.Tests/bin/Release/net8.0/Ordo.Site.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:11.28

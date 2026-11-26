@@ -1,0 +1,20 @@
+Test run for scratch:aincm/build/causa/tests/Causa.Invariants/bin/Release/net10.0/Causa.Invariants.dll (.NETCoreApp,Version=v10.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.33]     Causa.Invariants.Live.INV22.ThreeSimultaneousCommits [FAIL]
+  Failed Causa.Invariants.Live.INV22.ThreeSimultaneousCommits [63 ms]
+  Error Message:
+   System.InvalidOperationException : BLOCKED: no credential: CAUSA_WRITE_TOKEN is not set (it never falls back to another token)
+  Stack Trace:
+     at Causa.TestSupport.LiveEnv.require(Access access) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 258
+   at Causa.TestSupport.LiveRun..ctor(String testClass) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 342
+   at <StartupCode$Causa-TestSupport>.$Recordings.-ctor@425-12.Invoke(Unit unitVar) in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 425
+   at System.Lazy`1.ViaFactory(LazyThreadSafetyMode mode)
+   at System.Lazy`1.ExecutionAndPublication(LazyHelper executionAndPublication, Boolean useDefaultConstructor)
+   at System.Lazy`1.CreateValue()
+   at Causa.TestSupport.LiveFixture`1.get_Run() in scratch:aincm/build/causa/tests/Causa.TestSupport/Recordings.fs:line 426
+   at Causa.Invariants.Live.INV22.ThreeSimultaneousCommits() in scratch:aincm/build/causa/tests/Causa.Invariants/Live/INV22.fs:line 42
+   at System.Reflection.MethodBaseInvoker.InterpretedInvoke_Method(Object obj, IntPtr* args)
+   at System.Reflection.MethodBaseInvoker.InvokeWithNoArgs(Object obj, BindingFlags invokeAttr)
+
+Failed!  - Failed:     1, Passed:     7, Skipped:     0, Total:     8, Duration: 1 s - Causa.Invariants.dll (net10.0)
+VSTEST_ARTIFACTS_DIRECTORY environment variable was not found, falling back to a user-private temporary directory. This is most likely caused by an outdated Microsoft.NET.Test.Sdk package reference in the test project.

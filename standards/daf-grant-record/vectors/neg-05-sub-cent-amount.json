@@ -1,0 +1,50 @@
+{
+  "vector_id": "neg-05-sub-cent-amount",
+  "description": "USDC amount with sub-cent precision (1234567 micro-units) rounded neither way",
+  "expect": "invalid",
+  "schema": "../schema-v0.1.json",
+  "status_label": "draft, unendorsed",
+  "derived_from": "pos-03-endaoment-async-grant (record, mutated)",
+  "mutations": [
+    {
+      "record_path": "/amount/value",
+      "value": "1.234567"
+    }
+  ],
+  "expected_errors": [
+    {
+      "instance_path": "/amount/value",
+      "keyword": "pattern"
+    }
+  ],
+  "record": {
+    "schema_version": "0.1",
+    "grant_id": "123e4567-e89b-12d3-a456-426614174000",
+    "fund_id": "123e4567-e89b-12d3-a456-426614174000",
+    "recipient": {
+      "ein": "530196605",
+      "alternative_id": {
+        "scheme": "x-endaoment-org-uuid",
+        "id": "123e4567-e89b-12d3-a456-426614174000"
+      }
+    },
+    "amount": {
+      "value": "1.234567",
+      "currency": "USD"
+    },
+    "purpose": {
+      "text": "Supporting educational programs"
+    },
+    "restriction_text": "Funds must be used exclusively for the summer education program",
+    "anonymity": "name_only",
+    "status": "pending",
+    "payment_reference": {
+      "rail": "onchain",
+      "reference": "0x1234567890abcdef"
+    },
+    "dates": {
+      "recommended_at": "2024-03-20T10:30:00Z",
+      "updated_at": "2024-03-20T10:30:00Z"
+    }
+  }
+}

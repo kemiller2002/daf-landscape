@@ -1,0 +1,27 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/vigila/tests/Vigila.Application.Tests/Vigila.Application.Tests.fsproj (in 327 ms).
+  Restored scratch:aincm/build/vigila/tests/Vigila.Host.GitHub.Tests/Vigila.Host.GitHub.Tests.fsproj (in 327 ms).
+  Restored scratch:aincm/build/vigila/src/Vigila.Host.GitHub/Vigila.Host.GitHub.fsproj (in 327 ms).
+  Restored scratch:aincm/build/vigila/src/Vigila.Transition/Vigila.Transition.fsproj (in 327 ms).
+  Restored scratch:aincm/build/vigila/tests/Vigila.Transition.Tests/Vigila.Transition.Tests.fsproj (in 2 ms).
+  Restored scratch:aincm/build/vigila/src/Vigila.Semantic/Vigila.Semantic.fsproj (in 1 ms).
+  Restored scratch:aincm/build/vigila/src/Vigila.Cli/Vigila.Cli.fsproj (in 2 ms).
+  Restored scratch:aincm/build/vigila/tests/Vigila.Semantic.Tests/Vigila.Semantic.Tests.fsproj (in 2 ms).
+  Restored scratch:aincm/build/vigila/src/Vigila.Application/Vigila.Application.fsproj (in 1 ms).
+  Restored scratch:aincm/build/vigila/src/Vigila.Wasm/Vigila.Wasm.csproj (in 22 ms).
+  Vigila.Semantic -> scratch:aincm/build/vigila/src/Vigila.Semantic/bin/Release/net10.0/Vigila.Semantic.dll
+  Vigila.Transition -> scratch:aincm/build/vigila/src/Vigila.Transition/bin/Release/net10.0/Vigila.Transition.dll
+  Vigila.Semantic.Tests -> scratch:aincm/build/vigila/tests/Vigila.Semantic.Tests/bin/Release/net10.0/Vigila.Semantic.Tests.dll
+  Vigila.Transition.Tests -> scratch:aincm/build/vigila/tests/Vigila.Transition.Tests/bin/Release/net10.0/Vigila.Transition.Tests.dll
+  Vigila.Application -> scratch:aincm/build/vigila/src/Vigila.Application/bin/Release/net10.0/Vigila.Application.dll
+  Vigila.Wasm -> scratch:aincm/build/vigila/src/Vigila.Wasm/bin/Release/net10.0/Vigila.Wasm.dll
+  Vigila.Host.GitHub -> scratch:aincm/build/vigila/src/Vigila.Host.GitHub/bin/Release/net10.0/Vigila.Host.GitHub.dll
+  Vigila.Application.Tests -> scratch:aincm/build/vigila/tests/Vigila.Application.Tests/bin/Release/net10.0/Vigila.Application.Tests.dll
+  Vigila.Cli -> scratch:aincm/build/vigila/src/Vigila.Cli/bin/Release/net10.0/vigila.dll
+  Vigila.Host.GitHub.Tests -> scratch:aincm/build/vigila/tests/Vigila.Host.GitHub.Tests/bin/Release/net10.0/Vigila.Host.GitHub.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:17.62

@@ -1,0 +1,32 @@
+{
+  "check_id": "sec-altruist",
+  "check_type": "sec_efts",
+  "date": "2026-11-14",
+  "detail": {
+    "hits": [
+      {
+        "adsh": "0001628280-26-066781",
+        "file_date": "2026-10-22",
+        "form": "8-K",
+        "names": [
+          "Lazard, Inc.  (LAZ)  (CIK 0001311370)"
+        ]
+      }
+    ]
+  },
+  "entity": "Vanguard\u2013Altruist deal (SEC full-text)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:40Z",
+  "ok": true,
+  "queue_items": "P-BUY-01",
+  "source_url": "https://efts.sec.gov/LATEST/search-index?q=%22Altruist%22+%22Vanguard%22&dateRange=custom&startdt=2026-08-01&enddt=2026-11-14&forms=8-K%2C425%2CSC+13D%2CADV%2CBD%2CD",
+  "status": "200",
+  "summary": {
+    "filings": [
+      "2026-10-22 | 8-K | 0001628280-26-066781 | Lazard, Inc.  (LAZ)  (CIK 0001311370)"
+    ],
+    "hit_count": 1
+  },
+  "target": "\"Altruist\" \"Vanguard\"",
+  "watch_regex": "(?i)altruist"
+}

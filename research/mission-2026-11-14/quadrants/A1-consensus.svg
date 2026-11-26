@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 720" role="img" aria-label="DAF Evidence Quadrant A1">
+<style>:root{--fg:#1f2328;--muted:#59636e;--grid:#d0d7de;--box:rgba(9,105,218,.12);--dot:#0969da}@media (prefers-color-scheme: dark){:root{--fg:#e6edf3;--muted:#9198a1;--grid:#3d444d;--box:rgba(88,166,255,.18);--dot:#58a6ff}}text{fill:var(--fg);font:12px system-ui,sans-serif}.m{fill:var(--muted)}</style>
+<rect x="70" y="70" width="580" height="580" fill="none" stroke="var(--grid)"/>
+<line x1="360.0" y1="70" x2="360.0" y2="650" stroke="var(--grid)"/>
+<line x1="70" y1="360.0" x2="650" y2="360.0" stroke="var(--grid)"/>
+<text x="360.0" y="30" text-anchor="middle" style="font-weight:600">DAF Evidence Quadrant — DAF platform &amp; administration (consensus)</text>
+<text x="360.0" y="695" text-anchor="middle" class="m">Evidenced Execution →</text>
+<text x="22" y="360.0" text-anchor="middle" class="m" transform="rotate(-90 22 360.0)">Evidenced Forward Capability →</text>
+<text x="505.0" y="91.75" text-anchor="middle" class="m">Proven Leaders</text>
+<text x="215.0" y="91.75" text-anchor="middle" class="m">Forward Builders</text>
+<text x="505.0" y="628.25" text-anchor="middle" class="m">Scale Operators</text>
+<text x="215.0" y="628.25" text-anchor="middle" class="m">Focused Specialists</text>
+<rect x="342.59999999999997" y="304.90000000000003" width="0.0" height="88.44999999999999" fill="var(--box)"/>
+<circle cx="342.59999999999997" cy="346.95000000000005" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="351.59999999999997" y="338.95000000000005">Blackbaud Financial Edge NXT (foundations)</text>
+<rect x="447.0" y="422.35" width="87.0" height="0.0" fill="var(--box)"/>
+<circle cx="513.7" cy="422.35" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="522.7" y="414.35">Fidelity Charitable (in-house, FMR-administered)</text>
+<rect x="374.5" y="299.1" width="0.0" height="143.54999999999995" fill="var(--box)"/>
+<circle cx="374.5" cy="374.5" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="383.5" y="366.5">Foundant CommunitySuite</text>
+<rect x="316.5" y="312.15" width="145.0" height="87.0" fill="var(--box)"/>
+<circle cx="399.15" cy="355.65000000000003" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="408.15" y="347.65000000000003">Foundation Source (DAF OS / Vennfi)</text>
+<rect x="357.1" y="348.4" width="114.54999999999995" height="0.0" fill="var(--box)"/>
+<circle cx="428.15000000000003" cy="348.4" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="437.15000000000003" y="340.4">Give Interactive</text>
+<rect x="212.1" y="251.25" width="259.54999999999995" height="261.0" fill="var(--box)"/>
+<circle cx="326.65" cy="399.15" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="335.65" y="391.15">Givinga</text>
+<rect x="357.1" y="135.25" width="145.0" height="493.0" fill="var(--box)"/>
+<circle cx="451.34999999999997" cy="505.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="460.34999999999997" y="497.0">NCF (sponsor-built, Salesforce)</text>
+<rect x="407.85" y="284.6" width="145.0" height="203.0" fill="var(--box)"/>
+<circle cx="519.5" cy="399.15" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="528.5" y="391.15">NPT GivingPoint (sponsor-built)</text>
+<rect x="232.4" y="326.65" width="145.00000000000003" height="233.45000000000005" fill="var(--box)"/>
+<circle cx="287.5" cy="499.2" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="296.5" y="491.2">NPact (FIMS / DonorCentral)</text>
+<rect x="435.4" y="312.15" width="59.450000000000045" height="0.0" fill="var(--box)"/>
+<circle cx="477.45" cy="312.15" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="486.45" y="304.15">Ren (incl. iPhi/Stellar, DonorFirstX)</text>
+<rect x="280.25" y="113.5" width="261.0" height="493.0" fill="var(--box)"/>
+<circle cx="452.8" cy="360.0" r="6" fill="none" stroke="var(--dot)" stroke-width="2"/>
+<text x="461.8" y="352.0">SVCF (sponsor-built, Salesforce)</text>
+<rect x="389.0" y="370.15000000000003" width="58.0" height="0.0" fill="var(--box)"/>
+<circle cx="423.8" cy="370.15000000000003" r="6" fill="var(--dot)" stroke="var(--dot)" stroke-width="2"/>
+<text x="432.8" y="362.15000000000003">TIFIN Give</text>
+<text x="70" y="712" class="m">Boxes = range if unknown criteria scored 0–4; hollow = evidence coverage &lt; 0.5. Not a Gartner Magic Quadrant.</text></svg>

@@ -1,0 +1,101 @@
+ok     Every published fixture validates with the compatibility class its manifest declares
+ok     The fixture manifest covers the seventeen required reference examples
+ok     Fixture files follow forma/workflows/<id>.forma-workflow.json and their id matches the file
+ok     Round trip: decode, encode, decode is identity and the JSON is equivalent to the source
+ok     Canonical serialization is deterministic and a fixed point
+ok     Unknown metadata survives exactly, including number spelling, nesting and order
+ok     Namespaced extensions at every level survive unchanged
+ok     Interoperable semantics are core fields, not extensions: kinds, status, colour and references decode without any extension
+ok     Layout never changes ids, semantics, metadata, references or extensions (FillMissing and Recompute)
+ok     Default layout is deterministic and places every node without overlaps
+ok     A workflow with no layout gets geometry that does not depend on node order in the file
+ok     FillMissing keeps authored positions; Recompute replaces them
+ok     Members of a group or lane stay inside its boundary in the default layout
+ok     Compatibility: targeting a Forma release before the capability is 'unavailable capabilities'
+ok     Compatibility: requiring a capability Forma does not provide is 'unavailable capabilities'
+ok     Migration: a pre-release of the current format migrates automatically; other versions are reported
+ok     Validation is independent of Studio and reports a machine-readable result
+ok     The schema the library enforces is byte-for-byte the published schema file
+ok     The capability manifest is the published contract file
+ok     Not JSON, duplicate keys, comments and trailing commas are structurally invalid
+ok     Excessive nesting and oversize input are rejected before decoding
+ok     Another format, a missing format and schema violations are structurally invalid
+ok     A schema-invalid document reports JSON pointers
+ok     Duplicate ids across nodes, edges and groups are semantically invalid
+ok     Dangling edges, missing ports and port direction violations are reported, not deleted
+ok     Port cardinality is enforced
+ok     Group members, parents, cycles and conflicting lanes are checked
+ok     Interaction targets and palette slots must exist
+ok     Script, data and disguised URLs are rejected wherever URLs appear
+ok     The forma extension namespace is reserved
+ok     Insufficient text contrast on authored colours is an accessibility error
+ok     Unlabelled branches and bidirectional override text are warned about
+ok     Executable-looking content in labels, metadata and extensions is just data
+ok     Semantically invalid documents round-trip without losing anyone's data
+ok     Rendering is deterministic: the same workflow and options give byte-identical HTML
+ok     Static output has no script, no event handlers and no script URLs
+ok     Static output uses only public Forma classes and no Studio or editor-only classes
+ok     Element ids are unique and every aria-labelledby/aria-describedby reference resolves
+ok     Every connector has a text equivalent and every group lists its members
+ok     Every node is named and states its kind and status in text, not colour
+ok     Untrusted text is escaped everywhere it is rendered
+ok     The JSON source embedded for interactive output cannot close its script element
+ok     Unsafe reference links are not emitted even if a host renders without validating
+ok     Metadata stays out of the HTML unless the host asks for named fields
+ok     Fragments declare their public asset requirements; documents link them
+ok     A complete document is valid HTML structure with doctype, language, charset, viewport and title
+ok     Interactive output adds exactly the public runtime, declared, and keeps the static fallback
+ok     Brand and theme values are restricted to safe identifiers
+ok     Golden output: static fragment, static document and interactive document
+ok     Edit mode: add, connect, rename, move, resize, undo and redo go through validated commands
+ok     Commands that would break the workflow are refused and change nothing
+ok     Read-only modes never change the document
+ok     Unknown metadata and extensions survive editing in the component
+ok     Metadata is edited with explicit types and unknown fields are kept
+ok     Selection, pick and intents are reported to the host as events
+ok     Runtime state is an overlay: the view changes, the document does not
+ok     Host protocol: versioned JSON in, HTML and public events out
+ok     The editor view escapes untrusted content and emits no script
+ok     Geometry: CSS radius normalisation makes a 999px radius half the shorter side
+ok     Geometry: a point inside the bounding box can be outside a rounded corner
+ok     Geometry: the inner boundary loses the border from each radius
+ok     Geometry: the inscribed square of a circle has side r·√2, of a diamond half its side
+ok     Geometry: segment crossing ignores segments that only touch an edge
+ok     Geometry: the safe inline padding grows with the radius and is the clearance when corners do not reach
+ok     Geometry: Forma's radius caps keep the content box clear of the corner
+ok     Text: character count is not width (CJK and emoji are wide, combining marks add nothing)
+ok     Text: wrapping never needs more lines at a greater width
+ok     Text: an unbroken run wider than the line breaks anywhere instead of overflowing
+ok     Layout: identical input gives identical geometry
+ok     Layout: a wider box node never needs more height
+ok     Layout: ellipse and diamond content stays inside the shape's visible region
+ok     Layout: default layouts keep nodes apart, connectors out of other nodes and labels clear
+ok     Layout: labels and nodes lie inside the canvas
+ok     LayoutCheck: authored geometry too small for its content is reported
+ok     Render: diagram geometry is in rem, so it scales with enlarged text
+ok     Rehearsal 6 regression: identity amber #e9a23b outline on ivory #f5f3ed is a 1.95:1 non-text contrast error
+ok     The corrected Causa derived indicator #9e6410 on #f5f3ed (4.42:1) passes
+ok     A borderless filled node validates: its fill is the boundary where it stands out from the surface
+ok     An accent below 3:1 against its fill is an error even when the boundary is perceivable
+ok     Group outlines are judged like node outlines
+ok     An edge stroke below 3:1 against the light or the dark surface is an error naming the theme
+ok     Without an authored fill an outline is judged against both default surfaces, the worst reported
+ok     A pinned host theme scopes the default-surface judgement to that theme's surface
+ok     Legend swatches are judged against the default surfaces (Rehearsal 6 palette:amber legend)
+ok     Palette slots holding literals are resolved; token values and token/literal mixes are not judged
+ok     Status tokens round-trip through the codec and render to the Forma status custom properties
+ok     The schema, the diagram presentation contract and the codec agree on the token vocabulary
+ok     Browser pipeline fixtures: the validator and renderer outputs the browser test measures are current
+ok     requirement identity goes on the control inside a field wrapper, not on the wrapper or the label
+ok     identity leaves every existing attribute, the label association and the role untouched
+ok     identity is stable across re-renders
+ok     an ID for a component kind the markup does not contain is refused (no attribute on an unrelated element)
+ok     markup with two candidate controls is ambiguous and refused
+ok     an element already identified is not re-identified
+ok     IDs and instance keys are validated
+ok     every supported component accepts only its own element kind
+ok     duplicate IDs in one scope are detected; repeated controls with distinct instance keys are not duplicates
+ok     bindings list every identity in document order
+ok     the browser fixture is exactly the rendered identified markup
+
+99 passed, 0 failed, 99 total

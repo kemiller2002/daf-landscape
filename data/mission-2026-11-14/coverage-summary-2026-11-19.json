@@ -1,0 +1,203 @@
+{
+  "entities": 33,
+  "cells": 396,
+  "status_counts": {
+    "Not investigated": 94,
+    "Discovery started": 30,
+    "Evidence collected": 97,
+    "Partially validated": 34,
+    "Independently corroborated": 114,
+    "Contradictory evidence": 3,
+    "Insufficient public information": 24,
+    "Research completed to current evidence standard": 0
+  },
+  "share_cells_investigated_any": 0.763,
+  "share_cells_partially_validated_or_better": 0.374,
+  "entities_with_majority_not_investigated": [
+    "Candid / IRS BMF (eligibility data)",
+    "OneAscent (OneGive)",
+    "Pave Finance",
+    "SEI (SEI Charitable Fund)",
+    "TIAA (Charityvest-sponsored DAF)"
+  ],
+  "caveat": "The research universe is incomplete: DAFRC counts ~1,500 sponsors; this matrix covers a purposive set of the largest and most strategically relevant entities.",
+  "source_matrix": "coverage-matrix-entities-2026-11-19.csv",
+  "baseline_matrix": "coverage-matrix-entities.csv",
+  "baseline_share_cells_investigated_any": 0.626,
+  "baseline_share_cells_partially_validated_or_better": 0.144,
+  "baseline_status_counts": {
+    "Not investigated": 148,
+    "Discovery started": 58,
+    "Evidence collected": 113,
+    "Partially validated": 20,
+    "Independently corroborated": 37,
+    "Contradictory evidence": 3,
+    "Insufficient public information": 17,
+    "Research completed to current evidence standard": 0
+  },
+  "baseline_entities_with_majority_not_investigated": [
+    "Candid / IRS BMF (eligibility data)",
+    "DAF Direct",
+    "Foundant (CommunitySuite)",
+    "Goldman Sachs (two DAF programs)",
+    "Jewish Communal Fund",
+    "NPact (FIMS / DonorCentral)",
+    "National Christian Foundation",
+    "OneAscent (OneGive)",
+    "Pave Finance",
+    "SEI (SEI Charitable Fund)",
+    "Silicon Valley Community Foundation",
+    "TIAA (Charityvest-sponsored DAF)"
+  ],
+  "cells_still_not_investigated": 94,
+  "cells_still_not_investigated_by_entity": {
+    "American Endowment Foundation (AEF)": [
+      "ai"
+    ],
+    "Bank of America Charitable Gift Fund": [
+      "ownership_funding",
+      "timeline",
+      "ai"
+    ],
+    "Benevity / workplace processors": [
+      "custody_invest",
+      "grant_workflow"
+    ],
+    "Candid / IRS BMF (eligibility data)": [
+      "financials",
+      "fees",
+      "tech_admin",
+      "custody_invest",
+      "ownership_funding",
+      "timeline",
+      "operating_evidence"
+    ],
+    "Chariot": [
+      "custody_invest"
+    ],
+    "Charityvest": [
+      "ai"
+    ],
+    "DAF Direct": [
+      "financials",
+      "custody_invest",
+      "assurance",
+      "ai",
+      "operating_evidence"
+    ],
+    "DAFgiving360 (Schwab Charitable)": [
+      "assurance",
+      "ai"
+    ],
+    "Edward Jones": [
+      "assurance",
+      "ownership_funding",
+      "timeline",
+      "ai"
+    ],
+    "Endaoment": [
+      "custody_invest"
+    ],
+    "Foundant (CommunitySuite)": [
+      "fees",
+      "custody_invest",
+      "grant_workflow",
+      "operating_evidence"
+    ],
+    "Give Interactive": [
+      "fees",
+      "custody_invest",
+      "grant_workflow",
+      "ai"
+    ],
+    "GiveClear Foundation": [
+      "assurance",
+      "ownership_funding"
+    ],
+    "Givinga": [
+      "custody_invest",
+      "grant_workflow"
+    ],
+    "Goldman Sachs (two DAF programs)": [
+      "ai"
+    ],
+    "Jewish Communal Fund": [
+      "fees",
+      "distribution",
+      "assurance",
+      "ownership_funding",
+      "timeline",
+      "ai"
+    ],
+    "Morgan Stanley (GIFT)": [
+      "ownership_funding",
+      "ai"
+    ],
+    "NPact (FIMS / DonorCentral)": [
+      "fees",
+      "custody_invest",
+      "grant_workflow",
+      "ai",
+      "operating_evidence"
+    ],
+    "National Christian Foundation": [
+      "distribution",
+      "ownership_funding",
+      "timeline",
+      "ai"
+    ],
+    "National Philanthropic Trust (NPT)": [
+      "ai"
+    ],
+    "OneAscent (OneGive)": [
+      "financials",
+      "custody_invest",
+      "grant_workflow",
+      "assurance",
+      "timeline",
+      "ai",
+      "operating_evidence"
+    ],
+    "Pave Finance": [
+      "financials",
+      "tech_admin",
+      "grant_workflow",
+      "assurance",
+      "timeline",
+      "ai",
+      "operating_evidence"
+    ],
+    "Renaissance Charitable Foundation (RCF)": [
+      "ai"
+    ],
+    "SEI (SEI Charitable Fund)": [
+      "financials",
+      "fees",
+      "custody_invest",
+      "grant_workflow",
+      "assurance",
+      "ai",
+      "operating_evidence"
+    ],
+    "Silicon Valley Community Foundation": [
+      "assurance",
+      "ownership_funding",
+      "timeline",
+      "ai"
+    ],
+    "Stellar Technology Solutions / iPhi": [
+      "custody_invest",
+      "assurance",
+      "ai"
+    ],
+    "TIAA (Charityvest-sponsored DAF)": [
+      "financials",
+      "custody_invest",
+      "grant_workflow",
+      "assurance",
+      "ownership_funding",
+      "ai",
+      "operating_evidence"
+    ]
+  }
+}

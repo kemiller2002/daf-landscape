@@ -1,0 +1,67 @@
+{
+  "check_id": "http-rcf-portal",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://rcf.donorfirstx.com/"
+      }
+    ],
+    "final_url": "https://rcf.donorfirstx.com/",
+    "form_actions": [
+      "/"
+    ],
+    "meta": {
+      "dd-trace-id": "1587006098880772723",
+      "dd-trace-time": "1794664240416",
+      "viewport": "width=device-width, minimum-scale=1.0, maximum-scale=1.0"
+    },
+    "raw_sha256": "4845e66642d477d478bfdb73cd14fee227f95d820c9af493d26f2d5531ada316",
+    "text_chars": 3038,
+    "text_sha256": "ea4d774b3411fe7076d10d9044a38dfd931e823bf8e1f6cdfb711165da957002"
+  },
+  "entity": "Renaissance Charitable Foundation generic portal (program RCF id 103; LPL channel login)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T13:50:40Z",
+  "ok": true,
+  "queue_items": "P-PRC-05",
+  "source_url": "https://rcf.donorfirstx.com/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "rcf.donorfirstx.com"
+    ],
+    "final_host": "rcf.donorfirstx.com",
+    "final_status": "200",
+    "footers": [],
+    "links": [
+      "https://rcf.donorfirstx.com/Terms of Service.pdf | Terms of Service",
+      "https://rcf.donorfirstx.com/account-application/ | Create DAF Account",
+      "https://rcf.donorfirstx.com/pdf/RCF/Advisor User Guide.pdf | Advisor Platform User Guide",
+      "https://rcf.donorfirstx.com/pdf/RCF/Donating%20Cryptocurrency%20to%20Your%20Donor-Advised%20Fund.pdf | here",
+      "https://rcf.donorfirstx.com/pdf/RCF/Donor User Guide.pdf | Donor Platform User Guide",
+      "https://rcf.donorfirstx.com/pdf/RCF/Investment Policy Statement.pdf | Investment Policy Statement",
+      "https://rcf.donorfirstx.com/pdf/RCF/RCF Program Circular.pdf | Program Circular",
+      "https://rcf.donorfirstx.com/pdf/rcf/Year End Deadlines.pdf | Download Deadlines Brochure",
+      "https://rcf.donorfirstx.com/pdf/rcf/resources/Account%20Information%20Change%20Form.pdf | Account Information Change Form",
+      "https://rcf.donorfirstx.com/pdf/rcf/resources/Additional%20Contribution%20Form.pdf | Contribution Form",
+      "https://rcf.donorfirstx.com/pdf/rcf/resources/Endowment Fund Program Guide and Application.pdf | Creating an Endowed Fund",
+      "https://rcf.donorfirstx.com/pdf/rcf/resources/IRA%20Rollover.pdf | Qualified Charitable IRA Rollover",
+      "https://rcf.donorfirstx.com/pdf/rcf/resources/Investment%20Policy%20Statement.pdf | Investment Policy Statement & Acknowledgment",
+      "https://rcf.donorfirstx.com/pdf/rcf/resources/RCF%20Donor%20Guide%20New%20R3.pdf | Why a Donor-Advised Fund?",
+      "https://rcf.donorfirstx.com/pdf/rcf/resources/RCF_AG_021617.1.pdf | Show Clients the Benefits of a DAF",
+      "https://rcf.donorfirstx.com/pdf/rcf/resources/RCF_DAFvPF_042017.pdf | How a DAF Complements a Private Foundation",
+      "https://rcf.donorfirstx.com/pdf/rcf/resources/Transfer%20Instructions.pdf | Transfer Instructions"
+    ],
+    "title": "Login Page",
+    "watch_hits_urls": [],
+    "watch_sentences": [
+      "Standard site maintenance will be performed starting Friday, November 13th between the times of 8:00PM EST to 11:00PM EST."
+    ]
+  },
+  "target": "https://rcf.donorfirstx.com/",
+  "watch_regex": "(?i)Commonwealth|LPL|CFN|maintenance"
+}

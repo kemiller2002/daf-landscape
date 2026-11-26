@@ -1,0 +1,10 @@
+REV 743cdb9
+DONE
+PASS2 REV 743cdb9
+CMD dotnet build cli/tests/Limen.Core.Tests/Limen.Core.Tests.fsproj -c Release => BUILD_RC 0 SECS 9
+TEST_RC Limen.Core.Tests.fsproj 0 SECS 1 :: Passed!  - Failed:     0, Passed:   166, Skipped:     0, Total:   166, Duration: 160 ms - Limen.Core.Tests.dll (net8.0) 
+CMD dotnet build site/fsharp/federation/tests/Limen.Federation.Proof.Tests/Limen.Federation.Proof.Tests.fsproj -c Release => BUILD_RC 0 SECS 13
+RUN_RC Limen.Federation.Proof.Tests.fsproj 0 SECS 1 :: pass_lines=0 fail_lines=0 tail=Limen multi-F#-WASM federation engine tests passed. 
+CMD dotnet build site/fsharp/tests/Limen.Site.Engine.Tests/Limen.Site.Engine.Tests.fsproj -c Release => BUILD_RC 0 SECS 6
+RUN_RC Limen.Site.Engine.Tests.fsproj 0 SECS 0 :: pass_lines=0 fail_lines=0 tail=Limen F# site engine tests passed. 
+DONE2

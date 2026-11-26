@@ -1,0 +1,18 @@
+row_id,module,dimension,finding,assessability,evidence_ids
+CA01,M1 Fundamentals,legal and tax accuracy,Topic 'Legal guardrails and prohibited transactions' maps correctly to 4966/4967/4958; accuracy of content unknown,cannot-assess,DE043;DE054
+CA02,M1 Fundamentals,controversial issues,'History and evolution of DAFs' may cover critiques; no critique named,cannot-assess,DE042
+CA03,M2 Tax,legal and tax accuracy,"Names prearranged sale, assignment of income, UBTI, valuation and OBBBA; whether 170(p) DAF exclusion and the 68 mechanics are taught correctly is unknown",cannot-assess,DE044;DE052;DE053
+CA04,M2 Tax,practical applicability,Bunching is a practical post-OBBBA strategy given the 0.5% floor,public-text-supports,DE044
+CA05,M3 Gift Acceptance,complex assets,"Real estate, business and alternative assets and exit planning are named; crypto, Rule 144 securities, S-corp stock, debt-financed property and 4943 are not named",public-text-supports,DE044;DE055
+CA06,M3 Gift Acceptance,operational workflows,"'readiness for contribution' implies gift-acceptance review; no workflow, intake or liquidation process named",inferable,DE044
+CA07,M4 Investing and Grant Management,grant compliance,"Eligible recipients, Notice 2017-73 and international grantmaking named; expenditure responsibility and equivalency determination not named",public-text-supports,DE045
+CA08,M4 Investing and Grant Management,advisor integration,Investment strategies named; adviser-managed DAF fees and the 2023 proposal's adviser rule not named,public-text-supports,DE045;DE046;DE050
+CA09,M4 Investing and Grant Management,controversial issues,"Payout, inactivity and DAF-to-DAF transfers absent",public-text-supports,DE046
+CA10,M5 Estate and Planned Giving,donor experience,"Succession, trusts, private foundations and supporting organisations, and multigenerational planning named",public-text-supports,DE042
+CA11,"M6 Ethics, Compliance and Technology",legal currency,'DAF regulation landscape and court cases' named; launch predates the 2026-27 PGP reframing; no 'law current as of' date,inferable,DE050;DE051
+CA12,"M6 Ethics, Compliance and Technology",technology architecture,"'DAF technology tools' only; no architecture, data, payments or API content named",public-text-supports,DE057
+CA13,"M6 Ethics, Compliance and Technology",compliance and auditability,"'Applied compliance' named; Form 990 Schedule D, Form 4720, internal controls and audit trails not named",public-text-supports,DE057
+CA14,All,neutrality,Programme claims to be 'neutral'; no content-governance or conflict-disclosure policy published; faculty employers not shown on programme page,public-text-supports,DE048;DE019;DE026
+CA15,All,depth,About 30 hours over six modules (about 5 hours each) limits depth on advanced topics such as UBTI and international grantmaking,inferable,DE018
+CA16,All,assessment of competence,Knowledge test (quizzes plus proctored exam) and a case study; no supervised practice or work-product review,public-text-supports,DE017
+CA17,All,future developments,'the future of DAFs' and the outcome 'navigate DAF policy changes' named; content unknown,cannot-assess,DE042

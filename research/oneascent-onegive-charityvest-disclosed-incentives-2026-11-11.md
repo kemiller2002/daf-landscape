@@ -87,3 +87,8 @@ OneAscent joins **TIAA Wealth Management** as a separate wealth channel using **
 - **Public source**: [OneAscent ADV August 11, 2026, Item 10, printed pages 20–21](https://oneascent.com/wp-content/uploads/sites/25/2025/11/20260811-OAWM-ADV-Part-2A.pdf) [G17]. Also see [governance source register](../data/sponsor-governance-sources-2026.csv) and the [parent sponsor oversight assessment](sponsor-governance-and-fee-transparency-2026-11-11.md).
 
 No pricing was inferred for TIAA, Ren, TIFIN, or other institutions. Actual OneGive fund counts, AUM, paid advisory income and Foundation Source fee revenue remain **unverified**.
+
+## Validation correction (2026-11-14, independent validation wave 1)
+Source: [validation-wave1-report.md](mission-2026-11-14/validation-wave1-report.md), register `data/mission-2026-11-14/validation-register.csv`. Original text above is preserved for traceability; where it conflicts with this note, this note governs.
+
+- **V1-22 confirmed:** IAPD submission date 2026-08-14; the same disclosure text appears in both the OneAscent Financial Services and OneAscent Family Offices brochures.

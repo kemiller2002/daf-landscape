@@ -1,0 +1,108 @@
+design_id,workflow,type,mechanism,maturity,status,file,audit_verdict,maturity_after_audit
+D-W1-1,W1,conventional,Conventional baseline: Staff look up each recommendation in IRS tools and screen OFAC; queue; batch approval,"Observed industry practice (approval latency unpublished, EV-076)",see file,W1-recipient-verification.md,not reviewed,"Observed industry practice (approval latency unpublished, EV-076)"
+D-W1-2,W1,automation-first,Automation-first: Same sequence; API lookups and screening per grant; reviewer confirms the result,L1,see file,W1-recipient-verification.md,not reviewed,L1
+D-W1-3,W1,ai-native,see W1 file,L3,see file,W1-recipient-verification.md,SURVIVES,L3
+D-W1-4,W1,radical,see W1 file,L2,see file,W1-recipient-verification.md,SURVIVES WITH MODIFICATIONS,L2
+D-W1-5,W1,ecosystem,see W1 file,L1 (L2 if E7),see file,W1-recipient-verification.md,INSUFFICIENT EVIDENCE,L1 value / L2 overlap
+D-W2-1,W2,conventional,Conventional baseline: Grant enters a manual queue; specialist researches from scratch; documents emailed,Observed practice (minutes unpublished),see file,W2-non-routine-review.md,not reviewed,Observed practice (minutes unpublished)
+D-W2-2,W2,automation-first,Automation-first: Same queue; document collection portal; checklists; reminders for ER reports,L1,see file,W2-non-routine-review.md,not reviewed,L1
+D-W2-3,W2,ai-native,see W2 file,L3,see file,W2-non-routine-review.md,SURVIVES,L3
+D-W2-4,W2,radical,see W2 file,L2,see file,W2-non-routine-review.md,SURVIVES WITH MODIFICATIONS,L1
+D-W2-5,W2,ecosystem,see W2 file,L1,see file,W2-non-routine-review.md,SURVIVES WITH MODIFICATIONS,L1
+D-W3-1,W3,conventional,"Conventional baseline: Weekly or monthly batches; EFT where enrolled, checks otherwise; cover letters by mail or email; remittance out of band",Observed,see file,W3-disbursement-remittance.md,not reviewed,Observed
+D-W3-2,W3,automation-first,Automation-first: Daily electronic batches; email remittance; automated check reissue,L1,see file,W3-disbursement-remittance.md,not reviewed,L1
+D-W3-3,W3,ai-native,see W3 file,L3,see file,W3-disbursement-remittance.md,SURVIVES,L3
+D-W3-4,W3,radical,see W3 file,L1,see file,W3-disbursement-remittance.md,SURVIVES WITH MODIFICATIONS,L1 (pull L0)
+D-W3-5,W3,ecosystem,"Externalized / ecosystem: multi-rail orchestration over partner networks: Sponsor (or Model C operator) instructs through several rails (bank ACH, PayPal Grant Payments, Chariot Disbursements) chosen per recipient enrollment and cost;",L1,see file,W3-disbursement-remittance.md,not reviewed,L1
+D-W4-1,W4,conventional,Conventional baseline: Donor or advisor calls; specialist gathers documents by email; legal review; committee for large gifts; broker or buyer found per asset,Observed (via non-cash vendor research),see file,W4-complex-noncash.md,not reviewed,Observed (via non-cash vendor research)
+D-W4-2,W4,automation-first,"Automation-first: Intake portal, checklist, e-signature, document reminders",L1,see file,W4-complex-noncash.md,not reviewed,L1
+D-W4-3,W4,ai-native,"AI-native (parent): Document extraction agent builds a dossier (title, liabilities, valuation, relationships); specialist decides; deterministic 8283/8282 tracking",L1,see file,W4-complex-noncash.md,not reviewed,L1
+D-W4-4,W4,radical,see W4 file,L1,see file,W4-complex-noncash.md,SURVIVES WITH MODIFICATIONS,L1
+D-W4-5,W4,ecosystem,"Externalized / ecosystem: partner processor plus liquidity partners: Accepted-class gifts are processed by a non-cash processor, with pre-committed liquidity partners under standing agreements; the sponsor keeps accept/decline au",L1,see file,W4-complex-noncash.md,not reviewed,L1
+D-W5-1,W5,conventional,Conventional baseline: Call center plus email queue; agents look up multiple systems; tickets,Observed (volumes unpublished),see file,W5-servicing.md,not reviewed,Observed (volumes unpublished)
+D-W5-2,W5,automation-first,Automation-first: Chatbot over FAQ; ticket routing; CRM integration,L1,see file,W5-servicing.md,not reviewed,L1
+D-W5-3,W5,ai-native,see W5 file,L1,see file,W5-servicing.md,SURVIVES WITH MODIFICATIONS,L1
+D-W5-4,W5,radical,see W5 file,L1,see file,W5-servicing.md,SURVIVES WITH MODIFICATIONS,L1
+D-W5-5,W5,ecosystem,Externalized / ecosystem: advisor-embedded service: The advisor's platform shows DAF status and actions via APIs; the advisor is the first line; the sponsor serves the advisor,L2 (channel premise; industry report §2.2),see file,W5-servicing.md,not reviewed,L2 (channel premise; industry report §2.2)
+D-W6-1,W6,conventional,"Form, manual review, liquidate, wire, mailed statement; history lost",observed,baseline,W6-transfers-portability.md,not reviewed,observed
+D-W6-2,W6,automation-first,"E-sign, automated eligibility lookup and wire; PDF history",L1,held: superseded by D-W6-3,W6-transfers-portability.md,not reviewed,L1
+D-W6-3,W6,ai-native,Structured transfer intent; deterministic policy approval; payment gate; open grant record history bundle,L2,"forwarded: E8, E9, E2",W6-transfers-portability.md,SURVIVES WITH MODIFICATIONS,L1
+D-W6-4,W6,radical,"Shared record substrate; atomic re-titling of units between sponsor sub-accounts; nothing liquidated, history never moves",L0,held: dies on incumbent economics; viable intra-platform in Model C/D,W6-transfers-portability.md,not reviewed,L0
+D-W6-5,W6,ecosystem,Neutral ACATS-like transfer protocol utility; standard messages and SLA timers; holds no funds,L1,forwarded: industry proposal,W6-transfers-portability.md,SURVIVES WITH MODIFICATIONS,L1
+D-W6-6,W6,contrarian,Receiving sponsor orchestrates all friction as acquisition cost,L1,held: does not fix sender friction,W6-transfers-portability.md,not reviewed,L1
+D-W7-1,W7,conventional,Paper LOA; portal per sponsor; nightly files; wholesalers,observed,baseline,W7-advisor-integration.md,not reviewed,observed
+D-W7-2,W7,automation-first,E-sign LOA; SSO; automated files,L1,held,W7-advisor-integration.md,not reviewed,L1
+D-W7-3,W7,ai-native,Scoped revocable delegation tokens; pre-trade mandate checks; event webhooks; advisor copilot drafts only,L3,forwarded: E5; adopt,W7-advisor-integration.md,SURVIVES,L2
+D-W7-4,W7,radical,"Invisible DAF embedded in advisor/wealth platforms; no sponsor portal; platform owns interaction, sponsor decides",L1,forwarded: counsel on REG-030/033; E11 CAC,W7-advisor-integration.md,SURVIVES WITH MODIFICATIONS,L1
+D-W7-5,W7,ecosystem,Neutral delegation and position-feed standard across sponsors,L0,forwarded: industry proposal,W7-advisor-integration.md,INSUFFICIENT EVIDENCE,L0
+D-W7-6,W7,contrarian,Advisor submits bulk grant recommendations as agent of record,L1,held: proposed REG-034 exposure,W7-advisor-integration.md,not reviewed,L1
+D-W8-1,W8,conventional,Vendor-led conversion project; truncated history,observed,baseline,W8-system-of-record-migration.md,not reviewed,observed
+D-W8-2,W8,automation-first,Automated ETL with full reconciliation; old history as documents,L1,held,W8-system-of-record-migration.md,not reviewed,L1
+D-W8-3,W8,ai-native,Continuous open-format event export; migration = replay plus invariant verification,L2,forwarded: E8,W8-system-of-record-migration.md,SURVIVES WITH MODIFICATIONS,L2
+D-W8-4,W8,radical,Sponsor-owned neutral record substrate; administrators are swappable operators with scoped event-write keys,L0,held: product thesis for Model C; needs common schema,W8-system-of-record-migration.md,not reviewed,L0
+D-W8-5,W8,ecosystem,Independent migration certification published to board and auditor,L1,held,W8-system-of-record-migration.md,not reviewed,L1
+D-W8-6,W8,contractual,Quarterly full-fidelity export and restore drills as procurement terms,L1,forwarded: recommendation; GAP-002,W8-system-of-record-migration.md,SURVIVES,L1
+D-W9-1,W9,conventional,Inactivity policy; outreach letters; default fund after years,observed,baseline,W9-dormant-capital.md,not reviewed,observed
+D-W9-2,W9,automation-first,Automated inactivity stages and emails,L1,held,W9-dormant-capital.md,not reviewed,L1
+D-W9-3,W9,ai-native,Goal-driven engagement; evidence-graded discovery; inactivity stage machine with H final default,L1,forwarded: adopt with measurement,W9-dormant-capital.md,SURVIVES WITH MODIFICATIONS,L1
+D-W9-4,W9,radical,Granting horizon or plan elected at opening; scheduler executes; drift detection; donor-chosen default destination,L1,forwarded: field pilot (no synthetic test possible),W9-dormant-capital.md,SURVIVES,L1
+D-W9-5,W9,ecosystem,"Default-destination partners (community foundations, field funds)",L1,held,W9-dormant-capital.md,not reviewed,L1
+D-W9-6,W9,contrarian,Fees partly on grants made or rebates for meeting plan,L0,held: no evidence; revenue risk,W9-dormant-capital.md,not reviewed,L0
+D-W10-1,W10,conventional,"Manuals, attestations, PBC lists, manual 990 and registrations",inferred,baseline,W10-compliance-evidence.md,not reviewed,inferred
+D-W10-2,W10,automation-first,GRC tool with control library and reminders,L1,held,W10-compliance-evidence.md,not reviewed,L1
+D-W10-3,W10,ai-native,Evidence ledger by construction; obligation coverage tests; filings from ledger; officers sign,L3 (partial),forwarded: E2 evidence completeness; coverage test,W10-compliance-evidence.md,SURVIVES WITH MODIFICATIONS,L3 (partial)
+D-W10-4,W10,radical,Continuous external assurance: auditor standing read access and running assurance; annual opinion as checkpoint,L0,held: needs auditor engagement (Phase 1),W10-compliance-evidence.md,not reviewed,L0
+D-W10-5,W10,ecosystem,Shared cited back-tested policy packs and registration utility; each board adopts,L1,forwarded: Model C offering,W10-compliance-evidence.md,SURVIVES WITH MODIFICATIONS,L1
+D-W10-6,W10,contrarian,"Publish operating metrics (latency, exception rate, evidence coverage)",L1,forwarded: adopt,W10-compliance-evidence.md,SURVIVES WITH MODIFICATIONS,L1
+D-W11-1,W11,conventional,Periodic reconciliation; month-end project,inferred,baseline,W11-reconciliation-close.md,not reviewed,inferred
+D-W11-2,W11,automation-first,Rules-based matching tool,L1,held,W11-reconciliation-close.md,not reviewed,L1
+D-W11-3,W11,ai-native,Continuous three-way reconciliation as invariants; break-triage agent; controller attestation,L2,forwarded: E4,W11-reconciliation-close.md,SURVIVES WITH MODIFICATIONS,L1
+D-W11-4,W11,radical,Reconciliation by construction: unique keys on every initiated movement so matching is equality,L1,forwarded: E4,W11-reconciliation-close.md,SURVIVES WITH MODIFICATIONS,L1
+D-W11-5,W11,ecosystem,Custodian or fund-administrator sub-ledgers,L1,held: second system of record,W11-reconciliation-close.md,not reviewed,L1
+D-W12-1,W12,conventional,Application form; staff review; account before gift,observed,baseline,W12-onboarding.md,not reviewed,observed
+D-W12-2,W12,automation-first,Web form plus IdP plus e-sign; auto-approve clean,L1,held,W12-onboarding.md,not reviewed,L1
+D-W12-3,W12,ai-native,Progressive or conversational intake writing canonical record; advisor prefill,L2,forwarded: E5,W12-onboarding.md,SURVIVES WITH MODIFICATIONS,L1
+D-W12-4,W12,radical,No application: account crystallizes from first verified contribution intent; data asked only when needed; value caps until full assurance,L1,forwarded: E5,W12-onboarding.md,SURVIVES WITH MODIFICATIONS,L1
+D-W12-5,W12,ecosystem,Reliance on upstream custodian or identity-wallet attestations,L1,forwarded: E5,W12-onboarding.md,INSUFFICIENT EVIDENCE,L1
+D-ACQ-1,acquisition,conventional,"Brand marketing, campaigns, wholesaling funnel",observed,baseline,cap-acquisition-relationships.md,not reviewed,observed
+D-ACQ-2,acquisition,automation-first,Marketing automation and lead scoring,L1,rejected: covert profiling risk,cap-acquisition-relationships.md,not reviewed,L1
+D-ACQ-3,acquisition,ai-native,Contextual assistance via advisor tools; honest suitability check incl. no-DAF,L1,forwarded,cap-acquisition-relationships.md,SURVIVES,L1
+D-ACQ-4,acquisition,radical,No marketing function; DAF offered only inside partner workflows via API,L1,forwarded: E11,cap-acquisition-relationships.md,INSUFFICIENT EVIDENCE,L1
+D-ACQ-5,acquisition,ecosystem,Referral network with nonprofits and community foundations,L0,held: REG-030 counsel,cap-acquisition-relationships.md,not reviewed,L0
+D-CASH-1,cash,conventional,Check or wire; staff match,observed,baseline,cap-cash-and-securities-contributions.md,not reviewed,observed
+D-CASH-2,cash,automation-first,Lockbox/ACH auto-match on name and amount,L1,held,cap-cash-and-securities-contributions.md,not reviewed,L1
+D-CASH-3,cash,ai-native,Unique-reference intent; feed event; deterministic match; units; acknowledgment,L3,"forwarded: E4, E9",cap-cash-and-securities-contributions.md,SURVIVES,L3
+D-CASH-4,cash,radical,Pull debit at intent: sponsor initiates movement with its own key,L1,forwarded: E4,cap-cash-and-securities-contributions.md,SURVIVES WITH MODIFICATIONS,L1
+D-CASH-5,cash,ecosystem,Processor collection with itemized net settlement,L1,held: REG-042/043 placement,cap-cash-and-securities-contributions.md,not reviewed,L1
+D-SEC-1,securities,conventional,DTC with free-text reference; orphan matching; liquidate,observed,baseline,cap-cash-and-securities-contributions.md,not reviewed,observed
+D-SEC-2,securities,automation-first,Prefilled DTC instructions; auto-match,L1,held,cap-cash-and-securities-contributions.md,not reviewed,L1
+D-SEC-3,securities,ai-native,Unique-reference transfer intent; delivery-date rule; valuation policy; units; acknowledgment,L2,forwarded: E4,cap-cash-and-securities-contributions.md,SURVIVES WITH MODIFICATIONS,L1
+D-SEC-4,securities,radical,Broker-initiated structured gift message with lots and basis alongside transfer,L0,held: custodian cooperation,cap-cash-and-securities-contributions.md,not reviewed,L0
+D-SEC-5,securities,ecosystem,Per-donor sub-accounts at sponsor custodian,L1,forwarded: E4,cap-cash-and-securities-contributions.md,SURVIVES WITH MODIFICATIONS,L1
+D-INV-1,investments,conventional,Affiliated pool menu; manual rebalancing; judgmental cash,observed,baseline,cap-investments.md,not reviewed,observed
+D-INV-2,investments,automation-first,Automated rebalancing and compliance monitoring,L1,held,cap-investments.md,not reviewed,L1
+D-INV-3,investments,ai-native,Band rebalancer; pre-trade mandate checks; pipeline liquidity forecast with seasonal buffer,L2,forwarded: E6 liquidity,cap-investments.md,SURVIVES WITH MODIFICATIONS,L1
+D-INV-4,investments,radical,No proprietary menu: index-only defaults plus advisor mandates; no affiliated-fund revenue,L1,forwarded: E11,cap-investments.md,SURVIVES,L1
+D-INV-5,investments,ecosystem,Outsourced CIO with custodian model portfolios,L1,held,cap-investments.md,not reviewed,L1
+D-INST-1,partnerships,conventional,Branded program under national sponsor; bespoke contract,observed,baseline,cap-institutional-partnerships.md,not reviewed,observed
+D-INST-2,partnerships,automation-first,Standardized program setup and SSO,L1,held,cap-institutional-partnerships.md,not reviewed,L1
+D-INST-3,partnerships,ai-native,Tenant provisioning by configuration; partner APIs; per-partner evidence,L2,forwarded,cap-institutional-partnerships.md,SURVIVES,L1
+D-INST-4,partnerships,radical,Program-as-code: board approves template class once; programs instantiate within bounds,L1,forwarded,cap-institutional-partnerships.md,SURVIVES WITH MODIFICATIONS,L1
+D-INST-5,partnerships,ecosystem,Sponsor-of-record marketplace on one neutral platform,L0,held,cap-institutional-partnerships.md,not reviewed,L0
+D-ORG-1,organization,conventional,Functional departments; ratio budgeting,observed,baseline,cap-organizational-management.md,not reviewed,observed
+D-ORG-2,organization,automation-first,Departments plus workflow tools,L1,held,cap-organizational-management.md,not reviewed,L1
+D-ORG-3,organization,ai-native,Outcome teams; one exception queue; agent owners; twin staffing,L3 (simulated),forwarded: E6,cap-organizational-management.md,SURVIVES WITH MODIFICATIONS,L1
+D-ORG-4,organization,radical,Decision-rights market: credentialed specialists claim cases within delegated authority across sponsors,L0,held,cap-organizational-management.md,not reviewed,L0
+D-ORG-5,organization,ecosystem,Shared services center for small sponsors,L1,forwarded: E6,cap-organizational-management.md,SURVIVES WITH MODIFICATIONS,L1
+D-GOV-1,governance,conventional,Quarterly management-assembled packs,observed,baseline,cap-governance-oversight.md,not reviewed,observed
+D-GOV-2,governance,automation-first,Board portal with automated packs,L1,held,cap-governance-oversight.md,not reviewed,L1
+D-GOV-3,governance,ai-native,Live evidence portal; expiring governed parameters; board approves deltas,L1,forwarded,cap-governance-oversight.md,SURVIVES,L1
+D-GOV-4,governance,radical,Governance by exception: pre-committed risk bounds; escalation only on breach or expiry; raw evidence access for directors,L0,held: pilot elements,cap-governance-oversight.md,not reviewed,L0
+D-GOV-5,governance,ecosystem,Shared independent directors and internal audit for small sponsors,L1,held,cap-governance-oversight.md,not reviewed,L1
+D-PI-1,philanthropic intelligence,conventional,Ratings links; staff curated lists,observed,baseline,cap-philanthropic-intelligence.md,not reviewed,observed
+D-PI-2,philanthropic intelligence,automation-first,Embedded ratings widgets,L1,held,cap-philanthropic-intelligence.md,not reviewed,L1
+D-PI-3,philanthropic intelligence,ai-native,Goal elicitation; evidence-graded profiles; fairness monitoring,L1,forwarded,cap-philanthropic-intelligence.md,SURVIVES WITH MODIFICATIONS,L1
+D-PI-4,philanthropic intelligence,radical,"No rankings: donor analytics, anonymized aggregate patterns, graded self-reported outcomes",L0,held,cap-philanthropic-intelligence.md,not reviewed,L0
+D-PI-5,philanthropic intelligence,ecosystem,Local intelligence partners via API,L1,forwarded,cap-philanthropic-intelligence.md,SURVIVES,L1
+D-W4-6,W4,extra,W4 shared specialist pool,L1,forwarded,W4-complex-noncash.md,SURVIVES WITH MODIFICATIONS,L1
+D-W5-6,W5,extra,W5 donor agents as interface,L3,forwarded,W5-servicing.md,SURVIVES,L3 (narrow)

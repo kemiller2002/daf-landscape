@@ -1,0 +1,12 @@
+REV 4a53688
+DONE
+PASS2 REV 4a53688
+CMD dotnet build tests/Percepta.Adversarial.Tests/Percepta.Adversarial.Tests.fsproj -c Release => BUILD_RC 0 SECS 17
+RUN_RC Percepta.Adversarial.Tests.fsproj 0 SECS 18 :: pass_lines=0 fail_lines=0 tail=HY-PERCEPTA-2026-0002 supported: true Results: scratch:aincm/build/percepta/artifacts/percepta/adversarial/experiment-results.json 
+CMD dotnet build tests/Percepta.Binding.Tests/Percepta.Binding.Tests.fsproj -c Release => BUILD_RC 0 SECS 3
+RUN_RC Percepta.Binding.Tests.fsproj 0 SECS 15 :: pass_lines=11 fail_lines=0 tail=PASS NEGATIVE CONTROL: duplicated region boundary fails structural Percepta.Binding.Tests: all 11 checks passed. 
+CMD dotnet build tests/Percepta.Core.Tests/Percepta.Core.Tests.fsproj -c Release => BUILD_RC 0 SECS 3
+RUN_RC Percepta.Core.Tests.fsproj 0 SECS 1 :: pass_lines=0 fail_lines=0 tail=Percepta.Core.Tests: all checks passed. 
+CMD dotnet build tests/Percepta.RepositoryLifecycle.Tests/Percepta.RepositoryLifecycle.Tests.fsproj -c Release => BUILD_RC 0 SECS 5
+RUN_RC Percepta.RepositoryLifecycle.Tests.fsproj 0 SECS 0 :: pass_lines=25 fail_lines=0 tail=PASS upgrade refuses locally edited prior region All Percepta repository lifecycle tests passed. 
+DONE2

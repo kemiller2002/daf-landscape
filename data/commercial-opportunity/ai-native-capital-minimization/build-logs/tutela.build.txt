@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/tutela/src/Tutela.Cli/Tutela.Cli.fsproj (in 215 ms).
+  Restored scratch:aincm/build/tutela/src/Tutela.Core/Tutela.Core.fsproj (in 215 ms).
+  Restored scratch:aincm/build/tutela/tests/Tutela.Core.Tests/Tutela.Core.Tests.fsproj (in 215 ms).
+  Tutela.Core -> scratch:aincm/build/tutela/src/Tutela.Core/bin/Release/net10.0/Tutela.Core.dll
+  Tutela.Core.Tests -> scratch:aincm/build/tutela/tests/Tutela.Core.Tests/bin/Release/net10.0/Tutela.Core.Tests.dll
+  Tutela.Cli -> scratch:aincm/build/tutela/src/Tutela.Cli/bin/Release/net10.0/tutela.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:06.67

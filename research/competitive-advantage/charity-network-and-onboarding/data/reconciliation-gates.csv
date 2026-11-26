@@ -1,0 +1,30 @@
+gate_id,measure,comparison,tolerance,blocking(y/n),evidence_artifact,owner,notes
+G01,Record counts per entity/file,L0 manifest vs L1 vs L2,0 (every difference itemized as exception),y,Completeness report,Migration operator,Exact; REQ-X-061; UNB-MIG-030
+G02,"Financial control totals per file/period (contributions, grants, fees)",Source sums vs L2 sums,0.00,y,Round-trip report,Migration operator,Mapping cannot be Tested otherwise (UNB-MIG-003)
+G03,Deterministic re-run,Output hash run N vs N+1 same manifest,identical hash,y,Run manifests,Migration operator,UNB-MIG-020
+G04,Fund balance at E-1 (each DAF),Legacy fund balance report vs CMM opening,0.00,y,Fund tie-out listing,Controller,WFM-26-T04 fund-balances-tie-to-legacy-statements
+G05,Fund YTD contributions/grants/fees,Legacy YTD vs imported history sums,0.00 or itemized explained difference,y,Fund activity tie-out,Controller,Needed for full-year statements spanning E
+G06,Roll-forward proof per fund,B(earliest)+sum(history) vs Opening(E),0.00 else HistoryGap disclosed,n,Roll-forward listing,Controller,Disclosure not plug (UNB-MIG-013); must be signed by sponsor
+G07,Sum of funds = sponsor DAF program total,Sum CMM funds vs legacy program total,0.00,y,Program tie-out,Controller,Detects orphan/duplicate funds
+G08,Trial balance at E-1,Legacy TB vs opening journals by account/class,0.00 per line,y,TB comparison,Controller,Against sponsor ERP if GL is Shadow (CNV-FIN-012)
+G09,Opening control account 3090,Balance after full opening load,exactly 0.00,y,Control account report,Controller,No plug (UNB-MIG-032)
+G10,Custody positions (quantity),CMM holdings vs custodian statement at E-1,0 units,y,Custody rec,Controller,Prices agreed to one source at E-1; UNB-CUST-010
+G11,Custody cash,CMM vs custodian cash at E-1,0.00 after itemized reconciling items (unsettled trades),y,Custody cash rec,Controller,Timing items itemized with source IDs
+G12,Bank balances per account,Ledger cash vs bank statement at E-1,0.00 after itemized deposits in transit/outstanding checks,y,Bank rec,Controller,Unbound never holds money (CNV-LEG-001): sponsor accounts
+G13,Market value of holdings,Units/quantities x agreed price vs legacy value,explained (price-source/timing) itemized,y if unexplained,Valuation bridge,Controller / investment ops,CNV-FIN-005 missing price blocks affected statement
+G14,Grants payable (approved unpaid),Legacy register vs adopted in-flight grants,"0 count, 0.00",y,Payable register,Controller,Each has owner (UNB-MIG-040)
+G15,Outstanding checks,Legacy check register vs bank paid-item/positive pay,"0 count, 0.00",y,Check rec,Treasury,Feeds first positive pay file (UNB-MIG-042)
+G16,Accrued fees at E-1,Legacy accrual vs recompute under legacy method,0.00 or declared rounding (<=0.005 per fund),y,Fee accrual rec,Controller,Schedule from E is new version (CNV-FIN-002)
+G17,Amounts due to/from rail partners,Legacy vs partner pending report,0.00,y,Partner rec,Treasury,Funds-in-transit limits CNV-PLT-012
+G18,In-flight item coverage,Items open at high-water mark with exactly one owner,100%,y,Ownership register,Migration operator,UNB-MIG-040
+G19,Unknown payments,Count of Unknown outcomes adopted as payable,0,y,Trace log,Treasury,CNV-PAY-004; traced items stay legacy-owned
+G20,Unit integrity,Sum fund units vs pool outstanding units; fund units vs legacy register,0 units at source precision,y,Unit register rec,Investment ops,UNB-NAV-012; UNB-MIG-031
+G21,Unit value allocation,Fund values vs units x price with largest-remainder allocation; pool total vs manager/custodian,"pool exact; per fund <=0.01 vs legacy, listed",y,Rounding allocation listing,Controller,"Declared rounding, not materiality"
+G22,Restricted balances and classification,Restricted amounts by restriction vs legacy; variance power evidence present,0.00; missing evidence -> suspense classification,y (amounts) / n (classification),Restriction rec,Controller,RR-UNB-ACC-033-r1 exception must clear before first close
+G23,Acknowledgment dedup,Contributions with Known AcknowledgmentDate that would re-issue,0,y,Ack dedup report,Donor services,Runbook M18; UNB-MIG-046
+G24,Historical statement recompute,Recomputed vs as-issued statement balances,classified: Match/LegacyStatementError/HistoryIncomplete/MethodDifference,n,Statement comparison,Controller,CFO qualitative materiality (CNV-FIN-011); UNB-MIG-034
+G25,Payee verification status,Open grants whose payee is imported_unverified,0 releasable; count reported,n (release blocked per item),Payee verification queue,Treasury,RR-REQ-X-061-r1; networked enrolment reuse CNV-EXP-002
+G26,Parallel run variance (at extract cadence allowed: daily / periodic reports / retrospective vs as-issued statements),Daily shadow vs legacy across >=1 full close,0 (ProvisionalCalibration: every non-exact item reviewed),y,Parallel run log,Controller,CNV-FIN-004; WFM-26-T07
+G27,Grant recognition convention and cutoff register at E-1,"Legacy grants payable vs cutoff register (approved-uncommunicated, communicated-unpaid, conditional) under legacy convention",0.00 under legacy convention; target-convention view informational,y,Cutoff register + convention memo,Controller,CNV-FIN-007; convention change only after auditor acceptance (default next FY-end); ADVB-08
+G28,Stratified record-level attribute sample,Source report vs canonical vs rendered Unbound view per sampled record (>=5 per type x status x restriction stratum),0 attribute mismatches,y,Sponsor-attested sample workbook,Sponsor ops (attest) / Migration operator,Catches total-preserving mis-mappings; ADVB-09
+G29,Semantic invariants and mutation-test detection,Invariant rules over L2; injected total-preserving swaps,0 invariant violations; 100% of injected mutations detected,y,Invariant + mutation report,Migration operator,"Role cardinality, status legality, restriction class, ack linkage; ADVB-09"

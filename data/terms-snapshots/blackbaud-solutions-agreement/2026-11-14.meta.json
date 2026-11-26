@@ -1,0 +1,29 @@
+{
+  "content_type": "application/pdf",
+  "document": "Blackbaud Solutions Agreement (2025-01 PDF)",
+  "extractor": "pdftotext",
+  "fetched_at_utc": "2026-11-14T11:03:18Z",
+  "final_url": "https://www.blackbaud.com/wp-content/uploads/2025/01/blackbaud-solutions-agreement.pdf",
+  "format": "pdf",
+  "http_status": "200",
+  "raw_bytes": 233182,
+  "raw_sha256": "dfc5233d3b886a87dedf8831618b61bfc7f1fa8eccc316d762a8dfdd743f43fd",
+  "slug": "blackbaud-solutions-agreement",
+  "text_chars": 22823,
+  "text_sha256": "2a7012606287a3fe03e9b1a090eeb23d0a502721d3fd78c8d3a9a57887000a9a",
+  "url": "https://www.blackbaud.com/wp-content/uploads/2025/01/blackbaud-solutions-agreement.pdf",
+  "vendor": "Blackbaud",
+  "watch_counts": {
+    "agent": 1,
+    "aggregator": 2,
+    "api": 0,
+    "artificial_intelligence": 0,
+    "automated": 0,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 0,
+    "pass_through": 0,
+    "third_party": 10
+  }
+}

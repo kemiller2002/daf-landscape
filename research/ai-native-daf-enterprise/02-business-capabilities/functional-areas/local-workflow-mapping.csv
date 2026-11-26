@@ -1,0 +1,74 @@
+local_id,local_title,maps_to,relation
+WF-A1,Advisor-embedded opening,XW-18,same as (advisor-embedded DAF)
+WF-A2,Donor-initiated suitability session,—,area-local (acquisition)
+WF-A3,Partner onboarding,WF-12,part of (institutional side)
+WF-A4,Content release,—,area-local (education content)
+WF-B1,Progressive opening,XW-17,same as (continuous onboarding)
+WF-B2,Partner-verified opening,XW-17,variant (upstream KYC attestation)
+WF-B3,Add family or successor,WF-13,part of (successor designation)
+WF-B4,Donor agent enrolment,WF-11,part of (delegation set-up)
+WF-B5,Transfer-in onboarding,WF-14,inverse (inbound side of transfer)
+WF-C1,Straight-through public-security gift,WF-02,same as
+WF-C2,Complex asset,WF-03,same as
+WF-C3,Crypto,WF-04,same as
+WF-C4,Orphan deposit,WF-19,part of (break resolution for receipts)
+WF-C5,Year-end cutoff,WF-01,part of (completed-gift date rules)
+WF-D1,"Routine grant, no human",WF-01,same as (grant leg)
+WF-D2,Flagged grant,WF-01,exception path of
+WF-D3,Foreign grant,WF-06,same as
+WF-D4,Eligibility change mid-flight,WF-09,same as
+WF-D5,Payee bank change,WF-10,same as
+WF-D6,Recurring grants,WF-05,same as
+WF-D7,Donor-agent recommendation,WF-11,same as
+WF-E1,Donor allocation change,WF-18,related (investment instruction leg)
+WF-E2,Pool rebalance,WF-18,related (valuation and rebalance)
+WF-E3,Advisor trade,WF-12,part of (advisor mandate trading)
+WF-E4,Liquidity watch,WF-17,same as
+WF-E5,IPS change,WF-22,analogous (governed policy change)
+WF-F1,Daily cycle,WF-18,same as
+WF-F2,Break resolution,WF-19,same as
+WF-F3,Month checkpoint,WF-20,part of
+WF-F4,Annual filings,WF-20,part of
+WF-F5,Uncashed check,WF-10,related (payment exceptions; escheat)
+WF-G1,Law change to policy change,WF-22,same as
+WF-G2,Sanctions list update,XW-09,same as (universe rescreen)
+WF-G3,Regulatory inquiry,XW-28,same as
+WF-G4,Coverage audit (continuous),XW-25,related (continuous audit package)
+WF-G5,State registration cycle,WF-21,same as
+WF-H1,Grounded answer,XW-23,part of (zero-ticket servicing)
+WF-H2,Request preparation,WF-05,feeds (recommendation intake)
+WF-H3,Service recovery,XW-23,part of
+WF-H4,Bereavement and successor,WF-13,same as
+WF-H5,Documentation on demand,WF-16,same as
+WF-H6,Outbound transfer,WF-14,same as
+WF-I1,Advisor-initiated account opening,WF-12,same as
+WF-I2,Mandate trading,WF-12,part of
+WF-I3,Advisor fee billing,WF-18,part of (fees)
+WF-I4,Institution onboarding,WF-12,related (institution level)
+WF-I5,Advisor change,WF-12,part of (delegation change)
+WF-J1,Authority provisioning,—,area-local (HR / delegation register)
+WF-J2,Reviewer calibration,—,area-local (supports CTL-046)
+WF-J3,Agent owner review,WF-23,part of
+WF-J4,Key-person coverage,—,area-local (HR resilience)
+WF-J5,Surge activation,XW-22,related (surge smoothing and twin-driven staffing XW-27)
+WF-K1,Payments pause,—,area-local (security runbook; CTL-028)
+WF-K2,Credential compromise,—,area-local (security runbook; scenario SC-11)
+WF-K3,Agent kill switch,WF-23,part of
+WF-K4,Restore test,—,area-local (CTL-036)
+WF-K5,Exit-readiness export,XW-29,related (replay migration)
+WF-K6,Vendor degradation,XW-31,same as (custodian failover)
+WF-L1,Delegation change,—,area-local (governance; CTL-047)
+WF-L2,Material policy parameter change,WF-22,part of
+WF-L3,Board evidence pack,WF-24,same as
+WF-L4,Discretionary policy hold,WF-09,related (holds; CTL-045)
+WF-L5,Conflict recusal,—,area-local (CTL-007/041)
+WF-M1,Partner qualification,—,area-local (business development)
+WF-M2,Partner launch,WF-12,related (institution level)
+WF-M3,Revenue share,WF-18,part of (fees)
+WF-M4,Partner offboarding and exit,XW-29,related (replay migration)
+WF-M5,Capability API customer onboarding,—,area-local (Model C sales)
+WF-N1,Goal-to-grant,WF-05,feeds (recommendation intake)
+WF-N2,Annual philanthropic review,WF-16,related (documentation)
+WF-N3,Evidence grade update,—,area-local (philanthropic intelligence)
+WF-N4,Fairness audit,—,area-local (philanthropic intelligence)
+WF-N5,Partner-curated collections,—,area-local (philanthropic intelligence)

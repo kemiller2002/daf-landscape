@@ -1,0 +1,50 @@
+{
+  "check_id": "irs-impactassets",
+  "check_type": "irs_index",
+  "date": "2026-11-14",
+  "detail": {
+    "index_last_modified": {
+      "2025": "Wed, 21 Jan 2026 14:11:16 GMT",
+      "2026": "Wed, 21 Oct 2026 13:03:05 GMT",
+      "2027": "http_404"
+    },
+    "propublica": "https://projects.propublica.org/nonprofits/organizations/262048480",
+    "rows": [
+      {
+        "index_file": "index_2025.csv",
+        "object_id": "202513189339303761",
+        "return_type": "990T",
+        "sub_date": "2025",
+        "tax_period": "202412",
+        "taxpayer_name": "IMPACTASSETSINC"
+      },
+      {
+        "index_file": "index_2025.csv",
+        "object_id": "202543169349307999",
+        "return_type": "990",
+        "sub_date": "2025",
+        "tax_period": "202412",
+        "taxpayer_name": "IMPACTASSETSINC"
+      }
+    ],
+    "xml_urls": {}
+  },
+  "entity": "ImpactAssets (EIN 26-2048480)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:20:04Z",
+  "ok": true,
+  "queue_items": "P-GIV-01",
+  "source_url": "https://apps.irs.gov/pub/epostcard/990/xml/2026/index_2026.csv",
+  "status": "ok",
+  "summary": {
+    "min_tax_period": "202512",
+    "returns": [
+      "202412 | 990T | 202513189339303761",
+      "202412 | 990 | 202543169349307999"
+    ],
+    "target_return_present": false,
+    "target_returns": []
+  },
+  "target": "262048480",
+  "watch_regex": ""
+}

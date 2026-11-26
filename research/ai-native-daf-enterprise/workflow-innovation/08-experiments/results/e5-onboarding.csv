@@ -1,0 +1,6 @@
+design,completion_rate,donor_minutes,fraudulent_accounts_reaching_first_grant_per_10k,data_complete_at_grant
+"conventional upfront application (PDF/web form, wet or e-sign)",0.69,35,2,0.95
+"automation-first form with prefill",0.83,15,2,0.95
+"AI-native conversational progressive intake",0.9,8,2.4,0.9
+"radical: account at first contribution intent + step-up before first grant",0.96,3,2,0.85
+"ecosystem: upstream custodian/advisor KYC attestation reuse",0.96,2,3,0.92

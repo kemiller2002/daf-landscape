@@ -1,0 +1,7 @@
+mode,scenario,breaks,mean_age_days,max_age_days,human_hours
+"Continuous","no outage",1482,0,0,370.5
+"MonthEnd","no outage",1482,15.51,30,1136.77
+"Continuous","no outage; sensitivity: no age penalty",1482,0,0,370.5
+"MonthEnd","no outage; sensitivity: no age penalty",1482,15.51,30,370.5
+"Continuous","outage with missing-feed alarm",1482,0.02,1,371.73
+"Continuous","outage without alarm (masked)",1482,0.12,10,376.57

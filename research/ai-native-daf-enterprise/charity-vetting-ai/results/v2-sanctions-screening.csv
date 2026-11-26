@@ -1,0 +1,6 @@
+jaro_winkler_threshold,distinct_recipient_names,alerts,alerts_on_entity_entries,alerts_after_token_coverage_rule,alert_rate_pct,alerts_where_recipient_name_is_person_like,alerts_by_list_entry_type
+0.88,149950,2106,1484,331,1.4,652,"aircraft=1; entity=1484; individual=37; vessel=584"
+0.92,149950,218,137,41,0.15,87,"entity=137; individual=4; vessel=77"
+0.95,149950,21,7,12,0.01,14,"entity=7; vessel=14"
+0.98,149950,10,0,10,0.01,10,"vessel=10"
+1,149950,10,0,10,0.01,10,"vessel=10"

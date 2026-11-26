@@ -112,3 +112,8 @@ The next financial comparison depends on **named counterparties, audited payment
 **Evidence source register:** [sponsor-governance-sources-2026.csv](../data/sponsor-governance-sources-2026.csv). **Governance and contract controls:** [sponsor-governance-controls-2026.csv](../data/sponsor-governance-controls-2026.csv). **Expense data:** [sponsor-expense-category-comparison-2024.csv](../data/sponsor-expense-category-comparison-2024.csv). **GiveClear channels:** [giveclear-wealth-partner-observations-2025.csv](../data/giveclear-wealth-partner-observations-2025.csv).
 
 No personal donor records, private former-employer knowledge, NDA materials, secured vendor accounts, signed customer contracts, or undisclosed tax return documents were used.
+
+## Validation correction (2026-11-14, independent validation wave 1)
+Source: [validation-wave1-report.md](mission-2026-11-14/validation-wave1-report.md), register `data/mission-2026-11-14/validation-register.csv`. Original text above is preserved for traceability; where it conflicts with this note, this note governs.
+
+- **V1-08 partially confirmed (conflict stronger than stated):** Stephen Kump is Charityvest's President and a director (990 TY2024, Part VII) and Foundation Source's 'President, DAF Division' (not 'DAF Technology President'). Schedule O states he 'is compensated by Foundation Source' ($163,944 via Vennfi, 2024). 'Fee-paid' should read: paid a $653,137 'platform fee' (payee not named on the 990; Part VII-B lists no contractor >$100k).

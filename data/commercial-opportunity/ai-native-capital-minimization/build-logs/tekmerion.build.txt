@@ -1,0 +1,25 @@
+  Determining projects to restore...
+  Restored scratch:aincm/build/tekmerion/tests/ResearchPublisher.Lifecycle.Cli.Tests/ResearchPublisher.Lifecycle.Cli.Tests.fsproj (in 248 ms).
+  Restored scratch:aincm/build/tekmerion/tests/Tekmerion.Domain.Tests/Tekmerion.Domain.Tests.fsproj (in 4 ms).
+  Restored scratch:aincm/build/tekmerion/src/Tekmerion.Core/Tekmerion.Core.fsproj (in 748 ms).
+  Restored scratch:aincm/build/tekmerion/src/ResearchPublisher.Lifecycle.Core/ResearchPublisher.Lifecycle.Core.fsproj (in 1.02 sec).
+  Restored scratch:aincm/build/tekmerion/src/Tekmerion.Domain/Tekmerion.Domain.fsproj (in 1.02 sec).
+  Restored scratch:aincm/build/tekmerion/src/Tekmerion.Cli/Tekmerion.Cli.fsproj (in 4 ms).
+  Restored scratch:aincm/build/tekmerion/tests/Tekmerion.Core.Tests/Tekmerion.Core.Tests.fsproj (in 3 ms).
+  Restored scratch:aincm/build/tekmerion/tests/ResearchPublisher.Lifecycle.Core.Tests/ResearchPublisher.Lifecycle.Core.Tests.fsproj (in 5 ms).
+  Restored scratch:aincm/build/tekmerion/src/ResearchPublisher.Lifecycle.Cli/ResearchPublisher.Lifecycle.Cli.fsproj (in 1.97 sec).
+  Tekmerion.Domain -> scratch:aincm/build/tekmerion/src/Tekmerion.Domain/bin/Release/net8.0/Tekmerion.Domain.dll
+  ResearchPublisher.Lifecycle.Core -> scratch:aincm/build/tekmerion/src/ResearchPublisher.Lifecycle.Core/bin/Release/net8.0/ResearchPublisher.Lifecycle.Core.dll
+  Tekmerion.Domain.Tests -> scratch:aincm/build/tekmerion/tests/Tekmerion.Domain.Tests/bin/Release/net8.0/Tekmerion.Domain.Tests.dll
+  ResearchPublisher.Lifecycle.Core.Tests -> scratch:aincm/build/tekmerion/tests/ResearchPublisher.Lifecycle.Core.Tests/bin/Release/net8.0/ResearchPublisher.Lifecycle.Core.Tests.dll
+  ResearchPublisher.Lifecycle.Cli -> scratch:aincm/build/tekmerion/src/ResearchPublisher.Lifecycle.Cli/bin/Release/net8.0/linux-x64/research-publisher-lifecycle.dll
+  Tekmerion.Core -> scratch:aincm/build/tekmerion/src/Tekmerion.Core/bin/Release/net8.0/Tekmerion.Core.dll
+  ResearchPublisher.Lifecycle.Cli.Tests -> scratch:aincm/build/tekmerion/tests/ResearchPublisher.Lifecycle.Cli.Tests/bin/Release/net8.0/ResearchPublisher.Lifecycle.Cli.Tests.dll
+  Tekmerion.Cli -> scratch:aincm/build/tekmerion/src/Tekmerion.Cli/bin/Release/net8.0/tekmerion.dll
+  Tekmerion.Core.Tests -> scratch:aincm/build/tekmerion/tests/Tekmerion.Core.Tests/bin/Release/net8.0/Tekmerion.Core.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:17.16

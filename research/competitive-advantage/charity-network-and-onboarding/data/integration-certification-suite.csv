@@ -1,0 +1,90 @@
+test_id,integration_type,test,category,pass_criterion,automation,requirement_ids
+CERT-ALL-001,ALL,Integration register row complete (counterparty; contract status; cost bearer; lead time; fallback; owner; data classes),operational,All fields present; mandatory dependency has executed contract or approved fallback,partial,CNV-ECO-005;UNB-CUST-018
+CERT-ALL-002,ALL,Funds-flow perimeter check on declared flows,legal-perimeter,No account in the flow is titled to or controlled by Unbound; Unbound instruction-only,full,CNV-LEG-001;UNB-XIN-REG-001
+CERT-ALL-003,ALL,Credentials stored as vault references with rotation date and least-privilege scope,security,No secret in config; scope introspection equals requested minimum; rotation date <= policy maximum,full,UNB-API-STD-005;UNB-CUST-017
+CERT-ALL-004,ALL,Tenant binding: forged tenant/schema hints ignored,security,Request carrying another tenant id executes in bound tenant or is denied; zero foreign rows; denial event logged,full,RR-UNB-TEN-004-r1;UNB-XIN-SAS-005
+CERT-ALL-005,ALL,Sandbox isolation: sandbox tenant cannot resolve production endpoints,security,All production hostnames unresolvable or refused from sandbox cell; outputs carry TEST marker,full,UNB-XIN-SAS-010
+CERT-ALL-006,ALL,Provider outage degraded mode,failure-simulation,Mock outage produces freshness warning and fail-safe behaviour; no invented balances; no unsafe dispatch,full,UNB-CUST-022;UNB-RES-001
+CERT-ALL-007,ALL,Event envelope carries TenantId/LegalSponsorId/CorrelationId on every ingested record,schema,100% of persisted records carry envelope; persisting without TenantId fails,full,UNB-XIN-SAS-005
+CERT-ALL-008,ALL,Raw source evidence retained with source; as-of; received time; normalization version; hash,schema,Every normalized fact links to a stored raw artefact with matching hash,full,UNB-CUST-012;CNV-FIN-013
+CERT-ALL-009,ALL,Operational runbook; owner; escalation and RTO/RPO declared,operational,Runbook reviewed and owner named; RTO/RPO recorded,manual,UNB-RES-003
+CERT-CUST-001,CUST,Positions/transactions/cash file or API schema validation against custodian profile,schema,All sample records parse; unknown fields captured not dropped; control totals match,full,UNB-CUST-004;UNB-CUST-009
+CERT-CUST-002,CUST,Delivering participant and memo preserved on DTC deliveries,schema,Normalized record keeps delivering participant and memo; missing memo flagged,full,CNV-FIN-013
+CERT-CUST-003,CUST,Unmatched delivery queues and is not auto-credited,synthetic-transaction,DTC delivery without memo creates match WorkItem and no fund credit,full,CNV-FIN-013;RR-REQ-X-048-r1
+CERT-CUST-004,CUST,Duplicate file/record delivery,idempotency,Re-delivered file produces zero new facts; duplicate logged,full,UNB-CUST-009;UNB-RES-002
+CERT-CUST-005,CUST,Out-of-order and late correction records,replay,Correction appends superseding fact; prior fact retained; positions recompute deterministically,full,UNB-CUST-012;ACC-MDL-002
+CERT-CUST-006,CUST,Corporate action scenario pack (split; dividend; reorg),synthetic-transaction,Deterministic postings match fixture expected journals,full,UNB-CUST-016
+CERT-CUST-007,CUST,Position and cash reconciliation to subledger and GL,reconciliation,Zero unexplained difference; differences classified under thresholds,full,UNB-CUST-010;RR-UNB-ACC-018-r1
+CERT-CUST-008,CUST,Advisor fee debit recognised as distinct transaction or raised as exception,reconciliation,Fee debit posted distinctly where exposed; else reconciliation exception opened,full,CNV-FIN-013
+CERT-CUST-009,CUST,Stale feed fail-safe on grantable capacity,failure-simulation,Capacity request with stale balance fails with StaleExternalBalance,full,CNV-FIN-012;UNB-CUST-015
+CERT-CUST-010,CUST,Read-only scope cannot be used for instructions,auth,Instruction call with read-only certificate rejected,full,UNB-CUST-005;UNB-CUST-007
+CERT-CUST-011,CUST,No investment selection or recommendation path exposed through adapter,legal-perimeter,Adapter surface exposes no recommend/select/route operation for others' accounts,partial,CNV-LEG-001;UNB-XIN-REG-002
+CERT-CUST-012,CUST,Multi-partner isolation with shared custodian,security,Provider account id alone never resolves across partners; negative test passes,full,UNB-CUST-019;CNV-TEN-001
+CERT-CUST-013,CUST,Custodian data-licence and contract permissions recorded,legal-perimeter,Executed agreement reference with permitted uses; scopes not exceeding contract,manual,UNB-CUST-025;UNB-CUST-003
+CERT-BANK-001,BANK,ACH origination file validates against Nacha layout and ODFI profile,schema,File passes record-level validation incl. ODFI header requirements; batch and file control totals correct,full,CNV-PAY-001;UNB-PAY-007
+CERT-BANK-002,BANK,ODFI sample test file accepted,contract,ODFI written acceptance of sample file recorded,manual,CNV-PAY-001;UNB-PAY-008
+CERT-BANK-003,BANK,Role table: sponsor Originator; Unbound TPSP; executed ODFI agreement,legal-perimeter,Configuration naming Unbound as Originator rejected (ProhibitedRole); activation refused without ODFI agreement ref,full,CNV-PAY-001
+CERT-BANK-004,BANK,Positive pay daily issue file including voids,synthetic-transaction,Issue file generated daily incl. voids; bank acknowledgement matched,partial,CNV-PAY-002
+CERT-BANK-005,BANK,Returns and NOC processing,synthetic-transaction,Return matched to entry; NOC applied within six banking days or before next entry under change control,full,CNV-PAY-002;CNV-PAY-005
+CERT-BANK-006,BANK,Bank activity feed (BAI2/camt.053) ingestion and matching,reconciliation,Daily matching runs; exceptions opened; zero unexplained difference on fixture,full,CNV-PAY-007;CNV-FIN-004
+CERT-BANK-007,BANK,Duplicate submission of the same payment batch,idempotency,Second submission produces no second file/entry; idempotency key recorded,full,UNB-RES-002;RR-REQ-X-083-r1
+CERT-BANK-008,BANK,Transmission timeout with unknown outcome,failure-simulation,Instruction enters Unknown state; not re-sent until non-execution confirmed or reconciled,full,CNV-PAY-004
+CERT-BANK-009,BANK,Fraud-monitoring evidence for TPSP role,operational,Risk-based fraud monitoring procedures documented and annual review scheduled,manual,CNV-PAY-001
+CERT-BANK-010,BANK,Hold publication version checked at dispatch,synthetic-transaction,Dispatch records hold version; active hold at that version blocks; unknown hold state fails closed,full,CNV-ARC-003;RR-REQ-X-020-r1
+CERT-RAIL-001,RAIL,Instruction API contract test against partner sandbox,contract,All consumer contract interactions verified against sandbox,full,CNV-PAY-001;UNB-API-STD-003
+CERT-RAIL-002,RAIL,Funds-in-transit exposure limit enforced,synthetic-transaction,Funding request exceeding approved exposure refused,full,CNV-PLT-012
+CERT-RAIL-003,RAIL,Instruction status query available and accurate,contract,Status query returns terminal/non-terminal states consistent with sandbox ledger,full,CNV-PLT-012
+CERT-RAIL-004,RAIL,Partner outage failover only after confirmed non-execution,failure-simulation,Unconfirmed instructions not re-sent on fallback rail,full,CNV-PLT-012;CNV-PAY-004
+CERT-RAIL-005,RAIL,Duplicate instruction submission,idempotency,Partner and adapter produce single payment per idempotency key,full,UNB-RES-002
+CERT-RAIL-006,RAIL,Webhook signature verification and replay defence,auth,Unsigned or replayed callbacks rejected,full,UNB-API-STD-005
+CERT-RAIL-007,RAIL,Existing charity enrolment honoured without new Unbound enrolment,synthetic-transaction,Grant to charity enrolled with the partner releases with no additional enrolment request,full,CNV-EXP-002
+CERT-RAIL-008,RAIL,Settlement evidence reconciliation,reconciliation,Every released instruction reaches settlement evidence or exception within SLO; no Settled label before reconciliation,full,RR-REQ-X-083-r1;UNB-XIN-SAS-004
+CERT-RAIL-009,RAIL,Contract terms: status queries; segregated holding of sponsor funds in transit; insolvency recovery,legal-perimeter,Executed contract contains required terms,manual,CNV-PLT-012
+CERT-RAIL-010,RAIL,Destination evidence combination verified before first payment,synthetic-transaction,Payment to destination lacking ratified evidence combination blocked,full,CNV-PAY-002;UNB-RCN-GRT-017
+CERT-PROC-001,PROC,Contributions settle into sponsor-owned account,legal-perimeter,Settlement account in processor config equals sponsor-titled account from FundsFlow,full,CNV-LEG-001;UNB-XIN-REG-001
+CERT-PROC-002,PROC,Funding account first-use validation,synthetic-transaction,First WEB debit to new account preceded by validation (prenote/micro/third-party),full,CNV-PLT-003;CNV-PAY-005
+CERT-PROC-003,PROC,Funding account owner match,synthetic-transaction,Owner name match score >= configured threshold else step-up or manual review,full,CNV-PLT-003
+CERT-PROC-004,PROC,Four contribution dates recorded and reversal handling,synthetic-transaction,Fixture contributions carry all four dates; returned debit reverses correctly,full,CNV-FIN-003
+CERT-PROC-005,PROC,Authorization retention for ACH debits,schema,Authorization record retained with retention class,full,CNV-PAY-005;CNV-PLT-004
+CERT-PROC-006,PROC,Duplicate contribution event,idempotency,Single contribution per processor event id,full,UNB-RES-002
+CERT-PROC-007,PROC,Card contributions disabled in release 1,legal-perimeter,Card method absent from config and API,full,CNV-PAY-008
+CERT-IDP-001,IDP,OIDC discovery; signature; issuer; audience; nonce validation,auth,Tokens with wrong issuer/audience/signature/nonce rejected,full,CNV-PLT-003;UNB-XIN-IAM-001
+CERT-IDP-002,IDP,SAML assertion validation (signature; audience; replay),auth,Invalid or replayed assertions rejected,full,UNB-XIN-IAM-001
+CERT-IDP-003,IDP,Stable identity key (issuer+subject or SCIM externalId),schema,Mapping never uses email; email change does not change principal,full,AUTH-I8
+CERT-IDP-004,IDP,SCIM provisioning and deprovisioning latency,synthetic-transaction,Deprovision removes access at next request; measured end-to-end latency recorded against contract,full,UNB-XIN-IAM-004;WG-2
+CERT-IDP-005,IDP,Realm separation,auth,Customer and PartnerWorkforce tokens rejected at staff endpoints,full,UNB-XIN-IAM-001
+CERT-IDP-006,IDP,Privileged roles require AAL3 phishing-resistant authenticator,auth,Synced passkey for privileged approval forces step-up to AAL3,full,CNV-PLT-003
+CERT-IDP-007,IDP,Step-up performed by sponsor-controlled verifier and bound to command,auth,Command without fresh bound step-up rejected; partner IdP step-up not accepted,full,UNB-XIN-IAM-003
+CERT-IDP-008,IDP,Proofing vendor attribute validation and no KBV for proofing,legal-perimeter,KBV result never sets proofing pass; core attributes validated against authoritative/credible source,partial,CNV-PLT-003
+CERT-IDP-009,IDP,Federated assertion reliance record,legal-perimeter,Trust agreement and declared assurance of partner IdP recorded before assertion used as proofing evidence,manual,CNV-PLT-003;UNB-XIN-IAM-001
+CERT-IDP-010,IDP,Sponsor-direct authenticator offered at first federated login,synthetic-transaction,Federated customer prompted to enrol sponsor-direct factor,full,UNB-XIN-IAM-001;UNB-XIN-SAS-007
+CERT-ADV-001,ADV,Firm roster feed ends advisor grants on departure,synthetic-transaction,Departure event ends grants at next authorization check and notifies donor,full,UNB-XIN-CRM-007
+CERT-ADV-002,ADV,Firm cannot grant advisory privilege,auth,Firm-originated grant without holder consent rejected,full,UNB-XIN-CRM-007;UNB-PART-003
+CERT-ADV-003,ADV,Advisor affiliation capture at onboarding,schema,Declared affiliations captured as capacity edges with evidence,partial,UNB-XIN-CRM-002
+CERT-ADV-004,ADV,Institution and individual authority verification,legal-perimeter,Firm registration and individual authority evidence recorded,partial,UNB-WF-012
+CERT-WEB-001,WEB,Widget origin allowlist and token expiry,security,Widget refuses unlisted origin; expired token rejected,full,INT-015;ADM-037
+CERT-WEB-002,WEB,Widget has no money-moving or payee scopes,auth,Scope set excludes approve/move/payee change,full,UNB-XIN-SAS-006;UNB-API-STD-004
+CERT-WEB-003,WEB,Host context declared on embedded checkout,schema,Benefit-carrying host contexts rejected or routed to benefit gate,full,UNB-RCN-GRT-012
+CERT-WEB-004,WEB,Combined host+widget accessibility,accessibility,Automated WCAG 2.2 AA checks pass on combined page plus manual AT task completion,partial,WG-9;CNV-EXP-001
+CERT-WEB-005,WEB,Partner copy preserves legal meaning (recommend not give/pay),legal-perimeter,Copy review against protected terms passes,partial,TVR-WID-005;UNB-RCN-PLT-007
+CERT-WEB-006,WEB,Status labels use canonical vocabulary,schema,No Settled/Paid label before reconciliation in widget fixtures,full,RR-UNB-UX-003-r1;UNB-XIN-SAS-004
+CERT-ERP-001,ERP,Journal export balanced and dimensioned,schema,Every exported batch balances; required dimensions present,full,ACC-MDL-001;REQ-X-084
+CERT-ERP-002,ERP,One authoritative book per entity and basis,legal-perimeter,Function map shows single book; duplicate authoritative export refused,full,CNV-FIN-012
+CERT-ERP-003,ERP,Re-export of same period,idempotency,Re-export carries same batch ids; ERP import dedupes,partial,UNB-RES-002
+CERT-ERP-004,ERP,External GL balance import and stale fail-safe,failure-simulation,Stale balance blocks capacity with StaleExternalBalance,full,CNV-FIN-012
+CERT-ERP-005,ERP,Period lock respected; late events routed,replay,Late event after close posts to open period with linkage; locked period unchanged,full,RR-UNB-ACC-017-r1
+CERT-PAY-001,PAY,Payroll deduction file validation,schema,File parses; employee-to-donor mapping keyed by stable id; control totals match,full,CNV-FIN-003
+CERT-PAY-002,PAY,Employer funding commitment recorded before activation,legal-perimeter,E4 activation refused without executed employer funding commitment,manual,CNV-ECO-004
+CERT-PAY-003,PAY,Contribution file duplicate and correction handling,idempotency,Duplicate file ignored; correction file reverses and reposts with linkage,full,UNB-RES-002;CNV-FIN-003
+CERT-API-001,API,Application registered with publisher; purpose; scopes; data classes; redirect origins,operational,Registration complete and certification status recorded,partial,UNB-XIN-SAS-006
+CERT-API-002,API,Sponsor-level disable revokes tokens,auth,All tokens for that sponsor revoked within 5 minutes,full,UNB-XIN-SAS-006
+CERT-API-003,API,Provider contract verification against Unbound published contracts,contract,Consumer contracts verify against current and N-1 API versions,full,UNB-API-STD-003;CNV-EXP-001
+CERT-API-004,API,Webhook subscriber handles at-least-once delivery and redelivery,replay,Duplicate deliveries processed once; redelivery by event id works,full,UNB-XIN-SAS-004
+CERT-API-005,API,AI agent caller limited to recorded authority,auth,Agent with prepare permission calling release endpoint rejected with AuthorityRequired,full,CNV-AIO-001;CNV-GOV-010
+CERT-API-006,API,Unclassified command refused,auth,Command absent from AuthorityMatrix refused with UnclassifiedCommand,full,CNV-GOV-010
+CERT-API-007,API,Rate limits and error codes documented in AssistanceContract,schema,Every operation used has AssistanceContract with errors and outcomeExplanation,full,RR-REQ-X-051-r1
+CERT-API-008,API,Data-class minimisation in responses,security,Responses contain only data classes granted to the app; PII fields absent without scope,partial,UNB-XIN-SAS-006;UNB-TEN-007
+CERT-ALL-010,ALL,Recovery drill: restart mid-batch,replay,Resume after crash produces no duplicate external effect and no lost event,full,UNB-RES-002;UNB-CUST-024
+CERT-ALL-011,ALL,Shadow-live parallel run before write scopes,reconciliation,Parallel period meets declared volume with differences below tolerance,partial,UNB-CUST-024;CNV-GOV-005
+CERT-ALL-012,ALL,Certificate scoped; versioned; expiring,operational,Certificate records scopes; versions; suite version; evidence hash; expiry,full,UNB-XIN-SAS-006
+CERT-ALL-013,ALL,Tests without counterparty sandbox recorded not_executed with compensating evidence,operational,No test reported passed without execution evidence,partial,CNV-GOV-007;MON-024

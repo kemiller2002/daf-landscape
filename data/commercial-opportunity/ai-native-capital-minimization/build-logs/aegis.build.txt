@@ -1,0 +1,13 @@
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  Aegis.Core -> scratch:aincm/build/aegis/src/Aegis.Core/bin/Release/net8.0/Aegis.Core.dll
+  Aegis.Integration.GitHub -> scratch:aincm/build/aegis/src/Aegis.Integration.GitHub/bin/Release/net8.0/Aegis.Integration.GitHub.dll
+  Aegis.Store.GitHub -> scratch:aincm/build/aegis/src/Aegis.Store.GitHub/bin/Release/net8.0/Aegis.Store.GitHub.dll
+  Aegis.Core.CSharpTests -> scratch:aincm/build/aegis/tests/Aegis.Core.CSharpTests/bin/Release/net8.0/Aegis.Core.CSharpTests.dll
+  Aegis.Core.Tests -> scratch:aincm/build/aegis/tests/Aegis.Core.Tests/bin/Release/net8.0/Aegis.Core.Tests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:02.82

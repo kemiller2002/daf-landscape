@@ -1,0 +1,250 @@
+RENAISSANCE CHARITABLE FOUNDATION INC.
+MASTER SERVICES AGREEMENT
+This Master Services Agreement is entered into by and between RENAISSANCE CHARITABLE FOUNDATION INC. ("RCF") and the organization
+("Customer") executing an Order Form or similar form referencing or otherwise incorporating this Agreement ("Order Form"). This Agreement shall be
+effective as of the "Effective Date" of the first Order Form between Customer and RCF. The parties agree as follows:
+1. SERVICES, WORK ORDERS, AND CHANGE ORDERS also reimburse any costs or expenses (including, but not limited to,
+reasonable attorneys' fees) incurred by RCF to collect any amount that
+1.1 Services. Subject to the terms and conditions of this is not paid when due.
+Agreement, RCF will perform for Customer certain services
+("Services"). 3.3 Taxes. Other than federal and state net income taxes
+imposed on RCF by the United States, Customer will bear all taxes,
+1.2 Work Orders. The specific details of the Services to be duties, and other governmental charges (collectively, "taxes") resulting
+performed will be described in one or more written work orders, from this Agreement. Unless otherwise specified in the applicable
+substantially in the form of the work order set forth in Exhibit A, that is Work Orders, the Service Fees payable to RCF under this Agreement
+executed by both parties ("Work Order"). Once executed by both do not include any taxes or other amounts assessed or imposed by any
+parties, each Work Order will be a unique agreement that incorporates governmental authority.
+the terms of this Agreement and stands alone with respect to all other
+Work Orders. If there is a conflict between the terms of this Agreement 4. TERM AND TERMINATION
+and the terms of a Work Order, the terms of this Agreement will control
+unless the Work Order states that a specific provision of this Agreement 4.1 Term. Each Work Order will commence on the specified
+will be superseded by a specific provision of the Work Order. effective date and will continue thereafter until the End Date specified
+in the Work Order, or the Work order is terminated as provided in this
+1.3 Change Orders. Unless otherwise specified in a Work Order, Section 4 (the "Initial Term"). Thereafter, the Work Order will
+Customer may reasonably request in writing that revisions be made automatically renew for additional periods of one (1) year unless either
+with respect to the Services or deliverables set forth in that Work Order party provides written notice of its intention not to renew at least sixty
+("Change Order"). If a Change Order recites revisions that materially (60) days prior to the expiration of the then-current term (each, a
+increase the scope of the Services or the effort required to deliver "Renewal Term," and collectively with the Initial Term, the "Term").
+deliverables under the applicable Work Order, then within a reasonable
+time after RCF's receipt of the Change Order, RCF will deliver to 4.2 Notice of Material Breach. If either party commits a material
+Customer a written, revised Work Order reflecting RCF's reasonable breach in the performance of any of its obligations under any Work
+determination of the revised Services, deliverables, delivery schedule, Order, then the other party may give the breaching party written notice
+and payment schedule, if any, that will apply to the implementation of of the breach (including without limitation a description of the Services
+the revisions. If Customer approves the revised Work Order, then the with respect to which the breach has occurred, a statement of the facts
+parties will execute it, and upon execution, the revised Work Order will relating to the breach, the applicable provisions of this Agreement or
+supersede the then-existing Work Order. If Customer does not approve the applicable Work Order, and the action required to cure the breach)
+the revised Work Order within ten business days after its receipt by and the non-breaching party's intent to terminate the applicable Work
+Customer, the then-existing Work Order will remain in full force and Order pursuant to this Section 4.2 if the breach is not cured within 30
+effect, and RCF will have no further obligation with respect to the days after the date of the notice (or a later date as may be specified in
+applicable Change Order. the notice). Without limitation, any failure by Customer to timely pay to
+RCF any amounts to be paid under the Work Order will constitute a
+2. PERFORMANCE OF SERVICES material breach of this Agreement, and RCF may, without limitation of
+any of its other rights and remedies available, suspend performance of
+2.1 Project Management. For each Work Order, each party will any Services under any Work Order then in progress during any time
+designate a single point of contact within its organization to manage the that Customer fails to pay any amounts owed to RCF.
+responsibilities and duties described in a Work Order ("Project
+Leader"). The Project Leaders will meet as necessary to manage the 4.3 Notice of Termination. If the breaching party fails to cure any
+Services to be performed under a Work Order. Disputes will be material breach specified in any notice under Section 4.2 within 30 days
+escalated to more senior executives, if the Project Leaders are unable after the date of the notice (or a later date as may be specified in the
+to resolve a problem. notice), then the non-breaching party may terminate the Work Order
+covering the Services with respect to which the breach or default
+2.2 Performance Standard. RCF will perform the Services in occurred by giving the breaching party written notice of termination.
+accordance with the applicable Work Order, including any
+specifications in the Work Order. RCF will use reasonable efforts to 4.4 Effect of Termination. If any Work Order is terminated in
+complete the Services, including the delivery of any deliverables, in accordance with this Section 4, then, unless otherwise specifically
+accordance with the schedule of times and milestones specified in the provided for in the applicable Work Order, the following will apply:
+Work Order. (a) the parties will cooperate to effect an orderly, efficient, effective, and
+expeditious termination of the parties' respective activities under the
+2.3 Subcontractors. RCF may utilize independent contractors to terminated Work Order; (b) RCF will have no obligation to perform any
+perform all or part of the Services. RCF will remain solely responsible Services under the terminated Work Order after the effective date of
+for the performance of all of the Services that are subcontracted. the termination; (c) Customer will pay to RCF any Service Fees and
+3. COMPENSATION other amounts payable for the Services performed under the
+terminated Work Order through the effective date of the termination;
+3.1 Fees. Customer will pay RCF for Services as specified in a (d) any and all liabilities accrued prior to the effective date of the
+Work Order ("Service Fees"). termination will survive; and (e) the parties' respective rights and
+obligations under Sections 3, 4.4, 4.5, 5, 6, 7.2, 8, and 10 of this
+3.2 Payment. Unless otherwise specified in a Work Order: (a) Agreement with respect to any Services covered by the terminated
+RCF will issue invoices for Service Fees for Services that have been Work Order, will survive. If a Work Order is terminated by RCF
+performed; and (b) Customer will pay any undisputed amount set forth pursuant to Section 4.2 or by Customer otherwise than pursuant to
+in an invoice no later than 30 days after receipt of RCF's invoice. Any Section 4.2 (i.e., other than as a result of a material breach by RCF that
+amount not paid when due will be subject to finance charges equal to is not cured as provided above), Customer will pay to RCF the amount
+one and one-half percent (1.5%) per month or the highest rate of Services Fees, calculated through the end of the calendar quarter
+permitted by applicable usury law, whichever is less, determined and during which the Work Order is terminated, that RCF would have been
+compounded daily from the date due until the date paid. Customer will paid under the Work Order had the Work Order not been terminated
+-1- Confidential
+and had the Services been fully performed in accordance with the documentation, procedures, or inventions that is disclosed or otherwise
+schedule then in effect, which amount owing will be evidenced in a final supplied in confidence by the party who disclosed the information
+termination invoice to be provided by RCF to Customer. The amount ("Disclosing Party") to the other party, its subcontractors or agents
+of Services Fees specified in the foregoing termination invoice will be ("Receiving Party"), or acquired by a party in the course of carrying out
+final and binding on the parties, absent manifest error. the tasks hereunder, or as a result of access to the premises of a party.
+This includes information meeting the definition of "Confidential
+4.5 Return of Materials. Upon the termination of this Agreement, Information" which is furnished to a party or learned in the course of
+or upon Customer's earlier request, RCF will deliver to Customer all performance under this Agreement. Confidential Information includes:
+Customer Materials (as defined in Section 5.1) that are in RCF's (i) information disclosed in a written or other tangible form which is
+possession or control. clearly marked with a "confidential" or "proprietary" legend or other
+5. PROPRIETARY RIGHTS comparable legend; (ii) information disclosed orally or visually which is
+identified as confidential at the time of disclosure and confirmed in
+5.1 Customer Materials. Any materials provided by Customer to writing within a reasonable time; and (iii) any other information which a
+RCF ("Customer Materials") will be used and disclosed solely as reasonable person would deem confidential under the context of
+required to perform the Services. Customer will own the Customer disclosure or due to the nature of the information itself. Each Party shall
+Materials. RCF will take reasonable steps to maintain the protect and keep confidential any and all confidential, non-public
+confidentiality of any non-public Customer Materials that are either information of the other party, and neither party shall use, disclose or
+marked as "Confidential" or which a reasonable person would deem allow any third-party access to any such confidential information,
+confidential under the context of disclosure or due to the nature of the except as permitted by this Section 6.
+information itself.
+6.2 Limited Access. Each Party shall use its best efforts to
+5.2 Inventions. Except as expressly set forth to the contrary in a ensure that only employees and third parties whose duties give them a
+Work Order, all works of authorship, inventions, discoveries, need to know such confidential information of another party shall have
+improvements, methods, processes, formulas, designs, techniques, access thereto. All such individuals and entities shall be instructed to
+and information (a) conceived, discovered, developed or otherwise treat the same as proprietary and confidential and the receiving party
+made (as necessary to establish authorship, inventorship, or shall take such other measures to protect the confidentiality of such
+ownership) by RCF, solely or in collaboration with others, in the course confidential information as it deems reasonable under the
+of performing the Services; or (b) that form all or part of a deliverable circumstances. Without limiting the generality of the foregoing, each
+provided as part of the Services, whether developed as part of the party shall require any third party to whom it discloses any confidential
+Services or separately, but excluding Customer Materials (as defined information to sign a confidentiality agreement, enforceable by the
+in Section 5.1) (collectively, "Inventions") will be the sole property of disclosing party, whereby such third party agrees to be bound by the
+RCF. Upon and subject to final payment by Customer of all amounts confidentiality provisions that are substantially similar to the provisions
+owing to RCF under the applicable Work Order, RCF hereby grants to set forth in this Section 6.
+Customer a nonexclusive, nontransferable, non-sublicensable, limited,
+worldwide, license to use the unmodified deliverables in object code 6.3 Permitted Disclosures. Notwithstanding the foregoing or
+only, subject to the restrictions and payment of the fees described in anything in this Agreement to the contrary, Confidential Information
+the applicable Work Order. excludes any information which: (a) was known to the receiving party,
+without restriction, at the time of disclosure, as shown by the files of the
+5.3 Third Party Products. Any third-party products that are receiving party; or (b) becomes public at no fault of the receiving party;
+provided by RCF in connection with the Services are provided pursuant or (c) is disclosed with the prior written approval of the disclosing party;
+to the terms of the applicable third party agreement, and RCF assumes or (d) was independently developed by the receiving party, without any
+no responsibility for, and specifically disclaims any liability or obligation use of the confidential information by employees or other agents of (or
+with respect to, any third party products. independent contractors hired by) the receiving party who have not
+been exposed to such information; or (e) becomes known to the
+5.4 Ownership Retained. Except as expressly provided herein, receiving party, without restriction, from a source who the receiving
+no right or license with respect to any copyrights, patents, trademark party reasonably believed (i) had obtained such information other than
+rights or other proprietary rights is granted under this Agreement. All through the breach of this Agreement or an agreement by which the
+rights not expressly granted hereunder by a party are expressly source is bound; and (ii) had not otherwise violated the disclosing
+reserved to such party and its licensors. Each party represents and party's rights; or (f) is produced by a party with the intent that the
+warrants that it owns or has the right to license all trademarks used information will be released to the public and is delivered to the
+under this Agreement, and that such trademarks do not infringe or receiving party for such release. This Section 6 shall not apply to a
+otherwise violate the rights of any third party. disclosure made to comply with tax or regulatory requirements,
+5.5 No Agency or Joint Venture. All decisions regarding including disclosure to auditing and other professional service firms
+effectuation of this Agreement and any action to be taken hereunder relating to tax and regulatory advice.
+will be solely at the discretion of the party making such decision. No 7. WARRANTIES AND DISCLAIMER
+party will hold itself out as an agent of the other except as expressly
+provided in this Agreement. No party will have any authority to bind or 7.1 Mutual Warranties. Each party represents and warrants to
+obligate the other in any manner except as expressly provided in this the other that: (a) this Agreement has been duly executed and
+Agreement. The parties are acting to promote mutuality of interests but delivered and constitutes a valid and binding agreement enforceable
+are not forming a partnership or joint venture by this Agreement. All against such party in accordance with its terms; (b) no authorization or
+services being provided hereunder are being provided on a approval from any third party is required in connection with such party's
+nonexclusive basis. execution, delivery, or performance of this Agreement; and (c) the
+execution, delivery, and performance of this Agreement does not
+6. CONFIDENTIALITY violate the laws of any jurisdiction or the terms or conditions of any
+6.1 Proprietary Non-Public Information. The Parties intend to other agreement to which it is a party or by which it is otherwise bound.
+disclose and exchange proprietary and otherwise confidential 7.2 Disclaimer. EXCEPT FOR THE EXPRESS
+information. "Confidential Information" means any and all technical REPRESENTATIONS AND WARRANTIES STATED IN THIS
+and non-technical information, including trade secrets, know-how and SECTION 7, RCF MAKES NO ADDITIONAL REPRESENTATION OR
+proprietary information, firmware, designs, schematics, techniques, WARRANTY OF ANY KIND WHETHER EXPRESS, IMPLIED
+plans or any other information relating to any research project, work in (EITHER IN FACT OR BY OPERATION OF LAW), OR STATUTORY,
+process, future development, marketing or business plans or financial AS TO ANY MATTER WHATSOEVER. RCF EXPRESSLY
+or personnel matters relating to either party or its present or future DISCLAIMS ALL IMPLIED WARRANTIES OF MERCHANTABILITY,
+products, sales, suppliers, customers, employees, investors, affiliates, FITNESS FOR A PARTICULAR PURPOSE, QUALITY, ACCURACY,
+donor information, business volumes or usage, financial information, TITLE, AND NON-INFRINGEMENT. RCF DOES NOT WARRANT
+pricing information, information related to mergers or acquisitions, AGAINST INTERFERENCE WITH THE ENJOYMENT OF ANY
+software/hardware, and any information concerning data, DELIVERABLES, OR AGAINST INFRINGEMENT. RCF DOES NOT
+Master Services Agreement -2- Confidential
+WARRANT THAT ANY DELIVERABLES ARE ERROR-FREE OR BETWEEN THE PARTIES. THIS ALLOCATION IS REFLECTED IN
+THAT OPERATION OF THE DELIVERABLES WILL BE SECURE OR THE PRICING OFFERED BY RCF TO CUSTOMER AND IS AN
+UNINTERRUPTED. ESSENTIAL ELEMENT OF THE BASIS OF THE BARGAIN
+BETWEEN THE PARTIES. EACH OF THESE PROVISIONS IS
+8. INDEMNIFICATION SEVERABLE AND INDEPENDENT OF ALL OTHER PROVISIONS OF
+8.1 Reciprocal. Each party agrees to indemnify, defend and hold THIS AGREEMENT. THE LIMITATIONS IN THIS SECTION 9 WILL
+harmless the other party, their respective affiliates, and each other APPLY NOTWITHSTANDING THE FAILURE OF ESSENTIAL
+party's and its affiliates' respective directors, officers, employees and PURPOSE OF ANY LIMITED REMEDY IN THIS AGREEMENT.
+agents (any party entitled to be indemnified under this Section an 10. MISCELLANEOUS
+"Indemnified Party,'' and any party obligated to provide indemnification
+under this Section, an "Indemnifying Party"), from and against any and 10.1 Independent Contractor. It is the express intention of the
+all claims, suits, damages, losses, actions, proceedings and liabilities, parties that RCF perform the Services as an independent contractor.
+costs and expenses (including, without limitation, costs of investigation Without limiting the generality of the foregoing, RCF is not authorized
+and defense and reasonable attorney's fees and expenses), involving to bind Customer to any liability or obligation or to represent that RCF
+a third party claim (collectively, "Liabilities"), in connection with, relating has any authority.
+to, arising out of or resulting from (a) any breach of a representation or
+warranty of such Indemnifying Party contained in this Agreement, (b) 10.2 Governing Law. This Agreement will be interpreted,
+any material breach of any covenant, obligation or other agreement of construed, and enforced in all respects in accordance with the local
+such Indemnifying Party contained in this Agreement, (c) a claim that laws of the State of Indiana. Except as specified in Section 10.3, the
+the Indemnifying Party or any of its affiliates has infringed the patent, parties agree that any action arising out of or in connection with this
+copyright, trademark, trade secret, or other proprietary right of a third Agreement will be heard in the federal, state, or local courts in Marion
+party, or (d) any actual or alleged act or omission on the part of such County, Indiana, and each party hereby irrevocably consents to the
+Indemnifying Party's directors, officers, employees or agents (including exclusive jurisdiction and venue of these courts. The parties agree to
+affiliates) in the marketing or selling of a DAF Program, whether or not litigate in federal court, if possible.
+such acts or omissions occurred prior to the Effective Date. 10.3 Arbitration. Except for the right of either party to apply to a
+8.2 Procedure. The Indemnified Party shall give the court of competent jurisdiction for a temporary restraining order, a
+Indemnifying Party prompt notice of any claim, and, provided that the preliminary injunction, or other equitable relief to preserve the status
+Indemnifying Party acknowledges in writing its obligation to indemnify quo or prevent irreparable harm, any dispute as to the interpretation,
+in accordance with the terms of this Agreement, the Indemnifying Party enforcement, breach, or termination of this Agreement will be settled
+will have the right to control the defense, compromise or settlement of by binding arbitration in Marion County, Indiana. under the Rules of the
+that claim by representatives chosen by it and reasonably satisfactory American Arbitration Association by one arbitrator appointed in
+to the Indemnified Party. Any such notice of a claim shall identify with accordance with such rules. All other disputes (excluding the right of
+reasonable specificity the basis for the claim, the facts giving rise to the either party to apply to a court of competent jurisdiction for a temporary
+claim and the amount of the claim (or, if such amount is not yet known, restraining order, a preliminary injunction, or other equitable relief to
+a reasonable estimate of the amount of the Third-Party Claim). The preserve the status quo or prevent irreparable harm) will be resolved
+Indemnified Party shall make available to the Indemnifying Party copies by a court specified in Section 10.2. Judgment upon the award
+of all relevant documents and records in its possession. Failure of an rendered by the arbitrators may be entered in any court of competent
+Indemnified Party to give prompt notice shall not relieve the jurisdiction. The prevailing party will be entitled to receive from the
+Indemnifying Party of its obligation to indemnify, except to the extent other party its attorneys' fees and costs incurred in connection with any
+that the Indemnifying Party is materially prejudiced by the delay in arbitration or litigation instituted in connection with this Agreement.
+giving notice. 10.4 Nonassignment; Subcontractors. Neither this Agreement
+9. LIMITATIONS OF LIABILITY nor any rights under this Agreement may be assigned or otherwise
+transferred by either party, in whole or in part, whether voluntarily or by
+9.1 Disclaimer of Consequential Damages. operation of law, without the prior written consent of the other party.
+NOTWITHSTANDING ANYTHING TO THE CONTRARY CONTAINED Subject to the foregoing, this Agreement will be binding upon and will
+IN THIS AGREEMENT, NO PARTY WILL, UNDER ANY inure to the benefit of the parties and their respective successors and
+CIRCUMSTANCES, BE LIABLE TO ANOTHER PARTY FOR assigns. Any assignment in violation of the foregoing will be null and
+CONSEQUENTIAL, INCIDENTAL, SPECIAL, OR EXEMPLARY void.
+DAMAGES ARISING OUT OF OR RELATED TO THE TRANSACTION
+CONTEMPLATED UNDER THIS AGREEMENT, INCLUDING BUT 10.5 Mitigation. Each party must mitigate the impact of any
+NOT LIMITED TO LOST PROFITS OR LOSS OF BUSINESS, EVEN damage arising out of or related to this Agreement.
+IF SUCH PARTY IS APPRISED OF THE LIKELIHOOD OF SUCH 10.6 Notices. Any notice required or permitted under the terms of
+DAMAGES OCCURRING. this Agreement or required by law must be in writing and must be:
+9.2 Cap on Liability. UNDER NO CIRCUMSTANCES WILL (a) delivered in person or (b) sent by overnight air courier with some
+EITHER PARTY'S TOTAL LIABILITY OF ALL KINDS ARISING OUT sort of tracking mechanism, in each case properly posted and fully
+OF OR RELATED TO THIS AGREEMENT (INCLUDING BUT NOT prepaid to the appropriate address as set forth below. Either party may
+LIMITED TO WARRANTY CLAIMS, AND CLAIMS FOR INDEMNITY), change its address for notices by notice to the other party given in
+REGARDLESS OF THE FORUM AND REGARDLESS OF WHETHER accordance with this Section 10.6. Notices will be deemed given at the
+ANY ACTION OR CLAIM IS BASED ON CONTRACT, TORT, OR time of actual delivery in person, three business days after deposit in
+OTHERWISE, EXCEED THE TOTAL AMOUNT PAID BY CUSTOMER the mail as set forth above, or one day after delivery to an overnight air
+TO RCF UNDER THE APPLICABLE WORK ORDER DURING THE 12 courier service.
+MONTHS IMMEDIATELY PRIOR TO THE EVENT GIVING RISE TO 10.7 Waiver. Any waiver of the provisions of this Agreement or of
+THE APPLICABLE CLAIM (DETERMINED AS OF THE DATE OF ANY a party's rights or remedies under this Agreement must be in writing to
+FINAL JUDGMENT IN AN ACTION), AND EACH PARTY HEREBY be effective. Failure, neglect, or delay by a party to enforce the
+WAIVES AND RELEASES THE OTHER PARTY FROM ALL provisions of this Agreement or its rights or remedies at any time, will
+LIABILITY, KNOWN OR UNKNOWN, WITH RESPECT TO SUCH not be construed as a waiver of the party's rights under this Agreement
+CLAIMS. THE LIMITATIONS IN THIS SECTION 9.2 SHALL NOT and will not in any way affect the validity of the whole or any part of this
+APPLY TO GROSS NEGLIGENCE, WILLFUL MISCONDUCT, OR Agreement or prejudice the party's right to take subsequent action.
+WHERE SUCH LIMITATIONS ARE EXPRESSLY PROBHIBITED AT Exercise or enforcement by either party of any right or remedy under
+LAW. this Agreement will not preclude the enforcement by the party of any
+9.3 Independent Allocations of Risk. EACH PROVISION OF other right or remedy under this Agreement or that the party is entitled
+THIS AGREEMENT THAT PROVIDES FOR A LIMITATION OF by law to enforce.
+LIABILITY, DISCLAIMER OF WARRANTIES, OR EXCLUSION OF
+DAMAGES IS TO ALLOCATE THE RISKS OF THIS AGREEMENT
+Master Services Agreement -3- Confidential
+10.8 Severability. If any term, condition, or provision in this transmission and such execution and delivery will have the same force
+Agreement is found to be invalid, unlawful, or unenforceable to any and effect of an original document with original signatures.
+extent, the parties will endeavor in good faith to agree to amendments
+that will preserve, as far as possible, the intentions expressed in this 10.11 Headings. Headings are used in this Agreement for
+Agreement. If the parties fail to agree on an amendment, the invalid reference only and will not be considered when interpreting this
+term, condition, or provision will be severed from the remaining terms, Agreement.
+conditions, and provisions of this Agreement, which will continue to be 10.12 Integration. This Agreement and all exhibits contain the
+valid and enforceable to the fullest extent permitted by law. entire agreement of the parties with respect to the subject matter of this
+10.9 Force Majeure. No Party will be liable for any delay or failure Agreement and supersede all previous communications,
+to meet its obligations pursuant to this Agreement due to circumstances representations, understandings, and agreements, either oral or
+beyond its reasonable control, including, but not limited to war, riots, written, between the parties with respect to said subject matter. No
+insurrection, civil commotion, fire, flood, storm or inability to obtain terms, provisions, or conditions of any purchase order,
+necessary labor using commercially reasonable efforts, materials or acknowledgement, or other business form that either party may use in
+manufacturing facilities as a direct result of such natural disasters, connection with the transactions contemplated by this Agreement will
+disruptions of the internet, telecommunications common carriers, or have any effect on the rights, duties, or obligations of the parties under,
+failure of telecommunication service providers or internet service or otherwise modify, this Agreement, regardless of any failure of a
+providers. receiving party to object to these terms, provisions, or conditions. This
+Agreement may not be amended, except by a writing signed by both
+10.10 Counterparts. This Agreement may be executed in parties.
+counterparts, each of which will be deemed to be an original and
+together will constitute one and the same agreement. This Agreement 10.13 Non-Exclusivity. RCF offers (and will continue to offer) the
+may also be executed and delivered by facsimile or other electronic same Services performed under this Agreement to other persons.
+Master Services Agreement -4- Confidential
+5

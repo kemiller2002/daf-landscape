@@ -1,0 +1,41 @@
+{
+  "check_id": "irs-giveclear",
+  "check_type": "irs_index",
+  "date": "2026-11-14",
+  "detail": {
+    "index_last_modified": {
+      "2025": "Wed, 21 Jan 2026 14:11:16 GMT",
+      "2026": "Wed, 21 Oct 2026 13:03:05 GMT",
+      "2027": "http_404"
+    },
+    "propublica": "https://projects.propublica.org/nonprofits/organizations/813222963",
+    "rows": [
+      {
+        "index_file": "index_2025.csv",
+        "object_id": "202533199349302978",
+        "return_type": "990",
+        "sub_date": "2025",
+        "tax_period": "202412",
+        "taxpayer_name": "GiveClear Foundation"
+      }
+    ],
+    "xml_urls": {}
+  },
+  "entity": "GiveClear Foundation (EIN 81-3222963)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:20:07Z",
+  "ok": true,
+  "queue_items": "P-VEN-08",
+  "source_url": "https://apps.irs.gov/pub/epostcard/990/xml/2026/index_2026.csv",
+  "status": "ok",
+  "summary": {
+    "min_tax_period": "202512",
+    "returns": [
+      "202412 | 990 | 202533199349302978"
+    ],
+    "target_return_present": false,
+    "target_returns": []
+  },
+  "target": "813222963",
+  "watch_regex": ""
+}

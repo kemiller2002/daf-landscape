@@ -1,0 +1,38 @@
+# 09: Requirements transfer candidates for Unbound
+
+**Date:** 2026-11-25. **Status:** proposals only. Unbound is read-only during this mission (`main` @ `9b38de4`). Each candidate goes through Unbound's own governance: convergence clauses, owner ratification and the open-questions register. None removes a legally required check.
+
+**Sources:**
+- ACT candidates RC-ACT-001..009: [`requirements-candidates-act.jsonl`](../../../data/commercial-opportunity/servicing-economics/requirements-candidates-act.jsonl).
+- Integrator candidates RC-SE-001..008: listed below.
+
+## Integrator candidates
+
+| ID | Unbound target | Issue found in this mission | Proposed change | Safety constraint |
+|---|---|---|---|---|
+| RC-SE-001 | UNB-SMP-ECN-004 (licence pricing) and its CNV successor | The licence and fee model has no per-account floor, so small-balance accounts lose money at any flat bps (report 05). | Add a fee component type "per-account minimum" (greater of asset fee or a floor), shown separately on invoices; floors disclosed to donors where they pass through. | Floors must never apply to accounts in wind-down after a final grant, and must not discourage grants (report 08). |
+| RC-SE-002 | Fee-basis definitions (CNV-FIN-002) | Asset-based fees on balances that include approved-but-unpaid grants reward slow payment. | Exclude reserved and approved-unpaid grant amounts from billable average assets. | None weakened; strengthens charitable outcome. |
+| RC-SE-003 | Payments design (CNV-PAY-*) | Payment rails are about $26 per account-year and mostly sponsor-originated. | Allow payment-rail costs to be passed through at cost, itemized. | Pass-through must be at cost with no markup, and must be disclosed. |
+| RC-SE-004 | CNV-GRT-001 delegation | Without board delegation, every grant is an individual sponsor decision. The redesign levers are unavailable until delegation is in place. | Same as RC-ACT-007; make time-to-delegation an onboarding exit criterion. | Delegation by board resolution only. |
+| RC-SE-005 | SPD-ADV-001 / CNV-GOV-004 | Per-sponsor exclusivity applied to surge staff turns December capacity into a per-sponsor fixed cost. | Same as RC-ACT-002: exclusivity for A3+ deciders only; pooled preparation staff allowed. | Deciders remain exclusive to one sponsor. |
+| RC-SE-006 | Evidence-phase protocol (report 12) | The economics rest on unmeasured minutes. | Make the 90-day event-log study (3-5 sponsors: exception rates, minutes, contacts, December shares) a precondition for any price commitment. | n/a |
+| RC-SE-007 | Complex-asset policy (OD-M-09) | Complex-asset donors cost about $700 per account-year even with redesign. | Price complex gifts as a separately billed exceptional service at cost-based rates rather than inside the asset fee, so the incentive to refuse them is removed. | Acceptance decisions stay with the sponsor; the fee must not deter acceptable gifts. |
+| RC-SE-008 | Licensing gate (ECH) | PolyForm Noncommercial terms on the Echelon stack. | Record commercial-licence terms as an activation gate for any servicer use. | n/a |
+
+> Research-pass content below was produced by a role-separated agent pass from the same model family as the integrator. It is not independent validation. Labels: [S] sourced, [A] assumption, [D] derived, [E] estimate.
+
+## ACT-12 Requirements that create recurring administrative work (Unbound transfer candidates; Unbound not edited)
+
+| ID | Unbound IDs | Recurring work created | Proposed change |
+|---|---|---|---|
+| RC-ACT-001 | CNV-GRT-003 | ~2.43 scheduled renewals per active recipient-year (365/150). At 4 grants per recipient and 9 grants per account this is ~5.5 renewals per account-year; with human deep review (15 min) ~82 min/account-year, more than the | Define 'deep review' as automated evidence refresh with human review only when evidence changed, conflicts or is missing; renew lazily (only recipients with pending or scheduled grants, or when a grant arrives after expiry); keep approval- and release-time sta |
+| RC-ACT-002 | CNV-GOV-004, CNV-SVC-002, SPD-ADV-001 | A standby bench per sponsor every December (activation, training, conflict attestation, roster upkeep) - step-fixed cost per sponsor rather than per unit of work; TEV-003 already shows per-sponsor floors dominate the adm | Keep exclusivity for persons exercising A3+ reserved authority; allow pooled, non-deciding preparation staff (evidence packets, outreach, data repair) across sponsors under tenant isolation and conflict attestation; allow a shared pre-qualified surge pool from |
+| RC-ACT-003 | CNV-GRT-006 | Annual re-disposition of the same false positives for recurring grantees and long-lived donors. | Expire reuse on change events (subject attribute, list entry, new matching entry, officer authority) and replace the fixed 12-month expiry with a sampled periodic re-validation (e.g. 10% of reused dispositions per year) chosen by the compliance officer. |
+| RC-ACT-004 | CNV-GRT-011 | Repeat enhanced reviews of recipients already determined; replay shows 64-72% of exception rows are repeat recipients. | Allow a Tier-2 determination to be reused for the same recipient, sponsor and purpose class within its freshness window unless a material fact changes (amount band, restriction, affiliation signal, status), with reuse visible in the decision record and sampled |
+| RC-ACT-005 | CNV-FIN-004 | One full close cycle of 100% review per sponsor per feed at every onboarding (step-fixed onboarding hours). | Permit a feed format calibrated and approved for one tenant to start new tenants at that format's approved tolerances, with a shortened parallel run (e.g. 10 business days) and per-sponsor controller approval. |
+| RC-ACT-006 | CNV-GOV-008, CNV-GRT-011 | Duplicate sample selection and review each quarter per sponsor. | State that one risk-stratified, error-bound sample satisfies both clauses when sized to the stricter requirement. |
+| RC-ACT-007 | CNV-GRT-001 | Sponsor-retained minutes on every routine grant (~0.3-0.5 min each, ~3-5 min/account-year for a typical account) and slower turnaround; the servicer cannot reach its redesigned cost until delegation exists. | Make a model delegation resolution, policy-version evidence pack and board-report template part of sponsor onboarding so delegation can be adopted at go-live; measure time-to-delegation as an onboarding KPI. |
+| RC-ACT-008 | CNV-PAY-002, CNV-PAY-003 | Check grants cost ~$4 and ~3-4 min including returns vs ~$0.30 and ~0.1 min for EFT; Fidelity still pays 33% of grants by check. | Add an EFT-by-default policy option: checks only on charity or donor request or where no verified EFT destination exists; automated outreach to enrol recipients at first check; reissue to verified EFT destination where enrolled. |
+| RC-ACT-009 | CNV-GOV-006 | Donor/advisor contacts and chasing for periodic confirmations across all funds, including inactive ones (~20% of accounts). | Default periodic confirmation to annual, bundled with the annual statement, only for funds with active advisors or affiliation-sensitive grants; event-driven triggers carry the safety load. |
+
+Safety constraints and evidence per candidate are in `requirements-candidates.jsonl`. The two with the largest effect on servicer economics are **RC-ACT-001** (scheduled 180-day deep review for every registry charity; up to ~82 min/typical account if done by people) and **RC-ACT-002** (one-sponsor exclusivity of December surge reviewers, which turns seasonal capacity into a per-sponsor fixed cost). RC-ACT-007 (no delegation -> every grant is an individual sponsor decision) controls whether the servicer can reach redesigned cost at all. None proposes removing a legally required check.

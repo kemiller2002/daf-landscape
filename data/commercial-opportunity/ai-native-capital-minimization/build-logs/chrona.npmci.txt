@@ -1,0 +1,12 @@
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: 'chrona@1.0.0',
+npm warn EBADENGINE   required: { node: '>=24' },
+npm warn EBADENGINE   current: { node: 'v22.23.5', npm: '10.9.9' }
+npm warn EBADENGINE }
+npm warn EBADENGINE Unsupported engine {
+npm warn EBADENGINE   package: '@echelon-foundry/print-components@0.4.0',
+npm warn EBADENGINE   required: { node: '>=24 <25' },
+npm warn EBADENGINE   current: { node: 'v22.23.5', npm: '10.9.9' }
+npm warn EBADENGINE }
+
+added 11 packages in 978ms

@@ -1,0 +1,4 @@
+Unable to proceed with project 'scratch:aincm/build/fides/tests/Fides.Acceptance/Fides.Acceptance.fsproj'.
+Ensure you have a runnable project type.
+A runnable project should target a runnable TFM (for instance, net10.0) and have OutputType 'Exe'.
+The current OutputType is 'Library'.

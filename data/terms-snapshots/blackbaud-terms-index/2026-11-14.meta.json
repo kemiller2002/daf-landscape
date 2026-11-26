@@ -1,0 +1,29 @@
+{
+  "content_type": "text/html; charset=UTF-8",
+  "document": "Terms and conditions index page",
+  "extractor": "html-parser",
+  "fetched_at_utc": "2026-11-14T11:03:19Z",
+  "final_url": "https://www.blackbaud.com/terms-and-conditions",
+  "format": "html",
+  "http_status": "200",
+  "raw_bytes": 180312,
+  "raw_sha256": "fefcbd3998fa1888ed3f79e1d9859d5da74c84389fb0e3d88739e7d9c918c129",
+  "slug": "blackbaud-terms-index",
+  "text_chars": 7234,
+  "text_sha256": "a0ed1e03835a94616fdc2e20de37b4ce5e64157228e59f59d2cf8638e5b3c650",
+  "url": "https://www.blackbaud.com/terms-and-conditions",
+  "vendor": "Blackbaud",
+  "watch_counts": {
+    "agent": 2,
+    "aggregator": 0,
+    "api": 0,
+    "artificial_intelligence": 8,
+    "automated": 0,
+    "bot_scrape": 0,
+    "initiate": 0,
+    "mcp": 0,
+    "on_behalf_of": 0,
+    "pass_through": 0,
+    "third_party": 0
+  }
+}

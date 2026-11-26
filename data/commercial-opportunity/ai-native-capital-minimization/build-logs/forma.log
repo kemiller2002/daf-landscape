@@ -1,0 +1,9 @@
+REV c8f40b4
+DONE
+PASS2 REV c8f40b4
+CMD dotnet build tests/workflow/Forma.Workflow.Tests/Forma.Workflow.Tests.fsproj -c Release => BUILD_RC 0 SECS 12
+RUN_RC Forma.Workflow.Tests.fsproj 0 SECS 3 :: pass_lines=99 fail_lines=0 tail= 99 passed, 0 failed, 99 total 
+DONE2
+CMD npm ci --ignore-scripts => RC 0 SECS 0
+CMD node --test tests/token-compiler.test.mjs tests/token-validator.test.mjs tests/brand-compiler.test.mjs tests/external-brand-compiler.test.mjs tests/contrast-pairs.test.mjs tests/zero-runtime.test.mjs => NODE_RC 1 SECS 20 :: # tests 40 # pass 29 # fail 11  tail=# skipped 0 # todo 0 # duration_ms 20030.22471 
+DONE2

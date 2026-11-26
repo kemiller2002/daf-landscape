@@ -1,0 +1,11 @@
+PASS route codec round-trips Home
+PASS route codec round-trips Customer 1
+PASS route codec round-trips Customer 42
+PASS route parse error preserves the rejected input
+PASS Navigation.push yields Push mode
+PASS Navigation.replace yields Replace mode
+PASS runner exit code fails an empty run
+PASS runner exit code fails when any test fails
+PASS runner exit code passes only a non-empty all-passing run
+PASS runner summary counts executed, passed and failed
+Iter.Tests: 10 executed; 10 passed; 0 failed

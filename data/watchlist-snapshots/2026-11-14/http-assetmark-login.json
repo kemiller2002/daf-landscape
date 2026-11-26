@@ -1,0 +1,46 @@
+{
+  "check_id": "http-assetmark-login",
+  "check_type": "http",
+  "date": "2026-11-14",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://assetmarkcharitablemc.tifingive.com/login"
+      }
+    ],
+    "final_url": "https://assetmarkcharitablemc.tifingive.com/login",
+    "form_actions": [],
+    "meta": {
+      "viewport": "width=device-width, initial-scale=1.0"
+    },
+    "raw_sha256": "4bca31840a45a662be989d31680a5e421400faf4fe50dcc2a258f43771a68e01",
+    "text_chars": 1,
+    "text_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  "entity": "AssetMark Charitable Program",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:37Z",
+  "ok": true,
+  "queue_items": "P-VEN-08",
+  "source_url": "https://assetmarkcharitablemc.tifingive.com/login",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "assetmarkcharitablemc.tifingive.com"
+    ],
+    "final_host": "assetmarkcharitablemc.tifingive.com",
+    "final_status": "200",
+    "footers": [],
+    "links": [],
+    "title": "AssetMark",
+    "watch_hits_urls": [
+      "assetmark",
+      "tifin"
+    ],
+    "watch_sentences": []
+  },
+  "target": "https://assetmarkcharitablemc.tifingive.com/login",
+  "watch_regex": "(?i)assetmark|tifin|giveclear"
+}

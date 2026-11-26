@@ -1,0 +1,59 @@
+{
+  "check_id": "http-cfn-portal",
+  "check_type": "http",
+  "date": "2026-11-19",
+  "detail": {
+    "chain": [
+      {
+        "location": "",
+        "status": "200",
+        "url": "https://cfndaf.donorfirstx.com/"
+      }
+    ],
+    "final_url": "https://cfndaf.donorfirstx.com/",
+    "form_actions": [
+      "/"
+    ],
+    "meta": {
+      "dd-trace-id": "2915605327979211141",
+      "dd-trace-time": "1795103783856",
+      "viewport": "width=device-width, minimum-scale=1.0, maximum-scale=1.0"
+    },
+    "raw_sha256": "67e0a16bfa67bea17cf16d0ed8dc44d360dce22dc87a6f657f3549b5947fdeb7",
+    "text_chars": 1496,
+    "text_sha256": "0507d35a1d96eacf22ad1d1d7bf1e07b0a96ad930c5e318a6ba8c0a709d59c76"
+  },
+  "entity": "Commonwealth Charitable Fund (RCF program CFNDAF id 680)",
+  "error": "",
+  "observed_at_utc": "2026-11-19T15:56:23Z",
+  "ok": true,
+  "queue_items": "P-PRC-05",
+  "source_url": "https://cfndaf.donorfirstx.com/",
+  "status": "200",
+  "summary": {
+    "chain_hosts": [
+      "cfndaf.donorfirstx.com"
+    ],
+    "final_host": "cfndaf.donorfirstx.com",
+    "final_status": "200",
+    "footers": [],
+    "links": [
+      "https://cfndaf.donorfirstx.com/Terms of Service.pdf | Terms of Service",
+      "https://cfndaf.donorfirstx.com/pdf/cfndaf/CFNDAF Donor User Guide.pdf | DFX Donor User Guide",
+      "https://cfndaf.donorfirstx.com/pdf/cfndaf/Year End Deadlines 2026.pdf | Download Deadlines Brochure"
+    ],
+    "title": "Login Page",
+    "watch_hits_urls": [
+      "CFNDAF",
+      "cfndaf"
+    ],
+    "watch_sentences": [
+      "Commonwealth is a trade name of LPL Financial.",
+      "Securities and advisory services offered through LPL Financial, Member FINRA/SIPC, a registered investment advisor.",
+      "Standard site maintenance will be performed starting Saturday, November 21st between the times of 10:00PM EST to 2:00AM EST.",
+      "Welcome to your login experience for your Commonwealth Charitable Fund."
+    ]
+  },
+  "target": "https://cfndaf.donorfirstx.com/",
+  "watch_regex": "(?i)Commonwealth|LPL|Renaissance|CFNDAF|maintenance"
+}

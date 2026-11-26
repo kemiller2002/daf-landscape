@@ -1,0 +1,78 @@
+sequence,failure,base_capital,capital_if_wrong,extra_capital,base_month_profitable,month_profitable_if_wrong,year5_profit_if_wrong
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",build at 1x (no productivity gain),14180003,16055633,1875630,46,46,193958
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors","development 2x longer (go-lives later, burn continues)",14180003,22814600,8634597,46,,-1218353
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",sales cycles 2x,14180003,16470831,2290828,46,,-1200502
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",handling stays AI-enhanced (101 min),14180003,15126732,946729,46,,-412169
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",first customer (design partner) withdraws: never signs,14180003,15525070,1345067,46,,-476968
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",assurance +$150k/yr from month 12,14180003,14914034,734031,46,54,43958
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",security incident $500k at month 30,14180003,14816051,636048,46,46,193958
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",Echelon licence at LYR cost-plus $350k/yr (base $60k),14180003,16056839,1876836,46,54,-96885
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors","customer customisation: onboarding x3, sponsor upkeep x2",14180003,15074129,894126,46,46,157958
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",build at 1x (no productivity gain) | sales cycles 2x,14180003,18346461,4166458,46,,-1200502
+"A conventional: F5 staged, $5M contracted build over 24 months, three $500M sponsors",build at 1x (no productivity gain) | sales cycles 2x | handling stays AI-enhanced (101 min),14180003,18448299,4268296,46,,-1300239
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",build at 1x (no productivity gain),8840366,9783575,943209,42,42,314123
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live","development 2x longer (go-lives later, burn continues)",8840366,14778015,5937648,42,,-944534
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",sales cycles 2x,8840366,11574920,2734554,42,,-844797
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",handling stays AI-enhanced (101 min),8840366,10160410,1320044,42,,-412169
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",first customer (design partner) withdraws: never signs,8840366,10523431,1683065,42,,-365106
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",assurance +$150k/yr from month 12,8840366,9574397,734031,42,48,164123
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",security incident $500k at month 30,8840366,9476414,636048,42,42,314123
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",Echelon licence at LYR cost-plus $350k/yr (base $60k),8840366,10717202,1876836,42,48,23280
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live","customer customisation: onboarding x3, sponsor upkeep x2",8840366,9791341,950974,42,42,278123
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",build at 1x (no productivity gain) | sales cycles 2x,8840366,12518128,3677762,42,,-844797
+"B product-first: F2 builds minimum product (12 months), F5 from first go-live",build at 1x (no productivity gain) | sales cycles 2x | handling stays AI-enhanced (101 min),8840366,12850032,4009666,42,,-1054580
+"C customer-funded: design partner prepays $250k, F3 then F5",build at 1x (no productivity gain),8634797,9582524,947726,39,39,314123
+"C customer-funded: design partner prepays $250k, F3 then F5","development 2x longer (go-lives later, burn continues)",8634797,15209960,6575162,39,,-659967
+"C customer-funded: design partner prepays $250k, F3 then F5",sales cycles 2x,8634797,11334452,2699655,39,,-588829
+"C customer-funded: design partner prepays $250k, F3 then F5",handling stays AI-enhanced (101 min),8634797,10171209,1536411,39,,-412169
+"C customer-funded: design partner prepays $250k, F3 then F5",first customer (design partner) withdraws: never signs,8634797,10834800,2200003,39,,-365106
+"C customer-funded: design partner prepays $250k, F3 then F5",assurance +$150k/yr from month 12,8634797,9368829,734031,39,45,164123
+"C customer-funded: design partner prepays $250k, F3 then F5",security incident $500k at month 30,8634797,9270845,636048,39,39,314123
+"C customer-funded: design partner prepays $250k, F3 then F5",Echelon licence at LYR cost-plus $350k/yr (base $60k),8634797,10511633,1876836,39,45,23280
+"C customer-funded: design partner prepays $250k, F3 then F5","customer customisation: onboarding x3, sponsor upkeep x2",8634797,9626772,991974,39,39,278123
+"C customer-funded: design partner prepays $250k, F3 then F5",build at 1x (no productivity gain) | sales cycles 2x,8634797,12282178,3647381,39,,-588829
+"C customer-funded: design partner prepays $250k, F3 then F5",build at 1x (no productivity gain) | sales cycles 2x | handling stays AI-enhanced (101 min),8634797,12867673,4232876,39,,-808922
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",build at 1x (no productivity gain),9179988,10080962,900974,48,48,385958
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24","development 2x longer (go-lives later, burn continues)",9179988,14728768,5548780,48,,-1736961
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",sales cycles 2x,9179988,12386876,3206888,48,,-1422600
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",handling stays AI-enhanced (101 min),9179988,9952660,772672,48,,-220169
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",first customer (design partner) withdraws: never signs,9179988,10563342,1383354,48,,-284968
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",assurance +$150k/yr from month 12,9179988,9914019,734031,48,54,235958
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",security incident $500k at month 30,9179988,9816036,636048,48,48,385958
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",Echelon licence at LYR cost-plus $350k/yr (base $60k),9179988,11056824,1876836,48,,95115
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24","customer customisation: onboarding x3, sponsor upkeep x2",9179988,10045384,865396,48,54,349958
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",build at 1x (no productivity gain) | sales cycles 2x,9179988,13287850,4107862,48,,-1422600
+"D narrow entry: non-custodial service at $40k/sponsor, administration from month 24",build at 1x (no productivity gain) | sales cycles 2x | handling stays AI-enhanced (101 min),9179988,13287850,4107862,48,,-1422600
+"E provider partnership: partner programs at 14 bps net, F3",build at 1x (no productivity gain),10063024,11015382,952358,,,-263225
+"E provider partnership: partner programs at 14 bps net, F3","development 2x longer (go-lives later, burn continues)",10063024,14341664,4278639,,,-905377
+"E provider partnership: partner programs at 14 bps net, F3",sales cycles 2x,10063024,11156059,1093034,,,-660619
+"E provider partnership: partner programs at 14 bps net, F3",handling stays AI-enhanced (101 min),10063024,11664489,1601464,,,-979650
+"E provider partnership: partner programs at 14 bps net, F3",first customer (design partner) withdraws: never signs,10063024,10618388,555364,,,-634858
+"E provider partnership: partner programs at 14 bps net, F3",assurance +$150k/yr from month 12,10063024,10797056,734031,,,-413225
+"E provider partnership: partner programs at 14 bps net, F3",security incident $500k at month 30,10063024,10699072,636048,,,-263225
+"E provider partnership: partner programs at 14 bps net, F3",Echelon licence at LYR cost-plus $350k/yr (base $60k),10063024,11939860,1876836,,,-554068
+"E provider partnership: partner programs at 14 bps net, F3","customer customisation: onboarding x3, sponsor upkeep x2",10063024,11056735,993711,,,-299225
+"E provider partnership: partner programs at 14 bps net, F3",build at 1x (no productivity gain) | sales cycles 2x,10063024,12108417,2045392,,,-660619
+"E provider partnership: partner programs at 14 bps net, F3",build at 1x (no productivity gain) | sales cycles 2x | handling stays AI-enhanced (101 min),10063024,12622070,2559045,,,-1027431
+"F founder-led: F1 then F3, $1.0B anchor + $500M",build at 1x (no productivity gain),6031242,6877167,845924,30,30,698174
+"F founder-led: F1 then F3, $1.0B anchor + $500M","development 2x longer (go-lives later, burn continues)",6031242,11660065,5628823,30,54,-202785
+"F founder-led: F1 then F3, $1.0B anchor + $500M",sales cycles 2x,6031242,8003103,1971860,30,42,12154
+"F founder-led: F1 then F3, $1.0B anchor + $500M",handling stays AI-enhanced (101 min),6031242,7488191,1456949,30,,-22125
+"F founder-led: F1 then F3, $1.0B anchor + $500M",first customer (design partner) withdraws: never signs,6031242,9827855,3796612,30,,-797206
+"F founder-led: F1 then F3, $1.0B anchor + $500M",assurance +$150k/yr from month 12,6031242,6639638,608396,30,36,548174
+"F founder-led: F1 then F3, $1.0B anchor + $500M",security incident $500k at month 30,6031242,6607001,575758,30,30,698174
+"F founder-led: F1 then F3, $1.0B anchor + $500M",Echelon licence at LYR cost-plus $350k/yr (base $60k),6031242,7782443,1751200,30,36,407331
+"F founder-led: F1 then F3, $1.0B anchor + $500M","customer customisation: onboarding x3, sponsor upkeep x2",6031242,6589649,558407,30,30,674174
+"F founder-led: F1 then F3, $1.0B anchor + $500M",build at 1x (no productivity gain) | sales cycles 2x,6031242,8937606,2906364,30,42,12154
+"F founder-led: F1 then F3, $1.0B anchor + $500M",build at 1x (no productivity gain) | sales cycles 2x | handling stays AI-enhanced (101 min),6031242,9630193,3598951,30,,-417724
+G hybrid: narrow service + design partner + staged F2/F3/F5,build at 1x (no productivity gain),9161732,10096647,934914,45,45,350040
+G hybrid: narrow service + design partner + staged F2/F3/F5,"development 2x longer (go-lives later, burn continues)",9161732,15758102,6596369,45,,-1361419
+G hybrid: narrow service + design partner + staged F2/F3/F5,sales cycles 2x,9161732,11856537,2694805,45,,-1004765
+G hybrid: narrow service + design partner + staged F2/F3/F5,handling stays AI-enhanced (101 min),9161732,10270730,1108997,45,,-316169
+G hybrid: narrow service + design partner + staged F2/F3/F5,first customer (design partner) withdraws: never signs,9161732,11499789,2338056,45,,-325037
+G hybrid: narrow service + design partner + staged F2/F3/F5,assurance +$150k/yr from month 12,9161732,9895764,734031,45,51,200040
+G hybrid: narrow service + design partner + staged F2/F3/F5,security incident $500k at month 30,9161732,9797780,636048,45,45,350040
+G hybrid: narrow service + design partner + staged F2/F3/F5,Echelon licence at LYR cost-plus $350k/yr (base $60k),9161732,11038568,1876836,45,,59197
+G hybrid: narrow service + design partner + staged F2/F3/F5,"customer customisation: onboarding x3, sponsor upkeep x2",9161732,10088037,926304,45,45,314040
+G hybrid: narrow service + design partner + staged F2/F3/F5,build at 1x (no productivity gain) | sales cycles 2x,9161732,12791452,3629719,45,,-1004765
+G hybrid: narrow service + design partner + staged F2/F3/F5,build at 1x (no productivity gain) | sales cycles 2x | handling stays AI-enhanced (101 min),9161732,13112828,3951096,45,,-1204239

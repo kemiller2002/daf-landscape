@@ -1,0 +1,714 @@
+row_type,section,scope,fiscal_year,metric,value,unit,detail,evidence,source_url
+aum_return,A1,aum,2023,tax_period_end,2023-12-31,date,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,filer_name,Amalgamated Charitable Foundation Inc,text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,part4_l6_daf_ind,1,flag,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,sd_daf_count,187,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,sd_daf_contributions,93060261,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,sd_daf_grants,86444499,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,sd_daf_eoy_value,47293434,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,sd_other_funds_count,,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,sd_disclosed_legal_control,1,flag,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,sd_disclosed_charitable_only,1,flag,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,contributions_l1h,270017753,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,total_revenue,273802461,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,grants_paid_part1_l13,181945881,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,ix_l1_domestic_orgs,181945881,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,ix_l3_foreign,,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,ix_l7_other_salaries,5699095,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,ix_l11g_fees_other,16616033,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,ix_l25_total_expenses,206312845,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,total_assets_eoy,230908898,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,employees,40,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,program_expense,204144742,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,program_grants,181945881,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,si_lines,1429,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,si_usd,180424578,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,si_501c3_cnt,1413,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,si_other_cnt,16,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,si_to_whitelist_lines,21,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,si_to_whitelist_usd,4427896,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,si_to_whitelist_top,"Tides Foundation $3,142,250; Community Foundation of Greater Johnstown dba Community Foundation for the $400,000; The Community Foundation of Southern New Mexico $165,500; POISE Foundation $153,000; The Minneapolis Foundation $76,000",text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,si_top_purposes,GENERAL OPERATING SUPPORT (887); PROJECT SUPPORT (328); GENERAL OPERATING SUPPORT AND PROJECT SUPPORT (214),text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,sf_present,0,flag,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,sf_part2_lines,0,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,sf_part2_usd,0,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,contractors_top,"Guidehouse Netherlands BV [Project consulting] $3,844,135; AB Partners [Project consulting] $1,180,600; Social Strategy Associates [Project consulting] $769,873; Goldman-Fitzgerald LLC [Project consulting] $498,815; Camber Collective LLC [Project consulting] $456,090",text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,contractors_over_100k,29,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,related_orgs,Amalgamated Bank,text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,mission,ACF is dedicated to supporting philanthropy for social change.,text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,mission_part3,"ACF is dedicated to supporting and increasing philanthropy by making grants to tax exempt organizations for their charitable, educational, scientific, literary or other 501c3 activities; promoting donor education and engagement, and civic and community events.",text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2023,program_desc,"Grantmaking to public charities: Grants made to IRS recognized public charities across the United States. Donor advised funds and ACF's unrestricted funds are the principal sources of grantmaking activity. Grants are made to organizations qualifying under 501(c)(3) and focus on one or more of the following recognized exempt purposes: Assistance for those in need; support for youth and families; civil and human rights; education; health and scientific research; arts, culture and the humanities; civic and community affairs; and environmental preservation. Fiscally sponsored projects: These are engaged in furtherance of the mission through the following ways: social change, democracy, economic equality, and climate & sustainability. || Bad Debt Expenses || Events & Meetings || Meals || Computer Equip. & Softw",text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_fiscal_text,A1,aum,2023,fiscal_text_1,"Grantmaking to public charities: Grants made to IRS recognized public charities across the United States. Donor advised funds and ACF's unrestricted funds are the principal sources of grantmaking activity. Grants are made to organizations qualifying under 501(c)(3) and focus on one or more of the following recognized exempt purposes: Assistance for those in need; support for youth and families; civil and human rights; education; health and scientific research; arts, culture and the humanities; civic and community affairs; and environmental preservation. Fiscally sponsored projects: These are engaged in furtherance of the mission through the following ways: social change, democracy, economic equality, and climate & sustainability.",text,Desc,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_derived,A1,aum,2023,daf_share_assets,0.204814,share,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_derived,A1,aum,2023,daf_share_contributions,0.344645,share,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_derived,A1,aum,2023,daf_share_grants,0.475111,share,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_derived,A1,aum,2023,daf_rollforward_expected_eoy,,usd,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_derived,A1,aum,2023,daf_rollforward_gap,,usd,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_derived,A1,aum,2023,program_expense_ex_grants,22198861,usd,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413159349300006_public.xml
+aum_return,A1,aum,2024,tax_period_end,2024-12-31,date,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,filer_name,Amalgamated Charitable Foundation Inc,text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,part4_l6_daf_ind,1,flag,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,sd_daf_count,269,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,sd_daf_contributions,369775798,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,sd_daf_grants,229628145,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,sd_daf_eoy_value,76017807,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,sd_other_funds_count,,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,sd_disclosed_legal_control,1,flag,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,sd_disclosed_charitable_only,1,flag,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,contributions_l1h,389741054,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,total_revenue,396906311,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,grants_paid_part1_l13,234944291,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,ix_l1_domestic_orgs,234488291,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,ix_l3_foreign,456000,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,ix_l7_other_salaries,9417611,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,ix_l11g_fees_other,17603010,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,ix_l25_total_expenses,266491821,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,total_assets_eoy,361053663,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,employees,76,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,program_expense,261760427,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,program_grants,234944291,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,si_lines,1804,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,si_usd,230899156,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,si_501c3_cnt,1786,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,si_other_cnt,18,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,si_to_whitelist_lines,28,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,si_to_whitelist_usd,5945013,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,si_to_whitelist_top,"Tides Foundation $3,656,097; Impactassets Inc $515,000; Community Foundation for Southern Arizona $450,000; Marin Community Foundation $253,797; Community Foundation of Greater Johnstown dba Community Foundation for the $175,000",text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,si_top_purposes,GENERAL OPERATING SUPPORT (1229); PROJECT SUPPORT (310); GENERAL OPERATING SUPPORT AND PROJECT SUPPORT (265),text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,sf_present,1,flag,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,sf_part2_lines,9,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,sf_part2_usd,456000,usd,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,contractors_top,"RALLY [Project Consulting] $1,569,052; Nelson Mullins Riley & Scarborough LLP [Project Consulting] $1,254,697; Social Strategy Associates [Project Consulting] $593,271; Goldman-Fitzgerald [Project Consulting] $413,549; HR&A Advisors [Project Consulting] $412,359",text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,contractors_over_100k,52,count,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,related_orgs,Amalgamated Bank,text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,mission,ACF is dedicated to supporting philanthropy for social change.,text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,mission_part3,"ACF is dedicated to supporting and increasing philanthropy by making grants to tax exempt organizations for their charitable, educational, scientific, literary or other 501c3 activities; promoting donor education and engagement, and civic and community events.",text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2024,program_desc,"Grantmaking to public charities: Grants made to IRS recognized public charities across the United States. Donor advised funds and ACF's unrestricted funds are the principal sources of grantmaking activity. Grants are made to organizations qualifying under 501(c)(3) and focus on one or more of the following recognized exempt purposes: Assistance for those in need; support for youth and families; civil and human rights; education; health and scientific research; arts, culture and the humanities; civic and community affairs; and environmental preservation. Fiscally sponsored projects: These are engaged in furtherance of the mission through the following ways: social change, democracy, economic equality, and climate & sustainability. || Events & Meetings || Professional Developmen || Licenses & Registration || Bank Fees",text,,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_fiscal_text,A1,aum,2024,fiscal_text_1,"Grantmaking to public charities: Grants made to IRS recognized public charities across the United States. Donor advised funds and ACF's unrestricted funds are the principal sources of grantmaking activity. Grants are made to organizations qualifying under 501(c)(3) and focus on one or more of the following recognized exempt purposes: Assistance for those in need; support for youth and families; civil and human rights; education; health and scientific research; arts, culture and the humanities; civic and community affairs; and environmental preservation. Fiscally sponsored projects: These are engaged in furtherance of the mission through the following ways: social change, democracy, economic equality, and climate & sustainability.",text,Desc,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_derived,A1,aum,2024,daf_share_assets,0.210544,share,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_derived,A1,aum,2024,daf_share_contributions,0.948773,share,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_derived,A1,aum,2024,daf_share_grants,0.977373,share,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_derived,A1,aum,2024,daf_rollforward_expected_eoy,187441087,usd,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_derived,A1,aum,2024,daf_rollforward_gap,-111423280,usd,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_derived,A1,aum,2024,program_expense_ex_grants,26816136,usd,Schedule D line 1 / Part X line 16; line 2 / Part VIII 1h; line 3 / Part IX 1-3; roll-forward = prior EOY + contributions - grants (Schedule D lines 2-4),C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543179349307759_public.xml
+aum_return,A1,aum,2022,part4_l6_daf_ind,1,flag,FY2022 return: prior-year EOY for the roll-forward,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202302999349302215_public.xml
+aum_return,A1,aum,2022,sd_daf_count,,count,FY2022 return: prior-year EOY for the roll-forward,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202302999349302215_public.xml
+aum_return,A1,aum,2022,sd_daf_eoy_value,,usd,FY2022 return: prior-year EOY for the roll-forward,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202302999349302215_public.xml
+aum_return,A1,aum,2022,total_assets_eoy,160739477,usd,FY2022 return: prior-year EOY for the roll-forward,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202302999349302215_public.xml
+aum_whitelist,A3,aum,2022-2024,decision,exclude,text,daf-to-daf-recipient-whitelist.csv (unchanged),F,
+aum_whitelist,A3,aum,2022-2024,rule,W2,text,daf-to-daf-recipient-whitelist.csv (unchanged),F,
+aum_whitelist,A3,aum,2022-2024,reason,national/processor but DAF share of assets 0.21 < 0.5 (fiscal sponsor / processor inflows),text,daf-to-daf-recipient-whitelist.csv (unchanged),F,
+aum_whitelist,A3,aum,2022-2024,daf_share_of_total_assets,0.210544,share,daf-to-daf-recipient-whitelist.csv (unchanged),F,
+aum_whitelist,A3,aum,2022-2024,daf_share_of_grants,0.726242,share,daf-to-daf-recipient-whitelist.csv (unchanged),F,
+aum_inbound_line,A2,GS DONOR ADVISED PHILANTHROPY FUND,2024,line_311774905_195,16102500,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""COMMUNITY & HUMAN SERVICES"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503109349303645_public.xml
+aum_inbound_line,A2,FIDELITY INVESTMENTS CHARITABLE GIFT FUND,2024,line_110303001_149,8863831,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""For grant recipient's exempt purposes"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202521349349310887_public.xml
+aum_inbound_line,A2,Silicon Valley Community Foundation,2024,line_205205488_117,5251800,usd,"{""filed_name"": ""Amalgamated Charitable Foundation Inc"", ""purpose"": ""General Nonprofit Support"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543149349305759_public.xml
+aum_inbound_line,A2,FIDELITY INVESTMENTS CHARITABLE GIFT FUND,2023,line_110303001_251,4485660,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""For grant recipient's exempt purposes"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202441369349301334_public.xml
+aum_inbound_line,A2,GS DONOR ADVISED PHILANTHROPY FUND,2023,line_311774905_170,3457200,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""COMMUNITY & HUMAN SERVICES"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413109349303336_public.xml
+aum_inbound_line,A2,Silicon Valley Community Foundation,2023,line_205205488_106,3381900,usd,"{""filed_name"": ""Amalgamated Charitable Foundation Inc"", ""purpose"": ""General Nonprofit Support"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202413129349304911_public.xml
+aum_inbound_line,A2,DONOR ADVISED CHARITABLE GIVING INC,2024,line_311640316_250,2162284,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""PUBLIC, SOCIETAL BENEFIT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202541069349300729_public.xml
+aum_inbound_line,A2,NATIONAL PHILANTHROPIC TRUST,2023,line_237825575_403,2103400,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""PUBLIC, SOCIETAL BENEFIT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202431429349301368_public.xml
+aum_inbound_line,A2,NATIONAL PHILANTHROPIC TRUST,2024,line_237825575_530,1747131,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""PUBLIC, SOCIETAL BENEFIT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+aum_inbound_line,A2,GREATER HOUSTON COMMUNITY FOUNDATION,2024,line_237160400_33,1130928,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""PUBLIC BENEFIT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543219349315304_public.xml
+aum_inbound_line,A2,DONOR ADVISED CHARITABLE GIVING INC,2023,line_311640316_437,1095190,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""PUBLIC, SOCIETAL BENEFIT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202411039349301716_public.xml
+aum_inbound_line,A2,GREATER HOUSTON COMMUNITY FOUNDATION,2023,line_237160400_22,1030928,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""PUBLIC BENEFIT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""mirror""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202423209349321922_public.xml
+aum_inbound_line,A2,THE NEW YORK COMMUNITY TRUST,2024,line_133062214_63,1028160,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""FOR PROGRAM SUPPORT."", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202523149349305672_public.xml
+aum_inbound_line,A2,SEATTLE FOUNDATION,2024,line_916013536_133,1000000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""RESOURCE EQUITY FUNDERS COLLABORATIVE FISCAL SPONSORSHIP."", ""evidence_class"": ""purpose_fiscal_sponsorship"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503189349315665_public.xml
+aum_inbound_line,A2,IMPACTASSETSINC,2023,line_262048480_90,500000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC FBO THE FAMILIES AND WORKERS FUND"", ""purpose"": ""FUELING GOOD CLIMATE AND INFRASTRUCTURE CAREERS FOR ALL"", ""evidence_class"": ""project_style_fbo"", ""fbo_detection"": true, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202443189349305024_public.xml
+aum_inbound_line,A2,SEATTLE FOUNDATION,2024,line_916013536_132,500000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""TO SUPPORT THE HIGHER EDFORWARD FUND."", ""evidence_class"": ""purpose_named_fund"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503189349315665_public.xml
+aum_inbound_line,A2,IMPACTASSETSINC,2023,line_262048480_98,457195,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""THE KINDLE PROJECT"", ""evidence_class"": ""purpose_named_fund"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202443189349305024_public.xml
+aum_inbound_line,A2,VANGUARD CHARITABLE ENDOWMENT PROGRAM,2024,line_232888152_629,447539,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""FOR RECIPIENT'S EXEMPT PURPOSE"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511349349313096_public.xml
+aum_inbound_line,A2,IMPACTASSETSINC,2024,line_262048480_180,345500,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""GENERAL SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543169349307999_public.xml
+aum_inbound_line,A2,VANGUARD CHARITABLE ENDOWMENT PROGRAM,2023,line_232888152_545,329000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""FOR RECIPIENT'S EXEMPT PURPOSE"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202441359349309439_public.xml
+aum_inbound_line,A2,SAINT PAUL & MINNESOTA FOUNDATION,2023,line_416031510_51,300000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""MULTIPLE GRANTS FOR PROGRAMS, OPERATIONS, OR OTHER PURPOSES"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""mirror""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202442349349300824_public.xml
+aum_inbound_line,A2,IMPACTASSETSINC,2023,line_262048480_174,290000,usd,"{""filed_name"": ""AMALGAMATED FOUNDATION FBO MAUI JUST RECOVERY FUND"", ""purpose"": ""MAUI JUST RECOVERY FUND"", ""evidence_class"": ""project_style_fbo"", ""fbo_detection"": true, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202443189349305024_public.xml
+aum_inbound_line,A2,MORGAN STANLEY GLOBAL IMPACT FUNDING TRUST INC,2023,line_527082731_651,208000,usd,"{""filed_name"": ""Amalgamated Foundation"", ""purpose"": ""UNRESTRICTED GENERAL SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202403209349313980_public.xml
+aum_inbound_line,A2,THE SAN FRANCISCO FOUNDATION,2024,line_010679337_60,202500,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""TO SUPPORT THE YOUTH POWER FUND OF THE NORTHERN CALIFORNIA YOUTH ORGANIZING FUNDERS COLLABORATIVE. FOR THE WAY TO WIN PHILANTHROPIC FUND. FOR THE MAUI JUST RECOVERY FUND. FOR THE FUNDING FREEDOM FUND."", ""evidence_class"": ""purpose_named_fund"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202541339349302554_public.xml
+aum_inbound_line,A2,AMERICAN ENDOWMENT FOUNDATION,2024,line_341747398_365,185500,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""PHILANTHROPY"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513219349310376_public.xml
+aum_inbound_line,A2,SEATTLE FOUNDATION,2024,line_916013536_131,139153,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""TO SUPPORT RESOURCE EQUITY FUNDERS COLLABORATIVE."", ""evidence_class"": ""purpose_named_fund"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503189349315665_public.xml
+aum_inbound_line,A2,MARIN COMMUNITY FOUNDATION,2024,line_943007979_37,115479,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""PROVIDE GENERAL OPERATING SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202541349349313719_public.xml
+aum_inbound_line,A2,THE SAN FRANCISCO FOUNDATION,2023,line_010679337_171,100000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""PROGRAM - TO SUPPORT THE GENERATIONAL RECOVERY FUND"", ""evidence_class"": ""purpose_named_fund"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""mirror""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202431359349311628_public.xml
+aum_inbound_line,A2,IMPACTASSETSINC,2024,line_262048480_569,100000,usd,"{""filed_name"": ""AMALGAMATED FOUNDATION FBO EMERGENT FUND"", ""purpose"": ""GENERAL SUPPORT"", ""evidence_class"": ""project_style_fbo"", ""fbo_detection"": true, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543169349307999_public.xml
+aum_inbound_line,A2,IMPACTASSETSINC,2024,line_262048480_570,100000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATIONS FBO NEW SHERIFF IN TOWN FUND"", ""purpose"": ""GENERAL SUPPORT"", ""evidence_class"": ""project_style_fbo"", ""fbo_detection"": true, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543169349307999_public.xml
+aum_inbound_line,A2,AMERICAN ENDOWMENT FOUNDATION,2023,line_341747398_341,92000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""PHILANTHROPY"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202442479349301654_public.xml
+aum_inbound_line,A2,Boston Foundation Inc,2023,line_042104021_39,55000,usd,"{""filed_name"": ""Amalgamated Charitable Foundation Inc"", ""purpose"": ""Transfer to DAF"", ""evidence_class"": ""purpose_daf"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202401319349302380_public.xml
+aum_inbound_line,A2,MORGAN STANLEY GLOBAL IMPACT FUNDING TRUST INC,2023,line_527082731_2752,50000,usd,"{""filed_name"": ""Amalgamated Charitable Foundation Inc"", ""purpose"": ""UNRESTRICTED GENERAL SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202403209349313980_public.xml
+aum_inbound_line,A2,MORGAN STANLEY GLOBAL IMPACT FUNDING TRUST INC,2024,line_527082731_12212,50000,usd,"{""filed_name"": ""Amalgamated Charitable Foundation Inc"", ""purpose"": ""UNRESTRICTED GENERAL SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503239349300435_public.xml
+aum_inbound_line,A2,SEATTLE FOUNDATION,2024,line_916013536_130,50000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""IGNITE 2024 FUND"", ""evidence_class"": ""purpose_named_fund"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503189349315665_public.xml
+aum_inbound_line,A2,THE SAN DIEGO FOUNDATION,2023,line_952942582_400,50000,usd,"{""filed_name"": ""AMALGAMATED FOUNDATION"", ""purpose"": ""KINDLE PROJECT / INDIGENOUS WOMEN'S FLOW FUND"", ""evidence_class"": ""purpose_named_fund"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""mirror""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202421349349305987_public.xml
+aum_inbound_line,A2,THE SAN DIEGO FOUNDATION,2024,line_952942582_350,50000,usd,"{""filed_name"": ""AMALGAMATED FOUNDATION"", ""purpose"": ""KINDLE PROJECT/INDIGENOUS WOMEN'S FLOW FUND"", ""evidence_class"": ""purpose_named_fund"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202541209349303454_public.xml
+aum_inbound_line,A2,SEATTLE FOUNDATION,2024,line_916013536_129,45500,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""TEACHING EXCELLENCE FUND"", ""evidence_class"": ""purpose_named_fund"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503189349315665_public.xml
+aum_inbound_line,A2,Boston Foundation Inc,2024,line_042104021_52,45000,usd,"{""filed_name"": ""Amalgamated Charitable Foundation Inc"", ""purpose"": ""Transfer to DAF"", ""evidence_class"": ""purpose_daf"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202531329349304083_public.xml
+aum_inbound_line,A2,IMPACTASSETSINC,2023,line_262048480_1027,35000,usd,"{""filed_name"": ""AMALGAMATED FOUNDATION FBO EMERGENT FUND"", ""purpose"": ""GENERAL SUPPORT"", ""evidence_class"": ""project_style_fbo"", ""fbo_detection"": true, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202443189349305024_public.xml
+aum_inbound_line,A2,MARIN COMMUNITY FOUNDATION,2023,line_943007979_33,35000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""GENERAL OPERATING SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""mirror""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202421369349304932_public.xml
+aum_inbound_line,A2,RAYMOND JAMES CHARITABLE ENDOWMENT FUND,2024,line_593652538_5842,31500,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""GENERAL SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202520499349301607_public.xml
+aum_inbound_line,A2,THE NEW YORK COMMUNITY TRUST,2023,line_133062214_59,30000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""FOR PROGRAM SUPPORT."", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202443179349309079_public.xml
+aum_inbound_line,A2,CALIFORNIA COMMUNITY FOUNDATION,2024,line_953510055_1018,30000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""PHILANTHROPIC ACTIVITY"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202531359349303988_public.xml
+aum_inbound_line,A2,Greater Kansas City Community Foundation,2024,line_431152398_62,29335,usd,"{""filed_name"": ""Amalgamated Charitable Foundation Inc"", ""purpose"": ""Public, Societal Benefit"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202533189349314033_public.xml
+aum_inbound_line,A2,Boston Foundation Inc,2024,line_042104021_51,28750,usd,"{""filed_name"": ""Amalgamated Charitable Foundation Inc"", ""purpose"": ""Operating Support/Annual Fund"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202531329349304083_public.xml
+aum_inbound_line,A2,The Chicago Community Trust,2023,line_362167000_2065,25000,usd,"{""filed_name"": ""Amalgamated Charitable Foundation Inc"", ""purpose"": ""The Emergent Fund"", ""evidence_class"": ""purpose_named_fund"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202442279349302684_public.xml
+aum_inbound_line,A2,THE NEW YORK COMMUNITY TRUST,2024,line_133062214_62,20000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""FOR PROGRAM SUPPORT."", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202523149349305672_public.xml
+aum_inbound_line,A2,RAYMOND JAMES CHARITABLE ENDOWMENT FUND,2023,line_593652538_3412,17000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""GENERAL SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202430469349302713_public.xml
+aum_inbound_line,A2,IMPACTASSETSINC,2023,line_262048480_1652,15000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC FBO MISSOURI DEMOCRACY EDUCATION FUND"", ""purpose"": ""GENERAL SUPPORT"", ""evidence_class"": ""project_style_fbo"", ""fbo_detection"": true, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202443189349305024_public.xml
+aum_inbound_line,A2,IMPACTASSETSINC,2023,line_262048480_1675,15000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC FBO WAY TO RISE"", ""purpose"": ""GENERAL SUPPORT"", ""evidence_class"": ""project_style_fbo"", ""fbo_detection"": true, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202443189349305024_public.xml
+aum_inbound_line,A2,T ROWE PRICE PROGRAM FOR CHARITABLE,2023,line_311709466_53,15000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""MULTIPLE"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202321949349300147_public.xml
+aum_inbound_line,A2,MORGAN STANLEY GLOBAL IMPACT FUNDING TRUST INC,2024,line_527082731_6100,15000,usd,"{""filed_name"": ""Amalgamated Foundation"", ""purpose"": ""UNRESTRICTED GENERAL SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503239349300435_public.xml
+aum_inbound_line,A2,THE NEW YORK COMMUNITY TRUST,2024,line_133062214_61,10000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""FOR PROGRAM SUPPORT."", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202523149349305672_public.xml
+aum_inbound_line,A2,THE COMMUNITY FOUNDATION FOR GREATER,2024,line_581344646_1038,10000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""INTERNATIONAL FOREIGN AFFAIRS"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202523219349322912_public.xml
+aum_inbound_line,A2,IMPACTASSETSINC,2024,line_262048480_2421,8000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION INC"", ""purpose"": ""GENERAL SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202543169349307999_public.xml
+aum_inbound_line,A2,THE US CHARITABLE GIFT TRUST,2024,line_311663020_171,8000,usd,"{""filed_name"": ""Amalgamated Charitable Foundation Inc"", ""purpose"": ""FOR RECIPIENT'S EXEMPT PURPOSE"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202533189349305673_public.xml
+aum_inbound_line,A2,SEATTLE FOUNDATION,2024,line_916013536_128,8000,usd,"{""filed_name"": ""AMALGAMATED CHARITABLE FOUNDATION"", ""purpose"": ""TO PROVIDE GENERAL SUPPORT"", ""evidence_class"": ""generic"", ""fbo_detection"": false, ""d2d"": false, ""refined_flags"": """", ""purpose_via"": ""local""}",F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202503189349315665_public.xml
+aum_inbound_summary,A2,aum,2023-2024,lines,58,count,,C,
+aum_inbound_summary,A2,aum,2023-2024,usd,58033863,usd,,C,
+aum_inbound_summary,A2,aum,2023-2024,sponsors,24,count,,C,
+aum_inbound_summary,A2,aum,2023-2024,explicit_non_daf_usd,3674348,usd,,C,
+aum_inbound_summary,A2,aum,2023-2024,generic_usd,54259515,usd,,C,
+aum_inbound_by_class,A2,generic,2023-2024,lines|usd,38|54259515,count|usd,,C,
+aum_inbound_by_class,A2,project_style_fbo,2023-2024,lines|usd,7|1055000,count|usd,,C,
+aum_inbound_by_class,A2,purpose_daf,2023-2024,lines|usd,2|100000,count|usd,,C,
+aum_inbound_by_class,A2,purpose_fiscal_sponsorship,2023-2024,lines|usd,1|1000000,count|usd,,C,
+aum_inbound_by_class,A2,purpose_named_fund,2023-2024,lines|usd,10|1619348,count|usd,,C,
+aum_inbound_by_sponsor,A2,GS DONOR ADVISED PHILANTHROPY FUND,2023-2024,lines|usd,2|19559700,count|usd,,C,
+aum_inbound_by_sponsor,A2,FIDELITY INVESTMENTS CHARITABLE GIFT FUND,2023-2024,lines|usd,2|13349491,count|usd,,C,
+aum_inbound_by_sponsor,A2,Silicon Valley Community Foundation,2023-2024,lines|usd,2|8633700,count|usd,,C,
+aum_inbound_by_sponsor,A2,NATIONAL PHILANTHROPIC TRUST,2023-2024,lines|usd,2|3850531,count|usd,,C,
+aum_inbound_by_sponsor,A2,DONOR ADVISED CHARITABLE GIVING INC,2023-2024,lines|usd,2|3257474,count|usd,,C,
+aum_inbound_by_sponsor,A2,GREATER HOUSTON COMMUNITY FOUNDATION,2023-2024,lines|usd,2|2161856,count|usd,,C,
+aum_inbound_by_sponsor,A2,IMPACTASSETSINC,2023-2024,lines|usd,10|1865695,count|usd,,C,
+aum_inbound_by_sponsor,A2,SEATTLE FOUNDATION,2023-2024,lines|usd,6|1742653,count|usd,,C,
+aum_inbound_by_sponsor,A2,THE NEW YORK COMMUNITY TRUST,2023-2024,lines|usd,4|1088160,count|usd,,C,
+aum_inbound_by_sponsor,A2,VANGUARD CHARITABLE ENDOWMENT PROGRAM,2023-2024,lines|usd,2|776539,count|usd,,C,
+aum_inbound_by_sponsor,A2,MORGAN STANLEY GLOBAL IMPACT FUNDING TRUST INC,2023-2024,lines|usd,4|323000,count|usd,,C,
+aum_inbound_by_sponsor,A2,THE SAN FRANCISCO FOUNDATION,2023-2024,lines|usd,2|302500,count|usd,,C,
+aum_inbound_by_sponsor,A2,SAINT PAUL & MINNESOTA FOUNDATION,2023-2024,lines|usd,1|300000,count|usd,,C,
+aum_inbound_by_sponsor,A2,AMERICAN ENDOWMENT FOUNDATION,2023-2024,lines|usd,2|277500,count|usd,,C,
+aum_inbound_by_sponsor,A2,MARIN COMMUNITY FOUNDATION,2023-2024,lines|usd,2|150479,count|usd,,C,
+aum_inbound_by_sponsor,A2,Boston Foundation Inc,2023-2024,lines|usd,3|128750,count|usd,,C,
+aum_inbound_by_sponsor,A2,THE SAN DIEGO FOUNDATION,2023-2024,lines|usd,2|100000,count|usd,,C,
+aum_inbound_by_sponsor,A2,RAYMOND JAMES CHARITABLE ENDOWMENT FUND,2023-2024,lines|usd,2|48500,count|usd,,C,
+aum_inbound_by_sponsor,A2,CALIFORNIA COMMUNITY FOUNDATION,2023-2024,lines|usd,1|30000,count|usd,,C,
+aum_inbound_by_sponsor,A2,Greater Kansas City Community Foundation,2023-2024,lines|usd,1|29335,count|usd,,C,
+aum_inbound_by_sponsor,A2,The Chicago Community Trust,2023-2024,lines|usd,1|25000,count|usd,,C,
+aum_inbound_by_sponsor,A2,T ROWE PRICE PROGRAM FOR CHARITABLE,2023-2024,lines|usd,1|15000,count|usd,,C,
+aum_inbound_by_sponsor,A2,THE COMMUNITY FOUNDATION FOR GREATER,2023-2024,lines|usd,1|10000,count|usd,,C,
+aum_inbound_by_sponsor,A2,THE US CHARITABLE GIFT TRUST,2023-2024,lines|usd,1|8000,count|usd,,C,
+aum_apportion,A3,aum,2023-2024,daf_attributable_usd__daf_share_assets,12114572,usd,"non-DAF remainder 45,919,291; generic lines only: DAF 11,328,741",C,
+aum_apportion,A3,aum,2023-2024,daf_attributable_usd__daf_share_contributions,44082463,usd,"non-DAF remainder 13,951,400; generic lines only: DAF 41,433,147",C,
+aum_apportion,A3,aum,2023-2024,daf_attributable_usd__daf_share_grants,47593379,usd,"non-DAF remainder 10,440,484; generic lines only: DAF 44,679,019",C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__denom_lines,608610,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__denom_usd,92723962321,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__fiscal_sponsor_name_lines,2682,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__fiscal_sponsor_name_usd,1799848564,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__fiscal_sponsor_name_count_share,0.004407,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__fiscal_sponsor_name_usd_share,0.019411,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__any_core_lines,47228,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__any_core_usd,10765572891,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__any_core_count_share,0.0776,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__any_core_usd_share,0.116103,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__any_lines,150898,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__any_usd,18405355822,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__any_count_share,0.247939,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__any_usd_share,0.198496,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__any_count_share_ex_d2d,0.249996,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__any_usd_share_ex_d2d,0.22739,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,R_refined_as_published__d2d_usd,12732380782,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__denom_lines,337139,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__denom_usd,49140476155,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__fiscal_sponsor_name_lines,820,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__fiscal_sponsor_name_usd,1009062057,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__fiscal_sponsor_name_count_share,0.002432,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__fiscal_sponsor_name_usd_share,0.020534,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__any_core_lines,25455,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__any_core_usd,5216475463,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__any_core_count_share,0.075503,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__any_core_usd_share,0.106154,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__any_lines,93694,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__any_usd,8845988178,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__any_count_share,0.277909,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__any_usd_share,0.180014,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__any_count_share_ex_d2d,0.279916,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__any_usd_share_ex_d2d,0.201606,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,R_refined_as_published__d2d_usd,5920231720,usd,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__denom_lines,466751,count,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__denom_usd,62292283267,usd,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__fiscal_sponsor_name_lines,1506,count,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__fiscal_sponsor_name_usd,1300714061,usd,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__fiscal_sponsor_name_count_share,0.003227,share,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__fiscal_sponsor_name_usd_share,0.020881,share,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__any_core_lines,34018,count,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__any_core_usd,6535632235,usd,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__any_core_count_share,0.072883,share,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__any_core_usd_share,0.104919,share,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__any_lines,121815,count,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__any_usd,11025861452,usd,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__any_count_share,0.260985,share,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__any_usd_share,0.177002,share,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__any_count_share_ex_d2d,0.263143,share,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__any_usd_share_ex_d2d,0.200482,share,,C,
+proxy_scenario,A4,national,2023-2024,R_refined_as_published__d2d_usd,8040144106,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__denom_lines,83267,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__denom_usd,18722450236,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__fiscal_sponsor_name_lines,987,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__fiscal_sponsor_name_usd,313057230,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__fiscal_sponsor_name_count_share,0.011853,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__fiscal_sponsor_name_usd_share,0.016721,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__any_core_lines,7818,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__any_core_usd,3152598340,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__any_core_count_share,0.093891,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__any_core_usd_share,0.168386,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__any_lines,14875,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__any_usd,5479767068,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__any_count_share,0.178642,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__any_usd_share,0.292684,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__any_count_share_ex_d2d,0.180302,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__any_usd_share_ex_d2d,0.336913,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,R_refined_as_published__d2d_usd,2593441817,usd,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__denom_lines,56068,count,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__denom_usd,9182082549,usd,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__fiscal_sponsor_name_lines,179,count,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__fiscal_sponsor_name_usd,185435773,usd,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__fiscal_sponsor_name_count_share,0.003193,share,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__fiscal_sponsor_name_usd_share,0.020195,share,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__any_core_lines,4699,count,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__any_core_usd,937245287,usd,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__any_core_count_share,0.083809,share,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__any_core_usd_share,0.102073,share,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__any_lines,13438,count,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__any_usd,1727732275,usd,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__any_count_share,0.239673,share,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__any_usd_share,0.188163,share,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__any_count_share_ex_d2d,0.240981,share,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__any_usd_share_ex_d2d,0.212347,share,,C,
+proxy_scenario,A4,faith,2023-2024,R_refined_as_published__d2d_usd,1144974784,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__denom_lines,608610,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__denom_usd,92723962321,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__fiscal_sponsor_name_lines,2872,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__fiscal_sponsor_name_usd,1914441439,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__fiscal_sponsor_name_count_share,0.004719,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__fiscal_sponsor_name_usd_share,0.020647,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__any_core_lines,47406,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__any_core_usd,10874416666,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__any_core_count_share,0.077892,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__any_core_usd_share,0.117277,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__any_lines,151076,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__any_usd,18514199597,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__any_count_share,0.248231,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__any_usd_share,0.19967,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__any_count_share_ex_d2d,0.250292,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__any_usd_share_ex_d2d,0.228751,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S0_published_de_facto__d2d_usd,12732380782,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__denom_lines,337139,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__denom_usd,49140476155,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__fiscal_sponsor_name_lines,860,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__fiscal_sponsor_name_usd,1058790645,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__fiscal_sponsor_name_count_share,0.002551,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__fiscal_sponsor_name_usd_share,0.021546,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__any_core_lines,25491,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__any_core_usd,5265345451,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__any_core_count_share,0.07561,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__any_core_usd_share,0.107149,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__any_lines,93730,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__any_usd,8894858166,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__any_count_share,0.278016,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__any_usd_share,0.181009,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__any_count_share_ex_d2d,0.280023,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__any_usd_share_ex_d2d,0.202737,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S0_published_de_facto__d2d_usd,5920231720,usd,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__denom_lines,466751,count,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__denom_usd,62292283267,usd,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__fiscal_sponsor_name_lines,1632,count,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__fiscal_sponsor_name_usd,1396681964,usd,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__fiscal_sponsor_name_count_share,0.003497,share,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__fiscal_sponsor_name_usd_share,0.022421,share,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__any_core_lines,34135,count,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__any_core_usd,6626309038,usd,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__any_core_count_share,0.073133,share,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__any_core_usd_share,0.106374,share,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__any_lines,121932,count,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__any_usd,11116538255,usd,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__any_count_share,0.261236,share,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__any_usd_share,0.178458,share,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__any_count_share_ex_d2d,0.263396,share,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__any_usd_share_ex_d2d,0.202153,share,,C,
+proxy_scenario,A4,national,2023-2024,S0_published_de_facto__d2d_usd,8040144106,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__denom_lines,83267,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__denom_usd,18722450236,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__fiscal_sponsor_name_lines,1046,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__fiscal_sponsor_name_usd,331616264,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__fiscal_sponsor_name_count_share,0.012562,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__fiscal_sponsor_name_usd_share,0.017712,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__any_core_lines,7874,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__any_core_usd,3170699374,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__any_core_count_share,0.094563,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__any_core_usd_share,0.169353,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__any_lines,14931,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__any_usd,5497868102,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__any_count_share,0.179315,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__any_usd_share,0.293651,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__any_count_share_ex_d2d,0.180983,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__any_usd_share_ex_d2d,0.338035,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S0_published_de_facto__d2d_usd,2593441817,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__denom_lines,56068,count,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__denom_usd,9182082549,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__fiscal_sponsor_name_lines,184,count,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__fiscal_sponsor_name_usd,185501711,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__fiscal_sponsor_name_count_share,0.003282,share,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__fiscal_sponsor_name_usd_share,0.020203,share,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__any_core_lines,4704,count,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__any_core_usd,937311225,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__any_core_count_share,0.083898,share,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__any_core_usd_share,0.10208,share,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__any_lines,13443,count,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__any_usd,1727798213,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__any_count_share,0.239762,share,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__any_usd_share,0.188171,share,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__any_count_share_ex_d2d,0.24107,share,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__any_usd_share_ex_d2d,0.212356,share,,C,
+proxy_scenario,A4,faith,2023-2024,S0_published_de_facto__d2d_usd,1144974784,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__denom_lines,608610,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__denom_usd,92723962321,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__fiscal_sponsor_name_lines,2814,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__fiscal_sponsor_name_usd,1856407576,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__fiscal_sponsor_name_count_share,0.004624,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__fiscal_sponsor_name_usd_share,0.020021,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__any_core_lines,47348,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__any_core_usd,10816382803,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__any_core_count_share,0.077797,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__any_core_usd_share,0.116651,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__any_lines,151018,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__any_usd,18456165734,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__any_count_share,0.248136,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__any_usd_share,0.199044,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__any_count_share_ex_d2d,0.250195,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__any_usd_share_ex_d2d,0.228025,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S1_aum_dropped__d2d_usd,12732380782,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__denom_lines,337139,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__denom_usd,49140476155,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__fiscal_sponsor_name_lines,852,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__fiscal_sponsor_name_usd,1037556610,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__fiscal_sponsor_name_count_share,0.002527,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__fiscal_sponsor_name_usd_share,0.021114,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__any_core_lines,25483,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__any_core_usd,5244111416,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__any_core_count_share,0.075586,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__any_core_usd_share,0.106717,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__any_lines,93722,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__any_usd,8873624131,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__any_count_share,0.277992,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__any_usd_share,0.180577,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__any_count_share_ex_d2d,0.28,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__any_usd_share_ex_d2d,0.202246,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S1_aum_dropped__d2d_usd,5920231720,usd,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__denom_lines,466751,count,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__denom_usd,62292283267,usd,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__fiscal_sponsor_name_lines,1602,count,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__fiscal_sponsor_name_usd,1353350534,usd,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__fiscal_sponsor_name_count_share,0.003432,share,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__fiscal_sponsor_name_usd_share,0.021726,share,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__any_core_lines,34105,count,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__any_core_usd,6582977608,usd,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__any_core_count_share,0.073069,share,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__any_core_usd_share,0.105679,share,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__any_lines,121902,count,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__any_usd,11073206825,usd,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__any_count_share,0.261171,share,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__any_usd_share,0.177762,share,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__any_count_share_ex_d2d,0.263332,share,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__any_usd_share_ex_d2d,0.201355,share,,C,
+proxy_scenario,A4,national,2023-2024,S1_aum_dropped__d2d_usd,8040144106,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__denom_lines,83267,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__denom_usd,18722450236,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__fiscal_sponsor_name_lines,1018,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__fiscal_sponsor_name_usd,316913831,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__fiscal_sponsor_name_count_share,0.012226,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__fiscal_sponsor_name_usd_share,0.016927,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__any_core_lines,7846,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__any_core_usd,3155996941,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__any_core_count_share,0.094227,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__any_core_usd_share,0.168568,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__any_lines,14903,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__any_usd,5483165669,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__any_count_share,0.178978,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__any_usd_share,0.292866,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__any_count_share_ex_d2d,0.180642,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__any_usd_share_ex_d2d,0.337124,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S1_aum_dropped__d2d_usd,2593441817,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__denom_lines,56068,count,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__denom_usd,9182082549,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__fiscal_sponsor_name_lines,184,count,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__fiscal_sponsor_name_usd,185501711,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__fiscal_sponsor_name_count_share,0.003282,share,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__fiscal_sponsor_name_usd_share,0.020203,share,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__any_core_lines,4704,count,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__any_core_usd,937311225,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__any_core_count_share,0.083898,share,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__any_core_usd_share,0.10208,share,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__any_lines,13443,count,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__any_usd,1727798213,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__any_count_share,0.239762,share,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__any_usd_share,0.188171,share,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__any_count_share_ex_d2d,0.24107,share,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__any_usd_share_ex_d2d,0.212356,share,,C,
+proxy_scenario,A4,faith,2023-2024,S1_aum_dropped__d2d_usd,1144974784,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__denom_lines,608610,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__denom_usd,92723962321,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_lines,2814,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_usd,1856407576,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_count_share,0.004624,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_usd_share,0.020021,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__any_core_lines,47348,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__any_core_usd,10816382803,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__any_core_count_share,0.077797,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__any_core_usd_share,0.116651,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__any_lines,151018,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__any_usd,18456165734,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__any_count_share,0.248136,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__any_usd_share,0.199044,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__any_count_share_ex_d2d,0.25022,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__any_usd_share_ex_d2d,0.228191,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S2_aum_whitelisted_dropped__d2d_usd,12790414645,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__denom_lines,337139,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__denom_usd,49140476155,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_lines,852,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_usd,1037556610,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_count_share,0.002527,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_usd_share,0.021114,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__any_core_lines,25483,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__any_core_usd,5244111416,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__any_core_count_share,0.075586,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__any_core_usd_share,0.106717,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__any_lines,93722,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__any_usd,8873624131,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__any_count_share,0.277992,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__any_usd_share,0.180577,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__any_count_share_ex_d2d,0.280006,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__any_usd_share_ex_d2d,0.202345,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S2_aum_whitelisted_dropped__d2d_usd,5941465755,usd,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__denom_lines,466751,count,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__denom_usd,62292283267,usd,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_lines,1602,count,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_usd,1353350534,usd,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_count_share,0.003432,share,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_usd_share,0.021726,share,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__any_core_lines,34105,count,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__any_core_usd,6582977608,usd,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__any_core_count_share,0.073069,share,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__any_core_usd_share,0.105679,share,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__any_lines,121902,count,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__any_usd,11073206825,usd,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__any_count_share,0.261171,share,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__any_usd_share,0.177762,share,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__any_count_share_ex_d2d,0.263349,share,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__any_usd_share_ex_d2d,0.201515,share,,C,
+proxy_scenario,A4,national,2023-2024,S2_aum_whitelisted_dropped__d2d_usd,8083475536,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__denom_lines,83267,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__denom_usd,18722450236,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_lines,1018,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_usd,316913831,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_count_share,0.012226,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_usd_share,0.016927,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__any_core_lines,7846,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__any_core_usd,3155996941,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__any_core_count_share,0.094227,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__any_core_usd_share,0.168568,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__any_lines,14903,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__any_usd,5483165669,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__any_count_share,0.178978,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__any_usd_share,0.292866,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__any_count_share_ex_d2d,0.180704,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__any_usd_share_ex_d2d,0.337431,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S2_aum_whitelisted_dropped__d2d_usd,2608144250,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__denom_lines,56068,count,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__denom_usd,9182082549,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_lines,184,count,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_usd,185501711,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_count_share,0.003282,share,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__fiscal_sponsor_name_usd_share,0.020203,share,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__any_core_lines,4704,count,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__any_core_usd,937311225,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__any_core_count_share,0.083898,share,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__any_core_usd_share,0.10208,share,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__any_lines,13443,count,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__any_usd,1727798213,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__any_count_share,0.239762,share,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__any_usd_share,0.188171,share,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__any_count_share_ex_d2d,0.24107,share,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__any_usd_share_ex_d2d,0.212356,share,,C,
+proxy_scenario,A4,faith,2023-2024,S2_aum_whitelisted_dropped__d2d_usd,1144974784,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__denom_lines,608610,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__denom_usd,92723962321,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_lines,2872,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_usd,1914441439,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_count_share,0.004719,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_usd_share,0.020647,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__any_core_lines,47406,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__any_core_usd,10874416666,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__any_core_count_share,0.077892,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__any_core_usd_share,0.117277,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__any_lines,151076,count,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__any_usd,18514199597,usd,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__any_count_share,0.248231,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__any_usd_share,0.19967,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__any_count_share_ex_d2d,0.25022,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__any_usd_share_ex_d2d,0.228191,share,,C,
+proxy_scenario,A4,all_top50_itemising,2023-2024,S3_aum_whitelisted_kept__d2d_usd,12790414645,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__denom_lines,337139,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__denom_usd,49140476155,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_lines,860,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_usd,1058790645,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_count_share,0.002551,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_usd_share,0.021546,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__any_core_lines,25491,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__any_core_usd,5265345451,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__any_core_count_share,0.07561,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__any_core_usd_share,0.107149,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__any_lines,93730,count,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__any_usd,8894858166,usd,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__any_count_share,0.278016,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__any_usd_share,0.181009,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__any_count_share_ex_d2d,0.280006,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__any_usd_share_ex_d2d,0.202345,share,,C,
+proxy_scenario,A4,big4_nationals,2023-2024,S3_aum_whitelisted_kept__d2d_usd,5941465755,usd,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__denom_lines,466751,count,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__denom_usd,62292283267,usd,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_lines,1632,count,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_usd,1396681964,usd,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_count_share,0.003497,share,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_usd_share,0.022421,share,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__any_core_lines,34135,count,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__any_core_usd,6626309038,usd,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__any_core_count_share,0.073133,share,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__any_core_usd_share,0.106374,share,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__any_lines,121932,count,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__any_usd,11116538255,usd,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__any_count_share,0.261236,share,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__any_usd_share,0.178458,share,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__any_count_share_ex_d2d,0.263349,share,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__any_usd_share_ex_d2d,0.201515,share,,C,
+proxy_scenario,A4,national,2023-2024,S3_aum_whitelisted_kept__d2d_usd,8083475536,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__denom_lines,83267,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__denom_usd,18722450236,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_lines,1046,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_usd,331616264,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_count_share,0.012562,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_usd_share,0.017712,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__any_core_lines,7874,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__any_core_usd,3170699374,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__any_core_count_share,0.094563,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__any_core_usd_share,0.169353,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__any_lines,14931,count,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__any_usd,5497868102,usd,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__any_count_share,0.179315,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__any_usd_share,0.293651,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__any_count_share_ex_d2d,0.180704,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__any_usd_share_ex_d2d,0.337431,share,,C,
+proxy_scenario,A4,community_foundation,2023-2024,S3_aum_whitelisted_kept__d2d_usd,2608144250,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__denom_lines,56068,count,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__denom_usd,9182082549,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_lines,184,count,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_usd,185501711,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_count_share,0.003282,share,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__fiscal_sponsor_name_usd_share,0.020203,share,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__any_core_lines,4704,count,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__any_core_usd,937311225,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__any_core_count_share,0.083898,share,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__any_core_usd_share,0.10208,share,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__any_lines,13443,count,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__any_usd,1727798213,usd,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__any_count_share,0.239762,share,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__any_usd_share,0.188171,share,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__any_count_share_ex_d2d,0.24107,share,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__any_usd_share_ex_d2d,0.212356,share,,C,
+proxy_scenario,A4,faith,2023-2024,S3_aum_whitelisted_kept__d2d_usd,1144974784,usd,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,published_5_hosts__eins,5,count,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,published_5_hosts__lines,190,count,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,published_5_hosts__usd,114592875,usd,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,ex_aum_4_hosts__eins,4,count,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,ex_aum_4_hosts__lines,132,count,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,ex_aum_4_hosts__usd,56559012,usd,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,aum_only__eins,1,count,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,aum_only__lines,58,count,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,aum_only__usd,58033863,usd,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_assets__fs_addition_usd,102478303,usd,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_assets__fs_addition_share_of_proxy_denom,0.001105,share,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_assets__d2d_usd,12744495354,usd,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_assets__d2d_share_of_sched_i_usd,0.140346,share,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_contributions__fs_addition_usd,70510412,usd,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_contributions__fs_addition_share_of_proxy_denom,0.00076,share,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_contributions__d2d_usd,12776463245,usd,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_contributions__d2d_share_of_sched_i_usd,0.140698,share,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_grants__fs_addition_usd,66999496,usd,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_grants__fs_addition_share_of_proxy_denom,0.000723,share,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_grants__d2d_usd,12779974161,usd,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,apportioned__daf_share_grants__d2d_share_of_sched_i_usd,0.140736,share,4 other hosts in full + AUM non-DAF remainder; DAF part moved to DAF-to-DAF,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,published_5_hosts__share_of_proxy_denom,0.001236,share,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,ex_aum_4_hosts__share_of_proxy_denom,0.00061,share,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,sched_i_usd,90807817498,usd,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,d2d_share_of_sched_i_usd__base,0.140212,share,,C,
+de_facto_addition,A4,all_top50_itemising,2023-2024,d2d_share_of_sched_i_usd__aum_whitelisted,0.140851,share,,C,
+npt_sched_f,B,npt,2025,lines,560,count,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+npt_sched_f,B,npt,2025,usd,310238950,usd,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+npt_sched_f,B,npt,2025,europe_lines,411,count,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+npt_sched_f,B,npt,2025,europe_usd,154427213,usd,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+npt_sched_f,B,npt,2025,largest,"$39,100,000 EUROPE (INCLUDING ICELAND AND GREENLAND) / ENVIRONMENT, ANIMALS / WIRE TRANSFER; $16,770,000 MIDDLE EAST AND NORTH AFRICA / PUBLIC, SOCIETAL BENEFIT / WIRE TRANSFER; $12,080,347 EUROPE (INCLUDING ICELAND AND GREENLAND) / PUBLIC, SOCIETAL BENEFIT / WIRE TRANSFER",text,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+npt_sched_f,B,npt,2025,line_found,1,count,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+npt_sched_f,B,npt,2025,line_detail,"EUROPE (INCLUDING ICELAND AND GREENLAND) | ENVIRONMENT, ANIMALS | WIRE TRANSFER | 39,100,000",text,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+npt_sched_f,B,npt,2025,l3,310506570,usd,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+npt_sched_f,B,npt,2024,lines,488,count,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+npt_sched_f,B,npt,2024,usd,410303258,usd,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+npt_sched_f,B,npt,2024,europe_lines,332,count,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+npt_sched_f,B,npt,2024,europe_usd,161222772,usd,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+npt_sched_f,B,npt,2024,largest,"$36,000,000 MIDDLE EAST AND NORTH AFRICA /  / EDUCATION; $25,000,000 EUROPE /  / INTERNATIONAL; $22,026,748 LATIN AMERICA AND CARIBBEAN /  / EDUCATION",text,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+npt_sched_f,B,npt,2024,line_found,0,count,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+npt_sched_f,B,npt,2024,line_detail,,text,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+npt_sched_f,B,npt,2024,l3,410629568,usd,,F/C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202511339349301311_public.xml
+npt_sched_f,B,npt,2025,candidate_share_of_l3,0.125923,share,$39.1m / FY2025 Part IX line 3,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+foreign_totals,B,all_top50,2024,sponsors,50,count,top-50; FY2024 returns as in the 2023-2024 CSV,F/C,
+foreign_totals,B,all_top50,2024,part_ix_l3_foreign_usd,1060331109,usd,"unchanged; the $39.1m line is FY2025, not FY2024",F/C,
+foreign_totals,B,all_top50,2024,part_ix_l3_foreign_usd_ex_candidate,1060331109,usd,identical: line not in FY2024,F/C,
+foreign_totals,B,all_top50,2024,sched_f_part2_usd,1059864447,usd,,F/C,
+foreign_totals,B,all_top50,2024,total_grants_usd,54190691611,usd,,F/C,
+foreign_totals,B,all_top50,2024,foreign_share_of_grants,0.019567,share,,F/C,
+foreign_totals,B,top50_with_fy2025_return,2025,sponsors,21,count,24 of 50 top-50 sponsors have a FY2025 Form 990 in the TEOS index (2025-2026),C,
+foreign_totals,B,top50_with_fy2025_return,2025,sponsor_eins,010679337;042103559;110303001;141782466;232888152;237174183;237825575;311640316;311709466;362167000;411802412;416029402;416031510;431890105;581723645;593001853;593652538;941156365;943007979;952942582;953510055,text,,C,
+foreign_totals,B,top50_with_fy2025_return,2025,part_ix_l3_foreign_usd,678845354,usd,with the $39.1m NPT line,C,
+foreign_totals,B,top50_with_fy2025_return,2025,part_ix_l3_foreign_usd_ex_candidate,639745354,usd,without it,C,
+foreign_totals,B,top50_with_fy2025_return,2025,candidate_share_of_l3,0.057598,share,,C,
+foreign_totals,B,top50_with_fy2025_return,2025,sched_f_part2_usd,676416893,usd,with,C,
+foreign_totals,B,top50_with_fy2025_return,2025,sched_f_part2_usd_ex_candidate,637316893,usd,without,C,
+foreign_totals,B,top50_with_fy2025_return,2025,total_grants_usd,41201986756,usd,Part IX lines 1-3,C,
+foreign_totals,B,top50_with_fy2025_return,2025,foreign_share_of_grants,0.016476,share,with,C,
+foreign_totals,B,top50_with_fy2025_return,2025,foreign_share_of_grants_ex_candidate,0.015542,share,without (line removed from numerator and denominator),C,
+foreign_totals,B,top50_with_fy2025_return,2025,same_sponsors_fy2024_part_ix_l3_usd,726036764,usd,"the same sponsors' FY2024 line 3, for growth",C,
+foreign_totals,B,all_top50_latest_available,2025|2024,part_ix_l3_foreign_usd,1013139699,usd,"FY2025 for 21 sponsors, FY2024 for the rest",C,
+foreign_totals,B,all_top50_latest_available,2025|2024,part_ix_l3_foreign_usd_ex_candidate,974039699,usd,without the $39.1m line,C,
+foreign_totals,B,all_top50_latest_available,2025|2024,candidate_share_of_l3,0.038593,share,,C,
+foreign_totals,B,all_top50_latest_available,2025|2024,sched_f_part2_usd,1011627122,usd,with,C,
+foreign_totals,B,all_top50_latest_available,2025|2024,sched_f_part2_usd_ex_candidate,972527122,usd,without,C,
+foreign_totals,B,all_top50_latest_available,2025|2024,total_grants_usd,60812051727,usd,,C,
+foreign_totals,B,all_top50_latest_available,2025|2024,foreign_share_of_grants,0.01666,share,with,C,
+foreign_totals,B,all_top50_latest_available,2025|2024,foreign_share_of_grants_ex_candidate,0.016028,share,without,C,
+foreign_fy2025_sponsor,B,110303001,2025,l3|part2|total_grants|fy2024_l3,73166269|73129469|15307491635|71768725,usd,rank 1; tax period 202506; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601389349301700_public.xml
+foreign_fy2025_sponsor,B,237825575,2025,l3|part2|total_grants|fy2024_l3,310506570|310238950|6415072479|410629568,usd,rank 2; tax period 202506; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601289349302480_public.xml
+foreign_fy2025_sponsor,B,311640316,2025,l3|part2|total_grants|fy2024_l3,108766735|108749235|8872852963|59390986,usd,rank 3; tax period 202506; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202611199349300601_public.xml
+foreign_fy2025_sponsor,B,232888152,2025,l3|part2|total_grants|fy2024_l3,4179293|4140323|3503325979|9858159,usd,rank 4; tax period 202506; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202621329349306657_public.xml
+foreign_fy2025_sponsor,B,362167000,2025,l3|part2|total_grants|fy2024_l3,7952000|7947000|1225337518|56837000,usd,rank 12; tax period 202509; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202632239349302058_public.xml
+foreign_fy2025_sponsor,B,237174183,2025,l3|part2|total_grants|fy2024_l3,96647950|96638062|1023406196|63556392,usd,rank 15; tax period 202506; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202640629349300234_public.xml
+foreign_fy2025_sponsor,B,042103559,2025,l3|part2|total_grants|fy2024_l3,505000|500000|274430983|410180,usd,rank 19; tax period 202506; via mirror,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202621249349302197_public.xml
+foreign_fy2025_sponsor,B,593652538,2025,l3|part2|total_grants|fy2024_l3,11300|11000|462100088|200,usd,rank 20; tax period 202503; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202630489349300743_public.xml
+foreign_fy2025_sponsor,B,141782466,2025,l3|part2|total_grants|fy2024_l3,43650|31650|1311125481|47400,usd,rank 21; tax period 202506; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202621349349304192_public.xml
+foreign_fy2025_sponsor,B,953510055,2025,l3|part2|total_grants|fy2024_l3,5315090|5315090|336983147|3065626,usd,rank 28; tax period 202506; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202611339349307766_public.xml
+foreign_fy2025_sponsor,B,431890105,2025,l3|part2|total_grants|fy2024_l3,0|0|329753179|0,usd,rank 30; tax period 202503; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202600439349302250_public.xml
+foreign_fy2025_sponsor,B,943007979,2025,l3|part2|total_grants|fy2024_l3,53836913|53817663|238833857|34518898,usd,rank 34; tax period 202506; via mirror,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202621299349300222_public.xml
+foreign_fy2025_sponsor,B,952942582,2025,l3|part2|total_grants|fy2024_l3,657000|657000|98736561|507000,usd,rank 39; tax period 202506; via mirror,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601339349305635_public.xml
+foreign_fy2025_sponsor,B,581723645,2025,l3|part2|total_grants|fy2024_l3,0|0|137494744|0,usd,rank 40; tax period 202504; via mirror,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202523009349302062_public.xml
+foreign_fy2025_sponsor,B,941156365,2025,l3|part2|total_grants|fy2024_l3,16879920|14914451|887704139|14517856,usd,rank 43; tax period 202508; via mirror,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202621979349300242_public.xml
+foreign_fy2025_sponsor,B,416029402,2025,l3|part2|total_grants|fy2024_l3,238664|188000|128958187|896054,usd,rank 45; tax period 202503; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202513299349300326_public.xml
+foreign_fy2025_sponsor,B,311709466,2025,l3|part2|total_grants|fy2024_l3,0|0|144929825|0,usd,rank 46; tax period 202503; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202501959349302200_public.xml
+foreign_fy2025_sponsor,B,411802412,2025,l3|part2|total_grants|fy2024_l3,10000|10000|111350637|0,usd,rank 47; tax period 202512; via local,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202612669349300236_public.xml
+foreign_fy2025_sponsor,B,010679337,2025,l3|part2|total_grants|fy2024_l3,129000|129000|221326768|32720,usd,rank 48; tax period 202506; via mirror,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202611329349304731_public.xml
+foreign_fy2025_sponsor,B,593001853,2025,l3|part2|total_grants|fy2024_l3,0|0|55213165|0,usd,rank 49; tax period 202506; via mirror,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202601319349305505_public.xml
+foreign_fy2025_sponsor,B,416031510,2025,l3|part2|total_grants|fy2024_l3,0|0|115559225|0,usd,rank 50; tax period 202512; via mirror,F,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202602399349301030_public.xml
+foreign_fy2025_sponsor,B,042104021,2025,status,http_404,text,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202641269349301584_public.xml
+foreign_fy2025_sponsor,B,941156533,2025,status,http_404,text,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202621349349313567_public.xml
+foreign_fy2025_sponsor,B,952250801,2025,status,http_404,text,,C,https://gt990datalake-rawdata.s3.amazonaws.com/EfileData/XmlFiles/202621339349305882_public.xml

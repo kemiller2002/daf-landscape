@@ -1,0 +1,568 @@
+Subscription and Services Agreement
+This Subscription and Services Agreement ("Agreement") is between the Bonterra entity identified in an Order
+Form ("Bonterra"), and the entity which has accepted this Agreement through a document which references this
+Agreement ("Customer"). Capitalized terms not defined elsewhere in this Agreement shall have the meaning
+given to them in the Definitions section below. This Agreement sets forth the terms and conditions that govern
+orders placed under this Agreement and is effective as of the earlier of: (a) the date signed by Customer on an
+Order Form; or (b) the date Customer or a User accepts these terms electronically (including by clicking "I agree,"
+"Sign up," or a similar in-product acknowledgment), or first accesses or uses the Services pursuant to a Self-
+Service Order (the "Effective Date").
+1. Definitions
+"Affiliate" means an entity that directly or indirectly controls, is controlled by, or is under common control with
+another entity, so long as such control exists. "Control" means beneficial ownership of fifty percent (50%) or
+more of the voting power or equity interests of an entity, or power to direct the management or policies of such
+entity. In the case of public sector agencies, an "Affiliate" means another public agency in the same jurisdiction
+as Customer (i.e., an official authority within the same city, county, or state government).
+"Customer Data" means any data, content, or materials that Customer or its Users submit to or process through
+the Subscription Services, including via Third Party Platforms.
+"Customer Materials" means materials and resources that Customer makes available to Bonterra in
+connection with Professional Services.
+"Free Services" means the Subscription Service or other products or features made available by Bonterra to
+Customer on an unpaid trial or free basis.
+"Order Form" means any Bonterra-issued ordering document, quote, or online order that references this
+Agreement and specifies the Services, applicable fees, and subscription term, and that is accepted by Customer
+(whether by signature, electronic acceptance, click-through, or other means designated by Bonterra).
+"Product Specific Terms" means the additional product-related terms that apply to Customer's use of
+Subscription Services, Consulting Services and Third-Party Products. These terms form part of the Agreement
+and can be found at https://www.bonterratech.com/legal.
+"Professional Services" means training, migration, implementation, or other professional services that
+Bonterra furnishes to Customer related to the Subscription Services.
+"Statement of Work" or "SOW" means each Bonterra-issued statement of work for Professional Services that
+references this Agreement.
+"Subscription Service" means Bonterra's web-based applications, tools and platforms subscribed to by
+Customer under an Order Form, and any ancillary products and services, including website hosting, provided by
+Bonterra to Customer, unless otherwise specified in the Product Specific Terms.
+"Subscription Term" means, collectively, the initial term of Customer's subscription to the applicable
+Subscription Service, as specified on an Order Form (the "Initial Term"); and each subsequent renewal period, if
+any (each a "Renewal Term"). "Current Term" is the then-current committed period of Subscription Services,
+as either an Initial Term or Renewal Term. For Free Services, the Subscription Term will be the period during which
+Customer has an account to access the Free Services.
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 1 of 13
+"Support Services" means the technical support services made available by Bonterra in connection with the
+Subscription Services, which may be upgraded for additional fees, as further described in the Customer Support
+SLA available at https://www.bonterratech.com/legal.
+"Third-Party Application" means any product, add-on, or platform not provided by Bonterra that Customer
+elects to use with the Subscription Services.
+"URL Terms" means the terms with which Customer must comply, which are located at a URL, referenced in this
+Agreement and are hereby incorporated by reference.
+"User" means Customer's, or its Affiliates', employees, representatives, consultants, contractors or agents who
+are authorized to use the Subscription Service for Customer's benefit and have unique user identifications and
+passwords for the Subscription Service.
+2. Services. Subject to the terms and conditions of this Agreement, Customer shall have the non-exclusive,
+worldwide, limited right to use the Subscription Service, Professional Services, and Support Services ordered by
+Customer (collectively, the "Services") during the applicable Subscription Term solely for the internal business
+operations of Customer. Customer may allow its Users to use the Services for this purpose, and Customer is
+responsible for its Users' compliance with this Agreement and Customer's applicable Order Form. The terms of
+this Agreement shall also apply to updates and upgrades subsequently provided by Bonterra to Customer for the
+Subscription Service.
+3. Orders
+3.1. Order Forms
+3.1.1. The Services shall be ordered by Customer pursuant to an Order Form. Each Order Form will include at a
+minimum a listing of the Subscription Service and any Support Services and/or Professional Services
+being ordered and the associated fees. If Customer exceeds the quantity of Services ordered, then
+Customer promptly must purchase and pay fees for the excess quantity.
+3.1.2. Customer may choose to allow any one of its Affiliates to separately order Services under this Agreement
+by entering into an Order Form or SOW, signed by such Affiliate, as applicable, and agreeing to be bound
+by the terms of this Agreement and such Order Form or SOW. For the purposes of such Order Form or
+SOW, "Customer" as used in such Order Form or SOW and this Agreement shall be deemed to refer to
+the Affiliate executing such Order Form or SOW.
+3.2. Self Service Orders. A "Self-Service Order" is formed and binding upon Customer's electronic
+acceptance of this Agreement (including by clicking "I agree," "Start free trial," "Subscribe," or similar). The
+individual accepting on Customer's behalf represents and warrants that they have authority to bind Customer.
+Customer may cancel a Self-Service Order at any time through Bonterra's self-serve account management portal
+without speaking to a sales representative or completing any steps beyond the in-product cancellation flow
+("Click-to-Cancel"). Cancellation takes effect at the end of the then-current billing period, and Customer will
+retain access to the applicable Service through the end of such period. No refunds will be issued for any unused
+portion of a prepaid billing period. Bonterra will send a cancellation confirmation to the account email address
+on file promptly upon receiving a valid cancellation request.
+4. Security and Data Protection
+4.1. Security. Bonterra shall maintain commercially reasonable administrative, physical and technical
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 2 of 13
+safeguards designed for the protection, confidentiality and integrity of Customer Data.
+4.2. Data Protection
+4.2.1. In performing the Services, Bonterra will comply with the Bonterra Privacy Notice, which is available at
+https://www.bonterratech.com/legal/privacy-policy and incorporated herein by reference. The Bonterra
+Privacy Notice is subject to change at Bonterra's discretion; however, Bonterra policy changes will not
+result in a material reduction in the level of protection provided for a Customer's Personal Data (as
+defined in Bonterra's Data Processing Agreement).
+4.2.2. Unless otherwise provided in the applicable Order Form, the version of Bonterra's Data Processing
+Agreement (the "Data Processing Agreement") applicable to Customer's Order Form, available at
+https://www.bonterratech.com/legal as of the Order Form Effective Date, is incorporated herein by
+reference and will remain in force during the Subscription Term specified in Customer's Order Form. The
+Data Processing Agreement describes the parties' respective roles for the processing and control of
+Personal Data that Customer provides to Bonterra as part of the Services. Unless otherwise provided in
+the applicable Order Form, Bonterra will act as a data processor, and will act on Customer instructions
+concerning the treatment of Customer's Personal Data residing in the services environment, as specified
+in this Agreement, the Data Processing Agreement and the applicable Order Form. Customer agrees to
+provide any notices and obtain any consents related to Customer's use of the Services and Bonterra's
+provision of the Services, including those related to the collection, use, processing, transfer and
+disclosure of Personal Data.
+5. Customer Responsibilities; Restrictions
+5.1. Cooperation and Access. Customer acknowledges that Bonterra's provision of the Services is dependent
+on Customer providing all reasonably required cooperation, and Customer will provide all such cooperation in a
+diligent and timely manner.
+5.2. User Accounts and Training. Customer is responsible for provisioning and managing its User accounts
+and for the acts and omissions of its Users (including compliance with Customer's obligations under this
+Agreement and the applicable Order Form). Customer will ensure that all Users receive sufficient training to
+enable Customer to effectively access and use the Services. To the extent any services provided by Bonterra
+require Customer's cooperation (including, but not limited to, implementation), Bonterra shall not be liable for
+delays or failures caused by Customer's failure to cooperate in a timely manner.
+5.3. Security, Systems, and Customer Content
+5.3.1. Customer will: (i) use commercially reasonable efforts to prevent unauthorized access to or use of the
+Services and notify Bonterra promptly of any such unauthorized access or use or any other known or
+suspected breach of security or misuse of any Services by Customer, Customer's employees, Users,
+agents, or other authorized third parties; (ii) be responsible for obtaining and maintaining any equipment,
+software and ancillary services needed to connect to, access or otherwise use the Services; and (iii) be
+responsible for all Customer Data, Customer Materials and other content provided by Customer or its
+Users (including their compliance with applicable law).
+5.3.2. Customer will be solely responsible for its failure to maintain such equipment, software and services,
+and Bonterra will have no liability for such failure (including under any service level agreement).
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 3 of 13
+5.3.3. Customer represents and warrants that: (i) Customer either is the sole and exclusive owner of all
+Customer Data and Customer Materials, or has all rights, licenses, consents, and releases necessary to
+grant Bonterra the rights contemplated under this Agreement; and (ii) neither Customer Data nor
+Customer Materials, nor Customer's or its Users' submission, uploading, publishing, or other
+transmission of such content through the Services, nor Bonterra's use thereof as permitted herein, will
+infringe, misappropriate, or violate any third party's intellectual property or proprietary rights, rights of
+publicity or privacy, or any applicable law or regulation.
+5.4. Data Protection Compliance. Pursuant to the Data Processing Agreement, Customer, as the Controller
+(as defined in the DPA), is responsible for compliance with applicable data protection laws as they relate to
+Customer's collection, use, and transmission of Customer Data, and for maintaining its own policies and
+procedures to ensure compliance, including with respect to the transmission of any financial, biometric, medical
+or health information or other sensitive personal data (including, without limitation, social security numbers,
+driver's license numbers, birth dates, personal bank account numbers, passport or visa numbers, and credit card
+numbers), or data relating to minors or other individuals under the legal age of consent. Nothing in this section
+limits Bonterra's obligations as a Processor (as defined in the Data Processing Agreement) expressly set forth in
+the Data Processing Agreement.
+5.5. Communications Compliance. To the extent Customer uses any Services to send or facilitate electronic
+communications, including email, SMS, or text messages, Customer represents, warrants, and covenants that:
+(i) Customer is aware of and will comply with all applicable laws relating to electronic communications, including
+the Telephone Consumer Protection Act (TCPA), the Controlling the Assault of Non-Solicited Pornography and
+Marketing Act (CAN-SPAM), Canada's Anti-Spam Legislation (CASL), and any other applicable privacy, consumer
+protection, or electronic communications laws; (ii) Customer has obtained all required consents from recipients
+prior to sending any communications through the Services; (iii) Customer will honor all unsubscribe, opt-out, and
+do-not-contact requests in accordance with applicable law; and (iv) Customer will not use the Services to send
+communications that are unlawful, deceptive, or otherwise in violation of applicable law.
+5.6. Other Restrictions. Customer will not directly or indirectly (a) reverse engineer, decompile, disassemble,
+modify, or create derivative works of any Services or otherwise attempt to create or derive the source code of any
+Services, or permit or assist any third party to do the same; (b) probe, scan, test, or otherwise attempt to identify
+vulnerabilities in Services without Bonterra's prior written authorization; (c) breach or attempt to breach the
+security or authentication measures of any Services without Bonterra's prior written authorization, or willfully
+render any part of the Services unusable; (d) use or access any Services to develop a product or service that is
+competitive with Bonterra's products or services, or to engage in competitive analysis or benchmarking; (e)
+transfer, distribute, resell, lease, license, assign, or, except as expressly permitted hereunder, make available
+any Services to any third party; (f) use any Services in violation of applicable law, including, without limitation,
+export control laws; (g) submit, and will ensure that its Users do not submit, upload, or otherwise make available
+through Services any content that is defamatory, libelous, hateful, bigoted, racist, violent, obscene, unlawful,
+violates privacy or intellectual rights, or otherwise objectionable; or (h) use the Services to harass any person or
+cause, or induce others to cause, damage or injury to any person or property. Bonterra may, but is not obligated
+to, review, monitor, or remove Customer Data or Customer Materials at its sole discretion, at any time and for
+any reason, without notice to Customer.
+5.7. Funds Disbursement Responsibilities
+5.7.1. If Customer uses any Services to disburse funds, payments, donations, or grants (collectively, "Funds
+Disbursement"), Customer is liable for all decisions and recommendations with respect to all such
+Funds Disbursements. No content or information provided by Bonterra shall be construed as a
+recommendation or advice with respect to any Funds Disbursement.
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 4 of 13
+5.7.2. If any User successfully disputes a Funds Disbursement made using a credit card (or similar payment
+method) after Bonterra has transmitted the applicable funds, Customer shall be responsible for and shall
+reimburse Bonterra for any such amount.
+6. Trust and Safety; Acceptable Use
+6.1. Trust and Safety Reviews. Bonterra reserves the right to conduct trust and safety reviews of Customer
+accounts, fundraising content, and transaction patterns at any time, including as a condition of (a) activating
+payment processing or funds disbursement capabilities for new accounts; (b) upgrading a Customer account
+from Free Services to a paid subscription tier; or (c) processing Funds Disbursements above thresholds
+established by Bonterra in its reasonable discretion. Bonterra may, in its sole discretion, delay activation of
+payment processing capabilities, place disbursement holds or require additional verification from Customer
+pending completion of a trust and safety review. Customer will provide reasonable cooperation with any such
+review, including by responding to information requests within the timeframe specified by Bonterra (which will be
+no less than five business days absent exigent circumstances). Bonterra's election to conduct, or not conduct, a
+trust and safety review of any particular account or transaction does not constitute a representation that any
+account, fundraising activity, or transaction has been validated or approved by Bonterra, and Bonterra expressly
+disclaims any such representation. Customer's use of the Services is also subject to any acceptable use policy
+that Bonterra may adopt and make available to Customer from time to time (an "AUP"). A violation of any such
+AUP constitutes a material breach of this Agreement and grounds for suspension or termination pursuant to
+Section 14 and Section 15, respectively.
+6.2. Regulatory Cooperation and Donor Notification. Customer acknowledges that Bonterra may be subject
+to regulatory obligations, legal process, or law enforcement requests that require Bonterra to take action with
+respect to Customer's account, funds, or data without advance notice to Customer. Bonterra may, in its sole
+discretion and without liability to Customer, (a) comply with any such obligation, process, or request; (b) report
+suspected fraudulent, illegal, or abusive activity involving Customer's account to relevant governmental
+authorities, payment networks, or regulatory bodies, including filing suspicious activity reports as required or
+permitted under applicable law; and (c) in the event of suspension or termination of a Customer account where
+Bonterra determines in good faith that end donors may have been harmed or misled, communicate with such
+donors regarding the status of their donations and any remediation steps available to them. Customer agrees that
+any such communications by Bonterra to end donors in good faith pursuant to this Section shall not constitute a
+breach of this Agreement or any obligation of confidentiality owed to Customer.
+7. Professional Services
+7.1. Bonterra will perform Professional Services as described in an Order Form or Statement of Work which
+may identify additional terms, deliverables, or milestones for Professional Services.
+7.2. Customer will give Bonterra timely access to Customer Materials reasonably needed for Professional
+Services, and Bonterra will use the Customer Materials only for the purpose of providing Professional Services.
+Customer may use code or other deliverables that Bonterra furnishes as part of Professional Services only in
+connection with Customer's authorized use of the Services under this Agreement.
+8. Fees
+8.1. Fees and Payment. All fees payable are due within 30 days from the invoice date unless otherwise
+specified in the applicable Order Form or SOW. Except as otherwise provided on the Order Form, SOW or this
+Agreement, once placed, each Order Form and SOW is non-cancellable and all sums paid are non-refundable.
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 5 of 13
+8.2. Additional Subscriptions. The fees and the term of use for additional Subscriptions procured during a
+Current Term will co-terminate with and be prorated through the end date of the Current Term for the applicable
+Subscription Service. Pricing for subsequent renewal Order Forms shall be set at then current Bonterra pricing,
+unless otherwise agreed to by the parties.
+8.3. Payment Authorization. Bonterra reserves the right, and Customer hereby authorizes Bonterra, to
+automatically charge the authorized payment method provided by Customer and accepted by Bonterra to collect
+any outstanding fees owed by Customer under this Agreement.
+8.4. Disputed Fees. If Customer disputes an invoice in good faith, it will notify Bonterra by the payment due
+date, and the parties will seek to resolve the dispute as soon as reasonably practicable. Notwithstanding anything
+to the contrary in this Agreement, fees and pricing for a subscription term are fixed during the Current Term.
+Bonterra may provide Customer with written notice of a change or increase in pricing for an Order Form at least
+60 days prior to the end of the Current Term, and such modified pricing will become effective upon renewal of the
+applicable Order Form.
+8.5. Late Payment. Any amounts not the subject of a good faith dispute that remain unpaid when due are
+subject to a finance charge of one and one-half percent (1.5%) per month or the maximum rate permitted by law,
+whichever is less.
+8.6. Taxes. Bonterra fees do not include any local, state, federal, or foreign taxes, levies or duties of any
+nature, including value-added, sales use or withholding taxes ("Taxes"). Customer is responsible for paying all
+Taxes, excluding taxes based on Bonterra's net income. Customer will not withhold any Taxes from any amounts
+due to Bonterra. If Customer is subject to a Tax exemption, Customer must provide documentary proof of such
+exemption promptly after the Order Form Effective Date.
+8.7. Usage-Based Tiers. To the extent the fees on the applicable Order Form are tied to a number of
+transactions or other volume-based metrics (each, a "Usage Tier"), if Customer exceeds the applicable Usage
+Tier during the applicable billing period, Bonterra reserves the right to, in its sole discretion, upgrade Customer to
+the next applicable Usage Tier and/or invoice Customer for such excess usage, in each case in accordance with
+Bonterra's then-current pricing and policies. Customer agrees to pay all such amounts in accordance with the
+payment terms set forth in this Agreement.
+9. Proprietary Rights
+9.1. Proprietary Rights. As between the parties, Bonterra exclusively owns all rights, title, and interest in and
+to Services, System Data (as defined below), Bonterra's Confidential Information and templates, methodology,
+and deliverables of the Professional Services, and all related intellectual property and other proprietary rights. As
+between the parties, Customer exclusively owns all rights, title and interest in and to the Customer Data and
+Customer's Confidential Information, and all related intellectual property and other proprietary rights. "System
+Data" means data, other than Customer Data, collected by Bonterra in performing the Subscription Services that
+may be used to generate logs, statistics or reports regarding the performance, availability, usage, integrity or
+security of the Subscription Services.
+9.2. Feedback. Customer grants to Bonterra and its Affiliates a worldwide, perpetual, irrevocable, royalty-free
+license to use, distribute, disclose, make and incorporate into their products and services any suggestion,
+enhancement request, recommendation, correction or other feedback provided by Customer or Users relating to
+any of Bonterra's or its Affiliates' products or services.
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 6 of 13
+9.3. Aggregated and Anonymized Data. Customer agrees that Bonterra and its Affiliates have the right to
+aggregate and anonymize Customer Data, such that the resulting data cannot be reverse engineered to identify a
+specific person and Bonterra shall be free (during and after the Subscription Term) to use such aggregated and
+anonymized data for their business purposes, including for internal reporting purposes and for product
+improvement.
+9.4. Use of Artificial Intelligence. Customer acknowledges that Bonterra may use artificial intelligence ("AI")
+in connection with the provision of the Services. As between the parties, Bonterra exclusively owns all rights, title,
+and interest in and to any AI systems, models, algorithms, and related technologies used to provide the Services.
+Bonterra may collect and use aggregated and anonymized Customer Data to develop, improve, support, operate,
+and train its AI systems, provided such data is processed in a manner that complies with applicable data
+protection laws and prevents re-identification of Customer or Customer's Users. For clarity, Bonterra will not use
+Customer Data in a form that could reasonably identify Customer or its Users. Please also see Artificial
+Intelligence Terms and Conditions, currently available at https://www.bonterratech.com/legal.
+10. Confidentiality and Restrictions
+10.1. By virtue of this Agreement, the parties may disclose to each other information that is confidential (the
+"Confidential Information"). Each party agrees that it will use the Confidential Information of the other party
+solely in accordance with the provisions of this Agreement and it will not disclose such Confidential Information,
+directly or indirectly, to any third party without the other party's prior written consent, except as otherwise
+permitted under this Agreement.
+10.2. Confidential Information includes: (a) any information disclosed by either party that is marked or
+otherwise designated as confidential or proprietary; (b) any information that should be reasonably understood to
+be confidential in light of the nature of the information and the circumstances surrounding disclosure; and (c) the
+terms, including pricing, of this Agreement, the Order Form, any SOWs, and any preceding proposal
+documentation. Confidential Information also includes technical or performance information about the Services.
+10.3. A party's Confidential Information does not include any information which (a) is in the public domain
+through no fault of the receiving party; (b) was properly known to the receiving party without restriction prior to
+disclosure; (c) was properly disclosed to the receiving party, without restriction, by another person with the legal
+authority to do so; or (d) is independently developed by the receiving party without use of or reference to the
+disclosing party's Confidential Information.
+10.4. Each party agrees not to disclose the other party's Confidential Information to any third party other than
+as set forth in the following sentence for a period of five years from the date of the disclosing party's disclosure
+of the Confidential Information to the receiving party; however, Bonterra will protect the confidentiality of
+Customer Data residing in the Subscription Service for as long as such information resides in the Subscription
+Service. Each party may disclose Confidential Information only to those employees, agents or subcontractors
+who are required to protect it against unauthorized disclosure in a manner no less protective than required under
+this Agreement, and each party may disclose the other party's Confidential Information in any legal proceeding
+or to a governmental entity as required by law.
+11. Warranties, Disclaimers and Exclusive Remedies
+11.1. Each party represents that it has validly entered into this Agreement and that it has the power and
+authority to do so.
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 7 of 13
+11.2. Customer warrants that it has all rights necessary to provide any information, data or other materials that
+it or its Users provide hereunder, and to permit Bonterra to use the same as contemplated hereunder.
+11.3. Bonterra warrants that during the Subscription Term, Bonterra will perform (i) the Subscription Services
+using commercially reasonable care and skill in all material respects as described in the applicable
+documentation, and (ii) any Professional Services and Support Services in a professional manner consistent with
+industry standards (the warranties described by the foregoing clauses (i) and (ii), collectively, the "Services
+Warranty"). If the Services provided to Customer were not performed as warranted, Customer must promptly
+provide Bonterra with a written notice that describes the deficiency in the Services. For Subscription Services,
+Customer must notify Bonterra of any warranty deficiencies within 30 days upon becoming aware of the
+deficiency. For Professional Services, Customer must notify Bonterra of any warranty deficiencies within 30 days
+from performance of the deficient Professional Services. Notwithstanding this Section 11.3, the Services
+Warranty does not extend to the Free Services.
+11.4. BONTERRA DOES NOT WARRANT THAT THE SERVICES WILL BE PERFORMED ERROR-FREE OR
+UNINTERRUPTED, THAT BONTERRA WILL CORRECT ALL SERVICES ERRORS, OR THAT THE SERVICES WILL MEET
+CUSTOMER'S REQUIREMENTS OR EXPECTATIONS. BONTERRA IS NOT RESPONSIBLE FOR ANY ISSUES RELATED
+TO THE PERFORMANCE, OPERATION OR SECURITY OF THE SERVICES THAT ARISE FROM CUSTOMER DATA,
+MISUSE OR UNAUTHORIZED MODIFICATION OF THE SERVICES BY OR ON BEHALF OF CUSTOMER, OR THIRD-
+PARTY APPLICATIONS OR OTHER SERVICES PROVIDED BY THIRD PARTIES.
+11.5. BONTERRA DOES NOT GUARANTEE THE CONTINUED AVAILABILITY OF ANY THIRD-PARTY APPLICATION
+OR ANY INTEGRATION THEREWITH, AND MAY CEASE MAKING ANY SUCH INTEGRATION AVAILABLE IN ITS
+DISCRETION.
+11.6. FOR ANY BREACH OF THE SERVICES WARRANTY, CUSTOMER'S EXCLUSIVE REMEDY AND BONTERRA'S
+ENTIRE LIABILITY SHALL BE THE CORRECTION OF THE DEFICIENT SERVICES THAT CAUSED THE BREACH OF
+WARRANTY, OR, IF BONTERRA CANNOT SUBSTANTIALLY CORRECT THE DEFICIENCY IN A COMMERCIALLY
+REASONABLE MANNER, CUSTOMER MAY END THE DEFICIENT SERVICES AND BONTERRA WILL REFUND TO
+CUSTOMER THE FEES FOR THE TERMINATED SERVICES THAT CUSTOMER PRE-PAID TO BONTERRA FOR THE
+PERIOD FOLLOWING THE EFFECTIVE DATE OF TERMINATION.
+11.7. TO THE EXTENT NOT PROHIBITED BY LAW, THESE WARRANTIES ARE EXCLUSIVE AND THERE ARE NO
+OTHER EXPRESS OR IMPLIED WARRANTIES OR CONDITIONS INCLUDING FOR SOFTWARE, HARDWARE,
+SYSTEMS, NETWORKS OR ENVIRONMENTS OR FOR MERCHANTABILITY, SATISFACTORY QUALITY AND FITNESS
+FOR A PARTICULAR PURPOSE.
+12. Indemnification
+12.1. Bonterra Indemnification Obligation
+12.1.1. Bonterra will defend Customer against any claim, demand, suit, or proceeding made or brought against
+Customer by a third party alleging that the use of the Services as permitted under this Agreement infringes
+or misappropriates a United States patent, copyright, or trade secret (a "Bonterra IP Claim"), and will
+indemnify Customer for any damages finally awarded against Customer (or any settlement approved by
+Bonterra) in connection with any such Bonterra IP Claim.
+12.1.2. If any Service becomes, or in Bonterra's opinion are likely to become, the subject of a Bonterra IP Claim,
+Bonterra may, at its option and expense: (a) procure for Customer the right to continue using and
+receiving the applicable Services as permitted under this Agreement; (b) replace or modify the applicable
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 8 of 13
+Services to make them non-infringing, provided that such replacement or modification offers materially
+comparable functionality; or (c) if the options in clauses (a) or (b) are not reasonably practicable,
+terminate the applicable Order Form and provide a pro rata refund of any prepaid fees corresponding to
+the terminated portion of the applicable Subscription Term.
+12.1.3. Bonterra will have no liability or obligation with respect to any Bonterra IP Claim to the extent that a
+Bonterra IP Claim arises from: (a) compliance with designs, guidelines, plans or specifications provided
+by Customer; (b) use of Services by Customer other than in accordance with this Agreement or the
+applicable Order Form; (c) modification of Services by or on behalf of Customer; (d) Customer Data or
+Customer Materials; or (e) the combination, operation, or use of the Services with other products,
+services, or materials not provided by Bonterra, where the Services would not themselves be infringing.
+12.1.4. This Section 12.1 states Bonterra's sole and exclusive liability and obligation, and Customer's exclusive
+remedy, with respect to any claim arising out of or relating to the infringement or misappropriation of
+intellectual property rights.12.1
+12.2. Customer Indemnification Obligation. Customer will defend Bonterra against any claim, demand, suit, or
+proceeding made or brought against Bonterra by a third party arising from or relating to (a) Customer's breach of
+Section 5.3 through 5.7 of this Agreement, or (b) Customer Data or Customer Materials (each, a "Customer
+Claim" and together with Bonterra IP Claim, a "Claim"), and will indemnify Bonterra for any damages finally
+awarded against Bonterra (or any settlement approved by Customer) in connection with any such Customer
+Claim.
+12.3. Indemnification Procedures. A party's indemnification obligations under this Section 12 are conditioned
+upon the indemnified party: (a) promptly notifying the indemnifying party in writing of the Claim; (b) granting the
+indemnifying party the sole and exclusive right to control the defense and settlement of the Claim (provided that
+the indemnifying party will not settle the Claim without the indemnified party's prior written consent, which will
+not be unreasonably withheld, unless such settlement unconditionally releases indemnified party of all related
+liability); and (c) reasonably cooperating with indemnifying party in the defense of the Claim.12
+13. LIMITATION OF LIABILITY
+13.1. IN NO EVENT WILL EITHER PARTY OR ITS AFFILIATES BE LIABLE FOR ANY INDIRECT, CONSEQUENTIAL,
+INCIDENTAL, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES, OR ANY LOSS OF REVENUE, PROFITS
+(EXCLUDING FEES UNDER THIS AGREEMENT), SALES, DATA, DATA USE, GOODWILL, OR REPUTATION.
+13.2. IN NO EVENT SHALL THE AGGREGATE LIABILITY OF A PARTY ARISING OUT OF OR RELATED TO THIS
+AGREEMENT OR CUSTOMER'S ORDER FORM OR SOW, WHETHER IN CONTRACT, TORT, OR OTHERWISE,
+EXCEED THE TOTAL AMOUNTS ACTUALLY PAID UNDER CUSTOMER'S ORDER FORM OR SOW FOR THE
+SERVICES GIVING RISE TO THE LIABILITY DURING THE TWELVE (12) MONTHS IMMEDIATELY PRECEDING THE
+EVENT GIVING RISE TO SUCH LIABILITY.
+13.3. NOTWITHSTANDING THE FOREGOING, BONTERRA'S AGGREGATE LIABILITY ARISING UNDER
+CUSTOMER'S USE OF FREE SERVICES WILL BE LIMITED TO ONE HUNDRED U.S. DOLLARS.
+13.4. NOTWITHSTANDING ANYTHING TO THE CONTRARY IN THIS AGREEMENT, THE LIMITATIONS OF
+LIABILITY SET FORTH IN THIS AGREEMENT SHALL NOT APPLY TO: (A) A PARTY'S INDEMNIFICATION
+OBLIGATIONS HEREUNDER, OR (B) FEES PROPERLY PAYABLE BY CUSTOMER TO BONTERRA UNDER THIS
+AGREEMENT, AN ORDER FORM, OR AN SOW.
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 9 of 13
+14. Suspension
+14.1. Suspension for Delinquent Account. Bonterra reserves the right to suspend Customer's access to and/or
+use of the Services if any payment is due but unpaid.
+14.2. Suspension for Ongoing Harm. Bonterra may suspend Customer's or Users' access to, or use of, the
+Subscription Services, including suspension of payment processing and funds disbursement capabilities
+independent of or in addition to suspension of platform access, if Bonterra believes that (a) there is a significant
+threat to the functionality, security, integrity, or availability of the Subscription Services or any content, data, or
+applications in the Subscription Services; (b) Customer or Users are accessing or using the Subscription Services
+to commit an illegal act; or (c) there is a violation of the Acceptable Use Policy. Bonterra will provide Customer
+with advance written notice of any suspension except where: (i) providing advance notice is not reasonably
+practicable given the nature or urgency of the harm; (ii) Bonterra is required by applicable law, regulatory
+obligation, or legal process to act without notice, including obligations under the Bank Secrecy Act or applicable
+anti-money laundering laws; or (iii) advance notice would compromise an ongoing investigation by Bonterra or a
+governmental authority. Where prior notice is not provided, Bonterra will notify Customer of the suspension and
+the general basis for it as soon as reasonably practicable and lawfully permitted following the suspension action.
+Notwithstanding the foregoing, Bonterra shall have no obligation to disclose the existence of, or any information
+related to, any suspicious activity report filed or under consideration pursuant to applicable law. Bonterra will
+use reasonable efforts to re-establish the Subscription Services promptly after Bonterra determines that the
+issue causing the suspension has been resolved. During any suspension period, Bonterra will make Customer
+Data (as it existed on the suspension date) available to Customer. Any suspension under this Section shall not
+excuse Customer from Customer's obligation to make payments under this Agreement. During any suspension
+of payment processing or funds disbursement capabilities, Bonterra may hold funds pending resolution of the
+applicable issue in accordance with its payment processing obligations and applicable law.
+15. Term and Termination
+15.1. Term. This Agreement is valid for Order Forms (including SOWs) which this Agreement accompanies. The
+initial service period of the Services procured by Customer shall continue for the Subscription Term applicable to
+such Services specified in the applicable Order Form. If all of Customer's Order Forms for Services placed under
+this Agreement expire or terminate, this Agreement shall similarly expire or terminate. If Customer has not
+entered into an Order Form with Bonterra regarding renewal of Services prior to the expiration of the applicable
+Current Term of such Services, then the subscription term for such Services shall be automatically renewed for a
+period equal in length to the then-expiring Initial Term or Renewal Term for such Services (determined without
+regard to any co-terminus adjustments made to align add-on subscriptions to that term) unless and until either
+party provides written notice of non-renewal to the other at least 60 days before expiration of the applicable
+Current Term. Notwithstanding the foregoing, such auto-renewals shall not apply to Professional Services unless
+(a) Professional Services are offered on a subscription basis over the duration of the applicable Current Term, or
+(b) expressly specified in the SOW for such Professional Services.
+15.2. Termination. Each party may terminate this Agreement upon written notice to the other party if there are
+no Order Forms then in effect. In addition, each party may also terminate this Agreement or the applicable Order
+Form upon written notice of termination (a) in the event the other party commits any material breach of this
+Agreement or the applicable Order Form (including any failure to make timely payments) and fails to remedy such
+breach within 30 days after written notice of such breach or (b) subject to applicable law, upon the other party's
+liquidation, commencement of dissolution proceedings or assignment of substantially all its assets for the
+benefit of creditors, or if the other party becomes the subject of a bankruptcy or similar proceeding that is not
+dismissed within 60 days. Notwithstanding the foregoing 30-day cure period, Bonterra may terminate this
+Agreement or the applicable Order Form immediately upon written notice, without any cure period, if: (i)
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 10 of 13
+Customer's breach involves financial fraud, misappropriation of donor funds, money laundering, structuring of
+transactions in violation of applicable law, or violation of applicable sanctions laws, in each case where such
+breach is not capable of cure or where providing a cure period would expose Bonterra, end donors, or third parties
+to ongoing harm; (ii) Customer's tax-exempt status has been revoked by the Internal Revenue Service or
+equivalent governmental authority and has not been reinstated; (iii) Bonterra receives a regulatory order,
+governmental directive, or law enforcement instruction requiring termination of the account; or (iv) Customer has
+committed a material breach of Section 5 (Customer Responsibilities) or the Acceptable Use Policy on two or
+more occasions within any twelve-month period, regardless of whether prior breaches were cured. In the event
+of termination under clauses (i) through (iv) of this paragraph, Bonterra may retain funds held in connection with
+Customer's account for such period as is required by applicable law, regulatory obligation, or payment network
+rules, and shall disburse such funds in accordance with applicable legal requirements.
+15.3. Termination of Free Services. Bonterra may suspend, limit, or terminate the Free Services for any reason
+at any time without notice.
+15.4. Survival. Upon expiration or termination of this Agreement: (a) all rights and obligations will immediately
+terminate except that any terms or conditions that by their nature should survive such expiration or termination
+will survive, including the terms and conditions relating to payment of fees, proprietary rights and confidentiality,
+technology restrictions, disclaimers, indemnification, limitations of liability and termination and the general
+provisions below, and (b) each party will return or destroy, at the other party's option, any Confidential
+Information of such party in the other party's possession or control.
+15.5. Customer Data Retrieval. Upon Customer's written request made on or prior to the expiration or
+termination of the applicable Order Form, Bonterra will give Customer limited access to the applicable
+Subscription Services for a period of up to 30 days after such expiration or termination, at no additional cost,
+solely for purposes of retrieving Customer Data. Subject to such retrieval period and Bonterra's legal obligations,
+Bonterra has no obligation to maintain or provide any Customer Data and will, unless legally prohibited, delete
+Customer Data after such expiration or termination; provided, however, that Bonterra will not be required to
+remove copies of the Customer Data from its backup media and servers until such time as the backup copies are
+scheduled to be deleted. In all cases, Bonterra will continue to protect the Customer Data in accordance with
+this Agreement. For clarity, during the term of the applicable Order Form, Customer may extract Customer Data
+using Bonterra's standard web services as described in the documentation.
+16. General
+16.1. Insurance. Bonterra shall, during the term of this Agreement, maintain in force the following insurance
+coverage at its own cost and expense: (a) Statutory Worker's Compensation and Employer's Liability as required
+by state law with a minimum limit of $1,000,000 each accident / $1,000,000 each disease / $1,000,000 policy
+limit per occurrence, Disability and Unemployment Insurance, and all other insurance as required by law,
+including Employer's Liability Insurance with limits of no less than $1,000,000 per occurrence, or any amount
+required by applicable law, whichever is greater; (b) Commercial General Liability, on an occurrence basis,
+including premises-operations, product completed-operations, broad form property damage, contractual
+liability, independent contractors and personal liability, with a minimum combined single limit of $1,000,000 per
+occurrence; and (c) Professional Errors and Omissions and Cyber Liability coverage covering the Subscription
+Services, with coverage limits of not less than $2,000,000 per claim or per occurrence/$2,000,000 aggregate,
+placed either on an "occurrence" basis or on a "claims made" basis.
+16.2. Publicity. Neither party may issue any press release regarding this Agreement without the other party's
+prior written consent. Neither party may include the name and logo of the other party in lists of customers or
+vendors without the other party's prior written consent.
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 11 of 13
+16.3. Assignment and Subcontractors. Neither party hereto may assign this Agreement without the other
+party's prior written consent, except that either party may assign this Agreement without consent to its Affiliate
+or to a successor to all or substantially all of its assets or business related to this Agreement. Any attempted
+assignment by either party in violation hereof will be null and void. Subject to the foregoing, this Agreement will
+be binding on the parties and their successors and assigns. Upon any permitted assignment of this Agreement by
+Customer or other corporate transaction involving Customer that would materially increase its usage of any
+Subscription Services, if an Order Form contains a subscription for an unlimited amount of usage for any
+component of such Subscription Services, such subscription will, with respect to Customer or the successor
+entity, as applicable, be limited to the monthly average usage by Customer with respect to such component
+under such Order Form prior to such assignment or other transaction, except as otherwise agreed upon in writing
+by the parties. Bonterra may, in its discretion, engage any third party to provide Subscription Services and/or
+provide Professional Services. Bonterra shall be responsible for the acts and omissions of its subcontractors, a
+then-current list of which will be provided upon Customer's request.
+16.4. Amendment and Waiver. Unless the parties have separately negotiated and signed an agreement stating
+otherwise, Bonterra may modify or otherwise amend this Agreement by posting a revised version on its website
+and such revised version will become effective as of the next day following its posting. No waiver of any rights
+hereunder will be effective unless assented to in writing by both parties. Any such waiver will be only to the
+specific provision and under the specific circumstances for which it was given and will not apply with respect to
+any repeated or continued violation of the same provision or any other provision. Failure or delay by either party
+to enforce any provision of this Agreement will not be deemed a waiver of future enforcement of that or any other
+provision.
+16.5. Relationship. Nothing contained herein will in any way constitute any association, partnership, agency,
+employment, or joint venture between the parties hereto, or be construed to evidence the intention of the parties
+to establish any such relationship. Neither party will have the authority to obligate or bind the other in any manner,
+and nothing herein contained will give rise or is intended to give rise to any rights of any kind to any third party.
+16.6. Unenforceability. If a court of competent jurisdiction determines that any provision of this Agreement is
+invalid, illegal, or otherwise unenforceable, such provision will be enforced as nearly as possible in accordance
+with the stated intention of the parties, while the remainder of this Agreement will remain in full force and effect
+and bind the parties according to its terms.
+16.7. Governing Law; Dispute Resolution. This Agreement will be governed by the laws of the State of Delaware,
+exclusive of its rules governing choice of law and conflict of laws. This Agreement will not be governed by the
+United Nations Convention on Contracts for the International Sale of Goods. Any dispute, claim, or controversy
+arising out of or relating to this Agreement or the breach, termination, enforcement, interpretation, or validity
+thereof (a "Dispute") will be resolved by binding arbitration administered by the American Arbitration Association
+("AAA") in accordance with its Commercial Arbitration Rules then in effect. The arbitration will be conducted by
+a single arbitrator in Travis County, Texas. The arbitrator will have the authority to award any remedy that would
+be available in a court of competent jurisdiction. The arbitrator's award will be final and binding, and judgment on
+the award may be entered in any court of competent jurisdiction. Notwithstanding the foregoing, either party may
+seek injunctive or other equitable relief in any court of competent jurisdiction to protect its intellectual property
+rights or Confidential Information. Notwithstanding the foregoing, any (a) request by a party for injunctive relief
+will be brought before a court of competent jurisdiction and not through arbitration, nor will an arbitrator have the
+authority to issue injunctive relief, (b) legal actions commenced as debt recovery purposes for amounts due
+hereunder, or actions for infringement or violation of a party's intellectual property rights, and (c) claim of breach
+of Section 10 hereof will be separately brought before and decided by a court of competent jurisdiction.
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 12 of 13
+16.8. JURY TRIAL AND CLASS ACTION WAIVER. EACH PARTY HEREBY IRREVOCABLY WAIVES ANY RIGHT IT
+MAY HAVE TO A TRIAL BY JURY IN ANY ACTION, PROCEEDING, OR COUNTERCLAIM ARISING OUT OF OR
+RELATING TO THIS AGREEMENT. EACH PARTY AGREES THAT ANY DISPUTE RESOLUTION PROCEEDING ARISING
+OUT OF OR RELATING TO THIS AGREEMENT WILL BE CONDUCTED ONLY ON AN INDIVIDUAL BASIS AND NOT IN
+A CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION. THE ARBITRATOR MAY AWARD RELIEF ONLY IN
+FAVOR OF THE INDIVIDUAL PARTY SEEKING RELIEF AND ONLY TO THE EXTENT NECESSARY TO RESOLVE THAT
+PARTY'S INDIVIDUAL CLAIM.
+16.9. Notices. Any notices under this Agreement must be in writing and must be delivered by registered mail,
+by courier with tracking number, or via email to the following: the receiving party's legal department
+(legal@bonterratech.com for Bonterra) and point of contact at either party (which, in case of Customer, shall
+include the designated administrator).
+16.10. Entire Agreement. This Agreement, together with the applicable Product Specific Terms, comprises the
+entire agreement between Customer and Bonterra with respect to its subject matter, and supersedes all prior
+and contemporaneous proposals, statements, sales materials or presentations and agreements (oral and
+written). No oral or written information or advice given by Bonterra, its agents or employees will create a warranty
+or in any way increase the scope of the warranties in this Agreement. In the event of any conflict between this
+Agreement and an Order Form, this Agreement will control except to the extent the Order Form specifically states
+that a provision of this Agreement is superseded by a provision in such Order Form.
+16.11. Force Majeure. Neither party will be deemed in breach hereunder for any cessation, interruption or delay
+in the performance of its obligations (excluding payment obligations) due to causes beyond its reasonable control
+and foreseeability, including earthquake, flood, or other natural disaster, act of God, labor controversy, civil
+disturbance, terrorism, war (whether or not officially declared), cyber-attacks (e.g., denial of service attacks), or
+the inability to obtain sufficient supplies, transportation, or other essential commodity or service required in the
+conduct of its business, or any change in or the adoption of any law, regulation, judgment or decree.
+16.12. Government Terms. Bonterra provides the Services, including related software and technology, for
+ultimate federal government end use solely in accordance with the terms of this Agreement. If Customer is an
+agency, department, or other entity of any government, the use, duplication, reproduction, release, modification,
+disclosure, or transfer of the Services, or any related documentation of any kind, including technical data,
+software, and manuals, is restricted by the terms of this Agreement. All other use is prohibited, and no rights other
+than those provided in this Agreement are conferred. The Services are developed fully at private expense.
+16.13. Interpretation. For purposes hereof, "including" means "including without limitation."
+[Remainder of page intentionally left blank]
+Bonterra Subscription and Services Agreement
+Published July 13, 2026
+Page 13 of 13

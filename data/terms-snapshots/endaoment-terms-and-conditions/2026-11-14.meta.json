@@ -1,0 +1,29 @@
+{
+  "content_type": "text/markdown; charset=utf-8",
+  "document": "Terms and Conditions (Interface / Partner Interfaces / API Access)",
+  "extractor": "plain",
+  "fetched_at_utc": "2026-11-14T11:03:24Z",
+  "final_url": "https://docs.endaoment.org/governance/documentation/terms-and-conditions.md",
+  "format": "text",
+  "http_status": "200",
+  "raw_bytes": 38185,
+  "raw_sha256": "ffcbef8b335271de857400ec0a7b8f3423f1149a3a508a2c89831c585b978998",
+  "slug": "endaoment-terms-and-conditions",
+  "text_chars": 37947,
+  "text_sha256": "cd51cfeacfdd8c34675466b5937f536b029c07056163678f0b3ef7d1376ab181",
+  "url": "https://docs.endaoment.org/governance/documentation/terms-and-conditions.md",
+  "vendor": "Endaoment",
+  "watch_counts": {
+    "agent": 3,
+    "aggregator": 4,
+    "api": 24,
+    "artificial_intelligence": 1,
+    "automated": 7,
+    "bot_scrape": 1,
+    "initiate": 2,
+    "mcp": 0,
+    "on_behalf_of": 2,
+    "pass_through": 0,
+    "third_party": 20
+  }
+}

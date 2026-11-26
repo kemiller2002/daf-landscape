@@ -1,0 +1,256 @@
+{
+  "check_id": "ct-vanguardcharitable",
+  "check_type": "ct_crtsh",
+  "date": "2026-11-14",
+  "detail": {
+    "names": {
+      "*.map.vanguardcharitable.org": {
+        "certs": 6,
+        "first_not_before": "2020-09-28",
+        "last_not_before": "2023-02-22"
+      },
+      "*.navi.vanguardcharitable.org": {
+        "certs": 6,
+        "first_not_before": "2021-11-17",
+        "last_not_before": "2024-08-19"
+      },
+      "account-session.vanguardcharitable.org": {
+        "certs": 4,
+        "first_not_before": "2025-06-26",
+        "last_not_before": "2026-06-01"
+      },
+      "account.vanguardcharitable.org": {
+        "certs": 95,
+        "first_not_before": "2021-02-08",
+        "last_not_before": "2026-09-21"
+      },
+      "advisor.vanguardcharitable.org": {
+        "certs": 30,
+        "first_not_before": "2017-06-05",
+        "last_not_before": "2026-06-17"
+      },
+      "annualreport.vanguardcharitable.org": {
+        "certs": 39,
+        "first_not_before": "2017-10-03",
+        "last_not_before": "2026-06-17"
+      },
+      "api-coreservices.vanguardcharitable.org": {
+        "certs": 3,
+        "first_not_before": "2026-02-24",
+        "last_not_before": "2026-07-27"
+      },
+      "api-give.vanguardcharitable.org": {
+        "certs": 2,
+        "first_not_before": "2026-02-25",
+        "last_not_before": "2026-07-28"
+      },
+      "api-salesforce.vanguardcharitable.org": {
+        "certs": 2,
+        "first_not_before": "2026-02-25",
+        "last_not_before": "2026-07-28"
+      },
+      "api-tungsten.vanguardcharitable.org": {
+        "certs": 4,
+        "first_not_before": "2026-03-04",
+        "last_not_before": "2026-08-04"
+      },
+      "api-vgi.vanguardcharitable.org": {
+        "certs": 3,
+        "first_not_before": "2026-02-25",
+        "last_not_before": "2026-09-24"
+      },
+      "api.vanguardcharitable.org": {
+        "certs": 16,
+        "first_not_before": "2018-05-25",
+        "last_not_before": "2025-11-11"
+      },
+      "auth0.vanguardcharitable.org": {
+        "certs": 2,
+        "first_not_before": "2026-02-25",
+        "last_not_before": "2026-07-28"
+      },
+      "beta.vanguardcharitable.org": {
+        "certs": 6,
+        "first_not_before": "2019-02-06",
+        "last_not_before": "2021-05-28"
+      },
+      "client.vanguardcharitable.org": {
+        "certs": 10,
+        "first_not_before": "2026-07-08",
+        "last_not_before": "2026-09-21"
+      },
+      "cms.vanguardcharitable.org": {
+        "certs": 5,
+        "first_not_before": "2022-07-18",
+        "last_not_before": "2026-07-08"
+      },
+      "dpapi.vanguardcharitable.org": {
+        "certs": 1,
+        "first_not_before": "2019-11-22",
+        "last_not_before": "2019-11-22"
+      },
+      "dpapibeta.vanguardcharitable.org": {
+        "certs": 2,
+        "first_not_before": "2019-05-02",
+        "last_not_before": "2019-05-02"
+      },
+      "e-vanguardcharitable.org": {
+        "certs": 6,
+        "first_not_before": "2018-06-28",
+        "last_not_before": "2021-03-16"
+      },
+      "go.vanguardcharitable.org": {
+        "certs": 82,
+        "first_not_before": "2020-09-11",
+        "last_not_before": "2026-08-25"
+      },
+      "grantsmgmt.vanguardcharitable.org": {
+        "certs": 3,
+        "first_not_before": "2025-02-25",
+        "last_not_before": "2026-01-30"
+      },
+      "hunger.navi.vanguardcharitable.org": {
+        "certs": 6,
+        "first_not_before": "2025-06-06",
+        "last_not_before": "2026-06-17"
+      },
+      "illiquid-assets.vanguardcharitable.org": {
+        "certs": 7,
+        "first_not_before": "2025-05-13",
+        "last_not_before": "2026-09-23"
+      },
+      "int.vanguardcharitable.org": {
+        "certs": 23,
+        "first_not_before": "2022-02-01",
+        "last_not_before": "2026-06-17"
+      },
+      "map.vanguardcharitable.org": {
+        "certs": 18,
+        "first_not_before": "2020-09-28",
+        "last_not_before": "2026-06-17"
+      },
+      "mygiving.vanguardcharitable.org": {
+        "certs": 51,
+        "first_not_before": "2023-06-15",
+        "last_not_before": "2026-08-28"
+      },
+      "navi.vanguardcharitable.org": {
+        "certs": 6,
+        "first_not_before": "2021-11-17",
+        "last_not_before": "2024-08-19"
+      },
+      "paypal.vanguardcharitable.org": {
+        "certs": 16,
+        "first_not_before": "2023-01-18",
+        "last_not_before": "2026-06-17"
+      },
+      "portal.vanguardcharitable.org": {
+        "certs": 14,
+        "first_not_before": "2025-01-15",
+        "last_not_before": "2026-09-21"
+      },
+      "secure.vanguardcharitable.org": {
+        "certs": 3,
+        "first_not_before": "2006-05-31",
+        "last_not_before": "2009-05-14"
+      },
+      "stpint.vanguardcharitable.org": {
+        "certs": 3,
+        "first_not_before": "2022-02-02",
+        "last_not_before": "2023-12-08"
+      },
+      "url5422.transaction.vanguardcharitable.org": {
+        "certs": 2,
+        "first_not_before": "2026-09-18",
+        "last_not_before": "2026-09-18"
+      },
+      "vanguardcharitable.org": {
+        "certs": 42,
+        "first_not_before": "2017-06-01",
+        "last_not_before": "2026-08-04"
+      },
+      "www.advisor.vanguardcharitable.org": {
+        "certs": 8,
+        "first_not_before": "2017-06-05",
+        "last_not_before": "2020-03-12"
+      },
+      "www.annualreport.vanguardcharitable.org": {
+        "certs": 6,
+        "first_not_before": "2017-10-03",
+        "last_not_before": "2019-08-23"
+      },
+      "www.api.vanguardcharitable.org": {
+        "certs": 9,
+        "first_not_before": "2018-05-25",
+        "last_not_before": "2025-11-11"
+      },
+      "www.vanguardcharitable.org": {
+        "certs": 73,
+        "first_not_before": "2009-05-01",
+        "last_not_before": "2026-09-21"
+      },
+      "your-partner-in-giving.vanguardcharitable.org": {
+        "certs": 58,
+        "first_not_before": "2021-11-12",
+        "last_not_before": "2026-08-12"
+      }
+    }
+  },
+  "entity": "Vanguard Charitable own domain",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:25:13Z",
+  "ok": true,
+  "queue_items": "P-VEN-02",
+  "source_url": "https://crt.sh/?q=%25.vanguardcharitable.org",
+  "status": "200",
+  "summary": {
+    "name_count": 38,
+    "names": [
+      "*.map.vanguardcharitable.org",
+      "*.navi.vanguardcharitable.org",
+      "account-session.vanguardcharitable.org",
+      "account.vanguardcharitable.org",
+      "advisor.vanguardcharitable.org",
+      "annualreport.vanguardcharitable.org",
+      "api-coreservices.vanguardcharitable.org",
+      "api-give.vanguardcharitable.org",
+      "api-salesforce.vanguardcharitable.org",
+      "api-tungsten.vanguardcharitable.org",
+      "api-vgi.vanguardcharitable.org",
+      "api.vanguardcharitable.org",
+      "auth0.vanguardcharitable.org",
+      "beta.vanguardcharitable.org",
+      "client.vanguardcharitable.org",
+      "cms.vanguardcharitable.org",
+      "dpapi.vanguardcharitable.org",
+      "dpapibeta.vanguardcharitable.org",
+      "e-vanguardcharitable.org",
+      "go.vanguardcharitable.org",
+      "grantsmgmt.vanguardcharitable.org",
+      "hunger.navi.vanguardcharitable.org",
+      "illiquid-assets.vanguardcharitable.org",
+      "int.vanguardcharitable.org",
+      "map.vanguardcharitable.org",
+      "mygiving.vanguardcharitable.org",
+      "navi.vanguardcharitable.org",
+      "paypal.vanguardcharitable.org",
+      "portal.vanguardcharitable.org",
+      "secure.vanguardcharitable.org",
+      "stpint.vanguardcharitable.org",
+      "url5422.transaction.vanguardcharitable.org",
+      "vanguardcharitable.org",
+      "www.advisor.vanguardcharitable.org",
+      "www.annualreport.vanguardcharitable.org",
+      "www.api.vanguardcharitable.org",
+      "www.vanguardcharitable.org",
+      "your-partner-in-giving.vanguardcharitable.org"
+    ],
+    "watch_hits": [
+      "api-give.vanguardcharitable.org",
+      "mygiving.vanguardcharitable.org",
+      "portal.vanguardcharitable.org"
+    ]
+  },
+  "target": "%.vanguardcharitable.org",
+  "watch_regex": "give|gi-|ledger|portal|mygiving"
+}

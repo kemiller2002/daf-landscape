@@ -1,0 +1,9 @@
+REV 6398200
+CMD dotnet build Administration.slnx -c Release
+BUILD_RC 0 SECS 11
+    0 Error(s)
+    0 Warning(s)
+Build succeeded.
+CMD dotnet test tests/Administration.Tests/Administration.Tests.fsproj -c Release --no-build
+TEST_RC Administration.Tests.fsproj 0 SECS 1 :: Passed!  - Failed:     0, Passed:    26, Skipped:     0, Total:    26, Duration: 196 ms - Administration.Tests.dll (net10.0) 
+DONE

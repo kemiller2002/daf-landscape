@@ -1,0 +1,137 @@
+parameter,low,base,high,unit,evidence_class,source_ids_or_internal_path,notes
+rate_ops,50,65.45,80,USD/h,INFERENCE,data/commercial-opportunity/servicing-economics/assumptions-register.csv (A-ACT-001); research/commercial-opportunity/servicing-economics/README.md,Loaded servicing labour; 65.45/h is the corrected servicing-economics rate; low/high bracket A-ACT-001 range
+rate_eng,99,118.1,137,USD/h,INFERENCE,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-R03),Senior engineer loaded 158361/188958/219876 USD/yr over 1600 h
+rate_impl,63.8,79.65,96.6,USD/h,INFERENCE,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-R11),Implementation analyst loaded 102156/127440/154606 USD/yr over 1600 h
+rate_sponsor,55,70,90,USD/h,ASSUMPTION,data/commercial-opportunity/servicing-economics/assumptions-register.csv (A-ACT-001 notes 57-73/h at large sponsors),Sponsor-side staff loaded rate; sponsor cost not Unbound cost
+ach_labour_minutes_c0,0.1,0.3,0.8,min/grant,INFERENCE,activity-minutes-typical.csv (ACT-A14 ai_enhanced),C0 no-lever base (CNV-ECO-003)
+check_labour_minutes_c0,1,2,4,min/grant,INFERENCE,activity-minutes-typical.csv (ACT-A15 ai_enhanced),C0 no-lever base
+status_check_minutes_c0,0.1,0.3,0.8,min/grant,INFERENCE,activity-minutes-typical.csv (ACT-A08 ai_enhanced),C0 no-lever base
+grant_review_minutes,0.5,0.97,2,min/grant,INFERENCE,activity-minutes-typical.csv (ACT-A07+A12+A13 ai_native per account / 9 grants),Intake + purpose review + non-standard DD; lever case C
+grant_review_minutes_c0,0.8,1.46,3,min/grant,INFERENCE,activity-minutes-typical.csv (ACT-A07+A12+A13 ai_enhanced / 9 grants),C0 no-lever base
+grant_exception_rate_c0,0.028,0.08,0.17,share of grants,INFERENCE,unbound discovery/2026-11-24-simplification-economics/model/parameters.json (exception_rate; determination_reuse 0),C0: no determination reuse
+exception_minutes_c0,30,45,135,min,INFERENCE,unbound parameters.json (minutes_per_exception),C0 no-lever base
+p_first_exception_c0,0.028,0.08,0.17,share of new charities,INFERENCE,unbound parameters.json (exception_rate),C0 no-lever base
+per_account_usd_c0,30,40,60,USD/account-yr,INFERENCE,activity-minutes-typical.csv (non-grant activities ai_enhanced ~23.6 min vs ai_native ~9.6 min at $65.45/h) + non-labour $10-15,C0 no-lever base
+sponsor_recurring_h_c0,324,560,830,h/sponsor-yr,INFERENCE,research/commercial-opportunity/servicing-economics/04-activity-cost-and-capacity.md (AI-native 324; conventional 800),C0 between AI-native and conventional
+steward_fte,0.5,1,1,FTE,INFERENCE,ADVX-01; unbound CHAR-ADR-002/006/007 (steward review; disputes; appeals),Registry stewardship/compliance; not in servicing-economics Model B (Model C has CST-R10 - do not double count)
+compliance_loaded,97448,121848,147744,USD/FTE-yr,VERIFIED-FACT,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-R10),
+charity_support_fte,0.25,0.5,1,FTE,ASSUMPTION,ADVX-01,Charity support desk (enrolment/remittance queries)
+support_loaded,57802,77108,97330,USD/FTE-yr,VERIFIED-FACT,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-R13),
+counsel_hours,40,80,130,h/yr,ASSUMPTION,ADVX-01; unbound CHAR-ADR-010 (counsel review of eligibility rules),
+counsel_rate,300,450,800,USD/h,INFERENCE,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-C06),
+nacha_tpsp_audit,8000,15000,30000,USD/yr,ASSUMPTION,ADVX-001 (Nacha Rules Art. One 1.2.2 annual Rules compliance audit for TPSPs); ADVX-002 (fraud monitoring phase 2 from 2026-06-19),
+verification_vendor_minimums,0,24000,60000,USD/yr,ASSUMPTION,ADVX-01; 07-payment-network-landscape.md (two verification vendors behind one port),
+insurance_rider,0,5000,15000,USD/yr,ASSUMPTION,ADVX-01,Media/defamation cover if registry facts are published
+org_fixed_annual,1090000,1660000,2770000,USD/yr,INFERENCE,research/commercial-opportunity/servicing-economics/03-organization-and-budget.md ($1.66M base; $1.09-2.77M),First-sponsor (fixed-cost-bearing) view only
+build_amortisation_annual,600000,1000000,3000000,USD/yr,INFERENCE,unbound parameters.json (build_capex $5M; $3-15M) over 5 years,First-sponsor view only
+first_sponsor_replay_cost,40000,80000,160000,USD one-time,ASSUMPTION,CNV-ECO-003 (12-month shadow replay + 90-day time study for first paying sponsor); ADVX-16,First-sponsor view only
+predelegation_months,6,12,18,months,ASSUMPTION,CNV-ECO-005; unbound 05-ECONOMIC-VALIDATION.md EV-08 (activation gates),Period before sponsor delegations allow deterministic approval
+predelegation_labour_uplift,1.5,2,3,x review+release labour,ASSUMPTION,CNV-ECO-005 (three-person release; manual checks),Multiplier on per-grant review and payment-release labour (not exceptions) during pre-delegation
+predelegation_nav_h_month,4,10,20,h/month,ASSUMPTION,CNV-ECO-005 (manual NAV checks),
+stress_contribution_decline,0.15,0.15,0.15,share of AUA,VERIFIED-FACT,CNV-ECO-005 (15% contribution decline stress),Applied as AUA decline
+stress_price_pressure,0.2,0.2,0.2,share of fee,VERIFIED-FACT,CNV-ECO-005 (20% renewal price pressure),
+december_grant_share,0.2,0.3,0.4,share of annual grants,ASSUMPTION,unbound parameters.json (december_k 3 x daily arrivals over 25 days),
+december_premium,1.3,1.3,1.5,x labour cost,INFERENCE,unbound parameters.json (december_seasonal_premium 1.3; contractor_premium 1.3),
+concentration_cap,0.25,0.25,0.25,max revenue share of one sponsor,VERIFIED-FACT,CNV-ECO-004,
+fed_connector_h,400,800,1600,h one-time,ASSUMPTION,unbound architecture/CHARITY-KNOWLEDGE-MODEL-AND-ACQUISITION-PIPELINE.md; unbound research/charity-sources/FEDERAL-SOURCE-INVENTORY.csv,Engineering to build IRS EO BMF + TEOS Pub78 + auto-revocation + 990 XML + OFAC connectors with provenance/quarantine (UNB-KNOW-026)
+n_state_registries,3,5,10,count,ASSUMPTION,unbound research/charity-sources/FIVE-STATE-COMPARATIVE-FINDINGS.md,Number of state charity/corporate registries ingested at launch (brief: a few)
+state_connector_h,80,160,400,h per state one-time,ASSUMPTION,unbound research/charity-sources/NATIONAL-STATE-SOURCE-MATRIX.csv,Heterogeneous formats; some only search pages (no scraping without rights)
+entity_resolution_h,300,600,1200,h one-time,ASSUMPTION,unbound architecture/CHARITY-KNOWLEDGE-MODEL-AND-ACQUISITION-PIPELINE.md (UNB-KNOW-008/032),EIN/name/group-exemption resolution and reversible merges
+registry_ops_tooling_h,200,400,800,h one-time,ASSUMPTION,CNV-GRT-003/004,Exception queue + evidence packet + hold propagation tooling
+state_data_one_time,0,9500,25000,USD one-time,INFERENCE,unbound research/charity-sources/INDIANA-SOURCE-PILOT.md (Indiana SOS bulk '$9500+ update pricing' to be reconfirmed),Paid bulk state data; most IRS/OFAC data free [ECO-006][ECO-007]
+backfill_compute_one_time,500,2000,8000,USD one-time,ASSUMPTION,ECO-008; data/commercial-opportunity/servicing-economics/cost-register.csv (CST-T03),Parsing multi-year 990 XML corpus and BMF history
+object_storage_gb,300,1000,3000,GB,ASSUMPTION,ECO-006 (IRS 990 XML 71 zip files 2019-2026; sizes not shown),Raw source archive incl. retained versions (append-only evidence)
+object_storage_usd_gb_month,0.021,0.023,0.025,USD/GB-month,VENDOR-CLAIM,ECO-008,S3 Standard us-east-1 first 50 TB per secondary guides; official page tables not extracted
+registry_db_gb,50,150,400,GB,ASSUMPTION,,Normalized registry + evidence index in PostgreSQL
+db_storage_usd_gb_month,0.21,0.21,0.335,USD/GB-month,VERIFIED-FACT,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-T03+CST-T04),Azure PostgreSQL storage 0.115 + backup 0.095 (high 0.135+0.20)
+registry_db_instance_annual,3119,6237,12474,USD/yr,VERIFIED-FACT,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-T01),Dedicated HA registry instance (shared store per CNV-TEN-001)
+ingestion_compute_annual,1200,3600,12000,USD/yr,ASSUMPTION,,Monthly BMF/TEOS/990 and daily OFAC batch jobs
+state_data_annual,0,9500,30000,USD/yr,INFERENCE,unbound research/charity-sources/INDIANA-SOURCE-PILOT.md,Recurring paid state bulk updates
+sanctions_vendor_annual,0,8000,25000,USD/yr,ASSUMPTION,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-D05); ECO-007,OFAC list free; commercial fuzzy/non-US screening optional
+connector_maint_h,200,400,1000,h/yr,ASSUMPTION,unbound architecture/CHARITY-KNOWLEDGE-MODEL-AND-ACQUISITION-PIPELINE.md (UNB-KNOW-026 source drift),Parser regressions and schema changes
+auto_check_cost_per_charity,0.002,0.01,0.05,USD/charity,ASSUMPTION,,Compute for deterministic first-time verification
+p_first_exception,0.02,0.04,0.08,share of new charities,INFERENCE,data/commercial-opportunity/servicing-economics/assumptions-register.csv (A-ACT-006),Replay recipient-level first-time eligibility exception rate with reuse
+exception_minutes,15,30,90,min,ASSUMPTION,data/commercial-opportunity/servicing-economics/assumptions-register.csv (A-ACT-007); unbound discovery/2026-11-24-simplification-economics/model/parameters.json (minutes_per_exception 45; 30-135),AI-native with evidence packet; Unbound unaided base 45
+ai_dossier_cost,0.45,0.9,4,USD/exception,INFERENCE,unbound discovery/2026-11-24-simplification-economics/model/parameters.json (ai_cost_per_dossier),
+status_event_rate,0.02,0.04,0.08,events/charity-yr,ASSUMPTION,research/mission-2026-11-14/ (revocation lag median 89 days EV-ACT-018),Status/name/bank changes on monitored charities that need human review
+grant_exception_rate,0.02,0.04,0.08,share of grants,INFERENCE,data/commercial-opportunity/servicing-economics/assumptions-register.csv (A-ACT-006); research/daf-grant-exception-unit-economics-evidence-and-sensitivity-2026-11-12.md,No published per-grant exception rate exists; Unbound uses 8% (2.8-17%) before determination reuse
+ai_screen_per_grant,0.00065,0.026,0.14,USD/grant,INFERENCE,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-T12),
+status_check_minutes,0.01,0.03,0.1,min/grant,INFERENCE,data/commercial-opportunity/servicing-economics/scripts/activities/activity-minutes-typical.csv (ACT-A08 ai_native),Approval+release check (CNV-GRT-003)
+ach_labour_minutes,0.03,0.1,0.3,min/grant,INFERENCE,activity-minutes-typical.csv (ACT-A14 ai_native),Lever case C only
+check_labour_minutes,0.6,1.2,2.5,min/grant,INFERENCE,activity-minutes-typical.csv (ACT-A15 ai_native),Lever case C only
+ach_fee,0.26,0.5,0.5,USD/payment,VERIFIED-FACT,ECO-001; ECO-002; ECO-003,AFP 2022 median 0.26-0.50; Increase 0.50; Stripe 0.50 next-day
+ach_return_rate,0.002,0.005,0.02,returns/payment,ASSUMPTION,unbound parameters.json (ach_return_rate),Applied to ACH credits to charities
+ach_return_fee,2,5,15,USD/return,ASSUMPTION,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-PY7),
+ach_return_minutes,10,15,20,min/return,ASSUMPTION,unbound parameters.json (return_minutes),
+check_print_mail,1.04,3,8,USD/check,VERIFIED-FACT,ECO-004; ECO-002; ECO-001,Lob from 1.04; Increase 3.00; AFP 2022 median issue cost 2.01-4.00; high incl. stop-pay/reissue
+uncashed_rate,0.01,0.03,0.06,share of checks,ASSUMPTION,research/commercial-opportunity/servicing-economics/04-activity-cost-and-capacity.md (uncashed rates not observed publicly),
+uncashed_minutes,20,30,60,min/uncashed check,ASSUMPTION,activity-minutes-typical.csv (ACT-A17),Outreach/stop/reissue or escheat decision
+positive_pay_monthly,10,40,50,USD/bank account-month,VERIFIED-FACT,ECO-010; ECO-011,Bank schedules 10-50 per account-month; sponsor pass-through
+check_share_initial,0.1,0.33,0.5,share of grants by check,INFERENCE,ECO-005 (Fidelity 2025: 67% electronic),Starting check share for a migrating sponsor
+check_share_target,0.15,0.37,0.37,share of grants by check at 36 months,INFERENCE,08-organic-network-growth.md section 4.3 (15-37% still paper after 3 years at p=0.10-0.25; plan on p=0.10); ADVX-14,Low = p 0.25 target path; base/high = p 0.10 planning path
+enroll_instant_share,0.3,0.5,0.7,share of direct enrolments,ASSUMPTION,,Share verified instantly via account-ownership API vs micro-deposit + bank letter
+instant_verify_fee,1.5,3,4,USD/enrolment,VERIFIED-FACT,ECO-003; ECO-012,Stripe Financial Connections 1.50 verification + 1.50 ownership; Plaid price not public (third-party 1.00-2.00 VENDOR-CLAIM)
+microdeposit_cost,0,1.5,3,USD/enrolment,INFERENCE,ECO-003; ECO-002,Stripe micro-deposit verification free; 2 credits + 1 debit at 0.50 via Increase
+bank_letter_minutes,5,10,30,min,ASSUMPTION,CNV-PAY-002,Review of charity-signed bank letter + out-of-band callback
+outreach_minutes,5,15,45,min/enrolment,ASSUMPTION,,Charity contact and follow-up; AI-drafted
+bank_change_rate,0.05,0.1,0.15,changes/enrolled charity-yr,ASSUMPTION,CNV-PAY-002,Re-verification after bank change
+partner_coverage,0.03,0.08,0.2,share of recipients,INFERENCE,08-organic-network-growth.md (pre-enrolment 2-20% per recipient; 8-21% of grants at go-live); ADVX-13,Recipients already enrolled with a supported networked partner (CNV-EXP-002); Fidelity 67% anchor removed (that is Fidelity own enrolment)
+enroll_target_share,0.3,0.5,0.7,share of non-covered recipients,ASSUMPTION,,Share Unbound enrols directly in year 1
+registry_reuse_mature,0.3,0.5,0.7,share,ASSUMPTION,CNV-GRT-003 (cross-sponsor evidence reused as input),Share of a new sponsor's direct-enrol recipients already verified in a mature Unbound registry
+new_recipient_share,0.2,0.3,0.4,share of recipients new each yr,ASSUMPTION,,
+gpr_exponent,0.2,0.24,0.28,exponent,INFERENCE,data/commercial-opportunity/servicing-economics/assumptions-register.csv (A-ACT-005: 4 (2.5-13.2) grants/recipient),grants_per_recipient = clamp(2.5*(accounts/1000)^exp; 2.5; 13.2); base reproduces Fidelity 13.2 at 1M
+grants_per_account,5.6,7,12.3,grants/account-yr,INFERENCE,data/commercial-opportunity/servicing-economics/summary-stats.json (grant_count_calibration: MS GIFT 5.6 - JCF; median ~7); data/expanded-sponsor-activity-benchmarks-2026.csv (NPT 159543/20561=7.76); research/mission-2026-11-14 (Fidelity ~12.3),Scenario dimension grants_case low/base/high
+contribs_per_account,1,2,4,contributions/account-yr,ASSUMPTION,unbound parameters.json (segments.typical contribs 2),
+per_account_usd,15,25,45,USD/account-yr,ASSUMPTION,data/commercial-opportunity/servicing-economics/cost-to-serve-parameters.csv (per_account_usd),Account-based servicing cost (statements/contacts/contributions/infra)
+sponsor_recurring_h,160,324,830,h/sponsor-yr,INFERENCE,research/commercial-opportunity/servicing-economics/04-activity-cost-and-capacity.md (ACT: ~324 h AI-native),At 1k accounts; scaled by sponsor_scale_per_decade
+sponsor_scale_per_decade,0.25,0.5,0.75,x per 10x accounts,ASSUMPTION,,Applied to recurring sponsor hours and implementation hours
+custom_integ_maint_h,40,80,160,h/custom integration-yr,ASSUMPTION,,Ongoing sponsor-specific maintenance
+balance_s1k,75684,181896,389968,USD avg balance,INFERENCE,data/commercial-opportunity/servicing-economics/segment-summary.csv,1k-account sponsor (single-issue/faith/small national): single-issue pooled / median sponsor avg / national-independent median
+balance_s10k,75684,206425,422575,USD avg balance,INFERENCE,data/commercial-opportunity/servicing-economics/segment-summary.csv; research/commercial-opportunity/daf-servicing-20bps-market-entry-2026-11-25.md (Raymond James 206425),Entry segment (CNV-ECO-004)
+balance_s100k,160566,193981,422575,USD avg balance,INFERENCE,data/commercial-opportunity/servicing-economics/segment-summary.csv,National vendor-affiliated pooled / all-active pooled / financial-affiliate pooled
+balance_s1m,6939,193981,323000,USD avg balance,INFERENCE,data/commercial-opportunity/servicing-economics/segment-summary.csv (vendor_captive pooled 6939); unbound parameters.json (Fidelity avg ~323k),Low = processor-like mass-market book
+impl_h,200,300,500,h/sponsor,INFERENCE,research/commercial-opportunity/servicing-economics/04-activity-cost-and-capacity.md (onboarding ~300 h),At 1k accounts; scaled per decade
+eng_config_h,80,160,400,h/sponsor,ASSUMPTION,,Configuration/policy pack/SSO
+n_std_integrations,2,3,4,count,ASSUMPTION,unbound requirements/integrations/CUSTODIAN-AND-INVESTMENT-MANAGEMENT.md,Custodian feed; bank file; GL export
+std_integ_h,40,80,160,h/integration,ASSUMPTION,,Configuring a pre-built connector
+n_custom_integrations,0,1,3,count,ASSUMPTION,,Mapped to data quality clean/typical/poor
+custom_integ_h,200,400,1000,h/integration,ASSUMPTION,,
+third_party_onboarding,0,5000,20000,USD/sponsor,ASSUMPTION,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-T06),Sandbox env; custodian/bank set-up; SFTP; vendor fees
+mig_auto_per_account,0.01,0.05,0.2,USD/account,ASSUMPTION,,Compute + AI mapping
+mig_account_exception_rate,0.005,0.03,0.1,share of accounts,ASSUMPTION,research/migration-runbook-2026.md,Mapped to data quality clean/typical/poor (not cost case)
+mig_account_exception_minutes,10,20,45,min,ASSUMPTION,,
+history_years_short,2.75,2.75,2.75,years,VERIFIED-FACT,10-institutional-onboarding-landscape.md (AEF pulled 33 months; ADVB-005),History scenario 'short': what a predecessor platform actually held
+history_years_mid,7,7,7,years,VERIFIED-FACT,10-institutional-onboarding-landscape.md (GWCF ported 7 years; ADVB-006),History scenario 'mid'
+history_years_full,15,20,26,years,INFERENCE,10-institutional-onboarding-landscape.md (Arizona 26 years); CNV-EXP-002 (full fund history),History scenario 'full' (default grid): sponsor age; volume-ramped
+history_volume_growth,0.05,0.08,0.12,share/yr,ASSUMPTION,research/commercial-opportunity/servicing-economics/02-sponsor-market-analysis.md (account growth not measured per sponsor),Older years carry fewer transactions: effective years = sum (1+g)^-k
+mig_auto_per_txn,0.0001,0.0005,0.002,USD/txn,ASSUMPTION,,
+mig_txn_exception_rate,0.001,0.01,0.03,share of txns,ASSUMPTION,unbound parameters.json (recon_break_rate 0.002/0.01/0.03),Mapped to data quality
+mig_txn_exception_minutes,5,10,20,min,ASSUMPTION,unbound parameters.json (break_minutes 20 (10-40)),
+parallel_cycles,1,2,3,month-end cycles,ASSUMPTION,research/migration-runbook-2026.md,Mapped to data quality
+recon_cycle_h,16,40,80,h/cycle at 1k accounts,ASSUMPTION,,Scaled per decade
+recon_break_rate,0.002,0.01,0.03,breaks/account at cutover,ASSUMPTION,unbound parameters.json (recon_break_rate),Mapped to data quality
+recon_break_minutes,10,20,40,min/break,ASSUMPTION,unbound parameters.json (break_minutes),
+donor_contact_share,0.1,0.2,0.35,share of accounts,ASSUMPTION,10-institutional-onboarding-landscape.md (all six donor notices reset credentials); ADVX-16,Hypercare contact surge after universal credential reset
+donor_contact_minutes,10,15,20,min,ASSUMPTION,unbound parameters.json (contact_minutes 20 (10-30)),
+reproof_share,0,0.05,0.2,share of accounts,ASSUMPTION,CNV-PLT-003,Risk-based identity re-proofing at migration
+idv_fee,1,1.5,3,USD/verification,VENDOR-CLAIM,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-ID2 Persona),
+sponsor_cleanup_minutes,10,15,30,min/account exception,ASSUMPTION,,
+sponsor_it_h_per_custom,40,80,200,h/custom integration,ASSUMPTION,,
+ttp_base_weeks,8,12,20,weeks,INFERENCE,10-institutional-onboarding-landscape.md (CF single-vendor 3-6 months contract to SoR; AEF ~8.5 months selection to live; Arizona 18+ months; NPT 14-16 weeks new programs),Calibrated so clean small sponsors land near 5 months and typical mid-size near AEF
+ttp_weeks_per_custom,3,4,8,weeks,ASSUMPTION,,
+rehearsal_runs,3,3,5,count,INFERENCE,11-cross-industry-migration-research.md (at least 3 rehearsals); ADVB-15,Full dress rehearsals before cutover
+rehearsal_h,16,40,80,h/run at 1k accounts,ASSUMPTION,,Unbound ops hours per rehearsal (scaled per decade)
+rehearsal_weeks,1,2,3,weeks/run,ASSUMPTION,,Elapsed time per rehearsal incl. sponsor sign-off
+unbound_legal_per_sponsor,5000,15000,40000,USD/sponsor,ASSUMPTION,,Unbound contract/DPA/program-terms review
+failure_reserve_share,0.05,0.1,0.2,share of direct onboarding cost,ASSUMPTION,10-institutional-onboarding-landscape.md (FFTC paid Give $654.5k then went elsewhere - INFERENCE); ADVB-011 (akoyaGO 85% on-time - VENDOR-CLAIM),Expected cost of failed/repeated migration and service credits
+cac_per_sponsor,50000,125000,250000,USD/sponsor,ASSUMPTION,research/commercial-opportunity/servicing-economics/08-adversarial-review.md (ADV-005: ~$250k/yr sales at 1-2 wins/yr),Sales and pre-sales per won sponsor
+sponsor_project_fte,0.25,0.5,1,FTE during project at 1k accounts,INFERENCE,10-institutional-onboarding-landscape.md (TAG: at least 0.5 FTE or a consultant; Hartford 4 months clean-up + 2 months dual run),Scaled per decade; applied over time to production
+sponsor_rehearsal_approval_h,4,8,16,h/rehearsal,ASSUMPTION,ADVB-06 duty list (controller approval per rehearsal),
+incumbent_tail_fee,0,50000,417742,USD,INFERENCE,10-institutional-onboarding-landscape.md (JCF paid Ren $417742 'PREVIOUS DONOR PORTAL SUPPORT' - VERIFIED-FACT high; NPact paid export PS),Buyer cost; base is ASSUMPTION
+sponsor_auditor_uplift,5000,20000,60000,USD,ASSUMPTION,ADVB-10 (no SOC 1 Type II overlapping the first audit period),Buyer cost: conversion procedures
+sponsor_legal,5000,20000,50000,USD,ASSUMPTION,,Buyer cost: re-papering donor program terms/privacy notice/DPA
+sponsor_comms_fixed,2000,10000,30000,USD,ASSUMPTION,,Buyer cost: donor/advisor communications production
+sponsor_consultant,0,115000,362000,USD at >=10k accounts,INFERENCE,10-institutional-onboarding-landscape.md (990 VII-B lines $115k-$724k/yr; Maine CF $362k),Scaled 25% at 1k rising to 100% at 10k+; JCF SF $724k Salesforce build excluded as out of scope
+term_months,36,60,84,months,ASSUMPTION,research/revenue-retention-and-switching-2026-11-11.md,Initial contract term; base used for classification
+include_payback_months,18,24,30,months,RECOMMENDATION,,Max payback of onboarding + CAC for onboarding included in servicing fee
+sales_cycle_months_saved,1,3,6,months,HYPOTHESIS,,Sales-cycle/time-to-revenue reduction from proven network + migration

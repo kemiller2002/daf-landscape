@@ -1,0 +1,68 @@
+{
+  "check_id": "irs-vanguard",
+  "check_type": "irs_index",
+  "date": "2026-11-14",
+  "detail": {
+    "index_last_modified": {
+      "2025": "Wed, 21 Jan 2026 14:11:16 GMT",
+      "2026": "Wed, 21 Oct 2026 13:03:05 GMT",
+      "2027": "http_404"
+    },
+    "propublica": "https://projects.propublica.org/nonprofits/organizations/232888152",
+    "rows": [
+      {
+        "index_file": "index_2025.csv",
+        "object_id": "202501349339302900",
+        "return_type": "990T",
+        "sub_date": "2025",
+        "tax_period": "202406",
+        "taxpayer_name": "VANGUARD CHARITABLE ENDOWMENT PROGRAM"
+      },
+      {
+        "index_file": "index_2025.csv",
+        "object_id": "202511349349313096",
+        "return_type": "990",
+        "sub_date": "2025",
+        "tax_period": "202406",
+        "taxpayer_name": "VANGUARD CHARITABLE ENDOWMENT PROGRAM"
+      },
+      {
+        "index_file": "index_2026.csv",
+        "object_id": "202611329339301651",
+        "return_type": "990T",
+        "sub_date": "2026",
+        "tax_period": "202506",
+        "taxpayer_name": "VANGUARD CHARITABLE ENDOWMENT PROGRAM"
+      },
+      {
+        "index_file": "index_2026.csv",
+        "object_id": "202621329349306657",
+        "return_type": "990",
+        "sub_date": "2026",
+        "tax_period": "202506",
+        "taxpayer_name": "VANGUARD CHARITABLE ENDOWMENT PROGRAM"
+      }
+    ],
+    "xml_urls": {}
+  },
+  "entity": "Vanguard Charitable (EIN 23-2888152)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:19:57Z",
+  "ok": true,
+  "queue_items": "P-VEN-02;P-GIV-05",
+  "source_url": "https://apps.irs.gov/pub/epostcard/990/xml/2026/index_2026.csv",
+  "status": "ok",
+  "summary": {
+    "min_tax_period": "202606",
+    "returns": [
+      "202406 | 990T | 202501349339302900",
+      "202406 | 990 | 202511349349313096",
+      "202506 | 990T | 202611329339301651",
+      "202506 | 990 | 202621329349306657"
+    ],
+    "target_return_present": false,
+    "target_returns": []
+  },
+  "target": "232888152",
+  "watch_regex": ""
+}

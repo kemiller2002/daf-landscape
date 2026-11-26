@@ -1,0 +1,534 @@
+{
+  "check_id": "ct-give-certspotter",
+  "check_type": "ct_certspotter",
+  "date": "2026-11-14",
+  "detail": {
+    "names": {
+      "*.npm.int.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-13",
+        "last_not_before": "2026-11-12"
+      },
+      "api-sandbox.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-16",
+        "last_not_before": "2026-11-08"
+      },
+      "api.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-11",
+        "last_not_before": "2026-11-03"
+      },
+      "apidocs-dev.giveinteractive.com": {
+        "certs": 3,
+        "first_not_before": "2026-08-30",
+        "last_not_before": "2026-09-29"
+      },
+      "apidocs.giveinteractive.com": {
+        "certs": 3,
+        "first_not_before": "2026-08-30",
+        "last_not_before": "2026-09-29"
+      },
+      "argo.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-19",
+        "last_not_before": "2026-10-14"
+      },
+      "cct-sandbox.giveinteractive.com": {
+        "certs": 22,
+        "first_not_before": "2026-09-01",
+        "last_not_before": "2026-11-09"
+      },
+      "cct-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-11-03",
+        "last_not_before": "2026-11-03"
+      },
+      "cct-staging.giveinteractive.com": {
+        "certs": 19,
+        "first_not_before": "2026-09-01",
+        "last_not_before": "2026-10-27"
+      },
+      "cct.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-08",
+        "last_not_before": "2026-10-08"
+      },
+      "docs.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-17",
+        "last_not_before": "2026-10-08"
+      },
+      "email.mail.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-22",
+        "last_not_before": "2026-10-21"
+      },
+      "give-batch-fee.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-11",
+        "last_not_before": "2026-09-11"
+      },
+      "give-demo.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-01",
+        "last_not_before": "2026-10-01"
+      },
+      "give-dev.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-21",
+        "last_not_before": "2026-11-12"
+      },
+      "give-golden-demo1.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-24",
+        "last_not_before": "2026-09-24"
+      },
+      "give-golden-disk-qa.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-27",
+        "last_not_before": "2026-09-27"
+      },
+      "give-ia-sandbox.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-19",
+        "last_not_before": "2026-11-11"
+      },
+      "give-innov-qa.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-24",
+        "last_not_before": "2026-09-24"
+      },
+      "give-lab.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-27",
+        "last_not_before": "2026-09-27"
+      },
+      "give-migration-dev-k8s.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-28",
+        "last_not_before": "2026-09-28"
+      },
+      "give-migration-dev.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-23",
+        "last_not_before": "2026-10-02"
+      },
+      "give-qa-00.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-16",
+        "last_not_before": "2026-10-10"
+      },
+      "give-qa-01.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-24",
+        "last_not_before": "2026-09-24"
+      },
+      "give-qa-02.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-11",
+        "last_not_before": "2026-11-04"
+      },
+      "give-qa-ia.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-15",
+        "last_not_before": "2026-09-15"
+      },
+      "give-qa-load-test.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-19",
+        "last_not_before": "2026-10-10"
+      },
+      "give-services-api.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-27",
+        "last_not_before": "2026-10-27"
+      },
+      "give-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-11-04",
+        "last_not_before": "2026-11-04"
+      },
+      "give-staging.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-24",
+        "last_not_before": "2026-09-24"
+      },
+      "giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-27",
+        "last_not_before": "2026-09-27"
+      },
+      "giveproductsandbox.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-30",
+        "last_not_before": "2026-09-30"
+      },
+      "gms.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-11-06",
+        "last_not_before": "2026-11-06"
+      },
+      "ia-addepar.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-25",
+        "last_not_before": "2026-09-25"
+      },
+      "ia-dyn-holding-balance.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-18",
+        "last_not_before": "2026-11-11"
+      },
+      "ia-innov.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-27",
+        "last_not_before": "2026-10-27"
+      },
+      "ia-reverse-rebook.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-01",
+        "last_not_before": "2026-10-27"
+      },
+      "impactassets-sandbox.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-20",
+        "last_not_before": "2026-10-12"
+      },
+      "impactassets-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-11-03",
+        "last_not_before": "2026-11-03"
+      },
+      "impactassets-staging.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-06",
+        "last_not_before": "2026-10-06"
+      },
+      "impactassets.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-28",
+        "last_not_before": "2026-10-23"
+      },
+      "jcf-grant-cart.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-31",
+        "last_not_before": "2026-10-23"
+      },
+      "jcf-innov.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-09",
+        "last_not_before": "2026-11-01"
+      },
+      "jcf-sandbox.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-21",
+        "last_not_before": "2026-10-15"
+      },
+      "jcf-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-05",
+        "last_not_before": "2026-10-05"
+      },
+      "jcf-staging.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-28",
+        "last_not_before": "2026-10-21"
+      },
+      "jmacarthurtrust.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-28",
+        "last_not_before": "2026-09-28"
+      },
+      "jmctdaf-staging.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-08",
+        "last_not_before": "2026-10-31"
+      },
+      "jmt-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-05",
+        "last_not_before": "2026-10-05"
+      },
+      "jttw-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-05",
+        "last_not_before": "2026-10-05"
+      },
+      "jttw-staging.giveinteractive.com": {
+        "certs": 16,
+        "first_not_before": "2026-09-01",
+        "last_not_before": "2026-10-29"
+      },
+      "jttw.giveinteractive.com": {
+        "certs": 22,
+        "first_not_before": "2026-09-01",
+        "last_not_before": "2026-11-02"
+      },
+      "learning.giveinteractive.com": {
+        "certs": 8,
+        "first_not_before": "2026-09-08",
+        "last_not_before": "2026-11-06"
+      },
+      "minneapolisfoundation-staging.giveinteractive.com": {
+        "certs": 28,
+        "first_not_before": "2026-09-01",
+        "last_not_before": "2026-11-11"
+      },
+      "nhf-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-05",
+        "last_not_before": "2026-10-05"
+      },
+      "nhf-staging.giveinteractive.com": {
+        "certs": 16,
+        "first_not_before": "2026-09-01",
+        "last_not_before": "2026-11-01"
+      },
+      "nhf.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-22",
+        "last_not_before": "2026-09-22"
+      },
+      "npm.int.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-13",
+        "last_not_before": "2026-11-12"
+      },
+      "offers.giveinteractive.com": {
+        "certs": 4,
+        "first_not_before": "2026-10-07",
+        "last_not_before": "2026-10-07"
+      },
+      "pay.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-19",
+        "last_not_before": "2026-09-19"
+      },
+      "scim.giveinteractive.com": {
+        "certs": 11,
+        "first_not_before": "2026-08-17",
+        "last_not_before": "2026-10-27"
+      },
+      "signatry-sandbox.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-11-11",
+        "last_not_before": "2026-11-11"
+      },
+      "signatry-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-11-04",
+        "last_not_before": "2026-11-04"
+      },
+      "signatry-staging.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-23",
+        "last_not_before": "2026-10-17"
+      },
+      "stifel-sftp.ext.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-04",
+        "last_not_before": "2026-09-04"
+      },
+      "stifel-sftp.int.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-04",
+        "last_not_before": "2026-10-28"
+      },
+      "stifelcharitable-staging.giveinteractive.com": {
+        "certs": 17,
+        "first_not_before": "2026-08-18",
+        "last_not_before": "2026-11-06"
+      },
+      "tc-innov.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-11-09",
+        "last_not_before": "2026-11-09"
+      },
+      "thesignatry.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-17",
+        "last_not_before": "2026-10-08"
+      },
+      "thrivent-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-05",
+        "last_not_before": "2026-10-05"
+      },
+      "thriventcharitable-sandbox.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-23",
+        "last_not_before": "2026-09-23"
+      },
+      "thriventcharitable-staging.giveinteractive.com": {
+        "certs": 9,
+        "first_not_before": "2026-09-01",
+        "last_not_before": "2026-10-27"
+      },
+      "tmf-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-05",
+        "last_not_before": "2026-10-05"
+      },
+      "trust.giveinteractive.com": {
+        "certs": 6,
+        "first_not_before": "2026-09-11",
+        "last_not_before": "2026-11-10"
+      },
+      "vanguard-sandbox.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-01",
+        "last_not_before": "2026-10-27"
+      },
+      "vanguard-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-11-03",
+        "last_not_before": "2026-11-03"
+      },
+      "vanguard-staging.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-29",
+        "last_not_before": "2026-10-26"
+      },
+      "vanguardcharitable.giveinteractive.com": {
+        "certs": 16,
+        "first_not_before": "2026-08-28",
+        "last_not_before": "2026-10-27"
+      },
+      "vc-innov.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-09",
+        "last_not_before": "2026-10-09"
+      },
+      "waterstone-sandbox.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-09-20",
+        "last_not_before": "2026-11-13"
+      },
+      "waterstone-staging.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-21",
+        "last_not_before": "2026-09-21"
+      },
+      "waterstone.giveinteractive.com": {
+        "certs": 2,
+        "first_not_before": "2026-08-30",
+        "last_not_before": "2026-10-24"
+      },
+      "ws-sftp.int.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-10-05",
+        "last_not_before": "2026-10-05"
+      },
+      "www.giveinteractive.com": {
+        "certs": 4,
+        "first_not_before": "2026-09-28",
+        "last_not_before": "2026-09-28"
+      },
+      "www.pay.giveinteractive.com": {
+        "certs": 1,
+        "first_not_before": "2026-09-19",
+        "last_not_before": "2026-09-19"
+      }
+    }
+  },
+  "entity": "Give Interactive (currently valid issuances)",
+  "error": "",
+  "observed_at_utc": "2026-11-14T11:23:56Z",
+  "ok": true,
+  "queue_items": "P-GIV-02",
+  "source_url": "https://api.certspotter.com/v1/issuances?domain=giveinteractive.com&include_subdomains=true&expand=dns_names",
+  "status": "200",
+  "summary": {
+    "name_count": 85,
+    "names": [
+      "*.npm.int.giveinteractive.com",
+      "api-sandbox.giveinteractive.com",
+      "api.giveinteractive.com",
+      "apidocs-dev.giveinteractive.com",
+      "apidocs.giveinteractive.com",
+      "argo.giveinteractive.com",
+      "cct-sandbox.giveinteractive.com",
+      "cct-sftp.int.giveinteractive.com",
+      "cct-staging.giveinteractive.com",
+      "cct.giveinteractive.com",
+      "docs.giveinteractive.com",
+      "email.mail.giveinteractive.com",
+      "give-batch-fee.giveinteractive.com",
+      "give-demo.giveinteractive.com",
+      "give-dev.giveinteractive.com",
+      "give-golden-demo1.giveinteractive.com",
+      "give-golden-disk-qa.giveinteractive.com",
+      "give-ia-sandbox.giveinteractive.com",
+      "give-innov-qa.giveinteractive.com",
+      "give-lab.giveinteractive.com",
+      "give-migration-dev-k8s.giveinteractive.com",
+      "give-migration-dev.giveinteractive.com",
+      "give-qa-00.giveinteractive.com",
+      "give-qa-01.giveinteractive.com",
+      "give-qa-02.giveinteractive.com",
+      "give-qa-ia.giveinteractive.com",
+      "give-qa-load-test.giveinteractive.com",
+      "give-services-api.giveinteractive.com",
+      "give-sftp.int.giveinteractive.com",
+      "give-staging.giveinteractive.com",
+      "giveinteractive.com",
+      "giveproductsandbox.giveinteractive.com",
+      "gms.giveinteractive.com",
+      "ia-addepar.giveinteractive.com",
+      "ia-dyn-holding-balance.giveinteractive.com",
+      "ia-innov.giveinteractive.com",
+      "ia-reverse-rebook.giveinteractive.com",
+      "impactassets-sandbox.giveinteractive.com",
+      "impactassets-sftp.int.giveinteractive.com",
+      "impactassets-staging.giveinteractive.com",
+      "impactassets.giveinteractive.com",
+      "jcf-grant-cart.giveinteractive.com",
+      "jcf-innov.giveinteractive.com",
+      "jcf-sandbox.giveinteractive.com",
+      "jcf-sftp.int.giveinteractive.com",
+      "jcf-staging.giveinteractive.com",
+      "jmacarthurtrust.giveinteractive.com",
+      "jmctdaf-staging.giveinteractive.com",
+      "jmt-sftp.int.giveinteractive.com",
+      "jttw-sftp.int.giveinteractive.com",
+      "jttw-staging.giveinteractive.com",
+      "jttw.giveinteractive.com",
+      "learning.giveinteractive.com",
+      "minneapolisfoundation-staging.giveinteractive.com",
+      "nhf-sftp.int.giveinteractive.com",
+      "nhf-staging.giveinteractive.com",
+      "nhf.giveinteractive.com",
+      "npm.int.giveinteractive.com",
+      "offers.giveinteractive.com",
+      "pay.giveinteractive.com",
+      "scim.giveinteractive.com",
+      "signatry-sandbox.giveinteractive.com",
+      "signatry-sftp.int.giveinteractive.com",
+      "signatry-staging.giveinteractive.com",
+      "stifel-sftp.ext.giveinteractive.com",
+      "stifel-sftp.int.giveinteractive.com",
+      "stifelcharitable-staging.giveinteractive.com",
+      "tc-innov.giveinteractive.com",
+      "thesignatry.giveinteractive.com",
+      "thrivent-sftp.int.giveinteractive.com",
+      "thriventcharitable-sandbox.giveinteractive.com",
+      "thriventcharitable-staging.giveinteractive.com",
+      "tmf-sftp.int.giveinteractive.com",
+      "trust.giveinteractive.com",
+      "vanguard-sandbox.giveinteractive.com",
+      "vanguard-sftp.int.giveinteractive.com",
+      "vanguard-staging.giveinteractive.com",
+      "vanguardcharitable.giveinteractive.com",
+      "vc-innov.giveinteractive.com",
+      "waterstone-sandbox.giveinteractive.com",
+      "waterstone-staging.giveinteractive.com",
+      "waterstone.giveinteractive.com",
+      "ws-sftp.int.giveinteractive.com",
+      "www.giveinteractive.com",
+      "www.pay.giveinteractive.com"
+    ],
+    "watch_hits": []
+  },
+  "target": "giveinteractive.com",
+  "watch_regex": "^(minneapolisfoundation|thriventcharitable|stifelcharitable|jcf)\\.giveinteractive\\.com$"
+}

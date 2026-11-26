@@ -1,0 +1,7 @@
+Test run for scratch:aincm/build/ordo/tests/Ordo.Tests/bin/Release/net8.0/Ordo.Tests.dll (.NETCoreApp,Version=v8.0)
+A total of 1 test files matched the specified pattern.
+[xUnit.net 00:00:00.14]     Ordo.Tests.LiveAdapterTests.a live provider answers the bounded contract within its choice space [SKIP]
+  Skipped Ordo.Tests.LiveAdapterTests.a live provider answers the bounded contract within its choice space [1 ms]
+
+Passed!  - Failed:     0, Passed:   575, Skipped:     1, Total:   576, Duration: 13 s - Ordo.Tests.dll (net8.0)
+VSTEST_ARTIFACTS_DIRECTORY environment variable was not found, falling back to a user-private temporary directory. This is most likely caused by an outdated Microsoft.NET.Test.Sdk package reference in the test project.

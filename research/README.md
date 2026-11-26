@@ -146,6 +146,42 @@ The next differentiator is **conclusions that can be audited, challenged and rea
 
 **Core product rule:** When a proposed vendor ranking lacks comparable evidence, **"not justified" is a positive decision result**. When a causal analysis is unwarranted, Clarity can stand alone without manufacturing an EDF origin network. Next engineering phase: minimal **F#** source/provenance validator, structured result renderer and tests; optional Limen/Forma view only after logic and regression behavior pass. Validate usefulness against a baseline data summary in blinded reviews before claiming a competitive edge.
 
+## Comprehensive industry expansion and Clarity report audit (November 11, 2026)
+
+The goal is a fully comprehensive DAF industry assessment across **legal sponsorship, economics, philanthropy, tax, donor/advisor behavior, nonprofit outcomes, governance, technology and resilience**. This stage delivers the research architecture and a critical audit, **not a claim that every topic has been fully empirically studied**.
+
+- [Comprehensive research blueprint](comprehensive-daf-research-blueprint-2026-11-11.md): 15 proposed report chapters; **45 cross-disciplinary topics** with 23 P0, 17 P1 and 5 P2 priorities; separation of charitable capital, commercial revenue and actual nonprofit outcomes.
+- [Clarity assumption audit of external and internal reports](clarity-report-assumption-audit-2026-11-11.md): **32 reviews**, including 20 external-report claims/interpretation hazards and 12 of our own findings. Three detailed Clarity case studies cover DAF-caused giving, geographic underserved need and donor engagement versus AI grant vetting.
+- [Structured 32-item claim, assumption, alternative and reassessment matrix](../data/clarity-report-assumption-audit-2026.csv): publisher-level overreach is distinguished from reader misinterpretation, appropriately scoped methods and our provisional hypotheses.
+- [Ten high-value Clarity conclusions](../data/clarity-conclusion-register-2026.csv): justified statement, open assumptions, posture, next action and concrete reassessment trigger.
+- [45-topic coverage matrix](../data/comprehensive-daf-research-coverage-2026.csv) and [27 qualified sources/research leads](../data/comprehensive-research-source-catalog-2026.csv).
+
+**Central correction:** The 2026 K2D/Chariot public report page goes beyond showing selected DAF switchers gave more at participating nonprofits to claiming DAFs cause increased giving; an actual donor-wide counterfactual remains unproven. DAFRC's 2026 revision and GivingTuesday's 2026 geographic report, by contrast, **openly disclose** many of their denominator, classification and missingness limitations. The challenge is often preserving these caveats when other analysts turn observations into market size, strategy, or tax policy claims.
+
+
+## DAF provider technology, exits, insolvency and data continuity (2026-11-11)
+
+- [DAF Technology Audit and Provider Failure/Exit Study](daf-technology-audit-and-provider-exits-2026-11-11.md): public technical evidence and bounded Clarity/EDF interpretations, actual shutdown and bankruptcy distinctions, active API/ledger evidence, security incidents and recovery/exit test scenarios. **Public documentation review, not a penetration test or production system certification**.
+- [Twelve-provider technology evidence matrix](../data/provider-technology-evidence-matrix-2026.csv): Ren, Foundation Source, TIFIN Give, DAFtech, Chariot, Daffy, NPT and adjacent platforms. Unexecuted technical checks remain **not_verified**, not scored failed.
+- [24 technology diligence controls](../data/technology-audit-control-matrix-2026.csv): 13 P0 / 9 P1 / 2 P2, spanning legal sponsor fund ownership, segregated payments, accounting, grant idempotency, cyber security, exits and disaster recovery.
+- [11 dated company, product and incident cases](../data/technology-provider-exits-and-incidents-2026.csv): Flipcause bankruptcy, Everfund/Kambeo shutdowns, planned Benevity Alaya sunset, Vennfi and Giving Place acquisitions, CyberGrants and Classy rebrands/continuity, DonorPerfect November 2026 disruption, Blackbaud historical security enforcement, JustGiving dependency end of life.
+- [34 qualified sources](../data/technology-audit-source-register-2026.csv) and [16 Clarity falsification checks](../data/technology-audit-clarity-challenges-2026.csv): no false claim that a core DAF vendor failed when only an adjacent fundraising service did.
+
+**Critical distinction:** We have confirmed *adjacent fundraiser technology* insolvency/shutdown cases, not a statistically complete mortality history of core DAF administration platforms. Separate a charitable sponsor's legal ownership of assets from software or payment intermediary funds, vendor corporate IP, program continuity and donor accounting records. Actual legal/technical failure mechanisms require evidence; no provider's hidden runtime stack or current quality is inferred from public brochure.
+
+The comprehensive industry matrix now covers **45 topics with 23 P0 / 17 P1 / 5 P2**, including provider survival and technology validation, and the [15-chapter report blueprint](comprehensive-daf-research-blueprint-2026-11-11.md) indexes their work.
+
+## Faith-based, megachurch and special-interest DAF networks (November 11, 2026)
+
+- [Megachurch and affinity DAF study](affinity-dafs-megachurches-and-special-interest-organizations-2026-11-11.md): religious/affinity grant ecosystems and legal distinctions across direct giving, donor-advised, organization-advised and endowment structures. Covers NCF, Signatry, WaterStone, JCF, Catholic foundations, AMCF, community/issue programs and tax boundaries. **No claim that ordinary cash church giving should be converted to DAFs.**
+- [30 affinity sources](../data/affinity-daf-source-register-2026.csv), [18 segmented fund and institution models](../data/affinity-daf-segments-and-models-2026.csv), [18 Clarity assumption checks](../data/affinity-daf-clarity-audit-2026.csv), and [12 qualified B2B opportunity tests](../data/affinity-daf-commercial-opportunity-tests-2026.csv). Source rows cover current IRS church Form 990 exceptions, 2026 nonitemizer direct cash deductions excluding DAF contributions, c3/c4/c6/527 boundaries and disclosed provider fees, including unresolved AMCF competing public fee pages.
+- [Historical DAF sponsor and platform lifecycle, 2011–2026](historical-daf-sponsor-technology-lifecycle-2011-2026.md): 2011 Blackbaud→Renaissance DAF software lineage, Ren and Foundation Source acquisitions, 2009/2011 National Heritage Foundation bankruptcy/revocation with later sponsor filings, AEF's 2024/2026 donor portal migrations and October 2026 DonorCentral closure. **Known-case ledger, not population mortality rate.**
+- [24 dated historical events](../data/historical-daf-lifecycle-events-2011-2026.csv), [33 history sources](../data/historical-daf-lifecycle-sources-2011-2026.csv), [18 historical Clarity checks](../data/historical-daf-lifecycle-clarity-challenges-2026.csv), [5 selected NHF asset observations](../data/national-heritage-foundation-filing-trajectory-2014-2022.csv).
+
+**New distinction:** Faith communities can be 501(c)(3) grant recipients, independent DAF sponsors, outreach distribution networks, or organizations advised on funds they do **not** legally own. Public church Form 990 exceptions mean ordinary 990 datasets cannot show the complete church-grant market. NCF reports $468m FY2025 grants **to churches**, not specifically megachurches, and that figure is not technology revenue. Hartford megachurch attendance is not paying SaaS contracts. Religion or individual giving intent must not be inferred for commercial donor targeting.
+
+The comprehensive industry research plan now has **45 topics across eight pillars, 23 P0 / 17 P1 / 5 P2, and 15 proposed report chapters**. The new evidence and opportunity analyses remain **public-source hypotheses**, without vendor sandbox tests, actual church procurement contracts, full historical vendor populations, or causal donor-giving proof.
+
 ## Principal findings
 
 - For philanthropic Ren at `reninc.com`, **AEF's July 2025 announcement asserts SOC 2 Type II**, while **AEF's April 2026 announcement asserts Type I**. This is a **public-source conflict**; no actual audit report inspected. A separate Type II claim by `tryren.com` remains unrelated.
@@ -154,3 +190,66 @@ The next differentiator is **conclusions that can be audited, challenged and rea
 - **No independent auditor report was inspected.** All other organizations remain unverified in this scoped review; no negative assurance conclusion follows.
 
 No confidential or client-specific material is included.
+
+## Mission 2026-11-14: consolidated report, AI economics, dependency graph, validation
+
+- **[Consolidated DAF industry report (Nov 2026)](DAF-INDUSTRY-REPORT-2026-11.md)**, the current top-level synthesis across all research.
+- [Strategic synthesis A–G](mission-2026-11-14/strategic-synthesis.md): mistaken industry beliefs, what AI changes, incumbent vulnerabilities, what entrants should not build, value shift, falsification criteria, top ten discoveries.
+- [Final status report](mission-2026-11-14/FINAL-STATUS.md) and [baseline inventory and plan](mission-2026-11-14/00-baseline-inventory-and-mission-plan.md).
+- Workstreams:
+  - [AI economics](mission-2026-11-14/ai-economics-replacement-analysis.md)
+  - [AI failure modes](mission-2026-11-14/ai-governance-failure-modes.md)
+  - [AI-native entrant](mission-2026-11-14/ai-native-entrant-simulation.md)
+  - [vendor dependency graph](mission-2026-11-14/vendor-dependency-concentration.md)
+  - [industry incentives](mission-2026-11-14/industry-incentives-structural-analysis.md)
+  - [competitive histories](mission-2026-11-14/competitive-history-timelines.md)
+  - [quantitative datasets](mission-2026-11-14/quantitative-datasets-and-data-dictionary.md)
+  - [regulation, processor share and portability](mission-2026-11-14/regulation-market-structure-portability.md)
+  - [breadth: community, faith, infrastructure](mission-2026-11-14/breadth-community-faith-infrastructure-emerging.md)
+- Validation: [wave 1](mission-2026-11-14/validation-wave1-report.md), [red team 2A](mission-2026-11-14/red-team-wave2a-ai-and-entrant.md), [red team 2B](mission-2026-11-14/red-team-wave2b-graph-data-incentives.md); registers in `data/mission-2026-11-14/validation-register*.csv`.
+- Frameworks: [Clarity/EDF application guide](mission-2026-11-14/clarity-edf-application-guide.md), pinned to the canonical repositories.
+- Reproducible scripts:
+  - `scripts/mission_inventory.py`
+  - `scripts/mission_coverage.py`
+  - `scripts/mission_prioritize.py`
+  - `scripts/mission_daf_metrics.py`
+  - `scripts/mission_build_source_extracts.py`
+
+## DAFCP™ designation investigation (2026-11-20)
+
+[`dafcp-investigation-2026-11-20/`](dafcp-investigation-2026-11-20/00-README.md) is an evidence-based investigation of the Donor-Advised Fund Certified Professional designation from The American College of Financial Services. It has 12 reports, 10 datasets (73-row evidence register) and a validator, `scripts/dafcp_validate.py`.
+
+- **Executive report:** [01-executive-investigation-report.md](dafcp-investigation-2026-11-20/01-executive-investigation-report.md).
+- **Lineage.** DAFCP succeeds a 2025 certificate that the College developed with Fidelity Charitable, NPT, Vanguard Charitable and DAFgiving360. The same four fund the inaugural 2027 DAF Forum, whose sessions map to the DAFCP curriculum. The DAFCP names no partner.
+- **Named experts.** 10 of the 22 work at a DAF sponsor or a sponsor's administrator. Six are at Charitable Solutions LLC, Dechomai's administrator, including the programme director.
+- **Curriculum.** The public curriculum is strong on law, tax and complex assets. It omits fees, payout distribution, portability and inactivity, and mentions technology only generically. It does not mention AI.
+- **Adoption.** No published adoption data, no job postings, and no FINRA listing.
+- **Recommendation.** Enrol one person as a research instrument. Interview the curriculum owners. Publish complementary operations and technology education and an evidence-based platform comparison. Do not build a competing certification.
+
+Pending validation.
+
+## Commercial opportunity: Echelon Foundry (2026-11-20)
+
+[`commercial-opportunity/`](commercial-opportunity/README.md) asks who might pay for independent DAF expertise, and for what. Its 78 prospect hypotheses come from public sources only, with no interviews and no outreach. The package also contains a buyer-segment analysis, competition and price benchmarks, ten scored offerings with a sensitivity analysis, Clarity/EDF tests of commercial assumptions, an interview programme with rejection criteria, and a 30-60-90-day plan. Start with the [executive report](commercial-opportunity/executive-report.md).
+
+- **Recommendation.** Build an independent, evidence-led advisory and intelligence practice. Its first offers would be platform assessment and vendor selection plus migration assurance for mid-size sponsors, then a market-intelligence subscription. Defer software.
+- **Status.** Willingness to pay is untested.
+
+## Competitive advantage: charity networks and frictionless onboarding (2026-11-26)
+
+- [Research package](competitive-advantage/charity-network-and-onboarding/README.md), starting with the [executive summary](competitive-advantage/charity-network-and-onboarding/00-executive-summary.md).
+  - 25 reports and machine-readable registers on Ren's charity network, competitors, public charity data, registry and continuous vetting, payment rails, fraud, onboarding and migration, cross-industry switching, and economics.
+  - Three independent adversarial reviews.
+  - 375 registered sources.
+- **Headline.**
+  - The directory is commoditised.
+  - Accumulated payee enrolments, resolution of messy recipients and audit history are the incumbents' hard-to-copy assets.
+  - Migration is unavoidable and productisable.
+  - Distribution and incentive alignment, not networks or onboarding, appear to be the binding barrier. This is an unproven hypothesis; no win/loss evidence exists.
+- Proposed requirements: `kemiller2002/unbound`, `requirements/discovery/2026-11-26-charity-network-and-onboarding/`.
+
+## File ingestion, information exchange and straight-through processing (2026-11-26)
+
+- [Research package](file-ingestion-and-straight-through-processing/README.md): how information enters DAF sponsors (115 workflows across 12 domains, 263 evidence rows from ≈48 organizations and adjacent industries), formats and delivery mechanisms, straight-through-processing opportunities, competitor comparison and an economics model for sponsors of 1,000 to 1,000,000 funds.
+- **Main finding:** the dominant ingestion exception is attribution of pooled receipts through free-text fields, not parsing; preventing exceptions (reference-carrying instructions, authoritative public data instead of documents) moves costs more than processing them faster. All handling times are assumptions until measured.
+- Data in [`data/file-ingestion-2026-11/`](../data/file-ingestion-2026-11/); reproducible with `scripts/fie_economics.py` and `scripts/fie_validate.py --check`.

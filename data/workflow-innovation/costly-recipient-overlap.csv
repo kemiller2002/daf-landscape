@@ -1,0 +1,4 @@
+class,recipients,pairs,lines,amount_usd,share_recipients_ge2_sponsors,share_pair_verifications_avoided
+all recipients,133763,274929,279337,37274798151,0.4012,0.5135
+fiscal sponsors (433-EIN list),183,1024,1107,728862322,0.7377,0.8213
+recipients absent from IRS EO BMF,17114,24377,24525,2996976657,0.247,0.2979
