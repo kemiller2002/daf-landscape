@@ -4,7 +4,7 @@ Status: record of an owner decision, added after Phase II merged (PR #92, `10b92
 
 ## What the owner approved
 
-On 2026-11-26 the owner approved all twelve proposed decisions, DEC-001 to DEC-012, and authorized the progression of all eighteen cross-repository implications, XRI-001 to XRI-018, subject to their documented conditions. The owner's wording for each decision, with its conditions, is in [decision-approvals.csv](data/registers/decision-approvals.csv).
+On 2026-11-26 the owner approved all twelve proposed decisions, DEC-001 to DEC-012, and authorized the progression of all eighteen cross-repository implications, XRI-001 to XRI-018, subject to their documented conditions. Each decision's approved direction and its conditions in the owner's wording (`owner_conditions`) are in [decision-approvals.csv](data/registers/decision-approvals.csv). Constraints that agents derived from the Phase II reports or the repositories are kept apart, in `derived_constraints`, with their source; they are not owner wording. The outcome measures, review cadences and reconsideration triggers are agent proposals awaiting owner acceptance (`measures_status`).
 
 **The approval authorizes** strategic direction, requirements refinement, research and planning.
 

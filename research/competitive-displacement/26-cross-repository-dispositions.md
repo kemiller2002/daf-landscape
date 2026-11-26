@@ -53,7 +53,7 @@ No implication was discarded. Placement decisions that departed from the origina
 | DEC-002 | CMF-001/002/005; OD-CDD-04 | — | CAP-DAF-001; entity separation |
 | DEC-003 | CIV-006..009/012/013; OD-CDD-02 | — | — |
 | DEC-004 | CIV-001/002/004/005/010; CMF-004 | — | — |
-| DEC-005 | CIV-001..003/011/012; OEM-006 | Mapping suggestions are proposals only | Praxis 6C17 (no automatic advance) |
+| DEC-005 | CIV-001..003/011/012; OEM-006 | Mapping suggestions are advisory proposals only (DEC-005 trace added in the Transitus dispositions document after review finding S1-15) | Praxis 6C17 (no automatic advance) |
 | DEC-006 | CMF-001/004/007; OEM-001..003; OD-CDD-03 | — | 01 strategic direction |
 | DEC-007 | ONB-001/002 | MP-010; DF-TRN-2026-0023 | — |
 | DEC-008 | (scope constraint) | DF-TRN-2026-0025/0026 | CAP-DAF-001/002; OD-DAF-CAP-001 |
@@ -93,3 +93,23 @@ No implication was discarded. Placement decisions that departed from the origina
 | Praxis | Accept or reject RQ-ROS-2026-6C17, 0863 and 6D60 |
 | Shared costs | Organization: the shared-cost allocation rule across the five entities; whether Unbound will ever be a separate entity |
 | IP mechanics | Organization and counsel: assignment instruments, work created before formation, third-party components |
+
+## 6. Independent consistency review (Stage I)
+
+An independent reviewer re-ran every repository's validators (all pass) and raised 16 findings: 1 blocking, 9 should-fix and 6 notes. No historical record had been overwritten, and no decision was marked beyond "strategically approved".
+
+| Finding | Repository | Issue | Resolution |
+|---|---|---|---|
+| S1-01 (blocking) | daf-landscape | Conditions column mixed agent-derived constraints with owner wording; the DEC-006 bps clause pre-empted open OD-CDD-03 | Split into `owner_conditions` (owner's wording only) and `derived_constraints` (labelled, sourced); OD-CDD-03 cited as open |
+| S1-02 | daf-landscape, org | Outcome measures and cadences stated without provenance; org listed them as TODO | Labelled as agent proposals awaiting owner acceptance in both |
+| S1-03 | org | DEC-008 / CAP-DAF rules shown as "Requirements incorporated" | Reset to strategically approved; CAP-DAF rules proposed |
+| S1-04 | org, daf-landscape | Month-24 pilot trigger missing; no spend ledger to fix the clock start | Trigger added; question whether OD-P3-03/04 also apply to it left for the owner; spend and founder-time ledger clause added |
+| S1-05 | unbound | "Release-1 scope unchanged" claim was false | Scope-impact statement listing proposed Release-1 additions |
+| S1-06 | transitus | "Phase-1 scope unchanged" claim; TA-gated rows labelled phase 1 | Scope-impact statement; gating corrected |
+| S1-07 | unbound, transitus | Duplicate first-cluster selection requirement | Unbound UNB-CDD-ONB-002 owns the record; Transitus MP-010 consumes it; ONB-002 cites MP-004 |
+| S1-08 | unbound, transitus, foundry | OD-P3-01 (IP) not recorded; LICENSE names an individual | Notes added citing OD-DAF-IP-001 with a counsel TODO; LICENSE not edited |
+| S1-09 | foundry, org | daf-landscape wrongly described as private | Corrected (daf-landscape is public); owner question raised on public detail |
+| S1-10 | unbound | CMF-005 wording prohibited nothing | Rewritten as MUST NOT |
+| S1-11..S1-16 | various | Stale ID lists, responsible-repository column, ledger dependencies, a missing DEC-005 trace in Transitus, three org wording points | Corrected |
+
+Per-repository fix commits are recorded in the [initiative ledger](initiative-ledger-phase-iii.md).

@@ -22,10 +22,11 @@ Started 2026-11-26. This ledger records repository baselines, dependencies, deci
 
 ## Dependencies
 
-- Unbound's requirements depend on DEC-001 to DEC-007 and DEC-009 to DEC-010, through XRI-001 to XRI-008.
-- Transitus depends on DEC-007, DEC-010 and DEC-011, through XRI-009 to XRI-014.
-- The organization records depend on DEC-002, DEC-006 and DEC-008, through XRI-015 to XRI-017.
-- Praxis depends on XRI-018 (where decision records are registered).
+- Unbound's requirements trace to all twelve decisions (DEC-008 and DEC-012 only as scope and validation constraints), through XRI-001 to XRI-008.
+- Transitus depends on DEC-005, DEC-007, DEC-008, DEC-010, DEC-011 and DEC-012, through XRI-009 to XRI-014.
+- echelon-foundry receives XRI-015 and XRI-016 (methodology and engineering standards).
+- The organization records depend on DEC-001, DEC-002, DEC-006 and DEC-008, through XRI-017 and XRI-018 (XRI-018's decision register is held there).
+- Praxis receives only DAF-agnostic requirement proposals arising from XRI-018 (authority stages, decision currency, cross-repository propagation).
 - Phase III research depends on the approved baseline (report 25), not on the original proposals.
 
 ## Log
@@ -36,6 +37,6 @@ Started 2026-11-26. This ledger records repository baselines, dependencies, deci
 | 2 | Owner approval recorded without changing the original proposals | [25](25-owner-approval-record.md), [decision-approvals.csv](data/registers/decision-approvals.csv), note in [23](23-executive-decision-register.md) | `validate`; ladder tests |
 | 3 | Validator extended: approval coverage, ladder order, XRI disposition vocabulary and coverage | `model/src/CompetitiveDisplacement/Validate.fs`, 4 new tests | `dotnet test`: 20/20 |
 | 4 | Stage I agents finish: Transitus (`36e9e55`), organization administration (`dede008`), echelon-foundry (`fec24fe`), Praxis (`ce7eca2`), Unbound (`17bfe50`) | [26](26-cross-repository-dispositions.md) | Each repository's own validators (see 26 §1) |
-| 5 | Owner decisions OD-P3-01..03 (IP ownership; kill rule does not stop Transitus; kill-rule start) recorded in all affected repositories | [25](25-owner-approval-record.md) | `validate` |
+| 5 | Owner decisions OD-P3-01..03 (IP ownership; kill rule does not stop Transitus; kill-rule start) recorded in daf-landscape, organization administration and Transitus; Unbound, Transitus and echelon-foundry IP notes added after review finding S1-08 | [25](25-owner-approval-record.md) | `validate` |
 | 6 | Report 18 annotated: DF-TRN-2026-0014 superseded; the DF-0016 kill criterion has no gating successor | [18](18-transitus-implications.md) | — |
 | 7 | XRI dispositions complete (18/18); decision-to-requirement trace | [xri-dispositions.csv](data/registers/xri-dispositions.csv) | `validate OK: 48 CSV, 37 Markdown`; 20/20 tests; `check` reproduces |
