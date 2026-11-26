@@ -12,19 +12,20 @@ Scope: a conceptual canonical model for heterogeneous legacy DAF exports, and a 
 - **This pattern has vendor precedent.** Foundant migrates balances "as of a given date" without transaction history [MIG-001] and imports history with a flag so that it "will not impact the general ledger" [MIG-003] (VENDOR-CLAIM, Medium). Unbound's difference is a **roll-forward proof** that links the two layers: earliest legacy balance + Σ imported history = opening balance. Where history is incomplete, the gap is disclosed as an explicit `HistoryGap` amount rather than hidden.
 - **Bitemporal honesty.** Imported facts have an effective time in the past and a recorded time equal to the import time (UNB-DATA-003, UNB-IMM-004). Unbound never claims to have known a legacy fact before it imported it.
 - **In-flight items are live objects, not history.** Approved-unpaid grants, outstanding checks, recurring schedules and pending contributions become live Unbound objects at E, with lineage to their legacy IDs and `verification_status=imported_unverified` (RR-REQ-X-061-r1). Duplicate prevention is designed in 17.
-- **Platform migration and sponsor-to-sponsor transfer are different and must not be conflated.** CNV-EXP-002 (same sponsor, new platform) imports history into the sponsor's own books. UNB-XIN-EVA-009 (new legal sponsor) leaves history in the source sponsor's books and gives the destination only a non-authoritative reference package. Both are correct for their case. The CMM labels each import with `migration_kind`.
+- **Platform migration and sponsor-to-sponsor transfer are different and must not be conflated.** CNV-EXP-002 (same sponsor, new platform) imports history into the sponsor's own books. UNB-XIN-EVA-009 (new legal sponsor) leaves history in the source sponsor's books and gives the destination only a non-authoritative reference package. Both are correct for their case. The CMM labels each import with `migration_kind`. Advisor or bank programs hosted on a vendor's own sponsoring charity are `ProgramTransfer`, which follows the sponsor-transfer rules and has no full-history import (13 §2b).
+- **The legacy history vault is held by Unbound for the sponsor.** Incumbents may allow as little as 10-15 days of post-termination access [ADVB-002]. The L0 vault plus the History Partition therefore replaces read-only legacy access as the durable home for history. Unbound holds it as processor and the sponsor remains records custodian (CNV-ENT-002) (RECOMMENDATION, High).
 
 ## 1. Layers and the provenance envelope
 
 | Layer | Content | Mutability | Requirement anchors |
 |---|---|---|---|
-| L0 Source Vault | Original files, DB backups, PDFs; SHA-256 per file; Merkle root per bundle; chain-of-custody record | Write-once, retained per CNV-PLT-004 and legal holds | UNB-CUST-012, UNB-DATA-008, UNB-IMM-007 |
+| L0 Source Vault | Original files, DB backups, PDFs, **report exports and statement PDFs captured before incumbent access ends**; SHA-256 per file; Merkle root per bundle; chain-of-custody record. The sponsor's durable legacy archive | Write-once, retained per CNV-PLT-004 and legal holds | UNB-CUST-012, UNB-DATA-008, UNB-IMM-007 |
 | L1 Staging | One row per source record, all source columns kept (including unmapped), `row_locator` | Rebuildable from L0 (deterministic parser) | UNB-DATA-010 |
 | L2 CMM | Canonical entities (CSV), typed values with knowledge state | Rebuildable from L1 + pinned mapping version (see 15) | REQ-X-061, RR-REQ-X-061-r1 |
 | L3 Import commands | `ImportHistoricalFact`, `PostOpeningBalance`, `AdoptInFlightItem`, `RegisterCrosswalk` | Append-only domain events inside the tenant | UNB-IMM-001, UNB-XIN-SAS-005 |
 
 **Provenance envelope** (on every L2/L3 record):
-`{ migration_run_id, migration_kind: PlatformReplacement|SponsorTransferIn|TenantRelocation, source_system, source_platform_version?, export_id, file_sha256, row_locator, source_record_ids[], mapping_version_hash, transform_version, import_batch_id, verification_status: imported_unverified|verified|rejected, knowledge_class: legacy_asserted|legacy_reconciled|unbound_verified, source_effective_at?, source_recorded_at?, imported_at }`
+`{ migration_run_id, migration_kind: PlatformReplacement|SponsorTransferIn|ProgramTransfer|TenantRelocation, source_system, source_platform_version?, export_id, file_sha256, row_locator, source_record_ids[], mapping_version_hash, transform_version, import_batch_id, verification_status: imported_unverified|verified|rejected, knowledge_class: legacy_asserted|legacy_reconciled|unbound_verified, source_effective_at?, source_recorded_at?, imported_at }`
 
 `knowledge_class` moves forward only. `legacy_asserted` means the legacy system said so. `legacy_reconciled` means the fact ties to an independent source (custodian, bank, as-issued statement). `unbound_verified` means re-verified under Unbound controls, for example payee destination evidence under CNV-PAY-002.
 
@@ -61,7 +62,14 @@ Rules: arithmetic over a non-`Known` amount is a type error. Reports aggregate `
    - A wrong historical fact gets an appended `HistoricalCorrection`, linked to the original (UNB-IMM-002), with no GL effect.
    - A wrong opening balance gets a current-period correcting journal with `relates_to_period=E` and a correction class (CNV-FIN-011). If the error is material to statements already issued, the CFO decides on restatement (CNV-FIN-011, ASC 250 [MIG-017]).
    - A mapping defect found after archive uses the WFM-26 `MigrationCorrection` state.
-6. **Statements**: legacy as-issued statements are stored as L0 evidence (hash, issue date) and are **never regenerated** to replace them. Unbound can produce an "as-recomputed" view from history for comparison (gate in 16), and it is labelled as such (UNB-NAV-010, UNB-ACC-025).
+6. **Grant recognition point (CNV-FIN-007; ADVB-08).**
+   - The legacy convention is captured at T0 (13). Examples: recognize at approval, at communication, or at payment.
+   - Each `HistoricalGrant` carries `legacy_recognition_point`.
+   - The opening grants-payable balance at E is the legacy book's balance under the legacy convention. It is never recomputed silently.
+   - The sponsor book's `GrantRecognitionPoint` is effective-dated. By default it continues the legacy convention to the next fiscal year-end, unless the external auditor concurs earlier with a written policy change. That auditor acceptance is the CNV-FIN-007 activation gate.
+   - At E-1 the CNV-FIN-007 cutoff register is built from legacy data: approved-uncommunicated, communicated-unpaid and conditional grants. Each grant's communication evidence is `Known` or `NotProvided`.
+   - Where the convention changes at a fiscal year-end, the difference in grants payable is computed per grant and posted as a policy-change entry under ASC 250 treatment [MIG-017], approved by the CFO. It is never posted as a migration correction.
+7. **Statements**: legacy as-issued statements are stored as L0 evidence (hash, issue date) and are **never regenerated** to replace them. Unbound can produce an "as-recomputed" view from history for comparison (gate in 16), and it is labelled as such (UNB-NAV-010, UNB-ACC-025).
 
 ### Bitemporal coordinates
 
@@ -94,7 +102,7 @@ The retention clock runs from **source transaction date**, not import date, so a
 
 ## Implications for Unbound
 
-- Option C turns CNV-EXP-002 into an engineering contract: the full history the predecessor holds is visible, reconciled to the opening balance, and kept out of the GL. That is a stronger donor-continuity promise than the public AEF/Ren outcome (2 years visible) [MIG-012], and stronger than balances-only conversions [MIG-001]. (INFERENCE, Medium)
+- Option C turns CNV-EXP-002 into an engineering contract: the full history the predecessor holds is visible, reconciled to the opening balance, and kept out of the GL. That is a stronger donor-continuity promise than the public AEF/Ren outcome (33 months imported, 2 years visible) [MIG-012], and stronger than balances-only conversions [MIG-001]. (INFERENCE, Medium)
 - It needs one new persistence concept, the non-posting historical-fact partition. Everything else reuses existing requirements.
 
 Candidate requirements:
@@ -104,10 +112,22 @@ Candidate requirements:
 - **UNB-MIG-013** Per-fund roll-forward proof with a disclosed `HistoryGap`; no plug (refines CNV-EXP-002 "reconciliation report").
 - **UNB-MIG-014** Migration retention clocks start from the source transaction date (refines CNV-PLT-004).
 - **UNB-MIG-015** A many-to-many, append-only crosswalk covering grant, payment, check, trace, rail and custody references (refines RR-REQ-X-061-r1, REQ-X-025).
-- **Clarification**: amend CNV-EXP-002 so that "full fund history" reads "all history the predecessor holds and the sponsor is entitled to export, with any shortfall disclosed per fund", and state that it applies to `PlatformReplacement`, while UNB-XIN-EVA-009 governs `SponsorTransferIn`.
+- **UNB-MIG-016** Recognition-point continuity at the epoch: legacy convention carried until auditor-accepted change; cutoff register built at E-1; policy-change difference computed per grant (refines CNV-FIN-007, UNB-XIN-ACC-002).
+- **UNB-MIG-017** The L0 vault and History Partition are the sponsor's durable legacy archive. All history and as-issued documents are captured before incumbent access ends, without relying on post-termination incumbent access (refines CNV-ENT-002, REQ-X-061).
+- **Clarification**: amend CNV-EXP-002 so that "full fund history" reads "full history available from any source the sponsor can lawfully obtain (predecessor platform, prior predecessors, custodian, sponsor archives), with shortfalls disclosed per fund as HistoryGap together with the source's retention evidence". State that it applies to `PlatformReplacement`, while UNB-XIN-EVA-009 / CNV-ENT-002 govern `SponsorTransferIn` and `ProgramTransfer`. Older national sponsors may have decades of history, so the history-depth volume is a sizing driver for draft 20 (ADVB-07).
 
 ## Open questions / evidence gaps
 
 - Does the sponsor's auditor accept non-posting history plus an opening-balance epoch, or require legacy GL detail inside the new system for the comparative year? This is an AU-C 510 practice question [MIG-016], and auditor interviews are needed.
 - Field-level completeness of real Ren, FIMS and DonorCentral exports is unknown (L06, L15). The CMM is a hypothesis until rehearsed on authorized data.
 - Whether donors should see `HistoryGap` amounts or only a "history before <date> not available" notice is a UX and legal-wording decision.
+
+## Adversarial review response
+
+| ID | Response |
+|---|---|
+| ADVB-02 | **Accepted.** Unbound's L0 vault replaces read-only incumbent access as the durable history store (UNB-MIG-017). |
+| ADVB-04 | **Accepted.** Added `ProgramTransfer` as a migration_kind; it gets no full-history import. |
+| ADVB-07 | **Accepted.** CNV-EXP-002 clarification extended to "any source the sponsor can lawfully obtain" plus retention evidence. Volume sizing is draft 20's. |
+| ADVB-08 | **Accepted.** Added a recognition-point epoch design (mechanics item 6; UNB-MIG-016). I keep the position that a standardised epoch remains practical. |
+

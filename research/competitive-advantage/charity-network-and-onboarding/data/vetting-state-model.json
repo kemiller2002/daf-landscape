@@ -1,0 +1,1678 @@
+{
+ "model_id": "REG-VSM-0.1",
+ "status": "proposed (research draft, not ratified)",
+ "date": "2026-11-26",
+ "owner": "REG (daf-landscape research/competitive-advantage/charity-network-and-onboarding)",
+ "described_in": [
+  "06-continuous-vetting.md",
+  "05-charity-registry-design.md"
+ ],
+ "refines": [
+  "CNV-GRT-003",
+  "CNV-GRT-004",
+  "CNV-GRT-005",
+  "CNV-GRT-006",
+  "CNV-ARC-003",
+  "RR-REQ-X-007-r1",
+  "RR-REQ-X-007-r2",
+  "RR-UNB-EXT-028-r2",
+  "RR-UNB-GRT-003-r1",
+  "RR-UNB-CHAR-013-r1",
+  "UNB-RCN-GRT-013",
+  "UNB-RCN-GRT-014",
+  "UNB-XIN-NPG-005",
+  "CNV-GRT-010",
+  "CA-180-01..18",
+  "UNB-CHAR-018..033"
+ ],
+ "decision_classes": {
+  "deterministic": "Executed by versioned rules with the policy version as authority; no human sign-off (RR-REQ-X-007-r2).",
+  "ai-assisted": "AI extracts, matches or proposes; the transition executes only after a deterministic guard verifies the proposal against quoted source spans, or a human accepts it. AI output is never itself a trigger (CNV-AIO-001/002).",
+  "human-required": "Requires a named human with recorded authority; AI may prepare a dossier with deterministic findings rendered separately."
+ },
+ "invariants": [
+  "Only deterministic transitions run without a named human; their authority is the policy version.",
+  "No AI output is a trigger by itself; AI cannot publish or clear holds, place discretionary holds, or disposition sanctions matches.",
+  "CommonVerification moves only on public-source facts; sponsor-private information never changes a shared state (CNV-GRT-004).",
+  "Release requires StatusCurrent, SanctionsClearCurrentList, DestinationVerified and HoldVersionClear evaluated atomically at dispatch (CNV-ARC-003).",
+  "Unknown or un-ingested state fails closed for release and never yields Ineligible (UNB-CHAR-016, CA-180-13).",
+  "All numeric intervals come from FreshnessPolicy (UNB-RCN-GRT-014); none are hard-coded in this model.",
+  "Every claim and decision records valid time, source-publication time and recorded time (05 s5.2).",
+  "Retroactive reinstatement adds a valid-time correction; recorded-time history of holds is preserved and holds are counted as correct-then-lifted."
+ ],
+ "time_axes": [
+  "valid_time",
+  "source_publication_time",
+  "recorded_time"
+ ],
+ "reinstatement_semantics": {
+  "trigger": "ReinstatementObserved -> CV19 (re-check only)",
+  "release_basis": "QualifyingRelistingOrLetter with PostingOrderFavoursListing (Rev. Proc. 2018-32 s4.05-4.06)",
+  "retroactive": "held grants re-evaluated with GrantDateCovered; skipped recurring occurrences not recreated",
+  "prospective": "grants dated in [revocationEffective, reinstatementEffective) remain refused",
+  "pre_posting_reliance": "grants released before posting by unaware grantor remain valid (s4.02) unless knowledge recorded earlier (s4.04)",
+  "measured": "184,830 reinstated rows on Auto-Revocation List (2026-11-17 file): 122,787 retroactive, 62,043 prospective (median 944 days later)"
+ },
+ "freshness_semantics": {
+  "current": "latest publication of the source ingested",
+  "late_publication": "source past expected cadence plus grace: alert only, no hold",
+  "ingest_failed": "publication exists but not ingested: release fails safe",
+  "quarantined": "schema drift or implausible delta: treated as ingest_failed until released"
+ },
+ "triggers": {
+  "IdentityResolved": "05 R2-R4 produced Resolved or ResolvedWithConditions",
+  "MigrationImport": "Sponsor migration imported a legacy charity record (UNB-CHAR-041)",
+  "RequiredEvidenceComplete": "All evidence types required for the entity type are Current",
+  "AutomatedGatheringExhausted": "Bounded automated refresh and requests failed (retry budget spent)",
+  "EvidenceSubmitted": "Charity, central org, fiscal sponsor or sponsor uploaded evidence (a claim until verified)",
+  "StewardAcceptsEvidence": "Steward accepts submitted evidence after review",
+  "StewardRejectsEvidence": "Steward rejects evidence; reason recorded",
+  "RenewalWindowOpened": "Clock reached expiry minus refresh lead time (default 30 days, CNV-GRT-003) plus jitter",
+  "AutoRenewalPassed": "Scheduled full review found all evidence current and passing",
+  "AutoRenewalFailed": "Scheduled full review could not complete with current evidence",
+  "DeepReviewExpired": "Clock passed deep-review max age (default 180 days)",
+  "StatusPublicationIngested": "New posting of Pub 78, EO BMF or Auto-Revocation List ingested and validated",
+  "MaterialAdverseCandidate": "Ingested change classified Material-Adverse-candidate by MaterialityTable (removed from Pub 78/BMF, group exit, final return)",
+  "VerifiedPublicAdverse": "Adverse fact confirmed from a T1 source (revocation posted without reinstatement, subsection/foundation/deductibility adverse change, central org revoked)",
+  "MaterialNeutralChange": "Name change same EIN, address change, favourable or neutral classification change",
+  "InformationalChange": "Financial, filing or descriptive change with no eligibility, authority, payment or policy impact",
+  "ReinstatementObserved": "Revocation list shows reinstatement date, or new Pub 78/BMF listing, or new determination letter",
+  "QualifyingRelistingOrLetter": "Pub 78/BMF listing posted after the revocation posting, or determination letter effective on/before the date in question (Rev. Proc. 2018-32 s4.06)",
+  "NextCycleClears": "Next publication cycle no longer shows the adverse candidate",
+  "AmbiguityPersists": "Adverse candidate unresolved after two publication cycles and a grant is affected",
+  "SuccessorConfirmed": "Steward confirms merger/consolidation successor from T1/T2 evidence and successor confirmation",
+  "IdentityMergeApproved": "Dual-control steward approval to merge duplicate identities",
+  "UnmergeApproved": "Dual-control steward approval to reverse a merge",
+  "SponsorEvaluationRequested": "First grant recommendation for the charity in this sponsor, or overlay/policy version change, or CommonVerification change",
+  "SponsorDiscretionaryHoldPlaced": "Authorized sponsor officer places hold under board DiscretionaryGrantPolicy (CNV-GRT-005)",
+  "DiscretionaryHoldReviewDue": "Hold review deadline reached (max 90 days, renewable once on new evidence)",
+  "SponsorExclusionAdded": "Sponsor adds charity to its restricted list (UNB-CHAR-031)",
+  "GrantApprovalRequested": "Grant reaches approval step",
+  "GrantReleaseRequested": "Approved grant reaches release step",
+  "HoldPublished": "Shared or sponsor hold version affecting this charity published",
+  "HoldLifted": "Hold removed by its owning process",
+  "DonorCancelled": "Donor or sponsor cancelled the grant",
+  "DispatchCommitted": "Rail partner accepted the instruction inside the fenced transaction",
+  "OccurrenceDue": "Recurring schedule reached an occurrence date",
+  "HoldWindowExpired": "Sponsor-configured recurring hold window elapsed",
+  "ListUpdated": "Sanctions list version published (SDN update day)",
+  "ScreeningRequested": "Onboarding, approval or release screening",
+  "FPDispositionRecorded": "Authorized human disposition: false positive",
+  "TrueMatchConfirmed": "Authorized compliance officer confirms true match",
+  "ComplianceDecision": "Compliance officer selects Block, Reject or Proceed (licence/exemption) (CNV-GRT-006)",
+  "DispositionInvalidated": "Subject attribute change, list entry hash change, new matching entry, 12 months elapsed, or officer authority revoked",
+  "SourceObserved": "Source record captured with payload hash and posting date",
+  "ValidationPassed": "Schema, parser and plausibility checks passed",
+  "ValidationFailed": "Schema drift, parser failure or implausible delta (UNB-KNOW-026)",
+  "QuarantineReleased": "Data steward approves quarantined batch after repair",
+  "ExpiryApproaching": "Evidence validity end minus refresh lead time",
+  "EvidenceValidityEnded": "Validity rule of the evidence type ended",
+  "NewerVersionCurrent": "A newer version of the same evidence became Current",
+  "DisputeFiled": "Charity or sponsor disputes the evidence (UNB-CHAR-014/017)",
+  "DisputeResolved": "Dispute adjudicated; linked correction recorded",
+  "DocumentExtractionVerified": "AI-extracted fact from an unstructured public document (final return, merger filing, central-org directory) verified by deterministic check against the quoted source span",
+  "SourceRetracted": "Source withdrew or corrected the record (e.g. IRS-flagged erroneous revocation dates)"
+ },
+ "guards": {
+  "IdentityConfidenceOK": "Resolution outcome is Resolved or ResolvedWithConditions (05 section 4.1)",
+  "RulesPass": "Platform deterministic rules pass on Current T1 evidence for the entity type",
+  "EntityTypeMatrixPath": "Entity is church, government unit, group subordinate, disregarded entity or newly recognized org satisfied via UNB-RCN-GRT-013 matrix",
+  "NoOpenAdverse": "No unresolved Material-Adverse candidate or shared hold",
+  "SponsorDelegationRecorded": "Sponsor board delegation for policy-approved items recorded (CNV-GRT-001)",
+  "RecipientClassEnabled": "Recipient class enabled for sponsor and release (CNV-GRT-002)",
+  "OverlayPasses": "Sponsor overlay rules pass (can only tighten)",
+  "OverlayNeedsHuman": "Overlay rule outcome is NeedsReview (non-standard class, fraud signal, policy ambiguity)",
+  "StatusCurrent": "Status evidence is from the latest ingested publication and no newer publication is un-ingested",
+  "DeepReviewCurrentForApproval": "CommonVerification not Expired (approval only; release does not require it, RR-REQ-X-007-r1)",
+  "SanctionsClearCurrentList": "Screening against current list version is Clear or valid FalsePositive",
+  "DestinationVerified": "CNV-PAY-002 destination evidence current, or networked rail enrolment",
+  "HoldVersionClear": "Hold registry version read atomically shows no applicable hold (CNV-ARC-003); unknown => fail",
+  "GrantDateCovered": "Reinstated validity covers the grant date and a qualifying relisting or letter exists",
+  "WithinHoldWindow": "Occurrence still inside sponsor hold window",
+  "ReuseAllowed": "FP disposition within 12 months, same subject attributes, same entry hash, same sponsor (R1)",
+  "TwoPersonApproval": "Two distinct authorized stewards approve",
+  "PostingOrderFavoursListing": "Listing posting date is after the revocation posting date (Rev. Proc. 2018-32 s4.05-4.06)",
+  "PlausibleDelta": "Delta size inside historical range for the source and month"
+ },
+ "machines": [
+  {
+   "id": "CommonVerification",
+   "scope": "shared public (SharedStoreRegister SS-REG-03/SS-REG-04)",
+   "description": "Platform-level factual verification of one canonical charity identity. Never encodes sponsor-private information.",
+   "states": [
+    {
+     "id": "NotAssessed",
+     "approval_effect": "block",
+     "release_effect": "block"
+    },
+    {
+     "id": "Gathering",
+     "approval_effect": "block",
+     "release_effect": "block",
+     "note": "CA-180 'Pending'; automated evidence gathering (RR-UNB-GRT-003-r1 Tier C)"
+    },
+    {
+     "id": "Verified",
+     "approval_effect": "allow",
+     "release_effect": "allow"
+    },
+    {
+     "id": "VerifiedWithConditions",
+     "approval_effect": "allow-with-conditions",
+     "release_effect": "allow",
+     "note": "conditions passed to SponsorEligibility (e.g. subordinate, name variance, determination letter not yet listed)"
+    },
+    {
+     "id": "RenewalDue",
+     "approval_effect": "allow",
+     "release_effect": "allow",
+     "note": "inside refresh lead time; still valid"
+    },
+    {
+     "id": "NeedsEvidence",
+     "approval_effect": "block-new",
+     "release_effect": "allow-if-release-checks-pass",
+     "note": "automated gathering exhausted; one case per charity and reason"
+    },
+    {
+     "id": "Suspended",
+     "approval_effect": "block",
+     "release_effect": "hold",
+     "note": "Material-Adverse candidate from public source awaiting next cycle"
+    },
+    {
+     "id": "Ineligible",
+     "approval_effect": "block",
+     "release_effect": "hold",
+     "note": "verified public adverse fact"
+    },
+    {
+     "id": "Expired",
+     "approval_effect": "block-new",
+     "release_effect": "allow-if-release-checks-pass",
+     "note": "RR-REQ-X-007-r1: expired deep review holds new approvals only"
+    },
+    {
+     "id": "Superseded",
+     "approval_effect": "block",
+     "release_effect": "hold",
+     "note": "merged into another identity or replaced by a successor; payee substitution is a sponsor decision (CNV-GRT-010)"
+    }
+   ],
+   "transitions": [
+    {
+     "id": "CV01",
+     "from": "NotAssessed",
+     "to": "Gathering",
+     "trigger": "IdentityResolved|MigrationImport",
+     "guards": [
+      "IdentityConfidenceOK"
+     ],
+     "effects": [
+      "schedule automated evidence gathering",
+      "legacy labels stored as T5 claims only"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-CHAR-041",
+      "RR-UNB-GRT-003-r1"
+     ]
+    },
+    {
+     "id": "CV02",
+     "from": "Gathering",
+     "to": "Verified",
+     "trigger": "RequiredEvidenceComplete",
+     "guards": [
+      "RulesPass",
+      "NoOpenAdverse"
+     ],
+     "effects": [
+      "record policy version as approving authority",
+      "set expiry = now + deepReviewMaxAge"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-REQ-X-007-r2",
+      "CA-180-06",
+      "CA-180-08"
+     ]
+    },
+    {
+     "id": "CV03",
+     "from": "Gathering",
+     "to": "VerifiedWithConditions",
+     "trigger": "RequiredEvidenceComplete",
+     "guards": [
+      "EntityTypeMatrixPath",
+      "NoOpenAdverse"
+     ],
+     "effects": [
+      "record evidence class and conditions"
+     ],
+     "decision_class": "ai-assisted",
+     "ai_role": "extracts central-org directory or letter fields; deterministic rule verifies quoted span",
+     "authority": "policyVersion after deterministic acceptance of AI proposal, or named human",
+     "refines": [
+      "UNB-RCN-GRT-013",
+      "CNV-GRT-003"
+     ]
+    },
+    {
+     "id": "CV04",
+     "from": "Gathering",
+     "to": "NeedsEvidence",
+     "trigger": "AutomatedGatheringExhausted",
+     "guards": [],
+     "effects": [
+      "open one stewardship case per charity and reason",
+      "automated request to charity/central org"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-UNB-CHAR-013-r1",
+      "UNB-GEX-021"
+     ]
+    },
+    {
+     "id": "CV05",
+     "from": "NeedsEvidence",
+     "to": "Gathering",
+     "trigger": "EvidenceSubmitted",
+     "guards": [],
+     "effects": [
+      "treat submission as claim; re-run verification"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-CHAR-014"
+     ]
+    },
+    {
+     "id": "CV06",
+     "from": "NeedsEvidence",
+     "to": "Verified",
+     "trigger": "StewardAcceptsEvidence",
+     "guards": [
+      "RulesPass"
+     ],
+     "effects": [
+      "record reviewer, evidence, rationale"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "prepares dossier; deterministic findings rendered separately (CNV-AIO-002)",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "UNB-CHAR-021",
+      "UNB-CHAR-030"
+     ]
+    },
+    {
+     "id": "CV07",
+     "from": "NeedsEvidence",
+     "to": "NeedsEvidence",
+     "trigger": "StewardRejectsEvidence",
+     "guards": [],
+     "effects": [
+      "record reason; notify submitter"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "none",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "UNB-CHAR-017"
+     ]
+    },
+    {
+     "id": "CV08",
+     "from": "Verified",
+     "to": "RenewalDue",
+     "trigger": "RenewalWindowOpened",
+     "guards": [],
+     "effects": [
+      "start automated full review with jitter"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CA-180-02",
+      "RR-REQ-X-007-r2"
+     ]
+    },
+    {
+     "id": "CV09",
+     "from": "VerifiedWithConditions",
+     "to": "RenewalDue",
+     "trigger": "RenewalWindowOpened",
+     "guards": [],
+     "effects": [
+      "start automated full review; refresh condition evidence"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CA-180-02"
+     ]
+    },
+    {
+     "id": "CV10",
+     "from": "RenewalDue",
+     "to": "Verified",
+     "trigger": "AutoRenewalPassed",
+     "guards": [
+      "RulesPass",
+      "NoOpenAdverse"
+     ],
+     "effects": [
+      "reset expiry; no human sign-off",
+      "enter stratified post-hoc sample frame"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-REQ-X-007-r2",
+      "CA-180-08",
+      "UNB-XIN-CLM-005"
+     ]
+    },
+    {
+     "id": "CV11",
+     "from": "RenewalDue",
+     "to": "NeedsEvidence",
+     "trigger": "AutoRenewalFailed",
+     "guards": [],
+     "effects": [
+      "one case per charity and reason; validity continues until expiry"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-UNB-CHAR-013-r1"
+     ]
+    },
+    {
+     "id": "CV12",
+     "from": "RenewalDue",
+     "to": "Expired",
+     "trigger": "DeepReviewExpired",
+     "guards": [],
+     "effects": [
+      "hold new approvals; release unaffected if release checks pass"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-REQ-X-007-r1"
+     ]
+    },
+    {
+     "id": "CV13",
+     "from": "NeedsEvidence",
+     "to": "Expired",
+     "trigger": "DeepReviewExpired",
+     "guards": [],
+     "effects": [
+      "hold new approvals"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-REQ-X-007-r1"
+     ]
+    },
+    {
+     "id": "CV14",
+     "from": "Expired",
+     "to": "Verified",
+     "trigger": "AutoRenewalPassed",
+     "guards": [
+      "RulesPass",
+      "NoOpenAdverse"
+     ],
+     "effects": [
+      "reset expiry"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CA-180-02"
+     ]
+    },
+    {
+     "id": "CV15",
+     "from": "Verified|VerifiedWithConditions|RenewalDue|NeedsEvidence|Expired",
+     "to": "Suspended",
+     "trigger": "MaterialAdverseCandidate",
+     "guards": [],
+     "effects": [
+      "publish shared hold version from public fact",
+      "fan out to impacted sponsor items only"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-UNB-EXT-028-r2",
+      "CNV-GRT-004",
+      "UNB-GEX-019"
+     ]
+    },
+    {
+     "id": "CV16",
+     "from": "Verified|VerifiedWithConditions|RenewalDue|NeedsEvidence|Expired|Suspended",
+     "to": "Ineligible",
+     "trigger": "VerifiedPublicAdverse",
+     "guards": [
+      "PlausibleDelta"
+     ],
+     "effects": [
+      "publish shared hold citing source and posting date",
+      "record valid, publication and recorded times"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-GRT-003",
+      "CNV-GRT-004",
+      "UNB-XIN-NPG-005"
+     ]
+    },
+    {
+     "id": "CV17",
+     "from": "Suspended",
+     "to": "Verified",
+     "trigger": "NextCycleClears",
+     "guards": [
+      "RulesPass"
+     ],
+     "effects": [
+      "lift shared hold; count materiality false positive"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CA-180-16"
+     ]
+    },
+    {
+     "id": "CV18",
+     "from": "Suspended",
+     "to": "NeedsEvidence",
+     "trigger": "AmbiguityPersists",
+     "guards": [],
+     "effects": [
+      "one case per charity and reason"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-UNB-CHAR-013-r1"
+     ]
+    },
+    {
+     "id": "CV19",
+     "from": "Ineligible",
+     "to": "Gathering",
+     "trigger": "ReinstatementObserved",
+     "guards": [],
+     "effects": [
+      "re-check all sources immediately; keep shared hold until qualifying evidence"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-XIN-NPG-005",
+      "CHAR-T14"
+     ]
+    },
+    {
+     "id": "CV20",
+     "from": "Gathering",
+     "to": "Verified",
+     "trigger": "QualifyingRelistingOrLetter",
+     "guards": [
+      "PostingOrderFavoursListing",
+      "RulesPass"
+     ],
+     "effects": [
+      "lift shared hold; trigger re-evaluation of held grants with GrantDateCovered"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-XIN-NPG-005",
+      "KNOW-T05"
+     ]
+    },
+    {
+     "id": "CV21",
+     "from": "Verified|VerifiedWithConditions|RenewalDue",
+     "to": "Verified",
+     "trigger": "MaterialNeutralChange",
+     "guards": [],
+     "effects": [
+      "update legal name/address claims; update payee name on unreleased instructions; no hold, no case"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-XIN-NPG-005",
+      "RR-UNB-EXT-028-r2"
+     ]
+    },
+    {
+     "id": "CV22",
+     "from": "Verified|VerifiedWithConditions|RenewalDue|NeedsEvidence|Expired",
+     "to": "same",
+     "trigger": "InformationalChange",
+     "guards": [],
+     "effects": [
+      "append evidence; no hold, no case, no task"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-GRT-003"
+     ]
+    },
+    {
+     "id": "CV23",
+     "from": "Verified|VerifiedWithConditions|Suspended|Ineligible|Expired",
+     "to": "Superseded",
+     "trigger": "SuccessorConfirmed|IdentityMergeApproved",
+     "guards": [
+      "TwoPersonApproval"
+     ],
+     "effects": [
+      "create SuccessorOf edge or merge lineage; grants keep original binding; sponsor payee-substitution workflow opened"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "extracts final return / Schedule N / merger documents; proposes successor candidate",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "UNB-KNOW-020",
+      "CNV-GRT-010",
+      "XID-NPG-005"
+     ]
+    },
+    {
+     "id": "CV25",
+     "from": "Verified|VerifiedWithConditions|RenewalDue|NeedsEvidence|Expired",
+     "to": "Suspended",
+     "trigger": "DocumentExtractionVerified",
+     "guards": [],
+     "effects": [
+      "publish shared hold only if the verified fact is a public adverse fact; open succession check"
+     ],
+     "decision_class": "ai-assisted",
+     "ai_role": "extracts termination/merger facts from final returns or filings; cannot publish the hold itself",
+     "authority": "policyVersion after deterministic acceptance of AI proposal, or named human",
+     "refines": [
+      "RR-UNB-EXT-028-r2",
+      "UNB-KNOW-030"
+     ]
+    },
+    {
+     "id": "CV24",
+     "from": "Superseded",
+     "to": "prior",
+     "trigger": "UnmergeApproved",
+     "guards": [
+      "TwoPersonApproval"
+     ],
+     "effects": [
+      "restore prior identity and state from lineage"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "none",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "UNB-KNOW-008",
+      "CHAR-T12"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "SponsorEligibility",
+   "scope": "sponsor cell",
+   "description": "Sponsor- and purpose-specific eligibility (UNB-CHAR-019/021). Overlay can only tighten.",
+   "states": [
+    {
+     "id": "NotEvaluated"
+    },
+    {
+     "id": "Eligible"
+    },
+    {
+     "id": "EligibleWithConditions"
+    },
+    {
+     "id": "NeedsReview"
+    },
+    {
+     "id": "InsufficientEvidence"
+    },
+    {
+     "id": "Ineligible"
+    },
+    {
+     "id": "DiscretionaryHold"
+    },
+    {
+     "id": "Excluded"
+    }
+   ],
+   "transitions": [
+    {
+     "id": "SE01",
+     "from": "NotEvaluated|Eligible|EligibleWithConditions|NeedsReview|InsufficientEvidence|Ineligible",
+     "to": "Eligible",
+     "trigger": "SponsorEvaluationRequested",
+     "guards": [
+      "RecipientClassEnabled",
+      "OverlayPasses",
+      "SponsorDelegationRecorded"
+     ],
+     "effects": [
+      "write reliance snapshot in sponsor partition"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-REQ-X-007-r1",
+      "UNB-CHAR-021",
+      "CNV-GRT-001"
+     ]
+    },
+    {
+     "id": "SE02",
+     "from": "NotEvaluated|Eligible|NeedsReview|InsufficientEvidence",
+     "to": "EligibleWithConditions",
+     "trigger": "SponsorEvaluationRequested",
+     "guards": [
+      "RecipientClassEnabled",
+      "OverlayPasses"
+     ],
+     "effects": [
+      "carry CommonVerification conditions"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-CHAR-021"
+     ]
+    },
+    {
+     "id": "SE03",
+     "from": "NotEvaluated|Eligible|EligibleWithConditions",
+     "to": "NeedsReview",
+     "trigger": "SponsorEvaluationRequested",
+     "guards": [
+      "OverlayNeedsHuman"
+     ],
+     "effects": [
+      "case deduplicated per charity (not per grant)"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-UNB-GRT-003-r1"
+     ]
+    },
+    {
+     "id": "SE04",
+     "from": "NotEvaluated|Eligible|EligibleWithConditions",
+     "to": "InsufficientEvidence",
+     "trigger": "SponsorEvaluationRequested",
+     "guards": [],
+     "effects": [
+      "CommonVerification in NotAssessed/Gathering/NeedsEvidence; no human until automated gathering fails"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-CHAR-021"
+     ]
+    },
+    {
+     "id": "SE05",
+     "from": "any",
+     "to": "Ineligible",
+     "trigger": "SponsorEvaluationRequested",
+     "guards": [],
+     "effects": [
+      "CommonVerification Ineligible, or recipient class not enabled; neutral decline code"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-GRT-002",
+      "XID-CLM-003"
+     ]
+    },
+    {
+     "id": "SE06",
+     "from": "NeedsReview",
+     "to": "Eligible|EligibleWithConditions|Ineligible",
+     "trigger": "StewardAcceptsEvidence|StewardRejectsEvidence",
+     "guards": [],
+     "effects": [
+      "record reviewer and rationale; override only within lawful bounds with expiry (UNB-CHAR-023)"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "prepares dossier; never alters deterministic findings",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "UNB-CHAR-023",
+      "RR-UNB-GRT-003-r1"
+     ]
+    },
+    {
+     "id": "SE07",
+     "from": "Eligible|EligibleWithConditions|NeedsReview",
+     "to": "DiscretionaryHold",
+     "trigger": "SponsorDiscretionaryHoldPlaced",
+     "guards": [],
+     "effects": [
+      "sponsor-private; never shared; review deadline <= 90 days"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "may propose criterion match from unstructured public records; proposal cannot place the hold",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "CNV-GRT-005",
+      "CNV-GRT-004"
+     ]
+    },
+    {
+     "id": "SE08",
+     "from": "DiscretionaryHold",
+     "to": "Eligible|EligibleWithConditions",
+     "trigger": "DiscretionaryHoldReviewDue",
+     "guards": [],
+     "effects": [
+      "automatic release at deadline unless renewed on new evidence (once)"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-GRT-005"
+     ]
+    },
+    {
+     "id": "SE09",
+     "from": "any",
+     "to": "Excluded",
+     "trigger": "SponsorExclusionAdded",
+     "guards": [],
+     "effects": [
+      "sponsor restricted list; private"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "none",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "UNB-CHAR-031"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "GrantCheck",
+   "scope": "sponsor cell",
+   "description": "Per-grant checks at approval and at release (CNV-GRT-003). Release is fenced atomically (CNV-ARC-003).",
+   "states": [
+    {
+     "id": "Pending"
+    },
+    {
+     "id": "Passed"
+    },
+    {
+     "id": "Held"
+    },
+    {
+     "id": "Refused"
+    },
+    {
+     "id": "Released"
+    },
+    {
+     "id": "Cancelled"
+    }
+   ],
+   "hold_reason_codes": [
+    "EligibilityChanged",
+    "StatusNotCurrent",
+    "SourceIngestFailed",
+    "DeepReviewExpired(approval only)",
+    "SanctionsPotentialMatch",
+    "DestinationUnverified",
+    "DiscretionaryHold",
+    "HoldRegistryUnknown"
+   ],
+   "transitions": [
+    {
+     "id": "GC01",
+     "from": "Pending",
+     "to": "Passed",
+     "trigger": "GrantApprovalRequested",
+     "guards": [
+      "StatusCurrent",
+      "DeepReviewCurrentForApproval",
+      "SanctionsClearCurrentList",
+      "HoldVersionClear",
+      "SponsorDelegationRecorded"
+     ],
+     "effects": [
+      "record reliance snapshot with Rev. Proc. 2018-32 s8.01 fields; approval by policy version under delegation"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-GRT-001",
+      "CNV-GRT-003",
+      "RR-REQ-X-007-r1"
+     ]
+    },
+    {
+     "id": "GC02",
+     "from": "Pending",
+     "to": "Held",
+     "trigger": "GrantApprovalRequested|GrantReleaseRequested",
+     "guards": [],
+     "effects": [
+      "any guard failed with a recoverable reason; donor sees neutral 'under review'"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-GRT-003",
+      "CNV-GRT-006",
+      "XID-CLM-003"
+     ]
+    },
+    {
+     "id": "GC03",
+     "from": "Pending",
+     "to": "Refused",
+     "trigger": "GrantApprovalRequested",
+     "guards": [],
+     "effects": [
+      "SponsorEligibility Ineligible or recipient class disabled; reservation released"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-GRT-002"
+     ]
+    },
+    {
+     "id": "GC04",
+     "from": "Passed",
+     "to": "Released",
+     "trigger": "GrantReleaseRequested",
+     "guards": [
+      "StatusCurrent",
+      "SanctionsClearCurrentList",
+      "DestinationVerified",
+      "HoldVersionClear"
+     ],
+     "effects": [
+      "fenced dispatch; idempotency key"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-ARC-003",
+      "CNV-PAY-002",
+      "RR-REQ-X-007-r1"
+     ]
+    },
+    {
+     "id": "GC05",
+     "from": "Passed",
+     "to": "Held",
+     "trigger": "HoldPublished|GrantReleaseRequested",
+     "guards": [],
+     "effects": [
+      "release blocked; reservation kept"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-GRT-004",
+      "CNV-ARC-003"
+     ]
+    },
+    {
+     "id": "GC06",
+     "from": "Held",
+     "to": "Passed",
+     "trigger": "HoldLifted|StatusPublicationIngested",
+     "guards": [
+      "StatusCurrent",
+      "HoldVersionClear",
+      "GrantDateCovered"
+     ],
+     "effects": [
+      "re-evaluate only this grant; no human if all guards pass"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-GEX-019",
+      "UNB-XIN-NPG-005"
+     ]
+    },
+    {
+     "id": "GC07",
+     "from": "Held",
+     "to": "Refused",
+     "trigger": "VerifiedPublicAdverse",
+     "guards": [],
+     "effects": [
+      "cancel unreleased grant; ask donor to re-recommend where policy says"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-XIN-NPG-005"
+     ]
+    },
+    {
+     "id": "GC08",
+     "from": "Pending|Passed|Held",
+     "to": "Cancelled",
+     "trigger": "DonorCancelled",
+     "guards": [],
+     "effects": [
+      "release reservation"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-CHAR-019"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "RecurringOccurrence",
+   "scope": "sponsor cell",
+   "states": [
+    {
+     "id": "Scheduled"
+    },
+    {
+     "id": "Checked"
+    },
+    {
+     "id": "HeldInWindow"
+    },
+    {
+     "id": "Released"
+    },
+    {
+     "id": "Skipped"
+    }
+   ],
+   "transitions": [
+    {
+     "id": "RO01",
+     "from": "Scheduled",
+     "to": "Checked",
+     "trigger": "OccurrenceDue",
+     "guards": [],
+     "effects": [
+      "create GrantCheck at release with cached evidence within window"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CA-180-07"
+     ]
+    },
+    {
+     "id": "RO02",
+     "from": "Checked",
+     "to": "Released",
+     "trigger": "DispatchCommitted",
+     "guards": [
+      "HoldVersionClear"
+     ],
+     "effects": [],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-ARC-003"
+     ]
+    },
+    {
+     "id": "RO03",
+     "from": "Checked",
+     "to": "HeldInWindow",
+     "trigger": "HoldPublished",
+     "guards": [
+      "WithinHoldWindow"
+     ],
+     "effects": [
+      "donor notified with neutral code"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CA-180-12"
+     ]
+    },
+    {
+     "id": "RO04",
+     "from": "HeldInWindow",
+     "to": "Released",
+     "trigger": "HoldLifted",
+     "guards": [
+      "WithinHoldWindow",
+      "GrantDateCovered"
+     ],
+     "effects": [],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-XIN-NPG-005"
+     ]
+    },
+    {
+     "id": "RO05",
+     "from": "HeldInWindow",
+     "to": "Skipped",
+     "trigger": "HoldWindowExpired",
+     "guards": [],
+     "effects": [
+      "not recreated after later reinstatement"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "END-TO-END-GRANT-LIFECYCLE AC-2 (:240)"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "SanctionsScreening",
+   "scope": "sponsor cell (R1: no cross-sponsor FP reuse)",
+   "states": [
+    {
+     "id": "Unscreened"
+    },
+    {
+     "id": "Clear"
+    },
+    {
+     "id": "PotentialMatch"
+    },
+    {
+     "id": "FalsePositive"
+    },
+    {
+     "id": "TrueMatch"
+    },
+    {
+     "id": "Blocked"
+    },
+    {
+     "id": "Rejected"
+    },
+    {
+     "id": "ProceedLicensed"
+    }
+   ],
+   "transitions": [
+    {
+     "id": "SS01",
+     "from": "Unscreened|Clear|FalsePositive",
+     "to": "Clear",
+     "trigger": "ScreeningRequested|ListUpdated",
+     "guards": [
+      "ReuseAllowed"
+     ],
+     "effects": [
+      "record list version"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-GRT-006",
+      "UNB-RCN-GRT-007"
+     ]
+    },
+    {
+     "id": "SS02",
+     "from": "Unscreened|Clear|FalsePositive",
+     "to": "PotentialMatch",
+     "trigger": "ScreeningRequested|ListUpdated",
+     "guards": [],
+     "effects": [
+      "hold release; open compliance task; name similarity alone never adverse"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-UNB-EXT-004-r1",
+      "CNV-GRT-006"
+     ]
+    },
+    {
+     "id": "SS03",
+     "from": "PotentialMatch",
+     "to": "FalsePositive",
+     "trigger": "FPDispositionRecorded",
+     "guards": [],
+     "effects": [
+      "store subject attributes and entry hash; reusable 12 months within sponsor"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "summarizes discriminating attributes; cannot disposition",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "CNV-GRT-006",
+      "RR-UNB-EXT-004-r3"
+     ]
+    },
+    {
+     "id": "SS04",
+     "from": "PotentialMatch",
+     "to": "TrueMatch",
+     "trigger": "TrueMatchConfirmed",
+     "guards": [],
+     "effects": [
+      "refuse recommendation; report data due in 10 business days"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "none",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "CNV-GRT-006"
+     ]
+    },
+    {
+     "id": "SS05",
+     "from": "TrueMatch",
+     "to": "Blocked|Rejected|ProceedLicensed",
+     "trigger": "ComplianceDecision",
+     "guards": [],
+     "effects": [
+      "31 CFR 501.603/501.604 report data; never automatically Blocked"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "none",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "CNV-GRT-006",
+      "UNB-RCN-GRT-006",
+      "CNV-GRT-007"
+     ]
+    },
+    {
+     "id": "SS06",
+     "from": "FalsePositive",
+     "to": "PotentialMatch",
+     "trigger": "DispositionInvalidated",
+     "guards": [],
+     "effects": [
+      "new review"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CNV-GRT-006"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "EvidenceItem",
+   "scope": "store of the owning layer (shared public, sponsor cell or charity cell)",
+   "states": [
+    {
+     "id": "Observed"
+    },
+    {
+     "id": "Quarantined"
+    },
+    {
+     "id": "Current"
+    },
+    {
+     "id": "Expiring"
+    },
+    {
+     "id": "Expired"
+    },
+    {
+     "id": "Superseded"
+    },
+    {
+     "id": "Disputed"
+    },
+    {
+     "id": "Withdrawn"
+    }
+   ],
+   "transitions": [
+    {
+     "id": "EV01",
+     "from": "Observed",
+     "to": "Current",
+     "trigger": "ValidationPassed",
+     "guards": [
+      "PlausibleDelta"
+     ],
+     "effects": [
+      "claims enter projection by precedence lattice (05 s5.3)"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-EXT-037",
+      "UNB-KNOW-026"
+     ]
+    },
+    {
+     "id": "EV02",
+     "from": "Observed",
+     "to": "Quarantined",
+     "trigger": "ValidationFailed",
+     "guards": [],
+     "effects": [
+      "no propagation; existing verified records untouched"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-KNOW-026",
+      "EXT-T10"
+     ]
+    },
+    {
+     "id": "EV03",
+     "from": "Quarantined",
+     "to": "Current",
+     "trigger": "QuarantineReleased",
+     "guards": [
+      "PlausibleDelta"
+     ],
+     "effects": [],
+     "decision_class": "human-required",
+     "ai_role": "may explain schema diff; cannot release",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "UNB-EXT-032"
+     ]
+    },
+    {
+     "id": "EV04",
+     "from": "Current",
+     "to": "Expiring",
+     "trigger": "ExpiryApproaching",
+     "guards": [],
+     "effects": [
+      "automated refresh or request"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "RR-UNB-CHAR-013-r1"
+     ]
+    },
+    {
+     "id": "EV05",
+     "from": "Expiring",
+     "to": "Current",
+     "trigger": "NewerVersionCurrent",
+     "guards": [],
+     "effects": [],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "CA-180-02"
+     ]
+    },
+    {
+     "id": "EV06",
+     "from": "Current|Expiring",
+     "to": "Expired",
+     "trigger": "EvidenceValidityEnded",
+     "guards": [],
+     "effects": [
+      "dependent CommonVerification re-evaluated"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-RCN-GRT-014"
+     ]
+    },
+    {
+     "id": "EV07",
+     "from": "Current|Expiring|Expired",
+     "to": "Superseded",
+     "trigger": "NewerVersionCurrent",
+     "guards": [],
+     "effects": [
+      "old version retained for reproducibility"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-CHAR-025"
+     ]
+    },
+    {
+     "id": "EV08",
+     "from": "Current|Expiring",
+     "to": "Disputed",
+     "trigger": "DisputeFiled",
+     "guards": [],
+     "effects": [
+      "conflict preserved; case only if outcome-changing"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-CHAR-017",
+      "CHAR-T15"
+     ]
+    },
+    {
+     "id": "EV09",
+     "from": "Disputed",
+     "to": "Current|Withdrawn",
+     "trigger": "DisputeResolved",
+     "guards": [],
+     "effects": [
+      "linked correction; no deletion of history"
+     ],
+     "decision_class": "human-required",
+     "ai_role": "compares submitted and source evidence",
+     "authority": "named human with recorded authority",
+     "refines": [
+      "UNB-KNOW-013",
+      "EXT-T13"
+     ]
+    },
+    {
+     "id": "EV10",
+     "from": "any",
+     "to": "Withdrawn",
+     "trigger": "SourceRetracted",
+     "guards": [],
+     "effects": [
+      "re-evaluate decisions that relied on it; history kept"
+     ],
+     "decision_class": "deterministic",
+     "ai_role": "none",
+     "authority": "policyVersion",
+     "refines": [
+      "UNB-KNOW-032"
+     ]
+    }
+   ]
+  }
+ ],
+ "evidence_types": [
+  {
+   "type": "IRS_STATUS_OBSERVATION",
+   "sources": [
+    "Pub 78",
+    "EO BMF",
+    "Auto-Revocation List"
+   ],
+   "validity": "current while latest ingested publication; retrieval target 24h after publication",
+   "on_invalid": "Stale if newer publication not ingested -> release fails safe; source silence beyond cadence+grace -> alert only",
+   "shared": true,
+   "refines": [
+    "CNV-GRT-003",
+    "UNB-RCN-GRT-014"
+   ]
+  },
+  {
+   "type": "DEEP_REVIEW_RESULT",
+   "validity": "P180D default (sponsor may shorten); refresh lead P30D",
+   "on_invalid": "Expired: hold new approvals only",
+   "shared": true,
+   "refines": [
+    "CNV-GRT-003",
+    "RR-REQ-X-007-r1"
+   ]
+  },
+  {
+   "type": "GROUP_SUBORDINATE_INCLUSION",
+   "validity": "P12M (ASSUMPTION, aligned to central annual update, Pub 4573); void on group exit or central revocation",
+   "on_invalid": "automated request to central org; human only if no answer before expiry",
+   "shared": true,
+   "refines": [
+    "UNB-RCN-GRT-013"
+   ]
+  },
+  {
+   "type": "ENTITY_TYPE_EVIDENCE",
+   "validity": "until next deep review; void on contradicting T1 data",
+   "on_invalid": "automated re-attestation request",
+   "shared": "public evidence yes; private uploads in charity cell",
+   "refines": [
+    "UNB-RCN-GRT-013"
+   ]
+  },
+  {
+   "type": "FISCAL_SPONSOR_PROJECT_EVIDENCE",
+   "validity": "P12M (ASSUMPTION)",
+   "on_invalid": "request fresh attestation",
+   "shared": "public list yes; signed attestation charity cell",
+   "refines": [
+    "CNV-GRT-008"
+   ]
+  },
+  {
+   "type": "DETERMINATION_LETTER_UNLISTED",
+   "validity": "until organization appears in BMF/Pub 78 posting",
+   "on_invalid": "n/a",
+   "shared": true,
+   "refines": [
+    "UNB-RCN-GRT-013"
+   ]
+  },
+  {
+   "type": "SANCTIONS_SCREEN_RESULT",
+   "validity": "list version screened only",
+   "on_invalid": "rescreen",
+   "shared": false,
+   "refines": [
+    "CNV-GRT-006"
+   ]
+  },
+  {
+   "type": "SANCTIONS_FP_DISPOSITION",
+   "validity": "P12M; voided by subject/entry change; within deciding sponsor (R1)",
+   "on_invalid": "new review",
+   "shared": false,
+   "refines": [
+    "CNV-GRT-006"
+   ]
+  },
+  {
+   "type": "DESTINATION_VERIFICATION",
+   "validity": "no time expiry; voided by bank change, account-validation return, enrolment change, contact-channel hold",
+   "on_invalid": "L11 re-verification",
+   "shared": false,
+   "refines": [
+    "CNV-PAY-002",
+    "CNV-PLT-011"
+   ]
+  },
+  {
+   "type": "AUTHORIZED_REPRESENTATIVE",
+   "validity": "P12M re-confirmation (ASSUMPTION) or on role/contact change",
+   "on_invalid": "representative actions suspended; charity status unaffected",
+   "shared": "charity cell",
+   "refines": [
+    "UNB-CHAR-014",
+    "CNV-PLT-003"
+   ]
+  },
+  {
+   "type": "FILING_AND_FINANCIALS",
+   "validity": "informational; never expires eligibility",
+   "on_invalid": "n/a",
+   "shared": true,
+   "refines": [
+    "UNB-EXT-011"
+   ]
+  }
+ ],
+ "materiality_table": [
+  {
+   "event": "RevocationPostedNotReinstated",
+   "class": "Material-Adverse",
+   "decision_class": "deterministic",
+   "effect": "CV16; shared hold",
+   "measured": "45,696-54,221 c3 postings/yr 2023-2026; ~70% in August; ~0.3% of DAF grantees/yr"
+  },
+  {
+   "event": "RemovedFromPub78OrBMF",
+   "class": "Material-Adverse-candidate",
+   "decision_class": "deterministic",
+   "effect": "CV15 Suspended; next-cycle re-check",
+   "measured": "3,617 c3 removals 2026-06->07"
+  },
+  {
+   "event": "Foundation_PC_to_PF_or_SOtypeChange",
+   "class": "Material-Adverse",
+   "decision_class": "deterministic",
+   "effect": "CV16",
+   "measured": "~35-40/month c3"
+  },
+  {
+   "event": "Foundation_between_public_tests_or_PF_to_PC",
+   "class": "Material-Neutral",
+   "decision_class": "deterministic",
+   "effect": "CV21",
+   "measured": "~184/month c3"
+  },
+  {
+   "event": "SubsectionLeaves503_or_DeductibilityLost",
+   "class": "Material-Adverse",
+   "decision_class": "deterministic",
+   "effect": "CV16",
+   "measured": "~16/month c3"
+  },
+  {
+   "event": "GroupExit",
+   "class": "Material-Adverse-candidate",
+   "decision_class": "deterministic",
+   "effect": "CV15; void group evidence",
+   "measured": "25/month c3"
+  },
+  {
+   "event": "GroupEntry",
+   "class": "Material-Neutral",
+   "decision_class": "deterministic",
+   "effect": "attach central; require group evidence",
+   "measured": "30/month c3"
+  },
+  {
+   "event": "NameChangeSameEIN",
+   "class": "Material-Neutral",
+   "decision_class": "deterministic",
+   "effect": "CV21",
+   "measured": "1,311/month c3"
+  },
+  {
+   "event": "AddressChange",
+   "class": "Material-Neutral",
+   "decision_class": "deterministic",
+   "effect": "CV21; destination re-verified only if destination changed",
+   "measured": "~44,700 street changes/month c3"
+  },
+  {
+   "event": "FinancialOrFilingFields",
+   "class": "Informational",
+   "decision_class": "deterministic",
+   "effect": "CV22",
+   "measured": "189,577 c3 orgs/month changed only these"
+  },
+  {
+   "event": "FinalReturnOrTermination",
+   "class": "Material-Adverse-candidate",
+   "decision_class": "ai-assisted",
+   "effect": "CV15; successor check (CV23 human)",
+   "measured": "not measured monthly"
+  },
+  {
+   "event": "SanctionsListUpdate",
+   "class": "Trigger",
+   "decision_class": "deterministic",
+   "effect": "SS01/SS02 delta rescreen",
+   "measured": "114 (2023), 132 (2024), 114 (2025), 112 (2026 to Nov 23) update days"
+  },
+  {
+   "event": "UnstructuredAdverseRecord",
+   "class": "Evidence only",
+   "decision_class": "ai-assisted",
+   "effect": "AI proposes DiscretionaryGrantPolicy match; sponsor human decides (SE07)",
+   "measured": "not measured"
+  }
+ ]
+}

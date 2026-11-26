@@ -33,7 +33,7 @@ OUTPUT_PATH = PKG / "data" / "economic-scenarios-output.csv"
 PARAM_HEADER = ("parameter", "low", "base", "high", "unit", "evidence_class",
                 "source_ids_or_internal_path", "notes")
 OUTPUT_HEADER = ("record_type", "scenario_id", "accounts", "grants_case", "data_quality",
-                 "balance_case", "fee_bps", "cost_case", "metric", "value")
+                 "balance_case", "fee_bps", "cost_case", "history_case", "metric", "value")
 
 CASES = ("low", "base", "high")
 QUALITY_TO_CASE = {"clean": "low", "typical": "base", "poor": "high"}
@@ -43,6 +43,10 @@ SIZE_BALANCE_PARAM = {1_000: "balance_s1k", 10_000: "balance_s10k",
 FEES_BPS = (10, 15, 20, 30)
 WORKING_FEE_BPS = 20
 NETWORK_SIZES = (10_000, 50_000, 200_000, 600_000)
+HISTORY_CASES = ("short", "mid", "full")
+HISTORY_PARAM = {"short": "history_years_short", "mid": "history_years_mid", "full": "history_years_full"}
+DEFAULT_HISTORY = "full"
+PRICE_ANCHORS_PER_ACCOUNT = (100, 400)  # USD/account-yr: near cost floor; near Ren/MS GIFT low band (A-ADV-001)
 
 # Parameters where a higher value is favourable (cheaper): mirrored under cost_case.
 BENEFIT_PARAMS = frozenset({"partner_coverage", "enroll_instant_share", "registry_reuse_mature",
@@ -79,11 +83,12 @@ class Scenario(NamedTuple):
     balance_case: str
     fee_bps: int
     cost_case: str
+    history: str = DEFAULT_HISTORY
 
     @property
     def scenario_id(self) -> str:
         return (f"N{self.accounts}-G{self.grants_case}-Q{self.data_quality}"
-                f"-B{self.balance_case}-F{self.fee_bps}-C{self.cost_case}")
+                f"-B{self.balance_case}-F{self.fee_bps}-C{self.cost_case}-H{self.history}")
 
 
 Values = Mapping[str, float]
@@ -115,7 +120,9 @@ def resolve(params: Tuple[Param, ...], sc: Scenario) -> Dict[str, float]:
 
 
 def resolve_cost_case(params: Tuple[Param, ...], cost_case: str) -> Dict[str, float]:
-    return resolve(params, Scenario(1_000, "base", "typical", "base", WORKING_FEE_BPS, cost_case))
+    v = resolve(params, Scenario(1_000, "base", "typical", "base", WORKING_FEE_BPS, cost_case))
+    v["history_years"] = v[HISTORY_PARAM[DEFAULT_HISTORY]]
+    return v
 
 
 # ---------------------------------------------------------------- unit costs (pure)
@@ -291,7 +298,7 @@ def onboarding_economics(v: Values, sc: Scenario, recipients: float) -> Dict[str
                  + v["n_custom_integrations"] * v["custom_integ_h"])
     per_account = n * (v["mig_auto_per_account"] + v["mig_account_exception_rate"]
                        * hours_cost(v["mig_account_exception_minutes"], v["rate_ops"]))
-    txns = n * (v["grants_per_account"] + v["contribs_per_account"]) * v["history_years"]
+    txns = n * (v["grants_per_account"] + v["contribs_per_account"]) * effective_history_years(v)
     per_txn = txns * (v["mig_auto_per_txn"] + v["mig_txn_exception_rate"]
                       * hours_cost(v["mig_txn_exception_minutes"], v["rate_ops"]))
     recon = (v["parallel_cycles"] * v["recon_cycle_h"] * scale * v["rate_ops"]
@@ -301,22 +308,51 @@ def onboarding_economics(v: Values, sc: Scenario, recipients: float) -> Dict[str
     direct_enrol = recipients * (1 - v["partner_coverage"]) * v["enroll_target_share"]
     enrol = direct_enrol * enrollment_cost_per_charity(v)
     third = v["third_party_onboarding"]
-    total = impl + eng_config + integ_std + integ_custom + per_account + per_txn + recon + donor + enrol + third
-    sponsor_h = (v["sponsor_fixed_h"] * scale
+    rehearsal = v["rehearsal_runs"] * v["rehearsal_h"] * scale * v["rate_ops"]
+    legal = v["unbound_legal_per_sponsor"]
+    direct = (impl + eng_config + integ_std + integ_custom + per_account + per_txn + recon + donor
+              + enrol + third + rehearsal + legal)
+    reserve = direct * v["failure_reserve_share"]
+    total = direct + reserve
+    ttp_weeks = (v["ttp_base_weeks"] + v["n_custom_integrations"] * v["ttp_weeks_per_custom"]
+                 + v["rehearsal_runs"] * v["rehearsal_weeks"]
+                 + v["parallel_cycles"] * 4.35 + 2 * math.log10(n / 1000))
+    sponsor_h = (v["sponsor_project_fte"] * scale * 1600 * ttp_weeks / 52
+                 + v["rehearsal_runs"] * v["sponsor_rehearsal_approval_h"]
                  + n * v["mig_account_exception_rate"] * v["sponsor_cleanup_minutes"] / 60
                  + v["n_custom_integrations"] * v["sponsor_it_h_per_custom"])
-    ttp_weeks = (v["ttp_base_weeks"] + v["n_custom_integrations"] * v["ttp_weeks_per_custom"]
-                 + v["parallel_cycles"] * 4.35 + 2 * math.log10(n / 1000))
+    sponsor_staff = sponsor_h * v["rate_sponsor"]
+    consultant = v["sponsor_consultant"] * min(1.0, 0.25 + 0.75 * math.log10(n / 1000))
+    buyer_tco = (sponsor_staff + consultant + v["incumbent_tail_fee"] + v["sponsor_auditor_uplift"]
+                 + v["sponsor_legal"] + v["sponsor_comms_fixed"])
     return {"onb_implementation": impl, "onb_engineering_config": eng_config,
             "onb_integration_standard": integ_std, "onb_integration_custom": integ_custom,
             "onb_engineering_hours": eng_hours, "onb_per_account_migration": per_account,
             "onb_migrated_transactions": txns, "onb_per_transaction_migration": per_txn,
             "onb_reconciliation": recon, "onb_donor_reonboarding": donor,
             "onb_charity_enrolment": enrol, "onb_direct_enrolments": direct_enrol,
-            "onb_third_party": third, "onb_total_unbound": total,
+            "onb_third_party": third, "onb_rehearsals": rehearsal, "onb_unbound_legal": legal,
+            "onb_failure_reserve": reserve, "onb_total_unbound": total,
             "onb_per_account": total / n, "onb_per_migrated_txn": total / txns,
-            "onb_sponsor_hours": sponsor_h, "onb_sponsor_cost": sponsor_h * v["rate_sponsor"],
+            "cac_per_sponsor": v["cac_per_sponsor"],
+            "acquisition_and_onboarding_total": total + v["cac_per_sponsor"],
+            "onb_sponsor_hours": sponsor_h, "onb_sponsor_cost": sponsor_staff,
+            "buyer_consultant": consultant, "buyer_incumbent_tail_fee": v["incumbent_tail_fee"],
+            "buyer_auditor_uplift": v["sponsor_auditor_uplift"], "buyer_legal": v["sponsor_legal"],
+            "buyer_comms": v["sponsor_comms_fixed"], "buyer_switching_tco": buyer_tco,
             "time_to_production_weeks": ttp_weeks}
+
+
+def effective_history_years(v: Values) -> float:
+    """Volume-ramped history: year k back carries (1+g)^-k of current volume."""
+    years, g = v["history_years"], v["history_volume_growth"]
+    whole = int(math.floor(years))
+    full = sum((1 + g) ** -k for k in range(whole))
+    return full + (years - whole) * (1 + g) ** -whole
+
+
+def payback(investment: float, annual_contribution: float) -> float:
+    return investment / (annual_contribution / 12) if annual_contribution > 0 else math.inf
 
 
 def classify(payback_months: float, contribution: float, v: Values) -> str:
@@ -343,27 +379,36 @@ def value_of_tracks(v: Values, rec: Mapping[str, float], onb: Mapping[str, float
 
 def evaluate(params: Tuple[Param, ...], sc: Scenario) -> Dict[str, float | str]:
     v = resolve(params, sc)
+    v["history_years"] = v[HISTORY_PARAM[sc.history]]
     rec = recurring_economics(v, sc)
     onb = onboarding_economics(v, sc, rec["recipients"])
     contrib = rec["contribution"]
-    payback = onb["onb_total_unbound"] / (contrib / 12) if contrib > 0 else math.inf
+    invest = onb["acquisition_and_onboarding_total"]
+    pb = payback(invest, contrib)
+    pb_onb_only = payback(onb["onb_total_unbound"], contrib)
     term_years = v["term_months"] / 12
-    amort = onb["onb_total_unbound"] / term_years
+    amort = invest / term_years
+    anchors = {f"payback_months_at_{p}_per_account": payback(invest, p * sc.accounts - rec["cost_recurring_total"])
+               for p in PRICE_ANCHORS_PER_ACCOUNT}
     be_bps = rec["cost_recurring_total"] / rec["aua"] * 10_000
     be_bps_onb = (rec["cost_recurring_total"] + amort) / rec["aua"] * 10_000
     be_balance = (rec["cost_recurring_total"] + amort) / (sc.accounts * sc.fee_bps / 10_000)
-    fee_needed = max(0.0, onb["onb_total_unbound"] - max(0.0, contrib) * v["include_payback_months"] / 12)
+    fee_needed = max(0.0, invest - max(0.0, contrib) * v["include_payback_months"] / 12)
     out: Dict[str, float | str] = {}
     out.update(rec)
     out.update(onb)
-    out.update({"payback_months": payback, "breakeven_bps_recurring": be_bps,
+    out.update(anchors)
+    out.update({"payback_months": pb, "payback_months_onboarding_only": pb_onb_only,
+                "unamortised_recovery_at_12m_prorata": invest * max(0.0, 1 - 12 / v["term_months"]),
+                "unamortised_recovery_at_36m_prorata": invest * max(0.0, 1 - 36 / v["term_months"]),
+                "breakeven_bps_recurring": be_bps,
                 "breakeven_bps_incl_onboarding_amortised": be_bps_onb,
                 "breakeven_balance_at_fee": be_balance,
                 "revenue_per_account": rec["revenue"] / sc.accounts,
                 "breakeven_price_per_account_incl_onboarding": (rec["cost_recurring_total"] + amort) / sc.accounts,
                 "onboarding_fee_to_meet_include_threshold": fee_needed,
-                "term_contribution_after_onboarding": contrib * term_years - onb["onb_total_unbound"],
-                "classification": classify(payback, contrib, v)})
+                "term_contribution_after_onboarding": contrib * term_years - invest,
+                "classification": classify(pb, contrib, v)})
     out.update(value_of_tracks(v, rec, onb))
     return out
 
@@ -373,7 +418,9 @@ def scenario_grid() -> Tuple[Scenario, ...]:
                  for q in QUALITY_TO_CASE for b in CASES for f in FEES_BPS)
     bounds = tuple(Scenario(n, g, q, b, WORKING_FEE_BPS, c) for c in ("low", "high") for n in SIZES
                    for g in CASES for q in QUALITY_TO_CASE for b in CASES)
-    return base + bounds
+    history = tuple(Scenario(n, "base", q, "base", WORKING_FEE_BPS, "base", h) for h in ("short", "mid")
+                    for n in SIZES for q in QUALITY_TO_CASE)
+    return base + bounds + history
 
 
 # ---------------------------------------------------------------- formatting (pure)
@@ -394,15 +441,16 @@ def build_rows(params: Tuple[Param, ...]) -> Tuple[Tuple[str, ...], ...]:
                   ("platform_establishment", registry_establishment_cost(v)),
                   ("platform_annual", registry_annual_cost(v)))
         for rtype, d in blocks:
-            rows.extend((rtype, f"{rtype}-C{case}", "", "", "", "", "", case, k, fmt(val))
+            rows.extend((rtype, f"{rtype}-C{case}", "", "", "", "", "", case, "", k, fmt(val))
                         for k, val in d.items())
         for size in NETWORK_SIZES:
-            rows.extend(("network_growth", f"network-{size}-C{case}", "", "", "", "", "", case, k, fmt(val))
+            rows.extend(("network_growth", f"network-{size}-C{case}", "", "", "", "", "", case, "", k, fmt(val))
                         for k, val in network_growth_cost(v, size).items())
     for sc in scenario_grid():
         res = evaluate(params, sc)
         rows.extend(("sponsor_scenario", sc.scenario_id, str(sc.accounts), sc.grants_case, sc.data_quality,
-                     sc.balance_case, str(sc.fee_bps), sc.cost_case, k, fmt(val)) for k, val in res.items())
+                     sc.balance_case, str(sc.fee_bps), sc.cost_case, sc.history, k, fmt(val))
+                    for k, val in res.items())
     return tuple(rows)
 
 
@@ -471,8 +519,8 @@ def report(params: Tuple[Param, ...]) -> str:
                        "annual_bank_change_usd", "annual_network_variable_usd", "one_time_enrol_existing_usd"))
                       for s in NETWORK_SIZES)))
 
-    def ev(n, g="base", q="typical", b="base", f=WORKING_FEE_BPS, c="base"):
-        return evaluate(params, Scenario(n, g, q, b, f, c))
+    def ev(n, g="base", q="typical", b="base", f=WORKING_FEE_BPS, c="base", h=DEFAULT_HISTORY):
+        return evaluate(params, Scenario(n, g, q, b, f, c, h))
 
     out.append("\n\n### R4 Representative sponsors at 20 bps (base grants, typical data, base balance, base cost)\n")
     keys = (("avg_balance", money), ("aua", money), ("grants_per_year", lambda x: f"{x:,.0f}"),
@@ -480,10 +528,14 @@ def report(params: Tuple[Param, ...]) -> str:
             ("cost_transaction_based", money), ("cost_sponsor_fixed", money), ("contribution", money),
             ("contribution_margin", lambda x: f"{x * 100:.0f}%"), ("cost_per_account", money),
             ("cost_per_grant_unbound", money), ("sponsor_passthrough_rail_cost", money),
-            ("onb_total_unbound", money), ("onb_per_account", money), ("onb_per_migrated_txn", money),
+            ("onb_total_unbound", money), ("cac_per_sponsor", money), ("acquisition_and_onboarding_total", money),
+            ("onb_per_account", money), ("onb_per_migrated_txn", money),
             ("onb_engineering_hours", lambda x: f"{x:,.0f}"), ("onb_charity_enrolment", money),
             ("onb_sponsor_hours", lambda x: f"{x:,.0f}"), ("onb_sponsor_cost", money),
+            ("buyer_switching_tco", money),
             ("time_to_production_weeks", lambda x: f"{x:.0f}"), ("payback_months", months),
+            ("payback_months_onboarding_only", months), ("payback_months_at_100_per_account", months),
+            ("payback_months_at_400_per_account", months),
             ("breakeven_bps_recurring", lambda x: f"{x:.1f}"),
             ("breakeven_bps_incl_onboarding_amortised", lambda x: f"{x:.1f}"),
             ("breakeven_balance_at_fee", money), ("revenue_per_account", money),
@@ -494,7 +546,9 @@ def report(params: Tuple[Param, ...]) -> str:
     out.append("\n\n### R5 Onboarding components (base case, typical data)\n")
     comp = ("onb_implementation", "onb_engineering_config", "onb_integration_standard", "onb_integration_custom",
             "onb_per_account_migration", "onb_per_transaction_migration", "onb_reconciliation",
-            "onb_donor_reonboarding", "onb_charity_enrolment", "onb_third_party", "onb_total_unbound")
+            "onb_donor_reonboarding", "onb_charity_enrolment", "onb_third_party", "onb_rehearsals",
+            "onb_unbound_legal", "onb_failure_reserve", "onb_total_unbound", "cac_per_sponsor",
+            "acquisition_and_onboarding_total")
     out.append(table(("Component",) + tuple(f"{n:,}" for n in SIZES),
                      ((k,) + tuple(money(res[n][k]) for n in SIZES) for k in comp)))
     out.append("\n\n### R6 Fee sensitivity: payback months (base grants, typical data, base balance)\n")
@@ -517,7 +571,7 @@ def report(params: Tuple[Param, ...]) -> str:
     out.append(table(("Accounts", "Low cost", "Base cost", "High cost"),
                      ((f"{n:,}",) + tuple(f"{months(ev(n, c=c)['payback_months'])} ({money(ev(n, c=c)['onb_total_unbound'])})"
                                          for c in CASES) for n in SIZES)))
-    grid = [sc for sc in scenario_grid() if sc.cost_case == "base"]
+    grid = [sc for sc in scenario_grid() if sc.cost_case == "base" and sc.history == DEFAULT_HISTORY]
     counts: Dict[Tuple[int, int, str], int] = {}
     for sc in grid:
         k = (sc.accounts, sc.fee_bps, evaluate(params, sc)["classification"])
@@ -545,8 +599,22 @@ def report(params: Tuple[Param, ...]) -> str:
             rows14.append((str(sc.fee_bps), sc.grants_case, sc.data_quality, sc.balance_case,
                            money(r["contribution"]), money(r["onb_total_unbound"]), months(r["payback_months"]),
                            money(r["onboarding_fee_to_meet_include_threshold"]), r["classification"]))
-    out.append(table(("Fee bps", "Grants", "Data", "Balance", "Contribution/yr", "Onboarding", "Payback mo",
-                      "Fee to reach 24 mo", "Class"), rows14))
+    out.append(table(("Fee bps", "Grants", "Data", "Balance", "Contribution/yr", "Onboarding (excl. CAC)", "Payback mo (incl. CAC)",
+                      "Fee to reach 24 mo (incl. CAC)", "Class"), rows14))
+    out.append("\n\n### R16 History depth: onboarding cost / per-transaction share / payback (20 bps, base, typical data)\n")
+    out.append(table(("Accounts", "Short (33 months, AEF)", "Mid (7 years, GWCF)", "Full (20 years ramped)"),
+                     ((f"{n:,}",) + tuple(
+                         f"{money(r['onb_total_unbound'])} / {r['onb_per_transaction_migration'] / r['onb_total_unbound'] * 100:.0f}% / {months(r['payback_months'])} mo"
+                         for r in (ev(n, h=h) for h in HISTORY_CASES)) for n in SIZES)))
+    out.append("\n\n### R17 Buyer switching TCO, outside Unbound's P&L (base, typical data, full history)\n")
+    bk = ("onb_sponsor_hours", "onb_sponsor_cost", "buyer_consultant", "buyer_incumbent_tail_fee",
+          "buyer_auditor_uplift", "buyer_legal", "buyer_comms", "buyer_switching_tco")
+    out.append(table(("Item",) + tuple(f"{n:,}" for n in SIZES),
+                     ((k,) + tuple((f"{res[n][k]:,.0f}" if k == "onb_sponsor_hours" else money(res[n][k])) for n in SIZES)
+                      for k in bk)))
+    hi = {n: ev(n, c="high", q="poor") for n in SIZES}
+    out.append("\n\nHigh cost case, poor data: buyer switching TCO " + "; ".join(
+        f"{n:,}: {money(hi[n]['buyer_switching_tco'])}" for n in SIZES) + ".\n")
     out.append("\n\n### R15 Registry fixed cost per grant by network grant volume (annual fixed + establishment over 5 yrs)\n")
     rows15 = []
     for g in (70_000, 700_000, 3_000_000, 7_000_000):

@@ -21,6 +21,10 @@ Sub-commands (all inputs are local copies of public files; this script does no n
       Identity-resolution stress statistics for the current IRS EO BMF: shared names,
       shared street addresses, group-exemption subordinates and their absence from Pub 78.
 
+  review-load
+      Low/central/high human-review workload model (REVIEW_PARAMS, each parameter tagged
+      with its evidence class) used in 06 section 8.
+
 Output: one JSON object on stdout. All functions except main() are pure.
 """
 import csv

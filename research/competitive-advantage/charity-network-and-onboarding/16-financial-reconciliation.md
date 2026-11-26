@@ -2,7 +2,7 @@
 
 Status: research draft (2026-11-26). Not legal advice. Evidence classes per 01-research-methodology.md.
 
-Scope: what must reconcile, how exactly, under what tolerance, and which discrepancies block cutover. The gate register is in `data/reconciliation-gates.csv` (G01-G26). It builds on WFM-26-T04/T07/T15, CNV-FIN-004 (continuous reconciliation, ProvisionalCalibration), CNV-FIN-011 (no numeric materiality default), UNB-NAV-012/022 (no unexplained plug; decimal arithmetic) and UNB-RCN-WF-009 (activation requires tied-out opening balances). Notation: `(CLASS, confidence)`.
+Scope: what must reconcile, how exactly, under what tolerance, and which discrepancies block cutover. The gate register is in `data/reconciliation-gates.csv` (G01-G29). It builds on WFM-26-T04/T07/T15, CNV-FIN-004 (continuous reconciliation, ProvisionalCalibration), CNV-FIN-011 (no numeric materiality default), UNB-NAV-012/022 (no unexplained plug; decimal arithmetic) and UNB-RCN-WF-009 (activation requires tied-out opening balances). Notation: `(CLASS, confidence)`.
 
 ## Summary
 
@@ -16,6 +16,13 @@ Scope: what must reconcile, how exactly, under what tolerance, and which discrep
 - **Book of record decides what "reconcile to GL" means.** When the sponsor keeps its entity GL in an ERP (CNV-FIN-012; UNB-XIN-ACC-010 `Shadow`), the GL gates compare Unbound's program ledger to the sponsor GL control accounts. They do not compare to an Unbound GL that is not authoritative.
 - **Gates that block cutover**: all exact gates, unit integrity, external custody and bank ties at the epoch, open liabilities (grants payable, outstanding checks), in-flight ownership completeness, and opening-balance control. **Non-blocking but must clear before first close**: historical statement recomputation differences, `HistoryGap` disclosures, classification suspense (RR-UNB-ACC-033-r1).
 - **The auditor is a primary consumer.** AU-C 510 says reviewing predecessor working papers cannot be the only evidence for opening balances [MIG-016]. The migration's reproducible manifest, roll-forward proofs and custody/bank ties are designed to be that additional evidence (INFERENCE, Medium).
+- **Aggregate tie-outs cannot see total-preserving mis-mappings (ADVB-09).** Two gates are added for that. G28 is a stratified, sponsor-attested record-level sample. G29 covers semantic invariants plus mutation-test detection. Both block cutover.
+- **Grant recognition point (CNV-FIN-007) is an epoch gate (ADVB-08).** G27 has four parts:
+  - the legacy convention is identified;
+  - the cutoff register is built at E-1;
+  - grants payable is reconciled under the legacy convention and shown, for information, under the target convention;
+  - any change of convention waits for the auditor's acceptance (default: next fiscal year-end).
+- **Unbound will not yet have a SOC 1 Type II report (ADVB-10).** No SOC 1 Type II report will cover the first sponsor's first audited period. The sponsor's auditor is therefore likely to do more substantive testing at the sponsor's cost, and that uplift belongs in the buyer TCO (draft 20). Mitigation: a Type I at go-live, a Type II window that overlaps the first sponsor's fiscal year (Type II periods are typically ≥6 months [ADVB-018]), and an evidence pack built for direct substantive use (§6a) (INFERENCE, Medium).
 
 ## 1. Reconciliation levels
 
@@ -30,7 +37,9 @@ Scope: what must reconcile, how exactly, under what tolerance, and which discrep
 | L7 Units/NAV | Fund units, pool outstanding units, unit price, value | Legacy unit register, manager/custodian | Exact units; declared rounding on value | G20-G21 |
 | L8 Restrictions | Restricted balances, restriction records, net-asset class | Legacy restriction data; fund agreements | Exact amounts; classification evidence | G22 |
 | L9 History | Roll-forward proof; recomputed vs as-issued statements; acknowledgment dedup | History partition vs opening; L0 statements | Exact or explained | G06, G23-G24 |
-| L10 Parallel | Daily shadow vs legacy during parallel run | Both systems | ProvisionalCalibration zero tolerance | G26 |
+| L10 Parallel | Shadow vs legacy at the extract cadence allowed (15 §1a) | Both systems / as-issued statements | ProvisionalCalibration zero tolerance | G26 |
+| L11 Semantics | Record-level sample; semantic invariants; mutation-test detection | Source reports vs Unbound views | Exact per sampled attribute; 100% detection | G28-G29 |
+| L12 Recognition | Grant recognition convention and cutoff register at E-1 | Legacy grants payable vs cutoff register | Exact under legacy convention | G27 |
 
 ## 2. Tolerance philosophy
 
@@ -88,6 +97,16 @@ As-issued statements remain the donor-facing record of what was issued (UNB-NAV-
 
 **Auditor opening-balance pack** (proposed UNB-MIG-033): the legacy TB at E-1, the L0 manifest and hashes, the mapping version, the run manifest, the roll-forward proofs, custody and bank ties at E-1, the itemized reconciling items, the rounding allocation listing, and a sample of traces from opening journal → L2 → L1 → L0 byte range.
 
+### 6a. Audit evidence without a Type II report (ADVB-10)
+
+| Period | Assurance available from Unbound | What the sponsor's auditor will likely need | Design response |
+|---|---|---|---|
+| Pre-epoch (legacy) | None (legacy vendor's SOC report, if any) | Predecessor evidence + AU-C 510 opening-balance procedures [MIG-016] | Opening-balance pack (UNB-MIG-033) with re-performable manifests |
+| Epoch to first Type II report | SOC 1 Type I (design only) at best | Substantive tests of transactions processed by Unbound; walkthroughs | Pack items: control-evidence exports (approvals, SoD, reconciliations) per transaction; read-only auditor access; sample-pull tooling |
+| After the Type II window | SOC 1 Type II covering ≥6 months overlapping the sponsor FY [ADVB-018] | Reliance on controls + complementary user-entity controls | Publish CUECs mapped to sponsor duties |
+
+Timing rule (proposed UNB-MIG-035): choose the first sponsor's epoch so that the Type II observation window can cover most of the sponsor's first fiscal year on Unbound. A fiscal-year-start epoch fits this best, which is in tension with 17's calendar preference; 17 §0 resolves the tension. The design-partner contract discloses the expected audit-fee uplift. CNV-ECO-003 evidence obligations measure it.
+
 ## Implications for Unbound
 
 - The gate register is a sellable artefact. It turns "will our books survive the move?" from a vendor promise into a checklist the CFO and auditor can verify. The public evidence contains no comparable incumbent artefact (not publicly documented).
@@ -100,9 +119,21 @@ Candidate requirements:
 - **UNB-MIG-032** `3090` opening control must be exactly zero; suspense is allowed only for the RR-UNB-ACC-033-r1 classification case (refines UNB-RCN-WF-009).
 - **UNB-MIG-033** Auditor opening-balance pack (refines UNB-ACC-025).
 - **UNB-MIG-034** Historical statement recompute and classification, with as-issued statements preserved (refines UNB-NAV-010, CNV-EXP-002).
+- **UNB-MIG-035** SOC 1 timing plan: Type I at first go-live; Type II window overlapping the first sponsor's fiscal year; audit-fee uplift disclosed (refines RCD-031 SOC 1 design).
+- **UNB-MIG-036** Epoch recognition gate G27 and semantic gates G28/G29 are blocking (refines CNV-FIN-007, UNB-MIG-005).
 
 ## Open questions / evidence gaps
 
 - Whether sponsors' auditors accept migration evidence packs in lieu of extended substantive testing of opening balances. Needs auditor interviews.
 - Real legacy rounding behaviours (Ren, FIMS) are unknown. The §3 example is synthetic.
 - How rail partners report pending items at a point in time (L11, L13): whether a dated pending-grant register is available from each partner.
+
+## Adversarial review response
+
+| ID | Response |
+|---|---|
+| ADVB-06 | **Accepted in part.** Gate results on intermediate rehearsals are system-generated. The controller approves only the final rehearsal, the production run, and the explained differences. |
+| ADVB-08 | **Accepted.** G27 added and L12 level added. Convention changes wait for the auditor (default fiscal year-end). The unit and fee design is unchanged, as the reviewer agreed. |
+| ADVB-09 | **Accepted.** G28 (attested record-level sample) and G29 (invariants and mutation detection) added, both blocking. |
+| ADVB-10 | **Accepted.** §6a and UNB-MIG-035 added. I am not claiming the evidence pack substitutes for a Type II report; it only reduces the auditor's substantive effort, and how much is unproven. |
+

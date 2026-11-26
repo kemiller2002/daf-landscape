@@ -6,6 +6,7 @@ Scope: a repeatable, productized migration process ("migration is a product, not
 
 ## Summary
 
+- **The factory must not assume incumbent cooperation (ADVB-02).** Public terms allow direct-login access only, paid export services, deletion 10 business days after hosting ends (NPact [ADVB-002]), returns "as stored" (Foundant [ADVB-001]), and bans on downloading (TIFIN, draft 10). Every stage therefore has a **single-extract degraded path** (§1a). Parallel operations run on whatever extract cadence the contract allows, and Unbound's own L0 vault, not the incumbent, holds read-only legacy history (RECOMMENDATION, High).
 - **Sixteen stages map onto the existing ten WFM-26 states**, so no new top-level states are needed. The additions are sub-stage evidence artefacts and gates (RECOMMENDATION, High).
 - **Determinism contract.** `RunManifest = H(source bundle Merkle root, adapter@version, mapping_version_hash, transform code commit, reference-data snapshot IDs, config hash, as_of)`. The same manifest must produce a byte-identical canonical output hash. The transform may not read the wall clock or the network, use binary floating point (UNB-NAV-022), depend on locale, or call AI. AI is used only before a mapping is approved (see 13).
 - **Rehearsals run in isolated rehearsal cells** with provider mocks and no outbox to real banks, rails or custodians. Production import always re-runs from the L0 vault with an approved manifest. **Rehearsal output is never promoted** (RECOMMENDATION, High).
@@ -34,10 +35,24 @@ Scope: a repeatable, productized migration process ("migration is a product, not
 | 10 | Customer confirmation | ImportedToStaging | Signed confirmation per mapping version, per disposition class, per HistoryGap list | Sponsor A4 sign-off | WFM-26-T05 |
 | 11 | Trial migration (rehearsal ≥2) | ImportedToStaging (rehearsal cell) | Rehearsal reports incl. timing | Two consecutive clean rehearsals on the same manifest family | UNB-MIG-021 |
 | 12 | Financial reconciliation | Reconciled | Gate results `data/reconciliation-gates.csv` | All blocking gates pass | 16; WFM-26-T04 |
-| 13 | Parallel operations | ParallelRunning→ParallelValidated | Daily shadow comparison; ProvisionalCalibration results | ≥1 full close cycle within tolerance | CNV-FIN-004, WFM-26-T07 |
+| 13 | Parallel operations | ParallelRunning→ParallelValidated | Shadow comparison at the cadence the Extraction Plan allows (daily feed / periodic report re-exports / month-end statements only); ProvisionalCalibration results | ≥1 full close cycle within tolerance at the available cadence | CNV-FIN-004, WFM-26-T07 |
 | 14 | Final delta | CutoverAuthorized | Delta manifest at legacy high-water mark | Delta reconciled | UNB-TEN-013 |
 | 15 | Cutover | SingleWriterActive | Fence confirmation, opening journals, routing switch | Fence confirmed (not Unknown) | 17; UNB-RCN-WF-020 |
 | 16 | Post-cutover validation and legacy retirement | PostCutoverVerified→Archived | Independent sign-off; legacy archive receipt; retirement certificate | Reconciler ≠ operator (GOV-AUTH-014) | WFM-26-T15/T16, CNV-ENT-002 |
+
+### 1a. Extraction-cadence variants (ADVB-02)
+
+| Variant | When | Rehearsals | Parallel run | Final delta | Legacy history after cutover |
+|---|---|---|---|---|---|
+| **Full cooperation** | Sponsor-hosted system, or a contract grants unlimited exports/API | Fresh extract per rehearsal allowed | Daily or weekly deltas | Re-export diff (below) | L0 vault (plus legacy read-only if the contract allows) |
+| **Periodic reports** | Direct-login reports only, no automation (NPact §2.4, TIFIN) | All rehearsals re-run on **one** baseline extract; determinism makes that sufficient | Sponsor downloads standard month-end reports (fund balances, TB, grant/contribution listings); comparison only at those points | Second report set after legacy close at E-1 | L0 vault only |
+| **Single extract** | Export is a paid one-off PS deliverable, or termination is imminent | Same baseline extract | **No continuous shadow.** Unbound replays the baseline period and compares to as-issued month-end statements and custody/bank statements already in L0 (a retrospective parallel). The 12-month shadow replay that CNV-ECO-003 requires for the first sponsor is satisfied by this replay | Freeze-bounded: legacy close at E-1 → one final paid extract, or report-level delta only for the freeze window. The baseline extract is taken as late as possible | L0 vault only |
+
+Rules:
+- Before contract signature, the Extraction Plan (13 §2a) must show how many extracts are allowed, what they cost, and the post-termination window.
+- Every report, statement PDF and document is captured into L0 **before** incumbent access ends, because Unbound never relies on post-termination incumbent access.
+- Where the deletion window is short (e.g. 10 business days), cutover is scheduled at least one final-delta cycle before the hosting end date.
+- Incumbent professional-services, remaining-term and tail fees are budgeted in draft 20.
 
 **Final delta design.** Legacy "modified since" timestamps are unreliable as a change feed (INFERENCE, Medium). Instead, take a full re-export at the frozen high-water mark and diff it against the prior export by `(source_id, content_hash)`. That yields three sets: new, changed and disappeared. *Disappeared* records are an E5 or E6 exception, because legacy systems that hard-delete are a red flag.
 
@@ -83,6 +98,7 @@ Rules (proposed UNB-MIG-020):
 2. Round-trip totals.
 3. Determinism double run.
 4. Malformed-file fuzz cases (encoding, delimiter, truncated file).
+5. **Semantic invariants and mutation tests** (13 §4; ADVB-09). Total-preserving swaps (advisor↔successor, restricted↔unrestricted, status at the same amount, acknowledgment flags, payee swap on equal-amount grants) must all be detected. An adapter that lets any swap through fails conformance.
 
 ## 4. Exception taxonomy
 
@@ -109,13 +125,13 @@ Each exception has `{id, class, rule_id@version, source_locator, amount?, owner,
 
 ## 6. Parallel operations and legacy retirement
 
-- During the parallel run, legacy stays the sole writer (WFM-26-T06). Unbound ingests daily legacy deltas and recomputes balances, fees and, where in scope, units in Shadow.
+- During the parallel run, legacy stays the sole writer (WFM-26-T06). Unbound ingests legacy data at the cadence in §1a (daily deltas only where permitted) and recomputes balances, fees and, where in scope, units in Shadow.
 - Variances follow CNV-FIN-004 `ProvisionalCalibration`: zero tolerance, with every non-exact item sent to the human queue for at least one full close cycle.
 - Practitioner evidence varies: one month in parallel, no dual entry at all, or legacy kept in read-only for months [MIG-007]. Unbound should require **one full monthly close in parallel** for the entry segment (RECOMMENDATION, Medium).
 - **Retirement** (proposed UNB-MIG-025):
-  - Legacy is moved to read-only and its archive export is delivered to the sponsor (the records custodian, CNV-ENT-002).
+  - The L0 vault plus History Partition are the sponsor's legacy archive (14, UNB-MIG-017). Before access ends, a final completeness check confirms that every as-issued statement, document and report listed in the inventory is in L0.
+  - If the incumbent contract allows it, legacy may also stay read-only. The practitioner advice is to keep the legacy contract at least 3 months past go-live [MIG-007]. This is a **preference, not a dependency**.
   - Legacy credentials and API tokens are revoked (runbook M14).
-  - The contract end date is set at least 90 days after cutover (practitioner advice [MIG-007]).
   - The retirement certificate lists residual open items and legal holds (UNB-XIN-REC-001).
 
 ## Implications for Unbound
@@ -124,10 +140,19 @@ Each exception has `{id, class, rule_id@version, source_locator, amount?, owner,
 - Prioritize adapters by entry segment (CNV-ECO-004): Ren-hosted and bespoke or spreadsheet national sponsors first; FIMS and CommunitySuite later.
 - Ren adapter feasibility depends on the sponsor's contract export rights. Make "full export in documented format" a pre-signature checklist item, per the runbook's commercial checklist.
 
-Candidate requirements: **UNB-MIG-020** deterministic run manifest and purity rules; **UNB-MIG-021** rehearsal isolation with no promotion; **UNB-MIG-022** adapter contract and conformance suite (refines UNB-CUST-024 pattern); **UNB-MIG-023** E1-E8 exception taxonomy with allowed dispositions; **UNB-MIG-024** final delta by full re-export diff at the high-water mark (refines UNB-TEN-013); **UNB-MIG-025** legacy retirement certificate and minimum post-cutover legacy access (refines CNV-ENT-002 for inbound).
+Candidate requirements: **UNB-MIG-020** deterministic run manifest and purity rules; **UNB-MIG-021** rehearsal isolation with no promotion; **UNB-MIG-022** adapter contract and conformance suite (refines UNB-CUST-024 pattern); **UNB-MIG-023** E1-E8 exception taxonomy with allowed dispositions; **UNB-MIG-024** final delta by full re-export diff at the high-water mark (refines UNB-TEN-013); **UNB-MIG-025** legacy retirement certificate, with the L0 completeness check before incumbent access ends; legacy read-only access is optional (refines CNV-ENT-002 for inbound); **UNB-MIG-026** extraction-cadence variants: rehearsals on one baseline extract, a retrospective parallel when there is only a single extract, and cutover scheduled before the incumbent's deletion window (refines UNB-TEN-013, RR-REQ-X-061-r1).
 
 ## Open questions / evidence gaps
 
 - Real export samples from Ren, FIMS/NPact and DonorCentral under authorization. None have been seen, and every adapter claim here is design, not test.
 - Whether NPact offers a supported FIMS database extract for migrations away from NPact products.
 - Calibration of rehearsal count and duration once two or more real migrations exist (CNV-EVB-002).
+
+## Adversarial review response
+
+| ID | Response |
+|---|---|
+| ADVB-02 | **Accepted.** Added §1a cadence variants, a single-extract degraded path, the L0 vault as legacy archive, and legacy read-only demoted to optional (UNB-MIG-026). Determinism makes repeated extracts unnecessary for rehearsals. |
+| ADVB-06 | **Accepted in part.** Controller approval is required on the final rehearsal and the production run only. Intermediate rehearsal gate results are system-generated. Hour modelling is draft 20's. |
+| ADVB-09 | **Accepted.** Mutation tests and semantic invariants are added to adapter conformance. |
+

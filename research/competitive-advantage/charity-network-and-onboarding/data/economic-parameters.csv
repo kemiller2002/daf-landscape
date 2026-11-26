@@ -70,7 +70,10 @@ third_party_onboarding,0,5000,20000,USD/sponsor,ASSUMPTION,data/commercial-oppor
 mig_auto_per_account,0.01,0.05,0.2,USD/account,ASSUMPTION,,Compute + AI mapping
 mig_account_exception_rate,0.005,0.03,0.1,share of accounts,ASSUMPTION,research/migration-runbook-2026.md,Mapped to data quality clean/typical/poor (not cost case)
 mig_account_exception_minutes,10,20,45,min,ASSUMPTION,,
-history_years,5,7,10,years,ASSUMPTION,CNV-EXP-002 (full fund history),
+history_years_short,2.75,2.75,2.75,years,VERIFIED-FACT,10-institutional-onboarding-landscape.md (AEF pulled 33 months; ADVB-005),History scenario 'short': what a predecessor platform actually held
+history_years_mid,7,7,7,years,VERIFIED-FACT,10-institutional-onboarding-landscape.md (GWCF ported 7 years; ADVB-006),History scenario 'mid'
+history_years_full,15,20,26,years,INFERENCE,10-institutional-onboarding-landscape.md (Arizona 26 years); CNV-EXP-002 (full fund history),History scenario 'full' (default grid): sponsor age; volume-ramped
+history_volume_growth,0.05,0.08,0.12,share/yr,ASSUMPTION,research/commercial-opportunity/servicing-economics/02-sponsor-market-analysis.md (account growth not measured per sponsor),Older years carry fewer transactions: effective years = sum (1+g)^-k
 mig_auto_per_txn,0.0001,0.0005,0.002,USD/txn,ASSUMPTION,,
 mig_txn_exception_rate,0.001,0.01,0.03,share of txns,ASSUMPTION,unbound parameters.json (recon_break_rate 0.002/0.01/0.03),Mapped to data quality
 mig_txn_exception_minutes,5,10,20,min,ASSUMPTION,unbound parameters.json (break_minutes 20 (10-40)),
@@ -82,11 +85,23 @@ donor_contact_share,0.05,0.1,0.2,share of accounts,ASSUMPTION,,Donors needing su
 donor_contact_minutes,10,15,20,min,ASSUMPTION,unbound parameters.json (contact_minutes 20 (10-30)),
 reproof_share,0,0.05,0.2,share of accounts,ASSUMPTION,CNV-PLT-003,Risk-based identity re-proofing at migration
 idv_fee,1,1.5,3,USD/verification,VENDOR-CLAIM,data/commercial-opportunity/servicing-economics/cost-register.csv (CST-ID2 Persona),
-sponsor_fixed_h,120,250,500,h/sponsor,ASSUMPTION,,Sponsor staff hours at 1k accounts (scaled per decade)
 sponsor_cleanup_minutes,10,15,30,min/account exception,ASSUMPTION,,
 sponsor_it_h_per_custom,40,80,200,h/custom integration,ASSUMPTION,,
-ttp_base_weeks,8,12,20,weeks,ASSUMPTION,research/migration-runbook-2026.md,
+ttp_base_weeks,8,12,20,weeks,INFERENCE,10-institutional-onboarding-landscape.md (CF single-vendor 3-6 months contract to SoR; AEF ~8.5 months selection to live; Arizona 18+ months; NPT 14-16 weeks new programs),Calibrated so clean small sponsors land near 5 months and typical mid-size near AEF
 ttp_weeks_per_custom,3,4,8,weeks,ASSUMPTION,,
+rehearsal_runs,3,3,5,count,INFERENCE,11-cross-industry-migration-research.md (at least 3 rehearsals); ADVB-15,Full dress rehearsals before cutover
+rehearsal_h,16,40,80,h/run at 1k accounts,ASSUMPTION,,Unbound ops hours per rehearsal (scaled per decade)
+rehearsal_weeks,1,2,3,weeks/run,ASSUMPTION,,Elapsed time per rehearsal incl. sponsor sign-off
+unbound_legal_per_sponsor,5000,15000,40000,USD/sponsor,ASSUMPTION,,Unbound contract/DPA/program-terms review
+failure_reserve_share,0.05,0.1,0.2,share of direct onboarding cost,ASSUMPTION,10-institutional-onboarding-landscape.md (FFTC paid Give $654.5k then went elsewhere - INFERENCE); ADVB-011 (akoyaGO 85% on-time - VENDOR-CLAIM),Expected cost of failed/repeated migration and service credits
+cac_per_sponsor,50000,125000,250000,USD/sponsor,ASSUMPTION,research/commercial-opportunity/servicing-economics/08-adversarial-review.md (ADV-005: ~$250k/yr sales at 1-2 wins/yr),Sales and pre-sales per won sponsor
+sponsor_project_fte,0.25,0.5,1,FTE during project at 1k accounts,INFERENCE,10-institutional-onboarding-landscape.md (TAG: at least 0.5 FTE or a consultant; Hartford 4 months clean-up + 2 months dual run),Scaled per decade; applied over time to production
+sponsor_rehearsal_approval_h,4,8,16,h/rehearsal,ASSUMPTION,ADVB-06 duty list (controller approval per rehearsal),
+incumbent_tail_fee,0,50000,417742,USD,INFERENCE,10-institutional-onboarding-landscape.md (JCF paid Ren $417742 'PREVIOUS DONOR PORTAL SUPPORT' - VERIFIED-FACT high; NPact paid export PS),Buyer cost; base is ASSUMPTION
+sponsor_auditor_uplift,5000,20000,60000,USD,ASSUMPTION,ADVB-10 (no SOC 1 Type II overlapping the first audit period),Buyer cost: conversion procedures
+sponsor_legal,5000,20000,50000,USD,ASSUMPTION,,Buyer cost: re-papering donor program terms/privacy notice/DPA
+sponsor_comms_fixed,2000,10000,30000,USD,ASSUMPTION,,Buyer cost: donor/advisor communications production
+sponsor_consultant,0,115000,362000,USD at >=10k accounts,INFERENCE,10-institutional-onboarding-landscape.md (990 VII-B lines $115k-$724k/yr; Maine CF $362k),Scaled 25% at 1k rising to 100% at 10k+; JCF SF $724k Salesforce build excluded as out of scope
 term_months,36,60,84,months,ASSUMPTION,research/revenue-retention-and-switching-2026-11-11.md,Initial contract term; base used for classification
-include_payback_months,18,24,30,months,RECOMMENDATION,,Max payback for onboarding included in servicing fee
+include_payback_months,18,24,30,months,RECOMMENDATION,,Max payback of onboarding + CAC for onboarding included in servicing fee
 sales_cycle_months_saved,1,3,6,months,HYPOTHESIS,,Sales-cycle/time-to-revenue reduction from proven network + migration

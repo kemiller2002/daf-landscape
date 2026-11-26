@@ -62,7 +62,8 @@ Internal repo files are cited by path. This note builds on these files and does 
   5. Charity payment re-validation.
   6. Fund-accounting conversion (pools, fees, opening balances).
 
-  An entrant that can promise and prove "no visible freeze, full history, credentials and charity enrolments carried over" competes on the friction that is documented, not on price. This bears on a sequencing tension: release 1 is proposed with "no migration", but the ratified entry segment (CNV-ECO-004) consists entirely of sponsors that already have a system. See Implications.
+  An entrant that can promise and prove "no visible freeze, full history, credentials and charity enrolments carried over" competes on the friction that is documented, not on price. Competitors already sell migration, so the edge must be *published, verifiable outcomes* (see the Adversarial review response).
+- **Conflict for the owner.** The proposed release-1 "no migration" scope conflicts with ratified CNV-EXP-002 (initial-implementation), with the 2026-11-25 CNV-ECO-003 amendment (a 12-month replay of the first paying sponsor's own history) and with CNV-ECO-004 (incumbent-served sponsors). See Implications.
 
 ## 1. Onboarding archetypes
 
@@ -178,7 +179,7 @@ The runbook's switching-cost formula (`research/revenue-retention-and-switching-
 | Ren iPhi MSA (2023 draft) | 15 days | "industry-standard format" (unspecified) | Not stated | None ("only as permitted in this Section 10") | 12-month renewal; notice "thirty (60)" days (drafting error) | `queue-contract-data-rights-agent-controls.md` |
 | Ren RAC / RCF MSA (June 2023) | Return on request or at termination | Not specified; only customer-provided "Customer Materials" | Not stated | Customer pays fees to end of quarter | 1-year auto-renew; 60-day notice | `ren-legal-entities-...-audit-2026-11-12.md` |
 | NPact Standard Terms (2025-08-26) | Deleted 10 business days after hosting ends | No export duty; export is a Professional Service | Yes (PS) | Remaining-term fees on specified terminations | 3-year initial term; 90-day notice | `queue-contract-data-rights-agent-controls.md` |
-| Foundant MSA (v01/2024) | Returned or erased within 30 days | CSV "in the same format as such data is stored" via reporting tools | Custom export is billable PS | Yes, 30 days; 100% refund in first 90 days, pro rata after | Auto-renew; 30-day notice | [ONB-004] |
+| Foundant MSA (v01/2024) | "Return or erase" within 30 days. Export is owed only on a written request at termination (§5.7) | CSV "in the same format as such data is stored" via reporting tools | Custom export is billable PS | Yes, 30 days; 100% refund in first 90 days, pro rata after | Auto-renew; 30-day notice. §11.3: mutual employee non-solicit for 1 year after termination (limits hiring the vendor's staff to help with the exit) | [ONB-004] |
 | TIFIN group terms | Access ends at termination; users barred from archiving or downloading | n/a | n/a | Per signed agreement | Auto-renew by default | `queue-contract-data-rights-agent-controls.md` |
 | akoyaGO, Give Interactive, GiftingNetwork, NPT, Fidelity Charitable, Schwab DAFgiving360, Goldman Sachs, BofA programs | **Not publicly documented** | | | | | searched 2026-11-26 |
 
@@ -279,11 +280,47 @@ Counter-evidence that barriers are surmountable: Ren iPhi lost 6 of 57 tracked c
 
 **Source adapters, prioritised by entry segment (CNV-ECO-004).** Mid-size national and single-issue sponsors with 5k-50k funds are most likely on Ren DFX or iPhi, NPact, Give or in-house systems. Community foundations, who run Foundant and akoyaGO, are not the entry segment. Most public migration evidence comes from CFs, so its transfer to national sponsors is INFERENCE.
 
-**Flagged tension (not a contradiction of a ratified clause).**
-- The proposed release-1 scope says "no migration in R1": one reference sponsor (`requirements/discovery/2026-11-23-cross-industry/17-RELEASE-1-SCOPE.md`, UNB-XIN-OTH-002 deferred).
-- The ratified entry segment (CNV-ECO-004) consists of sponsors that already have a system and history.
-- CNV-EXP-002 requires full-history import.
-- Unless the first commercial sponsor is greenfield, migration sits on the critical path to the first paying sponsor. The product owner should decide whether migration capability is a release-1.x gate.
+**Conflict requiring an owner decision (revised after ADVB-01).** The facts are VERIFIED-FACT from the repo; that they conflict is INFERENCE, High.
+- **CNV-EXP-002** (ratified, `release_scope: initial-implementation`, `clauses/c5_adversarial_business.json`) requires sponsor migration to import each donor's full fund history with a reconciliation report.
+- **CNV-ECO-003**, as amended 2026-11-25 (`clauses/c15_no_design_partner.json`), requires the first paying sponsor's contract to include a shadow replay of at least 12 months of *that sponsor's own* grant and contribution history. That history can only come out of the incumbent system.
+- **CNV-ECO-004** targets mid-size national, single-issue and advisor-distributed sponsors. These are incumbents' customers, so each has a system and history.
+- **The proposed R1 scope** (`requirements/discovery/2026-11-23-cross-industry/17-RELEASE-1-SCOPE.md` line 108; RR-REQ-X-061-r1; UNB-XIN-OTH-002) says "no migration in R1". It is a proposal, not ratified.
+- **Options for the owner:**
+  - (a) Make these an R1/R1.x gate before the first paying sponsor: history extraction, a read-only history import and the CNV-EXP-002 reconciliation report.
+  - (b) Narrow CNV-EXP-002's release scope through the amendment process.
+  - (c) Pick a greenfield first sponsor. This contradicts CNV-ECO-004 and does not satisfy the CNV-ECO-003 replay obligation unless the sponsor has history elsewhere.
+- **Recommendation: (a).** At minimum, extraction plus the 12-month replay are needed for CNV-ECO-003 anyway.
+
+**Who owns the data determines what "migration" means (added after ADVB-04).**
+
+| Program type | Legal sponsor / data owner | What moving to Unbound means | Evidence |
+|---|---|---|---|
+| Self-administered sponsor on licensed software (CF on Foundant/NPact; national sponsor on iPhi, DFX licence or Give) | The sponsor owns assets and Customer Data | Platform migration under CNV-EXP-002: the sponsor exports its own data. The vendor's cooperation affects how fast and in what format, but not whether the sponsor may export. Ren RAC returns only "Customer Materials", which may exclude generated records | Foundant MSA §6.1 [ONB-004]; NPact §6.2, iPhi §3.2 (`queue-contract-data-rights-agent-controls.md`) |
+| Advisor, bank or wealth program on a vendor-affiliated charity (Ren/RCF white label, NPT private label, Charityvest via Foundation Source, TIFIN/GiveClear) | The vendor's charity (RCF, NPT, Charityvest) owns the assets and is the record holder. The distributor owns neither | Not a platform migration. The program can move only fund by fund, as discretionary grants the incumbent sponsor approves (CNV-ENT-002 mirror; UNB-XIN-SAS-007), into a new sponsor. Full-history import is available only as far as the donor or the incumbent sponsor supplies statements. Exclude it from any full-history guarantee | ONB-021 (RCF opens account at Customer); ONB-023 ("sponsored and administered by Charityvest"); ONB-019 |
+
+CNV-ECO-004's "advisor-distributed sponsors" segment therefore splits:
+- Distributors that **become** the sponsor (their own 501(c)(3)) face sponsor-to-sponsor transfer friction plus a new-charity setup.
+- Existing self-administered sponsors can migrate under CNV-EXP-002.
+The economics and the go-to-market plan should model these separately (INFERENCE).
+
+## Adversarial review response (ADVB, 2026-11-26)
+
+| Finding | Verdict | Change |
+|---|---|---|
+| ADVB-01: R1 "no migration" is a conflict, not a tension | **Accepted.** I re-checked the clause JSON. CNV-EXP-002 is `initial-implementation` (c5). The CNV-ECO-003 replacement text of 2026-11-25 puts the first paying sponsor's ≥12-month shadow replay into its contract (c15) | The Implications section restates it as a conflict for the owner, with options (a)-(c) and a recommendation of (a). The Summary bullet is updated |
+| ADVB-04: data ownership differs by program type | **Partly accepted.** It is rejected for self-administered sponsors on licensed software: the published templates vest data in the customer (Foundant §6.1, NPact §6.2, iPhi §3.2). It is accepted for distributor programs on a vendor-affiliated charity (RCF, NPT, Charityvest, TIFIN/GiveClear): there "migration" means fund-by-fund grant transfer approved by the incumbent sponsor, with no guaranteed history | An ownership table was added to Implications. The advisor-distributed segment of CNV-ECO-004 is split in two |
+| ADVB-12: competitors already market migration | **Accepted.** Ren sells a "Data Migration" add-on and claims to have "transitioned many existing DAF programs" [ONB-020, ONB-021]. akoyaGO publishes migration-speed metrics [ONB-025]. Give, Foundant and the Salesforce partner ecosystem market conversion (VENDOR-CLAIM; reviewer sources). "Having onboarding" is not a differentiator | See below |
+| ADVB-18: Foundant nuance | Accepted | The exit table now notes "return or erase", export only on written request, and the §11.3 one-year non-solicit |
+
+**Outcome metrics that no reviewed competitor publishes.** These are "not publicly documented", not proven absent. They are where Unbound can differentiate by committing to them in public and in contract:
+1. **History depth carried into the successor's self-service view.** Only sponsors disclose this, after the fact: AEF 2 years, GWCF 7 years. No vendor commits in advance.
+2. **A reconciliation proof given to the sponsor and its auditor.** Counts, amounts, fund balances and units tied out with zero unexplained differences. Nobody publishes a sample or acceptance criterion.
+3. **How long the user-visible freeze lasts**, for both submission and processing. It is disclosed only in sponsor notices (4 days to 5.5 weeks). No vendor publishes a target or SLA.
+4. **Carry-over of credentials, delegations and charity enrolments.** Every notice reviewed reset credentials.
+5. **Unbound's own exit terms:** data window, schema, generated records and fee. Published templates give 10 business days, 15 days or 30 days, CSV "as stored", export billed as a service, and "Customer Materials" only.
+6. **On-time delivery against plan.** akoyaGO alone discloses a task-level figure (85%).
+
+Claiming these outcomes requires measured evidence: the runbook's M01-M20 on synthetic fixtures, then the first sponsor's CNV-ECO-003 replay. Until then they are HYPOTHESIS. Whether buyers value them enough to switch is untested, and should be tested in interviews before migration is treated as a moat.
 
 ## Open questions / evidence gaps
 
