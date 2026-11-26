@@ -50,3 +50,17 @@ Each implication's disposition, with the requirement or record it produced, is i
 - no stage is marked "yes" ahead of an earlier stage.
 
 Unit tests: `dotnet test model/tests/CompetitiveDisplacement.Tests`.
+
+## Later owner decisions (2026-11-26)
+
+These decisions were made after the approval above, in response to questions Stage I raised. They are separate from DEC-001 to DEC-012.
+
+| ID | Question raised | Owner's decision (owner's words) | Recorded in |
+|---|---|---|---|
+| OD-P3-01 | Who owns intellectual property the initiative creates? | "EF owns all property we make": Echelon Foundry owns all intellectual property created (Unbound, Transitus, shared components, research models) | echelon-organization-administration `strategy/daf-entry/` |
+| OD-P3-02 | Does the DEC-008 kill rule pause Transitus beyond phase 1? (Transitus OD-TRN-P3-02) | "Kill rule doesn't stop Transitus" | Transitus decision records; [xri-dispositions.csv](data/registers/xri-dispositions.csv) XRI-014 |
+| OD-P3-03 | When does the "no named partner by month 6" clock start? | "No named partner rule starts when we have significant expenses" | [decision-approvals.csv](data/registers/decision-approvals.csv) DEC-008; echelon-organization-administration `strategy/daf-entry/03` |
+
+**Still open:** the owner has not set a threshold for "significant" expenses in OD-P3-03. Until one is set, the kill-rule clock has not started.
+
+Transitus scope stays as DEC-011 sets it (phase 1, with vendor packages deferred). OD-P3-02 lifts a possible pause; it does not authorize expenditure or implementation.
