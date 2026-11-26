@@ -1,0 +1,241 @@
+seq_id,kill_rule,scenario,peak_deficit,cumulative_m120,economic_m120,payback_month,kill_month
+SEQ-A,not applied,base,8455953,-8455953,-15770688,none,none
+SEQ-A,not applied,zero customers ever,3131250,-3131250,-8424964,none,none
+SEQ-A,not applied,100% partner share,15599092,-15599092,-25220691,none,none
+SEQ-A,not applied,every input adverse,29358043,-29358043,-50620232,none,none
+SEQ-A,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2597161,-2597161,-6522863,none,36
+SEQ-A,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),18516566,-18516566,-29624990,none,none
+SEQ-A,not applied,SOC 1 Type 2 required (+$120k a year),9355953,-9355953,-17010063,none,none
+SEQ-A,not applied,conventional maintenance (1-2 engineers) added,10143453,-10143453,-18094516,none,none
+SEQ-A,not applied,registry M5 (conditional on OD-CDD-02),3285719,-3160997,-8647047,none,none
+SEQ-A,not applied,founder paid market salary in cash,10245773,-10245773,-16732868,none,none
+SEQ-A3,not applied,base,8255278,-8255278,-14436741,none,none
+SEQ-A3,not applied,zero customers ever,2531250,-2531250,-6320701,none,none
+SEQ-A3,not applied,100% partner share,16242166,-16242166,-25301385,none,none
+SEQ-A3,not applied,every input adverse,31485895,-31485895,-52395161,none,none
+SEQ-A3,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2972055,-2972055,-6119791,none,36
+SEQ-A3,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),19321952,-19321952,-30093570,none,none
+SEQ-A3,not applied,SOC 1 Type 2 required (+$120k a year),9245278,-9245278,-15837366,none,none
+SEQ-A3,not applied,conventional maintenance (1-2 engineers) added,10111528,-10111528,-17062913,none,none
+SEQ-A3,not applied,registry M5 (conditional on OD-CDD-02),2516969,-2376563,-6307896,none,none
+SEQ-A3,not applied,founder paid market salary in cash,10000098,-10000098,-15364422,none,none
+SEQ-B,not applied,base,9535743,-9535743,-17114332,none,none
+SEQ-B,not applied,zero customers ever,4883063,-4883063,-11224411,none,none
+SEQ-B,not applied,100% partner share,12719824,-12719824,-21221345,none,none
+SEQ-B,not applied,every input adverse,26390020,-26390020,-49364615,none,none
+SEQ-B,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2181679,-2181679,-5982204,none,36
+SEQ-B,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),18254940,-18254940,-28682639,none,none
+SEQ-B,not applied,SOC 1 Type 2 required (+$120k a year),10315743,-10315743,-18149207,none,none
+SEQ-B,not applied,conventional maintenance (1-2 engineers) added,10998243,-10998243,-19054723,none,none
+SEQ-B,not applied,registry M5 (conditional on OD-CDD-02),8082003,-8082003,-15207284,none,none
+SEQ-B,not applied,founder paid market salary in cash,11154322,-11154322,-17923620,none,none
+SEQ-C,not applied,base,7304051,-7304051,-14249763,none,none
+SEQ-C,not applied,zero customers ever,3529375,-3529375,-9201085,none,none
+SEQ-C,not applied,100% partner share,12292307,-12292307,-20521939,none,none
+SEQ-C,not applied,every input adverse,22542462,-22542462,-41197284,none,none
+SEQ-C,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2446250,-2446250,-6802324,none,36
+SEQ-C,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),16693956,-16693956,-26944300,none,none
+SEQ-C,not applied,SOC 1 Type 2 required (+$120k a year),8144051,-8144051,-15385388,none,none
+SEQ-C,not applied,conventional maintenance (1-2 engineers) added,8879051,-8879051,-16379060,none,none
+SEQ-C,not applied,registry M5 (conditional on OD-CDD-02),4781249,-4684909,-10913353,none,none
+SEQ-C,not applied,founder paid market salary in cash,8378557,-8378557,-14820318,none,none
+SEQ-D,not applied,base,5958794,-5958794,-11166010,none,none
+SEQ-D,not applied,zero customers ever,3238750,-3238750,-7524406,none,none
+SEQ-D,not applied,100% partner share,8791851,-8791851,-14762604,none,none
+SEQ-D,not applied,every input adverse,14954073,-14954073,-27388518,none,none
+SEQ-D,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2120352,-2120352,-4747075,none,36
+SEQ-D,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),5958794,-5958794,-11166010,none,none
+SEQ-D,not applied,SOC 1 Type 2 required (+$120k a year),5958794,-5958794,-11166010,none,none
+SEQ-D,not applied,conventional maintenance (1-2 engineers) added,5958794,-5958794,-11166010,none,none
+SEQ-D,not applied,registry M5 (conditional on OD-CDD-02),5958794,-5958794,-11166010,none,none
+SEQ-D,not applied,founder paid market salary in cash,7723614,-7723614,-12109440,none,none
+SEQ-E,not applied,base,7621436,-7621436,-14530001,none,none
+SEQ-E,not applied,zero customers ever,3131250,-3131250,-8424964,none,none
+SEQ-E,not applied,100% partner share,9996556,-9996556,-17519034,none,none
+SEQ-E,not applied,every input adverse,21461762,-21461762,-39322147,none,none
+SEQ-E,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2421649,-2421649,-6221572,none,36
+SEQ-E,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),17682049,-17682049,-28384303,none,none
+SEQ-E,not applied,SOC 1 Type 2 required (+$120k a year),8521436,-8521436,-15769376,none,none
+SEQ-E,not applied,conventional maintenance (1-2 engineers) added,9308936,-9308936,-16853829,none,none
+SEQ-E,not applied,registry M5 (conditional on OD-CDD-02),6943756,-6943756,-13668214,none,none
+SEQ-E,not applied,founder paid market salary in cash,9411256,-9411256,-15492181,none,none
+SEQ-F,not applied,base,32777,-32777,-268261,none,none
+SEQ-F,not applied,zero customers ever,3125,-3125,-228732,none,none
+SEQ-F,not applied,100% partner share,197508,-197508,-487868,none,none
+SEQ-F,not applied,every input adverse,7000,-7000,-564446,none,none
+SEQ-F,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",6289,-6289,-78675,none,36
+SEQ-F,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),32777,-32777,-268261,none,none
+SEQ-F,not applied,SOC 1 Type 2 required (+$120k a year),32777,-32777,-268261,none,none
+SEQ-F,not applied,conventional maintenance (1-2 engineers) added,32777,-32777,-268261,none,none
+SEQ-F,not applied,registry M5 (conditional on OD-CDD-02),32777,-32777,-268261,none,none
+SEQ-F,not applied,founder paid market salary in cash,32777,-32777,-268261,none,none
+SEQ-G,not applied,base,8752604,-8752604,-15898733,none,none
+SEQ-G,not applied,zero customers ever,3131250,-3131250,-8424964,none,none
+SEQ-G,not applied,100% partner share,9021366,-9021366,-16237536,none,none
+SEQ-G,not applied,every input adverse,19905228,-19905228,-37102107,none,none
+SEQ-G,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2405518,-2405518,-6193413,none,36
+SEQ-G,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),18813216,-18813216,-29753035,none,none
+SEQ-G,not applied,SOC 1 Type 2 required (+$120k a year),9652604,-9652604,-17138108,none,none
+SEQ-G,not applied,conventional maintenance (1-2 engineers) added,10440104,-10440104,-18222561,none,none
+SEQ-G,not applied,registry M5 (conditional on OD-CDD-02),8481532,-8481532,-15554018,none,none
+SEQ-G,not applied,founder paid market salary in cash,10542424,-10542424,-16860913,none,none
+SEQ-H,not applied,base,8996212,-8996212,-16352456,none,none
+SEQ-H,not applied,zero customers ever,3206250,-3206250,-8574964,none,none
+SEQ-H,not applied,100% partner share,10730803,-10730803,-18517985,none,none
+SEQ-H,not applied,every input adverse,8860000,-8860000,-21246132,none,none
+SEQ-H,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2488317,-2488317,-6356795,none,36
+SEQ-H,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),19056825,-19056825,-30206757,none,none
+SEQ-H,not applied,SOC 1 Type 2 required (+$120k a year),9896212,-9896212,-17591831,none,none
+SEQ-H,not applied,conventional maintenance (1-2 engineers) added,10683712,-10683712,-18676284,none,none
+SEQ-H,not applied,registry M5 (conditional on OD-CDD-02),7660479,-7660479,-14664832,none,none
+SEQ-H,not applied,founder paid market salary in cash,10786032,-10786032,-17314636,none,none
+SEQ-A3B,not applied,base,8097845,-8097845,-17077597,none,none
+SEQ-A3B,not applied,zero customers ever,2906250,-2906250,-9981989,none,none
+SEQ-A3B,not applied,100% partner share,14959734,-14959734,-26070115,none,none
+SEQ-A3B,not applied,every input adverse,27666083,-27666083,-49460446,none,none
+SEQ-A3B,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",1724375,-1724375,-5421017,none,36
+SEQ-A3B,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),17823104,-17823104,-30347824,none,none
+SEQ-A3B,not applied,SOC 1 Type 2 required (+$120k a year),8967845,-8967845,-18264722,none,none
+SEQ-A3B,not applied,conventional maintenance (1-2 engineers) added,9729095,-9729095,-19303456,none,none
+SEQ-A3B,not applied,registry M5 (conditional on OD-CDD-02),3116969,-2997475,-10279294,none,none
+SEQ-A3B,not applied,founder paid market salary in cash,9680183,-9680183,-17838242,none,none
+SEQ-A3X,not applied,base,8097845,-8097845,-17077597,none,none
+SEQ-A3X,not applied,zero customers ever,2906250,-2906250,-9981989,none,none
+SEQ-A3X,not applied,100% partner share,14959734,-14959734,-26070115,none,none
+SEQ-A3X,not applied,every input adverse,27666083,-27666083,-49460446,none,none
+SEQ-A3X,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",1724375,-1724375,-5421017,none,36
+SEQ-A3X,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),17823104,-17823104,-30347824,none,none
+SEQ-A3X,not applied,SOC 1 Type 2 required (+$120k a year),8967845,-8967845,-18264722,none,none
+SEQ-A3X,not applied,conventional maintenance (1-2 engineers) added,9729095,-9729095,-19303456,none,none
+SEQ-A3X,not applied,registry M5 (conditional on OD-CDD-02),3116969,-2997475,-10279294,none,none
+SEQ-A3X,not applied,founder paid market salary in cash,9680183,-9680183,-17838242,none,none
+SEQ-PB,not applied,base,17575262,-17575262,-27455000,none,none
+SEQ-PB,not applied,zero customers ever,2531250,-2531250,-6320701,none,none
+SEQ-PB,not applied,100% partner share,37733163,-37733163,-54259016,none,none
+SEQ-PB,not applied,every input adverse,30953980,-30953980,-52835780,none,none
+SEQ-PB,not applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",3894622,-3894622,-7771234,none,36
+SEQ-PB,not applied,conventional run rate (Phase II MD-6 fixed cost as live run),28641936,-28641936,-43111828,none,none
+SEQ-PB,not applied,SOC 1 Type 2 required (+$120k a year),18565262,-18565262,-28855625,none,none
+SEQ-PB,not applied,conventional maintenance (1-2 engineers) added,19431512,-19431512,-30081172,none,none
+SEQ-PB,not applied,registry M5 (conditional on OD-CDD-02),2603339,3476038,599610,80,none
+SEQ-PB,not applied,founder paid market salary in cash,19320082,-19320082,-28382680,none,none
+SEQ-A,applied,base,1331250,-1331250,-4117608,none,24
+SEQ-A,applied,zero customers ever,1331250,-1331250,-4117608,none,24
+SEQ-A,applied,100% partner share,1331250,-1331250,-4117608,none,24
+SEQ-A,applied,every input adverse,1101000,-1101000,-3367400,none,6
+SEQ-A,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2597161,-2597161,-6522863,none,36
+SEQ-A,applied,conventional run rate (Phase II MD-6 fixed cost as live run),1331250,-1331250,-4117608,none,24
+SEQ-A,applied,SOC 1 Type 2 required (+$120k a year),1331250,-1331250,-4117608,none,24
+SEQ-A,applied,conventional maintenance (1-2 engineers) added,1331250,-1331250,-4117608,none,24
+SEQ-A,applied,registry M5 (conditional on OD-CDD-02),1331250,-1331250,-4117608,none,24
+SEQ-A,applied,founder paid market salary in cash,1776214,-1776214,-4519930,none,24
+SEQ-A3,applied,base,1377500,-1377500,-3201668,none,24
+SEQ-A3,applied,zero customers ever,731250,-731250,-2013345,none,24
+SEQ-A3,applied,100% partner share,1377500,-1377500,-3201668,none,24
+SEQ-A3,applied,every input adverse,914333,-914333,-2539900,none,6
+SEQ-A3,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2972055,-2972055,-6119791,none,36
+SEQ-A3,applied,conventional run rate (Phase II MD-6 fixed cost as live run),1377500,-1377500,-3201668,none,24
+SEQ-A3,applied,SOC 1 Type 2 required (+$120k a year),1377500,-1377500,-3201668,none,24
+SEQ-A3,applied,conventional maintenance (1-2 engineers) added,1377500,-1377500,-3201668,none,24
+SEQ-A3,applied,registry M5 (conditional on OD-CDD-02),1377500,-1377500,-3201668,none,24
+SEQ-A3,applied,founder paid market salary in cash,1822464,-1822464,-3603990,none,24
+SEQ-B,applied,base,1462321,-1462321,-4144511,none,24
+SEQ-B,applied,zero customers ever,1416113,-1416113,-4074897,none,24
+SEQ-B,applied,100% partner share,1462988,-1462988,-4145717,none,24
+SEQ-B,applied,every input adverse,1001546,-1001546,-2639376,none,6
+SEQ-B,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2181679,-2181679,-5982204,none,36
+SEQ-B,applied,conventional run rate (Phase II MD-6 fixed cost as live run),1462321,-1462321,-4144511,none,24
+SEQ-B,applied,SOC 1 Type 2 required (+$120k a year),1462321,-1462321,-4144511,none,24
+SEQ-B,applied,conventional maintenance (1-2 engineers) added,1462321,-1462321,-4144511,none,24
+SEQ-B,applied,registry M5 (conditional on OD-CDD-02),1462321,-1462321,-4144511,none,24
+SEQ-B,applied,founder paid market salary in cash,1781044,-1781044,-4428441,none,24
+SEQ-C,applied,base,2158750,-2158750,-6177924,none,30
+SEQ-C,applied,zero customers ever,1841875,-1841875,-5705710,none,30
+SEQ-C,applied,100% partner share,2158750,-2158750,-6177924,none,30
+SEQ-C,applied,every input adverse,4877600,-4877600,-14208232,none,30
+SEQ-C,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2446250,-2446250,-6802324,none,36
+SEQ-C,applied,conventional run rate (Phase II MD-6 fixed cost as live run),2158750,-2158750,-6177924,none,30
+SEQ-C,applied,SOC 1 Type 2 required (+$120k a year),2158750,-2158750,-6177924,none,30
+SEQ-C,applied,conventional maintenance (1-2 engineers) added,2158750,-2158750,-6177924,none,30
+SEQ-C,applied,registry M5 (conditional on OD-CDD-02),2158750,-2158750,-6177924,none,30
+SEQ-C,applied,founder paid market salary in cash,2470225,-2470225,-6443975,none,30
+SEQ-D,applied,base,938750,-938750,-2514966,none,24
+SEQ-D,applied,zero customers ever,938750,-938750,-2514966,none,24
+SEQ-D,applied,100% partner share,938750,-938750,-2514966,none,24
+SEQ-D,applied,every input adverse,931833,-931833,-2516436,none,6
+SEQ-D,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2120352,-2120352,-4747075,none,36
+SEQ-D,applied,conventional run rate (Phase II MD-6 fixed cost as live run),938750,-938750,-2514966,none,24
+SEQ-D,applied,SOC 1 Type 2 required (+$120k a year),938750,-938750,-2514966,none,24
+SEQ-D,applied,conventional maintenance (1-2 engineers) added,938750,-938750,-2514966,none,24
+SEQ-D,applied,registry M5 (conditional on OD-CDD-02),938750,-938750,-2514966,none,24
+SEQ-D,applied,founder paid market salary in cash,1383714,-1383714,-2917288,none,24
+SEQ-E,applied,base,1331250,-1331250,-4117608,none,24
+SEQ-E,applied,zero customers ever,1331250,-1331250,-4117608,none,24
+SEQ-E,applied,100% partner share,1331250,-1331250,-4117608,none,24
+SEQ-E,applied,every input adverse,1101000,-1101000,-3367400,none,6
+SEQ-E,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2421649,-2421649,-6221572,none,36
+SEQ-E,applied,conventional run rate (Phase II MD-6 fixed cost as live run),1331250,-1331250,-4117608,none,24
+SEQ-E,applied,SOC 1 Type 2 required (+$120k a year),1331250,-1331250,-4117608,none,24
+SEQ-E,applied,conventional maintenance (1-2 engineers) added,1331250,-1331250,-4117608,none,24
+SEQ-E,applied,registry M5 (conditional on OD-CDD-02),1331250,-1331250,-4117608,none,24
+SEQ-E,applied,founder paid market salary in cash,1776214,-1776214,-4519930,none,24
+SEQ-F,applied,base,32777,-32777,-268261,none,none
+SEQ-F,applied,zero customers ever,3125,-3125,-228732,none,none
+SEQ-F,applied,100% partner share,197508,-197508,-487868,none,none
+SEQ-F,applied,every input adverse,7000,-7000,-564446,none,none
+SEQ-F,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",6289,-6289,-78675,none,36
+SEQ-F,applied,conventional run rate (Phase II MD-6 fixed cost as live run),32777,-32777,-268261,none,none
+SEQ-F,applied,SOC 1 Type 2 required (+$120k a year),32777,-32777,-268261,none,none
+SEQ-F,applied,conventional maintenance (1-2 engineers) added,32777,-32777,-268261,none,none
+SEQ-F,applied,registry M5 (conditional on OD-CDD-02),32777,-32777,-268261,none,none
+SEQ-F,applied,founder paid market salary in cash,32777,-32777,-268261,none,none
+SEQ-G,applied,base,1331250,-1331250,-4117608,none,24
+SEQ-G,applied,zero customers ever,1331250,-1331250,-4117608,none,24
+SEQ-G,applied,100% partner share,1331250,-1331250,-4117608,none,24
+SEQ-G,applied,every input adverse,1101000,-1101000,-3367400,none,6
+SEQ-G,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2405518,-2405518,-6193413,none,36
+SEQ-G,applied,conventional run rate (Phase II MD-6 fixed cost as live run),1331250,-1331250,-4117608,none,24
+SEQ-G,applied,SOC 1 Type 2 required (+$120k a year),1331250,-1331250,-4117608,none,24
+SEQ-G,applied,conventional maintenance (1-2 engineers) added,1331250,-1331250,-4117608,none,24
+SEQ-G,applied,registry M5 (conditional on OD-CDD-02),1331250,-1331250,-4117608,none,24
+SEQ-G,applied,founder paid market salary in cash,1776214,-1776214,-4519930,none,24
+SEQ-H,applied,base,1406250,-1406250,-4267608,none,24
+SEQ-H,applied,zero customers ever,1406250,-1406250,-4267608,none,24
+SEQ-H,applied,100% partner share,1406250,-1406250,-4267608,none,24
+SEQ-H,applied,every input adverse,1311000,-1311000,-3892400,none,6
+SEQ-H,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",2488317,-2488317,-6356795,none,36
+SEQ-H,applied,conventional run rate (Phase II MD-6 fixed cost as live run),1406250,-1406250,-4267608,none,24
+SEQ-H,applied,SOC 1 Type 2 required (+$120k a year),1406250,-1406250,-4267608,none,24
+SEQ-H,applied,conventional maintenance (1-2 engineers) added,1406250,-1406250,-4267608,none,24
+SEQ-H,applied,registry M5 (conditional on OD-CDD-02),1406250,-1406250,-4267608,none,24
+SEQ-H,applied,founder paid market salary in cash,1851214,-1851214,-4669930,none,24
+SEQ-A3B,applied,base,1106250,-1106250,-3894777,none,24
+SEQ-A3B,applied,zero customers ever,1106250,-1106250,-3894777,none,24
+SEQ-A3B,applied,100% partner share,1106250,-1106250,-3894777,none,24
+SEQ-A3B,applied,every input adverse,532000,-532000,-2201743,none,6
+SEQ-A3B,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",1724375,-1724375,-5421017,none,36
+SEQ-A3B,applied,conventional run rate (Phase II MD-6 fixed cost as live run),1106250,-1106250,-3894777,none,24
+SEQ-A3B,applied,SOC 1 Type 2 required (+$120k a year),1106250,-1106250,-3894777,none,24
+SEQ-A3B,applied,conventional maintenance (1-2 engineers) added,1106250,-1106250,-3894777,none,24
+SEQ-A3B,applied,registry M5 (conditional on OD-CDD-02),1106250,-1106250,-3894777,none,24
+SEQ-A3B,applied,founder paid market salary in cash,1328732,-1328732,-4084814,none,24
+SEQ-A3X,applied,base,1977500,-1977500,-5858127,none,36
+SEQ-A3X,applied,zero customers ever,1331250,-1331250,-4734429,none,36
+SEQ-A3X,applied,100% partner share,1977500,-1977500,-5858127,none,36
+SEQ-A3X,applied,every input adverse,3354000,-3354000,-11123560,none,39
+SEQ-A3X,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",1724375,-1724375,-5421017,none,36
+SEQ-A3X,applied,conventional run rate (Phase II MD-6 fixed cost as live run),1977500,-1977500,-5858127,none,36
+SEQ-A3X,applied,SOC 1 Type 2 required (+$120k a year),1977500,-1977500,-5858127,none,36
+SEQ-A3X,applied,conventional maintenance (1-2 engineers) added,1977500,-1977500,-5858127,none,36
+SEQ-A3X,applied,registry M5 (conditional on OD-CDD-02),1977500,-1977500,-5858127,none,36
+SEQ-A3X,applied,founder paid market salary in cash,2422464,-2422464,-6215952,none,36
+SEQ-PB,applied,base,1321250,-1321250,-3110262,none,24
+SEQ-PB,applied,zero customers ever,731250,-731250,-2013345,none,24
+SEQ-PB,applied,100% partner share,1321250,-1321250,-3110262,none,24
+SEQ-PB,applied,every input adverse,914333,-914333,-2539900,none,6
+SEQ-PB,applied,"aggressive incumbent (-30% price, -50% wins) and partner acquired at month 36",3894622,-3894622,-7771234,none,36
+SEQ-PB,applied,conventional run rate (Phase II MD-6 fixed cost as live run),1321250,-1321250,-3110262,none,24
+SEQ-PB,applied,SOC 1 Type 2 required (+$120k a year),1321250,-1321250,-3110262,none,24
+SEQ-PB,applied,conventional maintenance (1-2 engineers) added,1321250,-1321250,-3110262,none,24
+SEQ-PB,applied,registry M5 (conditional on OD-CDD-02),1321250,-1321250,-3110262,none,24
+SEQ-PB,applied,founder paid market salary in cash,1766214,-1766214,-3512584,none,24

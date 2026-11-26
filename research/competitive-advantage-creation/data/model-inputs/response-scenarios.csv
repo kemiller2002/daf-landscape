@@ -1,0 +1,7 @@
+scenario_id,scenario,price_cut_low,price_cut_base,price_cut_high,win_rate_reduction_low,win_rate_reduction_base,win_rate_reduction_high,partner_share_low,partner_share_base,partner_share_high,termination_month_low,termination_month_base,termination_month_high,assumption_ids
+RS-0,No response,0,0,0,0,0,0,0.30,0.30,0.30,,,,P3-ASM-EK012;P3-ASM-EK008
+RS-1,Moderate,0.05,0.10,0.20,0.10,0.25,0.40,0.30,0.30,0.30,,,,P3-ASM-EK001;P3-ASM-EK006;P3-ASM-EK008
+RS-2,Aggressive,0.20,0.30,0.40,0.30,0.50,0.80,0.30,0.30,0.30,,,,P3-ASM-EK002;P3-ASM-EK007;P3-ASM-EK008
+RS-3,Rapid technological parity,0.325,0.325,0.458,0.10,0.25,0.40,0.30,0.30,0.30,,,,P3-ASM-EK003;P3-ASM-EK004;P3-ASM-EK006;P3-ASM-MOD018
+RS-4,Partner dependency,0,0,0,0,0,0,0.20,0.30,0.50,,,,P3-ASM-EK008
+RS-5,Market consolidation (partner acquired; no change-of-control protection),0,0,0,0,0,0,0.30,0.30,0.30,24,36,60,P3-ASM-EK013;P3-ASM-MOD019

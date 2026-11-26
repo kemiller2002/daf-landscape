@@ -1,0 +1,21 @@
+challenge_id,disposition,disposition_rationale,changed_artifacts
+P3-CHL-REV4001,,MOD: review-performer allocation parameter (Echelon vs sponsor); sponsor-performed review reported as transferred work; new decision P3-DEC-MOD005,model/src Registry.fs Analysis.fs Cashflow.fs; r3 test fix 6; 15
+P3-CHL-REV4002,,MOD: contingency on one-time and pre-revenue cash and the first 12 live months only (revision 3 basis),model/src Cashflow.fs; r3 test fix 1
+P3-CHL-REV4003,,"MOD: demand-driven deep reviews (P3-ASM-MOD050, 1.0/1.2/1.6 a year)",model/src Registry.fs Analysis.fs; r3 test fix 6
+P3-CHL-REV4004,,"MOD: M1 risk-tiered attested review configuration (P3-ASM-MOD055), labelled subject to counsel and V-9",model/src Analysis.fs; 15
+P3-CHL-REV4005,,MOD: control operations netted against maintenance approvers (P3-ASM-MOD052); adverse TPSP overlap removed (P3-ASM-MOD051); Nacha base still unquoted,model/src Sequences.fs; r3 test fix 7
+P3-CHL-REV4006,,MOD: sponsors classified by platform from 990 vendor and CF software fields; cap on plausible sponsors (excludes processors and presumed own platforms); cap sensitivity table,model/src Inputs.fs Analysis.fs; data/model-inputs/sponsor-sizes.csv; r3 test fix 3; 14
+P3-CHL-REV4007,,MOD: cap limits live customers plus pipeline; static FY2024 panel stated (no growth assumption),model/src Cashflow.fs; r3 test fix 4
+P3-CHL-REV4008,,MOD: partner-book sequence SEQ-PB (P3-SEQ-MOD012) with per-book conversion and transferred sponsor conversion,data/model-inputs/sequence-*.csv; r3 test fix 8; 14
+P3-CHL-REV4009,,"MOD: whole first signing; kill-timing table by go-live lag, signing style and cost-center month 0/6/12; 14 answer 2 reworded",model/src Cashflow.fs Analysis.fs; r3 test fix 5; 14
+P3-CHL-REV4010,,MOD: wind-down at pre-revenue run when nothing is live,model/src Cashflow.fs; r3 test fix 2
+P3-CHL-REV4011,,MOD: gate restated in single-sponsor and partner-book accounts per review allocation; P3-DEC-MOD003 revised,model/src Render.fs; r3 test fix 9; 16
+P3-CHL-REV4012,,MOD: allocation decision P3-DEC-MOD005 raised alongside P3-DEC-MOD004,data/fragments/MOD/decisions.csv
+P3-CHL-REV4013,,MOD: model implements the allocation (REV1034 substance); disposition of REV1034 left to RECON,model/src Registry.fs
+P3-CHL-REV4014,,MOD: deep review per sponsor-charity (no union sharing); marginal sponsor recomputed,model/src Registry.fs; r3 test fix 6
+P3-CHL-REV4015,,MOD: event platform residual not carried into the base; covered by var_per_account high and the conventional-maintenance stress; relabel REV2029 partly accepted (RECON),
+P3-CHL-REV4016,,MOD: SEQ-H failure band set to high and regenerated,data/model-inputs/sequence-meta.csv; r3 test fix 11
+P3-CHL-REV4017,,MOD: as REV4006,model/src Analysis.fs
+P3-CHL-REV4018,,MOD: vendor-borne M1 stated as structurally loss-making (P3-CLM-MOD017),15; 16
+P3-CHL-REV4019,,MOD: revision-3 CFO-corrected basis published beside revision 2 (bases table; both outcomes),model/src Analysis.fs Render.fs; r3 test fix 10; 14; 16; 18
+P3-CHL-REV4020,,"MOD: sponsor-performed review (M1-sponsor), M5 after V-3/V-9 and large non-captive sponsor sizes are shown; partner-operated vetting equals the sponsor-performed configuration for Echelon",14; 16

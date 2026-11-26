@@ -1,0 +1,9 @@
+assumption_id,parameter,unit,low,base,high,basis,evidence_class,source_ids,report
+P3-ASM-CD001,"Programme all-in variable cost per account (sponsor labour, failure cost, platform licence)",USD/account-year,120,247,370,Phase II MD-6 system variable $197 less vendor variable $31 plus licence $40-120; low end reflects low tail activity,ASSUMPTION,SRC-063;P3-SRC-CD018,05
+P3-ASM-CD002,Fixed cost of a programme hosted on an existing sponsor,USD/year,5000,10000,15000,"E23 upkeep ~3,600 min at $80/h / 0.75 plus programme reporting",ASSUMPTION,SRC-063,05
+P3-ASM-CD003,Fixed cost of an existing public charity's own DAF programme,USD/year,13000,25000,40000,30-60% of Phase II AI-native sponsor-level $43.7k plus platform minimum up to $12.5k (Givinga benchmark),ASSUMPTION,SRC-063;SRC-029,05
+P3-ASM-CD004,Fixed cost of a newly formed sponsor charity,USD/year,60000,90000,140000,"$43.7k sponsor-level plus external audit, legal, insurance, registration (UNKNOWN; $15-60k assumed) plus platform minimum",ASSUMPTION,SRC-063,05
+P3-ASM-CD005,Average DAF balance in new institutional programmes,USD/account,50000,133000,250000,Tail median $133k (IQR $61-263k); NPT median $79.7k,INFERENCE,SRC-013,05
+P3-ASM-CD006,All-in admin fee rate charged by programme,share of assets per year,0.006,0.010,0.015,Charityvest 0.6%; CU Impact Foundation 0.75%; tail CF published median 150 bps at $100k,INFERENCE,P3-SRC-CD018;SRC-067,05
+P3-ASM-CD007,Templated onboarding cost per additional hosted programme,USD one-time,5000,8000,12000,10-25% of Phase II AI-native onboarding $48k per sponsor,ASSUMPTION,SRC-063,05;06
+P3-ASM-CD008,Vendor licence revenue per small programme,USD/year,2000,12500,25000,"24-60 accounts x $40-120, or minimum fee (Givinga $12.5k base benchmark)",ASSUMPTION,SRC-029;SRC-063,05;06

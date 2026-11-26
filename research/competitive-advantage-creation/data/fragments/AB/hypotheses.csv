@@ -1,0 +1,7 @@
+hypothesis_id,hypothesis,falsifier,test,confidence,source_ids,report
+P3-HYP-AB001,"A founder-led, agent-assisted licensor can operate a production Unbound for <=$0.5M/yr cash before scale","Measured run cost >$0.8M/yr over the first 12 live months, or a partner/procurement demand forcing >=2 hires","Bottom-up quotes (insurance, SOC 2, pen test) at a term sheet; 12-month cost ledger",Low-Medium,P3-SRC-AB015,02
+P3-HYP-AB002,A channel partner will carry first-line support and procurement credibility so vendor support stays <=0.5 FTE,Partner term sheet requires vendor 24x7 SLA or dedicated vendor staff,V-6 term-sheet terms,Low,SRC-002,02;03
+P3-HYP-AB003,"Partners and their customers accept a single-founder vendor with escrow, contracted second maintainer and adequate insurance",>=2 of 5 partners cite vendor viability as disqualifying,V-6 conversations with a pre-registered viability question,Low,SRC-002,02
+P3-HYP-AB004,Reusable onboarding packages (S6) cut implementation from ~$75k to ~$30k per sponsor,Second implementation takes >=75% of first implementation hours,Hours ledger across the first two implementations,Low-Medium,SRC-003,02
+P3-HYP-AB005,Founder-led structured interviews yield the same V-1 decision as paid third-party interviews,Independent coder disagreement >20% on decisive-factor classification,Double coding of recorded V-1 interviews,Medium,SRC-002,04
+P3-HYP-AB006,Prices stated in interviews predict nonbinding EOI prices within 25%,EOI prices below 75% of stated prices for >=2 of 3 respondents,V-2 at the $10k tier,Low-Medium,SRC-002,04

@@ -1,0 +1,18 @@
+assumption_id,parameter,unit,low,base,high,basis,evidence_class,source_ids,report
+P3-ASM-FGJ001,partner_revenue_share_resale_or_embedded,% of licence revenue,15,25,40,Reseller margins 15-30% new business (secondary); Phase II CHL-084 asks for a 40-50% stress; HubSpot 20% referral as a lower anchor,ASSUMPTION,P3-SRC-FGJ009;P3-SRC-FGJ008;SRC-074,12
+P3-ASM-FGJ002,referral_fee_share,% of first-years revenue,10,20,30,HubSpot 20% for up to 3 years; Salesforce AppExchange 15% PNR (2017-18),INFERENCE,P3-SRC-FGJ008;P3-SRC-FGJ005,12
+P3-ASM-FGJ003,marketplace_transaction_fee,% of billed revenue,1.5,3,3,"AWS 3% SaaS public, 1.5-3% private by TCV; Microsoft 3%",VERIFIED-FACT,P3-SRC-FGJ006;P3-SRC-FGJ007,12
+P3-ASM-FGJ004,partner_sales_cycle,months,6,12,24,Phase II segment cycles (banks 6-24; CFs 12-24; trust 6-18); no evidence partners shorten them,INFERENCE,SRC-067,12
+P3-ASM-FGJ005,partner_sourced_qualified_deals,deals per partner per year,0,1,3,No public evidence; Phase II has no partner conversion data,ASSUMPTION,SRC-067,12
+P3-ASM-FGJ006,partner_enablement_cost,USD one-time per partner,10000,30000,75000,"Founder time, integration, legal review of terms, partner training; no market evidence",ASSUMPTION,SRC-074,12
+P3-ASM-FGJ007,direct_cac_per_sponsor,USD,40000,125000,200000,"Phase II: $125k (PR #86/#88 ASSUMPTION), $40k (ER-7); no public CAC exists (CLM-026)",ASSUMPTION,SRC-074;SRC-067,12
+P3-ASM-FGJ008,annual_licence_revenue_per_sponsor,USD per year,25000,60000,150000,"V-2 thresholds (>=$25k services; >=$100/account) over 250-1,500 accounts; untested",ASSUMPTION,SRC-002,12
+P3-ASM-FGJ009,licence_lifetime,years,3,5,8,Low switching once installed (CLM-015 ~1% a year national/faith); shortened for partner churn,ASSUMPTION,SRC-065,12
+P3-ASM-FGJ010,developer_component_commercial_licence_price,USD per organization per year,500,2000,5000,"Liquibase Secure ~$5k/yr; Atlas ~$9/seat/month; Flyway Enterprise by quote; Prince $3,800 one-time per server",INFERENCE,P3-SRC-FGJ020;P3-SRC-FGJ021,09
+P3-ASM-FGJ011,developer_component_paying_licensees_at_24_months,organizations,0,3,15,No usage telemetry or inbound demand evidence collected; unknown brand,ASSUMPTION,P3-SRC-FGJ001,09
+P3-ASM-FGJ012,charity_evidence_api_price,USD per customer per year,2750,8000,15000,"Candid Charity Check from $2,750 and Essentials from $4,800; V-8 success threshold $15k",INFERENCE,P3-SRC-FGJ025;SRC-069,09
+P3-ASM-FGJ013,migration_readiness_assessment_price,USD per engagement,0,0,15000,Receiving vendors scope migrations free; Foundant free PoC (CHL-068; EV-COM-031),INFERENCE,SRC-005;SRC-074,09
+P3-ASM-FGJ014,data_onboarding_tool_price_comparator,USD per year,5000,9800,38650,Flatfile median ~$9.8k (range $5k-$31.8k); OneSchema median ~$38.7k (Vendr),VENDOR-CLAIM,P3-SRC-FGJ023,09
+P3-ASM-FGJ015,component_support_hours_per_licensee,hours per year,5,20,80,No measurement; issue-driven support for library users without SLA,ASSUMPTION,P3-SRC-FGJ001,09
+P3-ASM-FGJ016,partner_termination_rate,% of partners per year,5,10,25,No evidence; Phase II notes partners add rather than replace providers (CLM-018),ASSUMPTION,SRC-065,12
+P3-ASM-FGJ017,discount_rate_for_deferred_partner_share,% per year,8,10,15,Planning convention for present value; not a cost of capital estimate,ASSUMPTION,,12

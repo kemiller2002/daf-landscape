@@ -1,0 +1,153 @@
+seq_id,rule,cost_center_month,named_partner_month,pilot_month,kill_month,reason,peak_deficit,cumulative_m120
+SEQ-A,"derived, threshold $0/month, development excluded (base)",0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-A,"derived, threshold $10k/month",0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-A,"derived, threshold $25k/month",0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-A,"derived, development counts",0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-A,cost center from month 0,0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-A,cost center from month 6,6,6,34,30,no referenceable live pilot by cost-center month + 24,1921250,-1921250
+SEQ-A,cost center from month 12,12,6,34,none,passes,8455953,-8455953
+SEQ-A,cost center from month 18,18,6,34,none,passes,8455953,-8455953
+SEQ-A,no cost center (inside existing operations),none,6,34,none,clock not started (inside existing operations),8455953,-8455953
+SEQ-A,named partner at month 3,0,3,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-A,named partner at month 6,0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-A,named partner at month 6.8 (median of range),0,6.8038,34,6,no named partner by cost-center month + 6,493750,-493750
+SEQ-A,named partner at month 12,0,12,34,6,no named partner by cost-center month + 6,493750,-493750
+SEQ-A3,"derived, threshold $0/month, development excluded (base)",0,6,25,24,no referenceable live pilot by cost-center month + 24,1377500,-1377500
+SEQ-A3,"derived, threshold $10k/month",0,6,25,24,no referenceable live pilot by cost-center month + 24,1377500,-1377500
+SEQ-A3,"derived, threshold $25k/month",0,6,25,24,no referenceable live pilot by cost-center month + 24,1377500,-1377500
+SEQ-A3,"derived, development counts",0,6,25,24,no referenceable live pilot by cost-center month + 24,1377500,-1377500
+SEQ-A3,cost center from month 0,0,6,25,24,no referenceable live pilot by cost-center month + 24,1377500,-1377500
+SEQ-A3,cost center from month 6,6,6,25,none,passes,8255278,-8255278
+SEQ-A3,cost center from month 12,12,6,25,none,passes,8255278,-8255278
+SEQ-A3,cost center from month 18,18,6,25,none,passes,8255278,-8255278
+SEQ-A3,no cost center (inside existing operations),none,6,25,none,clock not started (inside existing operations),8255278,-8255278
+SEQ-A3,named partner at month 3,0,3,25,24,no referenceable live pilot by cost-center month + 24,1377500,-1377500
+SEQ-A3,named partner at month 6,0,6,25,24,no referenceable live pilot by cost-center month + 24,1377500,-1377500
+SEQ-A3,named partner at month 6.8 (median of range),0,6.8038,25,6,no named partner by cost-center month + 6,393750,-393750
+SEQ-A3,named partner at month 12,0,12,25,6,no named partner by cost-center month + 6,393750,-393750
+SEQ-B,"derived, threshold $0/month, development excluded (base)",0,6,46,24,no referenceable live pilot by cost-center month + 24,1462321,-1462321
+SEQ-B,"derived, threshold $10k/month",0,6,46,24,no referenceable live pilot by cost-center month + 24,1462321,-1462321
+SEQ-B,"derived, threshold $25k/month",0,6,46,24,no referenceable live pilot by cost-center month + 24,1462321,-1462321
+SEQ-B,"derived, development counts",0,6,46,24,no referenceable live pilot by cost-center month + 24,1462321,-1462321
+SEQ-B,cost center from month 0,0,6,46,24,no referenceable live pilot by cost-center month + 24,1462321,-1462321
+SEQ-B,cost center from month 6,6,6,46,30,no referenceable live pilot by cost-center month + 24,1978554,-1978554
+SEQ-B,cost center from month 12,12,6,46,36,no referenceable live pilot by cost-center month + 24,2244969,-2244969
+SEQ-B,cost center from month 18,18,6,46,42,no referenceable live pilot by cost-center month + 24,2871383,-2871383
+SEQ-B,no cost center (inside existing operations),none,6,46,none,clock not started (inside existing operations),9535743,-9535743
+SEQ-B,named partner at month 3,0,3,46,24,no referenceable live pilot by cost-center month + 24,1462321,-1462321
+SEQ-B,named partner at month 6,0,6,46,24,no referenceable live pilot by cost-center month + 24,1462321,-1462321
+SEQ-B,named partner at month 6.8 (median of range),0,6.8038,46,6,no named partner by cost-center month + 6,236059,-236059
+SEQ-B,named partner at month 12,0,12,46,6,no named partner by cost-center month + 6,236059,-236059
+SEQ-C,"derived, threshold $0/month, development excluded (base)",6,6,40,30,no referenceable live pilot by cost-center month + 24,2158750,-2158750
+SEQ-C,"derived, threshold $10k/month",6,6,40,30,no referenceable live pilot by cost-center month + 24,2158750,-2158750
+SEQ-C,"derived, threshold $25k/month",6,6,40,30,no referenceable live pilot by cost-center month + 24,2158750,-2158750
+SEQ-C,"derived, development counts",6,6,40,30,no referenceable live pilot by cost-center month + 24,2158750,-2158750
+SEQ-C,cost center from month 0,0,6,40,24,no referenceable live pilot by cost-center month + 24,2046250,-2046250
+SEQ-C,cost center from month 6,6,6,40,30,no referenceable live pilot by cost-center month + 24,2158750,-2158750
+SEQ-C,cost center from month 12,12,6,40,36,no referenceable live pilot by cost-center month + 24,2636250,-2636250
+SEQ-C,cost center from month 18,18,6,40,none,passes,7304051,-7304051
+SEQ-C,no cost center (inside existing operations),none,6,40,none,clock not started (inside existing operations),7304051,-7304051
+SEQ-C,named partner at month 3,6,3,40,30,no referenceable live pilot by cost-center month + 24,2158750,-2158750
+SEQ-C,named partner at month 6,6,6,40,30,no referenceable live pilot by cost-center month + 24,2158750,-2158750
+SEQ-C,named partner at month 6.8 (median of range),6,6.8038,40,30,no referenceable live pilot by cost-center month + 24,2158750,-2158750
+SEQ-C,named partner at month 12,6,12,40,30,no referenceable live pilot by cost-center month + 24,2158750,-2158750
+SEQ-D,"derived, threshold $0/month, development excluded (base)",0,6,none,24,no referenceable live pilot by cost-center month + 24,938750,-938750
+SEQ-D,"derived, threshold $10k/month",0,6,none,24,no referenceable live pilot by cost-center month + 24,938750,-938750
+SEQ-D,"derived, threshold $25k/month",0,6,none,24,no referenceable live pilot by cost-center month + 24,938750,-938750
+SEQ-D,"derived, development counts",0,6,none,24,no referenceable live pilot by cost-center month + 24,938750,-938750
+SEQ-D,cost center from month 0,0,6,none,24,no referenceable live pilot by cost-center month + 24,938750,-938750
+SEQ-D,cost center from month 6,6,6,none,30,no referenceable live pilot by cost-center month + 24,1659783,-1659783
+SEQ-D,cost center from month 12,12,6,none,36,no referenceable live pilot by cost-center month + 24,2171306,-2171306
+SEQ-D,cost center from month 18,18,6,none,42,no referenceable live pilot by cost-center month + 24,2642741,-2642741
+SEQ-D,no cost center (inside existing operations),none,6,none,none,clock not started (inside existing operations),5958794,-5958794
+SEQ-D,named partner at month 3,0,3,none,24,no referenceable live pilot by cost-center month + 24,938750,-938750
+SEQ-D,named partner at month 6,0,6,none,24,no referenceable live pilot by cost-center month + 24,938750,-938750
+SEQ-D,named partner at month 6.8 (median of range),0,6.8038,none,6,no named partner by cost-center month + 6,391250,-391250
+SEQ-D,named partner at month 12,0,12,none,6,no named partner by cost-center month + 6,391250,-391250
+SEQ-E,"derived, threshold $0/month, development excluded (base)",0,6,33,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-E,"derived, threshold $10k/month",0,6,33,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-E,"derived, threshold $25k/month",0,6,33,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-E,"derived, development counts",0,6,33,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-E,cost center from month 0,0,6,33,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-E,cost center from month 6,6,6,33,30,no referenceable live pilot by cost-center month + 24,1808750,-1808750
+SEQ-E,cost center from month 12,12,6,33,none,passes,7621436,-7621436
+SEQ-E,cost center from month 18,18,6,33,none,passes,7621436,-7621436
+SEQ-E,no cost center (inside existing operations),none,6,33,none,clock not started (inside existing operations),7621436,-7621436
+SEQ-E,named partner at month 3,0,3,33,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-E,named partner at month 6,0,6,33,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-E,named partner at month 6.8 (median of range),0,6.8038,33,6,no named partner by cost-center month + 6,493750,-493750
+SEQ-E,named partner at month 12,0,12,33,6,no named partner by cost-center month + 6,493750,-493750
+SEQ-F,"derived, threshold $0/month, development excluded (base)",none,0,none,none,clock not started (inside existing operations),32777,-32777
+SEQ-F,"derived, threshold $10k/month",none,0,none,none,clock not started (inside existing operations),32777,-32777
+SEQ-F,"derived, threshold $25k/month",none,0,none,none,clock not started (inside existing operations),32777,-32777
+SEQ-F,"derived, development counts",none,0,none,none,clock not started (inside existing operations),32777,-32777
+SEQ-F,cost center from month 0,0,0,none,24,no referenceable live pilot by cost-center month + 24,3878,-3878
+SEQ-F,cost center from month 6,6,0,none,30,no referenceable live pilot by cost-center month + 24,4504,-4504
+SEQ-F,cost center from month 12,12,0,none,36,no referenceable live pilot by cost-center month + 24,5318,-5318
+SEQ-F,cost center from month 18,18,0,none,42,no referenceable live pilot by cost-center month + 24,6312,-6312
+SEQ-F,no cost center (inside existing operations),none,0,none,none,clock not started (inside existing operations),32777,-32777
+SEQ-G,"derived, threshold $0/month, development excluded (base)",0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-G,"derived, threshold $10k/month",0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-G,"derived, threshold $25k/month",0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-G,"derived, development counts",0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-G,cost center from month 0,0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-G,cost center from month 6,6,6,34,30,no referenceable live pilot by cost-center month + 24,1808750,-1808750
+SEQ-G,cost center from month 12,12,6,34,none,passes,8752604,-8752604
+SEQ-G,cost center from month 18,18,6,34,none,passes,8752604,-8752604
+SEQ-G,no cost center (inside existing operations),none,6,34,none,clock not started (inside existing operations),8752604,-8752604
+SEQ-G,named partner at month 3,0,3,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-G,named partner at month 6,0,6,34,24,no referenceable live pilot by cost-center month + 24,1331250,-1331250
+SEQ-G,named partner at month 6.8 (median of range),0,6.8038,34,6,no named partner by cost-center month + 6,493750,-493750
+SEQ-G,named partner at month 12,0,12,34,6,no named partner by cost-center month + 6,493750,-493750
+SEQ-H,"derived, threshold $0/month, development excluded (base)",0,6,34,24,no referenceable live pilot by cost-center month + 24,1406250,-1406250
+SEQ-H,"derived, threshold $10k/month",0,6,34,24,no referenceable live pilot by cost-center month + 24,1406250,-1406250
+SEQ-H,"derived, threshold $25k/month",0,6,34,24,no referenceable live pilot by cost-center month + 24,1406250,-1406250
+SEQ-H,"derived, development counts",0,6,34,24,no referenceable live pilot by cost-center month + 24,1406250,-1406250
+SEQ-H,cost center from month 0,0,6,34,24,no referenceable live pilot by cost-center month + 24,1406250,-1406250
+SEQ-H,cost center from month 6,6,6,34,30,no referenceable live pilot by cost-center month + 24,1883750,-1883750
+SEQ-H,cost center from month 12,12,6,34,none,passes,8996212,-8996212
+SEQ-H,cost center from month 18,18,6,34,none,passes,8996212,-8996212
+SEQ-H,no cost center (inside existing operations),none,6,34,none,clock not started (inside existing operations),8996212,-8996212
+SEQ-H,named partner at month 3,0,3,34,24,no referenceable live pilot by cost-center month + 24,1406250,-1406250
+SEQ-H,named partner at month 6,0,6,34,24,no referenceable live pilot by cost-center month + 24,1406250,-1406250
+SEQ-H,named partner at month 6.8 (median of range),0,6.8038,34,6,no named partner by cost-center month + 6,568750,-568750
+SEQ-H,named partner at month 12,0,12,34,6,no named partner by cost-center month + 6,568750,-568750
+SEQ-A3B,"derived, threshold $0/month, development excluded (base)",0,6,37,24,no referenceable live pilot by cost-center month + 24,1106250,-1106250
+SEQ-A3B,"derived, threshold $10k/month",0,6,37,24,no referenceable live pilot by cost-center month + 24,1106250,-1106250
+SEQ-A3B,"derived, threshold $25k/month",0,6,37,24,no referenceable live pilot by cost-center month + 24,1106250,-1106250
+SEQ-A3B,"derived, development counts",0,6,37,24,no referenceable live pilot by cost-center month + 24,1106250,-1106250
+SEQ-A3B,cost center from month 0,0,6,37,24,no referenceable live pilot by cost-center month + 24,1106250,-1106250
+SEQ-A3B,cost center from month 6,6,6,37,30,no referenceable live pilot by cost-center month + 24,1583750,-1583750
+SEQ-A3B,cost center from month 12,12,6,37,36,no referenceable live pilot by cost-center month + 24,1977500,-1977500
+SEQ-A3B,cost center from month 18,18,6,37,none,passes,8097845,-8097845
+SEQ-A3B,no cost center (inside existing operations),none,6,37,none,clock not started (inside existing operations),8097845,-8097845
+SEQ-A3B,named partner at month 3,0,3,37,24,no referenceable live pilot by cost-center month + 24,1106250,-1106250
+SEQ-A3B,named partner at month 6,0,6,37,24,no referenceable live pilot by cost-center month + 24,1106250,-1106250
+SEQ-A3B,named partner at month 6.8 (median of range),0,6.8038,37,6,no named partner by cost-center month + 6,300000,-300000
+SEQ-A3B,named partner at month 12,0,12,37,6,no named partner by cost-center month + 6,300000,-300000
+SEQ-A3X,"derived, threshold $0/month, development excluded (base)",12,6,37,36,no referenceable live pilot by cost-center month + 24,1977500,-1977500
+SEQ-A3X,"derived, threshold $10k/month",12,6,37,36,no referenceable live pilot by cost-center month + 24,1977500,-1977500
+SEQ-A3X,"derived, threshold $25k/month",12,6,37,36,no referenceable live pilot by cost-center month + 24,1977500,-1977500
+SEQ-A3X,"derived, development counts",12,6,37,36,no referenceable live pilot by cost-center month + 24,1977500,-1977500
+SEQ-A3X,cost center from month 0,0,6,37,24,no referenceable live pilot by cost-center month + 24,1106250,-1106250
+SEQ-A3X,cost center from month 6,6,6,37,30,no referenceable live pilot by cost-center month + 24,1583750,-1583750
+SEQ-A3X,cost center from month 12,12,6,37,36,no referenceable live pilot by cost-center month + 24,1977500,-1977500
+SEQ-A3X,cost center from month 18,18,6,37,none,passes,8097845,-8097845
+SEQ-A3X,no cost center (inside existing operations),none,6,37,none,clock not started (inside existing operations),8097845,-8097845
+SEQ-A3X,named partner at month 3,12,3,37,36,no referenceable live pilot by cost-center month + 24,1977500,-1977500
+SEQ-A3X,named partner at month 6,12,6,37,36,no referenceable live pilot by cost-center month + 24,1977500,-1977500
+SEQ-A3X,named partner at month 6.8 (median of range),12,6.8038,37,36,no referenceable live pilot by cost-center month + 24,1977500,-1977500
+SEQ-A3X,named partner at month 12,12,12,37,36,no referenceable live pilot by cost-center month + 24,1977500,-1977500
+SEQ-PB,"derived, threshold $0/month, development excluded (base)",0,6,25,24,no referenceable live pilot by cost-center month + 24,1321250,-1321250
+SEQ-PB,"derived, threshold $10k/month",0,6,25,24,no referenceable live pilot by cost-center month + 24,1321250,-1321250
+SEQ-PB,"derived, threshold $25k/month",0,6,25,24,no referenceable live pilot by cost-center month + 24,1321250,-1321250
+SEQ-PB,"derived, development counts",0,6,25,24,no referenceable live pilot by cost-center month + 24,1321250,-1321250
+SEQ-PB,cost center from month 0,0,6,25,24,no referenceable live pilot by cost-center month + 24,1321250,-1321250
+SEQ-PB,cost center from month 6,6,6,25,none,passes,17575262,-17575262
+SEQ-PB,cost center from month 12,12,6,25,none,passes,17575262,-17575262
+SEQ-PB,cost center from month 18,18,6,25,none,passes,17575262,-17575262
+SEQ-PB,no cost center (inside existing operations),none,6,25,none,clock not started (inside existing operations),17575262,-17575262
+SEQ-PB,named partner at month 3,0,3,25,24,no referenceable live pilot by cost-center month + 24,1321250,-1321250
+SEQ-PB,named partner at month 6,0,6,25,24,no referenceable live pilot by cost-center month + 24,1321250,-1321250
+SEQ-PB,named partner at month 6.8 (median of range),0,6.8038,25,6,no named partner by cost-center month + 6,393750,-393750
+SEQ-PB,named partner at month 12,0,12,25,6,no named partner by cost-center month + 6,393750,-393750

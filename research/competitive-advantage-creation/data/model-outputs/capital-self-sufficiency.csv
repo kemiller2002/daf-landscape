@@ -1,0 +1,25 @@
+variant,state_id,case,peak_cash_deficit,peak_month,payback_month,discounted_payback_month,peak_economic_deficit,economic_payback_month,first_revenue_month
+AB as published,S1,favourable,557173.6806,24,33,33,2178126.9103,43,22
+AB as published,S1,base,2134761.0767,50,85,95,5129885.2106,111,34
+AB as published,S1,adverse,13302390.588,120,none,none,27403122.3823,none,52
+AB as published,S2,favourable,491048.6806,21,29,30,1954709.7853,39,19
+AB as published,S2,base,1976948.5767,47,81,89,4714147.5231,105,31
+AB as published,S2,adverse,13463398.0647,120,none,none,27423172.4758,none,46
+AB as published,S3,favourable,232298.6806,15,21,21,590764.5978,25,13
+AB as published,S3,base,1278511.0767,38,65,70,2433005.0101,80,22
+AB as published,S3,adverse,12983278.5836,120,none,none,24006058.4823,none,34
+AB as published,S4,favourable,197798.6806,15,20,20,464539.5978,24,13
+AB as published,S4,base,1178511.0767,38,64,68,2130921.6767,78,22
+AB as published,S4,adverse,12801278.5836,120,none,none,23343570.9823,none,34
+revision3 registry M1-vendor-demand,S2,favourable,805508,24,32,32,2153477,41,22
+revision3 registry M1-vendor-demand,S2,base,8455953,120,none,none,15770688,none,34
+revision3 registry M1-vendor-demand,S2,adverse,29358043,120,none,none,50620232,none,49
+revision3 registry M1-vendor-demand,S3,favourable,546758,18,25,25,916441,28,16
+revision3 registry M1-vendor-demand,S3,base,8255278,120,none,none,14436741,none,25
+revision3 registry M1-vendor-demand,S3,adverse,31485895,120,none,none,52395161,none,37
+revision3 registry M5,S2,favourable,798716,24,32,32,2146628,41,22
+revision3 registry M5,S2,base,3285719,52,none,none,8647047,none,34
+revision3 registry M5,S2,adverse,19746146,120,none,none,37237000,none,49
+revision3 registry M5,S3,favourable,539966,18,25,25,909592,28,16
+revision3 registry M5,S3,base,2516969,43,none,none,6307896,none,25
+revision3 registry M5,S3,adverse,19885318,120,none,none,35419885,none,37

@@ -1,0 +1,46 @@
+assumption_id,parameter,unit,low,base,high,basis,evidence_class,source_ids,report
+P3-ASM-HI001,connectors in minimal eligibility set,count,8,10,12,BMF; Pub 78; revocation; 990-N; 990 XML; OFAC; CSL; UK list; SAM; FAC,INFERENCE,SRC-063;SRC-001,11
+P3-ASM-HI002,connector maintenance,h per connector-year,20,30,60,Phase II RP-09 40 h unevidenced; drift events observed (UK list 2026; OFAC formats; IRS outage),ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI003,engineering rate,USD/h,98,118,138,Phase II RP-15,INFERENCE,SRC-063;SRC-001,11
+P3-ASM-HI004,registry infrastructure (storage; compute; DB share; universe-wide),USD/registry-year,4000,7500,20000,Phase II RC-01..04 base $7.4k; universe-wide per UNB-CNET-010,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI005,ingest incidents (failure; drift; quarantine),per registry-year,12,24,48,ASSUMPTION; ~2 per month across 10 connectors,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI006,engineering hours per incident,h,2,3,6,ASSUMPTION,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI007,recurring counsel hours,h/yr,20,30,60,Phase II RC-09 recurring 20-40 h,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI008,counsel rate,USD/h,300,450,800,Phase II RP-13,INFERENCE,SRC-063;SRC-001,11
+P3-ASM-HI009,accountable owner floor,FTE,0.15,0.25,0.5,Phase II floor 0.25; 0.15 if role shared on Echelon operations,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI010,compliance rate (no utilisation adjustment; as registry model),USD/h,54.14,67.69,82.08,Phase II RP-14,INFERENCE,SRC-063;SRC-001,11
+P3-ASM-HI011,first-time verification exceptions,per in-use charity-year,0.02,0.035,0.05,Replay first-time incidence 4.0% within sponsor; 3.1% platform; small grants likely lower,INFERENCE,SRC-063;SRC-001,11
+P3-ASM-HI012,first-time verification minutes,min,15,25,45,charity-network 06 25 min per case; Phase II 45,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI013,automated renewals,per charity-year,2,2,2,180-day ceiling (DEC-003; CNV-GRT-003),VERIFIED-FACT,SRC-063;SRC-001,11
+P3-ASM-HI014,automated renewal failure rate,share,0.005,0.01,0.03,charity-network 06 0.5-3% (ASSUMPTION there),ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI015,renewal failure minutes,min,15,25,45,As first-time verification,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI016,monitoring-driven human cases,per charity-year,0.0002,0.0005,0.0025,charity-network 06: revocations needing judgment + adverse BMF = 21 (4-150) per 60k charities,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI017,monitoring case minutes,min,30,45,60,Phase II RP-03,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI018,identity disputes and corrections,per charity-year,0.001,0.003,0.01,charity-network 06,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI019,identity case minutes,min,20,30,60,ASSUMPTION,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI020,share of EV-E08 workflow saving that is elimination (reuse; IRS data replaces letters) rather than automation,share,0.3,0.5,0.7,ASSUMPTION; ACT-A08..A10 split unknown,ASSUMPTION,SRC-063;SRC-004,10
+P3-ASM-HI021,share of EV-E17 removal performed by the customer (self-service),share,0.6,0.8,1.0,ASSUMPTION,ASSUMPTION,SRC-063;SRC-004,10
+P3-ASM-HI022,share of EV-E01 removal performed by customer or advisor prefill,share,0.1,0.3,0.5,ASSUMPTION,ASSUMPTION,SRC-063;SRC-004,10
+P3-ASM-HI023,share of EV-E11/E12 residual carried by rail partner in Unbound release 1,share,0.5,1.0,1.0,CNV-PAY-001; PAY-DEF-001,ASSUMPTION,SRC-063;SRC-004,10
+P3-ASM-HI024,share of EV-E07 and EV-E20 removal that is elimination,share,1.0,1.0,1.0,Closed picker removes assisted searches; tuned matcher removes false alerts (replay 0.9 vs 10.5 per 1000),INFERENCE,SRC-063;SRC-004,10
+P3-ASM-HI025,sample audit size per stratum (zero acceptance; 95%),items per stratum-year,59,149,299,p_t 5%/2%/1%; n = ceil(ln(1-C)/ln(1-p_t)),INFERENCE,SRC-063;SRC-001,11
+P3-ASM-HI026,sample audit strata,count,3,3,3,tier-1 renewals; tier-2 expiry refresh; monitoring no-change clears,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI027,minutes per sampled full review,min,10,15,30,Phase II RP-06,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI028,tier-3 share of charities (human review every 180 days),share,0.01,0.02,0.05,ASSUMPTION; ~0.5% universe ambiguous conflicts plus adverse history,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI029,human deep review minutes,min,5,15,30,Phase II RP-06,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI030,charities in use per account,charities/account,0.5,2,5,Phase II RP-01 20k charities for ~10k accounts,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI031,sponsor policy decision hours,h per sponsor-year,10,20,40,Phase II RP-10,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI032,sponsor-scoped sanctions/exclusion alerts,per charity-year,0.002,0.005,0.03,Replay 0.9 per 1000 names tuned (OFAC only) plus CSL/SAM/FAC; Phase II RP-17 0.01,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI033,alert disposition minutes,min,5,10,20,Phase II RP-18,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI034,adverse events among a sponsor charities,per charity-year,0.003,0.005,0.01,Revocations 0.17-0.3% of grantees plus adverse BMF changes,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI035,share of adverse events affecting pending or recurring grants,share,0.3,0.5,1.0,ASSUMPTION,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI036,sponsor review case minutes,min,10,15,30,ASSUMPTION,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI037,sponsor-specific audit sample,items per sponsor-year,0,59,149,Only if the sponsor auditor requires it,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI038,licensed enrichment per sponsor,USD per sponsor-year,0,0,9900,"Candid Charity Check from $2,750; Premier $9,900 (P3-SRC-HI003); optional; not shareable. Revision 2 (2026-11-26, round-1 review): previously 'Candid Eligibility API from $5000', which is an Apple Pay enablement product, not eligibility enrichment (P3-CHL-REV3013)",VENDOR-CLAIM,SRC-063;SRC-001,11
+P3-ASM-HI039,charity union overlap exponent,exponent,0.3,0.5,0.8,Phase II RP-11; untested,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI040,charities in use per sponsor,charities,5000,20000,50000,Phase II RP-01,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI041,informational or neutral source changes,per charity-year,1.0,1.4,1.8,236750 c3 organisations changed in one month (~14%); annualised with overlap; ASSUMPTION,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI042,charity payment-destination changes,per charity-year,0.02,0.05,0.1,ASSUMPTION,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI043,charity impersonation attempts,per charity-year,0.0005,0.001,0.003,ASSUMPTION,ASSUMPTION,SRC-063;SRC-001,11
+P3-ASM-HI044,donor minutes per contribution intent,min,1,2,4,ASSUMPTION; zero net where it replaces an existing form,ASSUMPTION,SRC-063;SRC-001,10
+P3-ASM-HI045,pessimistic event scenario,multipliers,,,,touches x1.5; minutes x1.3; AI 0.88; prevention scale 0.25 (Phase II stress plus quarter prevention); optimistic: touches x0.6; minutes x0.7; AI 0.75; prevention 1.0,ASSUMPTION,SRC-063;SRC-001,10

@@ -1,0 +1,7 @@
+case,revenue,life,share,margin_transferred,margin_transferred_pv,enablement_per_deal,partner_cost,direct_cac,break_even_share,break_even_share_pv,months_to_first_partner_deal
+"small sponsor (revenue low, life low)",25000,3,0.25,18750,15542.8249,15000,33750,125000,1.4667,1.7693,24
+base,60000,5,0.25,75000,56861.8015,15000,90000,125000,0.3667,0.4836,24
+base at 40% share,60000,5,0.4,120000,90978.8825,15000,135000,125000,0.3667,0.4836,24
+"large sponsor (revenue high, life high, direct CAC high)",150000,8,0.25,300000,200059.7324,15000,315000,200000,0.1542,0.2312,24
+partner sources no deal,60000,5,0.25,75000,56861.8015,none,none,125000,none,none,none
+100% partner share (boundary),60000,5,1,300000,227447.2062,15000,315000,125000,0.3667,0.4836,24

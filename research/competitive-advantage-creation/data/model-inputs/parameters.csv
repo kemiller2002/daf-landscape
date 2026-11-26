@@ -1,0 +1,48 @@
+name,low,base,high,unit,adverse,allow_negative,assumption_ids,basis
+contingency,0.15,0.25,0.40,share of incremental cash,high,N,P3-ASM-AB027,AB contingency on one-time and pre-revenue cash
+capital_charge,0.05,0.10,0.15,share per year,high,N,P3-ASM-AB028,Capital charge on the running cash deficit (economic view only)
+founder_econ,190356,222482,273473,USD per year,high,N,P3-ASM-AB018,Founder time at market (CST-R02 CTO loaded)
+revenue_per_customer_channel,150000,300000,600000,USD per customer-year net of channel share,low,N,P3-ASM-AB030,Phase II ER-7 revenue reused by AB
+customers_per_year_channel,1,3,5,customers per year,low,N,P3-ASM-AB030,Phase II ER-7 acquisition reused by AB
+churn,0.04,0.08,0.15,share per year,high,N,P3-ASM-MOD001,Phase II REV2 8%; partner churn P3-ASM-FGJ016
+arrears_months,1,2.5,4,months,high,N,P3-ASM-MOD002,Quarterly in arrears plus one month (AB P3-ASM-AB023 basis)
+cac_later,15000,30000,60000,USD per further customer,high,N,P3-ASM-AB019,AB first-customer CAC reused for later customers as AB did
+impl_later,10000,30000,80000,USD per further customer,high,N,P3-ASM-AB020,AB S6 implementation with reusable packages
+var_per_account,8.5,12.15,30.89,USD per account-year,high,N,P3-ASM-MOD003,Vendor variable cost per account: 0.15 x $56.7 / 0.15 x $81 (ER-4 direct share) / MD-6 $30.89 (P3-ASM-EK010)
+net_price_per_account_channel,56.7,56.7,56.7,USD per account-year,low,N,P3-ASM-MOD004,$81 (PAR-012) less 30% channel share (ER-7 basis)
+ab_variable_share_as_published,0.30,0.30,0.30,share of net revenue,high,N,P3-ASM-AB030,ER-7 variable_cost_share used by AB staged.py
+build_phase_burn_factor,0.35,0.40,0.50,share of burn during build months,high,N,P3-ASM-MOD005,MD-6 fixed $1.35-2.75M contains platform engineering $0.7-1.8M that performs the build
+labour_per_minute,1.034,1.454,2.0,USD per minute,high,N,P3-ASM-MOD006,Phase II rate_ops $46.54/65.45/89.98 per hour / 60 / 0.75 utilisation
+automation_residual_share,0.10,0.25,0.50,share of automated labour value,high,N,P3-ASM-MOD007,Automated work reappears as platform cost (report 10 section 3 item 2)
+ai_cost_share,0.10,0.20,0.40,share of accelerated labour value,high,N,P3-ASM-MOD008,Model cost and oversight; Phase II ai_routine_scale 0-3
+transfer_efficiency,1.0,1.4,2.0,multiplier,high,N,P3-ASM-MOD009,Phase II PAR-021 sponsor efficiency multiplier (SRC-063)
+accounts_per_sponsor,10000,10000,10000,accounts,low,N,P3-ASM-MOD009,Phase II 10k-account reference sponsor (SRC-063)
+connectors,8,10,12,connectors,high,N,P3-ASM-HI001,Minimal eligibility source set
+registry_charities,5000,20000,50000,charities in use per sponsor,high,N,P3-ASM-HI040,Phase II RP-01
+registry_engineering_absorbed,0,0.5,1.0,share,low,N,P3-ASM-MOD010,Share of registry engineering and counsel absorbed by the lean maintenance and corporate-admin budgets (GAP-HI010)
+partner_share,0.15,0.25,0.40,share of licence revenue,high,N,P3-ASM-FGJ001,Reseller/embedded partner share
+partner_sales_cycle,6,12,24,months,high,N,P3-ASM-FGJ004,Partner sales cycle
+partner_deals,0,1,3,deals per partner per year,low,N,P3-ASM-FGJ005,Partner-sourced deals
+partner_enablement,10000,30000,75000,USD per partner,high,N,P3-ASM-FGJ006,Partner enablement
+direct_cac,40000,125000,200000,USD per sponsor,high,N,P3-ASM-FGJ007,Direct CAC
+revenue_per_sponsor,25000,60000,150000,USD per year,low,N,P3-ASM-FGJ008,Licence revenue per sponsor
+licence_life,3,5,8,years,low,N,P3-ASM-FGJ009,Licence lifetime
+discount_rate,0.08,0.10,0.15,share per year,high,N,P3-ASM-FGJ017,Planning discount rate
+agreement_years,1,2,3,years,low,N,P3-ASM-MOD011,Years of partner agreement over which enablement is spread (report 12 uses 2 deals at 1 a year)
+price_per_account,40,81,120,USD per account-year,low,N,P3-ASM-MOD012,Phase II PAR-012 software price band (Ren ~$81)
+minimum_fee,2000,12500,25000,USD per programme-year,low,N,P3-ASM-CD008,Vendor licence revenue per small programme
+migration_assessment_fee,0,0,15000,USD per engagement,low,N,P3-ASM-FGJ013,Receiving vendors scope migrations free
+headline_price,81,120,150,USD per account-year,low,N,P3-ASM-EK011,Licence headline price
+md6_fixed,1806415,1806415,1806415,USD per year,high,N,P3-ASM-EK009,Phase II MD-6 vendor fixed cost
+md6_variable,30.89,30.89,30.89,USD per account-year,high,N,P3-ASM-EK010,Phase II MD-6 vendor variable cost
+customer_impl_recovery,0,0.5,1.0,share of implementation cost charged,low,N,P3-ASM-MOD013,Customer-funded variant: implementation fee (no market evidence)
+customer_advance_months,0,1,3,months billed in advance,low,N,P3-ASM-MOD013,Customer-funded variant: billing in advance instead of arrears
+partner_funded_share,0,0.25,0.5,share of development and one-time cash,low,N,P3-ASM-MOD014,Partner-funded variant: partner pays part of build in exchange for share uplift (no evidence)
+partner_share_uplift,0.05,0.10,0.15,share points,high,N,P3-ASM-MOD014,Partner-funded variant: extra revenue share
+external_cost_of_capital,0.20,0.30,0.40,share per year,high,N,P3-ASM-MOD015,Externally funded variant: required return on outside equity (planning convention)
+external_raise_cost,25000,50000,100000,USD,high,N,P3-ASM-MOD015,Externally funded variant: legal and diligence cost of a raise
+tax_rate,0.21,0.25,0.28,share of taxable income,high,N,P3-ASM-MOD048,US federal corporate 21% plus 0-7% state; full loss carry-forward (simplified)
+partner_termination_rate,0.05,0.10,0.25,share per year,high,N,P3-ASM-FGJ016,Partner termination hazard applied in the Monte Carlo to partner-delivered sequences (REV2016)
+conventional_maintenance_extra,100000,225000,350000,USD per year,high,N,P3-ASM-MOD041,Stress: 1-2 conventional engineers ($0.22-0.47M) in place of AB's $120k maintenance (REV2029/REV2030)
+review_frequency,1.0,1.2,1.6,deep reviews per charity-year,high,N,P3-ASM-MOD050,Demand-driven: a review is needed only when a new approval follows an expired review (RR-REQ-X-007-r1); revision 2 used a fixed 2 (REV4003)
+tiered_review_factor,0.3,0.4,0.6,share of 15-minute review time,high,N,P3-ASM-MOD055,Risk-tiered attested review: ~4 min for 80% low-risk and 15 min for 20% (6.2/15); subject to counsel and V-9 (REV4004)

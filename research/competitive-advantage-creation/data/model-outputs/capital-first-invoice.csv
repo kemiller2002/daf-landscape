@@ -1,0 +1,463 @@
+variant,state_id,case,category,cash,non_cash,fully_loaded
+AB as published,S1,favourable,incremental development,300000,1200000,1500000
+AB as published,S1,favourable,customer acquisition,15000,0,15000
+AB as published,S1,favourable,implementation,35000,0,35000
+AB as published,S1,favourable,compliance (one-time),20000,0,20000
+AB as published,S1,favourable,legal and corporate (one-time),20000,0,20000
+AB as published,S1,favourable,working capital,25000,0,25000
+AB as published,S1,favourable,pre-contract run,45000,0,45000
+AB as published,S1,favourable,live run to first invoice,41250,0,41250
+AB as published,S1,favourable,founder compensation,0,333123,333123
+AB as published,S1,favourable,contingency,75187.5,0,75187.5
+AB as published,S1,favourable,economic opportunity cost (capital charge),0,25219.1406,25219.1406
+AB as published,S1,base,incremental development,700000,1450000,2150000
+AB as published,S1,base,customer acquisition,30000,0,30000
+AB as published,S1,base,implementation,75000,0,75000
+AB as published,S1,base,compliance (one-time),45000,0,45000
+AB as published,S1,base,legal and corporate (one-time),60000,0,60000
+AB as published,S1,base,working capital,75000,0,75000
+AB as published,S1,base,pre-contract run,236250,0,236250
+AB as published,S1,base,live run to first invoice,232500,0,232500
+AB as published,S1,base,founder compensation,30000,581825.5,611825.5
+AB as published,S1,base,contingency,370937.5,0,370937.5
+AB as published,S1,base,economic opportunity cost (capital charge),0,255019.5313,255019.5313
+AB as published,S1,adverse,incremental development,1400000,2600000,4000000
+AB as published,S1,adverse,customer acquisition,60000,0,60000
+AB as published,S1,adverse,implementation,150000,0,150000
+AB as published,S1,adverse,compliance (one-time),100000,0,100000
+AB as published,S1,adverse,legal and corporate (one-time),150000,0,150000
+AB as published,S1,adverse,working capital,200000,0,200000
+AB as published,S1,adverse,pre-contract run,980000,0,980000
+AB as published,S1,adverse,live run to first invoice,802500,0,802500
+AB as published,S1,adverse,founder compensation,322500,839760.25,1162260.25
+AB as published,S1,adverse,contingency,1666000,0,1666000
+AB as published,S1,adverse,economic opportunity cost (capital charge),0,1858631.25,1858631.25
+AB as published,S2,favourable,incremental development,250000,1100000,1350000
+AB as published,S2,favourable,customer acquisition,15000,0,15000
+AB as published,S2,favourable,implementation,35000,0,35000
+AB as published,S2,favourable,compliance (one-time),20000,0,20000
+AB as published,S2,favourable,legal and corporate (one-time),20000,0,20000
+AB as published,S2,favourable,working capital,25000,0,25000
+AB as published,S2,favourable,pre-contract run,37500,0,37500
+AB as published,S2,favourable,live run to first invoice,41250,0,41250
+AB as published,S2,favourable,founder compensation,0,285534,285534
+AB as published,S2,favourable,contingency,66562.5,0,66562.5
+AB as published,S2,favourable,economic opportunity cost (capital charge),0,19136.7188,19136.7188
+AB as published,S2,base,incremental development,600000,1340000,1940000
+AB as published,S2,base,customer acquisition,30000,0,30000
+AB as published,S2,base,implementation,75000,0,75000
+AB as published,S2,base,compliance (one-time),45000,0,45000
+AB as published,S2,base,legal and corporate (one-time),60000,0,60000
+AB as published,S2,base,working capital,75000,0,75000
+AB as published,S2,base,pre-contract run,210000,0,210000
+AB as published,S2,base,live run to first invoice,232500,0,232500
+AB as published,S2,base,founder compensation,30000,526205,556205
+AB as published,S2,base,contingency,339375,0,339375
+AB as published,S2,base,economic opportunity cost (capital charge),0,212109.375,212109.375
+AB as published,S2,adverse,incremental development,1200000,2400000,3600000
+AB as published,S2,adverse,customer acquisition,60000,0,60000
+AB as published,S2,adverse,implementation,150000,0,150000
+AB as published,S2,adverse,compliance (one-time),100000,0,100000
+AB as published,S2,adverse,legal and corporate (one-time),150000,0,150000
+AB as published,S2,adverse,working capital,200000,0,200000
+AB as published,S2,adverse,pre-contract run,840000,0,840000
+AB as published,S2,adverse,live run to first invoice,802500,0,802500
+AB as published,S2,adverse,founder compensation,292500,733023.75,1025523.75
+AB as published,S2,adverse,contingency,1518000,0,1518000
+AB as published,S2,adverse,economic opportunity cost (capital charge),0,1494281.25,1494281.25
+AB as published,S3,favourable,incremental development,40000,110000,150000
+AB as published,S3,favourable,customer acquisition,15000,0,15000
+AB as published,S3,favourable,implementation,35000,0,35000
+AB as published,S3,favourable,compliance (one-time),20000,0,20000
+AB as published,S3,favourable,legal and corporate (one-time),20000,0,20000
+AB as published,S3,favourable,working capital,25000,0,25000
+AB as published,S3,favourable,pre-contract run,22500,0,22500
+AB as published,S3,favourable,live run to first invoice,41250,0,41250
+AB as published,S3,favourable,founder compensation,0,190356,190356
+AB as published,S3,favourable,contingency,32812.5,0,32812.5
+AB as published,S3,favourable,economic opportunity cost (capital charge),0,6289.0625,6289.0625
+AB as published,S3,base,incremental development,120000,230000,350000
+AB as published,S3,base,customer acquisition,30000,0,30000
+AB as published,S3,base,implementation,75000,0,75000
+AB as published,S3,base,compliance (one-time),45000,0,45000
+AB as published,S3,base,legal and corporate (one-time),60000,0,60000
+AB as published,S3,base,working capital,75000,0,75000
+AB as published,S3,base,pre-contract run,131250,0,131250
+AB as published,S3,base,live run to first invoice,232500,0,232500
+AB as published,S3,base,founder compensation,30000,359343.5,389343.5
+AB as published,S3,base,contingency,199687.5,0,199687.5
+AB as published,S3,base,economic opportunity cost (capital charge),0,87363.2813,87363.2813
+AB as published,S3,adverse,incremental development,250000,350000,600000
+AB as published,S3,adverse,customer acquisition,60000,0,60000
+AB as published,S3,adverse,implementation,150000,0,150000
+AB as published,S3,adverse,compliance (one-time),100000,0,100000
+AB as published,S3,adverse,legal and corporate (one-time),150000,0,150000
+AB as published,S3,adverse,working capital,200000,0,200000
+AB as published,S3,adverse,pre-contract run,560000,0,560000
+AB as published,S3,adverse,live run to first invoice,802500,0,802500
+AB as published,S3,adverse,founder compensation,232500,519550.75,752050.75
+AB as published,S3,adverse,contingency,1002000,0,1002000
+AB as published,S3,adverse,economic opportunity cost (capital charge),0,723318.75,723318.75
+AB as published,S4,favourable,incremental development,10000,20000,30000
+AB as published,S4,favourable,customer acquisition,15000,0,15000
+AB as published,S4,favourable,implementation,35000,0,35000
+AB as published,S4,favourable,compliance (one-time),20000,0,20000
+AB as published,S4,favourable,legal and corporate (one-time),20000,0,20000
+AB as published,S4,favourable,working capital,25000,0,25000
+AB as published,S4,favourable,pre-contract run,22500,0,22500
+AB as published,S4,favourable,live run to first invoice,41250,0,41250
+AB as published,S4,favourable,founder compensation,0,190356,190356
+AB as published,S4,favourable,contingency,28312.5,0,28312.5
+AB as published,S4,favourable,economic opportunity cost (capital charge),0,5426.5625,5426.5625
+AB as published,S4,base,incremental development,40000,60000,100000
+AB as published,S4,base,customer acquisition,30000,0,30000
+AB as published,S4,base,implementation,75000,0,75000
+AB as published,S4,base,compliance (one-time),45000,0,45000
+AB as published,S4,base,legal and corporate (one-time),60000,0,60000
+AB as published,S4,base,working capital,75000,0,75000
+AB as published,S4,base,pre-contract run,131250,0,131250
+AB as published,S4,base,live run to first invoice,232500,0,232500
+AB as published,S4,base,founder compensation,30000,359343.5,389343.5
+AB as published,S4,base,contingency,179687.5,0,179687.5
+AB as published,S4,base,economic opportunity cost (capital charge),0,78613.2813,78613.2813
+AB as published,S4,adverse,incremental development,120000,130000,250000
+AB as published,S4,adverse,customer acquisition,60000,0,60000
+AB as published,S4,adverse,implementation,150000,0,150000
+AB as published,S4,adverse,compliance (one-time),100000,0,100000
+AB as published,S4,adverse,legal and corporate (one-time),150000,0,150000
+AB as published,S4,adverse,working capital,200000,0,200000
+AB as published,S4,adverse,pre-contract run,560000,0,560000
+AB as published,S4,adverse,live run to first invoice,802500,0,802500
+AB as published,S4,adverse,founder compensation,232500,519550.75,752050.75
+AB as published,S4,adverse,contingency,950000,0,950000
+AB as published,S4,adverse,economic opportunity cost (capital charge),0,685781.25,685781.25
+AB as published,S5,favourable,incremental development,0,50000,50000
+AB as published,S5,favourable,customer acquisition,5000,0,5000
+AB as published,S5,favourable,implementation,35000,0,35000
+AB as published,S5,favourable,compliance (one-time),0,0,0
+AB as published,S5,favourable,legal and corporate (one-time),0,0,0
+AB as published,S5,favourable,working capital,25000,0,25000
+AB as published,S5,favourable,pre-contract run,0,0,0
+AB as published,S5,favourable,live run to first invoice,41250,0,41250
+AB as published,S5,favourable,founder compensation,0,47589,47589
+AB as published,S5,favourable,contingency,15937.5,0,15937.5
+AB as published,S5,favourable,economic opportunity cost (capital charge),0,763.6719,763.6719
+AB as published,S5,base,incremental development,60000,240000,300000
+AB as published,S5,base,customer acquisition,20000,0,20000
+AB as published,S5,base,implementation,75000,0,75000
+AB as published,S5,base,compliance (one-time),15000,0,15000
+AB as published,S5,base,legal and corporate (one-time),15000,0,15000
+AB as published,S5,base,working capital,75000,0,75000
+AB as published,S5,base,pre-contract run,0,0,0
+AB as published,S5,base,live run to first invoice,232500,0,232500
+AB as published,S5,base,founder compensation,30000,81241,111241
+AB as published,S5,base,contingency,130625,0,130625
+AB as published,S5,base,economic opportunity cost (capital charge),0,16328.125,16328.125
+AB as published,S5,adverse,incremental development,200000,400000,600000
+AB as published,S5,adverse,customer acquisition,40000,0,40000
+AB as published,S5,adverse,implementation,150000,0,150000
+AB as published,S5,adverse,compliance (one-time),60000,0,60000
+AB as published,S5,adverse,legal and corporate (one-time),50000,0,50000
+AB as published,S5,adverse,working capital,200000,0,200000
+AB as published,S5,adverse,pre-contract run,0,0,0
+AB as published,S5,adverse,live run to first invoice,802500,0,802500
+AB as published,S5,adverse,founder compensation,112500,92604.75,205104.75
+AB as published,S5,adverse,contingency,646000,0,646000
+AB as published,S5,adverse,economic opportunity cost (capital charge),0,127181.25,127181.25
+AB as published,S6,favourable,incremental development,0,30000,30000
+AB as published,S6,favourable,customer acquisition,5000,0,5000
+AB as published,S6,favourable,implementation,10000,0,10000
+AB as published,S6,favourable,compliance (one-time),0,0,0
+AB as published,S6,favourable,legal and corporate (one-time),0,0,0
+AB as published,S6,favourable,working capital,25000,0,25000
+AB as published,S6,favourable,pre-contract run,0,0,0
+AB as published,S6,favourable,live run to first invoice,41250,0,41250
+AB as published,S6,favourable,founder compensation,0,47589,47589
+AB as published,S6,favourable,contingency,12187.5,0,12187.5
+AB as published,S6,favourable,economic opportunity cost (capital charge),0,583.9844,583.9844
+AB as published,S6,base,incremental development,40000,160000,200000
+AB as published,S6,base,customer acquisition,20000,0,20000
+AB as published,S6,base,implementation,30000,0,30000
+AB as published,S6,base,compliance (one-time),15000,0,15000
+AB as published,S6,base,legal and corporate (one-time),15000,0,15000
+AB as published,S6,base,working capital,75000,0,75000
+AB as published,S6,base,pre-contract run,0,0,0
+AB as published,S6,base,live run to first invoice,232500,0,232500
+AB as published,S6,base,founder compensation,30000,81241,111241
+AB as published,S6,base,contingency,114375,0,114375
+AB as published,S6,base,economic opportunity cost (capital charge),0,14296.875,14296.875
+AB as published,S6,adverse,incremental development,150000,350000,500000
+AB as published,S6,adverse,customer acquisition,40000,0,40000
+AB as published,S6,adverse,implementation,80000,0,80000
+AB as published,S6,adverse,compliance (one-time),60000,0,60000
+AB as published,S6,adverse,legal and corporate (one-time),50000,0,50000
+AB as published,S6,adverse,working capital,200000,0,200000
+AB as published,S6,adverse,pre-contract run,0,0,0
+AB as published,S6,adverse,live run to first invoice,802500,0,802500
+AB as published,S6,adverse,founder compensation,112500,92604.75,205104.75
+AB as published,S6,adverse,contingency,598000,0,598000
+AB as published,S6,adverse,economic opportunity cost (capital charge),0,117731.25,117731.25
+AB as published,S7,favourable,incremental development,0,30000,30000
+AB as published,S7,favourable,customer acquisition,5000,0,5000
+AB as published,S7,favourable,implementation,10000,0,10000
+AB as published,S7,favourable,compliance (one-time),0,0,0
+AB as published,S7,favourable,legal and corporate (one-time),0,0,0
+AB as published,S7,favourable,working capital,25000,0,25000
+AB as published,S7,favourable,pre-contract run,0,0,0
+AB as published,S7,favourable,live run to first invoice,34250,0,34250
+AB as published,S7,favourable,founder compensation,0,47589,47589
+AB as published,S7,favourable,contingency,11137.5,0,11137.5
+AB as published,S7,favourable,economic opportunity cost (capital charge),0,533.6719,533.6719
+AB as published,S7,base,incremental development,40000,160000,200000
+AB as published,S7,base,customer acquisition,20000,0,20000
+AB as published,S7,base,implementation,30000,0,30000
+AB as published,S7,base,compliance (one-time),15000,0,15000
+AB as published,S7,base,legal and corporate (one-time),15000,0,15000
+AB as published,S7,base,working capital,75000,0,75000
+AB as published,S7,base,pre-contract run,0,0,0
+AB as published,S7,base,live run to first invoice,197500,0,197500
+AB as published,S7,base,founder compensation,30000,81241,111241
+AB as published,S7,base,contingency,105625,0,105625
+AB as published,S7,base,economic opportunity cost (capital charge),0,13203.125,13203.125
+AB as published,S7,adverse,incremental development,150000,350000,500000
+AB as published,S7,adverse,customer acquisition,40000,0,40000
+AB as published,S7,adverse,implementation,80000,0,80000
+AB as published,S7,adverse,compliance (one-time),60000,0,60000
+AB as published,S7,adverse,legal and corporate (one-time),50000,0,50000
+AB as published,S7,adverse,working capital,200000,0,200000
+AB as published,S7,adverse,pre-contract run,0,0,0
+AB as published,S7,adverse,live run to first invoice,679500,0,679500
+AB as published,S7,adverse,founder compensation,112500,92604.75,205104.75
+AB as published,S7,adverse,contingency,548800,0,548800
+AB as published,S7,adverse,economic opportunity cost (capital charge),0,108045,108045
+corrected (Revision 2),S1,favourable,incremental development,300000,1200000,1500000
+corrected (Revision 2),S1,favourable,customer acquisition,15000,0,15000
+corrected (Revision 2),S1,favourable,implementation,75000,0,75000
+corrected (Revision 2),S1,favourable,compliance (one-time),20000,0,20000
+corrected (Revision 2),S1,favourable,legal and corporate (one-time),20000,0,20000
+corrected (Revision 2),S1,favourable,working capital,25000,0,25000
+corrected (Revision 2),S1,favourable,pre-contract run,45000,0,45000
+corrected (Revision 2),S1,favourable,live run to first invoice,116740.205,0,116740.205
+corrected (Revision 2),S1,favourable,founder compensation,0,337881.9,337881.9
+corrected (Revision 2),S1,favourable,contingency,92511.0308,0,92511.0308
+corrected (Revision 2),S1,favourable,economic opportunity cost (capital charge),0,35462.5618,35462.5618
+corrected (Revision 2),S1,base,incremental development,700000,1450000,2150000
+corrected (Revision 2),S1,base,customer acquisition,30000,0,30000
+corrected (Revision 2),S1,base,implementation,150000,0,150000
+corrected (Revision 2),S1,base,compliance (one-time),45000,0,45000
+corrected (Revision 2),S1,base,legal and corporate (one-time),60000,0,60000
+corrected (Revision 2),S1,base,working capital,75000,0,75000
+corrected (Revision 2),S1,base,pre-contract run,405000,0,405000
+corrected (Revision 2),S1,base,live run to first invoice,725872.065,0,725872.065
+corrected (Revision 2),S1,base,founder compensation,45000,544577.3,589577.3
+corrected (Revision 2),S1,base,contingency,547718.0163,0,547718.0163
+corrected (Revision 2),S1,base,economic opportunity cost (capital charge),0,417538.5122,417538.5122
+corrected (Revision 2),S1,adverse,incremental development,1400000,2600000,4000000
+corrected (Revision 2),S1,adverse,customer acquisition,60000,0,60000
+corrected (Revision 2),S1,adverse,implementation,325000,0,325000
+corrected (Revision 2),S1,adverse,compliance (one-time),100000,0,100000
+corrected (Revision 2),S1,adverse,legal and corporate (one-time),150000,0,150000
+corrected (Revision 2),S1,adverse,working capital,200000,0,200000
+corrected (Revision 2),S1,adverse,pre-contract run,1505000,0,1505000
+corrected (Revision 2),S1,adverse,live run to first invoice,2599710.72,0,2599710.72
+corrected (Revision 2),S1,adverse,founder compensation,360000,768076.125,1128076.125
+corrected (Revision 2),S1,adverse,contingency,2535884.288,0,2535884.288
+corrected (Revision 2),S1,adverse,economic opportunity cost (capital charge),0,3117013.3152,3117013.3152
+corrected (Revision 2),S2,favourable,incremental development,250000,1100000,1350000
+corrected (Revision 2),S2,favourable,customer acquisition,15000,0,15000
+corrected (Revision 2),S2,favourable,implementation,75000,0,75000
+corrected (Revision 2),S2,favourable,compliance (one-time),20000,0,20000
+corrected (Revision 2),S2,favourable,legal and corporate (one-time),20000,0,20000
+corrected (Revision 2),S2,favourable,working capital,25000,0,25000
+corrected (Revision 2),S2,favourable,pre-contract run,37500,0,37500
+corrected (Revision 2),S2,favourable,live run to first invoice,116740.205,0,116740.205
+corrected (Revision 2),S2,favourable,founder compensation,0,290292.9,290292.9
+corrected (Revision 2),S2,favourable,contingency,83886.0308,0,83886.0308
+corrected (Revision 2),S2,favourable,economic opportunity cost (capital charge),0,28136.7728,28136.7728
+corrected (Revision 2),S2,base,incremental development,600000,1340000,1940000
+corrected (Revision 2),S2,base,customer acquisition,30000,0,30000
+corrected (Revision 2),S2,base,implementation,150000,0,150000
+corrected (Revision 2),S2,base,compliance (one-time),45000,0,45000
+corrected (Revision 2),S2,base,legal and corporate (one-time),60000,0,60000
+corrected (Revision 2),S2,base,working capital,75000,0,75000
+corrected (Revision 2),S2,base,pre-contract run,360000,0,360000
+corrected (Revision 2),S2,base,live run to first invoice,725872.065,0,725872.065
+corrected (Revision 2),S2,base,founder compensation,45000,488956.8,533956.8
+corrected (Revision 2),S2,base,contingency,511468.0163,0,511468.0163
+corrected (Revision 2),S2,base,economic opportunity cost (capital charge),0,357821.7612,357821.7612
+corrected (Revision 2),S2,adverse,incremental development,1200000,2400000,3600000
+corrected (Revision 2),S2,adverse,customer acquisition,60000,0,60000
+corrected (Revision 2),S2,adverse,implementation,325000,0,325000
+corrected (Revision 2),S2,adverse,compliance (one-time),100000,0,100000
+corrected (Revision 2),S2,adverse,legal and corporate (one-time),150000,0,150000
+corrected (Revision 2),S2,adverse,working capital,200000,0,200000
+corrected (Revision 2),S2,adverse,pre-contract run,1290000,0,1290000
+corrected (Revision 2),S2,adverse,live run to first invoice,2599710.72,0,2599710.72
+corrected (Revision 2),S2,adverse,founder compensation,330000,661339.625,991339.625
+corrected (Revision 2),S2,adverse,contingency,2369884.288,0,2369884.288
+corrected (Revision 2),S2,adverse,economic opportunity cost (capital charge),0,2587378.5024,2587378.5024
+corrected (Revision 2),S3,favourable,incremental development,40000,110000,150000
+corrected (Revision 2),S3,favourable,customer acquisition,15000,0,15000
+corrected (Revision 2),S3,favourable,implementation,75000,0,75000
+corrected (Revision 2),S3,favourable,compliance (one-time),20000,0,20000
+corrected (Revision 2),S3,favourable,legal and corporate (one-time),20000,0,20000
+corrected (Revision 2),S3,favourable,working capital,25000,0,25000
+corrected (Revision 2),S3,favourable,pre-contract run,22500,0,22500
+corrected (Revision 2),S3,favourable,live run to first invoice,116740.205,0,116740.205
+corrected (Revision 2),S3,favourable,founder compensation,0,195114.9,195114.9
+corrected (Revision 2),S3,favourable,contingency,50136.0308,0,50136.0308
+corrected (Revision 2),S3,favourable,economic opportunity cost (capital charge),0,12011.7574,12011.7574
+corrected (Revision 2),S3,base,incremental development,120000,230000,350000
+corrected (Revision 2),S3,base,customer acquisition,30000,0,30000
+corrected (Revision 2),S3,base,implementation,150000,0,150000
+corrected (Revision 2),S3,base,compliance (one-time),45000,0,45000
+corrected (Revision 2),S3,base,legal and corporate (one-time),60000,0,60000
+corrected (Revision 2),S3,base,working capital,75000,0,75000
+corrected (Revision 2),S3,base,pre-contract run,225000,0,225000
+corrected (Revision 2),S3,base,live run to first invoice,725872.065,0,725872.065
+corrected (Revision 2),S3,base,founder compensation,45000,322095.3,367095.3
+corrected (Revision 2),S3,base,contingency,357718.0163,0,357718.0163
+corrected (Revision 2),S3,base,economic opportunity cost (capital charge),0,183359.0081,183359.0081
+corrected (Revision 2),S3,adverse,incremental development,250000,350000,600000
+corrected (Revision 2),S3,adverse,customer acquisition,60000,0,60000
+corrected (Revision 2),S3,adverse,implementation,325000,0,325000
+corrected (Revision 2),S3,adverse,compliance (one-time),100000,0,100000
+corrected (Revision 2),S3,adverse,legal and corporate (one-time),150000,0,150000
+corrected (Revision 2),S3,adverse,working capital,200000,0,200000
+corrected (Revision 2),S3,adverse,pre-contract run,860000,0,860000
+corrected (Revision 2),S3,adverse,live run to first invoice,2599710.72,0,2599710.72
+corrected (Revision 2),S3,adverse,founder compensation,270000,447866.625,717866.625
+corrected (Revision 2),S3,adverse,contingency,1817884.288,0,1817884.288
+corrected (Revision 2),S3,adverse,economic opportunity cost (capital charge),0,1492333.8768,1492333.8768
+corrected (Revision 2),S4,favourable,incremental development,10000,20000,30000
+corrected (Revision 2),S4,favourable,customer acquisition,15000,0,15000
+corrected (Revision 2),S4,favourable,implementation,75000,0,75000
+corrected (Revision 2),S4,favourable,compliance (one-time),20000,0,20000
+corrected (Revision 2),S4,favourable,legal and corporate (one-time),20000,0,20000
+corrected (Revision 2),S4,favourable,working capital,25000,0,25000
+corrected (Revision 2),S4,favourable,pre-contract run,22500,0,22500
+corrected (Revision 2),S4,favourable,live run to first invoice,116740.205,0,116740.205
+corrected (Revision 2),S4,favourable,founder compensation,0,195114.9,195114.9
+corrected (Revision 2),S4,favourable,contingency,45636.0308,0,45636.0308
+corrected (Revision 2),S4,favourable,economic opportunity cost (capital charge),0,10933.6324,10933.6324
+corrected (Revision 2),S4,base,incremental development,40000,60000,100000
+corrected (Revision 2),S4,base,customer acquisition,30000,0,30000
+corrected (Revision 2),S4,base,implementation,150000,0,150000
+corrected (Revision 2),S4,base,compliance (one-time),45000,0,45000
+corrected (Revision 2),S4,base,legal and corporate (one-time),60000,0,60000
+corrected (Revision 2),S4,base,working capital,75000,0,75000
+corrected (Revision 2),S4,base,pre-contract run,225000,0,225000
+corrected (Revision 2),S4,base,live run to first invoice,725872.065,0,725872.065
+corrected (Revision 2),S4,base,founder compensation,45000,322095.3,367095.3
+corrected (Revision 2),S4,base,contingency,337718.0163,0,337718.0163
+corrected (Revision 2),S4,base,economic opportunity cost (capital charge),0,173359.0081,173359.0081
+corrected (Revision 2),S4,adverse,incremental development,120000,130000,250000
+corrected (Revision 2),S4,adverse,customer acquisition,60000,0,60000
+corrected (Revision 2),S4,adverse,implementation,325000,0,325000
+corrected (Revision 2),S4,adverse,compliance (one-time),100000,0,100000
+corrected (Revision 2),S4,adverse,legal and corporate (one-time),150000,0,150000
+corrected (Revision 2),S4,adverse,working capital,200000,0,200000
+corrected (Revision 2),S4,adverse,pre-contract run,860000,0,860000
+corrected (Revision 2),S4,adverse,live run to first invoice,2599710.72,0,2599710.72
+corrected (Revision 2),S4,adverse,founder compensation,270000,447866.625,717866.625
+corrected (Revision 2),S4,adverse,contingency,1765884.288,0,1765884.288
+corrected (Revision 2),S4,adverse,economic opportunity cost (capital charge),0,1451383.8768,1451383.8768
+corrected (Revision 2),S5,favourable,incremental development,0,50000,50000
+corrected (Revision 2),S5,favourable,customer acquisition,5000,0,5000
+corrected (Revision 2),S5,favourable,implementation,75000,0,75000
+corrected (Revision 2),S5,favourable,compliance (one-time),0,0,0
+corrected (Revision 2),S5,favourable,legal and corporate (one-time),0,0,0
+corrected (Revision 2),S5,favourable,working capital,25000,0,25000
+corrected (Revision 2),S5,favourable,pre-contract run,0,0,0
+corrected (Revision 2),S5,favourable,live run to first invoice,116740.205,0,116740.205
+corrected (Revision 2),S5,favourable,founder compensation,0,52347.9,52347.9
+corrected (Revision 2),S5,favourable,contingency,33261.0308,0,33261.0308
+corrected (Revision 2),S5,favourable,economic opportunity cost (capital charge),0,3187.5154,3187.5154
+corrected (Revision 2),S5,base,incremental development,60000,240000,300000
+corrected (Revision 2),S5,base,customer acquisition,20000,0,20000
+corrected (Revision 2),S5,base,implementation,150000,0,150000
+corrected (Revision 2),S5,base,compliance (one-time),15000,0,15000
+corrected (Revision 2),S5,base,legal and corporate (one-time),15000,0,15000
+corrected (Revision 2),S5,base,working capital,75000,0,75000
+corrected (Revision 2),S5,base,pre-contract run,0,0,0
+corrected (Revision 2),S5,base,live run to first invoice,725872.065,0,725872.065
+corrected (Revision 2),S5,base,founder compensation,45000,43992.8,88992.8
+corrected (Revision 2),S5,base,contingency,265218.0163,0,265218.0163
+corrected (Revision 2),S5,base,economic opportunity cost (capital charge),0,51415.878,51415.878
+corrected (Revision 2),S5,adverse,incremental development,200000,400000,600000
+corrected (Revision 2),S5,adverse,customer acquisition,40000,0,40000
+corrected (Revision 2),S5,adverse,implementation,325000,0,325000
+corrected (Revision 2),S5,adverse,compliance (one-time),60000,0,60000
+corrected (Revision 2),S5,adverse,legal and corporate (one-time),50000,0,50000
+corrected (Revision 2),S5,adverse,working capital,200000,0,200000
+corrected (Revision 2),S5,adverse,pre-contract run,0,0,0
+corrected (Revision 2),S5,adverse,live run to first invoice,2599710.72,0,2599710.72
+corrected (Revision 2),S5,adverse,founder compensation,150000,20920.625,170920.625
+corrected (Revision 2),S5,adverse,contingency,1389884.288,0,1389884.288
+corrected (Revision 2),S5,adverse,economic opportunity cost (capital charge),0,376094.6256,376094.6256
+corrected (Revision 2),S6,favourable,incremental development,0,30000,30000
+corrected (Revision 2),S6,favourable,customer acquisition,5000,0,5000
+corrected (Revision 2),S6,favourable,implementation,75000,0,75000
+corrected (Revision 2),S6,favourable,compliance (one-time),0,0,0
+corrected (Revision 2),S6,favourable,legal and corporate (one-time),0,0,0
+corrected (Revision 2),S6,favourable,working capital,25000,0,25000
+corrected (Revision 2),S6,favourable,pre-contract run,0,0,0
+corrected (Revision 2),S6,favourable,live run to first invoice,116740.205,0,116740.205
+corrected (Revision 2),S6,favourable,founder compensation,0,52347.9,52347.9
+corrected (Revision 2),S6,favourable,contingency,33261.0308,0,33261.0308
+corrected (Revision 2),S6,favourable,economic opportunity cost (capital charge),0,3187.5154,3187.5154
+corrected (Revision 2),S6,base,incremental development,40000,160000,200000
+corrected (Revision 2),S6,base,customer acquisition,20000,0,20000
+corrected (Revision 2),S6,base,implementation,150000,0,150000
+corrected (Revision 2),S6,base,compliance (one-time),15000,0,15000
+corrected (Revision 2),S6,base,legal and corporate (one-time),15000,0,15000
+corrected (Revision 2),S6,base,working capital,75000,0,75000
+corrected (Revision 2),S6,base,pre-contract run,0,0,0
+corrected (Revision 2),S6,base,live run to first invoice,725872.065,0,725872.065
+corrected (Revision 2),S6,base,founder compensation,45000,43992.8,88992.8
+corrected (Revision 2),S6,base,contingency,260218.0163,0,260218.0163
+corrected (Revision 2),S6,base,economic opportunity cost (capital charge),0,50478.378,50478.378
+corrected (Revision 2),S6,adverse,incremental development,150000,350000,500000
+corrected (Revision 2),S6,adverse,customer acquisition,40000,0,40000
+corrected (Revision 2),S6,adverse,implementation,325000,0,325000
+corrected (Revision 2),S6,adverse,compliance (one-time),60000,0,60000
+corrected (Revision 2),S6,adverse,legal and corporate (one-time),50000,0,50000
+corrected (Revision 2),S6,adverse,working capital,200000,0,200000
+corrected (Revision 2),S6,adverse,pre-contract run,0,0,0
+corrected (Revision 2),S6,adverse,live run to first invoice,2599710.72,0,2599710.72
+corrected (Revision 2),S6,adverse,founder compensation,150000,20920.625,170920.625
+corrected (Revision 2),S6,adverse,contingency,1369884.288,0,1369884.288
+corrected (Revision 2),S6,adverse,economic opportunity cost (capital charge),0,370844.6256,370844.6256
+corrected (Revision 2),S7,favourable,incremental development,0,30000,30000
+corrected (Revision 2),S7,favourable,customer acquisition,5000,0,5000
+corrected (Revision 2),S7,favourable,implementation,75000,0,75000
+corrected (Revision 2),S7,favourable,compliance (one-time),0,0,0
+corrected (Revision 2),S7,favourable,legal and corporate (one-time),0,0,0
+corrected (Revision 2),S7,favourable,working capital,25000,0,25000
+corrected (Revision 2),S7,favourable,pre-contract run,0,0,0
+corrected (Revision 2),S7,favourable,live run to first invoice,102740.205,0,102740.205
+corrected (Revision 2),S7,favourable,founder compensation,0,52347.9,52347.9
+corrected (Revision 2),S7,favourable,contingency,31161.0308,0,31161.0308
+corrected (Revision 2),S7,favourable,economic opportunity cost (capital charge),0,2986.2654,2986.2654
+corrected (Revision 2),S7,base,incremental development,40000,160000,200000
+corrected (Revision 2),S7,base,customer acquisition,20000,0,20000
+corrected (Revision 2),S7,base,implementation,150000,0,150000
+corrected (Revision 2),S7,base,compliance (one-time),15000,0,15000
+corrected (Revision 2),S7,base,legal and corporate (one-time),15000,0,15000
+corrected (Revision 2),S7,base,working capital,75000,0,75000
+corrected (Revision 2),S7,base,pre-contract run,0,0,0
+corrected (Revision 2),S7,base,live run to first invoice,673372.065,0,673372.065
+corrected (Revision 2),S7,base,founder compensation,45000,43992.8,88992.8
+corrected (Revision 2),S7,base,contingency,247093.0163,0,247093.0163
+corrected (Revision 2),S7,base,economic opportunity cost (capital charge),0,48017.4405,48017.4405
+corrected (Revision 2),S7,adverse,incremental development,150000,350000,500000
+corrected (Revision 2),S7,adverse,customer acquisition,40000,0,40000
+corrected (Revision 2),S7,adverse,implementation,325000,0,325000
+corrected (Revision 2),S7,adverse,compliance (one-time),60000,0,60000
+corrected (Revision 2),S7,adverse,legal and corporate (one-time),50000,0,50000
+corrected (Revision 2),S7,adverse,working capital,200000,0,200000
+corrected (Revision 2),S7,adverse,pre-contract run,0,0,0
+corrected (Revision 2),S7,adverse,live run to first invoice,2435710.72,0,2435710.72
+corrected (Revision 2),S7,adverse,founder compensation,150000,20920.625,170920.625
+corrected (Revision 2),S7,adverse,contingency,1304284.288,0,1304284.288
+corrected (Revision 2),S7,adverse,economic opportunity cost (capital charge),0,353624.6256,353624.6256

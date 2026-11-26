@@ -1,0 +1,8 @@
+route_id,variant,build_phase_burn_factor,variable_share,capital
+ER-4,Phase II as modelled,1,0.15,7200235.6754
+ER-4,build-phase burn at P3-ASM-MOD005 base,0.4,0.15,5742235.6754
+ER-7,Phase II as modelled,1,0.3,5660825.0128
+ER-7,build-phase burn at P3-ASM-MOD005 base,0.4,0.3,4670825.0128
+ER-7,variable share = direct per-account cost (corrected),1,0.2143,5458382.5066
+ER-7,variable share = direct share (AB alternative),1,0.15,5334803.333
+ER-7,both corrections,0.4,0.2143,4468382.5066

@@ -1,0 +1,20 @@
+component_id,component,modes,cost_low,cost_base,cost_high,unit,scaling,kind,assumption_ids
+RCH-01,Registry infrastructure (storage; compute; DB share; universe-wide),all,4000,7500,20000,USD per registry-year,registry,engineering,P3-ASM-HI004
+RCH-02,Connector maintenance,all,1960,3540,8280,USD per connector-year,connector,engineering,P3-ASM-HI001;P3-ASM-HI002;P3-ASM-HI003
+RCH-03,Ingest operations (failures; drift; quarantine),all,2352,8496,39744,USD per registry-year,registry,engineering,P3-ASM-HI005;P3-ASM-HI006;P3-ASM-HI003
+RCH-04,Recurring counsel (materiality; reliance rules),all,6000,13500,48000,USD per registry-year,registry,counsel,P3-ASM-HI007;P3-ASM-HI008
+RCH-05,Accountable owner floor (labour = max(sum of human-hour lines; floor)),all,14618,30461,73872,USD per registry-year,floor,floor,P3-ASM-HI009;P3-ASM-HI010
+RCH-06,First-time verification from public evidence (shared),all,0.27,0.987,3.078,USD per union charity-year,union,labour,P3-ASM-HI011;P3-ASM-HI012;P3-ASM-HI010;P3-ASM-HI039
+RCH-07,Monitoring-driven human cases (shared),all,0.0054,0.0254,0.2052,USD per union charity-year,union,labour,P3-ASM-HI016;P3-ASM-HI017;P3-ASM-HI010
+RCH-08,Identity disputes and corrections (shared),all,0.018,0.1015,0.8208,USD per union charity-year,union,labour,P3-ASM-HI018;P3-ASM-HI019;P3-ASM-HI010
+RCH-09,Human full review every 180 days,M1,9.02,33.85,82.08,USD per union charity-year,union,deep_review,P3-ASM-HI029;P3-ASM-HI010
+RCH-10,Automated 180-day renewal failures to human,M3;M4;M5,0.135,0.564,3.693,USD per union charity-year,union,labour,P3-ASM-HI013;P3-ASM-HI014;P3-ASM-HI015;P3-ASM-HI010
+RCH-11,Tier-3 human deep review every 180 days,M4;M5,0.0902,0.677,4.104,USD per union charity-year,union,deep_review,P3-ASM-HI028;P3-ASM-HI029;P3-ASM-HI010
+RCH-12,Statistical sample audit (3 strata),M5,1597,7565,36809,USD per registry-year,registry,labour,P3-ASM-HI025;P3-ASM-HI026;P3-ASM-HI027;P3-ASM-HI010
+RCH-13,Sponsor policy overlay decisions (segregated),all,541,1354,3283,USD per sponsor-year,sponsor,sponsor,P3-ASM-HI031;P3-ASM-HI010
+RCH-14,Sponsor-scoped sanctions/exclusion alert dispositions (segregated),all,0.009,0.0564,0.8208,USD per sponsor charity-year,sponsor_charity,sponsor,P3-ASM-HI032;P3-ASM-HI033;P3-ASM-HI010
+RCH-15,Sponsor review cases on pending grants after adverse events (segregated),all,0.0081,0.0423,0.4104,USD per sponsor charity-year,sponsor_charity,sponsor,P3-ASM-HI034;P3-ASM-HI035;P3-ASM-HI036;P3-ASM-HI010
+RCH-16,Sponsor-specific audit sample (segregated; optional),M5,0,998,6115,USD per sponsor-year,sponsor,sponsor,P3-ASM-HI037;P3-ASM-HI027;P3-ASM-HI010
+RCH-17,Licensed enrichment (segregated; optional; not shareable),all,0,0,9900,USD per sponsor-year,sponsor,sponsor,P3-ASM-HI038
+RCH-18,Union overlap exponent (parameter),all,0.3,0.5,0.8,exponent,parameter,driver,P3-ASM-HI039
+RCH-19,Charities in use per sponsor (parameter),all,5000,20000,50000,charities,parameter,driver,P3-ASM-HI040
