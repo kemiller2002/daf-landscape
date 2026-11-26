@@ -2,6 +2,8 @@
 
 Status: proposals (2026-11-26; revision 2 after adversarial review). **No decision here is approved.** Machine-readable: [decisions.csv](data/registers/decisions.csv). Clarity readiness: a decision is ready only when an owner accepts it with a date, review cadence and outcome measure (SRC-062).
 
+> **Owner decision, recorded after merge (2026-11-26):** the owner approved all twelve decisions below, with conditions, as strategic direction only. The table below is the original research proposal, kept unchanged. For the approved wording, the status ladder and per-decision outcome measures, see [25](25-owner-approval-record.md) and [decision-approvals.csv](data/registers/decision-approvals.csv).
+
 | ID | Decision | Recommendation | Owner | Clarity readiness | Evidence needed | Trigger |
 |---|---|---|---|---|---|---|
 | DEC-001 | Reopen the ratified entry segment (OD-M-05) | Keep OD-M-05 as a destination; enter partner-first (module inside a channel partner's offering), then licence | Product owner | **Not ready** | V-1, V-6 | Before platform build beyond Release 1 |
