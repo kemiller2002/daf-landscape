@@ -8,10 +8,10 @@ Started 2026-11-26. This ledger records repository baselines, dependencies, deci
 |---|---|---|---|---|
 | kemiller2002/daf-landscape | Research | `10b92f4` (PR #92 merged; nothing later) | none | Repository conventions; F# package validators |
 | kemiller2002/unbound | DAF product requirements | `79b9258` | none | Generated authoritative baseline (`tools/fs/Unbound.Convergence`); discovery packages |
-| kemiller2002/transitus | Migration tooling | `d1b97be` (its PR #1 is merged) | #2 (CI batching) | Praxis |
+| kemiller2002/transitus | Migration tooling | `d1b97be` (its PR #1 is merged) | none | Praxis |
 | kemiller2002/praxis | Repository operating system | `e0f75e8` | 18, including #302 (governed improvement proposals) | Praxis |
-| kemiller2002/echelon-foundry | Company site and Praxis pilot | `8c6b453` | #3, #4, #11 | Praxis |
-| kemiller2002/echelon-organization-administration | Organization administration and business plan (private) | `c6118db` | none | README conventions |
+| kemiller2002/echelon-foundry | Company site and Praxis pilot | `8c6b453` | #2 (CI batching) | Praxis |
+| kemiller2002/echelon-organization-administration | Organization administration and business plan (private) | `c6118db` | #3, #4, #11 | README conventions |
 | kemiller2002/clarity-framework | Clarity (private) | `200a9eb` | — | Read-only in this initiative |
 | kemiller2002/echelon-diagnostic-framework | EDF | `710d54c` | — | Read-only (not attached for push) |
 | kemiller2002/echelon-registry | Component registry | `91df6cc` | — | Read-only (not attached for push) |
@@ -42,3 +42,4 @@ Started 2026-11-26. This ledger records repository baselines, dependencies, deci
 | 7 | XRI dispositions complete (18/18); decision-to-requirement trace | [xri-dispositions.csv](data/registers/xri-dispositions.csv) | `validate OK: 48 CSV, 37 Markdown`; 20/20 tests; `check` reproduces |
 | 8 | Owner decision OD-P3-04 ("Significant is when it becomes its own cost center") recorded | [25](25-owner-approval-record.md); org OD-DAF-CAP-002 | `validate`; `npm test` |
 | 9 | Independent Stage I review: 16 findings (1 blocking), all resolved | [26](26-cross-repository-dispositions.md) §6 | Fix commits: daf-landscape `fcdcc8c`; unbound `edbcd0d`; transitus `dda2134`/`0d089a2`; org `ea9ff34`; foundry `1071e25`/`c0ed458`. All validators re-run and pass |
+| 10 | Stage I PRs opened (draft): daf-landscape #93, unbound #22, transitus #2, praxis #314, echelon-foundry #13, echelon-organization-administration #22. Baseline table corrected (open PRs at start had been attributed to the wrong repositories) | — | GitHub |
