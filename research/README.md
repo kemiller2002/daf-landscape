@@ -234,3 +234,10 @@ Pending validation.
 
 - **Recommendation.** Build an independent, evidence-led advisory and intelligence practice. Its first offers would be platform assessment and vendor selection plus migration assurance for mid-size sponsors, then a market-intelligence subscription. Defer software.
 - **Status.** Willingness to pay is untested.
+
+
+## File ingestion, information exchange and straight-through processing (2026-11-26)
+
+- [Research package](file-ingestion-and-straight-through-processing/README.md): how information enters DAF sponsors (115 workflows across 12 domains, 263 evidence rows from ≈48 organizations and adjacent industries), formats and delivery mechanisms, straight-through-processing opportunities, competitor comparison and an economics model for sponsors of 1,000 to 1,000,000 funds.
+- **Main finding:** the dominant ingestion exception is attribution of pooled receipts through free-text fields, not parsing; preventing exceptions (reference-carrying instructions, authoritative public data instead of documents) moves costs more than processing them faster. All handling times are assumptions until measured.
+- Data in [`data/file-ingestion-2026-11/`](../data/file-ingestion-2026-11/); reproducible with `scripts/fie_economics.py` and `scripts/fie_validate.py --check`.
