@@ -89,6 +89,26 @@ The legal-name, EIN, exemption-code, deductibility-code, foundation-code, latest
 5. Add pricing and contracting evidence only when the unit, tier, and effective date are comparable.
 6. Monitor the IRS priority-guidance project under sections 4966 and 6033; do not treat the 2023 proposed regulations as final guidance.
 
+## Research index
+
+Later research packages are listed in the [research index](research/README.md).
+
+## Decision Intelligence, with Clarity + EDF
+
+The initial F# CLI validates three **manually reviewed** conclusions, resolves evidence/source references, classifies claims and renders a concise, reproducible report.
+
+- [CLI setup, scope and limitations](src/DecisionIntelligence/README.md)
+- [Architecture and framework boundaries](research/decision-intelligence-architecture-2026.md)
+- [Three worked conclusions](research/decision-intelligence-pilot-2026-11-11.md)
+
+Requires .NET 10 SDK:
+
+    dotnet run --project src/DecisionIntelligence/DecisionIntelligence.fsproj -- validate .
+    dotnet run --project src/DecisionIntelligence/DecisionIntelligence.fsproj -- render .
+    dotnet run --project tests/DecisionIntelligence.Tests/DecisionIntelligence.Tests.fsproj
+
+The program is not an autonomous inference engine or a substitute for source verification, donor tax review or investment judgment. CI builds and checks the validator on pull requests.
+
 ## Disclaimer
 
 This project is market research, not legal, tax, investment, cybersecurity, or procurement advice. A cited official source may be accurate as to what an organization states while still requiring independent validation.
