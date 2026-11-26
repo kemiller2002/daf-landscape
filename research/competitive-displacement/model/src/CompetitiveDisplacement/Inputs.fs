@@ -36,7 +36,7 @@ type RegistryAlt =
 type Route =
     { Id: string; Name: string; Build: Range; Burn: Range; FirstRevenueMonth: Range
       RevenuePerCustomer: Range; Recurring: bool; CustomersPerYear: Range
-      VariableShare: float; Cac: float; Custodial: bool }
+      VariableShare: float; Cac: float; Custodial: bool; Churn: float; GoLiveLag: float }
 
 /// Parameter values keyed by name, each with a range.
 type Params = Map<string, Range>
@@ -176,9 +176,12 @@ let parseRoute (row: Row) : Result<Route, string> =
         let! vs = num "variable_cost_share" row
         let! cac = num "cac_per_customer" row
         let! cus = yes "custodial" row
+        let! churn = num "churn_rate" row
+        let! lag = num "golive_lag_months" row
         return
             { Id = id; Name = name; Build = b; Burn = burn; FirstRevenueMonth = fr; RevenuePerCustomer = rev
-              Recurring = rec'; CustomersPerYear = cust; VariableShare = vs; Cac = cac; Custodial = cus }
+              Recurring = rec'; CustomersPerYear = cust; VariableShare = vs; Cac = cac; Custodial = cus
+              Churn = churn; GoLiveLag = lag }
     }
 
 type Inputs =

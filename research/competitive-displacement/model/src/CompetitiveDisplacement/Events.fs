@@ -7,7 +7,8 @@ type Values = Map<string, float>
 
 let v (vals: Values) key = Map.find key vals
 
-let rate (vals: Values) (expertise: string) = v vals ("rate_" + expertise)
+/// Effective hourly cost: loaded rate divided by utilisation (REV2: labour is not perfectly divisible).
+let rate (vals: Values) (expertise: string) = v vals ("rate_" + expertise) / v vals "utilisation"
 
 /// Cost of one event for one account-year (or per sponsor-year for sponsor-level work).
 type EventCost =
@@ -43,12 +44,16 @@ let touchProb (mode: Mode) (vals: Values) (e: EventDef) : float =
         | _ -> native
     raw * (1.0 - prevented mode vals e)
 
-/// Minutes per touch. "Exception without AI" scales native minutes back up by the AI assistance factor,
-/// so the difference between exception-driven and AI-native modes is the AI effect alone.
+/// The d_native inputs were calibrated assuming AI preparation at this factor (REV2, CHL economist):
+/// they are converted once to exception minutes without AI, and the AI factor then scales them down.
+/// A weaker AI therefore makes the AI-native mode dearer, not the no-AI mode cheaper.
+let calibrationAiFactor = 0.6
+
+/// Minutes per touch. Exception-driven (no AI) uses exception minutes; AI-native applies the AI factor to them.
 let minutesPerTouch (mode: Mode) (vals: Values) (e: EventDef) : float =
     let f = v vals "ai_assist_duration_factor"
-    let nativeD = e.DNative * v vals "duration_mult_native"
-    let exceptionNoAi = nativeD / f
+    let exceptionNoAi = e.DNative * v vals "duration_mult_native" / calibrationAiFactor
+    let nativeD = exceptionNoAi * f
     match mode.DurationRule, mode.TouchRule with
     | "conv", "structured_native" -> if e.Structured then exceptionNoAi else e.DConv
     | "conv", "native" -> exceptionNoAi

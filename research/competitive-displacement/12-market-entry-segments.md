@@ -29,9 +29,9 @@ Only three segments show **positive** evidence of motion, and all three are swit
 
 | Route | Segment | Precondition | Evidence status |
 |---|---|---|---|
-| Partner with or sell a DAF module to a CF-software or administrator partner at re-platforming windows | SEG-002, SEG-010, SEG-012 | Partner willing to embed (HYP-010) | Untested |
+| **Partner with or sell a DAF module to a CF-software or administrator partner at re-platforming windows (recommended, [16](16-commercial-entry-strategy.md))** | SEG-002, SEG-010, SEG-012 | Partner willing to embed (HYP-010); precedent is acquisition (CLM-025) | Untested |
 | Distributor licensing (SEI-like) to banks and trust companies | SEG-003, SEG-007 | Distributor without a DAF partner; SOC 2 Type 2 | Untested; SEI already chose TIFIN |
-| Charity eligibility evidence service to sponsors, administrators, CSR and payment platforms | Cross-segment | Willingness to pay (HYP-007) | Untested; Candid is the paid incumbent |
+| Charity eligibility evidence service to sponsors, administrators, CSR and payment platforms | Cross-segment | Willingness to pay above Candid's $2,750 list price (HYP-007) | Untested; commodity pricing (CLM-041) |
 | Migration assessment and reconciliation at contract-end windows | SEG-012 | Contract-end calendar (HYP-011) | Timing evidence positive; conversion unknown |
 | Full administration for a mid-size national sponsor (OD-M-05) | SEG-001 | Anchor design partner | Lowest observed mobility |
 

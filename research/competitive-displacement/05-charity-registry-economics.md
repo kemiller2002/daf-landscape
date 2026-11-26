@@ -1,14 +1,15 @@
 # 05 - Challenging the charity registry economics
 
-Status: research (2026-11-26). Model: [model/](model/README.md), registry inputs [registry-components.csv](data/model-inputs/registry-components.csv), [registry-alternatives.csv](data/model-inputs/registry-alternatives.csv), [registry-parameters.csv](data/model-inputs/registry-parameters.csv); outputs [results.md](model/out/results.md) §9-11 and [registry-alternatives-grid.csv](data/model-outputs/registry-alternatives-grid.csv) (672 scenarios). Monte Carlo: 2,000 seeded triangular draws.
+Status: research (2026-11-26; revision 2 after adversarial review, see [20](20-adversarial-review.md)). Model: [model/](model/README.md), registry inputs [registry-components.csv](data/model-inputs/registry-components.csv), [registry-alternatives.csv](data/model-inputs/registry-alternatives.csv), [registry-parameters.csv](data/model-inputs/registry-parameters.csv); outputs [results.md](model/out/results.md) §9-11 and [registry-alternatives-grid.csv](data/model-outputs/registry-alternatives-grid.csv) (672 scenarios). Monte Carlo: 2,000 seeded triangular draws.
 
 ## Answer in brief
 
 - The ~$316k a year estimate (PR #88, rev 3) reconstructs exactly from ten components ($316,093; CLM-002).
 - **39% of it is one staffing-ratio assumption**: a 1 FTE steward ($122k) not derived from workload (CLM-003). Sized by workload with a named accountable owner floor, the steward line falls to about $30-57k for one sponsor.
-- **The lowest defensible run cost is about $90-120k a year for one sponsor** (5k-20k charities in use, change-driven monitoring, public data only), MC P50 $127-132k, P90 about $150-160k (CLM-004).
-- **At 10 sponsors sharing public evidence the cost per sponsor is about $14-27k**; at 30 sponsors $7-14k.
-- **Full periodic re-review is the dominant cost driver**: a 180-day full re-review costs about 4x change-driven monitoring at 20k charities (CLM-005).
+- **Revision 2** (CHL-047, CHL-048, CHL-052): evidence expiry now runs at 0.5 refreshes per charity-year (was 0.1, inconsistent with the expiry rules in [04](04-charity-intelligence-architecture.md)); name-match alerts from CSL, SAM and FAC feeds are added; the commercial licence is anchored to Candid's $2,750 list price.
+- **The lowest defensible run cost is about $90k a year for a 5k-charity sponsor and about $160-170k for 20k charities** (change-driven monitoring, public data only). MC P50 for 20k charities is about $202k, P90 about $276k (CLM-004, revised). This is a **marginal** cost that relies on platform-wide security, SOC and insurance; a standalone-equivalent figure is about $175k+ before SOC and sales (CHL-030).
+- **At 10 sponsors sharing public evidence the cost per sponsor is about $18-42k**; at 30 sponsors $9-23k. Per-sponsor sharing economics depend on an untested overlap exponent (0.3-0.8; CHL-032).
+- **Full periodic re-review is the dominant avoidable driver**: a 180-day full re-review costs about 3x change-driven monitoring at 20k charities (CLM-005). The 180-day cycle is a sponsor policy, not law (CHL-035).
 - None of this removes human accountability: every alternative keeps a named owner (≥0.25 FTE), counsel review and an exception queue.
 
 ## 1. Reconstruction and classification
@@ -33,18 +34,18 @@ By the requested taxonomy: legally required $36k; contractually required (condit
 
 | Alternative | Run cost | Per grant | Human hours | Establishment (one-time) | MC P10-P90 |
 |---|---|---|---|---|---|
-| RA-0 Baseline reconstruction | $316k | $4.52 | 1,007 | $366k | $304-356k |
-| RA-1 Public-data-only | **$115k** | $1.65 | 839 | $306k | $107-149k |
-| RA-2 Fully automated evidence collection | $150k | $2.15 | 587 | $424k | $139-198k |
-| RA-3 Exception-driven | $120k | $1.72 | 755 | $344k | $111-157k |
-| RA-4 Shared multi-sponsor (1 sponsor) | $140k | $1.99 | 775 | $362k | $131-182k |
-| RA-5 Commercially enriched | $179k | $2.56 | 671 | $348k | $171-256k |
-| RA-6 Standalone service | $415k | $5.92 | 775 | $466k | $404-457k |
-| RA-7 On Echelon infrastructure | $131k | $1.87 | 755 | $306k | $123-163k |
+| RA-0 Baseline reconstruction (components as published) | $316k | $4.52 | 1,707 | $366k | $316-432k |
+| RA-1 Public-data-only | **$162k** | $2.32 | 1,532 | $306k | $151-276k |
+| RA-2 Fully automated evidence collection | $196k | $2.81 | 1,270 | $424k | $186-317k |
+| RA-3 Exception-driven | $167k | $2.38 | 1,445 | $344k | $156-284k |
+| RA-4 Shared multi-sponsor (1 sponsor) | $186k | $2.66 | 1,465 | $362k | $178-306k |
+| RA-5 Commercially enriched (Candid-anchored licence) | $181k | $2.58 | 1,357 | $348k | $180-308k |
+| RA-6 Standalone service | $453k | $6.47 | 1,465 | $466k | $443-575k |
+| RA-7 On Echelon infrastructure | $177k | $2.53 | 1,445 | $306k | $167-291k |
 
 Observations:
 - **Automation (RA-2) lowers human hours by ~30% but raises cost**, because it adds connectors (state registries, websites) whose maintenance outweighs the labour saved at this volume. Automation pays only when the charity population and change rate are larger.
-- **Commercial enrichment (RA-5) is the most expensive single-sponsor option** apart from the standalone service, and its licence prevents sharing ([03](03-charity-data-licensing-and-access.md)).
+- **Commercial enrichment (RA-5) is now close to the public-data options** once anchored to Candid's list price; its licence still prevents sharing ([03](03-charity-data-licensing-and-access.md)), and it shows that paid eligibility evidence is cheap, which undercuts any standalone charity-intelligence product.
 - **Echelon infrastructure (RA-7)** saves connector hours but adds reliance cost; net it is slightly dearer than RA-3 until reuse is measured (consistent with PR #87 report 05).
 - **Running the registry as a standalone service (RA-6)** costs more than the baseline because it carries its own SOC 2, sales, on-call and support.
 
@@ -54,14 +55,14 @@ Cheapest alternative per cell at a 4% change rate (from §11 of results):
 
 | Charities per sponsor | Sponsors | Change-driven run cost (per sponsor) | 180-day full re-review (per sponsor) |
 |---|---|---|---|
-| 5k | 1 | $89k (RA-1) | $198k |
-| 20k | 1 | $115k (RA-1) | $482k |
-| 50k | 1 | $205k (RA-3) | $1.05M |
-| 20k | 3 | $184k ($61k) shared | $996k ($332k) |
-| 20k | 10 | $274k ($27k) shared | $1.76M ($176k) |
-| 20k | 30 | $431k ($14k) shared | $3.00M ($100k) |
+| 5k | 1 | $89k (RA-1) | $199k |
+| 20k | 1 | $162k (RA-1) | $483k |
+| 50k | 1 | $321k (RA-3) | $1.05M |
+| 5k | 10 | $178k ($18k) shared | $513k ($51k) |
+| 20k | 10 | $421k ($42k) shared | $1.76M ($176k) |
+| 20k | 30 | $687k ($23k) shared | $3.01M ($100k) |
 
-Per grant, a shared change-driven registry falls from $1.65 (one sponsor) to about $0.21 at 30 sponsors. Change rate matters linearly: at 8% the human-hour line roughly doubles.
+Per grant, a shared change-driven registry falls from $2.32 (one sponsor) to about $0.33 at 30 sponsors. Change rate matters linearly: at 8% the human-hour line roughly doubles.
 
 ## 4. One-time versus ongoing
 
@@ -69,15 +70,15 @@ Establishment is $306-466k (connectors ×160 h, exception tooling 400 h, entity 
 
 ## 5. Lowest defensible operating cost and what must be demonstrated
 
-**About $90-120k a year for a single sponsor, and about $15-30k per sponsor once ten sponsors share public evidence** (RECOMMENDATION, Medium for direction, Low for levels). To claim it, Unbound must demonstrate:
+**About $90-170k a year for a single sponsor (5k-20k charities), and about $18-42k per sponsor once ten sponsors share public evidence**, as a marginal cost on a platform that already carries security, SOC and insurance (RECOMMENDATION; Medium for direction, Low for levels; conditional on V-3/V-7 measurements, CHL-110). To claim it, Unbound must demonstrate:
 
 1. eligibility-relevant change rate at or below ~4% of charities a year (HYP-006; replay harness, OQ-003);
 2. exception handling at or below ~45 minutes with 20-30% auto-resolution by deterministic rules;
-3. auditor and counsel acceptance that change-driven monitoring with evidence expiry satisfies the 180-day policy (HYP-005; OQ-004);
-4. that Unbound is not a Nacha TPSP in its architecture, or that the TPSP audit is carried elsewhere (OQ-009);
+3. that sponsors will adopt change-driven monitoring with evidence expiry in place of a 180-day full re-review policy (HYP-005; OQ-004);
+4. that the Nacha TPSP audit sits with the payments platform, not the registry: a platform that creates ACH files is almost certainly a TPSP (CHL-037), so the cost moves to platform fixed cost, it does not disappear;
 5. that charities are never required to use a portal (removes RC-08);
 6. contractual terms that let public evidence be shared across sponsors while decisions stay per sponsor (OQ-010).
 
 ## 6. Implication
 
-The registry is **not** a meaningful cost barrier at any realistic scale; it is a few cents to a few dollars per grant. This strengthens PR #88's conclusion that the directory is not a moat, and weakens any plan that prices charity intelligence as a premium standalone product ([16](16-commercial-entry-strategy.md)).
+The registry is **not** a meaningful cost barrier at any realistic scale; it is a few cents to a few dollars per grant, and paid alternatives start at $2,750 a year. This strengthens PR #88's conclusion that the directory is not a moat, and weakens any plan that prices charity intelligence as a premium standalone product ([16](16-commercial-entry-strategy.md)).

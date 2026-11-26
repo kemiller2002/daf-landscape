@@ -42,6 +42,8 @@ Status: research (2026-11-26). Not legal, tax or investment advice. Evidence cla
 | C-3 | OD-M-05 ratified an entry segment that PR #88's adversarial review (ADVX) and this initiative's switch record show is the least mobile | Not resolved by research. Escalated as DEC-001 / XRI-001 |
 | C-4 | Prior research recommended adding the UK "OFSI" list | OFSI's consolidated list closed 2026-01-28; replaced by the FCDO UK Sanctions List (CLM-009) |
 | C-5 | Prior classification of the UBS DAF as NPT-sponsored | An RCF-sponsored UBS circular also exists; recorded as OQ-016, not resolved |
+| C-6 | PR #86/#87 break-even lower bounds ($1.0-1.5B at 20 bps) vs this package's revision 2 ($1.9B operating, $2.3B fully loaded) | Revision 2 adds AI oversight, utilisation, field AI productivity and no automation failure benefit; prior lower bounds now look optimistic ([15](15-capital-and-break-even-reassessment.md) §1) |
+| C-7 | The 2026-11-20 commercial-opportunity report recommended migration assurance for mid-size sponsors as a first offer | Consistent in spirit, but the adversarial review found no standalone buyer or price; reframed as pre-sales inside a partner pilot ([16](16-commercial-entry-strategy.md)) |
 
 ## 4. Method for Phase II
 

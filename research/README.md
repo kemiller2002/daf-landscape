@@ -253,3 +253,15 @@ Pending validation.
 - [Research package](file-ingestion-and-straight-through-processing/README.md): how information enters DAF sponsors (115 workflows across 12 domains, 263 evidence rows from ≈48 organizations and adjacent industries), formats and delivery mechanisms, straight-through-processing opportunities, competitor comparison and an economics model for sponsors of 1,000 to 1,000,000 funds.
 - **Main finding:** the dominant ingestion exception is attribution of pooled receipts through free-text fields, not parsing; preventing exceptions (reference-carrying instructions, authoritative public data instead of documents) moves costs more than processing them faster. All handling times are assumptions until measured.
 - Data in [`data/file-ingestion-2026-11/`](../data/file-ingestion-2026-11/); reproducible with `scripts/fie_economics.py` and `scripts/fie_validate.py --check`.
+
+## Competitive displacement and structural economic advantage: Phase II (2026-11-26)
+
+- [Research package](competitive-displacement/README.md), starting with the [executive summary](competitive-displacement/00-executive-summary.md) and [final recommendations](competitive-displacement/24-final-recommendations.md).
+  - 25 reports, 13 machine-readable registers, an F# event-level/registry/entry-route model with tests and a package validator.
+  - Ten independent adversarial reviews: 110 challenges, each with a recorded disposition.
+- **Headline.**
+  - AI-native administration lowers variable cost but not total cost at entry scale; against a well-automated incumbent the advantage is small, and AI is about 6% of the modelled saving.
+  - Distribution and incentive alignment, not technology, is the binding barrier; the ratified Unbound entry segment is the least mobile.
+  - No candidate advantage compounds as a network effect.
+  - Recommended route: partner-first technology licensing with gated funding and kill rules (about $6.5M P50 to self-sustaining; $0.15-0.35M to decide).
+- Cross-repository proposals only (Unbound, Transitus, Echelon Foundry); no files changed elsewhere.

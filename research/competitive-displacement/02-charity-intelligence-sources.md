@@ -1,10 +1,10 @@
 # 02 - Charity intelligence beyond the BMF: sources
 
-Status: research (2026-11-26). Public sources only, accessed 2026-11-26. Register: [charity-data-sources.csv](data/registers/charity-data-sources.csv) (68 sources: 30 carried from PR #88, 38 new). Full per-source fields (ownership, accessibility, licensing, cost, coverage, fields, frequency, history, API/bulk, quality, identity-resolution issues, commercial use, operational value, vetting role): [trackA-sources.csv](data/evidence/trackA-sources.csv) and [trackA-notes.md](data/evidence/trackA-notes.md) (SRC-064), plus the prior inventory [04](../competitive-advantage/charity-network-and-onboarding/04-authoritative-charity-data-inventory.md) (SRC-001).
+Status: research (2026-11-26; revision 2 after adversarial review, see [20](20-adversarial-review.md)). Public sources only, accessed 2026-11-26. Register: [charity-data-sources.csv](data/registers/charity-data-sources.csv) (68 sources: 30 carried from PR #88, 38 new). Full per-source fields (ownership, accessibility, licensing, cost, coverage, fields, frequency, history, API/bulk, quality, identity-resolution issues, commercial use, operational value, vetting role): [trackA-sources.csv](data/evidence/trackA-sources.csv) and [trackA-notes.md](data/evidence/trackA-notes.md) (SRC-064), plus the prior inventory [04](../competitive-advantage/charity-network-and-onboarding/04-authoritative-charity-data-inventory.md) (SRC-001).
 
 ## Answer in brief
 
-1. **A credible eligibility and screening layer can be built entirely from free, commercially usable public data** (CLM-006): IRS files (BMF, Pub 78, auto-revocation, 990-N, 990 XML), OFAC plus the trade.gov **Consolidated Screening List** (11 US lists, 26,339 rows, daily, no key), the **UK Sanctions List** (OGL), UN and EU lists, **SAM.gov exclusions**, and the **Federal Audit Clearinghouse** (going-concern and material-weakness flags; one of the few public joins of EIN to UEI).
+1. **A credible status and screening layer can be built entirely from free, commercially usable public data** (CLM-006), covering IRS status, revocation, sanctions and exclusion facts, **but not the full DAF eligibility determination** (CLM-042; CHL-036, CHL-050): governmental units (170(c)(1)), newly recognised charities not yet in the files, supporting-organization donor-control facts (4966(d)(4), certification needed), expenditure responsibility and foreign equivalency all need non-public evidence. The layer is built from: IRS files (BMF, Pub 78, auto-revocation, 990-N, 990 XML), OFAC plus the trade.gov **Consolidated Screening List** (11 US lists, 26,339 rows, daily, no key), the **UK Sanctions List** (OGL), UN and EU lists, **SAM.gov exclusions**, and the **Federal Audit Clearinghouse** (going-concern and material-weakness flags; one of the few public joins of EIN to UEI).
 2. **The free layer has three structural holes that no public source fills**: churches and group-ruling subordinates (0 of 237,380 c3 subordinates appear in Pub 78; the Catholic group letter says the IRS does not verify inclusion), state charity registration (about 40 states plus DC; no national dataset; the multistate Single Portal is paused, CLM-008), and identity binding for sources that carry no EIN (state corporate registries, USAspending, GLEIF, most foreign registries).
 3. **Third-party ratings and aggregators inform but cannot be redistributed** (CLM-007, report [03](03-charity-data-licensing-and-access.md)).
 4. **Automated vetting can rest on eight source families; everything else is evidence a person or a rule cites, not a determination.**
@@ -45,15 +45,16 @@ Status: research (2026-11-26). Public sources only, accessed 2026-11-26. Registe
 | Issue | Sources affected | Approach |
 |---|---|---|
 | No EIN | State corporate registries, USAspending (UEI/DUNS), GLEIF, CSL, sanctions lists | Bind by name, address, registered agent; keep as **candidate links** with scores until confirmed (never auto-merge) |
-| EIN reuse and mergers | BMF (silent removal on revocation; no tombstone) | Temporal identity records; carry prior names and successor links |
-| Group subordinates | BMF/Pub 78 | Subordinate roster evidence from central organisation; separate evidence class |
+| One charity across many EINs (conversions, mergers, reincorporations); the IRS does not reassign EINs (corrected, CHL-053) | BMF (silent removal on revocation; no tombstone) | Temporal identity records; successor links as candidates |
+| One EIN for many units (fiscal-sponsor projects, chapters, subordinates) | BMF, Pub 78 | Unit-level aliases under one EIN; donor-name-to-EIN resolution |
+| Group subordinates | Listed in the BMF with a group exemption number and affiliation codes, absent from Pub 78 | Automatable via GEN for listed subordinates (Candid already does this); evidence workflow only for unlisted church and Catholic units (CHL-054) |
 | DBA and truncated names | BMF (70-character names) | Alias table; charity-provided names as assertions |
 | Foreign equivalency | Foreign registries | Registration informs; equivalency determination or expenditure responsibility remains a sponsor decision |
 | UEI-EIN bridge | FAC carries both (plus `additional_eins`) | Use FAC as a crosswalk for federal grantees |
 
 ## 4. Independent of commercial vendors?
 
-Yes, for **status, revocation, sanctions, exclusion, audit-flag and filing-presence** determinations. No, for **qualitative judgements** (ratings, accountability scores, program effectiveness) and **church/subordinate inclusion**, where the only structured lists are proprietary. An independent intelligence layer is feasible; it is a vetting layer, not a ratings business.
+Yes, for **status, revocation, sanctions, exclusion, audit-flag and filing-presence facts**. No, for the parts of eligibility that turn on non-public facts (above), and for **qualitative judgements** (ratings, accountability scores, program effectiveness) and **church/subordinate inclusion**, where the only structured lists are proprietary. An independent intelligence layer is feasible; it is a vetting layer, not a ratings business.
 
 ## 5. Can monitoring reduce the 180-day cycle cost?
 
@@ -61,4 +62,4 @@ Yes, materially: see [05](05-charity-registry-economics.md) §4 and [04](04-char
 
 ## 6. Could a charity intelligence platform be a product?
 
-Possibly, as an **eligibility evidence service** (provenance-bound status, screening and change history via API), not a ratings product. Constraints: redistribution limits on aggregators ([03](03-charity-data-licensing-and-access.md)); an incumbent paid market (Candid Charity Check; OQ-008); and buyers who built their own (PayPal Giving Fund, Chariot, Benevity). Economics are in [15](15-capital-and-break-even-reassessment.md) (route ER-1) and the buyer test is HYP-007.
+Unlikely as a standalone business. **Candid Charity Check starts at $2,750 a year** and already combines BMF, Pub 78, IRB, auto-revocation, OFAC, 501(p), a subordinate indicator, church messages and California data; Pactman offers a free tier; Treasury Do Not Pay monitors Pub 78 free for federal agencies (CHL-051). An eligibility evidence service is a **component** of a platform, not a product. Other constraints: redistribution limits on aggregators ([03](03-charity-data-licensing-and-access.md)); an incumbent paid market (Candid Charity Check; OQ-008); and buyers who built their own (PayPal Giving Fund, Chariot, Benevity). Economics are in [15](15-capital-and-break-even-reassessment.md) (route ER-1) and the buyer test is HYP-007.

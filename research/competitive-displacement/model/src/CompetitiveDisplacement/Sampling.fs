@@ -22,6 +22,22 @@ let drawParams (ps: Params) (state: uint64) : Map<string, float> * uint64 =
     |> Map.toList
     |> List.fold (fun (acc, st) (name, r) -> let u, st' = next st in Map.add name (triangular r u) acc, st') (Map.empty, state)
 
+/// Correlated draws (REV2, CHL CFO): with probability rho a parameter takes a common "adverse" quantile shared
+/// by all parameters in the draw (oriented so high quantile = adverse); otherwise an independent quantile.
+let drawParamsCorrelated (rho: float) (lowIsAdverse: Set<string>) (ps: Params) (state: uint64) : Map<string, float> * uint64 =
+    let uCommon, st0 = next state
+    ps
+    |> Map.toList
+    |> List.fold (fun (acc, st) (name, r) ->
+        let pick, st1 = next st
+        let own, st2 = next st1
+        let common = if Set.contains name lowIsAdverse then 1.0 - uCommon else uCommon
+        let u = if pick < rho then common else own
+        Map.add name (triangular r u) acc, st2) (Map.empty, st0)
+
+let drawsCorrelated (n: int) (seed: uint64) (rho: float) (lowIsAdverse: Set<string>) (ps: Params) =
+    List.unfold (fun (i, st) -> if i >= n then None else let d, st' = drawParamsCorrelated rho lowIsAdverse ps st in Some(d, (i + 1, st'))) (0, seed)
+
 /// n independent draws from a seed.
 let draws (n: int) (seed: uint64) (ps: Params) : Map<string, float> list =
     List.unfold (fun (i, st) -> if i >= n then None else let d, st' = drawParams ps st in Some(d, (i + 1, st'))) (0, seed)

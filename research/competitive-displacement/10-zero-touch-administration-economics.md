@@ -1,82 +1,106 @@
 # 10 - Zero-touch administration economics
 
-Status: research (2026-11-26). Model results: [results.md](model/out/results.md) §1-8; [saving-decomposition.csv](data/model-outputs/saving-decomposition.csv); [prevention-vs-speed.csv](data/model-outputs/prevention-vs-speed.csv); [tornado.csv](data/model-outputs/tornado.csv). Every figure is conditional on labelled inputs (ASSUMPTION / INFERENCE); none is measured.
+Status: research (2026-11-26), **revision 2** after the adversarial review ([20](20-adversarial-review.md)). Model results: [results.md](model/out/results.md) §1-8; [saving-decomposition.csv](data/model-outputs/saving-decomposition.csv); [prevention-vs-speed.csv](data/model-outputs/prevention-vs-speed.csv); [tornado.csv](data/model-outputs/tornado.csv); [stress.csv](data/model-outputs/stress.csv). Every figure is conditional on labelled inputs; none is measured. Monte Carlo P50 and P90 are given beside base values, as the CFO reviewer asked (CHL-028).
 
 ## Answer in brief
 
-1. **Unbound can operate at a fundamentally lower variable cost** than conventional administration: about 26 human minutes and **$85 vendor variable cost per account-year** (incl. $25 infrastructure) against 183 minutes and $324 (incl. $81 licensed software) (CLM-037).
-2. **But it does not have a fundamentally lower total cost at entry scale.** Owning the platform raises fixed cost (about $2.3M a year against $1.2M for a conventional administrator on licensed software). Break-even at 20 bps falls only from about $2.1B to $1.5B (base) and the Monte Carlo P50 from $2.4B to $1.7B (CLM-013).
-3. **Most of the saving does not come from AI.** Of the ~$183 per account-year event-cost saving, deterministic workflow gives ~$102, exception-only design ~$29, prevention ~$34 and AI on residual exceptions ~$17 (≈10%) (CLM-011).
-4. **Preventing exceptions is worth more than processing them faster** wherever an upstream lever exists; AI speed matters only in judgement-heavy events (grant approval, complex assets, succession).
-5. The **cheapest mode for the vendor is not administration at all**: technology-only licensing (MD-6) breaks even at about $0.85B at 20 bps-equivalent, or ~30k accounts at $81 per account (CLM-014), because the sponsor carries the event labour.
+1. **Unbound can run at a much lower variable cost than conventional administration, but not at a fundamentally lower total cost at entry scale.** Human time falls from about 183 to about 53 minutes per account-year and vendor variable cost from about $397 to $147 (incl. $25 infrastructure, labour at 75% utilisation). Owning a controlled platform roughly doubles fixed cost, so break-even at 20 bps is about **$1.9B base / $2.5B P50 / $4.3B P90** for AI-native administration against $3.9B base / $4.4B P50 (never in 29% of draws) for conventional administration on licensed software.
+2. **Against an automated incumbent the gap is small.** Mature incumbents already run deterministic workflow and automated vetting (Ren's own release; CHL-003). Against workflow automation (MD-3) the AI-native vendor-variable gap is about $71 per account-year; against exception-driven administration (MD-4) it is **about $11, and MD-4 breaks even lower ($1.84B) than MD-5 ($1.92B)** once AI oversight cost is included.
+3. **AI is a small part of the saving.** Of the ~$194 per account-year event-cost reduction from conventional to AI-native, deterministic workflow gives ~$124, exception-only design ~$39, prevention ~$20 (at half efficacy) and AI on residual exceptions ~$11 (**about 6%**) (CLM-011, revised).
+4. **Prevention still beats speed** wherever an upstream lever exists, but its value depends on bank, custodian and sponsor cooperation, so the base case assumes half efficacy.
+5. **The structurally cheaper position for the vendor is not to carry the event labour**: technology-only licensing (MD-6) breaks even at about $0.96B of 20 bps-equivalent revenue (P50 $1.15B), or about **36k accounts at $81 per account**. The sponsor then carries the labour at lower efficiency, so the *system* cost is higher than AI-native administration ($197 vs $167 variable per account).
 
 ## 1. Seven operating modes (base; 5 sponsors)
 
 | Mode | Human min/acct-yr | Vendor variable $/acct | System variable $/acct | Vendor fixed | Build | System $/acct @10k accts | @40k accts |
 |---|---|---|---|---|---|---|---|
-| MD-1 Conventional manual | 183 | 324 | 344 | $1.18M | $0 | 493 | 381 |
-| MD-2 Conventional + AI assistance | 110 | 256 | 276 | $1.25M | $0.1M | 426 | 313 |
-| MD-3 Workflow automation | 95 | 165 | 185 | $2.20M | $1.94M | 430 | 247 |
-| MD-4 Exception-driven | 43 | 102 | 122 | $2.20M | $1.94M | 365 | 183 |
-| MD-5 AI-native with deterministic controls | 26 | 85 | 105 | $2.30M | $1.94M | 348 | 166 |
-| MD-6 Technology-only licensing | 26 (sponsor-borne) | 27 | 105 | $1.60M | $1.60M | 278 | 148 |
-| MD-7 Hybrid licensing + exception administration | 26 (60% vendor) | 61 | 105 | $1.95M | $1.75M | 313 | 157 |
+| MD-1 Conventional manual | 183 | 397 | 417 | $1.18M | $0 | 576 | 457 |
+| MD-2 Conventional + AI assistance | 156 | 370 | 390 | $1.35M | $0.1M | 558 | 432 |
+| MD-3 Workflow automation | 100 | 217 | 238 | $2.20M | $1.94M | 491 | 301 |
+| MD-4 Exception-driven (no AI) | 62 | 158 | 178 | $2.20M | $1.94M | 430 | 241 |
+| MD-5 AI-native with deterministic controls | 53 | 147 | 167 | $2.50M | $1.94M | 439 | 235 |
+| MD-6 Technology-only licensing | 53 (sponsor-borne, ×1.4) | 31 | 197 | $1.80M | $1.60M | 399 | 248 |
+| MD-7 Hybrid licensing + exception administration | 53 (60% vendor) | 99 | 179 | $2.20M | $1.75M | 421 | 240 |
 
-System variable cost adds sponsor-borne labour, sponsor-reserved decisions (2.7-7 min/account) and pass-through rails. MD-5, MD-6 and MD-7 have the same system cost: they differ only in who carries it.
+System variable cost adds sponsor-borne labour (×1.4 efficiency penalty in licensing modes; CHL-058), sponsor-reserved decisions and pass-through rails. In licensing modes the vendor carries all AI compute.
 
-## 2. Break-even average billable assets (base; $250k balance; 5 sponsors)
+## 2. Break-even average billable assets
+
+**Operating break-even (base; $250k balance; 5 sponsors)**
 
 | Mode | 5 bps | 10 bps | 15 bps | 20 bps | 25 bps | 30 bps |
 |---|---|---|---|---|---|---|
-| MD-1 | never | never | $7.24B | $2.11B | $1.23B | $0.87B |
-| MD-2 | never | never | $3.14B | $1.53B | $1.01B | $0.76B |
-| MD-3 | never | $7.22B | $2.92B | $1.83B | $1.33B | $1.05B |
-| MD-4 | $26.6B | $4.10B | $2.22B | $1.52B | $1.16B | $0.93B |
-| MD-5 | $15.1B | $3.68B | $2.10B | $1.46B | $1.13B | $0.91B |
-| MD-6 | $4.08B | $1.80B | $1.15B | $0.85B | $0.67B | $0.55B |
-| MD-7 | $7.91B | $2.68B | $1.62B | $1.16B | $0.90B | $0.74B |
+| MD-1 | never | never | never | $3.86B | $1.75B | $1.13B |
+| MD-3 | never | $19.4B | $4.02B | $2.24B | $1.55B | $1.19B |
+| MD-4 | never | $6.85B | $2.90B | $1.84B | $1.35B | $1.06B |
+| MD-5 | never | $6.58B | $2.98B | $1.92B | $1.42B | $1.13B |
+| MD-6 | $4.80B | $2.06B | $1.31B | $0.96B | $0.76B | $0.63B |
+| MD-7 | $22.4B | $3.86B | $2.11B | $1.45B | $1.11B | $0.90B |
 
-Monte Carlo (balance, sponsors, rates, touch rates, AI factor, prevention, fixed costs sampled), MD-5: 10 bps P10/P50/P90 $3.6B / $4.9B / $10.9B; 20 bps $1.48B / $1.74B / $2.21B; 30 bps $0.92B / $1.06B / $1.25B. At 5 bps the fee fails to cover variable cost in 40% of draws. Full grid in [break-even-grid.csv](data/model-outputs/break-even-grid.csv) and [15](15-capital-and-break-even-reassessment.md).
+**Fully loaded** (build, $125k CAC per sponsor and onboarding amortised over 5 years; CHL-024): MD-5 at 20 bps **$2.33B**; MD-6 $1.23B; MD-1 $4.49B. Full grid in [results.md](model/out/results.md) §2a.
 
-**Balance dominates.** At a $100k average balance MD-5 needs $2.11B at 20 bps; at $500k it needs $1.33B. Conventional administration (MD-1) never breaks even on $100k balances at any fee up to 30 bps. This reproduces PR #86's finding that a flat bps fee is wrong for low-balance books.
+**Monte Carlo, MD-5** (independent draws / correlated ρ=0.5): at 10 bps P50 $10.2B, and the fee never covers variable cost in 20% / 25% of draws; at 20 bps P10-P50-P90 $1.87B-$2.48B-$4.25B (correlated P90 **$7.26B**); at 30 bps $1.13B-$1.41B-$1.94B. Plan against the correlated tails (CHL-026, CHL-108).
+
+**Balance.** At a $100k average balance MD-5 needs $5.1B at 20 bps; at $500k, $1.59B. The industry-wide average is about $141k (CHL-083), below the comfortable zone for any bps-priced administration.
 
 ## 3. Where the saving comes from
 
 | Step | Saving $/acct | Minutes saved |
 |---|---|---|
-| AI assistance on conventional touches (MD-1→MD-2; alternative path) | 67.9 | 73.3 |
-| Deterministic workflow on structured events (MD-1→MD-3) | 102.4 | 88.4 |
-| Exception-only design for all events, no AI, no prevention (MD-3→MD-4) | 29.4 | 26.3 |
-| Prevention mechanisms (upstream input design) | 33.5 | 25.3 |
-| AI on residual exceptions (MD-4→MD-5) | 17.5 | 17.3 |
+| AI assistance on conventional touches (MD-1→MD-2; alternative path) | 27 | 28 |
+| Deterministic workflow on structured events (MD-1→MD-3) | 124 | 84 |
+| Exception-only design for all events, no AI, no prevention (MD-3→MD-4) | 39 | 26 |
+| Prevention mechanisms at half efficacy | 20 | 11 |
+| AI on residual exceptions (MD-4→MD-5) | 11 | 9 |
 
-The AI-assistance path (MD-2) is real but smaller than redesign, and it is the step most exposed to the unmeasured AI factor (HYP-008). Its value lies in deployment speed for an incumbent, which is why incumbents can copy it quickly (TIFIN's assistant, SRC-022).
+Two caveats from the economist stand. MD-3's touch rates are AI-native-column targets, not demonstrated deterministic rates (CHL-103), and an entry-year ramp would raise every touch rate. Both are covered only by the touch-multiplier range (0.6-2.0) and the stress below.
 
-## 4. Prevention versus faster processing (MD-5, $ per account-year)
+## 4. Correlated pessimistic stress (20 bps)
+
+Stress settings: AI factor 0.88, touches ×1.5, minutes ×1.3, no automation failure benefit, fixed cost ×1.15.
+
+| Mode | Base break-even | Stress break-even | Minutes base → stress |
+|---|---|---|---|
+| MD-1 | $3.86B | $4.29B | 183 → 183 |
+| MD-4 | $1.84B | $2.74B | 62 → 117 |
+| MD-5 | $1.92B | $2.79B | 53 → 103 |
+| MD-6 | $0.96B | $1.11B | 53 → 103 |
+| MD-7 | $1.45B | $1.87B | 53 → 103 |
+
+Under stress AI-native still beats conventional administration, but it loses its edge over exception-driven administration. **Licensing is the least sensitive mode**, because the vendor's economics do not depend on handling minutes.
+
+## 5. Prevention versus faster processing (MD-5, $ per account-year, half efficacy)
 
 | Event | Prevention value | AI speed value |
 |---|---|---|
-| Grant approval (pre-validated policy rules at recommendation time) | 10.48 | 8.75 |
-| Charity vetting (change-driven monitoring with expiry) | 2.99 | 0.52 |
-| Reconciliation (single ledger, continuous) | 1.93 | 0.36 |
-| Contribution attribution (notification-first intent) | 1.90 | 0.53 |
-| Customer communication (self-service status) | 1.59 | 1.78 |
-| Payment processing (e-payment enrolment) | 1.50 | 1.91 |
-| Fraud (callback to aged contacts; bank-change holds) | 0.95 | 0.05 |
+| Grant approval (pre-validated policy rules) | 5.96 | 6.05 |
+| Charity vetting (change-driven monitoring with expiry) | 3.15 | 0.72 |
+| Reconciliation (single ledger; internal breaks only, CHL-059) | 2.29 | 0.46 |
+| Contribution attribution (notification-first intent) | 1.67 | 0.43 |
+| Customer communication (self-service status) | 1.43 | 0.93 |
+| Payment processing (e-payment enrolment) | 1.27 | 0.94 |
 
-Prevention dominates except where the residual work is judgement (succession, complex assets) or contact handling. If prevention fails entirely (prevention scale 0), MD-5 break-even rises from $1.46B to $1.56B: important, but not decisive.
+## 6. Sensitivity (tornado, MD-5, 20 bps)
 
-## 5. Sensitivity
+| Driver | Break-even range |
+|---|---|
+| Average balance | $1.59-5.11B |
+| Activity frequency (includes the rebound from cheaper grants, CHL-106) | $1.69-3.03B |
+| **Fixed cost** | $1.57-2.81B |
+| Native touch rate | $1.76-2.41B |
 
-The tornado (break-even at 20 bps, per-unit parameters) ranks: average balance ($1.33-2.11B), activity frequency ($1.39-1.73B), sponsor count, native touch-rate multiplier ($1.42-1.56B), infrastructure per account, prevention, minutes per touch, labour rates. Labour-rate and AI-cost parameters barely move break-even: **in an AI-native design, fixed cost and balance, not labour efficiency, set viability.** Fixed-cost uncertainty is sampled in the Monte Carlo, not the tornado.
+Then minutes per touch, sponsor count, utilisation and prevention. **Fixed cost and balance dominate; labour efficiency is second-order.**
 
-## 6. Economist's check on AI productivity claims
+## 7. The economist's check on AI productivity claims
 
-- The model assumes AI cuts minutes per touch by 40% (0.6 factor). No DAF time study exists (PR #87 RC-AN-015). At the pessimistic 0.9, the AI step is worth about $4 per account-year.
-- Touch rates in AI-native mode (e.g. 9% of grant approvals, 1.2% of vetting checks) are calibrated to replay proxies (PR #88: 7.4-11.2% of lines routed to a person) but are not measured in production.
-- Human accountability is not removed: sponsor-reserved decisions, a named compliance owner, three-person release and independent reconciliation sit in fixed cost and in sponsor-borne minutes in every mode.
-- No double counting: rails are pass-through in every mode; prevention costs are charged per event; failure costs are counted once per event.
+- The base AI factor is now 0.85, from field evidence (~14% faster in customer support; ~3% of hours in administrative data), not the 0.6 lab figure (CHL-101). At 0.97 the AI step is worth close to nothing per account-year (the economist measured about −$0.2 under the revision-1 structure).
+- AI oversight and model-risk management ($0.1-0.2M a year) are now in fixed cost (CHL-104). At entry scale they cost more than the AI saves; AI pays for itself only above roughly 26k accounts.
+- Human accountability is unchanged in every mode: sponsor-reserved decisions, a named compliance owner, three-person release and independent reconciliation.
+- Not modelled:
+  - FTE step functions by expertise pool beyond the utilisation factor (CHL-109, partly accepted);
+  - per-tenant infrastructure floors by isolation profile (CHL-064, recorded);
+  - systemic batch failures (CHL-061, recorded as a risk).
 
-## 7. What this means
+## 8. What this means
 
-AI-native administration is a **cost-structure improvement, not a new cost structure**: it trades variable labour for fixed platform cost. It wins against conventional administrators only above roughly $1.5-2B of assets at 20 bps and $250k balances. The structurally cheaper position is to **not carry the event labour at all** (licensing) or to carry only exceptions (hybrid), which is a distribution question, not a technology question ([14](14-alternative-enterprise-models.md)).
+AI-native administration is a **cost-structure improvement over conventional administration and roughly at parity with a well-automated incumbent**. Its advantage comes from deterministic design and prevention, which incumbents can adopt too. The economically robust position for an entrant is **licensing**, which is insensitive to handling minutes. That turns the question into one of distribution, not technology ([11](11-institutional-distribution.md), [14](14-alternative-enterprise-models.md)).

@@ -26,7 +26,9 @@ let draws = 2000
 let outputs (inputs: Inputs) : (string * string) list =
     let vals = baseVals inputs
     let be = breakEvenGrid inputs vals
-    let mc = monteCarlo draws seed inputs
+    let mc = monteCarlo draws seed 0.0 inputs
+    let mcc = monteCarlo draws seed 0.5 inputs
+    let st = stress inputs
     let dec = decomposition inputs vals
     let prev = preventionVsSpeed inputs vals
     let tor = tornado inputs "MD-5" 20.0 @ tornado inputs "MD-6" 20.0
@@ -44,25 +46,26 @@ let outputs (inputs: Inputs) : (string * string) list =
         |> List.map (fun (_, rs) -> rs |> List.minBy (fun r -> r.Result.Total))
         |> List.sortBy (fun r -> r.Charities, r.Sponsors, r.Refresh)
     let routes = routeCases inputs
-    let rmc = routeMc draws seed inputs
+    let rmc = routeMc draws seed 0.0 inputs @ routeMc draws seed 0.5 inputs
     let regGridCsv =
         Csv.write [ "alt_id"; "charities_per_sponsor"; "sponsors"; "change_rate"; "refresh"; "grants"; "charities_in_use"; "exceptions"; "human_hours"; "run_cost"; "per_grant"; "per_sponsor"; "establishment" ]
             (grid |> List.map (fun r -> [ r.Alt; Csv.fmt r.Charities; Csv.fmt r.Sponsors; Csv.fmt r.ChangeRate; r.Refresh; Csv.fmt r.Grants; Csv.fmt r.Result.Charities; Csv.fmt r.Result.ExceptionsPerYear; Csv.fmt r.Result.HumanHours; Csv.fmt r.Result.Total; Csv.fmt r.Result.PerGrant; Csv.fmt r.Result.PerSponsor; Csv.fmt r.Result.Establishment ]))
     let routesCsv =
-        Csv.write [ "route_id"; "case"; "capital"; "first_cash_positive_month"; "cumulative_cash_m60"; "customers_m60" ]
-            (routes |> List.map (fun r -> [ r.RouteId; r.Case; Csv.fmt r.Result.Capital; (r.Result.FirstPositiveMonth |> Option.map string |> Option.defaultValue "none"); Csv.fmt r.Result.CumulativeAt60; Csv.fmt r.Result.CustomersAt60 ]))
+        Csv.write [ "route_id"; "case"; "capital"; "first_cash_positive_month"; "payback_month"; "cumulative_cash_m60"; "cumulative_cash_m120"; "live_customers_m60"; "annual_revenue_m60" ]
+            (routes |> List.map (fun r -> [ r.RouteId; r.Case; Csv.fmt r.Result.Capital; (r.Result.FirstPositiveMonth |> Option.map string |> Option.defaultValue "none"); (r.Result.PaybackMonth |> Option.map string |> Option.defaultValue "none"); Csv.fmt r.Result.CumulativeAt60; Csv.fmt r.Result.CumulativeAt120; Csv.fmt r.Result.CustomersAt60; Csv.fmt r.Result.AnnualRevenueAt60 ]))
         + "\n"
-        + Csv.write [ "route_id"; "capital_p10"; "capital_p50"; "capital_p90"; "share_never_cash_positive_60m" ] (rmc |> List.map (fun (id, a, b, c, d) -> [ id; Csv.fmt a; Csv.fmt b; Csv.fmt c; Csv.fmt d ]))
+        + Csv.write [ "route_id"; "rho"; "capital_p10"; "capital_p50"; "capital_p90"; "share_no_payback_120m"; "payback_month_p50" ] (rmc |> List.map (fun r -> [ r.RouteId; Csv.fmt r.Rho; Csv.fmt r.P10; Csv.fmt r.P50; Csv.fmt r.P90; Csv.fmt r.NoPayback120; Csv.fmt r.PaybackP50 ]))
     [ "event-costs-by-mode.csv", Render.eventCostsCsv inputs vals
       "mode-summary.csv", Csv.write Render.modeSummaryHeader (Render.modeSummaryRows inputs vals)
-      "break-even-grid.csv", Render.breakEvenCsv be mc
+      "break-even-grid.csv", Render.breakEvenCsv be mc mcc
+      "stress.csv", Csv.write [ "mode_id"; "base_break_even_20bps"; "stress_break_even_20bps"; "base_min_per_acct"; "stress_min_per_acct" ] (st |> List.map (fun r -> [ r.ModeId; Csv.fmt r.BaseAssets; Csv.fmt r.StressAssets; Csv.fmt r.BaseMinutes; Csv.fmt r.StressMinutes ]))
       "saving-decomposition.csv", Csv.write [ "step"; "from"; "to"; "saving_per_acct"; "minutes_saved_per_acct" ] (dec |> List.map (fun d -> [ d.Step; d.FromMode; d.ToMode; Csv.fmt d.SavingPerAcct; Csv.fmt d.MinutesSaved ]))
       "prevention-vs-speed.csv", Csv.write [ "event_id"; "event"; "prevention"; "prevention_value_per_acct"; "ai_speed_value_per_acct" ] (prev |> List.map (fun p -> [ p.EventId; p.Name; p.Prevention; Csv.fmt p.PreventionValue; Csv.fmt p.SpeedValue ]))
       "event-pareto.csv", Csv.write [ "mode_id"; "event_id"; "event"; "cost_per_acct"; "share"; "cumulative" ] ((par1 @ par5) |> List.map (fun r -> [ r.ModeId; r.EventId; r.Name; Csv.fmt r.CostPerAcct; Csv.fmt r.Share; Csv.fmt r.Cumulative ]))
       "tornado.csv", Csv.write [ "mode_id"; "param"; "low"; "high"; "break_even_at_low"; "break_even_at_high" ] (tor |> List.map (fun t -> [ t.ModeId; t.Param; Csv.fmt t.LowValue; Csv.fmt t.HighValue; Csv.fmt t.AtLow; Csv.fmt t.AtHigh ]))
       "registry-alternatives-grid.csv", regGridCsv
       "entry-route-capital.csv", routesCsv
-      "results.md", Render.resultsMarkdown inputs vals be mc dec prev tor par1 par5 recon regBase regMc lowest routes rmc ]
+      "results.md", Render.resultsMarkdown inputs vals be mc mcc st dec prev tor par1 par5 recon regBase regMc lowest routes rmc ]
 
 let run (inputDir: string) (outDir: string) =
     match loadInputs inputDir with

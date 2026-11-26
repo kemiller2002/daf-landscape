@@ -1,6 +1,6 @@
 # 08 - Making onboarding boring
 
-Status: research (2026-11-26). Starting point: Transitus research (branch `claude/transitus-research-architecture-42a96z`, PR #1 **not merged**, provisional; SRC-006) and PR #88 reports 10-18 (SRC-001). New cross-industry evidence: [trackD-techniques.csv](data/evidence/trackD-techniques.csv) (23 techniques with measured outcomes) and [trackD-notes.md](data/evidence/trackD-notes.md) (SRC-066).
+Status: research (2026-11-26; revision 2 after adversarial review, see [20](20-adversarial-review.md)). Starting point: Transitus research (branch `claude/transitus-research-architecture-42a96z`, PR #1 **not merged**, provisional; SRC-006) and PR #88 reports 10-18 (SRC-001). New cross-industry evidence: [trackD-techniques.csv](data/evidence/trackD-techniques.csv) (23 techniques with measured outcomes) and [trackD-notes.md](data/evidence/trackD-notes.md) (SRC-066).
 
 ## Answer in brief
 
@@ -45,12 +45,14 @@ Onboarding becomes boring when it has **a standard, a guarantee and a clock** (A
 
 ## 3. How much can be done before contract signature?
 
-Without any donor data leaving the sponsor (NDA only):
+**Revision 2 (CHL-017, CHL-040, CHL-069, CHL-070, CHL-072).** Pre-contract work is not "NDA only": running a profiler in the sponsor's environment is a software-installation and security event, and any record-level data needs an MSA and a DPA plus a written information-security programme. The tiers are therefore: **T0 (no install, no data)**: extraction plan, exit-clause review, contract-end back-schedule, and a template the sponsor fills in itself; **T1 (installed profiler, after IT approval)**: structural aggregates with a minimum fund count and dominance suppression on money cells; **T2+ (under MSA + DPA)**: record-level work. Synthetic runs are a **parser and layout conformance check** only; they cannot predict record-level defects and must not produce data-quality ratings or fixed-price quotes.
+
+Without any donor data leaving the sponsor:
 1. **Extraction plan**: which named incumbent reports the sponsor can download, and what they omit.
 2. **Contract-end back-schedule**: core banking starts 18-24 months out; DAF assessments should start from the incumbent's notice date.
 3. **Exit-clause review**: export rights, fees, windows (the TPRM checklist is a ready template).
-4. **Local structural profile**: profiler runs in the sponsor's environment and emits only field coverage, null rates, fund-type counts and k-suppressed aggregates.
-5. **Synthetic rehearsal**: a synthetic dataset generated from schema + suppressed distributions exercises adapter, mapping and reconciliation end to end and yields a readiness report.
+4. **Local structural profile** (T1, after IT approval): field coverage, null rates, fund-type counts, suppressed aggregates; for books under a minimum fund count, no aggregates leave the sponsor.
+5. **Synthetic conformance check**: exercises adapter layout and mapping only.
 
 Not possible before signature without a data processing agreement: loading real records, exact tie-out, and history-depth confirmation. Constraints: incumbent login-only access and paid exports; benchmark clauses in incumbent contracts; state privacy laws and the sponsor's donor privacy notice.
 
@@ -64,7 +66,7 @@ Not possible before signature without a data processing agreement: loading real 
 | Sponsor policy and configuration | No (declarative, sponsor-specific) |
 | Cleansing and exceptions | No |
 
-No public source measures the reusable share (only SAP's vendor claim). Expected pattern (INFERENCE, Medium): the second migration from the same source costs far less than the first, so **sales should cluster on one incumbent source** (DEC-007; HYP-012).
+No public source measures the reusable share (only SAP's vendor claim). Expected pattern (INFERENCE, Medium): the second migration from the same source costs far less than the first, so **sales should cluster on one incumbent source** (DEC-007; HYP-012). Limits (CHL-071, CHL-072): hosted incumbents change report layouts without notice, so adapters are versioned per report version with a drift test and annual maintenance; self-service reports rarely carry transaction IDs, reversal chains or audit trails, so **report adapters support balance-level conversion only; full history needs a contracted incumbent export**; and incumbents (Foundant, Ren) already hold far more repetitions (CHL-002).
 
 ## 5. Institutional onboarding maturity model (conceptual)
 
@@ -77,14 +79,15 @@ No public source measures the reusable share (only SAP's vendor claim). Expected
 | 4 | Assured and measured | SLA clock starts on conforming extract; outcome commitments; per-migration metrics (cycle time, exceptions per 1k, post-go-live defects); standard pre-contract T1; published symmetric exit price | Stripe SLA; CASS guarantee |
 | 5 | Largely automated | Sponsor runs profiler and adapter; AI suggestions pass gates; >50% of migrations need no engineering change; statistics published | ACATS/CASS utilities; no DAF exemplar |
 
-Progression metrics: share of fields mapped by package defaults; engineering changes per migration; mock-to-live control-total delta; days from conforming extract to go-live; post-go-live defects per 1k funds at 30/90 days. **Claim a level only from measured data.** Incumbents publish nothing that places them on this scale (CLM-020).
+Progression metrics: share of fields mapped by package defaults; engineering changes per migration; mock-to-live control-total delta; days from conforming extract to go-live; post-go-live defects per 1k funds at 30/90 days. Each needs a stated numerator, denominator, window and minimum sample before a level is claimed; at 2-4 migrations a year, levels 4-5 cannot be evidenced for years and the exemplar column is illustrative (CHL-076). **Claim a level only from measured data.** Incumbents publish nothing that places them on this scale (CLM-020).
 
 ## 6. Migration assessment as an acquisition mechanism
 
 - **Direct evidence: none** (CLM-021). Free migration is common in nonprofit CRM; PoC win-rate figures are confounded by selection.
 - **Indirect**: 75% of buyers cite migration cost as a barrier (SRC-059); credit unions switch despite seven-figure exit fees; buyers ask for assurance (Foundant PoC snippet; quality C).
 - **Assessment**: a structured assessment (extraction plan + exit-cost comparison + dated plan tied to the incumbent's contract end + SLA clock) plausibly lowers perceived risk and shortens qualification (HYP-004). Price T0-T1 free, T2-T3 paid and credited against implementation.
-- **As a business on its own**: it does not pay for itself (route ER-2 never cash-positive in >99% of draws; CLM-028). Its value is pipeline and evidence, not margin.
+- **As a business on its own**: it does not pay for itself (route ER-2 never self-funding; CLM-028). Receiving vendors scope migrations free and selection consulting costs a few thousand dollars, so it should be treated as **customer-acquisition cost** (CHL-068, CHL-095). Paid T2-T3 work makes sense only as an implementation deposit for a sponsor that has already decided to move.
+- **Commitments**: offer **process SLAs only** (Unbound's own turnaround after a conforming extract), with fee-credit remedies and liability capped at fees; exclude incumbent and sponsor-dependent inputs (CHL-075). Freeze targets are conditional on the incumbent delivering the final extract on a set date (CHL-074). Rehearsal cost scales with volume and includes each paid incumbent extract (CHL-073); sponsor effort is likely above the 934 hours modelled for 10k funds (CHL-077).
 
 ## 7. What remains unavoidable
 

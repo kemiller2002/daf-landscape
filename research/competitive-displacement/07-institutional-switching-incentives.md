@@ -1,6 +1,6 @@
 # 07 - Institutional switching incentives
 
-Status: research (2026-11-26). Switch log: [trackC-switches.csv](data/evidence/trackC-switches.csv) (S01-S44; observed vs inferred marked). Answers research questions 3 and 4.
+Status: research (2026-11-26; revision 2 after adversarial review, see [20](20-adversarial-review.md)). Switch log: [trackC-switches.csv](data/evidence/trackC-switches.csv) (S01-S44; observed vs inferred marked). Answers research questions 3 and 4.
 
 ## 1. The switch record (2015-2026)
 
@@ -17,7 +17,8 @@ Status: research (2026-11-26). Switch log: [trackC-switches.csv](data/evidence/t
 
 | Trigger | Status | Segment where it operates |
 |---|---|---|
-| Need for an **integrated platform** (accounting, grantmaking, donor services) | **Observed, stated** (Vermont, CNY, Arizona; CLM-016) | Community foundations; some faith sponsors |
+| Need for an **integrated platform** (accounting, grantmaking, donor services) | **Stated in public communications (n=3: Vermont, CNY, Arizona)**; these are after-the-fact donor-facing notices, not verified purchase reasons (CHL-092). 24 of 44 switch records state no reason | Community foundations; some faith sponsors |
+| Peer referral and leadership turnover | Candidate triggers; unmeasured (CHL-092) | All |
 | **Vendor-forced event** (product sale, re-hosting, end of support) | Observed (Blackbaud FIMS sale; NPact Azure re-host; Arizona "90-day crunch") | CFs and sponsors on legacy stacks |
 | Sponsor builds or owns its own platform | Observed (Signatry → Give Interactive; Vanguard Charitable) | Large national/faith sponsors with capital |
 | Channel partner adds a second provider | Observed (SEI) — additive, not a departure | Wealth platforms |
@@ -40,7 +41,11 @@ No public evidence yet. Candidate reasons, each a hypothesis with its test:
 
 ## 4. Who decides, who feels the pain
 
-The people who experience the documented pain (donors, charities, operations staff during freezes; compliance during audits) are not the people who control the purchase (sponsor executive and board; in advisor programmes, the wealth firm). The controllers are paid by the incumbent arrangement in advisor and RCF-type programmes. **Solving user pain does not, on present evidence, change purchasing behaviour** except where the pain is fragmentation felt by the sponsor's own staff.
+The people who experience the documented pain (donors, charities, operations staff during freezes; compliance during audits) are not the people who control the purchase (sponsor executive and board; in advisor programmes, the wealth firm). The controllers are paid by the incumbent arrangement in advisor and RCF-type programmes. **Solving user pain does not, on present evidence, change purchasing behaviour** except where the pain is fragmentation felt by the sponsor's own staff. Donor-felt pain (freezes, history, slow grants) and sponsor purchase reasons must be kept apart (CHL-097).
+
+## 4a. Why satisfied customers stay (from the unwilling-customer review)
+
+A satisfied COO's switching cost is mostly people and institutions, not data: 6-12 months for staff to reach proficiency, the year-end giving season, audit fee uplift and control re-testing, board cycles, donor and adviser support load, and the risk that a startup vendor will not exist for the seven-plus years records must be kept (CHL-093, CHL-094). A contract-end date is usually used to renegotiate with the incumbent using a competitor's quote, not to leave (CHL-096). Price and exit symmetry are hygiene factors that incumbents concede at renewal (CHL-098). The validation plan therefore now interviews stayers as well as switchers ([22](22-commercial-validation-plan.md) V-1).
 
 ## 5. Exit costs in adjacent markets
 

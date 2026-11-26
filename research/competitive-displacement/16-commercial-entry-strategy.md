@@ -1,57 +1,72 @@
 # 16 - Commercial entry strategy
 
-Status: research recommendation (2026-11-26). **A proposal, not a decision**: per the Praxis authority contract (SRC-060), nothing here changes Unbound's ratified decisions. The conflict with OD-M-05 is escalated (DEC-001, XRI-001).
+Status: research recommendation (2026-11-26), **revision 2** after the adversarial review. **A proposal, not a decision**: per the Praxis authority contract (SRC-060) nothing here changes Unbound's ratified decisions; the conflict with OD-M-05 is escalated (DEC-001, XRI-001).
 
 ## 1. Is the existing Unbound commercial strategy wrong?
 
-**As an entry strategy, the evidence says yes.** The ratified plan (OD-M-05) enters by displacing incumbents at mid-size national and single-issue sponsors (5k-50k funds) and advisor-distributed sponsors, with administration revenue around 20 bps. Against it:
+**As an entry strategy, the evidence says yes.** The ratified plan (OD-M-05) enters by displacing incumbents at mid-size national and single-issue sponsors (5k-50k funds) and advisor-distributed sponsors, with administration revenue around 20 bps.
 
-| Evidence | Effect | Claim |
+| Evidence | Effect | Reference |
 |---|---|---|
-| 1 of 26 national/faith iPhi sponsors left Ren in 2023-26; advisor channels add rather than replace | The target segment is the **least mobile** | CLM-015, CLM-018, CLM-027 |
-| Incumbent revenue is shared with sponsors-of-record and distributors (RCF 98%; adviser compensation) | Purchase controllers are paid to stay | CLM-017 |
-| No observed switch cites technology, price, exit terms or history | The product advantages Unbound is building are not yet purchase triggers | CLM-016 |
-| AI-native administration lowers break-even only from ~$2.1B to ~$1.5B at 20 bps | Not a decisive cost weapon at entry scale | CLM-013 |
-| Full administration needs $4.5-8.8M before it is self-funding, and the most capital of any route | Highest-risk entry | CLM-030 |
+| 1 of 26 national/faith iPhi sponsors left Ren in 2023-26 (about 1% a year); advisor channels add rather than replace | The target segment is the **least mobile** | CLM-015, CLM-018, CLM-027 |
+| Incumbent revenue is shared with sponsors-of-record and distributors (RCF ~98%; adviser compensation) | Purchase controllers are paid to stay | CLM-017 |
+| No observed switch cites technology, price, exit terms or history | Product advantages are not yet purchase triggers | CLM-016 |
+| AI-native administration is roughly at parity with a well-automated incumbent; AI is ~6% of the saving | No decisive cost weapon | CLM-011, CLM-013 |
+| Full administration needs about $10M at market pay and rarely pays back within ten years | Highest-risk entry | CLM-030 |
 
-The strategy is **not wrong as a destination**. The platform, the single ledger, the vetting design and the migration capability remain sound. What is unsupported is **entering first as a full-service displacing administrator in the least mobile segment**.
+The strategy is **not wrong as a destination**: the single ledger, deterministic controls, provenance-bound vetting and reconciliation-gated migration remain sound product choices. What is unsupported is **entering first as a full-service displacing administrator in the least mobile segment**.
 
-## 2. Alternative: evidence-first, channel-led, licence-before-administration
+## 2. What the adversarial review changed
 
-| Stage | What | Who buys | Capital (cumulative) | Exit criteria to next stage |
-|---|---|---|---|---|
-| **G0 Validate (0-4 months)** | Win/loss interviews; price test; public-data replay harness; auditor walkthrough; 5 channel-partner conversations; contract-end calendar | — | $0.15-0.35M | ≥1 channel partner in term-sheet talks **or** ≥3 sponsors in a contract-end window willing to run a T1 assessment; replay confirms change rate ≤ ~4% |
-| **G1 Non-custodial wedge (4-12 months)** | (a) Charity eligibility evidence API (public-data, provenance-bound, change-driven); (b) migration assessment + reconciliation report at contract-end windows; both sold to sponsors, administrators and platforms | Sponsors at re-platforming windows (SEG-012, SEG-002, SEG-010); administrators; CSR/payment platforms (HYP-007) | $0.7-1.2M | ≥2 paying customers; ≥1 authorised incumbent export rehearsed with full reconciliation; ≥1 partner pilot |
-| **G2 Licensed platform via channel (12-36 months)** | Technology-only licence (MD-6) or hybrid exception service (MD-7), distributed through a partner (CF-software vendor, administrator, bank/trust distributor, multi-custodian data layer) | Partner's sponsors | ~$5M P50 (ER-7) | ~30k licensed accounts (MD-6 break-even at $81) or partner revenue covering burn |
-| **G3 Administration option (36+ months)** | Full administration for a sponsor that asks for it, behind a signed anchor and a design-partner agreement | Mid-size national or single-issue sponsor (OD-M-05 segment) | +$1.35-2.8M incremental (PR #87, if platform exists) | Anchor LOI; counsel opinion; auditor acceptance of generated evidence |
+Revision 1 proposed a standalone non-custodial wedge: a paid migration assessment plus a charity eligibility evidence feed sold to sponsors at contract-end windows. The reviewers showed it cannot stand alone:
 
-## 3. Minimum viable commercial entry point (Q9)
+- **No platform to move to at G1.** An assessment sizes either a move to a platform that does not exist yet or a move to a competitor whose team will redo the work (CHL-067).
+- **No price.** Receiving vendors scope migrations free during the sales cycle, and selection consulting is a few thousand dollars (CHL-068, CHL-095). The assessment is customer-acquisition cost, not revenue.
+- **Commodity evidence.** Candid Charity Check starts at $2,750 a year with most of the same public-data content; Treasury Do Not Pay is free for federal agencies (CHL-051).
+- **Procurement blocks an undercapitalised vendor.** SOC 2 is expected even without SOC 1; donor PII triggers DPA, WISP and privacy duties; bank buyers review vendor financial condition (CHL-014, CHL-015, CHL-040).
+- **Windows are mostly renegotiation leverage, not exits** (CHL-096). Sales cycles of 9-24 months make "two paying customers in 8 months" implausible (CHL-013).
+- **The evidence base sampled only movers** (CHL-091).
 
-**A paid migration assessment and reconciliation report, bundled with a charity eligibility evidence feed, sold to sponsors that are already inside a re-platforming or contract-end window.** It needs no custody, no payment origination, no SOC 1 reliance at first and no donor-facing product. It buys the evidence the whole thesis lacks (selection reasons, a real export, measured exception rates) and creates a pipeline at the only moments institutions are observed to move. It is **not** a self-sustaining business (CLM-028); it is a wedge with a defined exit into licensing.
+## 3. Revised alternative: partner-first, licence-before-administration
 
-## 4. Entry points considered (Track F list)
+| Stage | What | Capital (cumulative) | Exit criteria |
+|---|---|---|---|
+| **G0 Validate (0-6 months)** | Win/loss with **5 switchers and 5 stayers**; price test of licence per account and of services separately; public-data replay harness; auditor/counsel view of re-vetting policy; **channel-partner conversations** (CF-software vendor without deep DAF capability, administrator, bank/trust distributor, multi-custodian data layer); contract-end calendar with confirmed evaluations | $0.15-0.35M | **A named partner in term-sheet talks** with a pilot customer; stayers' answers do not falsify HYP-001; replay change rate ≤ ~6% |
+| **G1 Partner pilot (6-24 months)** | Unbound licensed as a **DAF module inside the partner's offering** at one of the partner's re-platforming customers: canonical import and reconciliation (Transitus phase 1), eligibility evidence, DAF ledger. Partner holds the customer relationship, balance-sheet comfort and first-line support. SOC 2 Type 1 then Type 2; DPA/WISP; process-only SLAs with capped liability | $1.0-1.5M | One live pilot sponsor with full per-fund reconciliation; partner commits to a minimum volume |
+| **G2 Licensed platform through the channel (24-60 months)** | MD-6/MD-7 licensing to the partner's customers | ~$6.5M P50 total (P90 ~$9M) | ~36k licensed accounts (MD-6 break-even at $81) or partner revenue covering burn |
+| **G3 Administration option (60+ months)** | Full administration only if a sponsor asks, behind a signed anchor and design-partner agreement | +$1.35-2.8M incremental (PR #87) | Anchor LOI; counsel opinion; auditor acceptance |
 
-| Entry point | Credible path to broader platform adoption? | Why |
+**Kill rule (CHL-022):** no named partner by month 6, or no referenceable live pilot by month 24, pauses the thesis before platform capital beyond Release 1.
+
+## 4. Minimum viable commercial entry point (Q9)
+
+**A partner pilot: Unbound's DAF ledger, reconciliation-gated migration and eligibility evidence licensed as a module inside an established partner's offering, delivered to one of that partner's re-platforming customers.** The partner removes the three blockers an entrant cannot remove alone: distribution, vendor-viability objections and SOC history. Unbound contributes what partners lack and incumbents do not publish: verifiable migration with per-fund reconciliation and replayable eligibility decisions.
+
+The free **exit-readiness assessment** (T0-T1: extraction plan, history-depth check, exit-clause review) remains a pre-sales tool and customer-acquisition cost. It is not a product. The **eligibility evidence** is a component of the module, priced against Candid's $2,750 floor, not a standalone business.
+
+## 5. Entry points considered
+
+| Entry point | Path to broader adoption? | Why |
 |---|---|---|
-| Charity intelligence | Weak alone; good as a component | Public data commoditised; Candid incumbent; archive is the only durable asset |
-| Migration tooling | **Yes, at windows** | Present exactly when platform decisions are made; evidence-generating |
-| File ingestion | Weak alone | Valuable inside a platform (prevention), not as a product |
-| Reconciliation | Moderate | Sells to controllers; needs ledger access; leads to platform conversations |
-| Compliance evidence | Moderate | Strong with auditors; buyer budget unclear |
-| Institutional reporting | Weak | Low pain evidence |
-| Advisor integrations | Weak | Slots held by incumbents; RIA segment price-compressed |
-| White-label technology | **Yes, via a channel** | Cheapest self-sustaining mode (MD-6) |
-| Full DAF administration | Yes but most capital and least mobile segment | Option at G3 |
+| Charity intelligence | No, alone | Commodity (Candid $2,750; free public data); component only |
+| Migration tooling | Only as pre-sales and inside a platform | No standalone buyer; free elsewhere |
+| File ingestion / reconciliation | Inside a platform | Prevention value, not a product |
+| Compliance evidence | Weak | Buyer budget unclear |
+| Advisor integrations | No | Slots held; RIA segment price-compressed |
+| **White-label technology through a channel** | **Yes, if a partner exists** | Cheapest self-sustaining mode; least sensitive to productivity assumptions |
+| Full DAF administration | Option at G3 | Most capital; least mobile segment |
 
-## 5. What to say to buyers (positioning hypotheses to test)
+## 6. Positioning hypotheses (ranked below scope and integration; CHL-090)
 
-1. "Your migration, with full history, measured freeze, reconciliation proof and a published exit price" (HYP-003).
-2. "Eligibility decisions you can replay for an auditor, from public sources, with no vendor lock on the data" (HYP-005).
-3. "Your brand and your economics: a licence, not a sponsor-of-record capture" (HYP-010).
+The reviewers' point is accepted: from a satisfied buyer's seat none of these creates a decision to switch, and price and exit symmetry are hygiene factors that incumbents concede at renewal (CHL-098). They are tested against "nothing" with stayers in V-1:
+1. "Your migration, with full history, a measured freeze and reconciliation proof."
+2. "Eligibility decisions you can replay for an auditor."
+3. "Your brand and your economics: a licence, not sponsor-of-record capture."
 
-## 6. What would make this recommendation wrong
+## 7. What would make this recommendation wrong
 
-- Win/loss interviews show national and advisor-distributed sponsors **would** switch for product reasons (falsifies HYP-001) → return to OD-M-05 with confidence.
-- No channel partner engages within G0-G1 → licensing route reverts to direct ER-4 (P50 $6.5M) or the thesis is paused.
-- Replay shows change rates or exception minutes far above assumptions → the registry and vetting cost advantage shrinks.
-- A competitor (TIFIN, Foundation Source, Foundant) ships published migration commitments and exit symmetry first (HYP-013) → the wedge narrows to price.
+- Stayers and switchers both say national and advisor-distributed sponsors **would** switch for product reasons (falsifies HYP-001): return to OD-M-05 with confidence.
+- No partner engages by month 6: the cheapest self-sustaining route disappears; direct licensing (ER-4, P50 $7.6M) or a pause.
+- The partner captures most of the value (40-50% share; acquisition rather than licence; CHL-084): the business becomes a services supplier or an acquisition target.
+- Incumbents publish migration commitments and exit symmetry first (HYP-013), or obstruct exports and pre-empt renewals with discounts (CHL-005): full-history migration depends on a contracted incumbent export.
+- Final 4966 regulations treat personal investment advisers as donor-advisors (88 FR 77922, pending), reshaping advisor-channel economics (CHL-042).

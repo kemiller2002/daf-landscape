@@ -36,14 +36,15 @@ let workload (alt: RegistryAlt) (rp: Map<string, float>) (d: Drivers) (n: float)
     let changes = n * d.ChangeRate
     let expiry = n * p rp "evidence_expiry_share"
     let residual = 1.0 - alt.AutoResolve
+    let alerts = n * p rp "name_match_alert_rate" * residual * p rp "alert_minutes"
     match d.RefreshDays with
     | None ->
         let exceptions = (changes + newCh) * residual
-        exceptions, exceptions * exc + expiry * p rp "expiry_refresh_minutes"
+        exceptions, exceptions * exc + expiry * p rp "expiry_refresh_minutes" + alerts
     | Some days ->
         let reviews = n * 365.0 / days
         let exceptions = (changes + newCh) * residual
-        exceptions, exceptions * exc + reviews * p rp "periodic_review_minutes" * residual
+        exceptions, exceptions * exc + reviews * p rp "periodic_review_minutes" * residual + alerts
 
 let establishment (alt: RegistryAlt) (rp: Map<string, float>) =
     // connector build ~160 h each, exception/hold tooling 400 h, entity resolution 800 h, productization 600 h if standalone

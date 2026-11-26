@@ -6,17 +6,19 @@ Status: research recommendation (2026-11-26). Each test names its hypothesis, me
 
 | ID | Test | Hypotheses | Method | Cost | Duration | Pass / fail rule | Informs |
 |---|---|---|---|---|---|---|---|
-| V-1 | Win/loss interviews | HYP-001, HYP-002, HYP-003 | 10 sponsors that switched or evaluated vendors 2023-26 (start with the 6 iPhi exits, AEF, Vermont CF, CNY CF, Arizona CF); structured guide extending `commercial-opportunity/market-validation/interview-program.md` | $5-20k | 6-8 weeks | Thesis **falsified** if ≥6 of 10 name product capability (not incentives, scope or forced events) as decisive | DEC-001 |
+| V-1 | Win/loss interviews, **switchers and stayers** (revision 2, CHL-091) | HYP-001, HYP-002, HYP-003 | 5 switchers (iPhi exits, AEF, Vermont CF, CNY CF, Arizona CF) and **≥5 stayers**, including sponsors that sat through forced vendor events and stayed; stayers rank the positioning hypotheses against "nothing" | $10-30k | 8-10 weeks | Thesis **falsified** if ≥6 of 10 name product capability as decisive (then OD-M-05 is supported); entry wedge **falsified** if stayers rank every hypothesis below "nothing" | DEC-001 |
 | V-2 | Price test | DEC-006 | 5-10 sponsors: per-account licence ($81/$120/$150), service subscriptions, bps administration | $20-60k | 6-8 weeks | ≥3 accept ≥$100 per account or ≥$25k service subscription | DEC-006, DEC-008 |
 | V-3 | Public-data replay harness | HYP-005, HYP-006, HYP-015 | 12 archived IRS releases + CSL/OFAC history against real Schedule I recipients; measure change rate, conflicts, auto-resolution | $30-80k | 8-10 weeks | Change rate ≤6%, auto-resolution ≥20% | DEC-003 |
 | V-4 | Authorised incumbent export rehearsal | HYP-003, HYP-012 | One sponsor export under NDA through Transitus phase 1 with full per-fund reconciliation | $40-160k | 10-16 weeks | 100% money tie-out; history depth documented; freeze plan ≤5 business days | DEC-010 |
-| V-5 | Contract-end calendar | HYP-011 | Public notices, 990 vendor payments, DNS changes for 50 sponsors | $5-15k | 4 weeks | ≥10 windows in 24 months | DEC-007 |
-| V-6 | Channel-partner conversations | HYP-010, HYP-014 | 5 candidates: CF-software vendor, administrator, bank/trust distributor, multi-custodian data layer, league/CUSO | $5-15k | 8-12 weeks | ≥1 pilot term sheet | DEC-001, DEC-002 |
+| V-5 | Contract-end calendar | HYP-011 | Public notices, 990 vendor payments, DNS changes for 50 sponsors; follow-up confirms whether each window is an active evaluation | $5-15k | 4-6 weeks | ≥5 buyers **in active evaluation** in 24 months, not just windows (CHL-096) | DEC-007 |
+| V-6 | Channel-partner conversations (**the G0 exit test**) | HYP-010, HYP-014 | 5 candidates: CF-software vendor, administrator, bank/trust distributor, multi-custodian data layer, league/CUSO; model partner economics from the partner's side (build/acquire vs licence; CHL-084) | $5-15k | 8-12 weeks | ≥1 named partner in term-sheet talks with a pilot customer by month 6 | DEC-001, DEC-002 |
 | V-7 | AI handling-time study | HYP-008 | 200 real or realistic exceptions with and without AI preparation | $20-60k | 6 weeks | Reduction ≥25% with no rise in errors | DEC-006 |
 | V-8 | Charity evidence API willingness to pay | HYP-007 | 10 prospects across sponsors, administrators, CSR and payment platforms | $10-30k | 6 weeks | ≥3 of 10 at ≥$15k a year | DEC-004 |
 | V-9 | Auditor walkthrough | HYP-005 | Evidence model and change-driven re-vetting reviewed by a nonprofit audit firm | $0-30k | 4 weeks | No requirement for full periodic re-review | DEC-003 |
 
-**G0 total (V-1, V-2, V-3, V-5, V-6, V-9): about $0.07-0.25M**; with V-4, V-7, V-8: $0.15-0.5M. Combined with PR #87's gates (licence terms, counsel opinion) the evidence budget is **$0.35-0.75M**.
+**Budget (reconciled, CHL-099).** Direct test costs: V-1, V-2, V-3, V-5, V-6, V-9 sum to about $70-230k; adding V-4, V-7, V-8 gives $150-480k. **G0 ($0.15-0.35M)** = the first group plus a buyer-access line (founder selling time, conference presence, security and legal responses; CHL-020). With PR #87's gates (Echelon licence terms, counsel opinion) and SOC 2 Type 1 readiness, the full evidence budget is **$0.35-0.75M**.
+
+**Kill rule (revision 2, CHL-022):** no named partner by month 6, or no referenceable live pilot that has passed a buyer security review by month 24, pauses the thesis before platform capital beyond Release 1.
 
 ## 2. Evidence that would invalidate the commercial thesis (Q10)
 
@@ -27,7 +29,9 @@ The thesis "an AI-native entrant can win institutional DAF business through a li
 3. **Incumbents publish migration commitments and exit symmetry** before Unbound has a reference customer (HYP-013): the wedge disappears.
 4. **V-4 shows incumbent exports cannot be obtained or cannot be reconciled** without incumbent cooperation: migration-as-a-product fails.
 5. **V-3/V-9 show change-driven re-vetting is not acceptable**, and exception rates exceed ~8%: the cost advantage narrows to licensing price.
-6. **Customer acquisition is slower than one customer a year** under every channel: capital exceeds $10M before cash-positive (ER-4 adverse $13.8M).
+6. **Customer acquisition is slower than one customer a year** under every channel: capital exceeds $10M before payback (ER-4 adverse $23M).
+7. **Satisfied stayers rank every positioning hypothesis below "nothing"** (V-1): there is no reason to choose an entrant outside forced events.
+8. **No partner engages by month 6** (V-6): the only self-sustaining route disappears.
 
 ## 3. Sequencing
 

@@ -42,18 +42,19 @@ let modeSummaryRows (inputs: Inputs) (vals: Values) =
 
 let modeSummaryHeader = [ "mode_id"; "mode"; "human_min_per_acct"; "vendor_variable_per_acct"; "system_variable_per_acct"; "sponsor_level_cost_per_sponsor"; "vendor_fixed"; "build"; "onetime_per_sponsor"; "onetime_per_acct"; "system_cost_per_acct_10k_accts_5_sponsors"; "system_cost_per_acct_40k_accts_5_sponsors" ]
 
-let breakEvenCsv (rows: BreakEvenRow list) (mc: McRow list) =
-    let header = [ "mode_id"; "bps"; "avg_balance"; "break_even_assets_base"; "mc_p10"; "mc_p50"; "mc_p90"; "mc_never_share" ]
+let breakEvenCsv (rows: BreakEvenRow list) (mc: McRow list) (mcc: McRow list) =
+    let header = [ "mode_id"; "bps"; "avg_balance"; "break_even_assets_base"; "break_even_fully_loaded"; "mc_p10"; "mc_p50"; "mc_p90"; "mc_never_share"; "mc_corr_p10"; "mc_corr_p50"; "mc_corr_p90"; "mc_corr_never_share" ]
     write header
         (rows |> List.map (fun r ->
             let m = mc |> List.find (fun x -> x.ModeId = r.ModeId && x.Bps = r.Bps)
-            [ r.ModeId; fmt r.Bps; fmt r.Balance; opt r.Assets; fmt m.P10; fmt m.P50; fmt m.P90; fmt m.NeverShare ]))
+            let c = mcc |> List.find (fun x -> x.ModeId = r.ModeId && x.Bps = r.Bps)
+            [ r.ModeId; fmt r.Bps; fmt r.Balance; opt r.Assets; opt r.Loaded; fmt m.P10; fmt m.P50; fmt m.P90; fmt m.NeverShare; fmt c.P10; fmt c.P50; fmt c.P90; fmt c.NeverShare ]))
 
-let resultsMarkdown (inputs: Inputs) (vals: Values) (be: BreakEvenRow list) (mc: McRow list) (dec: Decomposition list)
+let resultsMarkdown (inputs: Inputs) (vals: Values) (be: BreakEvenRow list) (mc: McRow list) (mcc: McRow list) (st: StressRow list) (dec: Decomposition list)
                     (prev: PreventionRow list) (tor: TornadoRow list) (par1: ParetoRow list) (par5: ParetoRow list)
                     (regRecon: (RegistryComponent * float) list * float) (regBase: (string * Registry.RegistryCost) list)
                     (regMc: (string * (float * float * float)) list) (lowest: RegistryRow list)
-                    (routes: RouteRow list) (routeMc: (string * float * float * float * float) list) =
+                    (routes: RouteRow list) (routeMc: RouteMcRow list) =
     let sections =
         [ "# Competitive displacement model results"
           ""
@@ -72,6 +73,12 @@ let resultsMarkdown (inputs: Inputs) (vals: Values) (be: BreakEvenRow list) (mc:
               (inputs.Modes |> List.map (fun m ->
                   m.Id :: (bpsGrid |> List.map (fun b -> be |> List.find (fun r -> r.ModeId = m.Id && r.Bps = b && r.Balance = 250000.0) |> fun r -> r.Assets |> Option.map money |> Option.defaultValue "never"))))
           ""
+          "## 2a. Fully loaded break-even (build, CAC and onboarding amortised; $250k balance; 5 sponsors)"
+          ""
+          table ("Mode" :: (bpsGrid |> List.map (fun b -> fmt b + " bps")))
+              (inputs.Modes |> List.map (fun m ->
+                  m.Id :: (bpsGrid |> List.map (fun b -> be |> List.find (fun r -> r.ModeId = m.Id && r.Bps = b && r.Balance = 250000.0) |> fun r -> r.Loaded |> Option.map money |> Option.defaultValue "never"))))
+          ""
           "## 2b. Per-account licence pricing: accounts needed to break even (vendor cost only, 5 sponsors)"
           ""
           table [ "Mode"; "$40/acct"; "$81/acct (Ren software reference)"; "$120/acct"; "$150/acct"; "$250/acct" ]
@@ -88,10 +95,15 @@ let resultsMarkdown (inputs: Inputs) (vals: Values) (be: BreakEvenRow list) (mc:
                   for b in balances do
                       yield m.Id :: money b :: (bpsGrid |> List.map (fun bps -> be |> List.find (fun r -> r.ModeId = m.Id && r.Bps = bps && r.Balance = b) |> fun r -> r.Assets |> Option.map money |> Option.defaultValue "never")) ]
           ""
-          "## 4. Monte Carlo break-even (P10 / P50 / P90; balance and sponsors sampled)"
+          "## 4. Monte Carlo break-even (P10 / P50 / P90; balance and sponsors sampled). Independent draws and correlated draws (rho 0.5: half of parameters share one adverse quantile)"
           ""
-          table [ "Mode"; "bps"; "P10"; "P50"; "P90"; "Never covers variable cost" ]
-              (mc |> List.map (fun r -> [ r.ModeId; fmt r.Bps; money r.P10; money r.P50; money r.P90; pct r.NeverShare ]))
+          table [ "Mode"; "bps"; "P10"; "P50"; "P90"; "Never covers variable cost"; "Corr P10"; "Corr P50"; "Corr P90"; "Corr never" ]
+              (List.zip mc mcc |> List.map (fun (r, c) -> [ r.ModeId; fmt r.Bps; money r.P10; money r.P50; money r.P90; pct r.NeverShare; money c.P10; money c.P50; money c.P90; pct c.NeverShare ]))
+          ""
+          "## 4a. Correlated pessimistic stress at 20 bps (AI factor 0.88; touches x1.5; minutes x1.3; no automation failure benefit; fixed cost x1.15)"
+          ""
+          table [ "Mode"; "Base break-even"; "Stress break-even"; "Base min/acct"; "Stress min/acct" ]
+              (st |> List.map (fun r -> [ r.ModeId; money r.BaseAssets; money r.StressAssets; n2 r.BaseMinutes; n2 r.StressMinutes ]))
           ""
           "## 5. Where the conventional-to-AI-native saving comes from (event cost per account-year)"
           ""
@@ -131,12 +143,14 @@ let resultsMarkdown (inputs: Inputs) (vals: Values) (be: BreakEvenRow list) (mc:
           table [ "Charities/sponsor"; "Sponsors"; "Refresh"; "Cheapest alternative"; "Run cost"; "Per sponsor"; "Per grant" ]
               (lowest |> List.map (fun r -> [ fmt r.Charities; fmt r.Sponsors; r.Refresh; r.Alt; money r.Result.Total; money r.Result.PerSponsor; n2 r.Result.PerGrant ]))
           ""
-          "## 12. Entry routes: capital (deepest cumulative deficit over 60 months)"
+          "## 12. Entry routes: capital (deepest cumulative deficit over 120 months; 8% churn; go-live lag)"
           ""
-          table [ "Route"; "Case"; "Capital"; "First cash-positive month"; "Cumulative cash at month 60"; "Customers at 60" ]
-              (routes |> List.map (fun r -> [ r.RouteId; r.Case; money r.Result.Capital; (match r.Result.FirstPositiveMonth with Some m -> string m | None -> "not within 60"); money r.Result.CumulativeAt60; n2 r.Result.CustomersAt60 ]))
+          table [ "Route"; "Case"; "Capital"; "First cash-positive month"; "Payback month (cumulative >= 0)"; "Cumulative at 60"; "Cumulative at 120"; "Live customers at 60"; "Annual revenue at 60" ]
+              (routes |> List.map (fun r ->
+                  [ r.RouteId; r.Case; money r.Result.Capital; (match r.Result.FirstPositiveMonth with Some m -> string m | None -> "none in 120")
+                    (match r.Result.PaybackMonth with Some m -> string m | None -> "none in 120"); money r.Result.CumulativeAt60; money r.Result.CumulativeAt120; n2 r.Result.CustomersAt60; money r.Result.AnnualRevenueAt60 ]))
           ""
-          table [ "Route"; "Capital P10"; "P50"; "P90"; "Share never cash-positive in 60 months" ]
-              (routeMc |> List.map (fun (id, a, b, c, d) -> [ id; money a; money b; money c; pct d ]))
+          table [ "Route"; "rho"; "Capital P10"; "P50"; "P90"; "No payback within 120 months"; "Payback month P50" ]
+              (routeMc |> List.map (fun r -> [ r.RouteId; fmt r.Rho; money r.P10; money r.P50; money r.P90; pct r.NoPayback120; n2 r.PaybackP50 ]))
           "" ]
     String.concat "\n" sections

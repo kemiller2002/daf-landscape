@@ -17,21 +17,24 @@ let withoutPrevention (m: Mode) = { m with UsesPrevention = false; Id = m.Id + "
 let allEconomics (inputs: Inputs) (vals: Values) =
     inputs.Modes |> List.map (economics Base vals inputs.Events)
 
-type BreakEvenRow = { ModeId: string; Bps: float; Balance: float; Assets: float option }
+type BreakEvenRow = { ModeId: string; Bps: float; Balance: float; Assets: float option; Loaded: float option }
 
 let breakEvenGrid (inputs: Inputs) (vals: Values) =
     let sponsors = v vals "sponsors"
     [ for m in allEconomics inputs vals do
         for bps in bpsGrid do
             for b in balances do
-                yield { ModeId = m.Mode.Id; Bps = bps; Balance = b; Assets = breakEvenAssets bps b sponsors m } ]
+                yield { ModeId = m.Mode.Id; Bps = bps; Balance = b; Assets = breakEvenAssets bps b sponsors m
+                        Loaded = breakEvenAssetsLoaded bps b sponsors m } ]
 
 /// Monte Carlo break-even percentiles per mode and fee. "Never" is represented as +infinity.
 type McRow = { ModeId: string; Bps: float; P10: float; P50: float; P90: float; NeverShare: float }
 
-let monteCarlo (n: int) (seed: uint64) (inputs: Inputs) : McRow list =
+let lowIsAdverse = set [ "avg_balance"; "prevention_scale" ]
+
+let monteCarlo (n: int) (seed: uint64) (rho: float) (inputs: Inputs) : McRow list =
     let ps = inputs.Params |> Map.add "fixed_quantile" { Low = 0.0; Base = 0.5; High = 1.0 }
-    let draws = Sampling.draws n seed ps
+    let draws = if rho <= 0.0 then Sampling.draws n seed ps else Sampling.drawsCorrelated n seed rho lowIsAdverse ps
     let perDraw =
         draws
         |> List.map (fun d ->
@@ -145,17 +148,44 @@ type RouteRow = { RouteId: string; Case: string; Result: Routes.RouteResult }
 let routeCases (inputs: Inputs) =
     [ for r in inputs.Routes do
         for case, level in [ "favourable", Low; "base", Base; "adverse", High ] do
-            yield { RouteId = r.Id; Case = case; Result = Routes.simulate 60 r (Routes.valuesAt level r) } ]
+            yield { RouteId = r.Id; Case = case; Result = Routes.simulate r (Routes.valuesAt level r) } ]
 
-let routeMc (n: int) (seed: uint64) (inputs: Inputs) =
+type RouteMcRow = { RouteId: string; Rho: float; P10: float; P50: float; P90: float; NoPayback120: float; PaybackP50: float }
+
+/// Route Monte Carlo. Quantile order: build, burn, first revenue month (high adverse); revenue, customers (low adverse).
+let routeMc (n: int) (seed: uint64) (rho: float) (inputs: Inputs) : RouteMcRow list =
     inputs.Routes
     |> List.map (fun r ->
-        let rec go i st acc =
-            if i >= n then acc
-            else
-                let us, st' = List.fold (fun (xs, s) _ -> let u, s' = Sampling.next s in u :: xs, s') ([], st) [ 1 .. 5 ]
-                go (i + 1) st' (Routes.simulate 60 r (Routes.sampled r us) :: acc)
-        let results = go 0 seed []
+        let draw st =
+            let uc, st0 = Sampling.next st
+            let us, st' =
+                [ false; false; false; true; true ]
+                |> List.fold (fun (xs, s) lowAdverse ->
+                    let pick, s1 = Sampling.next s
+                    let own, s2 = Sampling.next s1
+                    let common = if lowAdverse then 1.0 - uc else uc
+                    (xs @ [ (if pick < rho then common else own) ]), s2) ([], st0)
+            us, st'
+        let results =
+            List.unfold (fun (i, st) -> if i >= n then None else let us, st' = draw st in Some(Routes.simulate r (Routes.sampled r us), (i + 1, st'))) (0, seed)
         let caps = results |> List.map (fun x -> x.Capital)
-        let neverPositive = results |> List.filter (fun x -> x.FirstPositiveMonth.IsNone) |> List.length
-        r.Id, Sampling.percentile 0.1 caps, Sampling.percentile 0.5 caps, Sampling.percentile 0.9 caps, float neverPositive / float n)
+        let noPayback = results |> List.filter (fun x -> x.PaybackMonth.IsNone) |> List.length
+        let paybacks = results |> List.map (fun x -> x.PaybackMonth |> Option.map float |> Option.defaultValue infinity)
+        { RouteId = r.Id; Rho = rho; P10 = Sampling.percentile 0.1 caps; P50 = Sampling.percentile 0.5 caps; P90 = Sampling.percentile 0.9 caps
+          NoPayback120 = float noPayback / float n; PaybackP50 = Sampling.percentile 0.5 paybacks })
+
+/// Named correlated stress (REV2, CHL economist): weaker AI, more and longer touches, no automation failure benefit, higher fixed cost.
+type StressRow = { ModeId: string; BaseAssets: float; StressAssets: float; BaseMinutes: float; StressMinutes: float }
+
+let stressOverrides =
+    [ "ai_assist_duration_factor", 0.88; "touch_mult_native", 1.5; "duration_mult_native", 1.3
+      "fail_mult_automated", 1.0; "fixed_cost_mult", 1.15 ]
+
+let stress (inputs: Inputs) =
+    let b = baseVals inputs
+    let s = stressOverrides |> List.fold (fun acc (k, x) -> Map.add k x acc) b
+    inputs.Modes
+    |> List.map (fun m ->
+        let eb, es = economics Base b inputs.Events m, economics Base s inputs.Events m
+        let be (vs: Values) e = breakEvenAssets 20.0 (v vs "avg_balance") (v vs "sponsors") e |> Option.defaultValue infinity
+        { ModeId = m.Id; BaseAssets = be b eb; StressAssets = be s es; BaseMinutes = eb.HumanMinutesPerAcct; StressMinutes = es.HumanMinutesPerAcct })

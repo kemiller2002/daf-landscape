@@ -38,9 +38,32 @@ let ``Human minutes fall monotonically from conventional to AI-native`` () =
     Assert.True(m "MD-1" > m "MD-2" && m "MD-2" > m "MD-3" && m "MD-3" > m "MD-4" && m "MD-4" > m "MD-5")
 
 [<Fact>]
-let ``AI-native minutes sit near the prior 30 minutes per account-year steady state`` () =
+let ``AI-native minutes stay within the plausible band around PR 87's ~30 minutes (REV2 field AI factor)`` () =
     let m = (econ "MD-5").HumanMinutesPerAcct
-    Assert.InRange(m, 12.0, 40.0)
+    Assert.InRange(m, 12.0, 60.0)
+
+[<Fact>]
+let ``A weaker AI factor makes AI-native dearer and leaves exception-driven unchanged (REV2 direction fix)`` () =
+    let weak = Map.add "ai_assist_duration_factor" 0.97 vals
+    let e id vs = (Enterprise.economics Base vs inputs.Events (Analysis.modeById inputs id)).HumanMinutesPerAcct
+    Assert.True(e "MD-5" weak > e "MD-5" vals)
+    close 1e-9 (e "MD-4" vals) (e "MD-4" weak)
+
+[<Fact>]
+let ``Fully loaded break-even exceeds operating break-even`` () =
+    let m = econ "MD-5"
+    let a = Enterprise.breakEvenAssets 20.0 250000.0 5.0 m |> Option.get
+    let l = Enterprise.breakEvenAssetsLoaded 20.0 250000.0 5.0 m |> Option.get
+    Assert.True(l > a)
+
+[<Fact>]
+let ``Route capital is non-negative and churn lowers live customers`` () =
+    let r = inputs.Routes |> List.find (fun r -> r.Id = "ER-7")
+    let rv = Routes.valuesAt Base r
+    let withChurn = Routes.simulate r rv
+    let noChurn = Routes.simulate { r with Churn = 0.0 } rv
+    Assert.True(withChurn.Capital >= 0.0)
+    Assert.True(withChurn.CustomersAt60 < noChurn.CustomersAt60)
 
 [<Fact>]
 let ``Profit is zero at the break-even assets`` () =
@@ -58,8 +81,8 @@ let ``Break-even assets fall as the fee rises`` () =
     Assert.True(xs |> List.pairwise |> List.forall (fun (a, b) -> b <= a))
 
 [<Fact>]
-let ``Licensing shifts event labour to the sponsor without changing system cost`` () =
-    close 0.001 (econ "MD-5").SystemVariablePerAcct (econ "MD-6").SystemVariablePerAcct
+let ``Licensing shifts labour to a less efficient sponsor: system cost rises, vendor cost falls (REV2)`` () =
+    Assert.True((econ "MD-6").SystemVariablePerAcct > (econ "MD-5").SystemVariablePerAcct)
     Assert.True((econ "MD-6").VendorVariablePerAcct < (econ "MD-5").VendorVariablePerAcct)
 
 [<Fact>]

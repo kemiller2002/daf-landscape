@@ -1,6 +1,6 @@
 # 04 - Conceptual charity intelligence architecture
 
-Status: research (2026-11-26). **Conceptual, not a product requirement.** Unbound owns architecture; the proposals here are routed as XRI-002, XRI-003 and XRI-005 ([17](17-unbound-implications.md)). It extends, and does not replace, Unbound's `architecture/CHARITY-KNOWLEDGE-MODEL-AND-ACQUISITION-PIPELINE.md` and PR #88's vetting state model (`data/vetting-state-model.json` in the charity-network package).
+Status: research (2026-11-26; revision 2 after adversarial review, see [20](20-adversarial-review.md)). **Conceptual, not a product requirement.** Unbound owns architecture; the proposals here are routed as XRI-002, XRI-003 and XRI-005 ([17](17-unbound-implications.md)). It extends, and does not replace, Unbound's `architecture/CHARITY-KNOWLEDGE-MODEL-AND-ACQUISITION-PIPELINE.md` and PR #88's vetting state model (`data/vetting-state-model.json` in the charity-network package).
 
 ## 1. Design rule
 
@@ -43,13 +43,15 @@ A decision records the facts **as known at decision time** so it can be replayed
 
 ## 5. Re-vetting as verification of change
 
+**Correction (CHL-035).** No IRS rule requires a 180-day re-review. Reliance under Rev. Proc. 2018-32 turns on status at the time of each grant (TEOS/BMF or letter, absent notice or knowledge of change). The 180-day cycle is a **sponsor or platform policy choice** (Unbound's 180-day decision record), so the gate is a policy change by the sponsor, not an auditor waiver; the saving below is a saving against a self-imposed cost, not an advantage over incumbents that already check at transaction time.
+
 The question was whether periodic re-vetting must repeat prior work. **It need not**, provided three things hold:
 
 1. Monitoring is continuous against every source that can change eligibility (monthly IRS, daily sanctions and exclusions).
 2. Each piece of non-monitorable evidence (bank letter, website, officer verification) carries an expiry and is refreshed on expiry.
 3. A small statistical sample of unchanged charities is fully re-reviewed to detect monitoring blind spots.
 
-Under the model, a 20k-charity book costs about $115-120k a year this way against about $482k for a full 180-day re-review ([05](05-charity-registry-economics.md), CLM-005). Whether a sponsor's auditor accepts it as meeting a 180-day policy is untested (HYP-005, OQ-004).
+Under the model, a 20k-charity book costs about $160-170k a year this way against about $483k for a full 180-day re-review ([05](05-charity-registry-economics.md), CLM-005). Whether sponsors will change their policy, and how their auditors view it, is untested (HYP-005, OQ-004).
 
 ## 6. Layers
 
@@ -67,3 +69,11 @@ Under the model, a 20k-charity book costs about $115-120k a year this way agains
 ```
 
 AI sits beside the normalised-facts layer as a **dossier producer** for humans; its output is an AI-generated assessment record and cannot write facts or decisions.
+
+## 7. Revision 2 constraints (adversarial review)
+
+- **Screening results are sponsor-scoped** (CHL-044, CHL-063): a match decision is a computation over a public list *and* a sponsor's threshold. Only source-attributed public facts are shared; derived flags, dispositions and "unresolved conflict" labels are not redistributed across sponsors (defamation, privacy and tortious-interference exposure).
+- **No promotion to shared status from sponsor-confidential inputs** (CHL-062): a link confirmed with one sponsor's documents stays in that sponsor's layer.
+- **Snapshot pinning**: each tenant pins a registry snapshot version and accepts changes explicitly, limiting correlated failure from a bad shared release.
+- **A tenth class, licensed third-party verification** (e.g. Candid, OCD listings), carries per-licence sharing flags.
+- **Publication time** is not reliably recoverable for IRS bulk files; record file Last-Modified and first-seen time and label the difference.
