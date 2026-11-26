@@ -21,6 +21,10 @@ Sub-commands (all inputs are local copies of public files; this script does no n
       Identity-resolution stress statistics for the current IRS EO BMF: shared names,
       shared street addresses, group-exemption subordinates and their absence from Pub 78.
 
+  revocation-conflicts REVOCATION.txt PUB78.txt BMF1.csv [BMF2.csv ...]
+      Count EINs whose latest revocation row is unreinstated but still listed, split by
+      whether the BMF ruling month is after the revocation date (re-recognition).
+
   review-load
       Low/central/high human-review workload model (REVIEW_PARAMS, each parameter tagged
       with its evidence class) used in 06 section 8.
@@ -168,6 +172,8 @@ def profile_bmf(pub78: Mapping[str, str], rows: Iterable[Mapping[str, str]]) -> 
     for r in rows:
         ein = norm_ein(r["EIN"])
         eins[ein] += 1
+        if eins[ein] > 1:  # eo_pr/eo_xx duplicate eo1-eo4 rows (ADVA-04): count each EIN once
+            continue
         if norm_val("SUBSECTION", r["SUBSECTION"]) != "3":
             continue
         c["c3"] += 1
@@ -252,6 +258,37 @@ def review_load(scenario: int, p: Mapping[str, tuple] = REVIEW_PARAMS) -> dict:
     }
 
 
+def latest_revocation(rows: Iterable[tuple]) -> Dict[str, tuple]:
+    """Latest row per EIN. Tie-break: latest posting date, then latest revocation date (ADVA-05)."""
+    key = lambda r: (r[3] or datetime.date.min, r[2] or datetime.date.min)
+    out: Dict[str, tuple] = {}
+    for r in rows:
+        ein = norm_ein(r[0])
+        if ein not in out or key(r) > key(out[ein]):
+            out[ein] = r
+    return out
+
+
+def revocation_conflicts(latest: Mapping[str, tuple], pub78: Mapping[str, str],
+                         bmf_ruling: Mapping[str, str]) -> dict:
+    """EINs whose latest revocation row has no reinstatement date but which are still listed.
+    'Re-recognised' = BMF RULING month later than the latest revocation date (s4.06 candidate)."""
+    unre = {e for e, r in latest.items() if r[4] is None}
+    on_bmf = [e for e in unre if e in bmf_ruling]
+    def rerecognised(e: str) -> bool:
+        ru, rv = bmf_ruling[e], latest[e][2]
+        return bool(rv and ru and ru.isdigit() and int(ru) > rv.year * 100 + rv.month)
+    rer = [e for e in on_bmf if rerecognised(e)]
+    return {
+        "definition": "latest revocation row per EIN (tie-break: posting date, then revocation date) has no reinstatement date",
+        "unreinstated_on_bmf": len(on_bmf),
+        "unreinstated_on_bmf_and_pub78": sum(1 for e in on_bmf if e in pub78),
+        "unreinstated_on_pub78_any": sum(1 for e in unre if e in pub78),
+        "on_bmf_ruling_after_revocation": len(rer),
+        "on_bmf_ruling_not_after_revocation": len(on_bmf) - len(rer),
+    }
+
+
 def read_csv(path: str) -> Iterator[Mapping[str, str]]:
     with open(path, encoding="latin-1", newline="") as f:
         yield from csv.DictReader(f)
@@ -269,6 +306,15 @@ def main(argv: List[str]) -> int:
             pub78 = {norm_ein(l.split("|")[0]): l for l in f if "|" in l}
         rows = (r for p in args[1:] for r in read_csv(p))
         out = profile_bmf(pub78, rows)
+    elif cmd == "revocation-conflicts":
+        with open(args[0], encoding="latin-1") as f:
+            latest = latest_revocation(revocation_rows(f))
+        with open(args[1], encoding="latin-1") as f:
+            pub78 = {norm_ein(l.split("|")[0]): l for l in f if "|" in l}
+        ruling: Dict[str, str] = {}
+        for r in (r for p in args[2:] for r in read_csv(p)):
+            ruling.setdefault(norm_ein(r["EIN"]), (r.get("RULING") or "").strip())
+        out = revocation_conflicts(latest, pub78, ruling)
     elif cmd == "review-load":
         out = {"params": {k: list(t) for k, t in REVIEW_PARAMS.items()},
                "results": [review_load(i) for i in range(3)]}

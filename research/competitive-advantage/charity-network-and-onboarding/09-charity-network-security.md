@@ -8,13 +8,17 @@ Scope: Track A7 (security of a shared charity directory, shared vetting and elec
 
 - **The dominant loss mechanism is bank-detail substitution, not fake charities.** Documented grant losses follow one pattern: someone gets into a real grantee's email or portal login and changes the bank account. Two examples are the Margaret A. Cargill Foundation's $1m first payment in 2023 [SEC-010] and the One Treasure Island $650k wire [SEC-011]. The Commerce OIG alert of July 2026 describes the same pattern against federal grantees [SEC-009]. VERIFIED-FACT, High. Fake-charity fraud also exists but is smaller in the federal data: IC3 counts 662 "Charity" complaints and $7.9m in 2025, against $3.05bn of BEC losses [SEC-006, SEC-018]. VERIFIED-FACT, High.
 - **The 2026 Nacha rules now cover an Unbound-type TPSP.** Phase 2 took effect on 19 June 2026 (practical date 22 June). It requires "each Third-Party Service Provider" to run risk-based processes that identify entries "authorized under False Pretenses", and to review them at least annually [SEC-001]. The definition of False Pretenses explicitly includes misrepresenting "the ownership of an account to be credited" [SEC-002]. The rule facts are VERIFIED-FACT, High. That they apply to Unbound is an INFERENCE from CNV-PAY-001, Medium, and needs counsel review. Destination-change controls are therefore a compliance duty, not only a product feature.
-- **Shared verification creates correlated, systemic risk.** If one verified destination is reused by k sponsors, one successful deception exposes the pending grants of all k sponsors. Without sharing, an attacker must defeat k separate checks. INFERENCE, High. Sharing can be bounded (§5) with five controls: per-sponsor opt-in, reuse as input only (CNV-GRT-003), a network-wide exposure cap while a new destination is on probation, a first-payment cap per sponsor, and confirmation of receipt by the charity before the probation ends.
-- **The callback is only as strong as the contact it dials, and the shared registry is where that contact lives.** UNB-UI-P-005 already requires the callback to use a contact from the registry, never one supplied in the change request. However, nothing stops an attacker from first changing the registry contact (by takeover, a directory submission or an IRS-of-record change) and then requesting the bank change. **Gap.** RECOMMENDATION: apply contact-age and contact-change holds to charity principals, extending CNV-PLT-011, which today covers donors only (PROP-SEC-02).
+- **Shared destination (bank) verification creates correlated risk for little benefit. Defer it past Release 1.** If k sponsors reuse one verified destination, one successful deception exposes the pending grants of all k. INFERENCE, High. The saving is small: an owner match costs about $1.35-4 per check (ECO parameters) and needs no effort from the charity. Ratified CNV-PAY-002 (c10) already scopes destination evidence per sponsor, with reuse "only under a written reliance policy". RECOMMENDATION (revised after ADVA-13): Release 1 shares public facts and claim/control evidence only. §5 keeps the conditions under which sharing could be enabled later.
+- **Contact poisoning before a bank change is largely closed by ratified round-2 amendments (corrected after ADVA-02).** The attack is to change the charity's registry contact first, then request the bank change so the callback reaches the attacker. Three amendments close most of it:
+  - **CNV-PAY-002 (c10).** A callback contact must come from a record verified at least 30 days before the request (sponsor default) or from an independent public source. "Any contact or signatory change inside that period disqualifies the contact". Charity submitters must authenticate at CAL3.
+  - **CNV-PLT-011 (c11).** The post-change hold covers bank-detail changes and, for charities, contact and authorised-signatory changes.
+  - **Residual risk 1.** Poisoning of the "independent public source" itself, i.e. the IRS-of-record address or a 990 phone number (HYPOTHESIS; narrowed PROP-SEC-02).
+  - **Residual risk 2.** SIM-swap or compromise of a contact that is old enough to qualify.
 - **No verification method proves both ownership and authority.**
   - Micro-entries prove that the *submitter can see* an account, which a mule account also passes [SEC-003].
   - Instant account verification proves the submitter holds the bank login.
   - A bank-originated owner match (e.g. EWS Verify Account, which returns an "ownership match result" [SEC-005]) proves *whose* account it is, but not that the requester is authorized to act.
-  - INFERENCE, High. Destination evidence must therefore combine ownership evidence, authority evidence (a callback to an independently sourced, aged contact), time (a cooling period plus notice to the old channel) and an exposure limit. The existing UNB-RCN-GRT-017 table supports this. The tiering in §4 makes it concrete.
+  - INFERENCE, High. Destination evidence must therefore combine ownership evidence, authority evidence (a callback to an independently sourced, aged contact), time (a cooling period plus notice to the old channel) and an exposure limit. Ratified CNV-PAY-002 (c10) fixes exactly two admissible evidence combinations. The tiering in §4 is therefore only a risk overlay *within* those combinations: a longer cooling-off period (sponsors may lengthen it), first-payment caps, receipt confirmation and security review. It does not add new combinations.
 - **Existing requirements are strong on single-sponsor destination change and weak at network level.** WFM-13, RR-REQ-X-005-r1, UNB-RCN-GRT-017, UNB-UI-P-005 and UNB-UI-S-056 already cover these controls:
   - requester ≠ verifier;
   - a callback to a registry-sourced contact;
@@ -22,9 +26,14 @@ Scope: Track A7 (security of a shared charity directory, shared vetting and elec
   - payments continuing to the old destination while a change is pending;
   - no bulk verification of imported payees.
 
-  Missing: network exposure caps, receipt confirmation, provenance rules for writing payment-relevant fields in the shared registry, integrity gates for source feeds, chain of custody for migration files, and attestation of controls at partner enrolments. INFERENCE, High.
-- **Conflict to resolve: CNV-EXP-002 against RR-REQ-X-005-r1.** CNV-EXP-002 requires paying through an existing rail-partner enrolment "without new Unbound enrolment". RR-REQ-X-005-r1 makes rails that cannot meet the DestinationEvidence minimum ineligible for automated release. The public documentation of Ren and Chariot states no callback or cooling-off period for later bank changes [SEC-019; b49-04 §3.3]. Partner due diligence must establish the evidence class of the partner's change controls before CNV-EXP-002 applies (PROP-SEC-07). VERIFIED-FACT (documentation gap) / RECOMMENDATION.
-- **Competitive angle.** No FY2024 top-20 sponsor publishes a mandatory callback to a known contact before a charity bank change, and no sponsor page addressed to charities warns about bank-change fraud [SEC-018]. Evidence-backed network controls can therefore be a selling point to sponsors' treasurers and auditors, provided they do not add friction for the roughly 80-90% of grants that go to stable destinations (a HYPOTHESIS to measure). INFERENCE, Medium.
+  The c10/c11 amendments add the age of callback contacts, CAL3 for submitters, charity contact and signatory holds, per-sponsor scoping of evidence, and partner-contract equivalence. Still missing: receipt confirmation, first-payment caps, provenance rules for writing payment-relevant fields in the shared registry, integrity gates for source feeds, and chain of custody for migration files. INFERENCE, High.
+- **Open owner decision: CNV-EXP-002 (c10) against CNV-PAY-002 (c10).**
+  - **Ratified.** CNV-EXP-002 (c10) says a partner enrolment satisfies CNV-PAY-002 only if the partner contract carries equivalent controls: owner verification, cooling-off, notice and a destination-change event delivered before the next release. A rail without them is subject to CNV-PAY-002 in full.
+  - **Residual conflict (ADVA-03).** CNV-PAY-002 (c10) admits "exactly" two evidence combinations. Chariot's model is an officer identity check plus a bank-opened account titled to the charity, and it fits neither.
+  - **Documentation gap.** Ren's and Chariot's public pages state no callback or cooling-off period for later bank changes [SEC-019; b49-04 §3.3].
+  - **Decision needed.** The owner must decide whether to admit a third class: a bank-opened, charity-titled account with partner-attested control-change events.
+  - VERIFIED-FACT (clause text, documentation gap); RECOMMENDATION (escalation).
+- **Competitive angle.** No FY2024 top-20 sponsor publishes a *mandatory* callback to a known contact before a charity bank change, and no sponsor page addressed to charities warns about bank-change fraud [SEC-018]. Fidelity publishes a *discretionary* callback to the organisation's public number (ADVA-19), which is comparable practice. Evidence-backed network controls can therefore be a selling point to sponsors' treasurers and auditors, provided they do not add friction for the roughly 80-90% of grants that go to stable destinations (a HYPOTHESIS to measure). INFERENCE, Medium.
 
 ## 1. System under analysis
 
@@ -32,7 +41,7 @@ The design assumed here follows the ratified clauses:
 
 - **Shared public layer.** The registry holds public facts (UNB-CHAR-036, UNB-KNOW-012) and propagates holds derived only from public facts (CNV-GRT-004).
 - **Sponsor-private layer.** Each sponsor keeps its own eligibility decisions, investigations, banking details and grant relationships, in its own tenant cell (CNV-TEN-001).
-- **Destinations.** Destination versions are pinned at authorization (RR-REQ-X-005-r1) and governed by WFM-13. Payments go out on rail partners acting as the sponsor's agent, with sponsor ACH as fallback (CNV-PAY-001).
+- **Destinations.** Destination versions are pinned at authorization (RR-REQ-X-005-r1) and governed by WFM-13. Payments go out on rail partners acting as the sponsor's agent, with sponsor ACH as fallback (CNV-PAY-001). Destination evidence is scoped per sponsor (CNV-PAY-002 c10).
 - **Unbound's role.** Unbound holds no money and cannot unilaterally prevent a payment indefinitely (CNV-LEG-001). Its security holds must therefore be sponsor-policy holds with time bounds and an escalation path.
 
 Assets ranked by attacker value:
@@ -97,7 +106,14 @@ The attack chain:
 3. Wait.
 4. Request a bank change. The independent callback now rings the attacker.
 
-UNB-UI-P-005 shows the callback contact's source and last-verified date, but no rule blocks a contact changed recently. An IRS-of-record address change (e.g. a Form 8822-B filing) could similarly poison the postcard-claim route. That is a HYPOTHESIS: this pass did not establish how hard it is to change an IRS address fraudulently. Controls are in PROP-SEC-02.
+**Ratified controls (c10/c11):**
+- A contact or signatory change within the 30-day default period disqualifies that contact for callbacks (CNV-PAY-002).
+- Charity contact and signatory changes trigger the CNV-PLT-011 hold.
+- Submitters must authenticate at CAL3.
+
+**Residual risks:**
+- **Poisoned public source.** c10 accepts "an independent public source recorded with retrieval date" as a callback source. An IRS-of-record address or phone changed through a Form 8822-B filing or a newly filed 990 would satisfy that wording on the day it is published. The same route would poison postcard and 990-phone claim flows. This is a HYPOTHESIS: this pass did not establish how hard such a change is to make fraudulently. Narrowed PROP-SEC-02 applies the same age rule to public-source contacts.
+- **Takeover of a qualifying contact.** An attacker who controls an aged contact (by SIM swap or email takeover) still passes. Mitigants: notice on both the old and new channels (c10), notice to all charity admins, first-payment caps and receipt confirmation.
 
 ### 3.2 Shared-registry data poisoning (T10, T13, T22)
 
@@ -123,7 +139,7 @@ Leaks can come through side channels as well as direct access:
 - search ranking shaped by grant volume;
 - embeddings.
 
-Silent reuse of sponsor A's bank letter to meet sponsor B's evidence minimum would breach both A's confidentiality and B's control assurance. CNV-GRT-003 allows reuse "only as input", and UNB-CHAR-037 requires governance of the reuse. PROP-SEC-10 and PROP-SEC-11 make both testable.
+Silent reuse of sponsor A's bank letter to meet sponsor B's evidence minimum would breach both A's confidentiality and B's control assurance. CNV-GRT-003 allows reuse "only as input". CNV-PAY-002 (c10) scopes destination evidence per sponsor and permits reuse only under a written reliance policy. PROP-SEC-10 makes the leakage controls testable. PROP-SEC-11 is now just the proposed content of that reliance policy, deferred past Release 1.
 
 ### 3.5 Migration and insider risk (T19, T20)
 
@@ -135,13 +151,13 @@ Silent reuse of sponsor A's bank letter to meet sponsor B's evidence minimum wou
 
 ## 4. Control design: risk-tiered destination verification
 
-These are RECOMMENDATIONS, refining CNV-PAY-002, RR-REQ-X-005-r1 and UNB-RCN-GRT-017. All numbers are ASSUMPTIONS, to be set as PK-TIMING and policy-pack parameters under CNV-GOV-005 and tighten-only for sponsors.
+These are RECOMMENDATIONS that sit *inside* ratified CNV-PAY-002 (c10). That clause fixes the two admissible evidence combinations: (a) bank owner match plus cooling-off plus dual-channel notice, or (b) charity document plus registry-sourced callback plus cooling-off plus notice. It also sets a cooling-off floor of 1 business day, the 30-day contact age and CAL3 for submitters. The tiers below only lengthen cooling-off (which sponsors may do), add exposure caps, receipt confirmation and security review, and pick (a) or (b). All numbers are ASSUMPTIONS, to be set as PK-TIMING and policy-pack parameters under CNV-GOV-005 and tighten-only for sponsors.
 
 ### 4.1 Provenance tiers (applies to every registry claim)
 
 | Tier | Source | May set payment-relevant or callback fields? |
 |---|---|---|
-| T1 | Primary government source fetched by the platform (IRS EO BMF/TEOS/Pub78, latest e-filed 990, state registry) | Yes, but a contact changed within the last 60 days cannot be the *sole* callback channel |
+| T1 | Primary government source fetched by the platform (IRS EO BMF/TEOS/Pub78, latest e-filed 990, state registry) | Yes, as the c10 "independent public source"; residual-risk rule: a public-source contact first seen within the sponsor's contact-age period (30 days by default) cannot be the *sole* callback channel (narrowed PROP-SEC-02) |
 | T2 | Bank-originated data (owner match, NOC through an authenticated rail callback, positive-pay clearing) | Yes, for destination ownership only |
 | T3 | Contracted independent verifier or rail partner with an attested evidence class | Yes, as input; the sponsor's tier minimum still applies |
 | T4 | Verified charity principal (authority proven, phishing-resistant MFA) | Requests only: creates a Pending version subject to the tier rules |
@@ -155,21 +171,18 @@ These are RECOMMENDATIONS, refining CNV-PAY-002, RR-REQ-X-005-r1 and UNB-RCN-GRT
 - Exposure limits: none.
 
 **D1: first destination for a charity with no risk signals.**
-- Minimum evidence (all of):
-  - a T2 owner match on the exact legal name or a recorded DBA, *or* a bank letter confirmed by calling the bank on an independently sourced number;
-  - plus a prenote, or IAV with the owner name returned;
-  - plus a callback to an aged T1 contact.
+- Minimum evidence: c10 combination (a), meaning a T2 owner match on the exact legal name or a recorded DBA; or c10 combination (b), meaning a bank letter (confirmed by calling the bank on an independently sourced number) plus a callback to an aged contact. A prenote or IAV is supporting evidence only.
 - Activation: 3 business days pending (existing UNB-UI-P-005 AC-4).
 - Exposure limits:
   - first payment per sponsor ≤ $25k;
-  - network exposure on this destination version ≤ $50k until receipt is confirmed or 30 days of clean history.
+  - per-sponsor cap stays until receipt is confirmed or 30 days of clean history (a network-wide cap of $50k applies only if shared evidence is enabled after Release 1).
 
 **D2: change to an existing verified destination.**
-- Minimum evidence: as D1, plus notice to the previous destination's contacts and to all charity admins. The callback contact must have been unchanged for 30 days or more and must not have been touched in this case.
+- Minimum evidence: as D1. The ratified c10/c11 rules apply: notice on the old and new channels, the 30-day contact age and the CNV-PLT-011 hold. Overlay: also notify all charity admins.
 - Activation: 5 business days pending. Payments continue to the old version meanwhile (UNB-UI-S-012 AC-2).
 - Exposure limits:
   - first payment ≤ $25k per sponsor;
-  - network exposure ≤ $50k;
+  - network-wide cap ≤ $50k only if shared evidence is enabled after Release 1;
   - 60-day probation.
 
 **D3: elevated.** Any one signal puts the change in D3:
@@ -211,7 +224,9 @@ Requirements for D3:
 - **Evidence service unavailable** → the change stays Pending. Release continues to the previous version. An outage never activates a change.
 - **Hold duration** → every security hold carries an SLA and sponsor escalation, never an indefinite hold by Unbound alone (CNV-LEG-001).
 
-## 5. Bounding systemic risk from shared verification
+## 5. Bounding systemic risk from shared verification (deferred past Release 1)
+
+Revised after ADVA-13. In Release 1, destination evidence stays sponsor-scoped, as ratified in CNV-PAY-002 (c10), and each sponsor re-verifies ownership itself. The analysis below is kept to define the conditions for any later option. Sharing could be enabled only with all four of: a measured friction benefit; a written loss-allocation term in the reliance policy; counsel's view on whether sharing makes sponsors "aware of" deficiencies under Rev. Proc. 2018-32 s4.04(3)/s5.02(2); and a cross-tenant review of the velocity tripwire (CNV-TEN-001), since it pauses one sponsor because of another tenant's activity.
 
 **Model** (INFERENCE). Charity *c* has a destination version *v* that is shared with *k* opted-in sponsors, which have pending releases *P₁…Pₖ*. Without controls, the loss from one successful deception is ΣPᵢ released before detection. With controls, the loss is ≤ min(ΣPᵢ, E_net), where E_net is the network probation cap, and each sponsor's own loss is ≤ min(Pᵢ, F_first). Receipt confirmation ends probation, which usually limits the loss to one payment.
 
@@ -240,11 +255,11 @@ This is testable with the replay and shadow tooling of CNV-GOV-005. The tension 
 | Area | Control | Existing IDs | Proposed |
 |---|---|---|---|
 | Representative authority | Officer on latest 990 or state registry plus callback to the organisation's number; new representative cannot change the destination for 30 days; annual re-attestation of admins | UNB-CHAR-014, CNV-PLT-003 | PROP-SEC-15 |
-| Charity contact changes | Notify the old channel with a revert link; 72-hour hold on destination and admin changes after any contact change (mirrors CNV-PLT-011) | CNV-PLT-011 (donors only) | PROP-SEC-02 |
+| Charity contact changes | **Ratified:** hold on charity contact and signatory changes (CNV-PLT-011 c11); 30-day contact age and CAL3 (CNV-PAY-002 c10). Residual risk: contacts from public sources | CNV-PLT-011 (c11), CNV-PAY-002 (c10) | PROP-SEC-02 (narrowed to public-source contacts) |
 | Feed integrity | Allowlisted irs.gov hosts, TLS verification, raw hash and posting date stored, delta plausibility, cross-source consistency, favourable changes need corroboration, circuit breaker with time bound | UNB-CHAR-008, UNB-CHAR-011, UNB-KNOW-026, UNB-KNOW-032, CNV-GRT-003 | PROP-SEC-06 |
 | AI ingestion | T6 provenance for extracted contacts and bank fields; no autofill; extraction shown beside the source image | CNV-AIO-002, UNB-KNOW-030, UNB-CHAR-022 | PROP-SEC-14 |
 | Outbound authenticity | DMARC p=reject on Unbound and sponsor white-label domains; no action links in bank-related email; lookalike-domain monitoring; published "how to verify us" page for charities | — | PROP-SEC-09 |
-| Partner enrolments | Partner change-control evidence class recorded; change-event feed and fingerprint; mismatch blocks; exposure limits | CNV-EXP-002, CNV-PLT-012, RR-REQ-X-005-r1 AC-1 | PROP-SEC-07 |
+| Partner enrolments | **Ratified:** an enrolment counts only with equivalent contract controls, including a change event before the next release (CNV-EXP-002 c10); mismatch blocks; exposure limits. Residual: the Chariot model fits neither c10 combination | CNV-EXP-002 (c10), CNV-PLT-012, RR-REQ-X-005-r1 AC-1 | Owner decision (replaces PROP-SEC-07) |
 | Migration | Hashed and signed extract manifest; two independent extracts diffed; late-change window → D3; legacy payment-history corroboration (a destination paid without return for at least 12 months is pre-assembled evidence, still verified one record at a time); independent reconciler | UNB-CHAR-041, UNB-TEN-011, UNB-TEN-013, UNB-UI-S-056, UNB-UI-S-057 | PROP-SEC-08 |
 | Insider | Unbound staff never verify or activate a sponsor destination; ServiceDelegation excludes destination authority; two-person rule on payment-relevant registry writes; alert on actions across more than one sponsor | CNV-TEN-001, UNB-RULE-020, UNB-UI-S-056 AC-1 | PROP-SEC-12 |
 | Leakage | No per-sponsor timestamps or "verified by" in shared fields; re-checks not attributable across tenants; negative tests | CNV-TEN-001, UNB-TEN-009, UNB-KNOW-012, CHAR-T10/T17 | PROP-SEC-10 |
@@ -254,30 +269,43 @@ This is testable with the replay and shadow tooling of CNV-GOV-005. The tension 
 ## Implications for Unbound
 
 1. **Treat bank-change security as a regulated, auditable product surface.** The Nacha Phase 2 TPSP duty means a sponsor's ODFI will ask for the monitoring program. A documented, tiered design is a sales asset with treasurers, while incumbents publish only discretionary callbacks (INFERENCE, Medium).
-2. **Share ownership evidence, never authority.** This captures the network benefit (one strong owner match reused) without inheriting a single point of deception.
-3. **Protect the contacts used for callbacks as carefully as the bank account.** Contact poisoning is the cheapest way to defeat every callback control on the network.
+2. **In Release 1, share public facts and claim/control evidence, not destination evidence.** A per-sponsor owner match is cheap. Sharing destination evidence would concentrate deception risk and raise loss-allocation and imputed-awareness questions (ADVA-13).
+3. **Implement the ratified contact controls faithfully, and close the public-source residual.** Contact poisoning is the cheapest way to defeat callbacks. c10/c11 cover contacts held in the registry, but not a freshly changed IRS-of-record contact.
 4. **Friction is the cost.**
    - First-payment caps and receipt confirmation slow a charity's *first* large grant. Measure the share of grants affected; HYPOTHESIS: under 10% are first or changed-destination payments.
    - Where caps would split a large first grant, offer an expedited D1 path: video officer verification plus a bank call.
-5. **CNV-EXP-002 needs a security precondition.** Without one, Unbound inherits the weakest partner's change controls across every sponsor.
+5. **CNV-EXP-002 already has a security precondition (c10).** What remains is the owner decision on whether a bank-opened, charity-titled account fits as a third evidence class. Without it, Chariot- and PayPal-enrolled charities cannot use CNV-EXP-002.
 
 ## Proposed requirements (only where missing)
 
-- **PROP-SEC-01.** Risk-tiered destination verification D0-D3 with evidence minimums, pending periods and exposure caps (refines CNV-PAY-002, UNB-RCN-GRT-017).
-- **PROP-SEC-02.** Rules on the age and change history of charity callback contacts, plus contact-change holds for charity principals (extends CNV-PLT-011, UNB-UI-P-005).
-- **PROP-SEC-03.** Network exposure cap and velocity tripwire for new or changed destination versions; per-sponsor opt-in to shared destination evidence (refines CNV-GRT-003, UNB-CHAR-037).
+- **PROP-SEC-01 (re-scoped).** D0-D3 risk overlay *within* the two c10 combinations: longer cooling-off, first-payment caps and D3 security review. It adds no new evidence combinations (refines CNV-PAY-002 c10, UNB-RCN-GRT-017).
+- **PROP-SEC-02 (narrowed).** The 30-day age rule applies also to "independent public source" contacts (IRS-of-record address and phone, 990 phone) first seen within the period. The registry-contact part is withdrawn: it duplicates CNV-PAY-002 (c10) and CNV-PLT-011 (c11).
+- **PROP-SEC-03 (deferred past Release 1).** Network exposure cap and velocity tripwire, only if shared destination evidence is enabled later under the c10 reliance policy.
 - **PROP-SEC-04.** Receipt confirmation through an independent channel ends probation (new).
 - **PROP-SEC-05.** Provenance tiers T1-T6 decide which sources may write payment-relevant and callback fields; corroboration quorum (refines UNB-CHAR-012, UNB-KNOW-030).
 - **PROP-SEC-06.** Source-feed integrity gates, plus a mass-change circuit breaker with time-bounded holds (refines UNB-KNOW-026, CNV-GRT-003).
-- **PROP-SEC-07.** Partner-enrolment change-control attestation before CNV-EXP-002 applies (resolves the conflict with RR-REQ-X-005-r1).
+- **PROP-SEC-07 (withdrawn).** Duplicates CNV-EXP-002 (c10). Replaced by the owner decision on a third evidence class (ADVA-03).
 - **PROP-SEC-08.** Migration chain of custody and late-change window (refines UNB-CHAR-041, UNB-TEN-011).
 - **PROP-SEC-09.** Outbound email authenticity and lookalike-domain monitoring (new).
 - **PROP-SEC-10.** Shared-store inference tests: non-attributable re-checks, no per-sponsor timestamps (refines CNV-TEN-001).
-- **PROP-SEC-11.** Reuse of private evidence needs charity consent and the providing sponsor's opt-in; only derived assertions are shared (refines UNB-CHAR-037).
+- **PROP-SEC-11 (deferred).** Proposed content for the c10 written reliance policy: charity consent, the providing sponsor's opt-in, derived assertions only, and loss allocation (refines UNB-CHAR-037).
 - **PROP-SEC-12.** Unbound personnel excluded from destination authority; two-person rule on registry payment-relevant fields (refines CNV-TEN-001).
 - **PROP-SEC-13.** Nacha False Pretenses monitoring program and recall playbook (new; counsel review).
 - **PROP-SEC-14.** AI-extracted contact and bank values are T6 and never auto-applied (refines CNV-AIO-002).
 - **PROP-SEC-15.** Proof of representative authority and a probation period for new representatives (refines UNB-CHAR-014, CNV-PLT-003).
+
+## Adversarial review response
+
+Responses to reviewer ADVA, from `data/adversarial-findings-A.csv`.
+
+| Finding | Response | Change made |
+|---|---|---|
+| ADVA-02 (major, upheld) | Accepted. I had missed the round-2 amendments CNV-PAY-002 (c10) and CNV-PLT-011 (c11). | Summary, §3.1, §4 and §6 rewritten. PROP-SEC-02 narrowed to public-source contacts. Threat CSV T04, T10 and T14 cite c10/c11 |
+| ADVA-03 (major, partially upheld) | Accepted. CNV-EXP-002 (c10) already requires partner contract equivalence. The real conflict is c10's "exactly two combinations" against the Chariot model. | PROP-SEC-07 withdrawn; the issue is escalated as an owner decision. CSV T18 updated |
+| ADVA-13 (major, partially upheld) | Accepted. Destination evidence stays sponsor-scoped in Release 1, consistent with c10. The benefit is small, losses are unallocated, and imputed awareness is a counsel question. | §5 marked deferred with four conditions for enabling it. PROP-SEC-03 and PROP-SEC-11 deferred. CSV T08, T16 and T17 updated |
+| ADVA-17 (minor, rejected) | The Nacha dates and definition were confirmed accurate. The Phase 1 date and threshold are already in §2.1. | None |
+| ADVA-19 (minor, partially upheld) | Accepted. Fidelity's discretionary public-number callback is comparable practice. | Competitive-angle bullet qualified |
+| ADVA-20 (major, partially upheld) | Partly accepted. After this revision, 5 of the 15 proposals are re-scoped (01), narrowed (02), deferred (03 and 11) or withdrawn (07). The Release 1 core is PROP-SEC-01, -04, -05, -06, -08, -12, -13 and -14. PROP-SEC-02, -09, -10 and -15 are lower-cost hardening. | Proposed-requirements list re-scoped |
 
 ## Open questions / evidence gaps
 
@@ -285,6 +313,7 @@ This is testable with the replay and shadow tooling of CNV-GOV-005. The tension 
 2. **Account-owner match coverage.** Not publicly documented for business and nonprofit accounts (EWS gives no rate). A bank or provider POC is needed before T2 can be the default.
 3. **Partner change controls.** The bank-change controls of Ren, Chariot and PayPal after enrolment (callback, cooling period, notification) are not publicly documented. Due diligence is required.
 4. **IRS address changes.** The difficulty of fraudulently changing an IRS-of-record address or phone number is unverified (HYPOTHESIS for T14).
-5. **Destination-integrity signals.** May they be shared outside the CNV-GRT-004 written agreement, given the charity is the victim? Counsel question.
+5. **Destination-integrity signals.** May they be shared outside the CNV-GRT-004 written agreement, given the charity is the victim? Would sharing impute awareness under Rev. Proc. 2018-32 s4.04(3)/s5.02(2)? Counsel questions.
+8. **Third evidence class.** Owner decision on admitting a bank-opened, charity-titled account with partner-attested control events under CNV-PAY-002 (c10) (ADVA-03).
 6. **Prevalence.** There is no public prevalence data for diversion of DAF grants specifically (the DOJ screen found 0). Calibrate caps from sponsor loss history, Form 990 Part VI line 5 data and a design-partner replay.
 7. **Sources not readable this pass.** The Star Tribune original (403/429), the LSC OIG BEC advisory (connection reset) and the full FinCEN alert PDF. Their figures rest on secondary or earlier-repo reads.

@@ -51,7 +51,8 @@
   "retroactive": "held grants re-evaluated with GrantDateCovered; skipped recurring occurrences not recreated",
   "prospective": "grants dated in [revocationEffective, reinstatementEffective) remain refused",
   "pre_posting_reliance": "grants released before posting by unaware grantor remain valid (s4.02) unless knowledge recorded earlier (s4.04)",
-  "measured": "184,830 reinstated rows on Auto-Revocation List (2026-11-17 file): 122,787 retroactive, 62,043 prospective (median 944 days later)"
+  "measured": "184,830 reinstated rows on Auto-Revocation List (2026-11-17 file): 122,787 retroactive, 62,043 prospective (median 944 days later)",
+  "revoked_still_listed": "31,614 BMF EINs (19,688 also Pub 78) with unreinstated latest revocation row (tie-break: posting date, then revocation date); 22,402 have BMF ruling after revocation (re-recognised, s4.06)"
  },
  "freshness_semantics": {
   "current": "latest publication of the source ingested",
@@ -1674,5 +1675,25 @@
    "effect": "AI proposes DiscretionaryGrantPolicy match; sponsor human decides (SE07)",
    "measured": "not measured"
   }
+ ],
+ "release_tiering": {
+  "release_1": [
+   "CommonVerification",
+   "SponsorEligibility",
+   "GrantCheck",
+   "RecurringOccurrence",
+   "SanctionsScreening",
+   "EvidenceItem"
+  ],
+  "later": [
+   "CV03/CV25 AI-assisted extraction beyond structured fields",
+   "FISCAL_SPONSOR_PROJECT_EVIDENCE expiry (CNV-GRT-008 deferred)",
+   "cross-sponsor sanctions FP reuse (OD-P-GRT cut F)",
+   "sharing of private verification evidence beyond public facts (ADVA-13)"
+  ]
+ },
+ "external_dependencies_not_respecified": [
+  "CNV-PAY-002 as amended in c10 (destination evidence combinations, callback contact age, CAL3)",
+  "CNV-PLT-011 as amended in c11 (charity contact/signatory/bank-change holds, CAL0-CAL3)"
  ]
 }

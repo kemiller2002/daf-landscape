@@ -59,7 +59,7 @@ Direction matters. Of the 305 foundation-code changes: 148 were private foundati
 | 2025 | 58,831 | 50,119 | 68.8% |
 | 2026 (to Nov) | 53,120 | 45,696 | 73.1% |
 
-The other months carry 0 to 8,565 postings each. Posting lag after the effective date (2025 postings): p10 89, median 89, p90 119 days. Reinstated rows: 184,830, of which 122,787 are retroactive and 62,043 prospective. VERIFIED-FACT (computed), High.
+The other months carry 0 to 8,565 postings each. Posting lag after the effective date (2025 postings): p10 89, median 89, p90 119 days. The tight median is an artefact of the August batch, posted at a uniform lag (2026: 39,415 of 53,120 postings at exactly 88 days, ADVA-16); the non-August lag distribution is wider and must not be used as a constant. Reinstated rows: 184,830, of which 122,787 are retroactive and 62,043 prospective. VERIFIED-FACT (computed), High.
 
 Incidence among actual DAF grantees is far lower than in the population, because revoked organizations are mostly non-filers. Of 170,569 top-50 recipient EINs in FY2023-24, 141 were already revoked before the sponsor's fiscal year, 272 were revoked during it and 1,092 afterwards (to November 2026). That is about 0.3% of grantees a year. INFERENCE from research/mission-2026-11-14/b40n1202-b43n26-03-non-bmf-recipients.md and direction-recipient-lobbying.md, Medium.
 
@@ -127,7 +127,7 @@ Let E be the revocation effective date (valid time), P the posting date, K the t
 
 Recording rule (KNOW-T05): a retroactive reinstatement adds a valid-time correction (exempt throughout) while the recorded-time history keeps that, at decision time, the organization was revoked. Holds placed then were correct decisions on the facts known; they are not re-labelled as errors. Metrics count them as "correct hold, later lifted", not false positives.
 
-Why not release on the revocation list's reinstatement column alone: §4.06 names a subsequent Pub 78/BMF listing or a determination letter as the reliance basis, not the list. In the current files, 19,695 Pub 78 EINs still show an unreinstated revocation row, so the list is an imperfect signal. INFERENCE, Medium; counsel question in 05.
+Why not release on the revocation list's reinstatement column alone: §4.06 names a subsequent Pub 78/BMF listing or a determination letter as the reliance basis, not the list. In the current files, 31,614 BMF-listed EINs (19,688 also in Pub 78) show an unreinstated latest revocation row (definition and tie-break in 05 section 3); 22,402 of them (71%) have a BMF ruling month after the revocation, i.e. were most likely re-recognised. So the list's reinstatement column is an incomplete signal in both directions. INFERENCE, Medium; counsel question in 05.
 
 ## 6. State model
 
@@ -208,6 +208,23 @@ KPIs (refining RR-REQ-X-007-r2(6), CA-180-16), each with an explicit denominator
 3. Define "stale" as behind the latest publication, in the FreshnessPolicy schema, before any rail partner integration builds on it.
 4. Implement reinstatement as re-check, not release, until a qualifying listing or letter exists.
 5. Plan an annual August surge test: about 40,000-47,000 revocation rows in one posting, delta-applied and fanned out within the detection SLA.
+
+## Release 1 versus later
+
+| Tier | Items |
+|---|---|
+| Release 1 minimum | CommonVerification, SponsorEligibility, GrantCheck, RecurringOccurrence, SanctionsScreening and EvidenceItem machines as in the JSON; currency-based staleness (REG-P-12); direction-aware materiality for structured IRS fields (REG-P-13); reinstatement as re-check (REG-P-14); quarantine of implausible deltas (REG-P-17); August surge test |
+| Release 1, minimal form | Evidence-type validity table (REG-P-16) only for the evidence types R1 uses (IRS status, deep review, group inclusion, church/government evidence, sanctions, destination); KPIs REG-P-15/19 as reports, not release gates, until a baseline exists |
+| Later | AI-assisted transitions CV03/CV25 beyond extraction of structured fields; early-warning filing requests (REG-P-18); fiscal-sponsor attestation expiry (CNV-GRT-008 is deferred); unstructured adverse-record matching; cross-sponsor sanctions false-positive reuse (deferred by OD-P-GRT cut F) |
+
+## Adversarial review response
+
+- **ADVA-04 (duplicate BMF rows).** Population counts are corrected in 05. The BMF month-over-month diff in section 2.1 already keyed snapshots by EIN, so its figures are unchanged.
+- **ADVA-05/06 (revoked but still listed).** Section 5 now uses the single definition from 05: 31,614 BMF-listed EINs (19,688 also in Pub 78). 71% look re-recognized and are resolved deterministically under §4.06. The rest are left to counsel.
+- **ADVA-16 (lag).** The 88-89 day median comes from the uniform August batch. Detection SLAs stay relative to publication (RR-UNB-EXT-028-r2), not to an assumed lag.
+- **ADVA-13 (shared verification risk).** The state model shares only CommonVerification built from public facts. Sanctions dispositions, destination evidence, discretionary holds and reliance snapshots stay in sponsor cells. No Release 1 proposal extends sharing.
+- **ADVA-20 (scope).** Tiering is in the table above. The review-load model stays a planning estimate, not a requirement.
+- **Round-2 amendments.** CNV-PAY-002 (c10: exact destination-evidence combinations, cooling-off floor, 30-day callback contact, CAL3) and CNV-PLT-011 (c11: holds also cover charity contact, signatory and bank-detail changes) govern the `DestinationVerified` guard and the representative evidence type. They are referenced, not re-specified.
 
 ## Open questions / evidence gaps
 

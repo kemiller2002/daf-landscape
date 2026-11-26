@@ -18,8 +18,9 @@ What is new in this run: on 2026-11-26 I downloaded the current IRS bulk files (
   - Pub 78 lists **0 of 237,380** 501(c)(3) group-ruling subordinates that are on the BMF.
   - 242,141 BMF 501(c)(3) EINs are absent from Pub 78.
   - 997 Pub 78 EINs are absent from the BMF.
-  - **31,616** EINs whose latest automatic-revocation row has no reinstatement date are still on the BMF, and 19,699 of them are in Pub 78.
-  - Revocations are posted a median of **88 days** after their effective date (p90: 115 days; 2026 postings).
+  - **31,579** EINs with an *open* automatic revocation are still on the BMF, and 19,663 of them are in Pub 78. "Open" means that no row for the EIN has a reinstatement date on or after its latest revocation date; this order-independent definition is set out in the adversarial review response below.
+  - For 22,366 of those 31,579 (71%), the BMF ruling month is later than the revocation date, which points to re-recognition. That leaves about 9,200 unexplained.
+  - The revocation posting lag depends on the batch. All 38,826 August-2026 postings landed exactly 88 days after their effective date. The 14,294 other 2026 postings had p10/p50/p90 of 85/115/272 days. The lag is therefore batch-scheduled, not continuous.
 - **Change rates are lumpy, so staleness rules must be asymmetric.** Revocation postings run at about 500-5,000 a month, but the August batch is about 39,000-40,000: 40,453 in Aug-2025 and 38,826 in Aug-2026. That is about 70% of a year's postings in one release. New BMF ruling dates run at about 6,800-13,700 a month in 2026 [VERIFIED-FACT, High; DAT-014/016]. Net BMF churn cannot be measured from one snapshot. Unbound must archive monthly to learn it [INFERENCE].
 - **IRS page labels do not match the actual file timestamps.** The TEOS page says the revocation file was "Last updated Nov. 11" but the file is dated Nov 17. It says 990-N was posted "Nov. 9" but the file is dated Nov 23. It shows a 990 XML posting of "Oct. 21" but batch 10A is dated Nov 18. The 990 page's link list also omits files that exist on the server (`2022_TEOS_XML_02A.zip`, 1.41 GB). Freshness must come from the HTTP `Last-Modified` header, the content's maximum dates and the file hash, never from page text [VERIFIED-FACT, High; DAT-003/006].
 - **The cadences now published** (IRS Pub 5891, 3-2026) [VERIFIED-FACT, High; DAT-004]:
@@ -64,7 +65,7 @@ All of these files are on irs.gov or apps.irs.gov, whose robots rules allow the 
 
 | Source | Current file (Last-Modified) | Rows / size | Cadence (stated → observed) | History in file | Key fields for eligibility |
 |---|---|---|---|---|---|
-| EO BMF (eo1-eo4) | 2026-11-09 (page "posting 11/10/2026") | 1,984,891 rows, 0 duplicate EINs; 343 MB CSV | "extracted monthly" → monthly | **None**. Cumulative current state; "the organization's name is removed ... including this file" on revocation | SUBSECTION, FOUNDATION (10 church … 21-24 SO type), AFFILIATION (6/8 central, 9 subordinate), GROUP (GEN), DEDUCTIBILITY, STATUS, RULING, FILING_REQ_CD |
+| EO BMF (eo1-eo4) | 2026-11-09 (page "posting 11/10/2026") | 1,984,891 rows, 0 duplicate EINs *within eo1-eo4*; 343 MB CSV. Do not add eo_pr/eo_xx: their 5,060 rows duplicate eo4 | "extracted monthly" → monthly | **None**. Cumulative current state; "the organization's name is removed ... including this file" on revocation | SUBSECTION, FOUNDATION (10 church … 21-24 SO type), AFFILIATION (6/8 central, 9 subordinate), GROUP (GEN), DEDUCTIBILITY, STATUS, RULING, FILING_REQ_CD |
 | Pub 78 | 2026-11-11 | 1,437,288 EINs; 30 MB zip / 103 MB | monthly, ~2nd Tue | None | Deductibility code (PC, PF, POF, SO, SONFI, SOUNK, GROUP, LODGE, EO, FORGN, UNKWN) |
 | Automatic revocation | 2026-11-17 (max posting 2026-11-11) | 1,248,282 rows / 1,228,742 EINs; 48 MB zip / 148 MB | monthly, ~2nd Tue | **Full since 2011** | Revocation date, posting date, reinstatement date |
 | 990-N | 2026-11-23 (page: Nov 9) | 1,557,850 EINs (latest only); 94 MB zip / 287 MB | weekly, Mon | Latest only | Tax year, terminated flag (57,583 T), principal officer (personal data) |
@@ -95,8 +96,8 @@ These were measured on the same-week files (DAT-013/014/016). All are VERIFIED-F
 | BMF 501(c)(3) subordinates (affiliation 9) in Pub 78 | **0 of 237,380** | Pub 78 absence is not ineligibility. Subordinate status depends on the central's GROUP listing plus the central's own roster (Pub 4573) |
 | BMF 501(c)(3) not in Pub 78 | 242,141 (237,380 subordinates; 125,381 church-coded; 3,826 independents) | The BMF covers more recognized organizations, but it is not the reliance list |
 | Pub 78 EINs not in BMF | 997 (842 PC) | Snapshot timing or removal skew: hold for review, never auto-pass |
-| Latest revocation without a reinstatement date but still in BMF | 31,616 (19,699 also in Pub 78) | The reinstatement field is incomplete, or recognition was re-granted under a new determination [INFERENCE, Medium]. Pub 5891 itself says the revocation date "doesn't necessarily reflect its current tax-exempt status" |
-| Days from revocation date to posting (2026) | p10 88 / p50 88 / p90 115 | An organization can be revoked by operation of law about 3 months before any public file shows it. That is a disclosed, irreducible window |
+| Open revocation (definition in the adversarial review response) but still in BMF | 31,579 (19,663 also in Pub 78) | For 22,366 (71%), the BMF RULING month is later than the revocation date. That points to re-recognition under a new determination (Rev. Proc. 2018-32 s4.06 subsequent listing), so the reinstatement field cannot be relied on alone [INFERENCE, Medium-High]. About 9,213 remain unexplained and go to review |
+| Days from revocation date to posting (2026) | August batch: 88 days for all 38,826 rows. Other months: p10/p50/p90 = 85/115/272 (n=14,294) | Revocation by operation of law precedes publication by 3 to 9 months, depending on which batch carries it. This window is disclosed and cannot be eliminated |
 | BMF NAME length | max 70 chars; 638,687 names are 35 chars or longer | Pub 78 names run to 150 chars. Match on EIN, never on name equality, and grant to the Pub 78/BMF legal name (CNV-GRT-003) |
 | 990-N file | one row per EIN | Prior years are overwritten. Unbound must archive weekly to keep filing history |
 
@@ -188,7 +189,7 @@ All are VERIFIED-FACT, High (DAT-014/016). The ruling counts are a lower bound, 
 
 | Question | Public source | Can establish? | Residual gap: direct evidence needed |
 |---|---|---|---|
-| IRS-recognized 501(c)(3)? | BMF SUBSECTION 03, Pub 78 | Yes, as of snapshot date (about 1-3 months lag) | Revocations in the 88-day posting window; retroactive reinstatement |
+| IRS-recognized 501(c)(3)? | BMF SUBSECTION 03, Pub 78 | Yes, as of snapshot date (about 1-3 months lag) | Revocations not yet posted (3-9 month window); retroactive reinstatement |
 | Public charity vs private foundation | Pub 78 PC/PF/POF; BMF FOUNDATION | Yes for most; "UNKWN" or "SOUNK" are not determinable | Determination letter (images, 2014+), or Schedule A |
 | 509(a)(3) type (DAF disqualified SO tests) | BMF 21-24; Pub 78 SO/SONFI/SOUNK; 990 Schedule A | Partly: 15,043 records carry legacy code 17 and 14,137 Pub 78 rows say SOUNK | Type certification and **donor/advisor control of supported organizations**. This is not public; ask the grantee or advisor |
 | Church status | BMF FOUNDATION 10 (293,661 records) | Only for churches that applied, or subordinates coded under a church GEN | Self-certification or central letter for non-applicant churches. The b40n1202 "religious-pattern, no IRS trace" bucket held $1.35bn |
@@ -225,27 +226,39 @@ The legal framing (DAF taxable distributions under IRC 4966 and the disqualified
 ## Implications for Unbound
 
 1. **The status-data layer is not a moat.** Any entrant can rebuild Ren or Chariot's IRS-derived directory from about 1 GB a month of public-domain files [INFERENCE, High]. The barrier sits in the direct-evidence layer: group rosters, church attestations, supporting-organization control certifications, governmental EIN binding, bank-ownership proofs and foreign equivalency. Incumbents have accumulated that evidence over years.
-2. **Unbound's edge is correctness at the boundaries.** Measurable discrepancies (31,616 BMF-versus-revocation conflicts, 997 Pub 78-only EINs, the 88-day revocation window) are things a deterministic, archived, multi-source reconciler can surface and incumbents' single-feed checks may not [HYPOTHESIS, testable against the Schedule I recipients in b40n1202].
+2. **Unbound's edge is correctness at the boundaries.** Measurable discrepancies (about 9,200 unexplained open-revocation EINs on the BMF, 997 Pub 78-only EINs, the 3-9 month posting window) are things a deterministic, archived, multi-source reconciler can surface and incumbents' single-feed checks may not [HYPOTHESIS, testable against the Schedule I recipients in b40n1202].
 3. **Rights are clean for the core.** Federal files carry no licence friction for AI use, caching or retention (b43n26-03). Keep UK, Canadian and Australian data with their attribution metadata. Exclude ProPublica, Candid, Charity Navigator and OpenCorporates' free tier from any shared store (CNV-TEN-001, CNV-GRT-004).
 4. **Ratified decisions.** No conflict found. One refinement to CNV-GRT-003: "latest TEOS/Pub78 ... posting dates" should be read as the file's `Last-Modified` and content dates, not the IRS page label. Those differed by up to 4 weeks in this run.
 
 Candidate requirement refinements (one line each):
 - UNB-EXT-001 (refine): Ingest BMF, Pub 78, revocation and 990-N by fixed file URL, versioned by `Last-Modified` and sha-256. Never crawl TEOS, which is robots-disallowed.
 - UNB-CHAR-011 (refine): Derive freshness from file and content dates, not page labels. Store per-source SLAs (BMF/Pub 78/revocation 45 days; 990-N 14 days; OFAC 24 hours; CA 21 days).
-- UNB-CHAR-015 (refine): Model August mass revocation postings and the ~88-day revocation-to-posting window as a disclosed risk window on approval evidence.
+- UNB-CHAR-015 (refine): Model August mass revocation postings and the 3-9 month revocation-to-posting window (88 days in the August batch) as a disclosed risk window on approval evidence.
 - NEW: Cross-file conflict states (revoked-not-reinstated but in BMF; in Pub 78 but not in BMF) SHALL produce a review hold, not a pass or fail.
 - NEW: Group-subordinate eligibility SHALL require central-issued roster evidence with an expiry. BMF coding alone is insufficient (Pub 4573).
 - UNB-EXT-004 (refine): Poll OFAC SLS at least every 6 hours with Digest comparison, full reload, and versioned retention. Add UN, OFSI and EU lists for foreign grantees.
 - UNB-EXT-016/018 (refine): Exclude ODbL share-alike and no-resale aggregator data from registry storage unless a paid licence is recorded in the SharedStoreRegister.
 - NEW: Archive 990-N weekly and BMF monthly, because the IRS files overwrite history.
 
+## Adversarial review response (ADVA-04/05/06/16)
+
+- **One definition (ADVA-05).** An EIN is *open-revoked* if no row for it has a reinstatement date on or after its latest revocation date. The rule does not depend on row order or tie-breaks. On the 2026-11 files it gives:
+  - 1,063,397 open-revoked EINs;
+  - 31,579 of them on the BMF, 19,663 of them in Pub 78.
+
+  Earlier figures came from different tie-break rules: 31,616/19,699 (04), 19,695 (05) and 19,689 (ADVA). 04 now uses only the new figures; 05 and 06 should adopt them. [VERIFIED-FACT, High]
+- **Re-recognition (ADVA-06): upheld.** For 22,366 of the 31,579 (71%), the BMF ruling is later than the revocation date. Apply the Rev. Proc. 2018-32 s4.06 subsequent-listing rule deterministically and review only the residual 9,213. [INFERENCE, Medium-High]
+- **The 88-day lag (ADVA-16): upheld.** It is an August-batch artefact; other months run 85/115/272 days (p10/p50/p90). The summary, section 2 and section 10 have been revised.
+- **BMF duplicates (ADVA-04).** 04 already used eo1-eo4 only, with 0 duplicates. The 5,060 duplicates arise only when eo_pr/eo_xx are added; table note added. Figures unchanged: 237,380 subordinates, 1,659,108 501(c)(3)s.
+- **Script location.** References now point to `scripts/dat_irs_*.py` and `data/dat-irs-*-output.txt`.
+
 ## Open questions / evidence gaps
 
 - **BMF churn.** Additions and removals per month need two archived snapshots. Wayback was unreachable from this environment. Start archiving now.
-- **The 31,616 revoked-not-reinstated BMF EINs.** How many were re-recognized under a new determination versus data defects? Sample them against TEOS manually (TEOS is robots-blocked for automation).
+- **The ~9,213 open-revocation BMF EINs with no later ruling.** Are they data defects, or reinstatements not reflected in RULING? Sample them against TEOS manually (TEOS is robots-blocked for automation).
 - **CCEW and ACNC first-hand verification.** Both were blocked (403, robots). Confirm the extract tables, cadence and licence manually.
 - **GivingTuesday and Open990 terms.** Not found or not checked.
 - **IPEDS and Census unit files.** Contents and identifiers not opened. Is there a public EIN crosswalk for governmental units? (Not found.)
 - **501(p) list.** It has no EINs or dates. Confirm whether the IRS publishes structured data, or whether the OFAC SDN is the operational source.
 - **State registries.** 45+ jurisdictions remain unverified (`STATE-REGISTRY-VERIFICATION-QUEUE.csv`). Of the remainder, only CA (adverse list), CO and CT are confirmed scriptable.
-- **Analysis scripts.** The stdlib scripts that produced the measured counts are in this session's scratchpad (`irs_stats.py`, `irs_join.py`). They are not yet in the package. Re-running them against archived snapshots would make the figures reproducible.
+- **Analysis scripts.** The measured counts come from `scripts/dat_irs_stats.py` and `scripts/dat_irs_join.py`, with outputs in `data/dat-irs-stats-output.txt` and `data/dat-irs-join-output.txt`. The figures given in the adversarial review response come from the order-independent definition there; `dat_irs_join.py` still uses the earlier tie-break and should be updated to match.

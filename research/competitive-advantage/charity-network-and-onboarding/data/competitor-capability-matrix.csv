@@ -27,10 +27,10 @@ GivingTech DAFtech,international_grantmaking,Via America Gives (US 501(c)(3)),ve
 GivingTech DAFtech,sponsor_onboarding,8-week implementation; licence (tech-only) or revenue share (full service),vendor-claim-only,VENDOR-CLAIM,Medium,CMP-024,Only public week-by-week plan found in scope
 GivingTech DAFtech,integration_apis,Zapier/Make/API,vendor-claim-only,VENDOR-CLAIM,Low,CMP-024,
 GivingTech DAFtech,white_label,White-label portal on sponsor subdomain; optional sponsoring charity,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-024;data/expanded-daf-market-map-2026.csv,Sponsor EIN unverified
-Fidelity Charitable,directory_size_and_sources,Recipients per year,documented,VERIFIED-FACT,High,CMP-005;data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,"~227,000 charities supported 2025; 213,000 unique nonprofits CY2024 (2,664,446 grants)"
+Fidelity Charitable,directory_size_and_sources,Recipients per year,documented,VENDOR-CLAIM,High,CMP-005;data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,"~227,000 charities supported 2025; 213,000 unique nonprofits CY2024 (2,664,446 grants)"
 Fidelity Charitable,vetting_and_reuse,In-house grant review,partially-documented,VERIFIED-FACT,Medium,research/daf-grant-tracking-payment-rails-comparison-2026-11-11.md,Some recommendations take 10+ business days; vetting sources not published
 Fidelity Charitable,charity_portal_profile,Nonprofit enrolment forms and Stripe dashboard,documented,VERIFIED-FACT,High,CMP-005,Bank changes via Stripe dashboard or resubmitted ACH form
-Fidelity Charitable,electronic_payment_enrollment_coverage,67% of grants by EFT,documented,VERIFIED-FACT,High,research/mission-2026-11-14/queue-batch36-metrics-rails.md;CMP-005,2026 Giving Report (3m grants in 2025); unenrolled get checks
+Fidelity Charitable,electronic_payment_enrollment_coverage,67% of grants by EFT,documented,VENDOR-CLAIM,High,research/mission-2026-11-14/queue-batch36-metrics-rails.md;CMP-005,2026 Giving Report (3m grants in 2025); unenrolled get checks
 Fidelity Charitable,payment_partners,Stripe and direct ACH,documented,VERIFIED-FACT,High,CMP-005,Free to nonprofits; enrolment not portable to other sponsors (inference)
 Fidelity Charitable,international_grantmaking,Via intermediaries such as CAF America,partially-documented,VENDOR-CLAIM,Low,CMP-015,ED fee page via search index
 Fidelity Charitable,white_label,Platform offered to other sponsors,not-publicly-documented,INFERENCE,Medium,data/expanded-daf-market-map-2026.csv,No public sponsor-platform offering
@@ -38,7 +38,7 @@ DAFgiving360,directory_size_and_sources,Recipients per year,vendor-claim-only,VE
 DAFgiving360,electronic_payment_enrollment_coverage,Nonprofit EFT rail and share,not-publicly-documented,INFERENCE,Low,research/daf-grant-tracking-payment-rails-comparison-2026-11-11.md,Site robots-blocked; not verified
 DAFgiving360,directory_size_and_sources,Charity research links to Candid and Charity Navigator,partially-documented,VENDOR-CLAIM,Low,data/mission-2026-11-14/charity-data-provider-integrations-2026.csv,Snippet only
 DAFgiving360,white_label,Platform offered to other sponsors,not-publicly-documented,INFERENCE,Medium,data/expanded-daf-market-map-2026.csv,
-National Philanthropic Trust,directory_size_and_sources,Recipients per year,documented,VERIFIED-FACT,High,data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,"990 FY2024: >129,000 grants to >41,000 organizations"
+National Philanthropic Trust,directory_size_and_sources,Recipients per year,documented,VERIFIED-FACT,High,data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,"Form 990 Part III statement (regulatory filing; kept VERIFIED-FACT); 990 FY2024: >129,000 grants to >41,000 organizations"
 National Philanthropic Trust,vetting_and_reuse,GuideStar embedded in GivingPoint search,partially-documented,VENDOR-CLAIM,Low,research/mission-2026-11-14/queue-payment-rails-cluster.md,Internal note; NPT verifies EFT status before paying
 National Philanthropic Trust,electronic_payment_enrollment_coverage,"EFT status check, check fallback",documented,VERIFIED-FACT,Medium,research/mission-2026-11-14/queue-batch33-voids-exports-rails.md,Donor text: NPT verifies active EFT status else issues check
 National Philanthropic Trust,payment_partners,PayPal Grant Payments launch partner; NPT-paid EFT/wire,documented,VERIFIED-FACT,Medium,CMP-007;research/mission-2026-11-14/queue-batch33-voids-exports-rails.md,No Ren RDE value in GivingPoint payment enum
@@ -46,7 +46,7 @@ National Philanthropic Trust,international_grantmaking,International and special
 National Philanthropic Trust,sponsor_onboarding,Private-label onboarding ~14-16 weeks under SLA,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-019,Pricing not public
 National Philanthropic Trust,integration_apis,SSO and advisor/client workflow,vendor-claim-only,VENDOR-CLAIM,Medium,CMP-019,
 National Philanthropic Trust,white_label,"Private-label DAF (GivingPoint, e.g., jpmgiving.org)",documented,VERIFIED-FACT,High,CMP-019;research/mission-2026-11-14/queue-batch33-voids-exports-rails.md,
-Vanguard Charitable,directory_size_and_sources,Unique recipients,documented,VERIFIED-FACT,High,CMP-026;data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,"66,785 unique charities CY2025; '130,000+ since inception'"
+Vanguard Charitable,directory_size_and_sources,Unique recipients,documented,VENDOR-CLAIM,High,CMP-031;CMP-026,"66,785 unique charities CY2025; '130,000+ since inception'"
 Vanguard Charitable,vetting_and_reuse,"Status, purpose and impermissible-benefit review",documented,VERIFIED-FACT,High,CMP-026,Extra info for religious/government/supporting orgs
 Vanguard Charitable,charity_portal_profile,Relies on Candid profile and PayPal account,documented,VERIFIED-FACT,High,CMP-026,No own charity portal; email support
 Vanguard Charitable,electronic_payment_enrollment_coverage,PayPal Grant Payments enrolment,documented,VERIFIED-FACT,High,CMP-026;research/DAF-INDUSTRY-REPORT-2026-11.md,">$1bn electronically to >13,000 charities by Nov 2024 (trade press, internal)"
@@ -107,4 +107,4 @@ Groundswell,directory_size_and_sources,1.8M+ 'vetted' via Candid GuideStar,vendo
 Groundswell,payment_partners,Chariot default source,partially-documented,VENDOR-CLAIM,Low,research/mission-2026-11-14/queue-bank-programs-and-eft-providers.md,Distribution within 24h claimed
 Overflow,payment_partners,DAF gifts through Chariot since 2023,partially-documented,VENDOR-CLAIM,Low,research/DAF-INDUSTRY-REPORT-2026-11.md,"Nonprofit-side integrator, not sponsor"
 GoFundMe Giving Funds,directory_size_and_sources,'Verified charities',vendor-claim-only,VENDOR-CLAIM,Low,CMP-025,Launched 2025-06-30; independent 501(c)(3) sponsor
-Blackbaud Giving Fund (YourCause),directory_size_and_sources,Recipients per year,documented,VERIFIED-FACT,Medium,data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,">123,000 nonprofits worldwide 2024"
+Blackbaud Giving Fund (YourCause),directory_size_and_sources,Recipients per year,documented,VENDOR-CLAIM,Medium,data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv,">123,000 nonprofits worldwide 2024"

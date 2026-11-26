@@ -2,7 +2,18 @@
 
 Status: research draft (2026-11-26). Not legal advice. Evidence classes per 01-research-methodology.md.
 
-Agent: ECO. Model: `scripts/economic_model.py` (Python 3 stdlib, functional, deterministic). Inputs: `data/economic-parameters.csv` (106 parameters, each with an evidence class: 66 ASSUMPTION, 28 INFERENCE, 8 VERIFIED-FACT, 2 VENDOR-CLAIM, 1 RECOMMENDATION, 1 HYPOTHESIS). Output: `data/economic-scenarios-output.csv` (long format, about 42,000 rows; 672 sponsor scenarios plus unit-cost, platform and network rows).
+Agent: ECO. Model: `scripts/economic_model.py` (Python 3 stdlib, functional, deterministic). Inputs: `data/economic-parameters.csv` (136 parameters, each with an evidence class). Output: `data/economic-scenarios-output.csv`, long format, about 66,000 rows. It holds 876 deterministic sponsor scenarios, 16 Monte Carlo summaries (2,000 seeded draws each), and unit-cost, platform and network rows.
+
+**Revision 3 (2026-11-26), after adversarial review X.** This revision responds to `data/adversarial-findings-X.csv`. Changes:
+
+- The no-lever C0 case is now the base (CNV-ECO-003). The AI-native lever case C is shown as a lever.
+- Added Monte Carlo P10/P50/P90 and the CNV-ECO-005 stresses, including pre-delegation.
+- Added a first-sponsor view that carries organisation fixed cost and build amortisation, and a four-equal-sponsor view for the 25% concentration cap.
+- Added registry operating and compliance costs.
+- Added observed price benchmarks.
+- Adopted the partner-coverage and conversion assumptions from 08.
+
+`scripts/advx_sensitivity.py` (the reviewer's script) still runs against this model; its output is in `data/advx-sensitivity-output.csv`.
 
 **Revision 2 (2026-11-26), after adversarial review B.** This revision responds to `data/adversarial-findings-B.csv` (ADVB-05, 06, 07, 10, 11, 13; also 01, 04, 12). Changes:
 
@@ -16,40 +27,49 @@ Section 0 records what changed and what survived. Sources: `data/sources-ECO.csv
 
 ## Summary
 
-- **Track A, the charity registry, is cheap in money and expensive in engineering.** Establishment costs about **$319k** ($113k-$1.07M), of which 2,600 engineering hours are 96%. Running it costs about **$75k a year** ($24k-$219k), and 63% of that is connector maintenance. IRS and OFAC data are free [ECO-006][ECO-007]. Spread over a network's grants, that is **$0.20 per grant at 700k grants a year** and $1.98 at 70k. (INFERENCE from ASSUMPTION hour estimates; Medium.)
-- **Unit costs (base case).** One exception costs **$34**. Verifying a charity the first time costs **$1.35** and monitoring it costs **$1.46 a year**. Enrolling a charity for e-payment directly costs **$24**, of which about $3.00 is vendor fees [ECO-003]. A check costs **$4.66 more than an ACH payment**, all-in [ECO-001][ECO-002][ECO-004]. Unbound's cost per grant falls from $2.29 to $1.80 when the check share drops from 33% to 10%. (INFERENCE; Medium.)
-- **The network is mainly a sales and switching asset, not a margin lever.** Moving a grant from check to e-payment saves about $1.07: about $0.59 is the sponsor's pass-through rail fee (CNV-PAY-001) and about $0.48 is Unbound labour. (INFERENCE; Medium.)
-- **The 10k-account entry sponsor still absorbs onboarding, but the result comes from the revenue assumption.**
-  - Unbound's onboarding cost is **$438k**: $43.76 per account, including rehearsals, legal and a 10% failure reserve.
-  - CAC adds **$125k**.
-  - Payback is **about 2 months at 20 bps**, 4.3 months at 10 bps, and **13 months at a $100 per-account price**.
-  - Time to production is **33 weeks** (24-45). That is consistent with AEF's ~8.5 months from selection to live.
-  - The conclusion depends on a fee of about $400 per account. With 66 of 106 parameters ASSUMPTION, **confidence is Low** (ADVB-13).
-- **Small sponsors are worse than revision 1 showed (strengthened).**
-  - At 1,000 accounts, acquisition plus onboarding costs $259k-$456k. Payback is 10.5-20 months at 20 bps and 37 months at 10 bps.
-  - Low balance, poor data or high grant volume each push the sponsor out of INCLUDE_IN_FEE: 18 of 27 combinations include at 20 bps, 9 of 27 at 10 bps.
-  - In the stress case payback is **149 months**.
-  - The break-even price including CAC and onboarding is **about $142 per account a year**, so a 1k-account sponsor needs a **minimum annual fee of about $140k**. Servicing-economics put this at $100-110k, but it excluded CAC. (INFERENCE; Medium.)
-- **Processor-like mass books are uneconomic at any fee from 10 to 30 bps.** At about $7k average balance, account-based cost exceeds asset revenue. (INFERENCE; High for direction.)
-- **History depth and data quality are the onboarding cost drivers (strengthened).**
-  - Per-transaction migration is the share of onboarding cost at 100k-1M accounts:
-    - 46-58% with 20 years of ramped history;
-    - 32-43% with 7 years;
-    - 18-27% with 33 months.
-  - Data quality alone moves onboarding cost **2.5x at 1k accounts and 6.2x at 1M**.
-  - A fixed price is safe only behind a data-quality and history-availability gate. (INFERENCE; Medium.)
-- **The buyer bears a switching cost comparable to Unbound's onboarding cost, and it is not in Unbound's P&L.** Base: **$170k (1k accounts), $280k (10k) and $846k (1M)**. High cost case with poor data: $0.9M-$6.2M. It includes:
-  - sponsor staff of at least 0.5 FTE over the project;
-  - consultants;
-  - an incumbent tail fee (JCF paid Ren $417,742, the high case);
-  - auditor uplift, legal and communications.
+Base case throughout: C0 (no unmeasured levers), 20 bps working fee, typical data, full ramped history. Monte Carlo ranges are P10-P90 over 2,000 draws.
 
-  Absorbing Unbound's own onboarding cost does not remove this barrier. Reducing it is where onboarding design creates competitive advantage. (INFERENCE; Medium.)
-- **Commercial terms (RECOMMENDATION; Medium).**
-  - Include standard onboarding in the fee only behind gates: modelled payback including CAC of 24 months or less; a pre-contract data profile; history available at source; at most 1 custom integration.
-  - For sponsors outside the gates, charge onboarding **up front**. Do not recover it through exit penalties.
-  - Any recovery on early exit is limited to straight-line unamortised onboarding that Unbound actually absorbed, published up front. There is **no** export fee, export is never conditioned on payment, and nothing is owed when the exit is caused by an Unbound breach.
-- **Faster sales and earlier go-live are worth about $0.9M per 10k sponsor (HYPOTHESIS).** This value is still unmeasured.
+- **Track A, the registry, is a mandated cost of doing business, not a value lever (ADVX-15 accepted).**
+  - Establishment: about **$319k** ($113k-$1.07M).
+  - Running cost: **$316k a year** ($107k-$673k). That includes stewardship and disputes, counsel review, the Nacha TPSP audit, verification-vendor minimums, a charity support desk and an insurance rider.
+  - Per grant: **$5.42 at one entry sponsor's 70k grants**, $0.54 at 700k.
+  - Storage and compute stay immaterial. People and compliance are the cost. (INFERENCE from ASSUMPTION; Medium.)
+- **Network economic value is small and conditional (ADVX-13/14 accepted).**
+  - With 08's partner coverage (8% base) and its planning conversion path (p = 0.10, so 37% of grants are still checks at 36 months), e-payment savings against a 33%-check sponsor are **$0** in base.
+  - Savings appear only if conversion beats p = 0.10 or the sponsor starts check-heavy. For example, a 50%-check sponsor saves about $148k a year at 10k accounts in the high cost case.
+  - Charity enrolment at onboarding rises to **$178k** at 10k accounts. A mature registry would avoid about half.
+  - The sales-cycle value (about $0.8M) stays a quarantined HYPOTHESIS until there is win/loss evidence. (INFERENCE; Medium.)
+- **Onboarding in the fee works only for added sponsors, not the first (ADVX-03 accepted).**
+  - *Marginal (added-sponsor) view* at 10k accounts:
+    - Onboarding $757k, including $212k of pre-delegation labour. CAC adds $125k.
+    - Payback is **3.4 months** at 20 bps (P10-P90 **3.9-6.6**; 100% of draws INCLUDE_IN_FEE).
+    - At 10 bps it is 10.2 months (P10-P90 12.3-49).
+  - *First-sponsor view* at 10k accounts: the sponsor must carry $3.04M a year of platform fixed cost (organisation $1.66M, build $1.0M, registry $0.38M).
+    - Net is only **$63k at 20 bps**, so payback is **about 184 months**. At P50/P90 cost it never pays back.
+    - At 10 bps net is -$2.0M.
+  - With **four equal sponsors** (the CNV-ECO-004 25% cap), payback is 4.5 months at 20 bps (P90 11.0) and 38 months at 10 bps.
+  - **INCLUDE_IN_FEE is therefore a rule for added sponsors once fixed costs are covered.** The first one to three sponsors need design-partner terms: onboarding charged up front or co-funded. (INFERENCE; Medium for direction, Low for levels.)
+- **Small sponsors are uneconomic under C0.**
+  - 1k accounts at 20 bps: marginal payback **20 months** (P10-P90 24-45). Only 11% of draws INCLUDE.
+  - 9 of 27 deterministic combinations are UNECONOMIC.
+  - Break-even price **$220 per account**. A minimum annual fee of about **$220k** is needed at C0, or about $160k if the levers are proven (C).
+- **Price benchmarks cut the addressable buyers (ADVX-05/06/07 partly accepted).**
+  - Unbound's C0 break-even is **$101-120 per account at 10k+ accounts** ($57-72 with levers).
+  - Payback **never** occurs at Ren's software price of $81 per account (NCF).
+  - At Ren's staffed take of 18.5 bps (MS GIFT), payback is 3.8 months base and never in the high cost case.
+  - At $737 per account (staffed) it is 1.7 months.
+  - So Unbound can compete for **outsourced-staffed** buyers. It cannot compete at C0 for **self-staffed software** buyers.
+  - Donors ultimately fund the fee from sponsor admin-fee schedules, so 20 bps is a price *increase* against an 18.5 bps incumbent. (INFERENCE; Medium.)
+- **The CNV-ECO-005 stresses keep the marginal case positive.** Applied together (15% AUA decline, 20% price pressure and a December surge), 10k-account contribution falls from $3.10M to $1.73M and payback to 6.1 months. At 1k accounts contribution falls to $96k, payback 46 months, and the sponsor is negative after its fixed-cost share. The 25% concentration cap is breached by any single-sponsor start, however large that sponsor is. (INFERENCE.)
+- **History depth and data quality still drive variance.**
+  - At 1M accounts, onboarding cost runs from $32M (clean) to $68M (poor).
+  - Per-transaction migration is 14-24% of onboarding cost at 10k-1M accounts with full history.
+  - Pre-delegation labour is now the largest scaling line.
+- **The buyer's switching TCO of $170k-$846k (base) is unchanged.** Exit-symmetry terms from revision 2 stand.
+- **CNV-ECO-003 conformance is partial.** Done: C0 base, P10-P90, viability at P90 cost, pre-delegation and stresses. Missing:
+  - adverse licence scale (this model has no licence term);
+  - correlated draws (independence is an ASSUMPTION);
+  - measured lever values.
 
 ## 0. Adversarial review B: dispositions and what changed
 
@@ -65,20 +85,34 @@ Section 0 records what changed and what survived. Sources: `data/sources-ECO.csv
 | ADVB-04: private-label programs | Noted | These are fund-by-fund transfers (CNV-ENT-002) and are not modelled. Their onboarding is not a platform migration. |
 | ADVB-12: migration is not unique | Accepted for interpretation | Section 5 no longer implies that "having onboarding" differentiates. The value lies in a lower buyer TCO and verifiable outcomes. Ren markets set-up at "around $50,000" and "90-120 days" (VENDOR-CLAIM, ADVB-007), which is the price anchor for any onboarding fee. |
 
+| ADVX-01: Track A run costs omitted | **Accepted** | Added stewardship (0.5-1 FTE, CST-R10), charity support desk (0.25-1 FTE, CST-R13), counsel review (40-130 h at CST-C06 rates), Nacha TPSP audit, verification-vendor minimums and an insurance rider. Registry run cost goes from $75k to $316k a year ($5.42 per grant at 70k grants). These are not in servicing-economics Model B. Model C's compliance officer would overlap stewardship, so do not add both. |
+| ADVX-02: international grants | Noted | Excluded from Release-1 economics. Equivalency determination and intermediary routing are pass-through when CNV-GRT-008 activates. |
+| ADVX-03: first-sponsor view | **Accepted** | Added first-sponsor and four-equal-sponsor views (R18, R22). INCLUDE_IN_FEE is restated as an added-sponsor rule. |
+| ADVX-04: CNV-ECO-003/005 conformance | **Accepted, partially met** | C0 is now base (ai_enhanced activity minutes; 8% exceptions at 45 minutes; no determination reuse), with lever case C shown separately (R21). Monte Carlo P10/P50/P90 added (R22); "P90 cost" means contribution at P10. Pre-delegation (6-18 months, review and release labour at 1.5-3x, manual NAV checks) is in onboarding. CNV-ECO-005 stresses are in R19 and the 25% cap in R18. **Still missing:** adverse licence scale; correlated sampling; measured levers. |
+| ADVX-05/06/07: price benchmarks and payer | **Partly accepted** | Added 18.5 bps to the fee grid and per-account price paybacks at $81, $150, $250 and $737 (R20). Added `sponsor_saving_vs_incumbent_18_5bps`. A full payer model (donor fee schedule minus servicer take) is not built. It is stated qualitatively. |
+| ADVX-13: partner coverage | **Accepted** | 0.03/0.08/0.20 from 08. The Fidelity anchor is removed. |
+| ADVX-14: check-share target | **Accepted** | 0.15/0.37/0.37 at 36 months (08: p = 0.25 target path; p = 0.10 planning path). E-payment value is restated as conditional. |
+| ADVX-15: network value overstated | **Accepted** | The registry is reframed as a mandated cost. Sales-cycle value is quarantined. |
+| ADVX-16: pre-delegation, replay, hypercare | **Accepted** | Pre-delegation applies to all sponsors. The first-sponsor replay and time study ($40k-$160k) apply in the first-sponsor view. Hypercare donor contact rises to 20% (10-35%). |
+| ADVX-17: inputs misquoted | Rejection confirmed | No change. |
+
 **Rejected or not changed, with reasons.** The challenge that the 10k INCLUDE_IN_FEE result is wrong is not upheld *as arithmetic*. Even with all added lines, onboarding plus CAC ($563k) is about 15% of one year's revenue at 20 bps. It is upheld *as to dependence*: the result rests on the revenue assumption. So confidence is lowered rather than the conclusion reversed.
 
 **What survives, and at what confidence.**
 
+**What survives revision 3.**
+
 | Conclusion | Status |
 |---|---|
-| Registry cost structure | Survives, Medium |
-| Unit costs | Survive, Medium |
-| Network value is modest per grant | Survives, Medium |
-| Entry segment absorbs onboarding | Survives only conditional on price; Low |
-| Small sponsors need minimum fees | Survives and strengthened: about $140k, Medium |
+| Registry cost structure | Revised: run cost is about 4x higher; still small against servicing revenue; Medium |
+| Unit costs | Revised: C0 base roughly doubles labour cost per grant; Medium |
+| Network value | Revised down to about $0 in base; mandated cost, not a lever; Medium |
+| Entry segment absorbs onboarding | Survives **only for added sponsors** at roughly 15 bps or more, or about $250+ per account; Low |
+| First-sponsor viability | New: not viable without design-partner terms; Medium |
+| Small sponsors need minimum fees | Strengthened: about $220k at C0; Medium |
 | Processor books uneconomic | Survives, High for direction |
-| History and data quality dominate onboarding cost | Survives and strengthened, Medium |
-| Termination-fee recommendation | Withdrawn |
+| Self-staffed software buyers ($81 per account) | New: uncompetitive at C0; Medium |
+| Termination-fee recommendation | Remains withdrawn |
 
 ## 1. Model structure and evidence discipline
 
@@ -93,9 +127,12 @@ Section 0 records what changed and what survived. Sources: `data/sources-ECO.csv
 | Pass-through (not Unbound cost) | ACH and check rail fees, positive pay. Under CNV-PAY-001 the sponsor is Originator, so these are sponsor costs; reported separately | Grants |
 | One-time onboarding (Unbound) | Implementation, engineering config, standard and custom integrations, per-account and per-transaction migration (volume-ramped history), reconciliation, rehearsals, donor re-onboarding, charity e-pay enrolment, third-party set-up, legal, failure reserve; plus CAC per sponsor | Accounts, history, data quality, integrations |
 | Buyer switching TCO (not Unbound) | Sponsor staff (at least 0.5 FTE over the project), consultants, incumbent tail fee, auditor uplift, legal, communications | Time to production, size, data quality |
-| Revenue | Asset-based: AUA x bps (10/15/20/30; **20 bps is a working scenario only**) | Accounts x average balance |
+| Revenue | Asset-based: AUA x bps (10/15/18.5/20/30; **20 bps is a working scenario only**). Per-account price paybacks at $81/$150/$250/$737 | Accounts x average balance |
+| Platform fixed, first-sponsor view only | Organisation fixed ($1.09-2.77M), build amortisation ($0.6-3.0M a year), registry run cost and establishment over 5 years. Carried entirely by the first sponsor, or split four ways under the 25% cap | Per company |
 
-**Scenario grid (672 scenarios).** The base cost case runs 432 scenarios across five dimensions, all with full history:
+**Lever case.** Base is **C0** (CNV-ECO-003). Its parameters use the `_c0` columns: ai_enhanced activity minutes, an 8% exception rate at 45 minutes with no determination reuse, $40 per account, and 560 sponsor hours. **C** (AI-native levers) appears in R21 and R22 only.
+
+**Scenario grid (876 deterministic scenarios).** The base cost case runs 540 scenarios across five dimensions, all C0 with full history:
 
 - size: 1k, 10k, 100k or 1M accounts;
 - grants per account:
@@ -104,9 +141,18 @@ Section 0 records what changed and what survived. Sources: `data/sources-ECO.csv
   - high 12.3 (Fidelity, `research/mission-2026-11-14/`);
 - data quality: clean, typical or poor;
 - average balance per size segment: low, base or high, taken from `data/commercial-opportunity/servicing-economics/segment-summary.csv` (sources are listed in the parameter file);
-- fee: 10, 15, 20 or 30 bps.
+- fee: 10, 15, 18.5, 20 or 30 bps.
 
-The low and high cost cases add 216 scenarios at 20 bps. A history family adds 24 more: short and mid history x 4 sizes x 3 data qualities, at base values and 20 bps.
+The low and high cost cases add 216 scenarios at 20 bps. A history family adds 24 more: short and mid history x 4 sizes x 3 data qualities, at base values and 20 bps. A lever-C family adds 60 more.
+
+**Monte Carlo.**
+
+- Draws: 2,000 per scenario, with a fixed seed.
+- Distribution: each non-dimension parameter is drawn from an independent triangular(low, base, high) distribution. Independence is an ASSUMPTION.
+- Scenarios covered: 4 sizes x 10/20 bps x C0/C.
+- Output: P10/P50/P90 (R22). For costs and payback, P90 is the adverse end.
+
+**Stresses (CNV-ECO-005).** A 15% AUA decline, 20% price pressure, a December surge (30% of grants at a 1.3x labour premium), and all three combined (R19). Loss of the largest sponsor is the first-sponsor view (R18).
 
 **Recipients.** A sponsor's distinct recipients are grants divided by grants per recipient. Grants per recipient is 2.5 x (accounts/1000)^0.24, kept between 2.5 and 13.2, so it reproduces the Fidelity end-point of 13.2 at 1M accounts (A-ACT-005).
 
@@ -118,7 +164,7 @@ The low and high cost cases add 216 scenarios at 20 bps. A history family adds 2
 | SEPARATE_ONBOARDING_FEE | Payback over 24 months but within the 60-month term |
 | UNECONOMIC | Contribution of 0 or less, or payback longer than the term |
 
-**What "contribution" means here.** It is the sponsor's direct contribution *before* Unbound's organisation fixed cost: $1.66-1.74M a year in `servicing-economics/03-organization-and-budget.md`. It is also before build capex and sales cost. So a high contribution margin does not mean the company is profitable. Break-even at the company level is in servicing-economics: about $1.1-1.5B AUA on operating costs alone.
+**What "contribution" means here.** It is the sponsor's direct (marginal) contribution before platform fixed cost. **The first-sponsor and four-sponsor views (R18) carry that fixed cost**, and payback in those views includes CAC. Company-level break-even is still in servicing-economics: about $1.1-1.5B AUA operating, $1.8-2.3B fully loaded.
 
 **Reused parameters (not invented).**
 
@@ -127,9 +173,9 @@ The low and high cost cases add 216 scenarios at 20 bps. A history family adds 2
 | Labour rate | $65.45/h | servicing-economics |
 | Engineering rate | $118/h | CST-R03 |
 | Implementation rate | $80/h | CST-R11 |
-| Exception rate, with determination reuse | 4% | A-ACT-006 |
-| Minutes per exception | 30 | A-ACT-007; Unbound uses 45, range 30-135 |
-| AI-native activity minutes | ACH 0.1, check 1.2, status check 0.03 | `activity-minutes-typical.csv` |
+| Exception rate | C0 8% with no reuse (Unbound); C 4% with reuse (A-ACT-006) | as stated |
+| Minutes per exception | C0 45 (Unbound); C 30 (A-ACT-007) | as stated |
+| Activity minutes | C0 = ai_enhanced (ACH 0.3, check 2, status 0.3, review 1.46); C = ai_native (0.1, 1.2, 0.03, 0.97) | `activity-minutes-typical.csv` |
 | Return, break and contact parameters | see file | Unbound `requirements/discovery/2026-11-24-simplification-economics/model/parameters.json` |
 | Database storage and instance costs | see file | CST-T01, CST-T03, CST-T04 |
 | Onboarding hours | about 300 h | ACT |
@@ -150,16 +196,24 @@ The low and high cost cases add 216 scenarios at 20 bps. A history family adds 2
 | Batch compute | $3.6k | ASSUMPTION |
 | Paid state data and optional commercial sanctions screening | $18k | ASSUMPTION |
 | Connector maintenance for source drift (UNB-KNOW-026) | $47k (400 h) | ASSUMPTION |
+| Stewardship and compliance, 1 FTE (disputes and appeals, CHAR-ADR-002/006/007) | $122k | CST-R10; ADVX-01 |
+| Charity support desk, 0.5 FTE | $39k | CST-R13 |
+| Counsel review of eligibility rules (CHAR-ADR-010), 80 h | $36k | CST-C06 rate |
+| Nacha TPSP annual Rules compliance audit, vendor minimums, insurance rider | $44k | ADVX-001/002; ASSUMPTION |
+| **Total** | **$316k** ($107k-$673k) | |
 
-The cost of running the registry is dominated by people, not cloud spend.
+The registry's run cost is dominated by people and compliance, not cloud spend. Per grant (R15) it is **$5.42 at 70k grants, $1.81 at 210k and $0.54 at 700k**.
+
+**Staging (ADVX-08, RECOMMENDATION).** In Release 1, build federal sources plus resolution of the first sponsor's actual recipients. Defer state connectors outside the first sponsor's states.
 
 **Verification, exceptions and monitoring.**
 
 | Item | Calculation | Base cost |
 |---|---|---|
-| First-time verification of a charity | compute + 4% x $34 exception | $1.35 |
-| Exception | 30 min x $65.45 + $0.90 AI dossier | $34 |
-| Monitoring per charity-year | 4% status events x exception cost | $1.46 |
+| First-time verification of a charity | compute + 8% x $50 exception | $4.01 (C: $1.35) |
+| Exception | 45 min x $65.45 + $0.90 AI dossier | $50 (C: $34) |
+| Monitoring per charity-year | 4% status events x exception cost | $2.12 (C: $1.46) |
+| Unbound cost per grant at a 33% check share | review, screening, exceptions, payment labour | $7.26 (C: $3.35) |
 
 Monitoring is event-driven, consistent with servicing-economics' about $1 per account-year for 180-day re-verification done by continuous monitoring.
 
@@ -183,20 +237,15 @@ Monitoring is event-driven, consistent with servicing-economics' about $1 per ac
 
 Uncashed checks (assumed 3%) add a reissue and 30 minutes of handling. Escheat handling is part of that 30-minute decision; no public per-item cost was found.
 
-As a cross-check, Corpay's illustrative "not a benchmark" model gives $5.71 for a check and $1.67 for an ACH payment [ECO-013]. Our gap of $4.66 is close to its gap of $4.04.
+As a cross-check, Corpay's illustrative "not a benchmark" model gives $5.71 for a check and $1.67 for an ACH payment [ECO-013]. Our gap is $5.32 at C0 ($4.66 at C), against its $4.04.
 
-**Network growth (R3).** Variable cost scales with the charities actually in use, not with the 1.9M rows in the BMF. At 50k charities in use it is about $193k a year. At 600k charities (Fidelity-scale breadth) it is $2.3M a year, plus a one-time $3.6M to enrol the charities not covered by partners. Two cost-reducing facts:
-
-- Ratified CNV-EXP-002 reuses existing partner enrolments.
-- CNV-GRT-003 allows cross-sponsor evidence reuse.
-
-Without those, the direct-enrolment bill roughly doubles at 50% partner coverage.
+**Network growth (R3).** Variable cost scales with the charities actually in use, not with the 1.9M rows in the BMF. At 50k charities in use it is about $348k a year. At 600k it is $4.2M a year, plus a one-time $6.6M to enrol charities not covered by partners. Partner coverage is now 08's 8% base, so CNV-EXP-002 partner reuse saves less than revision 1 assumed. The material lever is per-invitation conversion (08 §4.3), not partner coverage.
 
 ## 3. Track B: onboarding costs
 
 R4, R5, R16 and R17 give the figures.
 
-**Fixed versus scaling cost.** Implementation, engineering configuration and integrations stay roughly fixed at **$118k-$154k** (800 engineering hours in the typical case). Rehearsals add $8k-$20k, Unbound legal $15k, and the failure reserve 10% of direct cost. CAC ($125k, ASSUMPTION) is reported separately and included in payback. Per-account and per-transaction work dominates above 10k accounts.
+**Fixed versus scaling cost.** Implementation, engineering configuration and integrations stay roughly fixed at **$118k-$154k** (800 engineering hours in the typical case). Rehearsals add $8k-$20k, Unbound legal $15k, and the failure reserve 10% of direct cost. CAC ($125k, ASSUMPTION) is reported separately and included in payback. Per-account and per-transaction work dominates above 10k accounts. **Pre-delegation (CNV-ECO-005)** is now the largest scaling line: about 12 months of human approval and three-person release before sponsor delegations allow deterministic approval. It costs $28k at 1k accounts, $212k at 10k and $20M at 1M (ASSUMPTION; borne by Unbound in this model; it may sit partly with the sponsor).
 
 **History depth (ADVB-07).** Default history is 20 years, ramped for 8% a year growth. That is about 10.6 full-volume years, at (7 grants + 2 contributions) per account a year.
 
@@ -206,16 +255,16 @@ R4, R5, R16 and R17 give the figures.
 | 10k | about 954k | $105k |
 | 1M | about 95M | $10.5M |
 
-The share of onboarding cost that is per-transaction work depends on how much history the predecessor holds (R16):
+The share of onboarding cost that is per-transaction work depends on how much history the predecessor holds (R16). Shares fell in revision 3 because C0 pre-delegation and enrolment enlarged the total:
 
 | Accounts | 33 months (AEF) | 7 years | 20 years |
 |---|---|---|---|
-| 10k | 7% | 14% | 24% |
-| 1M | 27% | 43% | 58% |
+| 10k | 4% | 8% | 14% |
+| 1M | 7% | 15% | 24% |
 
 Where the predecessor holds less than full history (AEF's platform yielded 33 months), the gap has to be documented, not invented.
 
-**Charity enrolment at onboarding.** This is unchanged: $97k at 10k accounts and $3.2M at 1M. It assumes 50% partner coverage (CNV-EXP-002) and enrols 50% of the remainder in year 1.
+**Charity enrolment at onboarding.** It is $178k at 10k accounts and $5.9M at 1M, using 08's 8% partner coverage (was 50%) and enrolling 50% of the remainder in year 1. Donor hypercare after a universal credential reset (20% contact) costs $33k at 10k accounts.
 
 **Customer employee effort (ADVB-06).** Sponsor hours are now 584 at 1k accounts, 934 at 10k, 1,922 at 100k and 9,016 at 1M. Sponsor staff cost $41k-$631k. They are built from:
 
@@ -255,55 +304,68 @@ The model now sits inside the observed range, and its low end is no longer below
 
 **Cross-check.**
 
-- SPN placeholders ($100k + $15 per account) give $250k at 10k accounts. The model now gives $438k, higher because of full history, rehearsals and the reserve.
+- SPN placeholders ($100k + $15 per account) give $250k at 10k accounts. The model now gives $757k at C0 ($689k at C), higher because of full history, rehearsals, the reserve, pre-delegation and lower partner coverage.
 - Unbound's flat `sponsor_onboarding_cost` of $60k (`parameters.json`) understates onboarding above about 3k accounts.
 - Ren markets program set-up at "around $50,000" (VENDOR-CLAIM, ADVB-007). That is a new-program price, not a migration price, but it anchors buyer expectations for any onboarding fee.
 
 ## 4. Can onboarding be fixed-price or included in the fee?
 
-R6, R7, R8, R10, R11, R14 and R16 answer this. All paybacks include CAC. Summary rule (RECOMMENDATION; Low-Medium):
+R6, R7, R8, R10, R11, R14, R16, R18, R20 and R22 answer this. All paybacks include CAC. **Every rule below is for an added sponsor, once platform fixed cost is covered (ADVX-03).** For the first one to three sponsors, see the design-partner terms after the table. Summary rule (RECOMMENDATION; Low):
 
 | Condition | Include in servicing fee | Separate up-front onboarding fee (fixed for scope, plus overage) | Uneconomic or reprice |
 |---|---|---|---|
-| Accounts and fee | 10k or more at 15 bps or above (26-27 of 27 combinations); 10k at 10 bps (21/27) | 1k at 20 bps with low balance, or any 1k sponsor at 10 bps | 1k with low balance and poor data, or high grants; processor-like books at any bps |
-| Per-account price equivalent | About $250 or more per account at 10k+ accounts (payback 13 months at $100) | $100-250 | At or below cost (about $142 at 1k accounts, $45-60 at 10k+) |
+| Accounts and fee | 100k+ at 15 bps or above (27/27); 10k at 18.5-20 bps (21-23 of 27); 10k at 10-15 bps (16-18 of 27) | 1k at 15-20 bps with base or high balance | 1k at 10 bps (18/27 UNECONOMIC), or with low balance at any bps; processor-like books at any bps |
+| Per-account price equivalent | About $250 or more per account at 10k+ accounts (payback 3-7 months; 22 months at $150) | $150-250 | Below C0 break-even ($220 at 1k accounts, $101-120 at 10k+). This includes Ren's $81 software price |
 | Data quality (pre-contract profile) | Account exceptions 3% or less; transaction breaks 1% or less | Up to 10% / 3%, with per-exception overage | Unprofiled data plus a fixed price |
 | History availability | Source holds the required history, or gaps are documented | Reconstruction needed from secondary sources (priced as overage) | n/a |
 | Custom integrations | 1 or fewer | 2-3, priced per integration ($47k build; $9k a year to maintain) | Many custom integrations at a small sponsor |
 | Term and exit | Any term of 36 months or more, **no exit charge** | Onboarding paid up front, so no exit recovery is needed | n/a |
 
-**Fixed price needs a gate.** Data quality alone moves the onboarding bill $134k-$331k at 1k accounts and $7.0M-$43.3M at 1M. History depth adds up to 1.9x at 1M. That variance is safe to absorb only when it is measured before signing. The fee needed to restore a 24-month payback for uneconomic small sponsors is $229k-$491k (R14). That is more than their first-year revenue, so a **minimum annual fee of about $140k** is cleaner.
+**First one to three sponsors (design partners).** With platform fixed cost of about $3.04M a year, a 10k-account first sponsor nets $63k at 20 bps, and never pays back at P50 or P90. Viable structures:
+
+- onboarding charged up front, or co-funded by the sponsor;
+- a minimum annual fee;
+- a higher introductory bps with a published step-down once four or more sponsors are live (the 25% cap);
+- or sponsors of 100k+ accounts, whose first-sponsor payback is 2.4 months.
+
+In every case Unbound needs capital for the fixed base until about four 10k-account sponsors are live (four-sponsor payback 4.5 months; P90 11).
+
+**Fixed price needs a gate.** Data quality alone moves the onboarding bill $179k-$377k at 1k accounts and $32M-$68M at 1M. History depth adds up to 1.25x at 1M. That variance is safe to absorb only when it is measured before signing. The fee needed to restore a 24-month payback for uneconomic small sponsors is $229k-$491k (R14). That is more than their first-year revenue, so a **minimum annual fee of about $140k** is cleaner.
 
 **Exit symmetry (ADVB-11).** Revision 1 recommended a termination fee that recovered onboarding. That **contradicts** the exit-symmetry position in 10 and 11 and is withdrawn. Replacement conditions:
 
 1. Onboarding that Unbound absorbs is recovered only through the servicing fee over time.
-2. If any early-exit recovery is contracted, it is limited to the straight-line unamortised balance of the onboarding Unbound absorbed. The model reports it at 12 months ($450k for a 10k sponsor on a 60-month term) and at 36 months ($225k). The schedule is published in the proposal.
+2. If any early-exit recovery is contracted, it is limited to the straight-line unamortised balance of the onboarding Unbound absorbed. The model reports it at 12 months ($706k for a 10k sponsor on a 60-month term, onboarding plus CAC) and at 36 months ($353k). The schedule is published in the proposal.
 3. Export of all sponsor data in documented schemas is never conditioned on payment, carries no export fee, and starts within the same SLA whatever the payment status.
 4. Nothing is owed when the exit follows an Unbound breach or SLA failure.
 
 Where recovery at exit would be material, charging onboarding up front is the more honest structure. Unbound should not market "no lock-in" while contracting for it.
 
-**Large sponsors.** A 20 bps fee on $19-194B is unrealistic. The break-even price including onboarding and CAC is **$46-59 per account** at 10k+ accounts, against Ren-like anchors of about $737 per account (A-ADV-001). The binding constraints are capacity, risk and the buyer's switching TCO, not Unbound's unit cost.
+**Prices and payer (ADVX-05/06).**
+
+- Observed comparators (servicing-economics `price-observations.csv`):
+  - staffed outsourced administration 13-19 bps (Ren at MS GIFT 18.5 bps, about $737 per account);
+  - self-staffed software 3-9 bps, or about $34-326 per account (Ren at NCF 4.67 bps, $81).
+- Unbound's C0 break-even is $101-120 per account at 10k+ accounts ($57-72 with levers).
+  - It can serve the staffed segment, with margin, at or below 18.5 bps.
+  - It cannot serve the self-staffed software segment at C0. At $81 per account no size pays back. That segment is reachable only if the levers are proven, and even then only above about $72.
+- **Who pays.** At comparable sponsors the servicer fee is carved from donor-paid admin fees (RCF pays Ren 98% of fundholder admin-fee revenue). Unbound at 20 bps against an 18.5 bps incumbent is a price *increase* to the sponsor's retained margin (`sponsor_saving_vs_incumbent_18_5bps` is negative). The pitch must rest on service and risk, not price, unless Unbound bids at or below the incumbent's realised take.
+
+**Large sponsors.** A 20 bps fee on $19-194B is unrealistic. The binding constraints are capacity, risk and the buyer's switching TCO.
 
 ## 5. Economic value of each track to Unbound
 
-| Value lever | Mechanism | Base magnitude (10k-account sponsor, 20 bps) | Evidence |
+| Value lever | Mechanism | Base magnitude (10k-account sponsor, 20 bps, C0) | Evidence |
 |---|---|---|---|
-| E-payment adoption: sponsor saving | Check share falls from 33% to 10% (Fidelity is 67% electronic [ECO-005]) at $2.56 a grant in rail savings | $41k/yr (sponsor benefit) | INFERENCE |
-| E-payment adoption: Unbound labour | 2.1 minutes saved per check avoided | $34k/yr | INFERENCE |
-| Unbound cost per grant | From $2.29 to $1.80 | 21% lower | INFERENCE |
-| Network reuse at onboarding | A mature registry already holds 50% of the direct-enrol recipients | $48k once ($1.6M at 1M accounts) | ASSUMPTION |
-| Registry scale economy | Fixed cost per grant: $1.98 at 70k grants, $0.20 at 700k (R15) | Favours a shared multi-sponsor registry | INFERENCE |
-| Lower buyer switching TCO | Each 100 sponsor hours or $50k of consultant spend avoided | Buyer TCO is $280k at base | INFERENCE |
-| Sales-cycle / time-to-revenue reduction | 3 months saved x monthly contribution | $0.9M | HYPOTHESIS |
-| Data-quality tooling | Moving a sponsor from poor to typical data | $358k at 10k accounts; $25M at 1M | INFERENCE |
+| E-payment adoption | Check share at 36 months under 08's planning path (p = 0.10) is 37%, against a 33% sponsor status quo | **$0** in base. About $148k/yr only where the sponsor starts at 50% checks (high case) or conversion reaches p = 0.25 | INFERENCE (ADVX-14) |
+| Network reuse at onboarding | A mature registry already holds 50% of the direct-enrol recipients | $89k once ($3.0M at 1M accounts) | ASSUMPTION |
+| Registry scale economy | Run cost per grant $5.42 at 70k grants, $0.54 at 700k (R15) | A shared multi-sponsor registry is needed to make the mandated cost small | INFERENCE |
+| Lower buyer switching TCO | Fewer sponsor hours and consultants | Buyer TCO is $280k at base | INFERENCE |
+| Levers (C vs C0) | Determination reuse, AI-native redesign | $470k/yr more contribution at 10k accounts; break-even price from $120 to $72 per account | HYPOTHESIS until measured (CNV-ECO-003) |
+| Sales-cycle reduction | 3 months saved x monthly contribution | About $0.8M; **quarantined** | HYPOTHESIS |
+| Data-quality tooling | Moving a sponsor from poor to typical data | $363k at 10k accounts; $25M at 1M | INFERENCE |
 
-**Interpretation.** Migration services are already sold by Ren, Give, akoyaGO, Foundant and others (ADVB-12). So "having onboarding" does not differentiate. Two things can:
-
-- a **lower and more predictable buyer switching TCO**: gated fixed price, fewer sponsor hours, partner enrolments reused so charities are not re-enrolled;
-- **verifiable outcomes**: a reconciliation proof, documented history gaps, freeze length and exit schemas.
-
-Direct e-payment savings are modest. Investment in data profiling and automated history reconciliation pays back faster than investment in registry breadth.
+**Interpretation (revised).** The charity registry and network are **mandated costs of doing business** (CNV-GRT-003, UNB-CHAR-DEC-001). They remove an objection to buying from Unbound; they are not a source of margin. Their per-sponsor run cost ($316k a year, about $5 per grant at entry scale) exceeds their measured savings until three or more sponsors share them. The commercially decisive variables are the **price segment** (staffed vs self-staffed), **getting past the first sponsor's fixed-cost burden**, and **proving the levers**.
 
 ## 6. Result tables (generated by `scripts/economic_model.py --report`)
 
@@ -313,21 +375,21 @@ All tables use the base cost case unless labelled. Dollar figures are rounded. "
 
 | Unit cost | Low | Base | High |
 |---|---|---|---|
-| cost_per_exception | $12.95 | $33.62 | $124 |
-| verification_cost_per_new_charity | $0.26 | $1.35 | $9.97 |
-| monitoring_cost_per_charity_year | $0.28 | $1.46 | $10.52 |
+| cost_per_exception | $25.45 | $49.99 | $184 |
+| verification_cost_per_new_charity | $0.71 | $4.01 | $31.33 |
+| monitoring_cost_per_charity_year | $0.53 | $2.12 | $15.32 |
 | epay_enrollment_cost_per_charity | $6.47 | $24.07 | $91.30 |
 | bank_change_reverification_per_enrolled_year | $0.11 | $0.70 | $4.38 |
 | ach_rail_cost_per_grant_passthrough | $0.26 | $0.53 | $0.80 |
 | check_rail_cost_per_grant_passthrough | $1.05 | $3.09 | $8.48 |
-| ach_labour_cost_per_grant | $0.04 | $0.19 | $0.93 |
-| check_labour_cost_per_grant | $0.67 | $2.29 | $8.13 |
-| screening_cost_per_grant | $0.27 | $1.40 | $10.19 |
-| unbound_cost_per_grant_at_initial_check_share | $0.37 | $2.29 | $14.73 |
-| unbound_cost_per_grant_at_target_check_share | $0.40 | $1.80 | $11.34 |
-| allin_cost_per_grant_at_initial_check_share | $0.71 | $3.66 | $19.37 |
-| allin_cost_per_grant_at_target_check_share | $0.79 | $2.59 | $12.37 |
-| check_minus_ach_allin_per_grant | $1.41 | $4.66 | $14.88 |
+| ach_labour_cost_per_grant | $0.10 | $0.41 | $1.60 |
+| check_labour_cost_per_grant | $1.00 | $3.16 | $10.13 |
+| screening_cost_per_grant | $1.46 | $5.94 | $36.49 |
+| unbound_cost_per_grant_at_initial_check_share | $1.65 | $7.26 | $42.35 |
+| unbound_cost_per_grant_at_target_check_share | $1.70 | $7.37 | $41.24 |
+| allin_cost_per_grant_at_initial_check_share | $2.00 | $8.63 | $46.99 |
+| allin_cost_per_grant_at_target_check_share | $2.08 | $8.85 | $44.89 |
+| check_minus_ach_allin_per_grant | $1.69 | $5.32 | $16.21 |
 
 
 ### R2 Registry establishment and annual fixed cost
@@ -343,17 +405,22 @@ All tables use the base cost case unless labelled. Dollar figures are rounded. "
 | annual_infra_total_usd | $4,521 | $10k | $27k |
 | annual_third_party_data_usd | $0.00 | $18k | $55k |
 | annual_connector_maintenance_usd | $20k | $47k | $137k |
-| annual_fixed_total_usd | $24k | $75k | $219k |
+| annual_steward_compliance_fte_usd | $49k | $122k | $148k |
+| annual_charity_support_usd | $14k | $39k | $97k |
+| annual_counsel_review_usd | $12k | $36k | $104k |
+| annual_nacha_audit_vendor_min_insurance_usd | $8,000 | $44k | $105k |
+| annual_registry_ops_compliance_usd | $83k | $240k | $454k |
+| annual_fixed_total_usd | $107k | $316k | $673k |
 
 
 ### R3 Network growth (base cost case): variable cost by charities in use
 
 | Charities in use | Monitoring/yr | New verification/yr | New enrolment/yr | Bank-change/yr | Variable total/yr | One-time enrol of existing |
 |---|---|---|---|---|---|---|
-| 10,000 | $15k | $4,065 | $18k | $1,739 | $39k | $60k |
-| 50,000 | $73k | $20k | $90k | $8,693 | $193k | $301k |
-| 200,000 | $293k | $81k | $361k | $35k | $770k | $1.20M |
-| 600,000 | $879k | $244k | $1.08M | $104k | $2.31M | $3.61M |
+| 10,000 | $21k | $12k | $33k | $3,199 | $70k | $111k |
+| 50,000 | $106k | $60k | $166k | $16k | $348k | $554k |
+| 200,000 | $424k | $241k | $664k | $64k | $1.39M | $2.21M |
+| 600,000 | $1.27M | $722k | $1.99M | $192k | $4.18M | $6.64M |
 
 
 ### R4 Representative sponsors at 20 bps (base grants, typical data, base balance, base cost)
@@ -365,34 +432,39 @@ All tables use the base cost case unless labelled. Dollar figures are rounded. "
 | grants_per_year | 7,000 | 70,000 | 700,000 | 7,000,000 |
 | recipients | 2,800 | 16,112 | 92,717 | 533,529 |
 | revenue | $364k | $4.13M | $38.80M | $387.96M |
-| cost_account_based | $25k | $250k | $2.50M | $25.00M |
-| cost_transaction_based | $21k | $190k | $1.77M | $17.01M |
-| cost_sponsor_fixed | $31k | $41k | $52k | $62k |
-| contribution | $287k | $3.65M | $34.47M | $345.89M |
-| contribution_margin | 79% | 88% | 89% | 89% |
-| cost_per_account | $76.91 | $48.15 | $43.27 | $42.07 |
-| cost_per_grant_unbound | $10.99 | $6.88 | $6.18 | $6.01 |
+| cost_account_based | $40k | $400k | $4.00M | $40.00M |
+| cost_transaction_based | $60k | $562k | $5.39M | $52.61M |
+| cost_sponsor_fixed | $46k | $64k | $83k | $101k |
+| contribution | $218k | $3.10M | $29.32M | $295.25M |
+| contribution_margin | 60% | 75% | 76% | 76% |
+| cost_per_account | $146 | $103 | $94.75 | $92.71 |
+| cost_per_grant_unbound | $20.89 | $14.66 | $13.54 | $13.24 |
 | sponsor_passthrough_rail_cost | $10k | $96k | $960k | $9.60M |
-| onb_total_unbound | $200k | $438k | $2.26M | $18.16M |
+| onb_total_unbound | $245k | $757k | $5.00M | $43.31M |
 | cac_per_sponsor | $125k | $125k | $125k | $125k |
-| acquisition_and_onboarding_total | $325k | $563k | $2.39M | $18.28M |
-| onb_per_account | $200 | $43.76 | $22.61 | $18.16 |
-| onb_per_migrated_txn | $2.09 | $0.46 | $0.24 | $0.19 |
+| acquisition_and_onboarding_total | $370k | $882k | $5.13M | $43.43M |
+| onb_per_account | $245 | $75.68 | $50.02 | $43.31 |
+| onb_per_migrated_txn | $2.57 | $0.79 | $0.52 | $0.45 |
 | onb_engineering_hours | 800 | 800 | 800 | 800 |
-| onb_charity_enrolment | $17k | $97k | $558k | $3.21M |
+| onb_charity_enrolment | $31k | $178k | $1.03M | $5.91M |
 | onb_sponsor_hours | 584 | 934 | 1,922 | 9,016 |
 | onb_sponsor_cost | $41k | $65k | $135k | $631k |
 | buyer_switching_tco | $170k | $280k | $350k | $846k |
 | time_to_production_weeks | 31 | 33 | 35 | 37 |
-| payback_months | 13.6 | 1.9 | 0.8 | 0.6 |
-| payback_months_onboarding_only | 8.3 | 1.4 | 0.8 | 0.6 |
-| payback_months_at_100_per_account | 168.6 | 13.0 | 5.0 | 3.8 |
-| payback_months_at_400_per_account | 12.1 | 1.9 | 0.8 | 0.6 |
-| breakeven_bps_recurring | 4.2 | 2.3 | 2.2 | 2.2 |
-| breakeven_bps_incl_onboarding_amortised | 7.8 | 2.9 | 2.5 | 2.4 |
-| breakeven_balance_at_fee | $71k | $30k | $24k | $23k |
+| payback_months | 20.4 | 3.4 | 2.1 | 1.8 |
+| payback_months_onboarding_only | 13.5 | 2.9 | 2.0 | 1.8 |
+| payback_months_at_81_per_account | never | never | never | never |
+| payback_months_at_250_per_account | 42.8 | 7.2 | 4.0 | 3.3 |
+| payback_months_at_737_per_account | 7.5 | 1.7 | 1.0 | 0.8 |
+| first_sponsor_net_contribution | -$2.82M | $63k | $26.28M | $292.21M |
+| first_sponsor_payback_months | never | 183.8 | 2.4 | 1.8 |
+| four_sponsor_payback_months | never | 4.5 | 2.2 | 1.8 |
+| sponsors_of_this_size_to_cover_fixed | 13.97 | 0.98 | 0.10 | 0.01 |
+| breakeven_bps_recurring | 8.0 | 5.0 | 4.9 | 4.8 |
+| breakeven_bps_incl_onboarding_amortised | 12.1 | 5.8 | 5.4 | 5.2 |
+| breakeven_balance_at_fee | $110k | $60k | $53k | $51k |
 | revenue_per_account | $364 | $413 | $388 | $388 |
-| breakeven_price_per_account_incl_onboarding | $142 | $59.41 | $48.04 | $45.73 |
+| breakeven_price_per_account_incl_onboarding | $220 | $120 | $105 | $101 |
 | classification | INCLUDE_IN_FEE | INCLUDE_IN_FEE | INCLUDE_IN_FEE | INCLUDE_IN_FEE |
 
 
@@ -407,85 +479,90 @@ All tables use the base cost case unless labelled. Dollar figures are rounded. "
 | onb_per_account_migration | $704 | $7,045 | $70k | $704k |
 | onb_per_transaction_migration | $10k | $105k | $1.05M | $10.46M |
 | onb_reconciliation | $5,454 | $10k | $32k | $231k |
-| onb_donor_reonboarding | $1,711 | $17k | $171k | $1.71M |
-| onb_charity_enrolment | $17k | $97k | $558k | $3.21M |
+| onb_donor_reonboarding | $3,348 | $33k | $335k | $3.35M |
+| onb_charity_enrolment | $31k | $178k | $1.03M | $5.91M |
 | onb_third_party | $5,000 | $5,000 | $5,000 | $5,000 |
 | onb_rehearsals | $7,854 | $12k | $16k | $20k |
 | onb_unbound_legal | $15k | $15k | $15k | $15k |
-| onb_failure_reserve | $18k | $40k | $206k | $1.65M |
-| onb_total_unbound | $200k | $438k | $2.26M | $18.16M |
+| onb_failure_reserve | $20k | $50k | $269k | $2.08M |
+| onb_predelegation | $28k | $212k | $2.05M | $20.38M |
+| onb_total_unbound | $245k | $757k | $5.00M | $43.31M |
 | cac_per_sponsor | $125k | $125k | $125k | $125k |
-| acquisition_and_onboarding_total | $325k | $563k | $2.39M | $18.28M |
+| acquisition_and_onboarding_total | $370k | $882k | $5.13M | $43.43M |
 
 
 ### R6 Fee sensitivity: payback months (base grants, typical data, base balance)
 
-| Accounts | 10 bps | 15 bps | 20 bps | 30 bps |
-|---|---|---|---|---|
-| 1,000 | 37.1 (SEPARATE_ONBOARDING_FEE) | 19.9 (INCLUDE_IN_FEE) | 13.6 (INCLUDE_IN_FEE) | 8.3 (INCLUDE_IN_FEE) |
-| 10,000 | 4.3 (INCLUDE_IN_FEE) | 2.6 (INCLUDE_IN_FEE) | 1.9 (INCLUDE_IN_FEE) | 1.2 (INCLUDE_IN_FEE) |
-| 100,000 | 1.9 (INCLUDE_IN_FEE) | 1.2 (INCLUDE_IN_FEE) | 0.8 (INCLUDE_IN_FEE) | 0.5 (INCLUDE_IN_FEE) |
-| 1,000,000 | 1.4 (INCLUDE_IN_FEE) | 0.9 (INCLUDE_IN_FEE) | 0.6 (INCLUDE_IN_FEE) | 0.4 (INCLUDE_IN_FEE) |
+| Accounts | 10 bps | 15 bps | 18.5 bps | 20 bps | 30 bps |
+|---|---|---|---|---|---|
+| 1,000 | 124.6 (UNECONOMIC) | 35.1 (SEPARATE_ONBOARDING_FEE) | 23.3 (INCLUDE_IN_FEE) | 20.4 (INCLUDE_IN_FEE) | 11.1 (INCLUDE_IN_FEE) |
+| 10,000 | 10.2 (INCLUDE_IN_FEE) | 5.1 (INCLUDE_IN_FEE) | 3.8 (INCLUDE_IN_FEE) | 3.4 (INCLUDE_IN_FEE) | 2.0 (INCLUDE_IN_FEE) |
+| 100,000 | 6.2 (INCLUDE_IN_FEE) | 3.1 (INCLUDE_IN_FEE) | 2.3 (INCLUDE_IN_FEE) | 2.1 (INCLUDE_IN_FEE) | 1.3 (INCLUDE_IN_FEE) |
+| 1,000,000 | 5.1 (INCLUDE_IN_FEE) | 2.6 (INCLUDE_IN_FEE) | 2.0 (INCLUDE_IN_FEE) | 1.8 (INCLUDE_IN_FEE) | 1.1 (INCLUDE_IN_FEE) |
 
 
 ### R7 Data quality: onboarding cost / payback months / time to production (20 bps, base)
 
 | Accounts | Clean | Typical | Poor |
 |---|---|---|---|
-| 1,000 | $134k / 10.5 mo / 22 wk | $200k / 13.6 mo / 31 wk | $331k / 20.4 mo / 43 wk |
-| 10,000 | $270k / 1.3 mo / 24 wk | $438k / 1.9 mo / 33 wk | $796k / 3.0 mo / 45 wk |
-| 100,000 | $1.09M / 0.4 mo / 26 wk | $2.26M / 0.8 mo / 35 wk | $4.88M / 1.7 mo / 47 wk |
-| 1,000,000 | $7.00M / 0.2 mo / 28 wk | $18.16M / 0.6 mo / 37 wk | $43.33M / 1.5 mo / 49 wk |
+| 1,000 | $179k / 16.1 mo / 22 wk | $245k / 20.4 mo / 31 wk | $377k / 30.3 mo / 43 wk |
+| 10,000 | $590k / 2.8 mo / 24 wk | $757k / 3.4 mo / 33 wk | $1.12M / 4.8 mo / 45 wk |
+| 100,000 | $3.83M / 1.6 mo / 26 wk | $5.00M / 2.1 mo / 35 wk | $7.62M / 3.2 mo / 47 wk |
+| 1,000,000 | $32.15M / 1.3 mo / 28 wk | $43.31M / 1.8 mo / 37 wk | $68.48M / 2.8 mo / 49 wk |
 
 
 ### R8 Balance case: contribution and payback (20 bps, typical, base grants)
 
 | Accounts | Low balance | Base balance | High balance |
 |---|---|---|---|
-| 1,000 | $76k: $74k / 52.3 mo | $182k: $287k / 13.6 mo | $390k: $703k / 5.5 mo |
-| 10,000 | $76k: $1.03M / 6.5 mo | $206k: $3.65M / 1.9 mo | $423k: $7.97M / 0.8 mo |
-| 100,000 | $161k: $27.79M / 1.0 mo | $194k: $34.47M / 0.8 mo | $423k: $80.19M / 0.4 mo |
-| 1,000,000 | $6,939: -$28.20M / never mo | $194k: $345.89M / 0.6 mo | $323k: $603.93M / 0.4 mo |
+| 1,000 | $76k: $5,126 / 866.5 mo | $182k: $218k / 20.4 mo | $390k: $634k / 7.0 mo |
+| 10,000 | $76k: $487k / 21.7 mo | $206k: $3.10M / 3.4 mo | $423k: $7.43M / 1.4 mo |
+| 100,000 | $161k: $22.64M / 2.7 mo | $194k: $29.32M / 2.1 mo | $423k: $75.04M / 0.8 mo |
+| 1,000,000 | $6,939: -$78.84M / never mo | $194k: $295.25M / 1.8 mo | $323k: $553.29M / 0.9 mo |
 
 
 ### R9 Grant volume: Unbound cost per account and contribution (20 bps, typical, base balance)
 
 | Accounts | Low grants (5.6) | Base (7.0) | High (12.3) |
 |---|---|---|---|
-| 1,000 | $72.66/acct; $291k | $76.91/acct; $287k | $93.00/acct; $271k |
-| 10,000 | $44.35/acct; $3.69M | $48.15/acct; $3.65M | $62.56/acct; $3.50M |
-| 100,000 | $39.72/acct; $34.82M | $43.27/acct; $34.47M | $56.70/acct; $33.13M |
-| 1,000,000 | $38.67/acct; $349.29M | $42.07/acct; $345.89M | $54.95/acct; $333.01M |
+| 1,000 | $134/acct; $230k | $146/acct; $218k | $192/acct; $172k |
+| 10,000 | $91.40/acct; $3.21M | $103/acct; $3.10M | $145/acct; $2.68M |
+| 100,000 | $83.96/acct; $30.40M | $94.75/acct; $29.32M | $136/acct; $25.24M |
+| 1,000,000 | $82.19/acct; $305.77M | $92.71/acct; $295.25M | $133/acct; $255.41M |
 
 
 ### R10 Cost case at 20 bps (typical data, base grants/balance): payback months
 
 | Accounts | Low cost | Base cost | High cost |
 |---|---|---|---|
-| 1,000 | 4.2 ($67k) | 13.6 ($200k) | 132.9 ($711k) |
-| 10,000 | 0.5 ($122k) | 1.9 ($438k) | 10.7 ($1.81M) |
-| 100,000 | 0.2 ($599k) | 0.8 ($2.26M) | 4.9 ($8.98M) |
-| 1,000,000 | 0.2 ($5.12M) | 0.6 ($18.16M) | 3.7 ($70.76M) |
+| 1,000 | 4.9 ($73k) | 20.4 ($245k) | never ($1.01M) |
+| 10,000 | 0.7 ($160k) | 3.4 ($757k) | 3305.6 ($4.26M) |
+| 100,000 | 0.3 ($908k) | 2.1 ($5.00M) | 473.1 ($31.80M) |
+| 1,000,000 | 0.3 ($7.78M) | 1.8 ($43.31M) | 214.1 ($293.77M) |
 
 
 ### R11 Classification counts across 27 grants x quality x balance combinations (base cost)
 
 | Accounts | Fee bps | INCLUDE_IN_FEE | SEPARATE_ONBOARDING_FEE | UNECONOMIC |
 |---|---|---|---|---|
-| 1,000 | 10 | 9 | 7 | 11 |
-| 1,000 | 15 | 15 | 3 | 9 |
-| 1,000 | 20 | 18 | 5 | 4 |
-| 1,000 | 30 | 21 | 6 | 0 |
-| 10,000 | 10 | 21 | 4 | 2 |
-| 10,000 | 15 | 26 | 1 | 0 |
-| 10,000 | 20 | 27 | 0 | 0 |
-| 10,000 | 30 | 27 | 0 | 0 |
-| 100,000 | 10 | 27 | 0 | 0 |
+| 1,000 | 10 | 5 | 4 | 18 |
+| 1,000 | 15 | 10 | 6 | 11 |
+| 1,000 | 18.5 | 13 | 5 | 9 |
+| 1,000 | 20 | 14 | 4 | 9 |
+| 1,000 | 30 | 18 | 4 | 5 |
+| 10,000 | 10 | 16 | 2 | 9 |
+| 10,000 | 15 | 18 | 2 | 7 |
+| 10,000 | 18.5 | 21 | 3 | 3 |
+| 10,000 | 20 | 23 | 1 | 3 |
+| 10,000 | 30 | 26 | 1 | 0 |
+| 100,000 | 10 | 23 | 4 | 0 |
 | 100,000 | 15 | 27 | 0 | 0 |
+| 100,000 | 18.5 | 27 | 0 | 0 |
 | 100,000 | 20 | 27 | 0 | 0 |
 | 100,000 | 30 | 27 | 0 | 0 |
 | 1,000,000 | 10 | 18 | 0 | 9 |
 | 1,000,000 | 15 | 18 | 0 | 9 |
+| 1,000,000 | 18.5 | 18 | 0 | 9 |
 | 1,000,000 | 20 | 18 | 0 | 9 |
 | 1,000,000 | 30 | 18 | 0 | 9 |
 
@@ -494,12 +571,12 @@ All tables use the base cost case unless labelled. Dollar figures are rounded. "
 
 | Value item | 1,000 | 10,000 | 100,000 | 1,000,000 |
 |---|---|---|---|---|
-| value_epay_sponsor_passthrough_saving_yr | $4,130 | $41k | $413k | $4.13M |
-| value_epay_unbound_labour_saving_yr | $3,381 | $34k | $338k | $3.38M |
-| value_network_enrolment_avoided_at_onboarding | $8,423 | $48k | $279k | $1.61M |
-| value_sales_cycle_reduction | $72k | $912k | $8.62M | $86.47M |
+| value_epay_sponsor_passthrough_saving_yr | $0.00 | $0.00 | $0.00 | $0.00 |
+| value_epay_unbound_labour_saving_yr | $0.00 | $0.00 | $0.00 | $0.00 |
+| value_network_enrolment_avoided_at_onboarding | $15k | $89k | $513k | $2.95M |
+| value_sales_cycle_reduction | $54k | $776k | $7.33M | $73.81M |
 | onboarding_fee_to_meet_include_threshold | $0.00 | $0.00 | $0.00 | $0.00 |
-| term_contribution_after_onboarding | $1.11M | $17.67M | $169.96M | $1.71B |
+| term_contribution_after_onboarding | $718k | $14.63M | $141.48M | $1.43B |
 
 
 ### R13 Stress case: 1,000 accounts, high grants, poor data, low balance, 20 bps
@@ -511,34 +588,39 @@ All tables use the base cost case unless labelled. Dollar figures are rounded. "
 | grants_per_year | 12,300 |
 | recipients | 4,920 |
 | revenue | $151k |
-| cost_account_based | $25k |
-| cost_transaction_based | $37k |
-| cost_sponsor_fixed | $50k |
-| contribution | $39k |
-| contribution_margin | 26% |
-| cost_per_account | $112 |
-| cost_per_grant_unbound | $9.10 |
+| cost_account_based | $40k |
+| cost_transaction_based | $106k |
+| cost_sponsor_fixed | $65k |
+| contribution | -$59k |
+| contribution_margin | -39% |
+| cost_per_account | $211 |
+| cost_per_grant_unbound | $17.13 |
 | sponsor_passthrough_rail_cost | $17k |
-| onb_total_unbound | $366k |
+| onb_total_unbound | $439k |
 | cac_per_sponsor | $125k |
-| acquisition_and_onboarding_total | $491k |
-| onb_per_account | $366 |
-| onb_per_migrated_txn | $2.41 |
+| acquisition_and_onboarding_total | $564k |
+| onb_per_account | $439 |
+| onb_per_migrated_txn | $2.89 |
 | onb_engineering_hours | 1,600 |
-| onb_charity_enrolment | $30k |
+| onb_charity_enrolment | $54k |
 | onb_sponsor_hours | 951 |
 | onb_sponsor_cost | $67k |
 | buyer_switching_tco | $195k |
 | time_to_production_weeks | 43 |
-| payback_months | 149.2 |
-| payback_months_onboarding_only | 111.2 |
-| payback_months_at_100_per_account | never |
-| payback_months_at_400_per_account | 20.4 |
-| breakeven_bps_recurring | 14.8 |
-| breakeven_bps_incl_onboarding_amortised | 27.8 |
-| breakeven_balance_at_fee | $105k |
+| payback_months | never |
+| payback_months_onboarding_only | never |
+| payback_months_at_81_per_account | never |
+| payback_months_at_250_per_account | 172.0 |
+| payback_months_at_737_per_account | 12.8 |
+| first_sponsor_net_contribution | -$3.10M |
+| first_sponsor_payback_months | never |
+| four_sponsor_payback_months | never |
+| sponsors_of_this_size_to_cover_fixed | n/a |
+| breakeven_bps_recurring | 27.8 |
+| breakeven_bps_incl_onboarding_amortised | 42.7 |
+| breakeven_balance_at_fee | $162k |
 | revenue_per_account | $151 |
-| breakeven_price_per_account_incl_onboarding | $210 |
+| breakeven_price_per_account_incl_onboarding | $323 |
 | classification | UNECONOMIC |
 
 
@@ -546,43 +628,51 @@ All tables use the base cost case unless labelled. Dollar figures are rounded. "
 
 | Fee bps | Grants | Data | Balance | Contribution/yr | Onboarding (excl. CAC) | Payback mo (incl. CAC) | Fee to reach 24 mo (incl. CAC) | Class |
 |---|---|---|---|---|---|---|---|---|
-| 10 | low | clean | low | $12k | $130k | 245.0 | $230k | UNECONOMIC |
-| 20 | low | clean | low | $88k | $130k | 34.7 | $78k | SEPARATE_ONBOARDING_FEE |
-| 10 | low | clean | base | $119k | $130k | 25.8 | $17k | SEPARATE_ONBOARDING_FEE |
-| 10 | low | typical | low | $3,028 | $194k | 1264.5 | $313k | UNECONOMIC |
-| 20 | low | typical | low | $79k | $194k | 48.6 | $162k | SEPARATE_ONBOARDING_FEE |
-| 10 | low | typical | base | $109k | $194k | 35.0 | $101k | SEPARATE_ONBOARDING_FEE |
-| 10 | low | poor | low | -$16k | $322k | never | $447k | UNECONOMIC |
-| 20 | low | poor | low | $60k | $322k | 89.7 | $328k | UNECONOMIC |
-| 10 | low | poor | base | $90k | $322k | 59.4 | $267k | SEPARATE_ONBOARDING_FEE |
-| 10 | base | clean | low | $8,225 | $134k | 377.3 | $242k | UNECONOMIC |
-| 20 | base | clean | low | $84k | $134k | 37.0 | $91k | SEPARATE_ONBOARDING_FEE |
-| 10 | base | clean | base | $114k | $134k | 27.1 | $30k | SEPARATE_ONBOARDING_FEE |
-| 10 | base | typical | low | -$1,223 | $200k | never | $325k | UNECONOMIC |
-| 20 | base | typical | low | $74k | $200k | 52.3 | $176k | SEPARATE_ONBOARDING_FEE |
-| 10 | base | typical | base | $105k | $200k | 37.1 | $115k | SEPARATE_ONBOARDING_FEE |
-| 10 | base | poor | low | -$20k | $331k | never | $456k | UNECONOMIC |
-| 20 | base | poor | low | $56k | $331k | 98.6 | $345k | UNECONOMIC |
-| 10 | base | poor | base | $86k | $331k | 63.6 | $284k | UNECONOMIC |
-| 10 | high | clean | low | -$7,867 | $148k | never | $273k | UNECONOMIC |
-| 20 | high | clean | low | $68k | $148k | 48.4 | $138k | SEPARATE_ONBOARDING_FEE |
-| 10 | high | clean | base | $98k | $148k | 33.4 | $77k | SEPARATE_ONBOARDING_FEE |
-| 10 | high | typical | low | -$17k | $220k | never | $345k | UNECONOMIC |
-| 20 | high | typical | low | $58k | $220k | 71.0 | $229k | UNECONOMIC |
-| 10 | high | typical | base | $89k | $220k | 46.6 | $168k | SEPARATE_ONBOARDING_FEE |
-| 10 | high | poor | low | -$36k | $366k | never | $491k | UNECONOMIC |
-| 20 | high | poor | low | $39k | $366k | 149.2 | $412k | UNECONOMIC |
-| 10 | high | poor | base | $70k | $366k | 84.1 | $351k | UNECONOMIC |
+| 10 | low | clean | low | -$49k | $168k | never | $293k | UNECONOMIC |
+| 20 | low | clean | low | $27k | $168k | 132.2 | $240k | UNECONOMIC |
+| 10 | low | clean | base | $57k | $168k | 61.6 | $179k | UNECONOMIC |
+| 10 | low | typical | low | -$59k | $232k | never | $357k | UNECONOMIC |
+| 20 | low | typical | low | $17k | $232k | 250.1 | $323k | UNECONOMIC |
+| 10 | low | typical | base | $48k | $232k | 90.0 | $262k | UNECONOMIC |
+| 10 | low | poor | low | -$77k | $361k | never | $486k | UNECONOMIC |
+| 20 | low | poor | low | -$1,742 | $361k | never | $486k | UNECONOMIC |
+| 10 | low | poor | base | $29k | $361k | 202.5 | $428k | UNECONOMIC |
+| 20 | low | poor | base | $211k | $361k | 27.7 | $64k | SEPARATE_ONBOARDING_FEE |
+| 10 | low | poor | high | $237k | $361k | 24.6 | $12k | SEPARATE_ONBOARDING_FEE |
+| 10 | base | clean | low | -$61k | $179k | never | $304k | UNECONOMIC |
+| 20 | base | clean | low | $15k | $179k | 250.5 | $275k | UNECONOMIC |
+| 10 | base | clean | base | $45k | $179k | 80.9 | $214k | UNECONOMIC |
+| 10 | base | typical | low | -$71k | $245k | never | $370k | UNECONOMIC |
+| 20 | base | typical | low | $5,126 | $245k | 866.5 | $360k | UNECONOMIC |
+| 10 | base | typical | base | $36k | $245k | 124.6 | $299k | UNECONOMIC |
+| 10 | base | poor | low | -$89k | $377k | never | $502k | UNECONOMIC |
+| 20 | base | poor | low | -$14k | $377k | never | $502k | UNECONOMIC |
+| 10 | base | poor | base | $17k | $377k | 359.5 | $468k | UNECONOMIC |
+| 20 | base | poor | base | $199k | $377k | 30.3 | $105k | SEPARATE_ONBOARDING_FEE |
+| 10 | base | poor | high | $225k | $377k | 26.8 | $52k | SEPARATE_ONBOARDING_FEE |
+| 10 | high | clean | low | -$107k | $221k | never | $346k | UNECONOMIC |
+| 20 | high | clean | low | -$31k | $221k | never | $346k | UNECONOMIC |
+| 10 | high | clean | base | -$434 | $221k | never | $346k | UNECONOMIC |
+| 10 | high | typical | low | -$116k | $293k | never | $418k | UNECONOMIC |
+| 20 | high | typical | low | -$40k | $293k | never | $418k | UNECONOMIC |
+| 10 | high | typical | base | -$9,882 | $293k | never | $418k | UNECONOMIC |
+| 20 | high | typical | base | $172k | $293k | 29.2 | $74k | SEPARATE_ONBOARDING_FEE |
+| 10 | high | typical | high | $198k | $293k | 25.3 | $22k | SEPARATE_ONBOARDING_FEE |
+| 10 | high | poor | low | -$135k | $439k | never | $564k | UNECONOMIC |
+| 20 | high | poor | low | -$59k | $439k | never | $564k | UNECONOMIC |
+| 10 | high | poor | base | -$29k | $439k | never | $564k | UNECONOMIC |
+| 20 | high | poor | base | $153k | $439k | 44.2 | $257k | SEPARATE_ONBOARDING_FEE |
+| 10 | high | poor | high | $179k | $439k | 37.7 | $205k | SEPARATE_ONBOARDING_FEE |
 
 
 ### R16 History depth: onboarding cost / per-transaction share / payback (20 bps, base, typical data)
 
 | Accounts | Short (33 months, AEF) | Mid (7 years, GWCF) | Full (20 years ramped) |
 |---|---|---|---|
-| 1,000 | $191k / 1% / 13.2 mo | $194k / 3% / 13.3 mo | $200k / 5% / 13.6 mo |
-| 10,000 | $350k / 7% / 1.6 mo | $384k / 14% / 1.7 mo | $438k / 24% / 1.9 mo |
-| 100,000 | $1.39M / 18% / 0.5 mo | $1.72M / 32% / 0.6 mo | $2.26M / 46% / 0.8 mo |
-| 1,000,000 | $9.44M / 27% / 0.3 mo | $12.76M / 43% / 0.4 mo | $18.16M / 58% / 0.6 mo |
+| 1,000 | $236k / 1% / 19.9 mo | $240k / 2% / 20.1 mo | $245k / 4% / 20.4 mo |
+| 10,000 | $670k / 4% / 3.1 mo | $703k / 8% / 3.2 mo | $757k / 14% / 3.4 mo |
+| 100,000 | $4.13M / 6% / 1.7 mo | $4.46M / 12% / 1.9 mo | $5.00M / 21% / 2.1 mo |
+| 1,000,000 | $34.59M / 7% / 1.4 mo | $37.90M / 15% / 1.5 mo | $43.31M / 24% / 1.8 mo |
 
 
 ### R17 Buyer switching TCO, outside Unbound's P&L (base, typical data, full history)
@@ -603,24 +693,106 @@ High cost case, poor data: buyer switching TCO 1,000: $913k; 10,000: $1.38M; 100
 
 
 
+### R18 Marginal vs first-sponsor vs four-equal-sponsor view (20 bps and 10 bps, C0, base cost, typical data)
+
+| Accounts | bps | Marginal contribution | Marginal payback mo | Platform fixed/yr | First-sponsor net | First-sponsor payback mo | 4-sponsor payback mo | Sponsors to cover fixed |
+|---|---|---|---|---|---|---|---|---|
+| 1,000 | 20 | $218k | 20.4 | $3.04M | -$2.82M | never | never | 13.97 |
+| 10,000 | 20 | $3.10M | 3.4 | $3.04M | $63k | 183.8 | 4.5 | 0.98 |
+| 100,000 | 20 | $29.32M | 2.1 | $3.04M | $26.28M | 2.4 | 2.2 | 0.10 |
+| 1,000,000 | 20 | $295.25M | 1.8 | $3.04M | $292.21M | 1.8 | 1.8 | 0.01 |
+| 1,000 | 10 | $36k | 124.6 | $3.04M | -$3.00M | never | never | 85.25 |
+| 10,000 | 10 | $1.04M | 10.2 | $3.04M | -$2.00M | never | 38.1 | 2.93 |
+| 100,000 | 10 | $9.92M | 6.2 | $3.04M | $6.88M | 9.1 | 6.7 | 0.31 |
+| 1,000,000 | 10 | $101.27M | 5.1 | $3.04M | $98.23M | 5.3 | 5.2 | 0.03 |
+
+
+High cost case at 20 bps: first-sponsor net 1,000: -$6.82M; 10,000: -$6.64M.
+
+
+
+### R19 CNV-ECO-005 stresses on marginal contribution (20 bps, C0, base cost, typical data)
+
+| Metric | 1,000 | 10,000 | 100,000 | 1,000,000 |
+|---|---|---|---|---|
+| contribution | $218k | $3.10M | $29.32M | $295.25M |
+| stress_aua_decline_contribution | $163k | $2.48M | $23.50M | $237.05M |
+| stress_price_pressure_contribution | $145k | $2.28M | $21.56M | $217.66M |
+| stress_december_surge_contribution | $212k | $3.05M | $28.84M | $290.51M |
+| stress_combined_contribution | $96k | $1.73M | $16.42M | $166.37M |
+| stress_combined_payback_months | 46.4 | 6.1 | 3.7 | 3.1 |
+| stress_combined_four_sponsor_net_each | -$664k | $971k | $15.66M | $165.61M |
+
+
+### R20 Price benchmarks: payback months (incl. CAC) at observed price points (C0, typical data, base balance)
+
+| Accounts | Cost case | 18.5 bps (Ren at MS GIFT) | $81/acct (Ren software, NCF) | $150/acct | $250/acct | $737/acct (Ren staffed, MS GIFT) | Break-even $/acct |
+|---|---|---|---|---|---|---|---|
+| 1,000 | base | 23.3 | never | 1182.0 | 42.8 | 7.5 | $220 |
+| 1,000 | high | never | never | never | never | 70.6 | $775 |
+| 10,000 | base | 3.8 | never | 22.3 | 7.2 | 1.7 | $120 |
+| 10,000 | high | never | never | never | never | 16.6 | $501 |
+| 100,000 | base | 2.3 | never | 11.1 | 4.0 | 1.0 | $105 |
+| 100,000 | high | never | never | never | never | 10.8 | $444 |
+| 1,000,000 | base | 2.0 | never | 9.1 | 3.3 | 0.8 | $101 |
+| 1,000,000 | high | never | never | never | never | 9.7 | $430 |
+
+
+### R21 Lever case: C0 (no levers, base) vs C (AI-native levers) at 20 bps, base cost, typical data
+
+| Metric | 1,000 C0 | 1,000 C | 10,000 C0 | 10,000 C | 100,000 C0 | 100,000 C | 1,000,000 C0 | 1,000,000 C |
+|---|---|---|---|---|---|---|---|---|
+| cost_per_account | $146 | $84.31 | $103 | $55.56 | $94.75 | $50.67 | $92.71 | $49.48 |
+| cost_per_grant_unbound | $20.89 | $12.04 | $14.66 | $7.94 | $13.54 | $7.24 | $13.24 | $7.07 |
+| contribution | $218k | $279k | $3.10M | $3.57M | $29.32M | $33.73M | $295.25M | $338.48M |
+| onb_total_unbound | $245k | $238k | $757k | $689k | $5.00M | $4.32M | $43.31M | $36.53M |
+| payback_months | 20.4 | 15.6 | 3.4 | 2.7 | 2.1 | 1.6 | 1.8 | 1.3 |
+| first_sponsor_payback_months | never | never | 183.8 | 20.1 | 2.4 | 1.8 | 1.8 | 1.3 |
+| breakeven_price_per_account_incl_onboarding | $220 | $157 | $120 | $71.84 | $105 | $59.57 | $101 | $56.81 |
+
+
+### R22 Monte Carlo (2,000 seeded draws, independent triangular(low, base, high) per parameter): P10 / P50 / P90
+
+| Accounts | bps | Levers | Contribution | Onboarding+CAC | Marginal payback mo | First-sponsor payback mo | 4-sponsor payback mo | Draws contribution>0 | Draws INCLUDE |
+|---|---|---|---|---|---|---|---|---|---|
+| 1,000 | 10 | C0 | -$49k / -$585 / $32k | $392k / $459k / $539k | 174.0 / never / never | never / never / never | never / never / never | 50% | 0% |
+| 10,000 | 10 | C0 | $289k / $719k / $1.00M | $922k / $1.12M / $1.38M | 12.3 / 19.0 / 49.2 | never / never / never | 104.1 / never / never | 98% | 69% |
+| 100,000 | 10 | C0 | $2.83M / $7.03M / $9.68M | $5.09M / $6.64M / $8.71M | 7.1 / 11.8 / 31.5 | 12.0 / 26.0 / never | 8.0 / 13.6 / 47.1 | 98% | 86% |
+| 1,000,000 | 10 | C0 | $34.13M / $72.85M / $99.25M | $41.54M / $56.08M / $76.28M | 5.8 / 9.5 / 22.2 | 6.0 / 10.0 / 25.0 | 5.8 / 9.6 / 22.7 | 98% | 91% |
+| 1,000 | 20 | C0 | $131k / $181k / $214k | $388k / $458k / $537k | 23.9 / 30.9 / 44.6 | never / never / never | never / never / never | 100% | 11% |
+| 10,000 | 20 | C0 | $2.35M / $2.80M / $3.07M | $934k / $1.14M / $1.38M | 3.9 / 4.9 / 6.6 | never / never / never | 5.6 / 7.5 / 11.0 | 100% | 100% |
+| 100,000 | 20 | C0 | $22.10M / $26.36M / $29.04M | $5.07M / $6.64M / $8.92M | 2.2 / 3.1 / 4.4 | 2.6 / 3.7 / 5.4 | 2.3 / 3.2 / 4.6 | 100% | 100% |
+| 1,000,000 | 20 | C0 | $225.59M / $266.30M / $293.53M | $41.58M / $55.97M / $75.48M | 1.8 / 2.6 / 3.7 | 1.9 / 2.6 / 3.7 | 1.8 / 2.6 / 3.7 | 100% | 100% |
+| 1,000 | 10 | C | $49k / $72k / $92k | $379k / $450k / $530k | 54.7 / 74.8 / 115.4 | never / never / never | never / never / never | 100% | 0% |
+| 10,000 | 10 | C | $1.17M / $1.34M / $1.48M | $868k / $1.04M / $1.25M | 7.4 / 9.3 / 11.9 | never / never / never | 18.8 / 31.9 / 115.0 | 100% | 100% |
+| 100,000 | 10 | C | $11.32M / $12.86M / $14.19M | $4.46M / $5.77M / $7.35M | 4.1 / 5.4 / 7.3 | 5.7 / 7.8 / 11.1 | 4.4 / 5.8 / 7.9 | 100% | 100% |
+| 1,000,000 | 10 | C | $114.99M / $131.41M / $143.36M | $36.56M / $47.83M / $62.56M | 3.3 / 4.4 / 6.1 | 3.4 / 4.6 / 6.3 | 3.3 / 4.4 / 6.1 | 100% | 100% |
+| 1,000 | 20 | C | $231k / $255k / $274k | $381k / $449k / $527k | 17.5 / 21.3 / 25.8 | never / never / never | never / never / never | 100% | 78% |
+| 10,000 | 20 | C | $3.24M / $3.42M / $3.54M | $864k / $1.04M / $1.25M | 3.0 / 3.7 / 4.5 | 35.0 / never / never | 4.1 / 5.1 / 6.4 | 100% | 100% |
+| 100,000 | 20 | C | $30.68M / $32.26M / $33.53M | $4.44M / $5.73M / $7.32M | 1.6 / 2.1 / 2.8 | 1.9 / 2.5 / 3.2 | 1.7 / 2.2 / 2.9 | 100% | 100% |
+| 1,000,000 | 20 | C | $309.11M / $324.87M / $337.22M | $36.05M / $47.28M / $62.36M | 1.3 / 1.7 / 2.4 | 1.3 / 1.8 / 2.4 | 1.3 / 1.8 / 2.4 | 100% | 100% |
+
+
 ### R15 Registry fixed cost per grant by network grant volume (annual fixed + establishment over 5 yrs)
 
 | Network grants/yr | Low | Base | High |
 |---|---|---|---|
-| 70,000 | $0.67 | $1.98 | $6.20 |
-| 700,000 | $0.07 | $0.20 | $0.62 |
-| 3,000,000 | $0.02 | $0.05 | $0.14 |
-| 7,000,000 | $0.01 | $0.02 | $0.06 |
+| 70,000 | $1.86 | $5.42 | $12.68 |
+| 700,000 | $0.19 | $0.54 | $1.27 |
+| 3,000,000 | $0.04 | $0.13 | $0.30 |
+| 7,000,000 | $0.02 | $0.05 | $0.13 |
 
 ## 7. Conflicts and tensions with ratified decisions and existing models
 
 None of these is a conflict that requires a change. Each is flagged for the coordinator.
 
-- **CNV-EXP-002 (full fund history at migration)** is the largest driver of onboarding cost: 46-58% at 100k+ accounts with 20 years of ramped history (R16). It is not a conflict. But the cost depends on how reconciliation is designed (see ECO-RC-2). Predecessors may also hold less than full history; AEF's held 33 months. A 'history available at source, gaps disclosed' clarification is needed (ECO-RC-7).
+- **CNV-EXP-002 (full fund history at migration)** is a major onboarding cost driver: 14-24% of C0 onboarding cost at 10k-1M accounts with 20 years of ramped history (R16). It is second to pre-delegation and charity enrolment. It is not a conflict. But the cost depends on how reconciliation is designed (see ECO-RC-2). Predecessors may also hold less than full history; AEF's held 33 months. A 'history available at source, gaps disclosed' clarification is needed (ECO-RC-7).
 - **Release-1 scope (ADVB-01).** A proposed R1 with 'no migration' conflicts with CNV-EXP-002 (initial-implementation) and the CNV-ECO-003 shadow-replay amendment. These economics assume migration is in scope. Without it, the CNV-ECO-004 entry segment cannot be served.
 - **CNV-PAY-001 / CNV-LEG-001 (sponsor originates; Unbound holds no funds).** E-payment rail savings accrue to the sponsor, not to Unbound's P&L. Unbound captures only labour savings (about $0.48 per grant shifted) and a stronger sales argument. Stripe and other facilitator payout products are cited only for price benchmarks. Using them as a rail would need a partner acting as the sponsor's agent.
 - **The Unbound `parameters.json` value `sponsor_onboarding_cost` of $60k** (flat, amortised over 5 years) and the 05a "sponsor onboarding and exit" line understate onboarding above about 3k accounts. This model gives $43.76 per account at 10k and $22.61 at 100k, one-time, excluding CAC. Recommend reconciling the two models.
-- **CNV-ECO-004 entry segment (about 5k-50k funds) is supported on cost, at Low confidence.** At 15 bps or above, 26-27 of 27 combinations are INCLUDE_IN_FEE, but this depends on the price assumption (ADVB-13). The segment also requires migration (see ADVB-01 above). The 1k sponsor is where the fee structure has to change.
+- **CNV-ECO-004 entry segment (about 5k-50k funds) is supported only as an added-sponsor result (ADVX-03).** At C0, a 10k-account sponsor is INCLUDE_IN_FEE in 21-23 of 27 combinations at 18.5-20 bps, at Low confidence. As a first sponsor it nets about $63k a year after platform fixed cost. The segment also requires migration (ADVB-01).
+- **CNV-ECO-003 / CNV-ECO-005 (ADVX-04).** Revision 3 meets: C0 base, P10/P50/P90, viability at P90 cost (marginal contribution is positive in 100% of draws at 10k+ accounts and 20 bps), the stresses, pre-delegation, and the 25% concentration cap as a view. **Not met:** adverse licence scale (no licence term in this model); correlated parameter draws; levers measured rather than assumed. These are flagged, not hidden.
+- **CNV-ECO-004 concentration cap.** Any start with one sponsor exceeds the 25% cap. The four-equal-sponsor view is the earliest cap-conformant state.
 - **Exit symmetry (ADVB-11).** Revision 1's termination-fee recommendation conflicted with the exit-symmetry position in 10 and 11. It is withdrawn (section 4).
 
 ## Implications for Unbound
@@ -632,14 +804,16 @@ None of these is a conflict that requires a change. Each is flagged for the coor
      - number of custom integrations;
      - the share of the sponsor's recipients covered by networked partners.
    - Include onboarding in the fee only inside the thresholds in section 4.
-2. **Set a minimum annual fee of about $140k** (or per-account floors) for sponsors under about 3-5k accounts. Servicing-economics' $100-110k excluded CAC. Do not rely on onboarding fees for small sponsors, because those fees exceed first-year revenue.
+2. **Set a minimum annual fee of about $220k at C0** (about $160k if the levers are proven), or per-account floors, for sponsors under about 3-5k accounts. Servicing-economics' $100-110k excluded CAC and used AI-native minutes. Do not rely on onboarding fees for small sponsors, because those fees exceed first-year revenue.
 3. **Invest in Track B automation and in reducing buyer effort before registry breadth.** Each percentage point of transaction-exception rate costs about $104k per 10k-account sponsor (ramped 20-year history at 10 minutes per exception). The buyer's own switching TCO is about $280k. The registry costs about $75k a year in total.
 4. **Use the network as a switching-cost neutraliser.**
    - Reuse partner enrolments (CNV-EXP-002) and registry evidence (CNV-GRT-003). Each one halves the direct-enrolment bill at onboarding.
    - Quote the e-payment saving (about $1.07 per grant shifted, roughly half to the sponsor) in proposals as a sponsor benefit.
 5. **Do not bid bps-only on processor-like books** (average balance under about $20k). Account-based cost exceeds asset revenue at any fee from 10 to 30 bps.
-6. **Large sponsors will negotiate to a per-account price.** The cost floor of $46-59 per account leaves wide room under Ren-like anchors of about $737 per account. The constraints there are capacity, risk and the buyer's switching TCO, not unit cost.
-7. **Never trade exit symmetry for onboarding recovery.** Charge out-of-gate onboarding up front. Any unamortised-recovery schedule must be straight-line and published, and export must never be conditional on payment.
+6. **Price by segment.** Staffed outsourced buyers (13-19 bps, about $737 per account) are serviceable at C0. Self-staffed software buyers ($34-326 per account; Ren at NCF $81) are not, until the levers are measured. The C0 cost floor of $101-120 per account leaves wide room under Ren-like anchors of about $737 per account. The constraints there are capacity, risk and the buyer's switching TCO, not unit cost.
+7. **Treat the first one to three sponsors as design partners.** Use up-front or co-funded onboarding, a minimum fee, or a published introductory price step-down. Plan capital to carry about $3M a year of platform fixed cost until four sponsors are live.
+8. **Fund the registry as a mandated cost**, staged to the first sponsor's recipients (ADVX-08). Do not market network savings before the CNV-ECO-003 shadow period has measured them.
+9. **Never trade exit symmetry for onboarding recovery.** Charge out-of-gate onboarding up front. Any unamortised-recovery schedule must be straight-line and published, and export must never be conditional on payment.
 
 ## Candidate requirements (one line each)
 
@@ -648,6 +822,8 @@ None of these is a conflict that requires a change. Each is flagged for the coor
 - **ECO-RC-3 (refines CNV-PAY-002 / UNB-CHAR):** The registry SHALL record verification method and cost class per destination (partner enrolment reused, instant ownership API, micro-deposit, bank letter) so that enrolment cost and reuse can be metered.
 - **ECO-RC-4 (refines CNV-GRT-003):** The platform SHALL meter registry fixed and variable cost per grant and per charity in use, and SHALL report exception minutes per case, to replace ASSUMPTION parameters.
 - **ECO-RC-5 (commercial; refines servicing-economics RC list):** Commercial terms SHALL support a minimum annual fee, an up-front onboarding fee for sponsors outside the gates, and overage per exception and per custom integration. Any early-exit recovery SHALL be limited to a published straight-line unamortised balance. Data export SHALL never be conditioned on payment or carry a fee.
+- **ECO-RC-8 (refines CNV-ECO-003):** Sponsor economics SHALL be reported on the C0 base, with a marginal view, a first-sponsor (fixed-cost-bearing) view and a 25%-cap view, as P10/P50/P90, and with the CNV-ECO-005 stresses.
+- **ECO-RC-9 (refines UNB-CHAR-DEC-001):** Registry scope SHALL be staged to recipients actually paid by contracted sponsors (federal sources and first-sponsor recipient resolution first). Registry run cost SHALL be metered per grant.
 - **ECO-RC-7 (clarifies CNV-EXP-002):** 'Full history' SHALL mean all history the sponsor can lawfully obtain from any source. Gaps SHALL be disclosed as HistoryGap records with the source's retention evidence, and history depth SHALL be an input to the onboarding price.
 - **ECO-RC-6 (refines CNV-EXP-002):** Migration SHALL measure the sponsor's check share at baseline and track it monthly against a target, so that e-payment value is evidenced.
 
@@ -661,4 +837,7 @@ None of these is a conflict that requires a change. Each is flagged for the coor
 5. **Partner coverage.** The share of a migrating sponsor's recipients already enrolled with a networked partner is unknown. 50% is ASSUMPTION, anchored on Fidelity's 67% electronic grant share [ECO-005].
 6. **Size of the 990 XML corpus and paid state-data prices** were not measured. Storage is immaterial at any plausible size. State data prices (Indiana $9,500+) need reconfirmation.
 7. **Sales-cycle reduction** (HYPOTHESIS) needs pipeline data: the months from first meeting to signature, and from signature to go-live, with and without network coverage.
-8. **Company-level viability.** Contribution here excludes organisation fixed costs and build capex. Company-level break-even remains as in `research/commercial-opportunity/servicing-economics/` and `ai-native-capital-minimization/`.
+8. **Company-level viability.** The first-sponsor and four-sponsor views (R18) carry organisation fixed cost ($1.66M base) and build amortisation ($1.0M a year). These come from servicing-economics and Unbound and are not re-derived here. A full multi-year cash plan remains in `research/commercial-opportunity/servicing-economics/06-capital-and-runway.md` and `ai-native-capital-minimization/`.
+9. **Lever measurement.** C0 vs C differ by about $470k a year of contribution per 10k-account sponsor, and by $48 per account in break-even price. Only the CNV-ECO-003 time study can resolve this.
+10. **Payer economics.** A donor fee schedule minus the incumbent's realised take, per target sponsor, is not modelled quantitatively (ADVX-06).
+11. **Correlation.** The Monte Carlo draws are independent. Correlated adverse draws (for example labour rate with minutes) would widen P90.

@@ -234,3 +234,16 @@ Pending validation.
 
 - **Recommendation.** Build an independent, evidence-led advisory and intelligence practice. Its first offers would be platform assessment and vendor selection plus migration assurance for mid-size sponsors, then a market-intelligence subscription. Defer software.
 - **Status.** Willingness to pay is untested.
+
+## Competitive advantage: charity networks and frictionless onboarding (2026-11-26)
+
+- [Research package](competitive-advantage/charity-network-and-onboarding/README.md), starting with the [executive summary](competitive-advantage/charity-network-and-onboarding/00-executive-summary.md).
+  - 25 reports and machine-readable registers on Ren's charity network, competitors, public charity data, registry and continuous vetting, payment rails, fraud, onboarding and migration, cross-industry switching, and economics.
+  - Three independent adversarial reviews.
+  - 375 registered sources.
+- **Headline.**
+  - The directory is commoditised.
+  - Accumulated payee enrolments, resolution of messy recipients and audit history are the incumbents' hard-to-copy assets.
+  - Migration is unavoidable and productisable.
+  - Distribution and incentive alignment, not networks or onboarding, appear to be the binding barrier. This is an unproven hypothesis; no win/loss evidence exists.
+- Proposed requirements: `kemiller2002/unbound`, `requirements/discovery/2026-11-26-charity-network-and-onboarding/`.

@@ -10,7 +10,7 @@ Track A5. Agent PAY. Data: [data/payment-provider-matrix.csv](data/payment-provi
   - **Partner-account rails.** The charity holds a receiving account at the partner: a Chariot Deposit Account at Column N.A., or a PayPal Confirmed Charity account. These are usable as agent rails.
   - **Pass-through intermediary charities.** PayPal Giving Fund, Benevity's foundations, Bonterra CGDS/CAF America, For Good, Every.org, Pledge and Goodstack's foundations. Legally, the grant is made to the intermediary, which then regrants. That breaks CNV-GRT-003 (grant to the listed legal name). These are **not** agent rails. CAF America stays relevant only for deferred international grants (CNV-GRT-008).
   - **Money-movement infrastructure with no charity network.** Bank APIs, Modern Treasury, Increase, Column, Dwolla, Moov. These are the substrate for the sponsor-originated ACH fallback, not a network.
-- **Which partners.** Chariot Disbursements first, then PayPal Grant Payments, matching the order in CNV-PAY-007 (RECOMMENDATION, Medium-High).
+- **Which partners.** Chariot Disbursements first, then PayPal Grant Payments (RECOMMENDATION, Medium-High). This matches the order ratified by owner decision OD-P-PAY cut B. That decision appended "one networked payment-partner adapter (Chariot first, then PayPal Grant Payments)" to CNV-PAY-007 (`unbound/requirements/convergence/2026-11-24-master/clauses/c8_owner_decisions.json`). The underlying choice of rail type was raised as open decision SPD-CMP-003.
   - **Chariot** is the only partner with a public, implementation-grade grantmaker API [PAY-001, PAY-002]. That API covers bulk create, approve, cancel, stop-payment, verification requests, webhooks, just-in-time funding with earmarks, and a sandbox.
   - **Chariot keeps funds in transit in the sponsor's own deposit account.** The grantmaker opens and funds a Chariot Deposit Account at Column N.A. [PAY-001, PAY-010, PAY-014]. This meets CNV-PLT-012's "segregated holding of sponsor funds in transit" without Unbound touching money (INFERENCE, High).
   - **PayPal Grant Payments** has the larger claimed charity base: more than 200,000 confirmed charities, a 2022 claim [PAY-017]. Vanguard Charitable and NPT use it. But it has no public grantmaker API, and its funding and holding terms are not public. It cannot pass the CNV-PLT-012 activation gate until those terms are seen (INFERENCE, High).
@@ -23,7 +23,7 @@ Track A5. Agent PAY. Data: [data/payment-provider-matrix.csv](data/payment-provi
 - **Bank-account verification is cheap and plentiful, but it is per-inquirer.**
   - Plaid Identity Match [PAY-025], EWS Account Ownership Authentication [PAY-028, PAY-029] and Phixius by Nacha [PAY-027] all return per-inquiry results.
   - None of them offers a credential that the charity holds and can reuse across independent sponsors. W3C VC 2.0 [PAY-034] makes such a credential *possible*, but no bank or verifier issues one for charity accounts (VERIFIED-FACT on what is documented, Medium).
-  - Unbound's portable asset is therefore **sponsor-scoped destination evidence that the charity authorizes for reuse**. Doc 08 designs it.
+  - Unbound's asset is therefore **sponsor-scoped destination evidence plus a charity-controlled authorisation**. In Release 1 each sponsor re-runs the zero-effort owner match, and cross-sponsor reuse of evidence is deferred (08 R-1, after ADVA-13). Doc 08 designs it.
 - **Nacha 2026 fraud monitoring raises the bar on every rail.** Phase 2 took effect June 19, 2026 (operationally Monday June 22, 2026). It requires Originators, TPSPs and Third-Party Senders to run risk-based processes to identify entries "authorized under False Pretenses" [PAY-026]. Nacha defines this to include misrepresenting ownership of the account to be credited (paraphrase of the rule page). So destination verification on grant *credits* is now a TPSP rule obligation, not only good practice. The WEB debit account-validation rule [PAY-039] covers consumer debits, not grant credits, and does not apply to release 1 (CNV-PAY-005: no donor debits) (VERIFIED-FACT for Phase 2, High).
 - **Recommended shape: build the evidence and routing layer, buy verification signals, partner for rails.**
   - Build: a provider-neutral PaymentInstruction contract (UNB-PAY-002), a sponsor-scoped DestinationRegistry, and a routing policy.
@@ -157,7 +157,7 @@ Nacha has no rule against a sponsor carrying its payees' account numbers to a ne
 1. **Import as `LegacyImported`.** Fields: `predecessor`, `predecessor_record_id`, `last_successful_credit_date`, `returns_history`, `predecessor_evidence_type` (if exported), `imported_at`, `sponsor_attestation_ref`.
 2. **Bulk re-validate before the first Unbound-instructed payment.**
    - Run an EWS-class owner match against the BMF legal name, with no charity effort.
-   - Positive → `Verified(owner_match)`, with the CNV-PAY-002 dual-channel notice. Cooling-off is waived only if the sponsor's reliance policy says a continuing, unchanged destination is not a "change" (**conflict C2**).
+   - Positive → `Verified(owner_match)`, with the CNV-PAY-002 dual-channel notice and cooling-off (see C2: no waiver).
    - Conditional or no data → invite the charity through the doc 08 flow while paying by the predecessor's rail, or by check, in the meantime.
 3. **Supporting evidence only.** A history of credits with no returns proves reachability, not ownership. Never treat it as sufficient alone.
 
@@ -166,7 +166,7 @@ Nacha has no rule against a sponsor carrying its payees' account numbers to a ne
 | Option | CNV-LEG-001 | Coverage on day 1 | Unit cost to sponsor | Lock-in | Verdict |
 |---|---|---|---|---|---|
 | A. Proprietary money-moving charity network (Unbound-held accounts or FBO) | **Violates** (holds funds) | 0 | High (licensing, BSA/AML, MTL) | n/a | Excluded |
-| B. Single partner (Chariot only) | OK: sponsor-titled Column DDA | Chariot claimed base (unknown) plus check fallback | Partner fee (unknown) | Sponsor medium; charity high | Fast start, but recreates the Ren-style dependency one layer down |
+| B. Single partner (Chariot only) | OK: sponsor-titled Column DDA | Chariot claimed base (unknown) plus check fallback | Partner fee (unknown) | Sponsor medium-high until a second rail exists (ADVA-12); charity high | Fast start, but recreates the Ren-style dependency one layer down |
 | C. Sponsor-originated ACH only, with Unbound evidence layer | OK: sponsor ODFI | 0 enrolled; grows per doc 08 | Bank per-item plus verification calls; sponsor bears fraud loss | Low | Necessary fallback; slow alone |
 | **D. Multi-rail abstraction: Unbound evidence/routing layer + Chariot (first) + PayPal (second) + sponsor ACH + check** | OK | Union of partner bases plus Unbound-verified destinations | Mixed; routing can choose the cheapest eligible rail | Low for sponsor; per-rail for charity | **Recommended** |
 
@@ -191,7 +191,7 @@ That is a switching-cost advantage the sponsor keeps, not a network Unbound keep
 
 ## Implications for Unbound
 
-1. **Keep CNV-PAY-001 and CNV-PAY-007 (Chariot first, PayPal second).** Add the partner-account / pass-through distinction so a pass-through intermediary can never be configured as a grant rail.
+1. **Keep CNV-PAY-001 and the OD-P-PAY cut B order appended to CNV-PAY-007 (Chariot first, PayPal second).** Add the partner-account / pass-through distinction so a pass-through intermediary can never be configured as a grant rail.
 2. **Contract checklist for partner activation**, extending the CNV-PLT-012 gate:
    - funds in the sponsor-titled account, with the insurance ceiling stated;
    - an idempotency key and status query;
@@ -199,22 +199,45 @@ That is a switching-cost advantage the sponsor keeps, not a network Unbound keep
    - control-person or owner-change events delivered to the sponsor before the next release;
    - fee schedule in text;
    - data export on termination;
-   - Nacha role mapping (who is Originator, ODFI and TPS for each payment path, in-network book transfer included).
+   - Nacha role mapping (who is Originator, ODFI and TPS for each payment path, in-network book transfer included);
+   - CNV-PAY-007 debit-block approval: Chariot's just-in-time funding ACH-debits a sponsor account, so Chariot's company ID must be listed as an approved rail partner on that account's debit block, with bank-side test evidence (ADVA-01);
+   - a termination right on change of control of Chariot or its bank, with a transition period (ADVA-12);
+   - export of enrolment status and control-change events per charity, at termination and on demand (ADVA-12);
+   - an uninsured-balance cap. The CNV-PLT-012 exposure limit must stay at or below the insured amount, or the sponsor must accept the uninsured part in writing. Both the sponsor's and the charity's legs sit at one bank, Column (ADVA-12);
+   - the second-rail adapter (PayPal or sponsor ACH at scale) built before a sponsor's volume through Chariot passes an agreed threshold, not after. This refines OD-P-PAY's "others by demand" and is for the owner to decide (ADVA-12).
 3. **Implement two or more owner-match vendors** behind one port, and log raw responses as evidence.
 4. **Treat migration as re-verification,** not trust transfer (section 3).
 5. **The economics are unknown.** No partner fee is public, so per-grant rail cost against the 20 bps working scenario cannot be computed yet. Obtain quotes under NDA outside this public corpus.
 
 ### Conflicts and refinements with ratified clauses (flagged, not resolved)
 
-- **C1 - CNV-PAY-002 and its round-2 amendment** require "bank-originated account-owner match" or "charity document plus registry-sourced callback".
-  - Partner-account rails (Chariot, PayPal) provide neither: the destination is an account the partner's bank opened under CIP.
-  - The CNV-EXP-002 amendment lists the equivalent controls as owner verification, cooling-off and notice, and a destination-change event. These are written for bank-detail changes. For partner accounts the risk event is an *account-control* change (for example Chariot's "Transfer ownership" [PAY-013]), not a change of bank details.
-  - **Proposed refinement:** add evidence class (c), "destination is an account at the partner bank opened in the charity's legal name under that bank's CIP". The equivalent-control test then maps "bank-detail change" to "account owner/admin change at the partner".
-- **C2 - CNV-PAY-002 cooling-off "after any bank change".** It is ambiguous whether importing a predecessor's unchanged destination is a "change". Recommend that the sponsor reliance policy decide this explicitly.
+- **C1 - CNV-PAY-002 (c10 amendment) versus CNV-EXP-002 (c10 amendment): owner decision needed.**
+  - CNV-PAY-002 now says destination evidence combinations "SHALL be exactly" one of two:
+    - (a) a bank-originated account-owner match, plus cooling-off, plus notice on the old and new verified channels;
+    - (b) a charity document, plus a registry-sourced callback, plus cooling-off, plus notice.
+    The cooling-off floor is 1 business day.
+  - The CNV-EXP-002 amendment says partner enrolment satisfies CNV-PAY-002 *only where the partner contract carries equivalent controls*: owner verification, cooling-off at least as long as the sponsor's, notice to verified channels, and a destination-change event delivered before the next release. Otherwise CNV-PAY-002 applies in full.
+  - Chariot fits neither combination. It verifies the officer's identity and pays into a Column DDA titled to the charity [PAY-003, PAY-006]. Its in-network payment is instant, which collides with the cooling-off floor for a newly claimed account.
+  - PayPal's controls could not be read.
+  - So, absent contract terms that add an owner match (or document plus callback) and a cooling-off, **CNV-EXP-002's no-re-enrolment promise cannot be met for Chariot- or PayPal-enrolled charities**. Every such charity would need Unbound-side evidence. That contradicts the clause's intent.
+  - **Proposed for owner decision:** a third admissible class (c), "a bank-opened account titled to the charity's EIN under the partner bank's CIP/KYB, plus partner-attested control-change events (owner, admin or external-account changes) delivered to the sponsor before the next release, plus cooling-off on first use and after any control change". Until the owner rules, treat partner enrolments as *not* satisfying CNV-PAY-002.
+- **C2 - Imported destinations under the "exactly two combinations" rule.** A predecessor's record (section 3) counts only if it is re-evidenced under (a) or (b). Prior payment history is not an admissible element, and cooling-off plus notice apply on first Unbound use. The earlier suggestion to let a sponsor reliance policy waive cooling-off for an unchanged destination is **withdrawn**: the c10 text gives no such discretion beyond lengthening.
 - **C3 - CNV-PLT-012 "segregated holding of sponsor funds in transit".** Chariot meets it through a sponsor-titled DDA. Partners with pooled or FBO models would not. PayPal's model is unknown.
+
+## Adversarial review response
+
+These are responses to reviewer ADVA's findings (`data/adversarial-findings-A.csv`).
+
+| Finding | Verdict here | Change made |
+|---|---|---|
+| ADVA-01: partner order attributed to CNV-PAY-007, which covers bank feeds | **Partly refuted, partly accepted.** The owner-ratified OD-P-PAY cut B appended "one networked payment-partner adapter (Chariot first, then PayPal Grant Payments)" to CNV-PAY-007 (c8_owner_decisions.json; 09-DECISION-REGISTER line OD-P-PAY). So the attribution was right, but the source was not shown. SPD-CMP-003 is the open question the decision answered. Accepted: CNV-PAY-007's debit-block rule bears on Chariot JIT funding | Citation now names OD-P-PAY, c8 and SPD-CMP-003. Debit-block approval added to the activation checklist |
+| ADVA-03: conflict understated, and the c10 "exactly" amendment not cited | **Accepted** | C1 and C2 rewritten. Owner decision on a third evidence class proposed. The C2 waiver suggestion withdrawn |
+| ADVA-12: Chariot dependency (serves competitors Daffy, Endaoment and TIFIN; VC-backed; single bank Column; FDIC $250k) | **Accepted as risk; Chariot-first kept.** Mitigant: the charity's DDA is charity-titled, so R5 survives a Chariot exit. Column's owner-match participation is still unconfirmed | Change-of-control exit, enrolment export, uninsured-balance cap and second-rail-before-scale added to the checklist. Sponsor-side lock-in raised from "Medium" to "Medium-High until the second rail exists" |
+| ADVA-17: Nacha dates | Reviewer confirms accuracy | Phase 1 (2026-03-20, 6M+ originators) is in sources [PAY-036] |
 
 ## Open questions / evidence gaps
 
+- Owner: whether CNV-PAY-002 admits evidence class (c) (C1).
 - Chariot: the grantmaker fee schedule; idempotency and status-query guarantees; the number of claimed accounts; whether grantmakers receive owner or control change events; who is the Originator for ACH out of a grantmaker's Column account; SOC 1 scope.
 - PayPal Grant Payments: grantmaker agreement, funding and holding, API availability, current confirmed-charity count, change controls (pages blocked).
 - EWS AOA and Phixius: participating-bank coverage for *business* accounts at small banks and credit unions; whether Column is a responder.

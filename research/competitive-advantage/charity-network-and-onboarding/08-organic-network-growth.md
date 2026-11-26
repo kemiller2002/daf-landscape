@@ -10,10 +10,11 @@ Track A6. Agent PAY. Model: [scripts/pay_enrollment_growth_model.py](scripts/pay
   - **Chariot.** Holds each grant to an unclaimed charity for 5 business days and sends three emails, then mails a check [PAY-008, PAY-009].
   - **Ren for Charities.** Lets a charity claim its profile with a registration code printed on a grant check. AEF announced QR codes on checks from Q2 2026 (repo: `research/mission-2026-11-14/b49-04-fraud-diversion-controls.md`, `queue-ren-iphi-attrition.md`).
   - **Fidelity.** Reached 67% of grants by EFT with sponsor-owned enrolment, without a hard mandate (repo).
-- **Where Unbound can differ** (RECOMMENDATION, Medium):
-  1. **The charity is never required to become a software user.** No portal account, no sweeping funds out of a partner account, remittance arrives by email or file.
-  2. **One authorisation, many sponsors.** The charity controls a payment profile and explicitly authorises each sponsor to rely on it, within CNV-PAY-002's per-sponsor scope and written reliance policy.
-  3. **Partner-neutral routing.** A charity already enrolled with Chariot or PayPal is never asked again (CNV-EXP-002). A charity enrolled with Unbound is never forced into a partner account.
+- **Mostly parity, with a narrow differentiator** (revised after ADVA-15; RECOMMENDATION, Medium):
+  1. *No software use for the charity* is **parity**: Fidelity's ACH pays the charity's own bank with no portal (repo).
+  2. *One enrolment reused by many payers* is **parity**: Chariot ("claim ... one time" for all Disbursement partners), Ren ("validated once, trusted across the entire platform") and CAF America (validation reused for 1-3 years) all do it.
+  3. *Partner-neutral routing* (honour an existing Chariot or PayPal enrolment, never force a partner account) is **parity-plus**. Nobody documents doing it across rails.
+  - **Residual differentiator (HYPOTHESIS):** sponsor-held, rail-neutral, re-verifiable destination evidence plus deterministic decision replay, so that a sponsor can change rail or administrator without its charities noticing. Test it with sponsors before ranking it as an advantage.
 - **Step counts** (INFERENCE from documented flows, Medium):
   - **Check, every grant:** about 7 charity steps and 1-3 weeks of mail and deposit delay.
   - **Partner deposit-account enrolment** (Chariot-style): about 8 one-time steps, including the officer's SSN identity verification, and 1-2 steps per grant (sweep and reconcile in the partner's dashboard).
@@ -115,10 +116,13 @@ SponsorDestinationAcceptance   -- what CNV-PAY-002 actually tests at release
 ```
 
 Rules:
-- **R-1. Evidence is created once; acceptance is per sponsor.**
-  - Sponsor B can rely on evidence first produced for sponsor A only if the charity has granted B a `sponsor_authorisation` *and* B's reliance policy accepts that evidence type and its age.
-  - Otherwise B re-runs the owner-match call. That call costs the charity nothing.
-  - This satisfies "scoped per sponsor; cross-sponsor reuse only under a written reliance policy" (CNV-PAY-002).
+- **R-1. Destination evidence is per sponsor in Release 1 (revised after ADVA-13).**
+  - Each sponsor's acceptance rests on evidence produced *for that sponsor*. When sponsor B is authorised by the charity to pay a destination first verified for sponsor A, B re-runs the owner-match call. The call costs the charity nothing.
+  - The only things reused across sponsors in Release 1 are the charity's representative and control evidence and public facts: the authenticated representative, its passkeys, and registry data.
+  - Reuse of *destination* evidence by sponsor B, as CNV-PAY-002 permits under a written reliance policy, is deferred. It needs three things first:
+    - a measured friction benefit (the saving is small where the owner match needs no charity effort);
+    - a written allocation of losses when B relies on A's evidence;
+    - counsel's view on imputed awareness. Per the reviewer, Rev. Proc. 2018-32 §4.04(3) and §5.02(2) remove reliance where a grantor "was aware of" deficiencies. Shared evidence could widen awareness. This was not verified here.
 - **R-2. Storage of bank numbers.** They are held only in a vault, with per-sponsor keyed access. The shared charity registry holds at most a keyed token, never the number (CNV-TEN-001, UNB-CHAR-029, UNB-CHAR-036).
 - **R-3. Partner enrolment is recorded as `PartnerAccount`.** The status is mirrored from the partner, and no bank data is held. The routing rules are in 07 R2.
 - **R-4. AI's role.** AI may draft outreach text. It never changes a destination, approves evidence or chooses a rail (CNV-AIO-001).
@@ -141,13 +145,13 @@ Rules:
 |---|---|---|
 | Active partner enrolment, sponsor has partner contract meeting CNV-EXP-002 controls | Route to partner | Nothing new |
 | Active Unbound destination authorised for this sponsor | Sponsor-originated ACH | Remittance email |
-| Unbound destination exists but not authorised for this sponsor | One-click consent request ("allow <sponsor> to pay you at account ••1234?"); evidence reused under policy or re-checked | 1 step |
+| Unbound destination exists but not authorised for this sponsor | One-click consent request ("allow <sponsor> to pay you at account ••1234?"). Release 1: a new owner match for this sponsor, then cooling-off and notice; evidence reuse deferred (R-1) | 1 step |
 | Neither, and the sponsor prefers the partner's claim window | Partner invites (e.g. Chariot 5 days); Unbound sends no parallel invite | Partner email |
 | Neither, and the sponsor prefers direct | Unbound invitation on the email and on the check stub; the check goes out on the sponsor's normal schedule (no hold by default) | QR on check |
 
 **Enrol once with a partner, or with Unbound?**
 - **Partner enrolment.** Reaches every grantmaker on that partner's network. It locks the charity into the partner's account and does not help sponsors outside the network.
-- **Unbound-held evidence.** Reaches every Unbound sponsor the charity authorises, and any rail that pays a bank account, including a sponsor that later drops its partner (07 R5).
+- **Unbound-held evidence.** Reaches every Unbound sponsor the charity authorises (in Release 1 each sponsor re-runs the owner match), and any rail that pays a bank account, including a sponsor that later drops its partner (07 R5).
 - **Recommendation.** Offer both and let the charity choose through `preferred_rail`. Default to the charity's existing partner enrolment where one exists.
 
 ## 4. Growth model
@@ -187,16 +191,42 @@ Rules:
 2. **Do targeted outreach before go-live.** For AEF the top 1,000 recipients took 67% of itemised FY2023 dollars (Raymond James 68%, T. Rowe Price 88%). Recipients funded by ≥ 6 top-50 sponsors took 51-63% of these sponsors' dollars. A pre-launch outreach to the largest few hundred recipients moves the *dollar* share before any organic conversion. Many of them will also already be partner-enrolled (CNV-EXP-002).
 3. **Checks never disappear.** At p = 0.10-0.25, about 15-37% of grant *count* is still paper after 3 years: tail recipients receive about one grant a year. Positive pay and CNV-PAY-002/003 check controls stay permanent.
 4. **Measure p in the first sponsor's shadow period** (CNV-ECO-003) and re-run the model with the observed value. Do not market speed-to-electronic claims before that.
+5. **Model p by mechanism, not as one number (ADVA-08).**
+   - An opt-in form with a queue (Fidelity) supports p ≈ 0.10, the conservative planning case.
+   - Hold-and-claim (Chariot's 5-day hold) is likely higher. Chariot's and TIFIN's vendor figures (94.57% of payments electronic; 82% of dollars electronic in TIFIN's first 4 months, reported in 03) are an upper bound with undisclosed bases.
+   - Zero-effort owner match plus a code on the check is untested.
+   - CNV-ECO-003's shadow replay should record conversion per mechanism.
 
 ## Implications for Unbound
 
 - Building the invitation, the payment profile and the evidence registry is the right scope: thin, partner-neutral, and owned under the sponsor's data authority. Money movement stays with partners and banks (07).
-- Parity features are required just to match Ren and Chariot: a code or QR on the check, an email claim window, address sourcing. The differentiators are zero per-grant steps, no second bank account, consent-based cross-sponsor reuse, and partner-neutral routing.
+- Parity features are required just to match Ren and Chariot: a code or QR on the check, an email claim window, address sourcing. Zero per-grant steps and no second bank account are also parity with Fidelity's ACH. Partner-neutral routing is parity-plus. The only candidate differentiator is sponsor-held, rail-neutral, re-verifiable evidence with decision replay, and that is a HYPOTHESIS (ADVA-15).
 - **Candidate requirement refinements:**
-  - (a) **CNV-PAY-002.** Separate `DestinationEvidence` (created once) from `SponsorDestinationAcceptance` (per sponsor, under its reliance policy).
+  - (a) **CNV-PAY-002.** Separate `DestinationEvidence` from `SponsorDestinationAcceptance`. Both are per sponsor in Release 1; cross-sponsor reuse of destination evidence is deferred (R-1).
   - (b) **CNV-EXP-002.** Add the charity's `preferred_rail` and a no-parallel-invitation rule.
   - (c) **UNB-REM-013/UNB-REM-002.** Add zero-portal remittance and acknowledgement.
   - (d) **UNB-CHAR-029/CNV-TEN-001.** Keep the payment profile in a charity-scoped vault, outside the shared registry.
+
+## Release 1 versus later (ADVA-20)
+
+| Release 1 minimum | Later, each behind a stated gate |
+|---|---|
+| Registration code and QR on the check stub and in the email (parity with Ren and AEF) | Combined multi-sponsor invitations |
+| Enrolment flow E with CAL3, an owner-match port (at least one vendor), cooling-off and notice per CNV-PAY-002 (c10) | A second owner-match vendor; bank-login fallback if the no-data rate is high |
+| `DestinationEvidence` and `SponsorDestinationAcceptance`, per sponsor | Cross-sponsor reuse of destination evidence (R-1 gates) |
+| Partner enrolment mirrored (Chariot), honoured only if the owner admits evidence class (c) (07 C1) | Charity `preferred_rail`; PayPal mirroring |
+| Email and CSV remittance | One-click acknowledgement; CRM API; VC-shaped export of evidence |
+| Targeted pre-launch outreach to the top few hundred recipients by dollars | Organic-growth optimisation beyond codes on checks; growth-model recalibration |
+
+## Adversarial review response
+
+| Finding | Verdict here | Change made |
+|---|---|---|
+| ADVA-15: "differentiators" are mostly parity | **Accepted** | Summary rewritten into parity, parity-plus and one residual HYPOTHESIS. The Implications bullet amended |
+| ADVA-13: cross-sponsor destination evidence adds risk for little benefit | **Accepted for Release 1** | R-1 and the routing table revised. Reuse deferred behind three gates (benefit, loss allocation, counsel on Rev. Proc. 2018-32 imputation) |
+| ADVA-20: no Release 1 split | **Accepted** | Release 1 versus later table added |
+| ADVA-08: one p across mechanisms | **Partly accepted** | Per-mechanism modelling added to 4.3. p = 0.10 kept as the conservative case. The script is unchanged; a mechanism-specific rerun waits on measured inputs |
+| ADVA-07: ECO's partner coverage (0.3-0.7) conflicts with this model (2-45% tiers) | **Agree with reviewer.** Fidelity's EFT is proprietary and not reusable under CNV-EXP-002. Under 07 C1, even Chariot and PayPal enrolments may not count until the owner admits class (c) | None here. The correction belongs in 20 (ECO) |
 
 ## Open questions / evidence gaps
 

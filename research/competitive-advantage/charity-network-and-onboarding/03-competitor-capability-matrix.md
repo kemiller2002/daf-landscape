@@ -2,13 +2,13 @@
 
 Status: research draft (2026-11-26). Not legal advice. Evidence classes per 01-research-methodology.md.
 
-Machine-readable matrix: `data/competitor-capability-matrix.csv` (109 rows, long format). Sources: `data/sources-CMP.csv` (CMP-001 to CMP-030). Ren appears only as a summary column; 02 (agent REN) holds the full decomposition.
+Machine-readable matrix: `data/competitor-capability-matrix.csv` (109 rows, long format). Sources: `data/sources-CMP.csv` (CMP-001 to CMP-031). Ren appears only as a summary column; 02 (agent REN) holds the full decomposition.
 
 ## Summary
 
 - **Directory size does not protect anyone.** Published "universe" counts run from 1M+ (Every.org) to 1.8-1.9M (Candid, Groundswell), 2M+ "validated" (Benevity), 9M+ (Goodstack) and 10M+ (Bonterra Deed) [CMP-009, CMP-022, CMP-001, CMP-008, CMP-018]. All US counts rest on the same IRS BMF/Pub 78 base, which anyone can download (Pub 78 has about 1.44M lines; repo `data/mission-2026-11-14/charity-data-provider-integrations-2026.csv`). INFERENCE, High.
 - **What is scarce is verified payee and control-person data**: bank or deposit accounts tied to a verified individual and reused across many payers. Chariot (Control Person KYC and a Chariot Deposit Account at Column N.A.) [CMP-011], PayPal (confirmed charity status, "more than 200,000" in 2022) [CMP-007], Benevity's Causes Portal (document-based claim plus bank details) [CMP-004], Fidelity's Stripe/ACH enrolment [CMP-005] and Ren for Charities (repo) are the real networks. Of these, only Chariot and PayPal Grant Payments are documented as multi-sponsor rails open to new grantmakers. INFERENCE from VERIFIED-FACT and VENDOR-CLAIM, Medium-High.
-- **The incumbents' real moat is operational history**: unique recipients actually paid each year. Fidelity paid about 227,000 charities in 2025 and 213,000 unique nonprofits in CY2024, with 67% of grants by EFT [CMP-005; repo `research/mission-2026-11-14/queue-batch36-metrics-rails.md`]. DAFgiving360 paid about 141,000-170,000 a year (VENDOR-CLAIM, Low) [CMP-028]. Vanguard paid 66,785 (CY2025), NPT more than 41,000 (FY2024 990) and RCF more than 40,000 (CY2024 990) (repo `data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv`). VERIFIED-FACT, High except where noted.
+- **The incumbents' real moat is operational history**: unique recipients actually paid each year. Fidelity paid about 227,000 charities in 2025 and 213,000 unique nonprofits in CY2024, with 67% of grants by EFT [CMP-005; repo `research/mission-2026-11-14/queue-batch36-metrics-rails.md`]. DAFgiving360 paid about 141,000-170,000 a year (VENDOR-CLAIM, Low) [CMP-028]. Vanguard paid 66,785 (CY2025) [CMP-031]. NPT paid more than 41,000 (FY2024 990) and RCF more than 40,000 (CY2024 990) (repo `data/mission-2026-11-14/grant-count-denominators-2026-11-20.csv`). Sponsor web and annual-report counts are first-party self-reports, so they are classed VENDOR-CLAIM. The High confidence applies only to the fact that the sponsor published the figure. Form 990 statements are classed VERIFIED-FACT.
 - **Coverage was acquired in four ways**: (1) IRS bulk data plus in-house rules (Daffy, Chariot, DAFtech, Benevity per country); (2) a Candid licence (PayPal Giving Fund certification uses "Candid's database" [CMP-006]; Groundswell; NPT's GuideStar search; RCF's 2023 policy relied on Charity Check); (3) charity self-enrolment funded by payers (Chariot, PayPal, Benevity, Every.org, Fidelity's own forms); (4) acquisitions (Bonterra rolled up CyberGrants, Network for Good and Deed; Charity Navigator bought Causeway; Foundation Source bought Vennfi). VERIFIED-FACT/VENDOR-CLAIM, Medium.
 - **Shared vetting reuse already exists.** CAF America validates once and lets "any CAF America donor" grant to the organization for 1-3 years, with the period set by risk [CMP-014]. Chariot verifies a nonprofit once for all its DAF partners while each sponsor keeps approval [CMP-011; repo `research/batch-2b-ren-tifin-chariot-charity-vetting-infrastructure-2026-11-12.md`]. PayPal reuses confirmed-charity status across grantmakers [CMP-006, CMP-007]. VERIFIED-FACT, High. Reuse as such is table stakes. What could differentiate Unbound is reuse governed by evidence and provenance (CNV-GRT-003/004).
 - **Sponsor onboarding benchmarks are thin but usable.** NPT says private-label onboarding takes "approximately 14-16 weeks" [CMP-019]. GivingTech says "Up and running in 8 weeks", priced as a licence (tech-only) or a revenue share (full service) [CMP-024]. TIFIN, Ren, Foundation Source and GiftingNetwork publish no timelines. VENDOR-CLAIM, Medium.
@@ -28,7 +28,8 @@ The figures below are different units and must not be compared as if they were o
 | Searchable universe | Bonterra Deed 10M+ (live); Goodstack 9M+ (live); Candid 1.8-1.9M profiles; Groundswell "1.8M+ vetted" (Candid-sourced); Every.org 1M+ 501(c)(3)s | VENDOR-CLAIM, Medium |
 | Validated/pre-vetted network | Benevity 2M+ "validated" (2025-12) [CMP-001]; Bonterra 190K+ "pre-vetted" [CMP-016, CMP-017]; CAF America: count not published | VENDOR-CLAIM, Medium |
 | Payment-enrolled recipients | PayPal 200,000+ "confirmed charities" (2022) [CMP-007]; Chariot: no claimed-account count; DAFpay on "over 60,000", later "100,000+", nonprofit forms [CMP-012, CMP-013]; Vanguard paid >$1bn electronically to >13,000 charities by Nov 2024 (repo) | VENDOR-CLAIM, Low-Medium |
-| Recipients actually paid per year | Fidelity ~227,000 (2025); DAFgiving360 >170,000 (FY2026, snippet); Blackbaud Giving Fund >123,000 (2024); Vanguard 66,785 (CY2025); NPT >41,000 (FY2024); RCF >40,000 (CY2024); For Good >22,000 (2024) | VERIFIED-FACT, High (DAFgiving360 Low) |
+| Recipients actually paid per year | Fidelity ~227,000 (2025, FAQ); DAFgiving360 >170,000 (FY2026, snippet); Blackbaud Giving Fund >123,000 (2024, release); Vanguard 66,785 (CY2025, annual report [CMP-031]) | VENDOR-CLAIM (first-party), High as published; DAFgiving360 Low |
+| Recipients per year, Form 990 | NPT >41,000 (FY2024); RCF >40,000 (CY2024); For Good >22,000 (2024) | VERIFIED-FACT (regulatory filing), High |
 | Electronic share | Fidelity 67% of grants (2026 report); Chariot 94.57% of payments (vendor); TIFIN 82% of dollars, first 4 months (vendor) | Mixed, see repo `queue-batch36-metrics-rails.md` |
 
 **INFERENCE (Medium).** A new sponsor in the CNV-ECO-004 entry segment (5,000-50,000 funds) will pay perhaps 5,000-40,000 distinct charities a year. That is a scale NPT and Vanguard reach and Fidelity exceeds five-fold. The coverage problem is therefore enrolment of the recipients those sponsors actually pay, not a 1.8M-row directory.
@@ -133,6 +134,27 @@ INFERENCE (Medium): a 14-16 week benchmark from an incumbent sponsor and an 8-we
 - Propagation of holds only from public facts, with sponsor-private findings never shared (CNV-GRT-004).
 - A neutral, rail-agnostic payee-verification record that the sponsor holds and that survives a rail-partner exit (CNV-PLT-012).
 - A published onboarding reconciliation report (CNV-EXP-002).
+
+## Adversarial review response
+
+- **ADVA-18 (upheld, fixed).** The Vanguard figure of 66,785 unique charities in CY2025 is now cited to the primary 2025 Annual Report [CMP-031], fetched 2026-11-26. The report also gives 267,838 grants and $3.96B on a calendar-year basis.
+- **ADVA-19 (upheld, fixed).** The classification rule is now applied consistently:
+  - A sponsor's or vendor's own web page, annual report or press release count of its grantees is VENDOR-CLAIM. That covers Fidelity's 227,000 and its 67% EFT share, Vanguard's counts and Blackbaud's 123,000.
+  - Confidence stays High only for the fact that the figure was published.
+  - Statements filed in a Form 990 remain VERIFIED-FACT, because they are regulatory filings made under penalty of perjury. They are still unaudited.
+  - Process descriptions on a provider's own policy pages (for example "Stripe and ACH", or Candid as the PayPal Giving Fund vetting source) remain VERIFIED-FACT as authoritative statements of the provider's own process.
+- **ADVA-15 (agreed).** The following are **parity**, not differentiators:
+  - verify once and reuse across payers (Chariot claim across all its Disbursement partners; Ren's "validated once, trusted across the entire platform"; CAF America);
+  - paying a charity's own bank with no portal (Fidelity ACH);
+  - revocation updates within 24h (Candid);
+  - a charity self-service portal;
+  - AI/MCP charity search.
+
+  Partner-neutral routing on its own is also parity in effect, because each rail already reaches its own enrolled base. Only these remain candidate differentiators:
+  - versioned decisions bound to their provenance;
+  - replay;
+  - holds propagated only from public facts;
+  - sponsor-held payee evidence that is portable across rails.
 
 ## Implications for Unbound
 

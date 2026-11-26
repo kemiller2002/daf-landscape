@@ -52,7 +52,9 @@ def main():
                     round(r["value_epay_sponsor_passthrough_saving_yr"] + r["value_epay_unbound_labour_saving_yr"]),
                     round(r["value_network_enrolment_avoided_at_onboarding"]), fm(r["payback_months"]), r["classification"]))
     # 4. Track A omitted platform opex (ADVX ASSUMPTIONS), per grant at network sizes
-    base_reg = m.registry_annual_cost(m.resolve_cost_case(params, "base"))["annual_fixed_total_usd"]
+    # ECO revision 3 folded these items into registry_annual_cost; subtract them to keep the pre-revision baseline.
+    _reg = m.registry_annual_cost(m.resolve_cost_case(params, "base"))
+    base_reg = _reg["annual_fixed_total_usd"] - _reg.get("annual_registry_ops_compliance_usd", 0.0)
     omitted = {  # low, base, high USD/yr; ASSUMPTION ranges anchored on servicing-economics cost-register rows
         "registry_stewardship_compliance_fte(CST-R10 0.5-1.0 FTE)": (60924, 121848, 147744),
         "charity_support_desk(CST-R13 0.25-1.0 FTE)": (19277, 38554, 77108),
