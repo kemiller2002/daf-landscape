@@ -1,0 +1,21 @@
+param_id,name,low,base,high,unit,evidence_class,basis
+PAR-001,rate_ops,46.54,65.45,89.98,USD/h,VERIFIED-FACT,servicing-economics cost-register CST-V01 (O*NET loaded)
+PAR-002,rate_accounting,45.74,61.48,73.16,USD/h,INFERENCE,CST-R07 loaded FTE / 1800 h
+PAR-003,rate_compliance,54.14,67.69,82.08,USD/h,INFERENCE,CST-R10 loaded FTE / 1800 h
+PAR-004,rate_controller,81.55,101.87,118.71,USD/h,INFERENCE,CST-R06 loaded FTE / 1800 h
+PAR-005,rate_implementation,63.85,80.0,96.63,USD/h,INFERENCE,CST-R11 / 1600 h; charity-network ECO uses $80
+PAR-006,rate_engineering,98.0,118.0,138.0,USD/h,INFERENCE,CST-R03 per charity-network ECO
+PAR-007,ai_assist_duration_factor,0.4,0.6,0.9,share of conventional minutes per touch,ASSUMPTION,No measured DAF benchmark (FIE 00 finding 7); PR87 found no demonstrated accepted-capability productivity gain
+PAR-008,fail_mult_conventional,1.0,1.0,1.0,multiplier,ASSUMPTION,Baseline
+PAR-009,fail_mult_automated,0.5,0.8,1.2,multiplier,ASSUMPTION,Deterministic controls may reduce failures; high case allows automation to raise failures
+PAR-010,sponsor_min_factor_ai_assist,0.7,0.8,0.9,share of conventional sponsor-level minutes,INFERENCE,ACT-S01..S07 ai_enhanced/conventional ratios 0.63-1.0
+PAR-011,infra_per_account_owned,15,25,45,USD/account-year,ASSUMPTION,servicing-economics cost-to-serve-parameters (SPN placeholder)
+PAR-012,software_per_account_licensed,40,81,120,USD/account-year,VERIFIED-FACT,Ren software price ~$81 per account (NCF; charity-network 20); band assumed
+PAR-013,sponsor_reserved_min_per_account,2.7,4.85,7.0,min/account-year,INFERENCE,PR87 report 06 (OPS 2.7; COM 7.0) borne by sponsor in every mode
+PAR-014,sponsors,1,5,10,count,ASSUMPTION,Five-sponsor base as in servicing-economics
+PAR-015,avg_balance,100000,250000,500000,USD/account,INFERENCE,servicing-economics segment-summary band ($150-700k targets; $100-250k model B)
+PAR-016,ai_routine_scale,0.0,1.0,3.0,multiplier on AI per-event costs,ASSUMPTION,Model price uncertainty
+PAR-017,prevention_scale,0.0,1.0,1.0,multiplier on prevention efficacy,ASSUMPTION,0 = prevention fails; 1 = efficacy as listed
+PAR-018,touch_mult_native,0.6,1.0,2.0,multiplier on native touch probabilities,ASSUMPTION,No measured exception rates (FIE 11; charity-network E13)
+PAR-019,duration_mult_native,0.7,1.0,1.6,multiplier on native minutes per touch,ASSUMPTION,No time study (PR87 RC-AN-015)
+PAR-020,activity_mult,0.6,1.0,2.06,multiplier on per-account frequencies,INFERENCE,ACT frequency low/high bands (grants 5.6-18.5 per account)

@@ -1,0 +1,17 @@
+param_id,name,low,base,high,unit,evidence_class,basis
+RP-01,charities_in_use_per_sponsor,5000,20000,50000,charities,INFERENCE,RCF >40k and NPT >41k annual recipients; 10k-account sponsor ~25k recipients (charity-network 20 recipients formula)
+RP-02,change_rate,0.02,0.04,0.08,eligibility-relevant events per charity-year,INFERENCE,charity-network 06: 405 eligibility-relevant of 236750 c3 changes in one month; monitoring 4% status events
+RP-03,exception_minutes,30,45,60,min,INFERENCE,charity-network ECO C0 45 min; C 30 min
+RP-04,new_charity_share,0.1,0.2,0.3,share of charities newly used per year,ASSUMPTION,
+RP-05,new_charity_exception_rate,0.04,0.08,0.12,share,INFERENCE,charity-network ECO C0 8%
+RP-06,periodic_review_minutes,5,15,30,min per full re-review,INFERENCE,ACT-A09 conventional 15 min
+RP-07,evidence_expiry_share,0.05,0.1,0.2,share of charities with an evidence item expiring per year,ASSUMPTION,
+RP-08,expiry_refresh_minutes,2,5,10,min,ASSUMPTION,
+RP-09,connector_hours_per_year,20,40,80,h per connector-year,INFERENCE,RC-06 400 h / 10 connectors
+RP-10,sponsor_decision_hours,10,20,40,h per sponsor-year,ASSUMPTION,Sponsor-specific policy and decisions in a shared registry
+RP-11,union_exponent,0.3,0.5,0.8,exponent,ASSUMPTION,Union of charities across S sponsors = N x S^e (heavy overlap among large recipients); test with ren_schedule_i_recipient_overlap.py
+RP-12,commercial_licence_usd,25000,60000,150000,USD/yr,ASSUMPTION,Candid/Charity Navigator enterprise price not published (UNKNOWN)
+RP-13,counsel_rate,300,450,800,USD/h,INFERENCE,CST-C06
+RP-14,compliance_rate,54.14,67.69,82.08,USD/h,INFERENCE,CST-R10/1800
+RP-15,engineering_rate,98,118,138,USD/h,INFERENCE,CST-R03
+RP-16,support_fte_cost,57802,77108,97330,USD/FTE-yr,VERIFIED-FACT,CST-R13

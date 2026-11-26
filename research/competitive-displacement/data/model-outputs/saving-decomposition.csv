@@ -1,0 +1,6 @@
+step,from,to,saving_per_acct,minutes_saved_per_acct
+AI assistance on conventional touches,MD-1,MD-2,67.8758,73.335
+Deterministic workflow on structured events,MD-1,MD-3,102.3792,88.399
+"Exception-only design for all events (no AI, no prevention)",MD-3,MD-4-noprev,29.4395,26.2841
+Prevention mechanisms (upstream input design),MD-4-noprev,MD-4,33.508,25.3435
+AI on residual exceptions,MD-4,MD-5,17.4859,17.3244

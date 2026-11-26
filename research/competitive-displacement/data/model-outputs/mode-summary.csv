@@ -1,0 +1,8 @@
+mode_id,mode,human_min_per_acct,vendor_variable_per_acct,system_variable_per_acct,sponsor_level_cost_per_sponsor,vendor_fixed,build,onetime_per_sponsor,onetime_per_acct,system_cost_per_acct_10k_accts_5_sponsors,system_cost_per_acct_40k_accts_5_sponsors
+MD-1,Conventional manual administration,183.3375,323.5825,343.7973,62192,1177750,0,72000,8,492.6683,381.015
+MD-2,Conventional administration with AI assistance,110.0025,255.7066,275.9214,49753.6,1250000,100000,57600,6.4,425.7982,313.3906
+MD-3,Workflow automation,94.9384,165.2033,185.4181,49753.6,2200000,1940000,57600,6.4,430.2949,246.6373
+MD-4,Exception-driven administration,43.3109,102.2558,122.4706,44419.59,2200000,1940000,54000,5.3333,364.6804,183.023
+MD-5,AI-native administration with deterministic controls,25.9865,84.7699,104.9847,26647.18,2300000,1940000,36000,2.6667,348.3083,165.8156
+MD-6,Technology-only licensing,25.9865,26.7931,104.9847,26647.18,1600000,1600000,36000,2.6667,278.3083,148.3156
+MD-7,Hybrid licensing and exception administration,25.9865,60.862,104.9847,26647.18,1950000,1750000,36000,2.6667,313.3083,157.0656
