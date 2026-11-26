@@ -10,10 +10,10 @@ Every change is on branch `claude/fervent-galileo-bj4yk0` in its repository.
 
 | Repository | Head | Content | Validation run |
 |---|---|---|---|
-| unbound | `17bfe50` | Discovery package `requirements/discovery/2026-11-26-competitive-displacement-decisions/`: 30 proposed UNB-CDD requirements, 5 owner decisions OD-CDD-01..05, F# validator `tools/fs/Unbound.CompetitiveDecisions` | Gates A1-A11 pass; 14/14 and 7/7 tests; question register 374 (9 new); existing validators pass. ReqAudit D9 (`RR-ADM-023-r2`) fails, as it already did on `79b9258` |
-| transitus | `36e9e55` | DF-TRN-2026-0022..0026; 19 proposed requirements (171 total); dispositions document; pre-contract assessment specification | `praxis validate`, registry, provenance audit and `validate_specs.py` all pass (17/17) |
-| echelon-organization-administration | `dede008` | `strategy/daf-entry/` 01-04: approved direction, five-entity separation, CAP-DAF-001/002, owner decision register, OD-DAF-IP-001, OD-DAF-CAP-001 | `npm test` passes |
-| echelon-foundry | `fec24fe` | Draft standards DF-…-MTH-2026-48F0 (event-level economics) and DF-…-ENG-2026-6BEA (reproducible F# models); methodology proposals for Clarity, EDF and model validation | `praxis validate` passes; 12/12 tests |
+| unbound | `edbcd0d` | Discovery package `requirements/discovery/2026-11-26-competitive-displacement-decisions/`: 30 proposed UNB-CDD requirements, 5 owner decisions OD-CDD-01..05, F# validator `tools/fs/Unbound.CompetitiveDecisions` | Gates A1-A11 pass; 14/14 and 7/7 tests; question register 374 (9 new); existing validators pass. ReqAudit D9 (`RR-ADM-023-r2`) fails, as it already did on `79b9258` |
+| transitus | `0d089a2` | DF-TRN-2026-0022..0026; 19 proposed requirements (171 total); dispositions document; pre-contract assessment specification | `praxis validate`, registry, provenance audit and `validate_specs.py` all pass (17/17) |
+| echelon-organization-administration | `ea9ff34` | `strategy/daf-entry/` 01-04: approved direction, five-entity separation, CAP-DAF-001/002, owner decision register, OD-DAF-IP-001, OD-DAF-CAP-001 | `npm test` passes |
+| echelon-foundry | `c0ed458` | Draft standards DF-…-MTH-2026-48F0 (event-level economics) and DF-…-ENG-2026-6BEA (reproducible F# models); methodology proposals for Clarity, EDF and model validation | `praxis validate` passes; 12/12 tests |
 | praxis | `ce7eca2` | Proposed RQ-ROS-2026-6C17 (authority stages and gates), 0863 (decision currency and invalidation), 6D60 (cross-repository propagation). DAF-agnostic | `praxis validate` passes; requirement tests 90/90; site 101/101 |
 | daf-landscape | this branch | [25](25-owner-approval-record.md), this report, [decision-approvals.csv](data/registers/decision-approvals.csv), [xri-dispositions.csv](data/registers/xri-dispositions.csv), ledger, validator rules | `validate`; 20/20 tests |
 
