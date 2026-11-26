@@ -89,7 +89,6 @@ No implication was discarded. Placement decisions that departed from the origina
 | OD-CDD-05 | Unbound: is the 25% concentration cap measured per end sponsor or per partner |
 | OD-TRN-P3-01 | Transitus: which legal basis binds each assessment tier |
 | OQ-17 | Transitus: disclosure thresholds for the T1 profile |
-| OD-P3-03 threshold | Organization: what counts as "significant" expenses for the kill-rule clock |
 | Standards | echelon-foundry: accept or reject the two draft standards |
 | Praxis | Accept or reject RQ-ROS-2026-6C17, 0863 and 6D60 |
 | Shared costs | Organization: the shared-cost allocation rule across the five entities; whether Unbound will ever be a separate entity |

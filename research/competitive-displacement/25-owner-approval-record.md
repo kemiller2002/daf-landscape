@@ -61,6 +61,6 @@ These decisions were made after the approval above, in response to questions Sta
 | OD-P3-02 | Does the DEC-008 kill rule pause Transitus beyond phase 1? (Transitus OD-TRN-P3-02) | "Kill rule doesn't stop Transitus" | Transitus decision records; [xri-dispositions.csv](data/registers/xri-dispositions.csv) XRI-014 |
 | OD-P3-03 | When does the "no named partner by month 6" clock start? | "No named partner rule starts when we have significant expenses" | [decision-approvals.csv](data/registers/decision-approvals.csv) DEC-008; echelon-organization-administration `strategy/daf-entry/03` as OD-DAF-CAP-001 |
 
-**Still open:** the owner has not set a threshold for "significant" expenses in OD-P3-03. Until one is set, the kill-rule clock has not started.
+**OD-P3-04 (threshold for OD-P3-03).** In the owner's words: "Significant is when it becomes its own cost center." The kill-rule clock starts when DAF commercialization becomes its own cost center at Echelon Foundry, with its own budget and expense tracking. It is not tied to a dollar amount. Recorded in echelon-organization-administration as OD-DAF-CAP-002.
 
 Transitus scope stays as DEC-011 sets it (phase 1, with vendor packages deferred). OD-P3-02 lifts a possible pause; it does not authorize expenditure or implementation.
