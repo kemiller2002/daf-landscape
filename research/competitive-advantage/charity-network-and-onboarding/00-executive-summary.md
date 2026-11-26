@@ -92,10 +92,18 @@ The decisions and questions are registered in the authoritative open-question re
 
 ## Architectural dependencies
 
-- **Strata:** bitemporal claims and authoritative history, subject to CNV-ARC-004 validation.
-- **Forma and Folio:** charity, sponsor and auditor UIs and evidence packs.
-- **Conditor and Praxis:** configuration-package activation and governance.
-- **The integration certification runner and readiness portal** are Unbound build scope: Strata mocks exist only as requirements, Fides only on GitHub, and Vigila is an untagged pilot (18).
+- **Unbound-owned components on managed PostgreSQL (CNV-ARC-001, CNV-ARC-004):**
+  - the temporal claim store;
+  - append-only history and the legacy partition;
+  - the migration pipeline;
+  - the integration certification runner and readiness portal;
+  - provider contracts and mocks.
+- **What Echelon does and does not supply:**
+  - Strata provides schema governance only. It does not provide append-only history or temporal queries, and its mock-interaction virtualization (STRATA-DIV-001) is proposed, not implemented.
+  - Forma and Folio supply UI patterns and document rendering.
+  - Dokimos supplies acceptance evidence.
+  - Fides supports only GitHub as an identity provider, so it does not fit donors or sponsors.
+  - Vigila is an untagged pilot.
 - **Outside dependencies:**
   - one or more partner rails (Chariot first) under contract minimums;
   - two owner-match vendors;
