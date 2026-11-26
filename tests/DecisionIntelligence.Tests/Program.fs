@@ -17,11 +17,11 @@ let main _ =
         let json = JsonNode.Parse(input).AsObject()
         change json
         Results.validate catalog (json.ToJsonString()) |> fst
-    let result (node:JsonObject) index =
+    let result (node: JsonObject) (index: int) : JsonObject =
         node.["results"].AsArray().[index].AsObject()
-    let put (node:JsonObject) key (value:string) =
+    let put (node: JsonObject) (key: string) (value: string) =
         node.[key] <- JsonValue.Create(value)
-    let replaceItem (node: JsonObject) index key value =
+    let replaceItem (node: JsonObject) (index: int) (key: string) (value: string) =
         put (result node index) key value
     let invalidate (code:string) (change: JsonObject -> unit) =
         issue code (mutate change)

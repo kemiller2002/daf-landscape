@@ -175,7 +175,7 @@ module Catalog =
                     if not (sourceMap.ContainsKey source) then
                         problems.Add(issue "missing_claim_source" id source)
                 for ev in claim.Evidence do
-                    if not (Map.ofList eAll).ContainsKey ev then
+                    if not ((Map.ofList eAll).ContainsKey ev) then
                         problems.Add(issue "missing_claim_evidence" id ev)
                 id, claim)
         if claims.Length <> (claims |> List.map fst |> Set.ofList).Count then
@@ -185,6 +185,11 @@ module Catalog =
 module Results =
     let private issue code location detail = { Code=code; Location=location; Detail=detail }
 
+    let private textOf (element: JsonElement) : string =
+        match element.GetString() with
+        | null -> ""
+        | text -> text
+
     let private property (node: JsonElement) (name: string) =
         let mutable value = Unchecked.defaultof<JsonElement>
         if node.ValueKind = JsonValueKind.Object && node.TryGetProperty(name, &value) then Some value
@@ -193,7 +198,7 @@ module Results =
     let private string (problems: ResizeArray<Issue>) (location: string) (node: JsonElement) name =
         match property node name with
         | Some value when value.ValueKind = JsonValueKind.String ->
-            let text = value.GetString()
+            let text = textOf value
             if String.IsNullOrWhiteSpace(text) then
                 problems.Add(issue "required_text" location name)
                 ""
@@ -208,9 +213,7 @@ module Results =
             let elements = value.EnumerateArray() |> Seq.toList
             let result =
                 elements |> List.map (fun item ->
-                    if item.ValueKind = JsonValueKind.String then
-                        let s = item.GetString()
-                        if isNull s then "" else s
+                    if item.ValueKind = JsonValueKind.String then textOf item
                     else "")
             if result.IsEmpty || (result |> List.exists String.IsNullOrWhiteSpace) then
                 problems.Add(issue "required_list" location name)
@@ -299,7 +302,7 @@ module Results =
                 let edf =
                     match property framework "edfLevel" with
                     | Some p when p.ValueKind = JsonValueKind.Null -> None
-                    | Some p when p.ValueKind = JsonValueKind.String -> Some(p.GetString())
+                    | Some p when p.ValueKind = JsonValueKind.String -> Some(textOf p)
                     | _ ->
                         problems.Add(issue "invalid_edf" loc "edfLevel must be null or EDF-0/1/2")
                         None
