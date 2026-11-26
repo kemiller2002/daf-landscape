@@ -57,9 +57,9 @@ These decisions were made after the approval above, in response to questions Sta
 
 | ID | Question raised | Owner's decision (owner's words) | Recorded in |
 |---|---|---|---|
-| OD-P3-01 | Who owns intellectual property the initiative creates? | "EF owns all property we make": Echelon Foundry owns all intellectual property created (Unbound, Transitus, shared components, research models) | echelon-organization-administration `strategy/daf-entry/` |
+| OD-P3-01 | Who owns intellectual property the initiative creates? | "EF owns all property we make": Echelon Foundry owns all intellectual property created (Unbound, Transitus, shared components, research models) | echelon-organization-administration `strategy/daf-entry/02` as OD-DAF-IP-001 (owner's intent, not legal effect; assignment mechanics open for counsel) |
 | OD-P3-02 | Does the DEC-008 kill rule pause Transitus beyond phase 1? (Transitus OD-TRN-P3-02) | "Kill rule doesn't stop Transitus" | Transitus decision records; [xri-dispositions.csv](data/registers/xri-dispositions.csv) XRI-014 |
-| OD-P3-03 | When does the "no named partner by month 6" clock start? | "No named partner rule starts when we have significant expenses" | [decision-approvals.csv](data/registers/decision-approvals.csv) DEC-008; echelon-organization-administration `strategy/daf-entry/03` |
+| OD-P3-03 | When does the "no named partner by month 6" clock start? | "No named partner rule starts when we have significant expenses" | [decision-approvals.csv](data/registers/decision-approvals.csv) DEC-008; echelon-organization-administration `strategy/daf-entry/03` as OD-DAF-CAP-001 |
 
 **Still open:** the owner has not set a threshold for "significant" expenses in OD-P3-03. Until one is set, the kill-rule clock has not started.
 
