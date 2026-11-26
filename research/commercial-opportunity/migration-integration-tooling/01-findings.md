@@ -43,6 +43,7 @@ Generic tools address only parts of (1).
 |---|---|---|
 | OPP-10 can be served by licensing a generic ELT tool plus services | Weak. The tool solves transport. Reconciliation, evidence and domain loading remain bespoke on every engagement. | Medium |
 | A reusable importer with per-vendor mapping packages lowers the marginal cost of each migration | Plausible **only after** the first customer-authorized sample per vendor. Packages for undocumented vendors cannot be built from public sources (D-MIT-002). | Low–medium |
+| A canonical historical import (target-side package) plus migration rehearsal lowers migration risk for every sponsor regardless of vendor | **Adopted by owner direction (2026-11-26):** canonical import and rehearsal are required in Unbound release 1, and basic packages are not conditioned on a signed customer (D-MIT-002 revised). Vendor-specific turnkey packages follow later. | Medium (no real export rehearsed yet; OD-M-14) |
 | Reconciliation evidence ("independent assurance") is a sellable differentiator | Consistent with AEF's lost history and with Foundant pre-sale PoCs signalling buyer anxiety. Untested with buyers. | Low |
 | Building an in-house engine is justified by licence savings | **Rejected.** Licence costs are small (F1). Any justification must rest on domain loading, evidence, data residency and reuse across products (D-MIT-001). | High |
 
