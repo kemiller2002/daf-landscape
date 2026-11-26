@@ -1,0 +1,51 @@
+mode_id,event_id,event,cost_per_acct,share,cumulative
+MD-1,EV-E10,Grant approval (eligibility purpose and nonstandard grantee review),88.2647,0.2371,0.2371
+MD-1,EV-E08,Charity vetting (transaction-time check 180-day renewal and event monitoring),82.975,0.2229,0.46
+MD-1,EV-E13,Reconciliation (bank custodian ledger; monthly close),37.4345,0.1006,0.5605
+MD-1,EV-E11,Payment processing (ACH check wire),35.1919,0.0945,0.6551
+MD-1,EV-E03,Contribution receipt and posting (cash ACH check securities),28.7328,0.0772,0.7322
+MD-1,EV-E09,Grant recommendation intake,14.399,0.0387,0.7709
+MD-1,EV-E04,Contribution attribution (pooled receipt to fund),10.9171,0.0293,0.8003
+MD-1,EV-E15,Customer communication (human-handled contacts),8.4631,0.0227,0.823
+MD-1,EV-E22,Audit preparation (sponsor audit SOC bridge),8.1496,0.0219,0.8449
+MD-1,EV-E14,Statement generation and acknowledgments (incl. fee billing),7.4044,0.0199,0.8648
+MD-1,EV-E23,Sponsor onboarding and configuration upkeep,6.4,0.0172,0.882
+MD-1,EV-E07,Charity discovery (assisted search),5.8905,0.0158,0.8978
+MD-1,EV-E21,Regulatory and governance reporting,5.4331,0.0146,0.9124
+MD-1,EV-E20,Compliance exceptions (sanctions alerts incidents),5.1086,0.0137,0.9261
+MD-1,EV-E12,Payment failures (returns uncashed voids reissue),4.8319,0.013,0.9391
+MD-1,EV-E05,Asset liquidation and complex noncash assets,4.424,0.0119,0.951
+MD-1,EV-E01,Account opening (agreement and fund set-up),3.8223,0.0103,0.9612
+MD-1,EV-E19,Fraud investigation (account takeover payment redirection),3.1157,0.0084,0.9696
+MD-1,EV-E17,Account changes (address advisor bank contact),2.8798,0.0077,0.9773
+MD-1,EV-E06,Investment allocation,2.4562,0.0066,0.9839
+MD-1,EV-E18,Successor administration (death succession),2.3944,0.0064,0.9904
+MD-1,EV-E16,Advisor administration (advisor onboarding fee schedules rep codes),1.4835,0.004,0.9943
+MD-1,EV-E02,Identity verification,1.1629,0.0031,0.9975
+MD-1,EV-E25,Account closure (final grants transfers residual),0.9425,0.0025,1
+MD-1,EV-E24,Data migration,0,0,1
+MD-5,EV-E10,Grant approval (eligibility purpose and nonstandard grantee review),42.6257,0.2689,0.2689
+MD-5,EV-E11,Payment processing (ACH check wire),25.1762,0.1588,0.4277
+MD-5,EV-E03,Contribution receipt and posting (cash ACH check securities),13.2152,0.0834,0.5111
+MD-5,EV-E13,Reconciliation (bank custodian ledger; monthly close),13.0323,0.0822,0.5933
+MD-5,EV-E08,Charity vetting (transaction-time check 180-day renewal and event monitoring),11.6373,0.0734,0.6667
+MD-5,EV-E15,Customer communication (human-handled contacts),8.3688,0.0528,0.7195
+MD-5,EV-E22,Audit preparation (sponsor audit SOC bridge),8.1496,0.0514,0.7709
+MD-5,EV-E04,Contribution attribution (pooled receipt to fund),4.7434,0.0299,0.8008
+MD-5,EV-E12,Payment failures (returns uncashed voids reissue),3.8378,0.0242,0.825
+MD-5,EV-E07,Charity discovery (assisted search),3.546,0.0224,0.8474
+MD-5,EV-E05,Asset liquidation and complex noncash assets,3.2176,0.0203,0.8677
+MD-5,EV-E23,Sponsor onboarding and configuration upkeep,3.2,0.0202,0.8878
+MD-5,EV-E21,Regulatory and governance reporting,2.9882,0.0188,0.9067
+MD-5,EV-E09,Grant recommendation intake,2.4513,0.0155,0.9222
+MD-5,EV-E19,Fraud investigation (account takeover payment redirection),2.427,0.0153,0.9375
+MD-5,EV-E14,Statement generation and acknowledgments (incl. fee billing),2.1248,0.0134,0.9509
+MD-5,EV-E18,Successor administration (death succession),2.1094,0.0133,0.9642
+MD-5,EV-E20,Compliance exceptions (sanctions alerts incidents),1.8837,0.0119,0.9761
+MD-5,EV-E17,Account changes (address advisor bank contact),0.7784,0.0049,0.981
+MD-5,EV-E06,Investment allocation,0.7066,0.0045,0.9854
+MD-5,EV-E16,Advisor administration (advisor onboarding fee schedules rep codes),0.6875,0.0043,0.9898
+MD-5,EV-E02,Identity verification,0.6562,0.0041,0.9939
+MD-5,EV-E01,Account opening (agreement and fund set-up),0.6443,0.0041,0.998
+MD-5,EV-E25,Account closure (final grants transfers residual),0.3226,0.002,1
+MD-5,EV-E24,Data migration,0,0,1

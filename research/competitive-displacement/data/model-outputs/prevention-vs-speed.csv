@@ -1,0 +1,26 @@
+event_id,event,prevention,prevention_value_per_acct,ai_speed_value_per_acct
+EV-E01,Account opening (agreement and fund set-up),Prefill from custodian or advisor KYC and in-app agreement acceptance,0.0859,0.065
+EV-E02,Identity verification,,0,0.0267
+EV-E03,Contribution receipt and posting (cash ACH check securities),Structured contribution intents before transfer,0.3078,0.2546
+EV-E04,Contribution attribution (pooled receipt to fund),Notification-first intent with unique fund reference or virtual account,1.6704,0.4336
+EV-E05,Asset liquidation and complex noncash assets,,0,0.3047
+EV-E06,Investment allocation,,0,0.0527
+EV-E07,Charity discovery (assisted search),,0,0.1628
+EV-E08,Charity vetting (transaction-time check 180-day renewal and event monitoring),Change-driven continuous monitoring with evidence expiry,3.1501,0.7218
+EV-E09,Grant recommendation intake,Validated recommendation forms (purpose taxonomy; closed picker),0.8111,0.1667
+EV-E10,Grant approval (eligibility purpose and nonstandard grantee review),Pre-validated policy rules at recommendation time,5.957,6.0517
+EV-E11,Payment processing (ACH check wire),Electronic payment enrolment of recipients,1.2739,0.9421
+EV-E12,Payment failures (returns uncashed voids reissue),Verified bank destinations and positive pay,-0.0473,0.2894
+EV-E13,Reconciliation (bank custodian ledger; monthly close),Single ledger with continuous reconciliation,2.2906,0.4592
+EV-E14,Statement generation and acknowledgments (incl. fee billing),,0,0.0679
+EV-E15,Customer communication (human-handled contacts),Self-service status and proactive notifications,1.4289,0.9253
+EV-E16,Advisor administration (advisor onboarding fee schedules rep codes),,0,0.0688
+EV-E17,Account changes (address advisor bank contact),In-app self-service with step-up authentication,0.13,0.0683
+EV-E18,Successor administration (death succession),,0,0.2365
+EV-E19,Fraud investigation (account takeover payment redirection),Callback to aged contacts and bank-change holds,0.6604,0.0575
+EV-E20,Compliance exceptions (sanctions alerts incidents),Tuned token matcher and list hygiene,0.135,0.04
+EV-E21,Regulatory and governance reporting,,0,0
+EV-E22,Audit preparation (sponsor audit SOC bridge),,0,0
+EV-E23,Sponsor onboarding and configuration upkeep,,0,0
+EV-E24,Data migration,,0,0
+EV-E25,Account closure (final grants transfers residual),,0,0.0381

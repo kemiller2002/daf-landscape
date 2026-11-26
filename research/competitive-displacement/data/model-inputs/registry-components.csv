@@ -1,0 +1,11 @@
+component_id,component,annual_low,annual_base,annual_high,classification,driver,removable_when,evidence_class,basis
+RC-01,Object storage (1 TB raw append-only versions),100,276,600,architecture-dependent,source volume,Never (raw evidence retention); immaterial,VERIFIED-FACT,charity-network 20 §2 ($0.023/GB-month)
+RC-02,Registry database storage and backup (150 GB),126,378,1008,architecture-dependent,normalized registry size,Never; immaterial,INFERENCE,charity-network 20 §2 cost register
+RC-03,Dedicated HA registry database,3119,6237,12474,architecture-dependent,availability target,Shared instance acceptable when registry is not a standalone SLA service,VERIFIED-FACT,CST-T01
+RC-04,Batch compute,1200,3600,9000,volume-dependent,source refresh volume,Never; immaterial,ASSUMPTION,charity-network 20 §2
+RC-05,Paid state data and optional commercial sanctions screening,0,18000,40000,optional,states covered; vendor choice,Free federal sources and free OFAC SLS suffice for federal eligibility; state data only where a sponsor's policy requires it,ASSUMPTION,charity-network 20 §2; Indiana SOS bulk $9.5k+ (to reconfirm)
+RC-06,Connector maintenance for source drift (400 h),23600,47200,94400,volume-dependent,number of connectors,Scales with connectors: ~40 h per connector-year,ASSUMPTION,UNB-KNOW-026; charity-network 20 §2
+RC-07,Stewardship and compliance (1 FTE; disputes and appeals),60924,121848,147744,historically inherited,exceptions and disputes,Sized by exception volume with a named accountable owner floor (0.25 FTE),INFERENCE,CST-R10; ADVX-01; the 1 FTE is a staffing-ratio assumption not a workload derivation
+RC-08,Charity support desk (0.5 FTE),19277,38554,77108,architecture-dependent,charity-facing portal,Removable if charities are never required to be software users (charity-network principle),INFERENCE,CST-R13
+RC-09,Counsel review of eligibility rules (80 h),18000,36000,104000,legally required,rule changes,First-year establishment cost; recurring refresh ~20-40 h,INFERENCE,CST-C06 rate; CHAR-ADR-010
+RC-10,Nacha TPSP audit; verification-vendor minimums; insurance rider,10000,44000,80000,contractually required,payments role; publication of facts,TPSP audit only if Unbound is a TPSP; rider only if registry facts are published; vendor minimums only with bank verification,ASSUMPTION,ADVX-001/002; Nacha Rules TPSP annual audit

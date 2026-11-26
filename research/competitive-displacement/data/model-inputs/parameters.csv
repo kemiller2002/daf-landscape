@@ -1,0 +1,26 @@
+param_id,name,low,base,high,unit,evidence_class,basis
+PAR-001,rate_ops,46.54,65.45,89.98,USD/h,VERIFIED-FACT,servicing-economics cost-register CST-V01 (O*NET loaded)
+PAR-002,rate_accounting,45.74,61.48,73.16,USD/h,INFERENCE,CST-R07 loaded FTE / 1800 h
+PAR-003,rate_compliance,54.14,67.69,82.08,USD/h,INFERENCE,CST-R10 loaded FTE / 1800 h
+PAR-004,rate_controller,81.55,101.87,118.71,USD/h,INFERENCE,CST-R06 loaded FTE / 1800 h
+PAR-005,rate_implementation,63.85,80.0,96.63,USD/h,INFERENCE,CST-R11 / 1600 h; charity-network ECO uses $80
+PAR-006,rate_engineering,98.0,118.0,138.0,USD/h,INFERENCE,CST-R03 per charity-network ECO
+PAR-007,ai_assist_duration_factor,0.6,0.85,0.97,share of conventional minutes per touch,ASSUMPTION,REV2: field evidence ~14% faster (Brynjolfsson et al. customer support) to ~3% hours (Humlum & Vestergaard); 0.6 only in lab (Noy & Zhang). Native minutes in events.csv were calibrated at 0.6 and are rescaled
+PAR-008,fail_mult_conventional,1.0,1.0,1.0,multiplier,ASSUMPTION,Baseline
+PAR-009,fail_mult_automated,0.7,1.0,1.5,multiplier,ASSUMPTION,REV2 (CHL-061/107): no assumed failure benefit from automation; correlated automation errors possible
+PAR-010,sponsor_min_factor_ai_assist,0.7,0.8,0.9,share of conventional sponsor-level minutes,INFERENCE,ACT-S01..S07 ai_enhanced/conventional ratios 0.63-1.0
+PAR-011,infra_per_account_owned,15,25,45,USD/account-year,ASSUMPTION,servicing-economics cost-to-serve-parameters (SPN placeholder)
+PAR-012,software_per_account_licensed,40,81,120,USD/account-year,VERIFIED-FACT,Ren software price ~$81 per account (NCF; charity-network 20); band assumed
+PAR-013,sponsor_reserved_min_per_account,2.7,4.85,7.0,min/account-year,INFERENCE,PR87 report 06 (OPS 2.7; COM 7.0) borne by sponsor in every mode
+PAR-014,sponsors,1,5,10,count,ASSUMPTION,Five-sponsor base as in servicing-economics
+PAR-015,avg_balance,100000,250000,500000,USD/account,INFERENCE,servicing-economics segment-summary band ($150-700k targets; $100-250k model B)
+PAR-016,ai_routine_scale,0.0,1.0,3.0,multiplier on AI per-event costs,ASSUMPTION,Model price uncertainty
+PAR-017,prevention_scale,0.0,0.5,1.0,multiplier on prevention efficacy,ASSUMPTION,"REV2 (CHL-060): half efficacy until bank/custodian partners (virtual accounts, positive pay, fund references) are contracted"
+PAR-018,touch_mult_native,0.6,1.0,2.0,multiplier on native touch probabilities,ASSUMPTION,No measured exception rates (FIE 11; charity-network E13)
+PAR-019,duration_mult_native,0.7,1.0,1.6,multiplier on native minutes per touch,ASSUMPTION,No time study (PR87 RC-AN-015)
+PAR-020,activity_mult,0.6,1.0,2.06,multiplier on per-account frequencies,INFERENCE,ACT frequency low/high bands (grants 5.6-18.5 per account)
+PAR-021,sponsor_efficiency_multiplier,1.0,1.4,2.0,multiplier on sponsor-borne event minutes in licensing modes,ASSUMPTION,REV2 (CHL architect): sponsor staff at low volume without specialist tooling are less efficient than a dedicated operator
+PAR-022,fixed_cost_mult,0.8,1.0,1.5,multiplier on vendor fixed cost,ASSUMPTION,REV2 (CHL CFO): fixed cost outranks balance and belongs in the tornado
+PAR-023,cac_per_sponsor,60000,125000,250000,USD per sponsor,ASSUMPTION,PR #86/#88 $125k; untested (CLM-026)
+PAR-024,amortisation_years,3,5,7,years,ASSUMPTION,"REV2 (CHL CFO): fully loaded break-even amortises build, CAC and onboarding"
+PAR-025,utilisation,0.65,0.75,1.0,productive share of paid hours,ASSUMPTION,"REV2 (CHL-034/109): queue coverage, PTO and segregation of duties prevent perfectly divisible labour"

@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Csv.fs" />
+    <Compile Include="Inputs.fs" />
+    <Compile Include="Sampling.fs" />
+    <Compile Include="Events.fs" />
+    <Compile Include="Enterprise.fs" />
+    <Compile Include="Registry.fs" />
+    <Compile Include="Routes.fs" />
+    <Compile Include="Analysis.fs" />
+    <Compile Include="Render.fs" />
+    <Compile Include="Validate.fs" />
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+</Project>

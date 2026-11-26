@@ -1,0 +1,79 @@
+assumption_id,model_key,name,low,base,high,unit,evidence_class,source_ids,basis
+ASM-001,PAR-001,rate_ops,46.54,65.45,89.98,USD/h,VERIFIED-FACT,SRC-003,servicing-economics cost-register CST-V01 (O*NET loaded)
+ASM-002,PAR-002,rate_accounting,45.74,61.48,73.16,USD/h,INFERENCE,SRC-003,CST-R07 loaded FTE / 1800 h
+ASM-003,PAR-003,rate_compliance,54.14,67.69,82.08,USD/h,INFERENCE,SRC-003,CST-R10 loaded FTE / 1800 h
+ASM-004,PAR-004,rate_controller,81.55,101.87,118.71,USD/h,INFERENCE,SRC-003,CST-R06 loaded FTE / 1800 h
+ASM-005,PAR-005,rate_implementation,63.85,80.0,96.63,USD/h,INFERENCE,SRC-003,CST-R11 / 1600 h; charity-network ECO uses $80
+ASM-006,PAR-006,rate_engineering,98.0,118.0,138.0,USD/h,INFERENCE,SRC-003,CST-R03 per charity-network ECO
+ASM-007,PAR-007,ai_assist_duration_factor,0.4,0.6,0.9,share of conventional minutes per touch,ASSUMPTION,SRC-002,No measured DAF benchmark (FIE 00 finding 7); PR87 found no demonstrated accepted-capability productivity gain
+ASM-008,PAR-008,fail_mult_conventional,1.0,1.0,1.0,multiplier,ASSUMPTION,SRC-002,Baseline
+ASM-009,PAR-009,fail_mult_automated,0.5,0.8,1.2,multiplier,ASSUMPTION,SRC-002,Deterministic controls may reduce failures; high case allows automation to raise failures
+ASM-010,PAR-010,sponsor_min_factor_ai_assist,0.7,0.8,0.9,share of conventional sponsor-level minutes,INFERENCE,SRC-003,ACT-S01..S07 ai_enhanced/conventional ratios 0.63-1.0
+ASM-011,PAR-011,infra_per_account_owned,15,25,45,USD/account-year,ASSUMPTION,SRC-002,servicing-economics cost-to-serve-parameters (SPN placeholder)
+ASM-012,PAR-012,software_per_account_licensed,40,81,120,USD/account-year,VERIFIED-FACT,SRC-002,Ren software price ~$81 per account (NCF; charity-network 20); band assumed
+ASM-013,PAR-013,sponsor_reserved_min_per_account,2.7,4.85,7.0,min/account-year,INFERENCE,SRC-002,PR87 report 06 (OPS 2.7; COM 7.0) borne by sponsor in every mode
+ASM-014,PAR-014,sponsors,1,5,10,count,ASSUMPTION,SRC-002,Five-sponsor base as in servicing-economics
+ASM-015,PAR-015,avg_balance,100000,250000,500000,USD/account,INFERENCE,SRC-002,servicing-economics segment-summary band ($150-700k targets; $100-250k model B)
+ASM-016,PAR-016,ai_routine_scale,0.0,1.0,3.0,multiplier on AI per-event costs,ASSUMPTION,SRC-002,Model price uncertainty
+ASM-017,PAR-017,prevention_scale,0.0,1.0,1.0,multiplier on prevention efficacy,ASSUMPTION,SRC-002,0 = prevention fails; 1 = efficacy as listed
+ASM-018,PAR-018,touch_mult_native,0.6,1.0,2.0,multiplier on native touch probabilities,ASSUMPTION,SRC-002,No measured exception rates (FIE 11; charity-network E13)
+ASM-019,PAR-019,duration_mult_native,0.7,1.0,1.6,multiplier on native minutes per touch,ASSUMPTION,SRC-002,No time study (PR87 RC-AN-015)
+ASM-020,PAR-020,activity_mult,0.6,1.0,2.06,multiplier on per-account frequencies,INFERENCE,SRC-003,ACT frequency low/high bands (grants 5.6-18.5 per account)
+ASM-021,RP-01,charities_in_use_per_sponsor,5000,20000,50000,charities,INFERENCE,SRC-001,RCF >40k and NPT >41k annual recipients; 10k-account sponsor ~25k recipients (charity-network 20 recipients formula)
+ASM-022,RP-02,change_rate,0.02,0.04,0.08,eligibility-relevant events per charity-year,INFERENCE,SRC-001,charity-network 06: 405 eligibility-relevant of 236750 c3 changes in one month; monitoring 4% status events
+ASM-023,RP-03,exception_minutes,30,45,60,min,INFERENCE,SRC-001,charity-network ECO C0 45 min; C 30 min
+ASM-024,RP-04,new_charity_share,0.1,0.2,0.3,share of charities newly used per year,ASSUMPTION,SRC-001,
+ASM-025,RP-05,new_charity_exception_rate,0.04,0.08,0.12,share,INFERENCE,SRC-001,charity-network ECO C0 8%
+ASM-026,RP-06,periodic_review_minutes,5,15,30,min per full re-review,INFERENCE,SRC-003,ACT-A09 conventional 15 min
+ASM-027,RP-07,evidence_expiry_share,0.05,0.1,0.2,share of charities with an evidence item expiring per year,ASSUMPTION,SRC-001,
+ASM-028,RP-08,expiry_refresh_minutes,2,5,10,min,ASSUMPTION,SRC-001,
+ASM-029,RP-09,connector_hours_per_year,20,40,80,h per connector-year,INFERENCE,SRC-001,RC-06 400 h / 10 connectors
+ASM-030,RP-10,sponsor_decision_hours,10,20,40,h per sponsor-year,ASSUMPTION,SRC-001,Sponsor-specific policy and decisions in a shared registry
+ASM-031,RP-11,union_exponent,0.3,0.5,0.8,exponent,ASSUMPTION,SRC-001,Union of charities across S sponsors = N x S^e (heavy overlap among large recipients); test with ren_schedule_i_recipient_overlap.py
+ASM-032,RP-12,commercial_licence_usd,25000,60000,150000,USD/yr,ASSUMPTION,SRC-001,Candid/Charity Navigator enterprise price not published (UNKNOWN)
+ASM-033,RP-13,counsel_rate,300,450,800,USD/h,INFERENCE,SRC-003,CST-C06
+ASM-034,RP-14,compliance_rate,54.14,67.69,82.08,USD/h,INFERENCE,SRC-003,CST-R10/1800
+ASM-035,RP-15,engineering_rate,98,118,138,USD/h,INFERENCE,SRC-003,CST-R03
+ASM-036,RP-16,support_fte_cost,57802,77108,97330,USD/FTE-yr,VERIFIED-FACT,SRC-003,CST-R13
+ASM-037,MD-1,fixed cost: Conventional manual administration,1000000,1177750,1600000,USD/yr,INFERENCE,SRC-002,servicing-economics H0 memo fixed $1.18M; licensed software per account (PAR-012)
+ASM-038,MD-1,build cost: Conventional manual administration,0,0,0,USD one-time,INFERENCE,SRC-002,servicing-economics H0 memo fixed $1.18M; licensed software per account (PAR-012)
+ASM-039,MD-2,fixed cost: Conventional administration with AI assistance,1050000,1250000,1700000,USD/yr,ASSUMPTION,SRC-002,H0 plus AI tooling and governance ~$70k; licensed software
+ASM-040,MD-2,build cost: Conventional administration with AI assistance,50000,100000,250000,USD one-time,ASSUMPTION,SRC-002,H0 plus AI tooling and governance ~$70k; licensed software
+ASM-041,MD-3,fixed cost: Workflow automation,1800000,2200000,3300000,USD/yr,INFERENCE,SRC-002,PR87 lower-bound fixed ~$1.5M plus MSP platform $0.7M; MSP build $1.1-2.4M
+ASM-042,MD-3,build cost: Workflow automation,1100000,1940000,2430000,USD one-time,INFERENCE,SRC-002,PR87 lower-bound fixed ~$1.5M plus MSP platform $0.7M; MSP build $1.1-2.4M
+ASM-043,MD-4,fixed cost: Exception-driven administration,1800000,2200000,3300000,USD/yr,INFERENCE,SRC-002,As MD-3; exception queues for all events; prevention mechanisms applied
+ASM-044,MD-4,build cost: Exception-driven administration,1100000,1940000,2430000,USD one-time,INFERENCE,SRC-002,As MD-3; exception queues for all events; prevention mechanisms applied
+ASM-045,MD-5,fixed cost: AI-native administration with deterministic controls,1900000,2300000,3500000,USD/yr,INFERENCE,SRC-002,PR87 report 06/14 lower bound plus AI evaluation and governance ~$0.1M
+ASM-046,MD-5,build cost: AI-native administration with deterministic controls,1100000,1940000,2430000,USD one-time,INFERENCE,SRC-002,PR87 report 06/14 lower bound plus AI evaluation and governance ~$0.1M
+ASM-047,MD-6,fixed cost: Technology-only licensing,1200000,1600000,2600000,USD/yr,ASSUMPTION,SRC-002,Platform 0.7-1.8M + CEO/CTO + SOC2/pen-test/insurance + sales + 1 support FTE; vendor bears only support minutes (3%)
+ASM-048,MD-6,build cost: Technology-only licensing,900000,1600000,2200000,USD one-time,ASSUMPTION,SRC-002,Platform 0.7-1.8M + CEO/CTO + SOC2/pen-test/insurance + sales + 1 support FTE; vendor bears only support minutes (3%)
+ASM-049,MD-7,fixed cost: Hybrid licensing and exception administration,1500000,1950000,3000000,USD/yr,ASSUMPTION,SRC-002,MD-6 plus exception desk ~$0.35M; vendor bears exception touches (60% of event minutes) and sponsor bears routine approvals
+ASM-050,MD-7,build cost: Hybrid licensing and exception administration,1000000,1750000,2300000,USD one-time,ASSUMPTION,SRC-002,MD-6 plus exception desk ~$0.35M; vendor bears exception touches (60% of event minutes) and sponsor bears routine approvals
+ASM-051,ER-1,build: Charity intelligence and eligibility evidence service,300000,450000,800000,USD,ASSUMPTION,SRC-002,Registry establishment $319k (charity-network 20) + API productization; PR87 $40k per sponsor a year assumption; RA-3 run cost
+ASM-052,ER-1,monthly_burn: Charity intelligence and eligibility evidence service,25000,38000,60000,USD/month,ASSUMPTION,SRC-002,Registry establishment $319k (charity-network 20) + API productization; PR87 $40k per sponsor a year assumption; RA-3 run cost
+ASM-053,ER-1,revenue_per_customer: Charity intelligence and eligibility evidence service,15000,40000,60000,USD,ASSUMPTION,SRC-002,Registry establishment $319k (charity-network 20) + API productization; PR87 $40k per sponsor a year assumption; RA-3 run cost
+ASM-054,ER-1,customers_per_year: Charity intelligence and eligibility evidence service,1,3,6,customers/yr,ASSUMPTION,SRC-002,Registry establishment $319k (charity-network 20) + API productization; PR87 $40k per sponsor a year assumption; RA-3 run cost
+ASM-055,ER-2,build: Migration assessment and reconciliation tooling,200000,350000,600000,USD,ASSUMPTION,SRC-002,Transitus phase-1 basic packages (provisional PR #1); Ren set-up ~$50k anchor; Foundant free PoC precedent caps price
+ASM-056,ER-2,monthly_burn: Migration assessment and reconciliation tooling,20000,32000,50000,USD/month,ASSUMPTION,SRC-002,Transitus phase-1 basic packages (provisional PR #1); Ren set-up ~$50k anchor; Foundant free PoC precedent caps price
+ASM-057,ER-2,revenue_per_customer: Migration assessment and reconciliation tooling,25000,50000,100000,USD,ASSUMPTION,SRC-002,Transitus phase-1 basic packages (provisional PR #1); Ren set-up ~$50k anchor; Foundant free PoC precedent caps price
+ASM-058,ER-2,customers_per_year: Migration assessment and reconciliation tooling,2,4,8,customers/yr,ASSUMPTION,SRC-002,Transitus phase-1 basic packages (provisional PR #1); Ren set-up ~$50k anchor; Foundant free PoC precedent caps price
+ASM-059,ER-3,build: Compliance evidence and reconciliation service,400000,600000,1000000,USD,ASSUMPTION,SRC-002,Needs read access to sponsor ledgers and bank files; SOC 2 expected
+ASM-060,ER-3,monthly_burn: Compliance evidence and reconciliation service,30000,45000,70000,USD/month,ASSUMPTION,SRC-002,Needs read access to sponsor ledgers and bank files; SOC 2 expected
+ASM-061,ER-3,revenue_per_customer: Compliance evidence and reconciliation service,30000,60000,120000,USD,ASSUMPTION,SRC-002,Needs read access to sponsor ledgers and bank files; SOC 2 expected
+ASM-062,ER-3,customers_per_year: Compliance evidence and reconciliation service,1,2,4,customers/yr,ASSUMPTION,SRC-002,Needs read access to sponsor ledgers and bank files; SOC 2 expected
+ASM-063,ER-4,build: White-label technology licensing,900000,1600000,2200000,USD,ASSUMPTION,SRC-002,$81 per account x 10k accounts (Ren NCF price); MD-6 fixed cost
+ASM-064,ER-4,monthly_burn: White-label technology licensing,100000,135000,200000,USD/month,ASSUMPTION,SRC-002,$81 per account x 10k accounts (Ren NCF price); MD-6 fixed cost
+ASM-065,ER-4,revenue_per_customer: White-label technology licensing,400000,810000,1500000,USD,ASSUMPTION,SRC-002,$81 per account x 10k accounts (Ren NCF price); MD-6 fixed cost
+ASM-066,ER-4,customers_per_year: White-label technology licensing,0.5,1,2,customers/yr,ASSUMPTION,SRC-002,$81 per account x 10k accounts (Ren NCF price); MD-6 fixed cost
+ASM-067,ER-5,build: Full DAF administration (founder-led anchor),1100000,1940000,2430000,USD,INFERENCE,SRC-002,PR87 founder-led sequence: $0.5-1.0B anchor at 20 bps from month 15-18; minimum product build $1.1-2.4M
+ASM-068,ER-5,monthly_burn: Full DAF administration (founder-led anchor),150000,190000,260000,USD/month,INFERENCE,SRC-002,PR87 founder-led sequence: $0.5-1.0B anchor at 20 bps from month 15-18; minimum product build $1.1-2.4M
+ASM-069,ER-5,revenue_per_customer: Full DAF administration (founder-led anchor),1000000,2000000,3000000,USD,INFERENCE,SRC-002,PR87 founder-led sequence: $0.5-1.0B anchor at 20 bps from month 15-18; minimum product build $1.1-2.4M
+ASM-070,ER-5,customers_per_year: Full DAF administration (founder-led anchor),0.3,0.6,1.0,customers/yr,INFERENCE,SRC-002,PR87 founder-led sequence: $0.5-1.0B anchor at 20 bps from month 15-18; minimum product build $1.1-2.4M
+ASM-071,ER-6,build: Staged: ER-1 and ER-2 first then ER-4 option,500000,800000,1400000,USD,ASSUMPTION,SRC-002,Combined non-custodial services; licensing option excluded from capital until evidence gate passes
+ASM-072,ER-6,monthly_burn: Staged: ER-1 and ER-2 first then ER-4 option,45000,70000,110000,USD/month,ASSUMPTION,SRC-002,Combined non-custodial services; licensing option excluded from capital until evidence gate passes
+ASM-073,ER-6,revenue_per_customer: Staged: ER-1 and ER-2 first then ER-4 option,30000,45000,80000,USD,ASSUMPTION,SRC-002,Combined non-custodial services; licensing option excluded from capital until evidence gate passes
+ASM-074,ER-6,customers_per_year: Staged: ER-1 and ER-2 first then ER-4 option,2,5,9,customers/yr,ASSUMPTION,SRC-002,Combined non-custodial services; licensing option excluded from capital until evidence gate passes
+ASM-075,ER-7,build: Licensing through a channel partner (distributor or re-platforming administrator),900000,1600000,2200000,USD,ASSUMPTION,SRC-002,Partner sells and supports; vendor receives ~$81 per account less a 30% channel share on 3-10k-account sponsors; Track F: SEI/TIFIN and Ren/Pinkaloo show distributor models exist
+ASM-076,ER-7,monthly_burn: Licensing through a channel partner (distributor or re-platforming administrator),80000,110000,160000,USD/month,ASSUMPTION,SRC-002,Partner sells and supports; vendor receives ~$81 per account less a 30% channel share on 3-10k-account sponsors; Track F: SEI/TIFIN and Ren/Pinkaloo show distributor models exist
+ASM-077,ER-7,revenue_per_customer: Licensing through a channel partner (distributor or re-platforming administrator),150000,300000,600000,USD,ASSUMPTION,SRC-002,Partner sells and supports; vendor receives ~$81 per account less a 30% channel share on 3-10k-account sponsors; Track F: SEI/TIFIN and Ren/Pinkaloo show distributor models exist
+ASM-078,ER-7,customers_per_year: Licensing through a channel partner (distributor or re-platforming administrator),1,3,5,customers/yr,ASSUMPTION,SRC-002,Partner sells and supports; vendor receives ~$81 per account less a 30% channel share on 3-10k-account sponsors; Track F: SEI/TIFIN and Ren/Pinkaloo show distributor models exist
