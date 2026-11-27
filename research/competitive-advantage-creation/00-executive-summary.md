@@ -24,6 +24,23 @@ This package builds on the owner-approved Phase II decisions (DEC-001..012, appr
 | AI is about 6% of savings | Of about 183 conventional minutes per account-year: about 37 eliminated, 82 automated, 9 sped up by AI. About 53 move to the sponsor under licensing, which is a transfer, not a saving ([10](10-structural-cost-elimination.md)) |
 | Architecture as advantage | None of 22 candidates is structural today. Eight are ordinary capabilities; the strongest are copyable in 6-30 months ([07](07-architectural-competitive-advantages.md)) |
 
+## Post-ratification update (2026-11-27)
+
+After this package was written, the owner ratified the Stage I requirements (daf-landscape #93; unbound #22, merged). The ratification resolved **OD-CDD-02**: renewal triggered by detected changes, within the 180-day ceiling, with evidence-freshness checks and targeted review. This changes how the figures below should be read.
+
+- **The governing registry configuration is now M5, not M1 performed by Echelon.** The revision-3 tables already show M5. The relevant figures are:
+  - cash to first invoice from a completed Unbound: $371k / $1.64M / $5.57M;
+  - the partner-book sequence pays back at month 80, on a peak of about $2.60M;
+  - single-sponsor break-even is about 3,169 accounts, or about 13,335 across a partner's book ([16](16-capital-efficient-market-entry.md) §1b).
+- **M1 results are superseded as the governing case.** Results where Echelon performs the full M1 deep review now apply only if renewals revert to manual review.
+- **Who performs the deep review matters much less.** It remains open as Unbound OD-CDD-06 / P3-DEC-MOD005. While change-driven renewal holds, the zero-based package finds it barely matters. If renewals revert to manual and Echelon performs them, it adds about $210k a year at 10 customers.
+- **The zero-based economics package** (daf-landscape #95, `research/competitive-advantage-creation/zero-based-economics/`) rebuilds costs from obligation, workload and capacity triggers. It replaces the Phase II fixed costs carried in this package's capital-state and shared-infrastructure inputs; see its report 08. Its results are lower than revision 3:
+  - licensing at about $202k a year cash for the first customer and about $37k for each additional customer;
+  - minimum credible licensing price of about $40-55 per account;
+  - deepest cumulative deficit of $0.20-0.76M, depending on customer mix.
+  - Where the two packages differ, #95's trigger-justified ledger supersedes this package's cost inputs. This package's sequencing, demand and kill-rule findings stand.
+- **The decision is unchanged:** validate first, and open the DAF cost center only after the gate passes.
+
 ## Key results (model revision 3, after two review rounds)
 
 - **The decisive variable is who performs the 180-day deep review** (P3-DEC-MOD005, Unbound OD-CDD-02).
