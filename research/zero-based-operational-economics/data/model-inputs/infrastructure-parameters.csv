@@ -1,0 +1,47 @@
+id,key,definition,unit,low,base,high,source,evidence_class,confidence,rationale,dependencies,validation_method,last_reviewed
+ZBI-001,app_instance_monthly,Always-on app replica (0.5 vCPU/1 GiB) per month,USD/month,14.42,36.72,60,"infrastructure-prices.csv Azure Container Apps (base, 73.44/2); AWS Fargate ARM (low)",PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-002,app_instances_min,Minimum always-on replicas for availability,count,2,2,3,infrastructure-notes C1,INFERENCE,high,,,,2026-11-27
+ZBI-003,db_base_monthly,Zone-redundant HA PostgreSQL 2 vCore primary+standby incl. 128 GB HA storage,USD/month,185,289.32,550,infrastructure-prices.csv Azure D2ds_v5 HA (base); 1-yr reserved (low); D4 (high),PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-004,platform_fixed_monthly,"Edge/WAF, DNS, malware-scan account, base logs, keys, CI",USD/month,104.6,407.5,450,infrastructure-notes C1 (Azure Front Door Premium base; AWS equivalent low),PUBLISHED-PRICE,medium,Front Door Premium vs Standard is the largest floor choice,,,2026-11-27
+ZBI-005,nonprod_share,Non-production cost as share of production floor,share,0.2,0.35,0.7,infrastructure-consumption-assumptions.csv INF-ENV-001,ASSUMPTION,medium,,,,2026-11-27
+ZBI-006,dr_multiplier,Warm DR region addition as share of floor (C2/C3),share,0.15,0.22,0.35,infrastructure-notes C2 (+$169 on $770 prod+CI),INFERENCE,medium,,,,2026-11-27
+ZBI-007,db_base_vcpu,vCPU in the base DB tier,vCPU,2,2,2,infrastructure-notes,PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-008,durable_events_per_acct,"Durable events (commands, outbox, postings) per account-year",events,80,150,400,infrastructure-consumption-assumptions.csv INF-DB-002,ASSUMPTION,low,,,,2026-11-27
+ZBI-009,events_per_vcpu_hour,Durable events one vCPU can process per hour at target utilisation,events/vCPU-h,48000,225000,1440000,infrastructure-consumption-assumptions.csv INF-DB-010/011/012 (4 vCPU-s per 1k x2 read amp at 50%),INFERENCE,low,,,,2026-11-27
+ZBI-010,peak_hour_share,"Share of annual durable events in the peak hour (peak day x10, 15% in hour)",share,0.00137,0.00411,0.0103,infrastructure-consumption-assumptions.csv INF-DB-008/009,ASSUMPTION,low,December peak,,,2026-11-27
+ZBI-011,db_vcpu_monthly,HA DB cost per extra vCPU-month,USD/month,123,130,180,infrastructure-prices.csv Azure 0.089/vCore-h x2 HA,PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-012,app_vcpu_monthly,App cost per extra vCPU-month,USD/month,29,63,80,infrastructure-prices.csv Container Apps 0.000024/vCPU-s,PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-013,lines_per_grant,Journal lines per grant,lines,4,6,10,infrastructure-consumption-assumptions.csv INF-LED-002,ASSUMPTION,medium,,,,2026-11-27
+ZBI-014,lines_per_contribution,Journal lines per contribution,lines,3,4,8,infrastructure-consumption-assumptions.csv INF-LED-001,ASSUMPTION,medium,,,,2026-11-27
+ZBI-015,lines_per_account_month,Other account-level journal lines per account-month,lines,0.67,1,2.5,infrastructure-consumption-assumptions.csv INF-LED-003 (8/12/30 per year),ASSUMPTION,medium,,,,2026-11-27
+ZBI-016,bytes_per_journal_line,Stored bytes per journal line incl. indexes,bytes,250,400,700,infrastructure-consumption-assumptions.csv INF-DB-001,INFERENCE,medium,,,,2026-11-27
+ZBI-017,bytes_per_event,Stored bytes per durable event row,bytes,800,1500,3000,infrastructure-consumption-assumptions.csv INF-DB-003,INFERENCE,medium,,,,2026-11-27
+ZBI-018,master_kb_per_acct,Account master/reference data KB per account-year,KB,10,20,60,infrastructure-consumption-assumptions.csv INF-DB-004,ASSUMPTION,medium,,,,2026-11-27
+ZBI-019,index_overhead,"Storage overhead factor (free space, WAL, bloat)",x,1.1,1.25,1.5,infrastructure-consumption-assumptions.csv INF-DB-006,ASSUMPTION,medium,,,,2026-11-27
+ZBI-020,retention_years,Years of history retained online,years,3,7,12,"infrastructure-consumption-assumptions.csv INF-DB-007 (records retained 10 yrs, INF-RET-001)",ASSUMPTION,medium,,,,2026-11-27
+ZBI-021,db_storage_gb_month,HA DB storage price per GB-month (2 copies),USD/GB-month,0.23,0.23,0.23,infrastructure-prices.csv 0.115 x2,PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-022,backup_multiplier,Backup storage relative to DB size,x,1.0,1.5,3.0,infrastructure-consumption-assumptions.csv INF-DB-015,ASSUMPTION,medium,,,,2026-11-27
+ZBI-023,backup_gb_month,Backup storage beyond free allocation per GB-month,USD/GB-month,0.0,0.0475,0.095,infrastructure-prices.csv AZ-PG-010/AWS-RDS-007 $0.095 beyond free allocation (half assumed billable),PUBLISHED-PRICE,medium,,,,2026-11-27
+ZBI-024,docs_per_acct,Generated documents per account-year,documents,6,12,30,infrastructure-consumption-assumptions.csv INF-DOC-001,ASSUMPTION,medium,,,,2026-11-27
+ZBI-025,kb_per_doc,KB per document,KB,50,100,250,infrastructure-consumption-assumptions.csv INF-DOC-002,ASSUMPTION,medium,,,,2026-11-27
+ZBI-026,kb_evidence_per_grant,Evidence attachment KB per grant (average),KB,10,50,400,infrastructure-consumption-assumptions.csv INF-DOC-003,ASSUMPTION,low,,,,2026-11-27
+ZBI-027,object_gb_month,Object storage per GB-month (ZRS; GRS high),USD/GB-month,0.018,0.026,0.046,infrastructure-prices.csv,PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-028,log_gb_per_1k_events,"Application log GB per 1,000 durable events",GB,0.003,0.01,0.05,infrastructure-consumption-assumptions.csv INF-LOG-001,ASSUMPTION,low,,,,2026-11-27
+ZBI-029,log_gb_price,Log ingestion price per GB,USD/GB,0.5,2.3,2.76,infrastructure-prices.csv Azure Log Analytics 2.30; CloudWatch 0.50,PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-030,emails_per_acct,Transactional emails per account-year,emails,8,20,60,infrastructure-consumption-assumptions.csv INF-MSG-001,ASSUMPTION,medium,,,,2026-11-27
+ZBI-031,email_per_1k,"Email price per 1,000",USD,0.1,0.25,0.3,infrastructure-prices.csv AZ-ACS-001; AWS-SES-001,PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-032,ai_in_tokens_per_exception,Input tokens per AI-assisted exception,tokens,3000,8000,30000,infrastructure-consumption-assumptions.csv INF-AI-002,ASSUMPTION,low,,,,2026-11-27
+ZBI-033,ai_out_tokens_per_exception,Output tokens per AI-assisted exception,tokens,300,1000,3000,infrastructure-consumption-assumptions.csv INF-AI-003,ASSUMPTION,low,,,,2026-11-27
+ZBI-034,ai_input_per_mtok,AI input price per million tokens (Sonnet 5.5 base; Haiku low; Opus high),USD,0.1,2,4,infrastructure-prices.csv ANT-001..006,PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-035,ai_output_per_mtok,AI output price per million tokens,USD,0.5,10,20,infrastructure-prices.csv ANT-001..006,PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-036,mau_share,Monthly active users per account,MAU/account,0.05,0.195,0.8,infrastructure-consumption-assumptions.csv INF-ID-001,ASSUMPTION,low,,,,2026-11-27
+ZBI-037,identity_free_mau,Free MAU allowance,MAU,10000,50000,50000,infrastructure-prices.csv Entra External ID 50k; Cognito 10k,PUBLISHED-PRICE,medium,,,,2026-11-27
+ZBI-038,identity_mau_price,Price per MAU above free tier,USD,0.015,0.03,0.05,infrastructure-prices.csv AZ-EID-001; AWS-COG-001,PUBLISHED-PRICE,medium,,,,2026-11-27
+ZBI-039,sms_per_acct,SMS MFA messages per account-year,messages,0.2,1.2,8.4,infrastructure-consumption-assumptions.csv INF-ID-002,ASSUMPTION,low,Passkeys/TOTP reduce this,,,2026-11-27
+ZBI-040,sms_price,Price per SMS authentication,USD,0.0128,0.03,0.05,infrastructure-prices.csv AZ-EID-002; TW-001,PUBLISHED-PRICE,low,,,,2026-11-27
+ZBI-041,egress_gb_per_acct,Internet egress GB per account-year,GB,0.003,0.015,0.06,infrastructure-consumption-assumptions.csv INF-NET-001,ASSUMPTION,medium,,,,2026-11-27
+ZBI-042,egress_gb_price,Egress price per GB,USD,0.0825,0.087,0.09,infrastructure-prices.csv AZ-NET-001; AWS-NET-001,PUBLISHED-PRICE,high,,,,2026-11-27
+ZBI-043,files_per_grant,Uploaded files scanned per grant,files,0.02,0.1,0.5,Judgement,ASSUMPTION,low,,,,2026-11-27
+ZBI-044,files_per_contribution,Uploaded files scanned per contribution,files,0.05,0.2,0.5,Judgement,ASSUMPTION,low,,,,2026-11-27
+ZBI-045,scan_per_file,Malware scan cost per file (per-GB price x ~0.5 MB),USD,5e-05,7.5e-05,0.0002,infrastructure-prices.csv Defender $0.15/GB; GuardDuty $0.09/GB,PUBLISHED-PRICE,medium,,,,2026-11-27
+ZBI-046,isolated_db_monthly,Isolated sponsor HA DB + DR replica + key + scan + logs per month (C3),USD/month,416.31,456.26,600,infrastructure-notes C3,PUBLISHED-PRICE,high,,,,2026-11-27

@@ -1,0 +1,8 @@
+config_id,name,tech,commercial,support,admin_exception,admin_judgment,independent_auth,sponsor_owned,external,shared,eliminated,vendor_runs_controls,standalone,channel_share,description
+CFG-1,Technology licensing only,1,1,0.1,0,0,0,0,0,1,0,N,N,0,Vendor operates the platform; sponsor staff perform all administration; vendor answers tier-2 platform tickets only
+CFG-2,Technology licensing with support,1,1,1,0,0,0,0,0,1,0,N,N,0,As CFG-1 plus vendor support desk for sponsor staff and donor tier-2 support
+CFG-3,Exception administration,1,1,1,1,0,0,0,0,1,0,Y,N,0,Vendor resolves operational exceptions; sponsor keeps judgment decisions and independent authorization
+CFG-4,Hybrid administration,1,1,1,1,1,0,0,0,1,0,Y,N,0,Vendor handles exceptions and delegated judgment; sponsor personnel provide independent authorization
+CFG-5,Full administration for an existing sponsor,1,1,1,1,1,1,0,0,1,0,Y,N,0,Vendor performs all delegable administration incl. independent authorization; sponsor keeps reserved legal decisions
+CFG-6,Administration through a channel partner,1,0.3,0.2,0,0,0,0,0,1,0,N,N,0.3,Partner sells and supports; vendor licenses platform; 30% revenue share to partner
+CFG-7,Dedicated standalone DAF administrator,1,1,1,1,1,1,0,0,1,0,Y,Y,0,Full administration by a standalone company that must replace every shared Echelon capability (not a sponsoring organization)

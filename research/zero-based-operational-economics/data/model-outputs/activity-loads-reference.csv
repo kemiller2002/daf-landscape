@@ -1,0 +1,181 @@
+activity_id,activity,bucket,classification,role,events,human_events,authorized_events,minutes,auth_minutes,vendor_share,external_cost
+OA-ACN-001,Prospect and program questions,SponsorOwned,AI-ASSISTED,support,480,48,0,489.6,0,0,0
+OA-ACN-002,Fund establishment intake and agreement execution,AdminException,AUTO-EXCEPTION,ops,240,36,0,918,0,1,0
+OA-ACN-003,Donor and advisor identity proofing,AdminException,AUTO-EXCEPTION,ops,312,15.6,0,390,0,1,936
+OA-ACN-004,Successor and charitable-default designation at setup,AdminException,DETERMINISTIC,ops,240,7.2,0,108,0,1,0
+OA-ACN-005,"Participant, advisor and delegation changes",AdminException,AUTO-EXCEPTION,ops,160,16,0,272,0,1,0
+OA-ACN-006,Profile and verified contact-channel changes,AdminException,AUTO-EXCEPTION,ops,600,60,0,1020,0,1,0
+OA-ACN-007,Account recovery and credential reset,Support,AUTO-EXCEPTION,support,200,20,0,300,0,1,0
+OA-ACN-008,Human-handled donor and advisor service contacts,Support,AI-ASSISTED,support,1000,800,0,11560,0,1,200
+OA-ACN-009,Complaint handling,SponsorOwned,HUMAN-JUDGMENT,support,20,20,0,900,0,0,0
+OA-ACN-010,Accessibility accommodation and assisted assurance path,Support,AI-ASSISTED,support,40,40,0,680,0,1,0
+OA-ACN-011,Communication consent and preference management,AdminException,DETERMINISTIC,ops,100,1,0,5,0,1,0
+OA-ACN-012,Mandatory-legal document delivery failure retry,AdminException,AUTO-EXCEPTION,ops,100,10,0,100,0,1,0
+OA-ACN-013,Death or incapacity notice verification and privilege suspension,AdminJudgment,HUMAN-JUDGMENT,ops,40,40,0,1000,0,1,0
+OA-ACN-014,Successor account establishment and allocation,SponsorOwned,HUMAN-JUDGMENT,ops,20,20,0,1200,0,0,0
+OA-ACN-015,"Legal representative authority review (POA, guardian, conservator)",AdminJudgment,HUMAN-JUDGMENT,ops,10,10,0,400,0,1,0
+OA-ACN-016,Dormancy outreach and charitable default,AdminException,DETERMINISTIC,ops,40,4,0,120,0,1,0
+OA-ACN-017,Fund closure,AdminException,AUTO-EXCEPTION,ops,40,12,0,396,0,1,0
+OA-ACN-018,Fund split or merge outside succession,SponsorOwned,SPONSOR-OWNED,sponsor,6,6,0,240,0,0,0
+OA-ACN-019,Sponsor-to-sponsor fund transfer (inbound and outbound),AdminException,AUTO-EXCEPTION,ops,10,8,0,480,0,1,0
+OA-ACN-020,Fund dispute and conflicting-instruction freeze,SponsorOwned,HUMAN-JUDGMENT,sponsor,6,6,0,720,0,0,0
+OA-ACN-021,Privacy requests and donor history export,AdminException,AUTO-EXCEPTION,compliance,6,3,0,120,0,1,0
+OA-ACN-022,Multi-advisor conflicting recommendation resolution,AdminException,AUTO-EXCEPTION,ops,20,10,0,200,0,1,0
+OA-ACN-023,Major-donor stewardship and giving-plan reviews,SponsorOwned,SPONSOR-OWNED,sponsor,40,40,0,4800,0,0,0
+OA-CON-001,Contribution intent capture and expected-receipt record,AdminException,DETERMINISTIC,ops,3704,18.52,0,92.6,0,1,0
+OA-CON-002,"Cash, ACH and wire contribution receipt, matching and posting",AdminException,AUTO-EXCEPTION,accounting,1852,55.56,0,1277.88,0,1,555.6
+OA-CON-003,Paper check contributions via lockbox,External,EXTERNAL-PROVIDER,accounting,926,46.3,0,463,0,0,601.9
+OA-CON-004,Unidentified receipt attribution,AdminException,AUTO-EXCEPTION,accounting,4630,185.2,0,6111.6,0,1,0
+OA-CON-005,Publicly traded securities gift receipt and valuation,External,AUTO-EXCEPTION,accounting,1852,148.16,0,4533.696,0,0,18520
+OA-CON-006,Complex noncash gift acceptance (agent model),SponsorOwned,HUMAN-JUDGMENT,sponsor,5.556,5.556,0,2800.224,0,0,1944.6
+OA-CON-007,Form 8283 Section B donee signature and appraisal tracking,SponsorOwned,SPONSOR-OWNED,sponsor,4.63,4.63,0,208.35,0,0,0
+OA-CON-008,Form 8282 disposition reporting,SponsorOwned,DETERMINISTIC,accounting,2.778,0.8334,0,25.002,0,0,0
+OA-CON-009,Contribution acknowledgment issuance,AdminException,DETERMINISTIC,ops,4630,92.6,0,926,0,1,231.5
+OA-CON-010,Contributor-of-record determination,AdminException,AUTO-EXCEPTION,accounting,4630,46.3,0,463,0,1,0
+OA-CON-011,Recurring contribution mandate set-up and changes,AdminException,AUTO-EXCEPTION,ops,100,5,0,50,0,1,10
+OA-CON-012,Recurring debit execution and failure handling,External,DETERMINISTIC,ops,1157.5,11.575,0,115.75,0,0,347.25
+OA-CON-013,ACH contribution return and acknowledgment reversal,AdminException,AUTO-EXCEPTION,accounting,9.26,6.482,0,194.46,0,1,0
+OA-CON-014,Payroll and workplace giving remittance reconciliation,AdminException,AUTO-EXCEPTION,accounting,92.6,4.63,0,138.9,0,1,0
+OA-CON-015,Lapse of unreceived intents and partial multi-lot closure,AdminException,DETERMINISTIC,ops,69.45,3.4725,0,34.725,0,1,0
+OA-CON-016,"Gift rejection, return of never-accepted property and contribution corrections",SponsorOwned,HUMAN-JUDGMENT,accounting,13.89,13.89,13.89,555.6,166.68,0,0
+OA-CON-017,Donor restriction or condition review at acceptance,SponsorOwned,HUMAN-JUDGMENT,accounting,13.89,13.89,0,416.7,0,0,0
+OA-CON-018,Card contributions and chargebacks (deferred),Eliminated,ELIMINATED,none,0,0,0,0,0,0,0
+OA-CON-019,Per-donor reversible exposure monitoring,AdminException,DETERMINISTIC,ops,2778,8.334,0,83.34,0,1,0
+OA-GRT-001,Grant recommendation intake and affirmation,AdminException,DETERMINISTIC,ops,16668,166.68,0,2883.564,0,1,0
+OA-GRT-002,Charity search and disambiguation,Support,AI-ASSISTED,support,16668,166.68,0,1841.814,0,1,0
+OA-GRT-003,Information requests on incomplete recommendations,AdminException,AUTO-EXCEPTION,ops,500.04,100.008,0,1000.08,0,1,0
+OA-GRT-004,"Deterministic eligibility, policy and capacity evaluation with atomic reservation",AdminException,DETERMINISTIC,none,16668,0,0,0,0,1,0
+OA-GRT-005,Exception grant review and decision (Tier 2 / reserved A4),SponsorOwned,HUMAN-JUDGMENT,sponsor,16668,1500.12,0,63005.04,0,0,333.36
+OA-GRT-006,Pre-delegation batch approval of all grants,SponsorOwned,SPONSOR-OWNED,sponsor,0,0,0,0,0,0,0
+OA-GRT-007,Discretionary holds and declines,SponsorOwned,HUMAN-JUDGMENT,sponsor,10.0008,10.0008,0,600.048,0,0,0
+OA-GRT-008,Decline communication and reconsideration,SponsorOwned,INDEPENDENT-AUTHORIZATION,sponsor,8.334,8.334,8.334,750.06,225.018,0,0
+OA-GRT-009,Recurring and future-dated grant occurrence execution,AdminException,DETERMINISTIC,ops,4167,41.67,0,416.7,0,1,0
+OA-GRT-010,"Funding plan, liquidation and shortfall resolution",AdminException,AUTO-EXCEPTION,ops,166.68,16.668,0,250.02,0,1,0
+OA-GRT-011,Payment batch release authorization,SponsorOwned,INDEPENDENT-AUTHORIZATION,sponsor,250,125,125,2500,750,0,0
+OA-GRT-012,Electronic grant payment execution (ACH/rail partner),External,EXTERNAL-PROVIDER,ops,11167.56,335.0268,0,3484.2787,0,0,3350.268
+OA-GRT-013,Paper check grant issuance with positive pay and mailing,External,EXTERNAL-PROVIDER,ops,5500.44,330.0264,0,4752.3802,0,0,22001.76
+OA-GRT-014,Wire grants,SponsorOwned,INDEPENDENT-AUTHORIZATION,sponsor,83.34,83.34,83.34,833.4,250.02,0,2083.5
+OA-GRT-015,Returned or rejected electronic grant payments,AdminException,AUTO-EXCEPTION,ops,16668,56.6712,0,1076.7528,0,1,0
+OA-GRT-016,"Uncashed and voided check outreach, reissue and escheat disposition",AdminException,AUTO-EXCEPTION,ops,16668,166.68,0,3166.92,0,1,666.72
+OA-GRT-017,Unknown payment outcome resolution,AdminException,AUTO-EXCEPTION,ops,16.668,8.334,0,375.03,0,1,0
+OA-GRT-018,Unobtainable-outcome dual approval,SponsorOwned,INDEPENDENT-AUTHORIZATION,sponsor,1.6668,1.6668,1.6668,100.008,30.0024,0,0
+OA-GRT-019,"Grant cancellation, recall and post-approval amendment",SponsorOwned,SPONSOR-OWNED,sponsor,83.34,50.004,0,1000.08,0,0,0
+OA-GRT-020,Payee substitution for charity merger or successor,SponsorOwned,HUMAN-JUDGMENT,compliance,19.0362,19.0362,0,1142.1703,0,0,0
+OA-GRT-021,Taxable distribution or prohibited benefit remediation,SponsorOwned,HUMAN-JUDGMENT,compliance,0.8334,0.8334,0,555.6278,0,0,1250.1
+OA-GRT-022,Charity-side grant and payment inquiries,Support,AI-ASSISTED,support,1269.0781,507.6312,0,5177.8387,0,1,0
+OA-GRT-023,Duplicate and split grant detection review,AdminException,AUTO-EXCEPTION,ops,16668,33.336,0,333.36,0,1,0
+OA-GRT-024,"Foreign, expenditure-responsibility and equivalency grants (disabled in release 1)",Eliminated,ELIMINATED,none,0,0,0,0,0,0,0
+OA-CHR-001,New charity identity resolution and registry onboarding,Shared,AUTO-EXCEPTION,compliance,1078.7164,53.9358,0,1348.3955,0,1,0
+OA-CHR-002,Transaction-time status check at approval and release,AdminException,DETERMINISTIC,compliance,33336,16.668,0,416.7,0,1,2333.52
+OA-CHR-003,180-day comprehensive charity revalidation,Shared,AUTO-EXCEPTION,compliance,12690.7811,126.9078,0,3172.6953,0,1,253.8156
+OA-CHR-004,Adverse-event charity monitoring,Shared,AUTO-EXCEPTION,compliance,69.7993,20.9398,0,523.4947,0,1,0
+OA-CHR-005,Fiscal sponsorship and legal payee resolution,AdminException,AI-ASSISTED,compliance,95.1809,66.6266,0,1698.9783,0,1,0
+OA-CHR-006,Charity identity disputes and right of response,Shared,HUMAN-JUDGMENT,compliance,19.0362,19.0362,0,1142.1703,0,1,0
+OA-CHR-007,Payment destination verification and enrolment,AdminException,AUTO-EXCEPTION,ops,634.5391,253.8156,0,6345.3905,0,1,951.8086
+OA-CHR-008,Destination bank-detail change verification,SponsorOwned,INDEPENDENT-AUTHORIZATION,ops,317.2695,253.8156,253.8156,6345.3905,1903.6172,0,0
+OA-CHR-009,California AG/FTB status ingestion and hold/warn,AdminException,DETERMINISTIC,compliance,6345.3905,31.727,0,475.9043,0,1,0
+OA-CHR-010,Reference-source release ingestion and integrity gate review,Tech,AUTO-EXCEPTION,engineering,52,5.2,0,312,0,1,0
+OA-INV-001,Investment allocation instructions,AdminException,DETERMINISTIC,ops,1200,24,0,408,0,1,0
+OA-INV-002,Custodian/manager feed content validation,External,AUTO-EXCEPTION,accounting,250,5,0,150,0,0,0
+OA-INV-003,NAV/unit value publication and out-of-tolerance approval,SponsorOwned,AUTO-EXCEPTION,controller,250,12.5,0,375,0,0,0
+OA-INV-004,Next-day independent NAV sample review,SponsorOwned,HUMAN-JUDGMENT,controller,250,125,0,1250,0,0,0
+OA-INV-005,"Custody position, unit and cash break investigation",AdminException,AUTO-EXCEPTION,accounting,250,12.5,0,500,0,1,0
+OA-INV-006,Liquidity buffer stress model and approval,SponsorOwned,SPONSOR-OWNED,controller,1,1,0,240,0,0,0
+OA-INV-007,Grant-driven redemption instruction and settlement monitoring,AdminException,DETERMINISTIC,ops,250,7.5,0,225,0,1,0
+OA-INV-008,Rebalancing and manager instruction,External,EXTERNAL-PROVIDER,none,12,0.6,0,18,0,0,0
+OA-INV-009,"Fee calculation, daily accrual and posting exceptions",AdminException,DETERMINISTIC,accounting,2000,10,0,100,0,1,0
+OA-INV-010,Fee waivers and shortfall memo claims,SponsorOwned,SPONSOR-OWNED,sponsor,10,10,0,100,0,0,0
+OA-INV-011,Advisor-managed account mandate and advisor fee feed reconciliation,AdminException,AUTO-EXCEPTION,ops,60,18,0,540,0,1,0
+OA-INV-012,"Corporate actions, income and trailing receipts attribution",AdminException,DETERMINISTIC,accounting,200,10,0,150,0,1,0
+OA-INV-013,Valuation correction impact and loss attribution,SponsorOwned,HUMAN-JUDGMENT,controller,2,2,0,480,0,0,0
+OA-INV-014,"Investment policy, menu changes and IC reporting",SponsorOwned,SPONSOR-OWNED,sponsor,4,4,0,2520,0,0,0
+OA-INV-015,Custodian or manager outage and degraded mode,Tech,AUTO-EXCEPTION,engineering,3,3,0,900,0,1,0
+OA-INV-016,Custody account opening and maintenance,External,EXTERNAL-PROVIDER,ops,4,4,0,240,0,0,0
+OA-ACG-001,Automated journal posting from domain events,AdminException,DETERMINISTIC,accounting,250,1.25,0,37.5,0,1,0
+OA-ACG-002,Manual journal preparation and second approval,SponsorOwned,INDEPENDENT-AUTHORIZATION,accounting,36,36,36,1080,324,0,0
+OA-ACG-003,Bank activity ingestion and content matching,AdminException,DETERMINISTIC,accounting,250,5,0,150,0,1,0
+OA-ACG-004,"Reconciliation break investigation (bank, ledger, rail)",AdminException,AUTO-EXCEPTION,accounting,25000,500,0,8500,0,1,0
+OA-ACG-005,Independent attestation sample of auto-passed reconciliation items,SponsorOwned,HUMAN-JUDGMENT,accounting,12,12,0,2880,0,0,0
+OA-ACG-006,New-source provisional calibration review,AdminJudgment,HUMAN-JUDGMENT,accounting,1,1,0,1200,0,1,0
+OA-ACG-007,"Monthly close, financial reporting and controller reconciliation sign-off",SponsorOwned,AI-ASSISTED,controller,12,12,0,12750,0,0,0
+OA-ACG-008,Corrections and adjustments,SponsorOwned,INDEPENDENT-AUTHORIZATION,accounting,40,40,40,1600,480,0,0
+OA-ACG-009,Donor fund statement generation and publication,AdminException,DETERMINISTIC,ops,8000,40,0,840,0,1,560
+OA-ACG-010,Schedule D bridge and Form 990 DAF data package,SponsorOwned,AI-ASSISTED,controller,1,1,0,2040,0,0,0
+OA-ACG-011,Year-end external audit support and audit adjustments,SponsorOwned,AI-ASSISTED,controller,1,1,0,6120,0,0,0
+OA-ACG-012,Accounting policy declarations and posting-rule version approval,SponsorOwned,INDEPENDENT-AUTHORIZATION,controller,2,2,2,240,72,0,0
+OA-ACG-013,Sponsor ERP interface reconciliation,SponsorOwned,SPONSOR-OWNED,accounting,12,2.4,0,144,0,0,0
+OA-ACG-014,Disbursement account funding transfers,SponsorOwned,SPONSOR-OWNED,sponsor,100,100,0,1000,0,0,0
+OA-ACG-015,Unusual-journal and anomaly review,SponsorOwned,AUTO-EXCEPTION,controller,24,24,0,720,0,0,0
+OA-ACG-016,UBIT estimate accrual (deferred),Eliminated,ELIMINATED,none,0,0,0,0,0,0,0
+OA-ACG-017,Operator invoicing of tenant sponsors,Shared,DETERMINISTIC,accounting,12,1.2,0,24,0,1,0
+OA-ACG-018,Operating cost attribution reconciliation to invoices,Shared,AUTO-EXCEPTION,accounting,12,6,0,720,0,1,0
+OA-CMP-001,Sanctions screening alert disposition,AdminException,AUTO-EXCEPTION,compliance,25000,22.5,0,562.5,0,1,250
+OA-CMP-002,Sanctions true-match disposition and OFAC reporting,SponsorOwned,HUMAN-JUDGMENT,compliance,0.1,0.1,0,24,0,0,50
+OA-CMP-003,Independent risk-stratified sampling of straight-through decisions,SponsorOwned,HUMAN-JUDGMENT,compliance,83.34,83.34,0,1250.1,0,0,0
+OA-CMP-004,Quarterly board report on delegated automation,SponsorOwned,SPONSOR-OWNED,controller,4,4,0,2400,0,0,0
+OA-CMP-005,Board delegation resolutions and policy adoption,SponsorOwned,SPONSOR-OWNED,sponsor,4,4,0,960,0,0,0
+OA-CMP-006,Sponsor policy pack change with independent approval and shadow replay,SponsorOwned,INDEPENDENT-AUTHORIZATION,compliance,6,6,6,1440,432,0,0
+OA-CMP-007,Platform-wide mandatory policy pack and regulatory update,Shared,SHARED-ECHELON,compliance,4,4,4,3840,1152,1,0
+OA-CMP-008,Regulatory change monitoring,Shared,AI-ASSISTED,compliance,12,12,0,4080,0,1,0
+OA-CMP-009,Sponsor compliance owner review of regulatory watch list,SponsorOwned,SPONSOR-OWNED,compliance,4,4,0,480,0,0,0
+OA-CMP-010,"Retention schedule approval, legal holds and disposition",SponsorOwned,SPONSOR-OWNED,compliance,3,3,0,360,0,0,0
+OA-CMP-011,Control register maintenance and control operation testing,Shared,SHARED-ECHELON,compliance,12,12,0,8160,0,1,0
+OA-CMP-012,Deficiency and exception case management,Shared,INDEPENDENT-AUTHORIZATION,compliance,20,20,20,2400,720,1,0
+OA-CMP-013,Sponsor access recertification and enforced leave,SponsorOwned,AUTO-EXCEPTION,sponsor,4,4,0,240,0,0,0
+OA-CMP-014,Reserved-authority appointments and roster coverage,SponsorOwned,SPONSOR-OWNED,sponsor,4,4,0,480,0,0,0
+OA-CMP-015,Capacity planning and December surge plan,Shared,SHARED-ECHELON,ops,1,1,0,480,0,1,0
+OA-CMP-016,Affiliation and related-party attestation review,AdminException,AUTO-EXCEPTION,compliance,2000,20,0,400,0,1,0
+OA-CMP-017,Fraud and account-takeover alert triage,AdminException,AUTO-EXCEPTION,compliance,60,30,0,600,0,1,0
+OA-CMP-018,Restricted fraud investigation,SponsorOwned,HUMAN-JUDGMENT,compliance,4,4,0,800,0,0,2400
+OA-CMP-019,Nacha risk-based fraud monitoring program (TPSP),Shared,AI-ASSISTED,compliance,12,12,0,612,0,1,0
+OA-CMP-020,Annual Nacha Rules compliance audit (TPSP),External,EXTERNAL-PROVIDER,compliance,1,1,0,960,0,0,0
+OA-CMP-021,"Protective hold, kill switch and break-glass activation",Tech,INDEPENDENT-AUTHORIZATION,engineering,4,4,4,480,144,1,0
+OA-CMP-022,Audit evidence package generation and auditor access,AdminException,AUTO-EXCEPTION,controller,2,2,0,240,0,1,0
+OA-CMP-023,Auditor planned-approach record before live reliance,SponsorOwned,SPONSOR-OWNED,controller,0.2,0.2,0,96,0,0,0
+OA-CMP-024,Vendor assurance review (SOC reports and bridge letters),Shared,SHARED-ECHELON,compliance,15,15,0,3648,0,1,0
+OA-CMP-025,Sponsor review of Unbound SOC report and CUECs,SponsorOwned,SPONSOR-OWNED,controller,1,1,0,240,0,0,0
+OA-CMP-026,"Charitable fundraising platform registrations (CA, HI)",Shared,SHARED-ECHELON,compliance,2,2,0,960,0,1,0
+OA-CMP-027,Sponsor state charitable registrations and information returns,SponsorOwned,SPONSOR-OWNED,sponsor,1,1,0,1200,0,0,0
+OA-CMP-028,Regulator and attorney-general inquiries,SponsorOwned,HUMAN-JUDGMENT,external,0.6,0.6,0,720,0,0,0
+OA-CMP-029,Answer corpus and decline catalog maintenance,Shared,SHARED-ECHELON,compliance,12,12,0,5760,0,1,0
+OA-CMP-030,Communication template legal classification,SponsorOwned,AUTO-EXCEPTION,compliance,5,5,0,100,0,0,0
+OA-CMP-031,Funds-flow conformance check per deployment,Shared,AUTO-EXCEPTION,compliance,0.2,0.1,0,12,0,1,0
+OA-CMP-032,Oversight of administrator and outsourced service staff,Shared,SHARED-ECHELON,compliance,12,12,0,2880,0,1,0
+OA-TEC-001,"Production monitoring, SLO review and on-call",Tech,AUTO-EXCEPTION,engineering,365,365,0,7154,0,1,0
+OA-TEC-002,Operational incident response (sponsor-attributable),Tech,HUMAN-JUDGMENT,engineering,1,1,0,3000,0,1,0
+OA-TEC-003,Security monitoring and alert triage,Tech,AUTO-EXCEPTION,engineering,365,109.5,0,3285,0,1,0
+OA-TEC-004,Security incident response,Tech,HUMAN-JUDGMENT,engineering,4,4,0,6000,0,1,0
+OA-TEC-005,Backup verification and tenant-scoped restore tests,Tech,AUTO-EXCEPTION,engineering,12,12,0,720,0,1,0
+OA-TEC-006,DR/BCP drills and December readiness tests,Tech,HUMAN-JUDGMENT,engineering,2,2,0,4800,0,1,0
+OA-TEC-007,Vulnerability management and dependency updates,Tech,AI-ASSISTED,engineering,12,12,0,4896,0,1,0
+OA-TEC-008,Annual external penetration test,External,EXTERNAL-PROVIDER,engineering,1,1,0,960,0,0,0
+OA-TEC-009,Release deployment through rings,Tech,AUTO-EXCEPTION,engineering,50,50,0,3000,0,1,0
+OA-TEC-010,Two-approver review of control-relevant module changes,Tech,INDEPENDENT-AUTHORIZATION,engineering,300,300,300,12000,3600,1,0
+OA-TEC-011,"Software maintenance, schema migrations and database upgrades",Tech,SHARED-ECHELON,engineering,12,12,0,14760,0,1,0
+OA-TEC-012,Integration maintenance and certification,Tech,AUTO-EXCEPTION,engineering,20,20,0,2400,0,1,0
+OA-TEC-013,Data ingestion file-level exceptions,Tech,AUTO-EXCEPTION,engineering,1000,20,0,600,0,1,0
+OA-TEC-014,Ingested artifact malware quarantine review,Tech,AUTO-EXCEPTION,engineering,10000,5,0,75,0,1,0
+OA-TEC-015,Performance and capacity monitoring and load testing,Tech,SHARED-ECHELON,engineering,12,12,0,2880,0,1,0
+OA-TEC-016,Tenant provisioning and isolation testing,Tech,AUTO-EXCEPTION,engineering,0.2,0.2,0,96,0,1,0
+OA-TEC-017,Operator access requests to tenant data,SponsorOwned,INDEPENDENT-AUTHORIZATION,engineering,24,24,24,480,144,0,0
+OA-TEC-018,Platform workforce access provisioning and recertification,Tech,AUTO-EXCEPTION,engineering,12,12,0,2880,0,1,0
+OA-TEC-019,Tier-2/3 support escalations to engineering,Tech,SHARED-ECHELON,engineering,40,40,0,2400,0,1,0
+OA-TEC-020,SOC 1 and SOC 2 evidence collection and examination support,Shared,SHARED-ECHELON,compliance,1,1,0,4800,0,1,0
+OA-TEC-021,"AI agent configuration, evaluation and change control",Tech,SHARED-ECHELON,engineering,12,12,0,23040,0,1,0
+OA-COM-001,Sponsor sales and qualification,Commercial,SHARED-ECHELON,sales,0.2,0.2,0,2400,0,1,0
+OA-COM-002,Procurement responses and due-diligence questionnaires,Commercial,AI-ASSISTED,sales,0.8,0.8,0,652.8,0,1,0
+OA-COM-003,Annual sponsor due-diligence renewal questionnaire,Commercial,AI-ASSISTED,sales,1,1,0,408,0,1,0
+OA-COM-004,Pre-contract migration assessment,Commercial,AI-ASSISTED,implementation,0.3,0.3,0,612,0,1,0
+OA-COM-005,Contract administration at onboarding,Commercial,SHARED-ECHELON,executive,0.2,0.2,0,240,0,1,0
+OA-COM-006,Ongoing contract administration,Commercial,SHARED-ECHELON,executive,2,2,0,480,0,1,0
+OA-COM-007,Sponsor implementation and configuration,Commercial,AI-ASSISTED,implementation,0.2,0.2,0,5100,0,1,0
+OA-COM-008,"Activation gates (board, auditor, ODFI/rail, controller policies)",SponsorOwned,SPONSOR-OWNED,sponsor,0.2,0.2,0,480,0,0,0
+OA-COM-009,Data migration execution,Commercial,AI-ASSISTED,implementation,0.2,0.2,0,3740,0,1,0
+OA-COM-010,Pre-cutover payee verification and participant identity continuity,Commercial,AUTO-EXCEPTION,ops,0.2,0.2,0,600,0,1,0
+OA-COM-011,Donor hypercare after cutover,Commercial,AI-ASSISTED,support,0.2,0.2,0,700.4,0,1,0
+OA-COM-012,Sponsor staff and authority-holder training,Commercial,SHARED-ECHELON,implementation,1,1,0,600,0,1,0
+OA-COM-013,Distribution partner onboarding and management,SponsorOwned,SHARED-ECHELON,sales,0.5,0.5,0,2676,0,0,0
+OA-COM-014,Sponsor account management and retention reviews,Commercial,SHARED-ECHELON,sales,4,4,0,960,0,1,0
+OA-COM-015,Sponsor exit and bulk transfer (termination and portability),Commercial,SHARED-ECHELON,implementation,0.05,0.05,0,960,0,1,0
+OA-COM-016,First-sponsor economic evidence obligations,Commercial,SHARED-ECHELON,implementation,0.1,0.1,0,480,0,1,0
+OA-COM-017,Program description and marketing claims review,SponsorOwned,AUTO-EXCEPTION,compliance,4,4,0,240,0,0,0
