@@ -1,6 +1,6 @@
 # 19 — Sensitivity and stress testing
 
-Outputs: [`sensitivity-tornado.csv`](data/model-outputs/sensitivity-tornado.csv), [`named-scenarios.csv`](data/model-outputs/named-scenarios.csv), [`monte-carlo-cost.csv`](data/model-outputs/monte-carlo-cost.csv), [`monte-carlo-break-even.csv`](data/model-outputs/monte-carlo-break-even.csv), [`stress.csv`](data/model-outputs/stress.csv), [`founder-sensitivity.csv`](data/model-outputs/founder-sensitivity.csv), [`policy-levers.csv`](data/model-outputs/policy-levers.csv). Reference: full administration, $500M, 1 sponsor (View 1 base $2.20M).
+Outputs: [`sensitivity-tornado.csv`](data/model-outputs/sensitivity-tornado.csv), [`named-scenarios.csv`](data/model-outputs/named-scenarios.csv), [`monte-carlo-cost.csv`](data/model-outputs/monte-carlo-cost.csv), [`monte-carlo-break-even.csv`](data/model-outputs/monte-carlo-break-even.csv), [`stress.csv`](data/model-outputs/stress.csv), [`founder-sensitivity.csv`](data/model-outputs/founder-sensitivity.csv), [`policy-levers.csv`](data/model-outputs/policy-levers.csv). Reference: full administration, $500M, 1 sponsor (View 1 base $2.20M with analytic staffing; $2.22M simulated).
 
 ## 1. Largest drivers (one at a time, View 1 at $500M)
 
@@ -33,7 +33,7 @@ Handling time and exception rates — both unmeasured — dominate. AI and infra
 | AUA | View 1 P10 / P50 / P90 | View 2 P50 | View 3 P50 | Correlated View 1 P90 |
 |---|---|---:|---:|---:|
 | $100M | $1.73M / $1.99M / $2.34M | $2.19M | $2.98M | $2.56M |
-| $500M | $2.06M / $2.43M / $2.89M | $2.63M | $3.41M | $3.26M |
+| $500M | $2.06M / $2.43M / $2.89M | $2.63M | $3.41M | $3.25M |
 | $1B | $2.63M / $3.17M / $3.81M | $3.37M | $4.16M | $4.29M |
 
 The MC median sits above the base case (asymmetric ranges: handling and exception multipliers have long upper tails). Break-even P50 $2.04B (P10 $1.44B, P90 $4.10B) for full administration.

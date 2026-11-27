@@ -76,7 +76,7 @@ From [`beneficium-scenarios.csv`](data/model-outputs/beneficium-scenarios.csv) (
 
 ## 7. Can public charity intelligence run with no dedicated staff?
 
-**Yes for the public directory and continuous monitoring tiers, with conditions.** 300-450 hours a year (0.2-0.3 FTE) is fractional work. It is not zero:
+**Yes for the public directory and continuous monitoring tiers, with conditions.** About 400-700 hours a year (0.26-0.46 FTE-equivalent; beneficium-scenarios.csv) is fractional work. It is not zero:
 
 - three or so breaking source changes a year must be repaired within days, or the evidence goes stale and grants stop (or worse, proceed on stale data);
 - the August revocation surge produces tens of thousands of status changes in one batch;

@@ -6,14 +6,14 @@ Ten perspectives reviewed the model, inputs and outputs in five independent agen
 
 | Context | Perspectives | Findings (high) |
 |---|---|---:|
-| ops-controller | Experienced DAF operations executive; financial controller | 23 (9) |
+| ops-controller | Experienced DAF operations executive; financial controller | 23 (6) |
 | compliance-security | Compliance and risk specialist; security and resilience specialist | 23 (9) |
-| buyer-investor | Institutional technology buyer; skeptical investor | 24 (12) |
-| infra-maintenance | Cloud infrastructure economist; software maintenance engineer | 25 (6) |
-| org-automation | Organisational design specialist; automation architect | 23 (7) |
+| buyer-investor | Institutional technology buyer; skeptical investor | 24 (11) |
+| infra-maintenance | Cloud infrastructure economist; software maintenance engineer | 25 (9) |
+| org-automation | Organisational design specialist; automation architect | 23 (8) |
 | **Total** | 10 | **118 (43)** |
 
-Directions: about 70% cost-up, 15% cost-down, the rest structural or neutral.
+Directions: 60% cost-up (71 of 118), the rest cost-down, revenue, structural or neutral.
 
 ## 2. Dispositions
 
@@ -48,7 +48,7 @@ Directions: about 70% cost-up, 15% cost-down, the rest structural or neutral.
 
 | Measure | First draft | After rounds A and B |
 |---|---:|---:|
-| View 1 at $500M, full administration | $1.03M | **$2.20M** |
+| View 1 at $500M, full administration | $1.03M | **$2.22M** (simulated) |
 | Vendor hours at $500M | 3,852 | 7,200 |
 | Dedicated FTE at $500M | 3 | 8 |
 | Break-even at 20 bps, $250k, full administration, $500M sponsors | ~$0.5B | **$1.85B** |

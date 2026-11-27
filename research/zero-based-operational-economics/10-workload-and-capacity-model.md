@@ -21,7 +21,7 @@ Licensing with support (CFG-2) for comparison: $1.40M at 100 accounts, $1.42M at
 
 ## 2. Assets are not a sufficient predictor of workload
 
-Same $1B, full administration, two sponsors:
+Same $1B, full administration, two sponsors (analytic staffing; the simulated HNW figure is $2.86M):
 
 | Programme | Accounts | View 1 cash | View 1 as bps |
 |---|---:|---:|---:|
@@ -46,7 +46,7 @@ At 20 bps ($2M revenue) none of these programmes covers full administration at $
 
 ## 4. Sponsor count is a first-order driver
 
-At $1B and 4,000 accounts: one sponsor $2.55M; four large sponsors $3.17M; twenty small sponsors $5.49M; fifty small sponsors $10.7M. Each sponsor adds about **760 vendor hours of its own work** (monthly close preparation, audit support, Schedule D package, payment release batches, integration certification, sponsor-attributable incidents, policy changes) plus ~1,320 hours per onboarding — roughly **$145k a year of recurring marginal cost for a small sponsor** ([`sponsor-unit-economics.csv`](data/model-outputs/sponsor-unit-economics.csv)).
+At $1B and 4,000 accounts: one sponsor $2.55M; four large sponsors $3.17M; twenty small sponsors $5.48M; fifty small sponsors $10.7M. Each small sponsor adds about **870-1,190 vendor hours a year** (its per-sponsor work — monthly close preparation, audit support, Schedule D package, payment release batches, integration certification, sponsor-attributable incidents, policy changes — plus its accounts' work and management; [`sponsor-unit-economics.csv`](data/model-outputs/sponsor-unit-economics.csv)) plus ~1,320 hours per onboarding — roughly **$145k a year of recurring marginal cost for a small sponsor** ([`sponsor-unit-economics.csv`](data/model-outputs/sponsor-unit-economics.csv)).
 
 ## 5. Activity level
 
@@ -54,4 +54,4 @@ Low-activity accounts (×0.6) save about $0.22M at $1B; high-activity (×2.06) a
 
 ## 6. Peaks and capacity
 
-December year-end giving and month-end close produce the peaks. Under full administration, operations needs about 2.65 simulated FTE against 0.97 average at the reference scale; compliance needs about twice its average at 4,000 accounts. Surge contractors halve the operations premium; compliance cannot use them. The scarce capacity is not processing but **engineering (4,131 h at 2,000 accounts, 90% utilised)** and **founder time**.
+December year-end giving and month-end close produce the peaks. Under full administration, operations needs about 2.65 simulated FTE against 0.92 average at the reference scale; compliance needs about twice its average at 4,000 accounts. Surge contractors halve the operations premium; compliance cannot use them. The scarce capacity is not processing but **engineering (4,131 h at 2,000 accounts, 90% utilised)** and **founder time**.

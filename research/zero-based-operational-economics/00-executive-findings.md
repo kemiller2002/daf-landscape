@@ -4,7 +4,7 @@ Date: 2026-11-27. **Research, not legal, tax or investment advice; not a launch 
 
 ## The answer in one paragraph
 
-The previous estimate (≈ $1.9B break-even at 20 bps; ≈ $3.8M opex) **was built wrongly but lands in roughly the right place for full administration**. Rebuilt from 183 activities, 63 control obligations, measured public-data sizes, published cloud prices, and a queue simulation — then corrected after 118 adversarial findings — full administration costs **$3.89M at the original's operating point (7,695 accounts, 5 sponsors) versus the original $3.85M**. The break-even is **≈ $1.85B** at $250k balances with $500M sponsors (Monte Carlo P50 $2.0B, P10-P90 $1.4-4.1B). The composition is different: the original's three salaried executives, flat $0.3M AI oversight, $25 "infrastructure" and double-counted build amortisation are replaced by a four-engineer platform team, peak-driven compliance, ~$145k of recurring work per sponsor, and fuller assurance and insurance. **A materially smaller operation is sustainable only as licensing priced per account, or with large sponsors, high balances and engineering shared across Echelon products.** An early draft of this research concluded the original was 2-3× too high; review overturned that, and the reversal is preserved.
+The previous estimate (≈ $1.9B break-even at 20 bps; ≈ $3.8M opex) **was built wrongly but lands in roughly the right place for full administration**. Rebuilt from 183 activities, 63 control obligations, measured public-data sizes, published cloud prices, and a queue simulation — then corrected after 118 adversarial findings — full administration costs **$3.89M at the original's operating point (7,695 accounts, 5 sponsors) versus the original $3.85M**. The break-even is **≈ $1.85B** at $250k balances with $500M sponsors (Monte Carlo — one sponsor, balances drawn $100k-$500k — P50 $2.0B, P10-P90 $1.4-4.1B). The composition is different: the original's three salaried executives, flat $0.3M AI oversight, $25 "infrastructure" and double-counted build amortisation are replaced by a four-engineer platform team, peak-driven compliance, ~$145k (≈ 870-1,190 vendor hours) of recurring work per small sponsor, and fuller assurance and insurance. **A materially smaller operation is sustainable only as licensing priced per account, or with large sponsors, high balances and engineering shared across Echelon products.** An early draft of this research concluded the original was 2-3× too high; review overturned that, and the reversal is preserved.
 
 ## Headline numbers (PG-HNW programme, $250k mean balance, deployment C1)
 
@@ -12,16 +12,16 @@ The previous estimate (≈ $1.9B break-even at 20 bps; ≈ $3.8M opex) **was bui
 |---|---:|---|---:|
 | $100M (1 sponsor) | $1.40M | $1.83M / $2.02M / $2.81M | 5 |
 | $250M (1 sponsor) | $1.42M | $2.00M / $2.19M / $2.98M | 6 |
-| $500M (1 sponsor) | $1.44M | $2.20M / $2.39M / $3.18M | 8 |
+| $500M (1 sponsor) | $1.44M | $2.22M / $2.41M / $3.20M | 8 |
 | $1B (2 sponsors) | $1.62M | $2.86M / $3.05M / $3.84M | 13 |
 
 ## Answers to the required executive questions
 
-**1. Why did the previous model estimate $3.8M?** $2.5M fixed (three salaried executives $606k, 31 non-personnel lines and contingency $646k, an "MSP platform charge" $680k that included $388k of build amortisation, $0.3M flat AI governance and oversight, and a $59k unexplained residual) + 5 sponsors × $43.7k + 7,696 accounts × $146.77 ([02](02-existing-model-reconstruction.md)).
+**1. Why did the previous model estimate $3.8M?** $2.5M fixed (three salaried executives $606k, independent reviewer, two contracted code approvers, compliance floor and per-person overhead $209k, 31 non-personnel lines and contingency $646k, an "MSP platform charge" $680k that included $388k of build amortisation, $0.3M flat AI governance and oversight, and a $59k unexplained residual) + 5 sponsors × $43.7k + 7,696 accounts × $146.77 (the comparison table uses the rounded 7,695) ([02](02-existing-model-reconstruction.md)).
 
 **2. Which assumptions are defensible?** Loaded labour rates; event frequencies as anchors; the variable cost per account (independently corroborated: ~$142 and ~58 minutes at scale versus $146.77 and 52.8); the existence of SOC, insurance and audit costs; the total at its own operating point.
 
-**3. Which should be rejected or revised?** Build amortisation in operating cost (double counted); flat $0.3M AI oversight; $25 "infrastructure" (an account-maintenance placeholder; real cloud cost ≈ $12.6k/yr floor + $0.10-0.20/account); 0.75 utilisation stacked on productive hours; Echelon share and licence as standalone costs; salaried controller double-counted with event minutes; the $316k registry's 1.0 FTE steward; equal per-sponsor cost regardless of size; the superseded MD-1 comparator ([03](03-cost-assumption-audit.md)).
+**3. Which should be rejected or revised?** Build amortisation in operating cost (double counted); flat $0.3M AI oversight; $25 "infrastructure" (an account-maintenance placeholder; real cloud cost ≈ $12.5k/yr floor + $0.10-0.20/account); 0.75 utilisation stacked on productive hours; Echelon share and licence as standalone costs; salaried controller double-counted with event minutes; the $316k registry's 1.0 FTE steward; equal per-sponsor cost regardless of size; the superseded MD-1 comparator ([03](03-cost-assumption-audit.md)).
 
 **4. Minimum viable annual cash operating expenditure?** **≈ $1.40M** (licensing with support); **≈ $1.8-2.0M** for full administration of a first $100-250M sponsor. Plus one-time cash ≈ $0.57M and first-year capital of **$2.6-4.3M** ([17](17-revenue-models.md)).
 
@@ -39,9 +39,9 @@ The previous estimate (≈ $1.9B break-even at 20 bps; ≈ $3.8M opex) **was bui
 
 **11. Minimum independent control coverage?** Two named, trained persons in each of initiation, independent release, reconciliation and close sign-off; three engineers (author + two approvers); a compliance owner and backup. With sponsor personnel holding delegate, releaser and sign-off seats, Echelon needs no dedicated full-time *control* staff — but two-person payment authorization and independent reconciliation are auditor and contractual expectations, not law ([06](06-human-control-obligations.md)).
 
-**12. Cost of administering $100M / $250M / $500M / $1B?** Full administration $1.83M / $2.00M / $2.20M / $2.86M cash; licensing with support $1.40M / $1.42M / $1.44M / $1.62M (sponsor carries 2,000-7,300 hours).
+**12. Cost of administering $100M / $250M / $500M / $1B?** Full administration $1.83M / $2.00M / $2.22M / $2.86M cash (simulated staffing; analytic runs used in grids give $2.20M and $2.71M at $500M and $1B); licensing with support $1.40M / $1.42M / $1.44M / $1.62M (sponsor carries 2,000-7,300 hours).
 
-**13. Break-even at 20 bps?** Full administration, $250k balance, $500M sponsors: **≈ $1.85B cash and allocated; ≈ $2.85B standalone**; Monte Carlo P50 $2.0B. With $1B sponsors $1.6B; $250M sponsors $2.85B; sponsors of $100M or less never ([18](18-break-even-analysis.md)).
+**13. Break-even at 20 bps?** Full administration, $250k balance, $500M sponsors: **≈ $1.85B cash and allocated; ≈ $2.85B standalone**; Monte Carlo (one sponsor; balances $100k-$500k) P50 $2.0B. With $1B sponsors $1.6B; $250M sponsors $2.85B; sponsors of $100M or less never ([18](18-break-even-analysis.md)).
 
 **14. How does it change with average balance?** $1.3B at $1M balances; $1.4B at $500k; $1.85B at $250k; ≈ $10B at $100k; never below ≈ $50k. Retail and payroll programmes cost 10-28× an AUA fee.
 
@@ -49,7 +49,7 @@ The previous estimate (≈ $1.9B break-even at 20 bps; ≈ $3.8M opex) **was bui
 
 **16. Beneficium supporting grant processing?** With human exception verification: $166k at 10,000 active recipients, $481k at 100,000; with payment enrolment $208k and $896k ([14](14-beneficium-verification-economics.md)).
 
-**17. Can public charity intelligence run without dedicated staff?** Yes for directory and continuous monitoring (fractional, ≈ 300-450 h); no for verification above ≈ 10,000-50,000 active recipients.
+**17. Can public charity intelligence run without dedicated staff?** Yes for directory and continuous monitoring (fractional, ≈ 400-700 h a year, 0.26-0.46 FTE-equivalent); no for verification above ≈ 10,000-50,000 active recipients.
 
 **18. Which Unbound requirements create unnecessary recurring cost?** Pre-delegation batch approval (CNV-GRT-001); Tier-2 triggers without determination reuse (CNV-GRT-011); three overlapping sampling regimes; layered reconciliation attestation; daily NAV sampling of externally computed values (CNV-FIN-005); annual affiliation attestation; the default 72-hour hold (CNV-PLT-011); per-sponsor close and audit work without a shared workbench; 24-48 h compliance SLAs through December ([21](21-requirement-economic-impact.md)). No mandatory control is proposed for removal.
 
@@ -61,9 +61,9 @@ The previous estimate (≈ $1.9B break-even at 20 bps; ≈ $3.8M opex) **was bui
 
 **22. Which advantages are theoretical and which evidenced?** Evidenced: public-data sizes; cloud and AI prices; legal mandate classifications; Echelon output volumes (not effort). Theoretical: every exception rate and handling time, the 97% automation share, AI savings, shared components, migration speed.
 
-**23. What could invalidate the model?** Exception rates or handling minutes 50% higher (≈ +$0.5M); engineering above four FTE; small sponsors needing full per-sponsor effort; fees below 20 bps; founder capacity; auditors refusing reliance on automated controls; key-person concentration in due diligence.
+**23. What could invalidate the model?** Handling minutes 60% higher (≈ +$0.6M at $500M) or exception rates doubled (≈ +$0.3M); engineering above four FTE; small sponsors needing full per-sponsor effort; fees below 20 bps; founder capacity; auditors refusing reliance on automated controls; key-person concentration in due diligence.
 
-**24. Minimum commercially viable customer?** As a *first* customer: full administration fees of ≈ $1.8-2.2M a year (≈ $0.9-1.1B at 20 bps, single sponsor, balances ≥ $250k), or licensing revenue covering ≈ $1.4M a year (break-even ≈ 41,500 accounts at $150 per account, ≈ 13,200 at $250). As an *additional* customer on an established platform: ≈ $185k a year (≈ $95M at 20 bps, or a minimum fee).
+**24. Minimum commercially viable customer?** As a *first* customer: full administration fees of ≈ $1.8-2.5M a year through a minimum-fee contract (at 20 bps alone, a single sponsor does not break even even at $1-1.25B with $250k balances: $2.55M cost against $2.0M revenue at $1B), or licensing revenue covering ≈ $1.4M a year (break-even ≈ 41,500 accounts at $150 per account, ≈ 13,200 at $250). As an *additional* customer on an established platform: ≈ $185k a year (≈ $93M at 20 bps, or a minimum fee).
 
 **25. What to measure first?** Minutes and exception counts per activity ID for the top 15 activities; Tier-2 trigger incidence and review minutes; engineering hours per accepted change; per-sponsor close and audit hours; December queue age by pool; unidentified receipts and payment returns per 1,000 transactions ([25](25-evidence-gaps-and-validation-plan.md)).
 
@@ -73,7 +73,7 @@ It is approximately correct **for full administration** if: mean balances ≈ $2
 
 ## What would have to be true for a materially smaller operation to be sustainable
 
-Any one of: **licensing priced per account** ($150-250) with the sponsor operating (break-even ≈ 13,000-41,000 accounts, ≈ $1.4M floor); **sponsors ≥ $1B with balances ≥ $500k** (full-administration break-even ≈ $1.3B); or a combination of **measured exceptions ≥ 40% lower, founder ≥ 1,200 h, low-end quotes and cheaper infrastructure** (≈ $1.39B), plus **platform engineering shared with other Echelon products in production** (a further ≈ −$0.3B, inference). Below about $1B AUA, full administration at 20 bps does not cover its own floor on any modelled combination.
+Any one of: **licensing priced per account** ($150-250) with the sponsor operating (break-even ≈ 13,000-41,000 accounts, ≈ $1.4M floor); **sponsors of $500M or more with balances of $500k or more** (full-administration break-even ≈ $1.36B; $1.32B at $1M balances); or a combination of **measured exceptions ≥ 40% lower, founder ≥ 1,200 h, low-end quotes and cheaper infrastructure** (≈ $1.39B), plus **platform engineering shared with other Echelon products in production** (a further ≈ −$0.3B, inference). Below about $1B AUA, full administration at 20 bps does not cover its own floor on any modelled combination.
 
 ## Repository
 

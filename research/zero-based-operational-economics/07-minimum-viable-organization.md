@@ -25,7 +25,7 @@ One person may hold several compliance-owner roles; no one may hold two incompat
 | CFG-2 Licensing with support | + support desk | all administration and decisions | $1.40M / $1.44M / $1.62M | 4 | sponsor wants vendor support but keeps operations |
 | CFG-3 Exception administration | + operational exceptions; prepares reserved cases (30%) | judgment, authorization | $1.50M / $1.78M / $2.02M | 6 | sponsor lacks exception capacity |
 | CFG-4 Hybrid administration | + delegated judgment, 50% of delegable sponsor work | independent authorization | $1.54M / $1.93M / $2.27M | 7 | sponsor supplies releaser and sign-off |
-| CFG-5 Full administration (existing sponsor) | + independent authorization (80%), close preparation and audit support (80%), reserved-case preparation (50%) | reserved legal decisions, board delegations, sign-offs | $1.83M / $2.20M / $2.86M | 8 | sponsor outsources administration |
+| CFG-5 Full administration (existing sponsor) | + independent authorization (80%), close preparation and audit support (80%), reserved-case preparation (50%) | reserved legal decisions, board delegations, sign-offs | $1.83M / $2.22M / $2.86M | 8 | sponsor outsources administration |
 | CFG-6 Through a channel partner | platform; 30% of commercial; 20% of support | partner sells and supports; 30% revenue share | $1.37M / $1.37M / $1.40M (before 30% revenue share) | 4 | distributor exists |
 | CFG-7 Standalone DAF administrator | as CFG-5, replacing every shared capability | as CFG-5 | ≈ CFG-5 cash; standalone view +$1.0M | 8 | Unbound spun out |
 
@@ -44,7 +44,7 @@ CFG-7 is an administrator, **not a sponsoring organisation**. Becoming a sponsor
 | AUTH | 38 (+ floor) | fractional independent authorizer | 2 | $12k |
 | EXT | 6 | counsel/auditor hours | 1 | $2k |
 
-Plus fixed lines (insurance, SOC 1/SOC 2, pen test, Nacha audit, counsel, MDR, on-call, escrow, key-person continuity, bookkeeping, observability) and resource-based infrastructure. **About 8 employees and 7 fractional or retained people; 15 named persons in all.** Simulated SLA breaches stay within the 1% tolerance in every pool.
+Plus fixed lines (insurance, SOC 1/SOC 2, pen test, Nacha audit, counsel, MDR, on-call, escrow, key-person continuity, bookkeeping, observability) and resource-based infrastructure. **About 8 employees plus fractional and retained people; 17 named persons in all** (simulation-reference.csv). Simulated SLA breaches stay within the 1% tolerance in every pool.
 
 ## 4. Minimum independent control coverage
 

@@ -55,8 +55,8 @@ Charging 20 bps for licensing (≈ $500/account at $250k) would be about six tim
 | $500M | $1.0M | $395k | 1,319 h / $158k | $30k | 4 months | $433k |
 | $1B | $2.0M | $695k | 1,319 h / $158k | $30k | 2 months | $732k |
 
-- **Minimum viable contract (incremental, on an established platform): about $185k a year**, i.e. ≈ $95M at 20 bps or a minimum-fee clause.
-- **Minimum viable first customer** (who must carry the platform alone): fees of about $1.8-2.2M a year under full administration — **$0.9-1.1B at 20 bps**, or $1.4M a year under licensing with support.
+- **Minimum viable contract (incremental, on an established platform): about $185k a year**, i.e. ≈ $93M at 20 bps or a minimum-fee clause.
+- **Minimum viable first customer** (who must carry the platform alone): fees of about $1.8-2.5M a year under full administration — **not reachable at 20 bps by a single $1-1.25B sponsor at $250k balances** (see §5: $0.55M gap at $1B), so a minimum-fee contract is required; or $1.4M a year under licensing with support.
 - Implementation and migration fees (not in the break-even) should recover the ≈ $160-190k onboarding cost per sponsor; institutional buyers routinely pay them (ADV-BI-021).
 
 ## 5. Working capital and capital required (first sponsor, year one)

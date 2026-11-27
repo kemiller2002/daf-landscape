@@ -269,10 +269,20 @@ let all (inputs: Inputs) (baseline: CompetitiveDisplacement.Inputs.Inputs) : (st
             let payback = if monthly > 0.0 then (onboardCost + acquire) / monthly else infinity
             let term = v vals "contract_term_years"
             let minFee = marginal + (onboardCost + acquire) / term
-            yield sizeAum, rev, marginal, onboardHours, onboardCost, acquire, payback, minFee ]
+            let marginalHours = (plus.Totals.VendorHours - baseE.Totals.VendorHours - (runRate plus - runRate baseE)) / 4.0
+            yield sizeAum, rev, marginal, onboardHours, onboardCost, acquire, payback, minFee, marginalHours ]
     let sponsorCsv =
-        csv [ "sponsor_assets"; "revenue_20bps"; "marginal_recurring_view1_cost"; "onboarding_hours_per_sponsor"; "onboarding_cost"; "acquisition_cash"; "payback_months"; "minimum_annual_fee_over_term" ]
-            (sponsorEcon |> List.map (fun (a, r, m, h, oc, ac, pb, mf) -> [ f4 a; f4 r; f4 m; f4 h; f4 oc; f4 ac; f4 pb; f4 mf ]))
+        csv [ "sponsor_assets"; "revenue_20bps"; "marginal_recurring_view1_cost"; "onboarding_hours_per_sponsor"; "onboarding_cost"; "acquisition_cash"; "payback_months"; "minimum_annual_fee_over_term"; "marginal_recurring_vendor_hours" ]
+            (sponsorEcon |> List.map (fun (a, r, m, h, oc, ac, pb, mf, mh) -> [ f4 a; f4 r; f4 m; f4 h; f4 oc; f4 ac; f4 pb; f4 mf; f4 mh ]))
+
+    // 10e. benchmark: an incumbent-sized single-sponsor book (MS GIFT scale: $9.1B, 21,800 accounts; repository benchmark)
+    let benchRows =
+        [ for sim in [ false; true ] do
+            let e = eval sim c refConfig refProgramme 21800.0 1.0 (9.1e9 / 21800.0)
+            yield (if sim then "simulated" else "analytic"), e ]
+    let benchCsv =
+        csv [ "staffing"; "accounts"; "assets"; "view1"; "view2"; "view3"; "view1_bps"; "dedicated_fte"; "vendor_hours" ]
+            (benchRows |> List.map (fun (l, e) -> [ l; "21800"; "9100000000"; f4 e.Views.View1; f4 e.Views.View2; f4 e.Views.View3; f4 (e.Views.View1 / 9.1e9 * 10000.0); f4 e.Staffing.DedicatedFte; f4 e.Totals.VendorHours ]))
 
     // 10b. break-even by sponsor size (accounts and assets), 20 bps grid, $250k balance
     let sponsorSizes = [ 25e6; 50e6; 100e6; 250e6; 500e6; 1e9 ]
@@ -508,6 +518,7 @@ let all (inputs: Inputs) (baseline: CompetitiveDisplacement.Inputs.Inputs) : (st
       "break-even-by-sponsor-size.csv", sizeCsv
       "licensing-per-account.csv", licCsv
       "capital-required.csv", capCsv
+      "benchmark-incumbent-sized-book.csv", benchCsv
       "sensitivity-tornado.csv", torCsv
       "named-scenarios.csv", namedCsv
       "monte-carlo-cost.csv", mcCsv

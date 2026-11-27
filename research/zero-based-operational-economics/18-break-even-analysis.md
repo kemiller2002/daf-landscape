@@ -19,7 +19,7 @@ Outputs: [`break-even.csv`](data/model-outputs/break-even.csv) (7 configurations
 | $100k | $9.8B | $9.8B | $11.3B | $11.3B |
 | **$250k** | **$1.85B** | **$1.85B** | **$2.85B** | **$2.47B** |
 | $500k | $1.36B | $1.57B | $2.09B | $2.09B |
-| $1M | $1.32B | $1.32B | $1.76B | — |
+| $1M | $1.32B | $1.32B | $1.76B | $1.53B |
 
 ## 3. Full administration at 20 bps — by sponsor size ($250k balance)
 

@@ -26,9 +26,9 @@ Most components are licensed PolyForm Noncommercial. No cloud provider has been 
 
 | View | $100M (CFG-5) | $500M (CFG-5) | $1B (CFG-5) | $500M (CFG-2) |
 |---|---:|---:|---:|---:|
-| 1 Incremental cash | $1.83M | $2.20M | $2.86M | $1.44M |
-| 2 Allocated economic | $2.02M | $2.39M | $3.05M | $1.64M |
-| 3 Standalone replacement | $2.81M | $3.18M | $3.84M | $2.42M |
+| 1 Incremental cash | $1.83M | $2.22M | $2.86M | $1.44M |
+| 2 Allocated economic | $2.02M | $2.41M | $3.05M | $1.64M |
+| 3 Standalone replacement | $2.81M | $3.20M | $3.84M | $2.42M |
 
 - **View 2 − View 1 ≈ $0.19M:** founder hours at $200/h (400 h) plus Unbound's share of shared component maintenance (35% of $150k), development tooling (35% of $24k), legal/corporate (25% of $20k) and the assurance programme (50% of $90k). Echelon accounting is not allocated because none exists; Unbound's own bookkeeping is incremental cash (FC-020).
 - **View 3 − View 1 ≈ $1.0M:** own maintainers for components Unbound depends on (1.5 FTE base), own finance, legal, tooling, leadership beyond activity workload, G&A, full assurance programme, standalone sales.
@@ -54,7 +54,7 @@ The "shared organisation" argument is real only where a capability exists and ha
 - Monitoring, hosting, donor identity, support and deployment **do not exist** — Unbound must fund them (they appear as View 1 cash: FC-009, FC-010, FC-016, infrastructure, TECHOPS activities).
 - Echelon's productivity advantage is unmeasured: 5,609 commits with one human identity, no effort or cost telemetry ([16](16-software-development-economics.md)).
 
-**Where sharing materially changes the result:** if platform engineering (≈ $0.9M of the $2.2M reference) were genuinely shared with two or more other products in production, Unbound's View 1 could fall by roughly $0.3-0.5M (inference; not modelled as base because no second product exists). That is the single largest available structural saving, and it depends on Echelon portfolio decisions, not on Unbound design.
+**Where sharing materially changes the result:** if platform engineering (≈ $0.9M of the ≈ $2.2M reference) were genuinely shared with two or more other products in production, Unbound's View 1 could fall by roughly $0.3-0.5M (inference; not modelled as base because no second product exists). That is the single largest available structural saving, and it depends on Echelon portfolio decisions, not on Unbound design.
 
 ## 5. Opportunity cost
 

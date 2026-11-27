@@ -4,7 +4,7 @@ All recommendations are research findings for owner decision; none authorises ex
 
 ## 1. Enter through licensing with support, priced per account
 
-Full administration has a cash floor of about **$1.8-2.2M a year** before the first sponsor reaches scale, and needs a first sponsor of roughly **$0.9-1.1B at 20 bps** (or $1.8-2.2M of fees) to cover it alone. Licensing with support (CFG-2) has a floor of about **$1.4M**, keeps operational and control seats with the sponsor, and breaks even at about **13,000-41,000 accounts at $250-150 per account**. Recommend CFG-2 (or CFG-6 through a channel partner) as the entry offer; full administration only with a single large sponsor or a contracted per-sponsor minimum (OD-ZB-03).
+Full administration has a cash floor of about **$1.8-2.2M a year** before the first sponsor reaches scale, and a first sponsor cannot cover it alone at 20 bps even at $1-1.25B with $250k balances: it needs a minimum-fee contract of about **$1.8-2.5M a year**, or balances of $500k+ with $1.4B+ of assets. Licensing with support (CFG-2) has a floor of about **$1.4M**, keeps operational and control seats with the sponsor, and breaks even at about **13,000-41,000 accounts at $250-150 per account**. Recommend CFG-2 (or CFG-6 through a channel partner) as the entry offer; full administration only with a single large sponsor or a contracted per-sponsor minimum (OD-ZB-03).
 
 ## 2. Price for sponsors, not only for assets
 
@@ -18,7 +18,7 @@ The variable economics (~$142 per account, ~58 minutes) already match a well-des
 |---|---:|---|
 | Platform engineering | ~$0.9M (4 FTE) | share with other Echelon products in production (OD-ZB-06); reduce custom integrations; certify counterparties once |
 | Compliance staffed to December peak | ~$0.25M | tiered SLAs (OD-ZB-07); pre-peak list hygiene |
-| Per-sponsor close and audit support | ~760 h per sponsor | continuous close; shared workbench; auditor reliance on automated controls |
+| Per-sponsor close, audit support and other per-sponsor work | ≈ 870-1,190 vendor h per small sponsor | continuous close; shared workbench; auditor reliance on automated controls |
 | Assurance, insurance, counsel | ~$0.3M | combined SOC engagement; scope by reliance; broker quotes once OD-ZB-02 allows |
 
 ## 4. Redesign requirements that create recurring work (control objectives preserved)
@@ -47,4 +47,4 @@ Adopt the economic impact record for material requirements and the regression re
 
 ## Proposed organisational structure (full administration, first large sponsor)
 
-4 engineers (one security/on-call owner), 2 compliance staff, 2 operations staff with December surge, fractional accountant, fractional controller, fractional independent authorizer (or sponsor treasury), founder for commercial and executive work with fractional support, external counsel, SOC auditor, Nacha auditor, MDR provider. About 8 employees and 15 named persons. Under licensing with support: 4 engineers, 1 compliance owner plus backup, fractional support.
+4 engineers (one security/on-call owner), 2 compliance staff, 2 operations staff with December surge, fractional accountant, fractional controller, fractional independent authorizer (or sponsor treasury), founder for commercial and executive work with fractional support, external counsel, SOC auditor, Nacha auditor, MDR provider. About 8 employees and 17 named persons. Under licensing with support: 3 engineers, 1 compliance owner plus backup, fractional support.

@@ -53,7 +53,7 @@ Ledger: [research-ledger.md](research-ledger.md). Data conventions: [data/CONVEN
 | `data/registers/adversarial-findings.csv` | 118 findings with dispositions |
 | `data/registers/decisions.csv`, `open-questions.csv`, `cross-repository-implications.csv`, `scenario-definitions.csv`, `evidence-sources.csv` | decisions, questions, proposals, scenarios, source index |
 | `data/model-inputs/*.csv` | parameters (assumption schema), roles, configurations, fixed costs, programmes, infrastructure and Beneficium parameters |
-| `data/model-outputs/*` | 31 generated outputs (byte-reproducible), summary in `results.md` |
+| `data/model-outputs/*` | 32 generated outputs (byte-reproducible), summary in `results.md` |
 | `data/evidence/*` | agent evidence notes, adversarial reviews, infrastructure cross-check script |
 
 ## Reproduce and validate
