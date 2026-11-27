@@ -64,3 +64,32 @@ These decisions were made after the approval above, in response to questions Sta
 **OD-P3-04 (threshold for OD-P3-03).** In the owner's words: "Significant is when it becomes its own cost center." The kill-rule clock starts when DAF commercialization becomes its own cost center at Echelon Foundry, with its own budget and expense tracking. It is not tied to a dollar amount. Recorded in echelon-organization-administration as OD-DAF-CAP-002.
 
 Transitus scope stays as DEC-011 sets it (phase 1, with vendor packages deferred). OD-P3-02 lifts a possible pause; it does not authorize expenditure or implementation.
+
+## Owner directions of 2026-11-27 (ratification)
+
+The owner posted directions on each Stage I pull request, headed "Owner direction relayed from the approved November 26 review", and confirmed them in the working session on 2026-11-27. Each direction ends: "Update authoritative records through normal governance, validate and merge only when required checks pass. No production implementation or expenditure authorized."
+
+| ID | Repository / PR | Owner direction (summary; full text on the PR) |
+|---|---|---|
+| OD-P3-05 | daf-landscape #93 | Record owner approval of the recommendations in the latest review. Ratify proposed requirements subject to existing evidence gates. Zero-based economics is a separate first deliverable (completed Unbound; 1, 2, 5, 10 and 100 institutional customers; every expense justified by obligation, workload or capacity trigger; incremental cash, founder time, shared allocation, and mandatory, conditional and volume-triggered costs distinguished; prior estimates reconciled; reproducible F# models). Sensitive internal details stay in the private repository |
+| OD-P3-06 | unbound #22 | Ratify the 30 proposed requirements; resolve OD-CDD-01..05 (see the next table); resolve the existing D9 failure before merge |
+| OD-P3-07 | transitus #2 | Ratify the proposed requirement rows subject to existing gates; preserve exact monetary reconciliation and authorized data access; resolve the legal-basis and disclosure-threshold questions through evidence-based proposals, without inventing legal conclusions or waiving gates |
+| OD-P3-08 | echelon-organization-administration #22 | Separate incremental cash from fully loaded shared-cost allocation; keep a machine-readable spend and founder-time ledger in the organization repository; defer a separate Unbound entity until there is a demonstrated need; start **both** commercialization clocks when DAF commercialization becomes its own cost center; ratify the capital rules; keep IP legal mechanics unresolved pending evidence |
+| OD-P3-09 | echelon-foundry #13 | Ratify both draft standards; extend event-level costing with zero-based costing (every expense needs a justified obligation, workload or capacity trigger; incremental cash and fully loaded costs kept separate) |
+| OD-P3-10 | praxis #314 | Ratify the three proposed decision lifecycle, currency and cross-repository propagation requirements |
+
+**Unbound open decisions resolved by OD-P3-06:**
+
+| ID | Resolution |
+|---|---|
+| OD-CDD-01 | Partner-first, with V-1 and V-6 retained |
+| OD-CDD-02 | Change-driven renewal within the 180-day ceiling, with evidence freshness and targeted review |
+| OD-CDD-03 | Model licensing and 20 bps independently |
+| OD-CDD-04 | The anchor gate applies to full-service administration, not to limited support |
+| OD-CDD-05 | Measure concentration at both the end-sponsor and partner levels |
+
+**Effects on this register:**
+- **DEC-008's month-24 pilot clock:** answered. It also starts at the cost-center month (OD-P3-08).
+- **Ladder:** a decision moves to "requirements incorporated" only when its repository has ratified the requirements through its own governance and the change has merged. Evidence gates, implementation authorization, implementation and validation stay at "no".
+- **The referenced review document:** "the latest review" is not held in these repositories. This record keeps the owner's wording as posted rather than restating that review.
+- **Still open:** who performs the 180-day deep review (Phase III P3-DEC-MOD005). OD-CDD-02 does not decide it.
