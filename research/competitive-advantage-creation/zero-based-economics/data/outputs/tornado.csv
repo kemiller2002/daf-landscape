@@ -1,0 +1,61 @@
+metric,input,base,at_low,at_high,swing
+L first-customer annual cash,PAR:founder_hours_per_year,306035,348111,241035,107076
+L first-customer annual cash,ACT:ACT-PLT-10:minutes,306035,267035,348111,81076
+L first-customer annual cash,COV:COV-CHG:alt,306035,280035,354035,74000
+L first-customer annual cash,ROLE:engineering:hourly,306035,281288,348111,66823
+L first-customer annual cash,ACT:ACT-PLT-04:minutes,306035,293035,348111,55076
+L first-customer annual cash,ACT:ACT-PLT-09:minutes,306035,293035,348111,55076
+L first-customer annual cash,COV:COV-ONC:alt,306035,288035,342035,54000
+L first-customer annual cash,ACT:ACT-IMP-01:minutes,306035,286235,325835,39600
+L first-customer annual cash,EXP:EXP-SEC-04:amount,306035,301035,339035,38000
+L first-customer annual cash,PAR:founder_fixed_hours,306035,293035,325535,32500
+L first-customer annual cash,PAR:founder_hours_per_new_customer,306035,295635,326835,31200
+L first-customer annual cash,EXP:EXP-COR-04:amount,306035,299035,326035,27000
+L first-customer annual cash,ACT:ACT-PLT-07:minutes,306035,297235,323635,26400
+L first-customer annual cash,ROLE:implementation:hourly,306035,297035,321035,24000
+L first-customer annual cash,EXP:EXP-SEC-05:amount,306035,297035,321035,24000
+L first-customer annual cash,ACT:ACT-PLT-13:minutes,306035,299535,319035,19500
+L first-customer annual cash,ROLE:compliance:hourly,306035,299735,317735,18000
+L first-customer annual cash,COV:COV-BRK:alt,306035,300035,318035,18000
+L first-customer annual cash,EXP:EXP-SEC-03:amount,306035,299535,313535,14000
+L first-customer annual cash,EXP:EXP-COR-03:amount,306035,303035,316035,13000
+F first-customer annual cash,PAR:founder_hours_per_year,431930,474006,366930,107076
+F first-customer annual cash,ACT:ACT-PLT-10:minutes,431930,392930,474006,81076
+F first-customer annual cash,COV:COV-CHG:alt,431930,405930,479930,74000
+F first-customer annual cash,ROLE:engineering:hourly,431930,407183,474006,66823
+F first-customer annual cash,ACT:ACT-PLT-04:minutes,431930,418930,474006,55076
+F first-customer annual cash,ACT:ACT-PLT-09:minutes,431930,418930,474006,55076
+F first-customer annual cash,COV:COV-ONC:alt,431930,413930,467930,54000
+F first-customer annual cash,COV:COV-OPS:alt,431930,411930,461930,50000
+F first-customer annual cash,ACT:ACT-IMP-01:minutes,431930,412130,451730,39600
+F first-customer annual cash,EXP:EXP-SEC-04:amount,431930,426930,464930,38000
+F first-customer annual cash,PAR:founder_fixed_hours,431930,418930,451430,32500
+F first-customer annual cash,ROLE:compliance:hourly,431930,420870,452469,31598
+F first-customer annual cash,PAR:founder_hours_per_new_customer,431930,421530,452730,31200
+F first-customer annual cash,EXP:EXP-SEC-06:amount,431930,416930,446930,30000
+F first-customer annual cash,ROLE:implementation:hourly,431930,421130,449930,28800
+F first-customer annual cash,EXP:EXP-COR-04:amount,431930,424930,451930,27000
+F first-customer annual cash,ACT:ACT-PLT-07:minutes,431930,423130,449530,26400
+F first-customer annual cash,EXP:EXP-SEC-05:amount,431930,422930,446930,24000
+F first-customer annual cash,ROLE:operations:hourly,431930,423023,445291,22268
+F first-customer annual cash,ACT:ACT-REC-02:minutes,431930,424280,444680,20400
+F cash break-even bps at 10 customers,ROLE:operations:loaded,7,6,7,1
+F cash break-even bps at 10 customers,ACT:ACT-GRT-01:share,7,6,7,1
+F cash break-even bps at 10 customers,ACT:ACT-GRT-01:minutes,7,6,7,1
+F cash break-even bps at 10 customers,ACT:ACT-REC-02:minutes,7,6,7,1
+F cash break-even bps at 10 customers,PAR:new_customer_share,7,6,7,1
+F cash break-even bps at 10 customers,ACT:ACT-SUP-01:rate,7,6,7,1
+F cash break-even bps at 10 customers,ACT:ACT-PLT-11:minutes,7,6,7,1
+F cash break-even bps at 10 customers,ROLE:engineering:loaded,7,6,7,1
+F cash break-even bps at 10 customers,PAR:founder_hours_per_year,7,7,6,1
+F cash break-even bps at 10 customers,PAR:founder_hours_per_new_customer,7,6,7,0
+F cash break-even bps at 10 customers,PAR:founder_hours_per_customer,7,6,7,0
+F cash break-even bps at 10 customers,ACT:ACT-PLT-10:minutes,7,6,7,0
+F cash break-even bps at 10 customers,ROLE:implementation:loaded,7,6,7,0
+F cash break-even bps at 10 customers,ROLE:compliance:loaded,7,6,7,0
+F cash break-even bps at 10 customers,ACT:ACT-PAY-01:share,7,7,7,0
+F cash break-even bps at 10 customers,ACT:ACT-IMP-02:minutes,7,7,7,0
+F cash break-even bps at 10 customers,ACT:ACT-PAY-01:minutes,7,7,7,0
+F cash break-even bps at 10 customers,ACT:ACT-IMP-01:minutes,7,7,7,0
+F cash break-even bps at 10 customers,ACT:ACT-REC-01:share,7,7,7,0
+F cash break-even bps at 10 customers,ACT:ACT-CTR-01:share,7,7,7,0

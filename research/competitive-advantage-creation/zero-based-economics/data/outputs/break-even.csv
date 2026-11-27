@@ -1,0 +1,12 @@
+model,bps,cash_customers,loaded_customers,cash_aua_musd,loaded_aua_musd
+L,ref price,7,17,1449.00,3237.00
+W,ref price,17,47,3237.00,8601.00
+T,ref price,12,29,2118.00,5355.00
+F,5,never (≤400),never (≤400),,
+F,10,7,7,1449.00,1449.00
+F,15,3,7,390.00,1449.00
+F,20,2,5,330.00,669.00
+F,25,2,3,330.00,390.00
+F,30,2,2,330.00,330.00
+C,ref price,30,114,5364.00,20067.00
+M,ref price,1,18,60.00,3297.00

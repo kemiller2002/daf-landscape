@@ -1,0 +1,15 @@
+prior_id,name,original,metric,revised_low,revised_base,revised_high
+PRI-01,Annual administration fixed costs,$2.5M,F_cash_5x2000,205834,1027685,3650049
+PRI-01,Annual administration fixed costs,$2.5M,F_loaded_5x2000,542722,1433501,4168816
+PRI-02,Annual licensing fixed costs,$1.8M,L_cash_5x2000,83055,404958,1270455
+PRI-02,Annual licensing fixed costs,$1.8M,L_loaded_5x2000,384097,810774,1789222
+PRI-03,Annual variable cost per account (AI-native administration),$147,F_incremental_per_account,20,98,328
+PRI-03,Annual variable cost per account (AI-native administration),$147,F_system_per_account,27,127,458
+PRI-04,Annual charity registry costs,$90k-170k,registry_annual_5x2000,14527,70910,429350
+PRI-05,Customer acquisition cost,$125k per sponsor,acquisition_per_customer,9600,24680,64600
+PRI-06,Development cost,$1.94M,qualification_cash,52000,118000,250000
+PRI-06,Development cost,$1.94M,qualification_loaded,430100,1047880,2345600
+PRI-07,Commercial validation budget,$150k-350k,validation_cash,0,15000,50000
+PRI-07,Commercial validation budget,$150k-350k,validation_loaded,38000,113400,298000
+PRI-08,Partner pilot budget,$1.0-1.5M cumulative,pilot_cash_L,24728,133245,1111293
+PRI-08,Partner pilot budget,$1.0-1.5M cumulative,capital_first_revenue_L_excl_qual,24728,118245,1061293

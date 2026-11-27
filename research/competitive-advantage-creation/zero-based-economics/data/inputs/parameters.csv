@@ -1,0 +1,30 @@
+name,value_low,value_base,value_high,unit,evidence_ids,basis
+founder_hours_per_year,900,1400,1900,h/yr available to the DAF business,SRC-ZB-015,"Founder also runs other Echelon Foundry work; low end is adverse. Not a commitment"
+founder_fixed_hours,150,250,400,h/yr,SRC-ZB-001,"Finance, legal, insurance, policy ownership, vendor assurance oversight"
+founder_hours_per_customer,16,40,80,h/customer-yr,SRC-ZB-003,"Account management, renewals, steering meetings"
+founder_hours_per_new_customer,80,160,320,h/new customer,SRC-ZB-003,"Sales cycle, security questionnaires, procurement and contracting (time-based acquisition cost)"
+founder_hours_per_customer_C,0.5,1,3,h/subscriber-yr,SRC-ZB-003,Self-serve subscription; renewals by invoice
+founder_hours_per_new_customer_C,2,6,16,h/new subscriber,SRC-ZB-003,Click-through terms and a short demo
+founder_hours_per_customer_M,0,4,10,h/project-yr,SRC-ZB-003,Project steering only; delivery hours are in ACT-MIG
+founder_hours_per_new_customer_M,16,40,100,h/new project,SRC-ZB-003,Scoping and statement of work; partners may refer projects
+founder_hours_per_new_customer_W,20,60,120,h/new end customer,SRC-ZB-003,Partner sells; founder supports the partner's sale
+founder_imputed_rate,95,123,155,USD/h,SRC-ZB-011,"BLS software developer median x ECEC loading / 1600 h (LAB-13); market cost of the founder's time"
+sponsor_staff_rate,45,65,90,USD/h,SRC-ZB-003,Phase II PAR-001 rate_ops (loaded)
+new_customer_share,0.2,0.3,0.5,share of customers onboarded per year,SRC-ZB-003,Steady-state growth assumption; at least one in any year with customers
+months_to_first_revenue,6,12,24,months from production qualification,SRC-ZB-003,"Phase II CHL-013 sales cycles of 9-24 months; partner-first may be shorter"
+qualification_amortization_years,3,5,7,years,SRC-ZB-003,Phase II PAR-024
+lic_platform_fee,12000,24000,48000,USD/customer-yr,SRC-ZB-003,Reference price only; break-even prices are computed independently
+lic_per_account,20,40,81,USD/account-yr,SRC-ZB-003,Ren NCF ~$81 per account is the high end (Phase II PAR-012)
+wl_platform_fee,6000,12000,24000,USD/end-customer-yr,SRC-ZB-003,Wholesale price to a partner; partner keeps its margin
+wl_per_account,10,25,50,USD/account-yr,SRC-ZB-003,Wholesale per-account price
+tops_per_account,15,30,60,USD/account-yr,SRC-ZB-003,Operational-support add-on to licensing
+admin_bps_ref,10,20,30,bps of AUA,SRC-ZB-003,Reference fee; the 5-30 bps grid is computed separately
+ci_subscription,2000,6000,15000,USD/subscriber-yr,SRC-ZB-011,"Candid Charity Check from $2,750 and Eligibility from $5,000 (CHD rows) as comparables"
+mig_fee_base,15000,40000,90000,USD/project,SRC-ZB-003,Reference migration project fee
+mig_fee_per_account,2,5,12,USD/account,SRC-ZB-003,Reference per-account migration fee
+collection_lag_months_L,0,1,3,months,SRC-ZB-003,Annual or quarterly in advance at best; arrears at worst
+collection_lag_months_W,1,2,3,months,SRC-ZB-003,Partner remits monthly in arrears
+collection_lag_months_T,0,1,3,months,SRC-ZB-003,As licensing
+collection_lag_months_F,1,2,4,months,SRC-ZB-003,Asset-based fees accrue and are collected quarterly in arrears
+collection_lag_months_C,0,0,1,months,SRC-ZB-003,Subscriptions billed annually in advance
+collection_lag_months_M,0,1,2,months,SRC-ZB-003,Milestone billing

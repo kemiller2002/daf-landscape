@@ -1,0 +1,15 @@
+item_id,name,founder_hours_low,founder_hours_base,founder_hours_high,cash_low,cash_base,cash_high,evidence_ids,basis
+QUAL-01,"Ledger, fund accounting and continuous reconciliation",1200,2200,3800,0,0,0,SRC-ZB-001 SRC-ZB-005,"Append-only ledger, four contribution dates, reconciliation outside the payment chain; a PostgreSQL slice exists (U/execution/README.md:7-8) but is not production-qualified"
+QUAL-02,"Grant lifecycle, deterministic policy gate, holds and sponsor payment-rail integration",1000,1900,3400,0,0,0,SRC-ZB-001,"CNV-GRT-001/003/011, CNV-PAY-001, protective holds"
+QUAL-03,Charity intelligence pipeline and sanctions screening,300,600,1100,0,0,0,SRC-ZB-001,"UNB-CNET-003/004, free federal sources, token matcher"
+QUAL-04,"Donor, advisor and sponsor experiences and the partner API",900,1700,3000,0,0,0,SRC-ZB-001,UX and API standards
+QUAL-05,"Tenancy, key management, evidence engineering and security hardening",300,600,1100,0,0,0,SRC-ZB-001,"CNV-ARC-002/005, SOC 1 and SOC 2 evidence from inception"
+QUAL-06,Independent review of control modules before launch,40,80,160,20000,40000,80000,SRC-ZB-001 SRC-ZB-011,CNV-PLT-010 non-author approvers; contract reviewer rates
+QUAL-07,Pre-launch penetration test and remediation,40,80,160,8000,15000,30000,SRC-ZB-011,AUD-18
+QUAL-08,SOC 2 Type I readiness and audit,80,160,320,5000,12000,25000,SRC-ZB-011,"AUD-04/08/11 (platform fee counted in operating cost from the first customer)"
+QUAL-09,Independent CPA review of the ledger design,20,40,80,5000,15000,30000,SRC-ZB-011,Estimate from audit-firm rates
+QUAL-10,"Counsel: MSA, DPA, TPSP role, data rights",20,40,80,10000,25000,60000,SRC-ZB-011,Estimate (counsel rates paywalled)
+QUAL-11,"Benchmark, load and DR rehearsal on a production-shaped environment",80,160,320,2000,5000,10000,SRC-ZB-001 SRC-ZB-010,UNB-AVL-013; RR-UNB-RES-003-r1
+QUAL-12,AI development tooling during the build,0,0,0,2000,6000,15000,SRC-ZB-010,Assistant seats and API usage over the build
+VAL-01,Commercial validation (G0) by founder,200,400,800,0,5000,20000,SRC-ZB-003,"Interviews and partner discovery; modelled, not authorized"
+VAL-02,Partner pilot parallel run (G1) by founder,200,400,800,0,10000,30000,SRC-ZB-003,"Parallel run with a partner's customer; modelled, not authorized"
