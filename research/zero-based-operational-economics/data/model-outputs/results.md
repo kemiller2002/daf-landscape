@@ -18,283 +18,290 @@ MD-5 opex at break-even = fixed $2.50M + sponsor-level $218.4k + 7,696 accounts 
 
 | AUA | Config | Accounts | Sponsors | Vendor hours | Dedicated FTE | Fractional h | Founder h | View 1 cash | View 2 allocated | View 3 standalone | View 1 bps |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| $100.00M | CFG-1 | 400 | 1 | 3,739 | 4.0 | 499 | 400 | $1.22M | $1.42M | $2.20M | 121.9 |
-| $100.00M | CFG-2 | 400 | 1 | 3,804 | 4.0 | 570 | 400 | $1.22M | $1.42M | $2.20M | 122.3 |
-| $100.00M | CFG-3 | 400 | 1 | 4,084 | 4.0 | 826 | 400 | $1.28M | $1.47M | $2.25M | 127.6 |
-| $100.00M | CFG-4 | 400 | 1 | 4,353 | 4.0 | 1,060 | 400 | $1.33M | $1.52M | $2.30M | 132.5 |
-| $100.00M | CFG-5 | 400 | 1 | 5,143 | 5.0 | 1,354 | 400 | $1.59M | $1.79M | $2.57M | 159.4 |
-| $100.00M | CFG-6 | 400 | 1 | 3,537 | 4.0 | 282 | 400 | $1.19M | $1.38M | $2.16M | 118.6 |
-| $100.00M | CFG-7 | 400 | 1 | 5,143 | 5.0 | 1,354 | 400 | $1.57M | $1.77M | $2.55M | 156.9 |
-| $250.00M | CFG-1 | 1,000 | 1 | 3,780 | 4.0 | 513 | 400 | $1.22M | $1.42M | $2.20M | 48.8 |
-| $250.00M | CFG-2 | 1,000 | 1 | 3,932 | 4.0 | 680 | 400 | $1.23M | $1.43M | $2.21M | 49.2 |
-| $250.00M | CFG-3 | 1,000 | 1 | 4,543 | 4.0 | 1,178 | 400 | $1.31M | $1.51M | $2.29M | 52.4 |
-| $250.00M | CFG-4 | 1,000 | 1 | 4,858 | 4.0 | 1,428 | 400 | $1.36M | $1.56M | $2.34M | 54.5 |
-| $250.00M | CFG-5 | 1,000 | 1 | 5,727 | 6.0 | 1,766 | 400 | $1.74M | $1.94M | $2.72M | 69.7 |
-| $250.00M | CFG-6 | 1,000 | 1 | 3,588 | 4.0 | 307 | 400 | $1.19M | $1.38M | $2.17M | 47.5 |
-| $250.00M | CFG-7 | 1,000 | 1 | 5,727 | 6.0 | 1,766 | 400 | $1.72M | $1.91M | $2.70M | 68.7 |
-| $500.00M | CFG-1 | 2,000 | 1 | 3,840 | 4.0 | 561 | 400 | $1.22M | $1.42M | $2.20M | 24.5 |
-| $500.00M | CFG-2 | 2,000 | 1 | 4,133 | 4.0 | 883 | 400 | $1.25M | $1.44M | $2.22M | 24.9 |
-| $500.00M | CFG-3 | 2,000 | 1 | 5,284 | 6.0 | 863 | 400 | $1.52M | $1.72M | $2.50M | 30.4 |
-| $500.00M | CFG-4 | 2,000 | 1 | 5,675 | 6.0 | 1,118 | 400 | $1.57M | $1.77M | $2.55M | 31.5 |
-| $500.00M | CFG-5 | 2,000 | 1 | 6,668 | 7.0 | 1,458 | 400 | $1.85M | $2.05M | $2.83M | 37.1 |
-| $500.00M | CFG-6 | 2,000 | 1 | 3,663 | 4.0 | 372 | 400 | $1.19M | $1.39M | $2.17M | 23.9 |
-| $500.00M | CFG-7 | 2,000 | 1 | 6,668 | 7.0 | 1,458 | 400 | $1.83M | $2.03M | $2.81M | 36.6 |
-| $1.00B | CFG-1 | 4,000 | 2 | 4,422 | 4.0 | 966 | 400 | $1.28M | $1.48M | $2.26M | 12.8 |
-| $1.00B | CFG-2 | 4,000 | 2 | 4,989 | 5.0 | 590 | 400 | $1.35M | $1.55M | $2.33M | 13.5 |
-| $1.00B | CFG-3 | 4,000 | 2 | 7,252 | 7.0 | 1,475 | 400 | $1.72M | $1.92M | $2.70M | 17.2 |
-| $1.00B | CFG-4 | 4,000 | 2 | 8,033 | 8.0 | 2,023 | 400 | $1.96M | $2.16M | $2.94M | 19.6 |
-| $1.00B | CFG-5 | 4,000 | 2 | 9,525 | 9.0 | 2,619 | 400 | $2.29M | $2.49M | $3.27M | 22.9 |
-| $1.00B | CFG-6 | 4,000 | 2 | 4,067 | 4.0 | 587 | 400 | $1.22M | $1.42M | $2.20M | 12.2 |
-| $1.00B | CFG-7 | 4,000 | 2 | 9,525 | 9.0 | 2,619 | 400 | $2.27M | $2.47M | $3.25M | 22.7 |
+| $100.00M | CFG-1 | 400 | 1 | 3,952 | 4.0 | 537 | 400 | $1.40M | $1.59M | $2.38M | 139.9 |
+| $100.00M | CFG-2 | 400 | 1 | 4,051 | 4.0 | 647 | 400 | $1.40M | $1.60M | $2.38M | 140.5 |
+| $100.00M | CFG-3 | 400 | 1 | 4,373 | 4.0 | 973 | 400 | $1.50M | $1.69M | $2.47M | 149.5 |
+| $100.00M | CFG-4 | 400 | 1 | 4,642 | 4.0 | 1,203 | 400 | $1.54M | $1.73M | $2.52M | 154.4 |
+| $100.00M | CFG-5 | 400 | 1 | 5,432 | 5.0 | 1,478 | 400 | $1.83M | $2.02M | $2.81M | 183.3 |
+| $100.00M | CFG-6 | 400 | 1 | 3,753 | 4.0 | 325 | 400 | $1.37M | $1.56M | $2.34M | 136.6 |
+| $100.00M | CFG-7 | 400 | 1 | 5,432 | 5.0 | 1,478 | 400 | $1.81M | $2.00M | $2.84M | 180.8 |
+| $250.00M | CFG-1 | 1,000 | 1 | 3,998 | 4.0 | 558 | 400 | $1.40M | $1.59M | $2.38M | 56.0 |
+| $250.00M | CFG-2 | 1,000 | 1 | 4,237 | 4.0 | 821 | 400 | $1.42M | $1.61M | $2.40M | 56.7 |
+| $250.00M | CFG-3 | 1,000 | 1 | 4,923 | 4.0 | 1,425 | 400 | $1.54M | $1.74M | $2.52M | 61.8 |
+| $250.00M | CFG-4 | 1,000 | 1 | 5,238 | 4.0 | 1,671 | 400 | $1.59M | $1.79M | $2.57M | 63.8 |
+| $250.00M | CFG-5 | 1,000 | 1 | 6,107 | 6.0 | 1,983 | 400 | $2.00M | $2.19M | $2.98M | 80.1 |
+| $250.00M | CFG-6 | 1,000 | 1 | 3,816 | 4.0 | 363 | 400 | $1.37M | $1.56M | $2.35M | 54.7 |
+| $250.00M | CFG-7 | 1,000 | 1 | 6,107 | 6.0 | 1,983 | 400 | $1.98M | $2.17M | $3.01M | 79.1 |
+| $500.00M | CFG-1 | 2,000 | 1 | 4,068 | 4.0 | 603 | 400 | $1.40M | $1.60M | $2.38M | 28.1 |
+| $500.00M | CFG-2 | 2,000 | 1 | 4,535 | 4.0 | 1,116 | 400 | $1.44M | $1.64M | $2.42M | 28.9 |
+| $500.00M | CFG-3 | 2,000 | 1 | 5,816 | 6.0 | 1,076 | 400 | $1.78M | $1.97M | $2.76M | 35.6 |
+| $500.00M | CFG-4 | 2,000 | 1 | 6,207 | 7.0 | 1,171 | 400 | $1.93M | $2.12M | $2.90M | 38.5 |
+| $500.00M | CFG-5 | 2,000 | 1 | 7,200 | 8.0 | 1,450 | 400 | $2.22M | $2.41M | $3.20M | 44.4 |
+| $500.00M | CFG-6 | 2,000 | 1 | 3,911 | 4.0 | 436 | 400 | $1.37M | $1.56M | $2.35M | 27.5 |
+| $500.00M | CFG-7 | 2,000 | 1 | 7,200 | 8.0 | 1,450 | 400 | $2.20M | $2.39M | $3.22M | 43.9 |
+| $1.00B | CFG-1 | 4,000 | 2 | 4,670 | 4.0 | 1,029 | 400 | $1.46M | $1.65M | $2.44M | 14.6 |
+| $1.00B | CFG-2 | 4,000 | 2 | 5,583 | 6.0 | 552 | 400 | $1.62M | $1.81M | $2.60M | 16.2 |
+| $1.00B | CFG-3 | 4,000 | 2 | 8,091 | 7.0 | 1,794 | 400 | $2.02M | $2.21M | $3.00M | 20.2 |
+| $1.00B | CFG-4 | 4,000 | 2 | 8,872 | 8.0 | 2,339 | 400 | $2.27M | $2.46M | $3.24M | 22.7 |
+| $1.00B | CFG-5 | 4,000 | 2 | 10,364 | 13.0 | 787 | 400 | $2.86M | $3.05M | $3.84M | 28.6 |
+| $1.00B | CFG-6 | 4,000 | 2 | 4,353 | 4.0 | 692 | 400 | $1.40M | $1.59M | $2.38M | 14.0 |
+| $1.00B | CFG-7 | 4,000 | 2 | 10,364 | 13.0 | 787 | 400 | $2.84M | $3.03M | $3.87M | 28.4 |
 
 ## 3. Break-even assets at 20 bps (sustained; operating, no investment recovery)
 
 | Config | View | $5.0k | $10.0k | $25.0k | $50.0k | $100.0k | $250.0k | $500.0k | $1.00M |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| CFG-1 | 1 | $1.34B | $981.80M | $778.56M | $759.72M | $642.21M | $678.60M | $662.18M | $646.16M |
-| CFG-1 | 2 | $1.55B | $1.13B | $898.72M | $876.97M | $741.33M | $783.34M | $764.38M | $745.89M |
-| CFG-1 | 3 | $2.06B | $1.74B | $1.60B | $1.35B | $1.52B | $1.20B | $1.18B | $1.15B |
-| CFG-2 | 1 | > $5B or never | $2.68B | $1.04B | $876.97M | $741.33M | $678.60M | $662.18M | $646.16M |
-| CFG-2 | 2 | > $5B or never | $2.68B | $1.20B | $1.01B | $855.75M | $783.34M | $764.38M | $745.89M |
-| CFG-2 | 3 | > $5B or never | $4.12B | $2.13B | $1.56B | $1.52B | $1.20B | $1.18B | $1.15B |
-| CFG-3 | 1 | > $5B or never | > $5B or never | > $5B or never | $3.68B | $1.52B | $904.24M | $764.38M | $646.16M |
-| CFG-3 | 2 | > $5B or never | > $5B or never | > $5B or never | $4.25B | $1.75B | $1.04B | $882.36M | $861.01M |
-| CFG-3 | 3 | > $5B or never | > $5B or never | > $5B or never | $6.54B | $2.34B | $1.61B | $1.57B | $1.53B |
-| CFG-4 | 1 | > $5B or never | > $5B or never | > $5B or never | $8.72B | $1.75B | $904.24M | $882.36M | $745.89M |
-| CFG-4 | 2 | > $5B or never | > $5B or never | > $5B or never | $10.06B | $2.02B | $1.04B | $1.02B | $861.01M |
-| CFG-4 | 3 | > $5B or never | > $5B or never | > $5B or never | $13.41B | $2.70B | $1.85B | $1.57B | $1.53B |
-| CFG-5 | 1 | > $5B or never | > $5B or never | > $5B or never | $31.72B | $2.34B | $1.20B | $1.18B | $993.89M |
-| CFG-5 | 2 | > $5B or never | > $5B or never | > $5B or never | $31.72B | $2.34B | $1.61B | $1.18B | $1.15B |
-| CFG-5 | 3 | > $5B or never | > $5B or never | > $5B or never | $36.62B | $4.15B | $2.14B | $2.09B | $1.76B |
-| CFG-6 | 1 | $3.17B | $1.74B | $1.20B | $1.01B | $987.83M | $904.24M | $882.36M | $993.89M |
-| CFG-6 | 2 | $3.66B | $2.01B | $1.38B | $1.17B | $1.14B | $1.04B | $1.02B | $1.15B |
-| CFG-6 | 3 | $4.88B | $3.10B | $2.13B | $2.07B | $2.02B | $1.85B | $1.81B | $1.76B |
-| CFG-7 | 1 | > $5B or never | > $5B or never | > $5B or never | $31.72B | $2.34B | $1.20B | $1.18B | $993.89M |
-| CFG-7 | 2 | > $5B or never | > $5B or never | > $5B or never | $31.72B | $2.34B | $1.39B | $1.18B | $1.15B |
-| CFG-7 | 3 | > $5B or never | > $5B or never | > $5B or never | $36.62B | $3.59B | $2.14B | $1.57B | $1.76B |
+| CFG-1 | 1 | $2.06B | $1.31B | $898.72M | $876.97M | $855.75M | $783.34M | $764.38M | $745.89M |
+| CFG-1 | 2 | $2.38B | $1.51B | $1.04B | $1.01B | $987.83M | $904.24M | $882.36M | $861.01M |
+| CFG-1 | 3 | $3.17B | $2.01B | $1.84B | $1.56B | $1.52B | $1.61B | $1.57B | $1.53B |
+| CFG-2 | 1 | > $5B or never | > $5B or never | $2.13B | $1.17B | $987.83M | $904.24M | $764.38M | $745.89M |
+| CFG-2 | 2 | > $5B or never | > $5B or never | $2.45B | $1.56B | $1.14B | $904.24M | $882.36M | $861.01M |
+| CFG-2 | 3 | > $5B or never | > $5B or never | $3.27B | $2.07B | $1.75B | $1.61B | $1.57B | $1.53B |
+| CFG-3 | 1 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $3.11B | $1.61B | $1.02B | $993.89M |
+| CFG-3 | 2 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $3.11B | $1.61B | $1.18B | $1.15B |
+| CFG-3 | 3 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $4.79B | $2.14B | $1.81B | $1.76B |
+| CFG-4 | 1 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $4.15B | $1.61B | $1.02B | $993.89M |
+| CFG-4 | 2 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $4.79B | $1.61B | $1.18B | $1.15B |
+| CFG-4 | 3 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $6.38B | $2.47B | $1.81B | $1.76B |
+| CFG-5 | 1 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $9.82B | $1.85B | $1.36B | $1.32B |
+| CFG-5 | 2 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $9.82B | $1.85B | $1.57B | $1.32B |
+| CFG-5 | 3 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $11.33B | $2.85B | $2.09B | $1.76B |
+| CFG-6 | 1 | > $5B or never | $2.68B | $1.84B | $1.56B | $1.14B | $1.20B | $1.02B | $993.89M |
+| CFG-6 | 2 | > $5B or never | $3.10B | $1.84B | $1.56B | $1.52B | $1.61B | $1.18B | $1.15B |
+| CFG-6 | 3 | > $5B or never | $4.76B | $2.83B | $2.40B | $2.34B | $2.14B | $2.09B | $2.04B |
+| CFG-7 | 1 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $9.82B | $1.85B | $1.18B | $1.15B |
+| CFG-7 | 2 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $9.82B | $1.85B | $1.57B | $1.32B |
+| CFG-7 | 3 | > $5B or never | > $5B or never | > $5B or never | > $5B or never | $11.33B | $2.85B | $2.09B | $1.76B |
 
 ## 3a. Break-even at 20 bps by sponsor size ($250k balance; sponsors = assets / size)
 
 | Config | View | $25.00M sponsors | $50.00M sponsors | $100.00M sponsors | $250.00M sponsors | $500.00M sponsors | $1.00B sponsors |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| CFG-2 | 1 | > $500B or never | $2.85B | $1.20B | $904.24M | $678.60M | $678.60M |
-| CFG-2 | 2 | > $500B or never | $3.29B | $1.39B | $1.04B | $783.34M | $783.34M |
-| CFG-2 | 3 | > $500B or never | $4.38B | $2.14B | $1.39B | $1.39B | $1.20B |
-| CFG-5 | 1 | > $500B or never | > $500B or never | $13.82B | $1.61B | $1.39B | $1.20B |
-| CFG-5 | 2 | > $500B or never | > $500B or never | $15.96B | $2.14B | $1.61B | $1.39B |
-| CFG-5 | 3 | > $500B or never | > $500B or never | $21.26B | $2.85B | $2.14B | $1.85B |
-| CFG-7 | 1 | > $500B or never | > $500B or never | $13.82B | $1.61B | $1.20B | $1.20B |
-| CFG-7 | 2 | > $500B or never | > $500B or never | $13.82B | $1.85B | $1.39B | $1.39B |
-| CFG-7 | 3 | > $500B or never | > $500B or never | $21.26B | $2.85B | $2.14B | $1.85B |
+| CFG-2 | 1 | > $500B or never | $5.06B | $1.61B | $1.20B | $904.24M | $783.34M |
+| CFG-2 | 2 | > $500B or never | $5.06B | $1.61B | $1.20B | $1.20B | $904.24M |
+| CFG-2 | 3 | > $500B or never | $6.74B | $2.47B | $1.85B | $1.61B | $1.39B |
+| CFG-5 | 1 | > $500B or never | > $500B or never | > $500B or never | $2.85B | $1.85B | $1.61B |
+| CFG-5 | 2 | > $500B or never | > $500B or never | > $500B or never | $2.85B | $1.85B | $1.85B |
+| CFG-5 | 3 | > $500B or never | > $500B or never | > $500B or never | $4.38B | $2.85B | $2.47B |
+| CFG-7 | 1 | > $500B or never | > $500B or never | > $500B or never | $2.85B | $1.85B | $1.61B |
+| CFG-7 | 2 | > $500B or never | > $500B or never | > $500B or never | $2.85B | $1.85B | $1.85B |
+| CFG-7 | 3 | > $500B or never | > $500B or never | > $500B or never | $4.38B | $2.85B | $2.47B |
 
 ## 4. Reference simulation ($500M, 1 sponsor, CFG-5)
 
 | Pool | Hours | Founder h | Simulated FTE | Mode | Dedicated | Fractional h | Peak queue h | Peak age (d) | Breached h | Utilisation | Named persons | Cost |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| OPS | 1,149 | 0 | 1.75 | dedicated+surge | 1.0 | 151 | 85.3 | 9.0 | 11.4 | 42.5% | 2 | $138.0k |
-| FINANCE | 466 | 0 | 0.50 | fractional | 0.0 | 466 | 9.7 | 3.0 | 2.8 | 59.6% | 2 | $48.7k |
-| AUTH | 353 | 0 | 0.40 | fractional | 0.0 | 353 | 7.6 | 3.0 | 0.1 | 56.9% | 2 | $87.5k |
-| COMPLIANCE | 1,711 | 0 | 1.75 | dedicated | 2.0 | 0 | 27.9 | 2.0 | 7.1 | 62.8% | 2 | $243.7k |
-| ENG | 3,914 | 0 | 2.80 | dedicated | 4.0 | 0 | 122.4 | 5.0 | 39.1 | 88.3% | 4 | $849.6k |
-| COMM | 881 | 400 | 0.35 | fractional | 0.0 | 481 | 3.2 | 1.0 | 0.0 | 89.1% | 2 | $84.7k |
+| OPS | 1,414 | 0 | 2.65 | dedicated+surge | 2.0 | 36 | 86.4 | 6.0 | 13.6 | 34.3% | 2 | $224.2k |
+| FINANCE | 509 | 0 | 0.55 | fractional | 0.0 | 509 | 18.1 | 3.0 | 1.3 | 58.1% | 2 | $53.1k |
+| CONTROL | 315 | 0 | 0.35 | fractional | 0.0 | 315 | 13.3 | 6.0 | 2.6 | 57.9% | 2 | $78.0k |
+| AUTH | 38 | 0 | 0.05 | fractional | 0.0 | 50 | 0.4 | 1.0 | 0.0 | 49.8% | 2 | $12.4k |
+| COMPLIANCE | 1,719 | 0 | 1.80 | dedicated | 2.0 | 0 | 49.4 | 2.0 | 13.4 | 60.5% | 2 | $243.7k |
+| ENG | 4,131 | 0 | 2.90 | dedicated | 4.0 | 0 | 131.6 | 5.0 | 35.6 | 89.9% | 4 | $920.0k |
+| COMM | 935 | 400 | 0.35 | fractional | 0.0 | 535 | 3.7 | 1.0 | 0.0 | 99.0% | 2 | $94.0k |
 | EXT | 6 | 0 | 0.05 | fractional | 0.0 | 6 | 0.0 | 0.0 | 0.0 | 7.8% | 1 | $2.1k |
 
-Events 303,127; automatically completed 97.0%; human-handled 9,152; independently authorized 1,222; human hours 8,143 (vendor 6,668, sponsor 1,475).
-Unit costs (View 1): per account $361.50; per grant $13.82; per contribution $7.84; per sponsor $187.6k; per human exception $178.31.
+Events 304,128; automatically completed 96.7%; human-handled 9,953; independently authorized 1,222; human hours 8,545 (vendor 7,200, sponsor 1,344).
+Unit costs (View 1): per account $447.65; per grant $16.65; per contribution $12.48; per sponsor $205.8k; per human exception $178.18.
 
 ## 5. Staffing thresholds (first account count at which a pool needs each dedicated FTE; CFG-5, simulated)
 
 | Programme | Pool | Dedicated FTE | First accounts |
 | --- | --- | --- | --- |
-| PG-HNW | OPS | 1.0 | 2,000 |
-| PG-HNW | OPS | 2.0 | 3,500 |
-| PG-HNW | OPS | 3.0 | 7,500 |
-| PG-HNW | OPS | 4.0 | 10,000 |
-| PG-HNW | OPS | 6.0 | 15,000 |
-| PG-HNW | OPS | 10.0 | 25,000 |
-| PG-HNW | OPS | 15.0 | 40,000 |
-| PG-HNW | OPS | 20.0 | 60,000 |
-| PG-HNW | OPS | 31.0 | 100,000 |
-| PG-HNW | OPS | 50.0 | 175,000 |
-| PG-HNW | OPS | 69.0 | 250,000 |
-| PG-HNW | OPS | 130.0 | 500,000 |
-| PG-HNW | OPS | 252.0 | 1,000,000 |
+| PG-HNW | OPS | 2.0 | 2,000 |
+| PG-HNW | OPS | 3.0 | 5,000 |
+| PG-HNW | OPS | 4.0 | 7,500 |
+| PG-HNW | OPS | 5.0 | 10,000 |
+| PG-HNW | OPS | 8.0 | 15,000 |
+| PG-HNW | OPS | 12.0 | 25,000 |
+| PG-HNW | OPS | 19.0 | 40,000 |
+| PG-HNW | OPS | 26.0 | 60,000 |
+| PG-HNW | OPS | 41.0 | 100,000 |
+| PG-HNW | OPS | 67.0 | 175,000 |
+| PG-HNW | OPS | 94.0 | 250,000 |
+| PG-HNW | OPS | 181.0 | 500,000 |
+| PG-HNW | OPS | 353.0 | 1,000,000 |
 | PG-HNW | FINANCE | 1.0 | 5,000 |
 | PG-HNW | FINANCE | 2.0 | 7,500 |
 | PG-HNW | FINANCE | 3.0 | 15,000 |
-| PG-HNW | FINANCE | 4.0 | 25,000 |
+| PG-HNW | FINANCE | 5.0 | 25,000 |
 | PG-HNW | FINANCE | 7.0 | 40,000 |
-| PG-HNW | FINANCE | 9.0 | 60,000 |
-| PG-HNW | FINANCE | 14.0 | 100,000 |
-| PG-HNW | FINANCE | 23.0 | 175,000 |
-| PG-HNW | FINANCE | 32.0 | 250,000 |
-| PG-HNW | FINANCE | 62.0 | 500,000 |
-| PG-HNW | FINANCE | 122.0 | 1,000,000 |
-| PG-HNW | AUTH | 2.0 | 7,500 |
-| PG-HNW | AUTH | 3.0 | 15,000 |
-| PG-HNW | AUTH | 5.0 | 25,000 |
-| PG-HNW | AUTH | 8.0 | 40,000 |
-| PG-HNW | AUTH | 9.0 | 250,000 |
-| PG-HNW | AUTH | 11.0 | 1,000,000 |
+| PG-HNW | FINANCE | 10.0 | 60,000 |
+| PG-HNW | FINANCE | 16.0 | 100,000 |
+| PG-HNW | FINANCE | 26.0 | 175,000 |
+| PG-HNW | FINANCE | 36.0 | 250,000 |
+| PG-HNW | FINANCE | 70.0 | 500,000 |
+| PG-HNW | FINANCE | 137.0 | 1,000,000 |
+| PG-HNW | CONTROL | 2.0 | 7,500 |
+| PG-HNW | CONTROL | 3.0 | 15,000 |
+| PG-HNW | CONTROL | 5.0 | 25,000 |
+| PG-HNW | CONTROL | 7.0 | 40,000 |
+| PG-HNW | AUTH | 1.0 | 100,000 |
+| PG-HNW | AUTH | 2.0 | 250,000 |
+| PG-HNW | AUTH | 3.0 | 500,000 |
+| PG-HNW | AUTH | 4.0 | 1,000,000 |
 | PG-HNW | COMPLIANCE | 1.0 | 100 |
 | PG-HNW | COMPLIANCE | 2.0 | 1,000 |
 | PG-HNW | COMPLIANCE | 3.0 | 3,500 |
 | PG-HNW | COMPLIANCE | 4.0 | 5,000 |
-| PG-HNW | COMPLIANCE | 5.0 | 7,500 |
-| PG-HNW | COMPLIANCE | 7.0 | 10,000 |
-| PG-HNW | COMPLIANCE | 10.0 | 15,000 |
-| PG-HNW | COMPLIANCE | 16.0 | 25,000 |
-| PG-HNW | COMPLIANCE | 24.0 | 40,000 |
-| PG-HNW | COMPLIANCE | 35.0 | 60,000 |
-| PG-HNW | COMPLIANCE | 56.0 | 100,000 |
-| PG-HNW | COMPLIANCE | 95.0 | 175,000 |
-| PG-HNW | COMPLIANCE | 133.0 | 250,000 |
-| PG-HNW | COMPLIANCE | 262.0 | 500,000 |
+| PG-HNW | COMPLIANCE | 6.0 | 7,500 |
+| PG-HNW | COMPLIANCE | 8.0 | 10,000 |
+| PG-HNW | COMPLIANCE | 12.0 | 15,000 |
+| PG-HNW | COMPLIANCE | 19.0 | 25,000 |
+| PG-HNW | COMPLIANCE | 30.0 | 40,000 |
+| PG-HNW | COMPLIANCE | 43.0 | 60,000 |
+| PG-HNW | COMPLIANCE | 68.0 | 100,000 |
+| PG-HNW | COMPLIANCE | 116.0 | 175,000 |
+| PG-HNW | COMPLIANCE | 163.0 | 250,000 |
+| PG-HNW | COMPLIANCE | 322.0 | 500,000 |
 | PG-HNW | COMPLIANCE | 433.0 | 1,000,000 |
 | PG-HNW | ENG | 4.0 | 100 |
 | PG-HNW | ENG | 5.0 | 15,000 |
-| PG-HNW | ENG | 6.0 | 25,000 |
-| PG-HNW | ENG | 8.0 | 40,000 |
-| PG-HNW | ENG | 9.0 | 1,000,000 |
+| PG-HNW | ENG | 7.0 | 40,000 |
+| PG-HNW | ENG | 8.0 | 1,000,000 |
 | PG-HNW | COMM | 1.0 | 5,000 |
 | PG-HNW | COMM | 2.0 | 7,500 |
 | PG-HNW | COMM | 3.0 | 15,000 |
-| PG-HNW | COMM | 4.0 | 25,000 |
-| PG-HNW | COMM | 6.0 | 40,000 |
-| PG-HNW | COMM | 8.0 | 60,000 |
-| PG-HNW | COMM | 10.0 | 100,000 |
-| PG-HNW | COMM | 15.0 | 175,000 |
-| PG-HNW | COMM | 20.0 | 250,000 |
-| PG-HNW | COMM | 35.0 | 500,000 |
-| PG-HNW | COMM | 66.0 | 1,000,000 |
-| PG-RETAIL | OPS | 1.0 | 2,000 |
-| PG-RETAIL | OPS | 2.0 | 3,500 |
-| PG-RETAIL | OPS | 3.0 | 7,500 |
-| PG-RETAIL | OPS | 4.0 | 10,000 |
-| PG-RETAIL | OPS | 5.0 | 15,000 |
-| PG-RETAIL | OPS | 8.0 | 25,000 |
-| PG-RETAIL | OPS | 12.0 | 40,000 |
-| PG-RETAIL | OPS | 17.0 | 60,000 |
-| PG-RETAIL | OPS | 28.0 | 100,000 |
-| PG-RETAIL | OPS | 48.0 | 175,000 |
-| PG-RETAIL | OPS | 68.0 | 250,000 |
-| PG-RETAIL | OPS | 133.0 | 500,000 |
-| PG-RETAIL | OPS | 262.0 | 1,000,000 |
+| PG-HNW | COMM | 5.0 | 25,000 |
+| PG-HNW | COMM | 7.0 | 40,000 |
+| PG-HNW | COMM | 9.0 | 60,000 |
+| PG-HNW | COMM | 12.0 | 100,000 |
+| PG-HNW | COMM | 17.0 | 175,000 |
+| PG-HNW | COMM | 23.0 | 250,000 |
+| PG-HNW | COMM | 41.0 | 500,000 |
+| PG-HNW | COMM | 78.0 | 1,000,000 |
+| PG-RETAIL | OPS | 2.0 | 2,000 |
+| PG-RETAIL | OPS | 3.0 | 5,000 |
+| PG-RETAIL | OPS | 4.0 | 7,500 |
+| PG-RETAIL | OPS | 5.0 | 10,000 |
+| PG-RETAIL | OPS | 6.0 | 15,000 |
+| PG-RETAIL | OPS | 10.0 | 25,000 |
+| PG-RETAIL | OPS | 16.0 | 40,000 |
+| PG-RETAIL | OPS | 23.0 | 60,000 |
+| PG-RETAIL | OPS | 37.0 | 100,000 |
+| PG-RETAIL | OPS | 64.0 | 175,000 |
+| PG-RETAIL | OPS | 91.0 | 250,000 |
+| PG-RETAIL | OPS | 179.0 | 500,000 |
+| PG-RETAIL | OPS | 355.0 | 1,000,000 |
 | PG-RETAIL | FINANCE | 1.0 | 2,000 |
 | PG-RETAIL | FINANCE | 2.0 | 3,500 |
-| PG-RETAIL | FINANCE | 3.0 | 7,500 |
-| PG-RETAIL | FINANCE | 4.0 | 10,000 |
-| PG-RETAIL | FINANCE | 6.0 | 15,000 |
-| PG-RETAIL | FINANCE | 10.0 | 25,000 |
-| PG-RETAIL | FINANCE | 15.0 | 40,000 |
-| PG-RETAIL | FINANCE | 22.0 | 60,000 |
-| PG-RETAIL | FINANCE | 36.0 | 100,000 |
-| PG-RETAIL | FINANCE | 63.0 | 175,000 |
-| PG-RETAIL | FINANCE | 90.0 | 250,000 |
-| PG-RETAIL | FINANCE | 180.0 | 500,000 |
-| PG-RETAIL | FINANCE | 360.0 | 1,000,000 |
-| PG-RETAIL | AUTH | 1.0 | 60,000 |
-| PG-RETAIL | AUTH | 2.0 | 100,000 |
-| PG-RETAIL | AUTH | 3.0 | 175,000 |
-| PG-RETAIL | AUTH | 6.0 | 500,000 |
-| PG-RETAIL | AUTH | 11.0 | 1,000,000 |
+| PG-RETAIL | FINANCE | 3.0 | 5,000 |
+| PG-RETAIL | FINANCE | 4.0 | 7,500 |
+| PG-RETAIL | FINANCE | 5.0 | 10,000 |
+| PG-RETAIL | FINANCE | 7.0 | 15,000 |
+| PG-RETAIL | FINANCE | 11.0 | 25,000 |
+| PG-RETAIL | FINANCE | 18.0 | 40,000 |
+| PG-RETAIL | FINANCE | 27.0 | 60,000 |
+| PG-RETAIL | FINANCE | 44.0 | 100,000 |
+| PG-RETAIL | FINANCE | 77.0 | 175,000 |
+| PG-RETAIL | FINANCE | 109.0 | 250,000 |
+| PG-RETAIL | FINANCE | 218.0 | 500,000 |
+| PG-RETAIL | FINANCE | 435.0 | 1,000,000 |
+| PG-RETAIL | CONTROL | 2.0 | 175,000 |
+| PG-RETAIL | CONTROL | 4.0 | 500,000 |
+| PG-RETAIL | CONTROL | 7.0 | 1,000,000 |
+| PG-RETAIL | AUTH | 1.0 | 100,000 |
+| PG-RETAIL | AUTH | 2.0 | 250,000 |
+| PG-RETAIL | AUTH | 3.0 | 500,000 |
+| PG-RETAIL | AUTH | 5.0 | 1,000,000 |
 | PG-RETAIL | COMPLIANCE | 1.0 | 100 |
 | PG-RETAIL | COMPLIANCE | 2.0 | 2,000 |
 | PG-RETAIL | COMPLIANCE | 3.0 | 5,000 |
 | PG-RETAIL | COMPLIANCE | 4.0 | 7,500 |
 | PG-RETAIL | COMPLIANCE | 5.0 | 10,000 |
 | PG-RETAIL | COMPLIANCE | 7.0 | 15,000 |
-| PG-RETAIL | COMPLIANCE | 10.0 | 25,000 |
-| PG-RETAIL | COMPLIANCE | 15.0 | 40,000 |
-| PG-RETAIL | COMPLIANCE | 22.0 | 60,000 |
-| PG-RETAIL | COMPLIANCE | 36.0 | 100,000 |
-| PG-RETAIL | COMPLIANCE | 63.0 | 175,000 |
-| PG-RETAIL | COMPLIANCE | 89.0 | 250,000 |
-| PG-RETAIL | COMPLIANCE | 175.0 | 500,000 |
-| PG-RETAIL | COMPLIANCE | 348.0 | 1,000,000 |
+| PG-RETAIL | COMPLIANCE | 12.0 | 25,000 |
+| PG-RETAIL | COMPLIANCE | 18.0 | 40,000 |
+| PG-RETAIL | COMPLIANCE | 27.0 | 60,000 |
+| PG-RETAIL | COMPLIANCE | 44.0 | 100,000 |
+| PG-RETAIL | COMPLIANCE | 76.0 | 175,000 |
+| PG-RETAIL | COMPLIANCE | 108.0 | 250,000 |
+| PG-RETAIL | COMPLIANCE | 215.0 | 500,000 |
+| PG-RETAIL | COMPLIANCE | 428.0 | 1,000,000 |
 | PG-RETAIL | ENG | 4.0 | 100 |
-| PG-RETAIL | ENG | 6.0 | 500,000 |
-| PG-RETAIL | ENG | 9.0 | 1,000,000 |
-| PG-RETAIL | COMM | 1.0 | 7,500 |
-| PG-RETAIL | COMM | 2.0 | 10,000 |
+| PG-RETAIL | ENG | 5.0 | 500,000 |
+| PG-RETAIL | ENG | 8.0 | 1,000,000 |
+| PG-RETAIL | COMM | 1.0 | 5,000 |
+| PG-RETAIL | COMM | 2.0 | 7,500 |
 | PG-RETAIL | COMM | 3.0 | 25,000 |
-| PG-RETAIL | COMM | 4.0 | 40,000 |
-| PG-RETAIL | COMM | 6.0 | 60,000 |
-| PG-RETAIL | COMM | 9.0 | 100,000 |
-| PG-RETAIL | COMM | 15.0 | 175,000 |
-| PG-RETAIL | COMM | 21.0 | 250,000 |
-| PG-RETAIL | COMM | 42.0 | 500,000 |
-| PG-RETAIL | COMM | 83.0 | 1,000,000 |
+| PG-RETAIL | COMM | 5.0 | 40,000 |
+| PG-RETAIL | COMM | 7.0 | 60,000 |
+| PG-RETAIL | COMM | 11.0 | 100,000 |
+| PG-RETAIL | COMM | 18.0 | 175,000 |
+| PG-RETAIL | COMM | 26.0 | 250,000 |
+| PG-RETAIL | COMM | 50.0 | 500,000 |
+| PG-RETAIL | COMM | 100.0 | 1,000,000 |
 | PG-INST | OPS | 2.0 | 1,000 |
+| PG-INST | OPS | 3.0 | 2,000 |
 | PG-INST | OPS | 4.0 | 3,500 |
-| PG-INST | OPS | 5.0 | 5,000 |
-| PG-INST | OPS | 7.0 | 7,500 |
-| PG-INST | OPS | 9.0 | 10,000 |
-| PG-INST | OPS | 12.0 | 15,000 |
-| PG-INST | OPS | 16.0 | 25,000 |
-| PG-INST | OPS | 23.0 | 40,000 |
-| PG-INST | OPS | 32.0 | 60,000 |
-| PG-INST | OPS | 50.0 | 100,000 |
-| PG-INST | OPS | 82.0 | 175,000 |
-| PG-INST | OPS | 114.0 | 250,000 |
-| PG-INST | OPS | 218.0 | 500,000 |
-| PG-INST | OPS | 400.0 | 1,000,000 |
+| PG-INST | OPS | 6.0 | 5,000 |
+| PG-INST | OPS | 8.0 | 7,500 |
+| PG-INST | OPS | 11.0 | 10,000 |
+| PG-INST | OPS | 14.0 | 15,000 |
+| PG-INST | OPS | 20.0 | 25,000 |
+| PG-INST | OPS | 29.0 | 40,000 |
+| PG-INST | OPS | 41.0 | 60,000 |
+| PG-INST | OPS | 65.0 | 100,000 |
+| PG-INST | OPS | 109.0 | 175,000 |
+| PG-INST | OPS | 152.0 | 250,000 |
+| PG-INST | OPS | 293.0 | 500,000 |
+| PG-INST | OPS | 550.0 | 1,000,000 |
 | PG-INST | FINANCE | 1.0 | 3,500 |
 | PG-INST | FINANCE | 2.0 | 5,000 |
-| PG-INST | FINANCE | 3.0 | 10,000 |
+| PG-INST | FINANCE | 3.0 | 7,500 |
 | PG-INST | FINANCE | 4.0 | 15,000 |
 | PG-INST | FINANCE | 5.0 | 25,000 |
-| PG-INST | FINANCE | 6.0 | 40,000 |
+| PG-INST | FINANCE | 7.0 | 40,000 |
 | PG-INST | FINANCE | 9.0 | 60,000 |
-| PG-INST | FINANCE | 13.0 | 100,000 |
-| PG-INST | FINANCE | 21.0 | 175,000 |
-| PG-INST | FINANCE | 29.0 | 250,000 |
-| PG-INST | FINANCE | 56.0 | 500,000 |
-| PG-INST | FINANCE | 110.0 | 1,000,000 |
-| PG-INST | AUTH | 2.0 | 2,000 |
-| PG-INST | AUTH | 3.0 | 3,500 |
-| PG-INST | AUTH | 4.0 | 5,000 |
-| PG-INST | AUTH | 6.0 | 7,500 |
-| PG-INST | AUTH | 8.0 | 10,000 |
-| PG-INST | AUTH | 9.0 | 100,000 |
-| PG-INST | AUTH | 10.0 | 250,000 |
-| PG-INST | AUTH | 11.0 | 500,000 |
-| PG-INST | AUTH | 12.0 | 1,000,000 |
+| PG-INST | FINANCE | 14.0 | 100,000 |
+| PG-INST | FINANCE | 23.0 | 175,000 |
+| PG-INST | FINANCE | 32.0 | 250,000 |
+| PG-INST | FINANCE | 63.0 | 500,000 |
+| PG-INST | FINANCE | 124.0 | 1,000,000 |
+| PG-INST | CONTROL | 2.0 | 2,000 |
+| PG-INST | CONTROL | 3.0 | 3,500 |
+| PG-INST | CONTROL | 4.0 | 5,000 |
+| PG-INST | CONTROL | 6.0 | 7,500 |
+| PG-INST | CONTROL | 7.0 | 10,000 |
+| PG-INST | AUTH | 1.0 | 40,000 |
+| PG-INST | AUTH | 2.0 | 100,000 |
+| PG-INST | AUTH | 3.0 | 250,000 |
+| PG-INST | AUTH | 5.0 | 500,000 |
+| PG-INST | AUTH | 6.0 | 1,000,000 |
 | PG-INST | COMPLIANCE | 1.0 | 100 |
 | PG-INST | COMPLIANCE | 2.0 | 500 |
 | PG-INST | COMPLIANCE | 3.0 | 1,000 |
-| PG-INST | COMPLIANCE | 4.0 | 2,000 |
-| PG-INST | COMPLIANCE | 7.0 | 3,500 |
-| PG-INST | COMPLIANCE | 10.0 | 5,000 |
-| PG-INST | COMPLIANCE | 14.0 | 7,500 |
-| PG-INST | COMPLIANCE | 18.0 | 10,000 |
-| PG-INST | COMPLIANCE | 25.0 | 15,000 |
-| PG-INST | COMPLIANCE | 40.0 | 25,000 |
-| PG-INST | COMPLIANCE | 62.0 | 40,000 |
-| PG-INST | COMPLIANCE | 91.0 | 60,000 |
-| PG-INST | COMPLIANCE | 149.0 | 100,000 |
-| PG-INST | COMPLIANCE | 257.0 | 175,000 |
-| PG-INST | COMPLIANCE | 365.0 | 250,000 |
+| PG-INST | COMPLIANCE | 5.0 | 2,000 |
+| PG-INST | COMPLIANCE | 8.0 | 3,500 |
+| PG-INST | COMPLIANCE | 11.0 | 5,000 |
+| PG-INST | COMPLIANCE | 17.0 | 7,500 |
+| PG-INST | COMPLIANCE | 22.0 | 10,000 |
+| PG-INST | COMPLIANCE | 31.0 | 15,000 |
+| PG-INST | COMPLIANCE | 49.0 | 25,000 |
+| PG-INST | COMPLIANCE | 75.0 | 40,000 |
+| PG-INST | COMPLIANCE | 111.0 | 60,000 |
+| PG-INST | COMPLIANCE | 182.0 | 100,000 |
+| PG-INST | COMPLIANCE | 314.0 | 175,000 |
+| PG-INST | COMPLIANCE | 447.0 | 250,000 |
 | PG-INST | COMPLIANCE | 598.0 | 500,000 |
 | PG-INST | COMPLIANCE | 685.0 | 1,000,000 |
 | PG-INST | ENG | 4.0 | 100 |
 | PG-INST | ENG | 5.0 | 5,000 |
 | PG-INST | ENG | 6.0 | 7,500 |
-| PG-INST | ENG | 8.0 | 10,000 |
-| PG-INST | ENG | 9.0 | 1,000,000 |
+| PG-INST | ENG | 7.0 | 10,000 |
+| PG-INST | ENG | 8.0 | 1,000,000 |
 | PG-INST | COMM | 2.0 | 2,000 |
 | PG-INST | COMM | 3.0 | 5,000 |
 | PG-INST | COMM | 4.0 | 7,500 |
 | PG-INST | COMM | 5.0 | 10,000 |
 | PG-INST | COMM | 6.0 | 15,000 |
-| PG-INST | COMM | 7.0 | 25,000 |
-| PG-INST | COMM | 9.0 | 40,000 |
-| PG-INST | COMM | 12.0 | 60,000 |
-| PG-INST | COMM | 17.0 | 100,000 |
-| PG-INST | COMM | 26.0 | 175,000 |
-| PG-INST | COMM | 35.0 | 250,000 |
-| PG-INST | COMM | 66.0 | 500,000 |
-| PG-INST | COMM | 123.0 | 1,000,000 |
+| PG-INST | COMM | 8.0 | 25,000 |
+| PG-INST | COMM | 10.0 | 40,000 |
+| PG-INST | COMM | 13.0 | 60,000 |
+| PG-INST | COMM | 18.0 | 100,000 |
+| PG-INST | COMM | 29.0 | 175,000 |
+| PG-INST | COMM | 40.0 | 250,000 |
+| PG-INST | COMM | 74.0 | 500,000 |
+| PG-INST | COMM | 139.0 | 1,000,000 |
 
 ## 6. Beneficium (annual cost)
 
@@ -313,10 +320,10 @@ Unit costs (View 1): per account $361.50; per grant $13.82; per contribution $7.
 
 | Config | View | rho | P10 | P50 | P90 | Never |
 | --- | --- | --- | --- | --- | --- | --- |
-| CFG-2 | 1 | 0.0 | $714.06M | $885.04M | $1.14B | 0.0% |
-| CFG-5 | 1 | 0.0 | $1.04B | $1.52B | $2.30B | 1.0% |
-| CFG-5 | 2 | 0.0 | $1.16B | $1.63B | $2.52B | 1.0% |
-| CFG-5 | 3 | 0.0 | $1.74B | $2.28B | $3.38B | 1.0% |
-| CFG-5 | 1 | 0.5 | $1.02B | $1.45B | $2.28B | 0.0% |
-| CFG-5 | 2 | 0.5 | $1.20B | $1.65B | $2.55B | 0.0% |
+| CFG-2 | 1 | 0.0 | $870.70M | $1.11B | $1.39B | 0.0% |
+| CFG-5 | 1 | 0.0 | $1.44B | $2.04B | $4.10B | 1.0% |
+| CFG-5 | 2 | 0.0 | $1.62B | $2.23B | $4.37B | 1.0% |
+| CFG-5 | 3 | 0.0 | $2.26B | $2.99B | $5.40B | 1.0% |
+| CFG-5 | 1 | 0.5 | $1.37B | $2.14B | $3.85B | 0.0% |
+| CFG-5 | 2 | 0.5 | $1.52B | $2.34B | $4.10B | 0.0% |
 

@@ -364,6 +364,28 @@ let all (inputs: Inputs) (baseline: CompetitiveDisplacement.Inputs.Inputs) : (st
         csv [ "founder_hours"; "view1_at_500M"; "view2_at_500M"; "break_even_view1_250M_sponsors"; "break_even_view2_250M_sponsors" ]
             (founderRows |> List.map (fun (h, a, b, c1, c2) -> [ f4 h; f4 a; f4 b; f4 c1; f4 c2 ]))
 
+    // 11c. policy levers (what would have to be true for a materially smaller operation): single and combined
+    let levers =
+        [ "Base", []
+          "Author + one independent approver (auditor-accepted) instead of author + two", [ "min_named_engineering", 2.0 ]
+          "Founder supplies 1,200 h (commercial + engineering)", [ "founder_hours_per_year", 1200.0 ]
+          "Quotes at the low end (insurance, assurance, counsel)", [ "fixed_mult", 0.8 ]
+          "AWS reserved floor and passkeys (infrastructure at 0.5x)", [ "infra_mult", 0.5 ]
+          "Exceptions 40% lower after prevention (measured)", [ "exception_mult", 0.6 ]
+          "Combined", [ "min_named_engineering", 2.0; "founder_hours_per_year", 1200.0; "fixed_mult", 0.8; "infra_mult", 0.5; "exception_mult", 0.6 ] ]
+    let leverRows =
+        [ for label, overrides in levers do
+            let vs = overrides |> List.fold (fun acc (k, x) -> Map.add k x acc) vals
+            let cx = { c with Vals = vs }
+            for cfg in [ "CFG-2"; "CFG-5" ] do
+                let e = eval false cx cfg refProgramme (500e6 / pHnw.DefaultBalance) 1.0 pHnw.DefaultBalance
+                let cv = curve cx cfg refProgramme pHnw.DefaultBalance (fun a -> max 1.0 (ceil (a / 500e6 - 1e-9)))
+                let be = curveBreakEven cv 1 (AumBps 20.0) 0.0 |> Option.map snd |> Option.defaultValue infinity
+                yield label, cfg, e.Views.View1, e.Views.View2, be ]
+    let leverCsv =
+        csv [ "lever"; "config"; "view1_at_500M"; "view2_at_500M"; "break_even_view1_500M_sponsors" ]
+            (leverRows |> List.map (fun (l, cfg, a, b, be) -> [ l; cfg; f4 a; f4 b; f4 be ]))
+
     // 11a. stress: asset decline, loss of the largest sponsor, withdrawals
     let stressBase = eval false c refConfig refProgramme (1e9 / pHnw.DefaultBalance) 4.0 pHnw.DefaultBalance
     let stressCases =
@@ -492,6 +514,7 @@ let all (inputs: Inputs) (baseline: CompetitiveDisplacement.Inputs.Inputs) : (st
       "monte-carlo-break-even.csv", mcBeCsv
       "stress.csv", stressCsv
       "founder-sensitivity.csv", founderCsv
+      "policy-levers.csv", leverCsv
       "baseline-comparison.csv", compCsv
       "requirement-hours.csv", reqCsv
       "activity-loads-reference.csv", actCsv ]

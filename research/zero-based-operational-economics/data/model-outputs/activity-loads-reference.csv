@@ -6,7 +6,7 @@ OA-ACN-004,Successor and charitable-default designation at setup,AdminException,
 OA-ACN-005,"Participant, advisor and delegation changes",AdminException,AUTO-EXCEPTION,ops,160,16,0,272,0,1,0
 OA-ACN-006,Profile and verified contact-channel changes,AdminException,AUTO-EXCEPTION,ops,600,60,0,1020,0,1,0
 OA-ACN-007,Account recovery and credential reset,Support,AUTO-EXCEPTION,support,200,20,0,300,0,1,0
-OA-ACN-008,Human-handled donor and advisor service contacts,Support,AI-ASSISTED,support,1000,800,0,11560,0,1,200
+OA-ACN-008,Human-handled donor and advisor service contacts,Support,AI-ASSISTED,support,2000,1600,0,23120,0,1,400
 OA-ACN-009,Complaint handling,SponsorReserved,HUMAN-JUDGMENT,support,20,20,0,900,0,0.5,0
 OA-ACN-010,Accessibility accommodation and assisted assurance path,Support,AI-ASSISTED,support,40,40,0,680,0,1,0
 OA-ACN-011,Communication consent and preference management,AdminException,DETERMINISTIC,ops,100,1,0,5,0,1,0
@@ -24,16 +24,16 @@ OA-ACN-022,Multi-advisor conflicting recommendation resolution,AdminException,AU
 OA-ACN-023,Major-donor stewardship and giving-plan reviews,SponsorOwned,SPONSOR-OWNED,sponsor,40,40,0,4800,0,0,0
 OA-CON-001,Contribution intent capture and expected-receipt record,AdminException,DETERMINISTIC,ops,3704,18.52,0,92.6,0,1,0
 OA-CON-002,"Cash, ACH and wire contribution receipt, matching and posting",AdminException,AUTO-EXCEPTION,accounting,1852,55.56,0,1277.88,0,1,555.6
-OA-CON-003,Paper check contributions via lockbox,External,EXTERNAL-PROVIDER,accounting,926,46.3,0,463,0,0,601.9
+OA-CON-003,Paper check contributions via lockbox,External,EXTERNAL-PROVIDER,accounting,926,46.3,0,463,0,0.5,601.9
 OA-CON-004,Unidentified receipt attribution,AdminException,AUTO-EXCEPTION,accounting,4630,185.2,0,6111.6,0,1,0
-OA-CON-005,Publicly traded securities gift receipt and valuation,External,AUTO-EXCEPTION,accounting,1852,148.16,0,4533.696,0,0,18520
+OA-CON-005,Publicly traded securities gift receipt and valuation,External,AUTO-EXCEPTION,accounting,1852,148.16,0,4533.696,0,0.5,18520
 OA-CON-006,Complex noncash gift acceptance (agent model),SponsorReserved,HUMAN-JUDGMENT,sponsor,5.556,5.556,0,2800.224,0,0.5,1944.6
 OA-CON-007,Form 8283 Section B donee signature and appraisal tracking,SponsorOwned,SPONSOR-OWNED,sponsor,4.63,4.63,0,208.35,0,0,0
 OA-CON-008,Form 8282 disposition reporting,SponsorDelegable,DETERMINISTIC,accounting,2.778,0.8334,0,25.002,0,0.8,0
 OA-CON-009,Contribution acknowledgment issuance,AdminException,DETERMINISTIC,ops,4630,92.6,0,926,0,1,231.5
 OA-CON-010,Contributor-of-record determination,AdminException,AUTO-EXCEPTION,accounting,4630,46.3,0,463,0,1,0
 OA-CON-011,Recurring contribution mandate set-up and changes,AdminException,AUTO-EXCEPTION,ops,100,5,0,50,0,1,10
-OA-CON-012,Recurring debit execution and failure handling,External,DETERMINISTIC,ops,1157.5,11.575,0,115.75,0,0,347.25
+OA-CON-012,Recurring debit execution and failure handling,External,DETERMINISTIC,ops,1157.5,11.575,0,115.75,0,0.5,347.25
 OA-CON-013,ACH contribution return and acknowledgment reversal,AdminException,AUTO-EXCEPTION,accounting,9.26,6.482,0,194.46,0,1,0
 OA-CON-014,Payroll and workplace giving remittance reconciliation,AdminException,AUTO-EXCEPTION,accounting,92.6,4.63,0,138.9,0,1,0
 OA-CON-015,Lapse of unreceived intents and partial multi-lot closure,AdminException,DETERMINISTIC,ops,69.45,3.4725,0,34.725,0,1,0
@@ -52,8 +52,8 @@ OA-GRT-008,Decline communication and reconsideration,IndependentAuth,INDEPENDENT
 OA-GRT-009,Recurring and future-dated grant occurrence execution,AdminException,DETERMINISTIC,ops,4167,41.67,0,416.7,0,1,0
 OA-GRT-010,"Funding plan, liquidation and shortfall resolution",AdminException,AUTO-EXCEPTION,ops,166.68,16.668,0,250.02,0,1,0
 OA-GRT-011,Payment batch release authorization,IndependentAuth,INDEPENDENT-AUTHORIZATION,sponsor,250,125,125,2500,750,0.8,0
-OA-GRT-012,Electronic grant payment execution (ACH/rail partner),External,EXTERNAL-PROVIDER,ops,11167.56,335.0268,0,3484.2787,0,0,3350.268
-OA-GRT-013,Paper check grant issuance with positive pay and mailing,External,EXTERNAL-PROVIDER,ops,5500.44,330.0264,0,4752.3802,0,0,22001.76
+OA-GRT-012,Electronic grant payment execution (ACH/rail partner),External,EXTERNAL-PROVIDER,ops,11167.56,335.0268,0,3484.2787,0,0.5,3350.268
+OA-GRT-013,Paper check grant issuance with positive pay and mailing,External,EXTERNAL-PROVIDER,ops,5500.44,330.0264,0,4752.3802,0,0.5,22001.76
 OA-GRT-014,Wire grants,IndependentAuth,INDEPENDENT-AUTHORIZATION,sponsor,83.34,83.34,83.34,833.4,250.02,0.8,2083.5
 OA-GRT-015,Returned or rejected electronic grant payments,AdminException,AUTO-EXCEPTION,ops,16668,56.6712,0,1076.7528,0,1,0
 OA-GRT-016,"Uncashed and voided check outreach, reissue and escheat disposition",AdminException,AUTO-EXCEPTION,ops,16668,166.68,0,3166.92,0,1,666.72
@@ -76,13 +76,13 @@ OA-CHR-008,Destination bank-detail change verification,IndependentAuth,INDEPENDE
 OA-CHR-009,California AG/FTB status ingestion and hold/warn,AdminException,DETERMINISTIC,compliance,6345.3905,31.727,0,475.9043,0,1,0
 OA-CHR-010,Reference-source release ingestion and integrity gate review,Tech,AUTO-EXCEPTION,engineering,52,5.2,0,312,0,1,0
 OA-INV-001,Investment allocation instructions,AdminException,DETERMINISTIC,ops,1200,24,0,408,0,1,0
-OA-INV-002,Custodian/manager feed content validation,External,AUTO-EXCEPTION,accounting,250,5,0,150,0,0,0
+OA-INV-002,Custodian/manager feed content validation,External,AUTO-EXCEPTION,accounting,250,5,0,150,0,0.5,0
 OA-INV-003,NAV/unit value publication and out-of-tolerance approval,SponsorDelegable,AUTO-EXCEPTION,controller,250,12.5,0,375,0,0.8,0
 OA-INV-004,Next-day independent NAV sample review,SponsorReserved,HUMAN-JUDGMENT,controller,250,125,0,1250,0,0.5,0
 OA-INV-005,"Custody position, unit and cash break investigation",AdminException,AUTO-EXCEPTION,accounting,250,12.5,0,500,0,1,0
 OA-INV-006,Liquidity buffer stress model and approval,SponsorOwned,SPONSOR-OWNED,controller,1,1,0,240,0,0,0
 OA-INV-007,Grant-driven redemption instruction and settlement monitoring,AdminException,DETERMINISTIC,ops,250,7.5,0,225,0,1,0
-OA-INV-008,Rebalancing and manager instruction,External,EXTERNAL-PROVIDER,none,12,0.6,0,18,0,0,0
+OA-INV-008,Rebalancing and manager instruction,External,EXTERNAL-PROVIDER,none,12,0.6,0,18,0,0.5,0
 OA-INV-009,"Fee calculation, daily accrual and posting exceptions",AdminException,DETERMINISTIC,accounting,2000,10,0,100,0,1,0
 OA-INV-010,Fee waivers and shortfall memo claims,SponsorOwned,SPONSOR-OWNED,sponsor,10,10,0,100,0,0,0
 OA-INV-011,Advisor-managed account mandate and advisor fee feed reconciliation,AdminException,AUTO-EXCEPTION,ops,60,18,0,540,0,1,0
@@ -90,7 +90,7 @@ OA-INV-012,"Corporate actions, income and trailing receipts attribution",AdminEx
 OA-INV-013,Valuation correction impact and loss attribution,SponsorReserved,HUMAN-JUDGMENT,controller,2,2,0,480,0,0.5,0
 OA-INV-014,"Investment policy, menu changes and IC reporting",SponsorOwned,SPONSOR-OWNED,sponsor,4,4,0,2520,0,0,0
 OA-INV-015,Custodian or manager outage and degraded mode,Tech,AUTO-EXCEPTION,engineering,3,3,0,900,0,1,0
-OA-INV-016,Custody account opening and maintenance,External,EXTERNAL-PROVIDER,ops,4,4,0,240,0,0,0
+OA-INV-016,Custody account opening and maintenance,External,EXTERNAL-PROVIDER,ops,4,4,0,240,0,0.5,0
 OA-ACG-001,Automated journal posting from domain events,AdminException,DETERMINISTIC,accounting,250,1.25,0,37.5,0,1,0
 OA-ACG-002,Manual journal preparation and second approval,IndependentAuth,INDEPENDENT-AUTHORIZATION,accounting,36,36,36,1080,324,0.8,0
 OA-ACG-003,Bank activity ingestion and content matching,AdminException,DETERMINISTIC,accounting,250,5,0,150,0,1,0
@@ -128,7 +128,7 @@ OA-CMP-016,Affiliation and related-party attestation review,AdminException,AUTO-
 OA-CMP-017,Fraud and account-takeover alert triage,AdminException,AUTO-EXCEPTION,compliance,60,30,0,600,0,1,0
 OA-CMP-018,Restricted fraud investigation,SponsorReserved,HUMAN-JUDGMENT,compliance,4,4,0,800,0,0.5,2400
 OA-CMP-019,Nacha risk-based fraud monitoring program (TPSP),Shared,AI-ASSISTED,compliance,12,12,0,612,0,1,0
-OA-CMP-020,Annual Nacha Rules compliance audit (TPSP),External,EXTERNAL-PROVIDER,compliance,1,1,0,960,0,0,0
+OA-CMP-020,Annual Nacha Rules compliance audit (TPSP),External,EXTERNAL-PROVIDER,compliance,1,1,0,960,0,0.5,0
 OA-CMP-021,"Protective hold, kill switch and break-glass activation",IndependentAuth,INDEPENDENT-AUTHORIZATION,engineering,4,4,4,480,144,0.8,0
 OA-CMP-022,Audit evidence package generation and auditor access,AdminException,AUTO-EXCEPTION,controller,2,2,0,240,0,1,0
 OA-CMP-023,Auditor planned-approach record before live reliance,SponsorOwned,SPONSOR-OWNED,controller,0.2,0.2,0,96,0,0,0
@@ -146,9 +146,9 @@ OA-TEC-002,Operational incident response (sponsor-attributable),Tech,HUMAN-JUDGM
 OA-TEC-003,Security monitoring and alert triage,Tech,AUTO-EXCEPTION,engineering,365,109.5,0,3285,0,1,0
 OA-TEC-004,Security incident response,Tech,HUMAN-JUDGMENT,engineering,4,4,0,6000,0,1,0
 OA-TEC-005,Backup verification and tenant-scoped restore tests,Tech,AUTO-EXCEPTION,engineering,12,12,0,720,0,1,0
-OA-TEC-006,DR/BCP drills and December readiness tests,Tech,HUMAN-JUDGMENT,engineering,2,2,0,4800,0,1,0
-OA-TEC-007,Vulnerability management and dependency updates,Tech,AI-ASSISTED,engineering,12,12,0,4896,0,1,0
-OA-TEC-008,Annual external penetration test,External,EXTERNAL-PROVIDER,engineering,1,1,0,960,0,0,0
+OA-TEC-006,DR/BCP drills and December readiness tests,Tech,HUMAN-JUDGMENT,engineering,2,2,0,5280,0,1,0
+OA-TEC-007,Vulnerability management and dependency updates,Tech,AI-ASSISTED,engineering,12,12,0,7344,0,1,0
+OA-TEC-008,Annual external penetration test,External,EXTERNAL-PROVIDER,engineering,1,1,0,960,0,0.5,0
 OA-TEC-009,Release deployment through rings,Tech,AUTO-EXCEPTION,engineering,50,50,0,3000,0,1,0
 OA-TEC-010,Two-approver review of control-relevant module changes,IndependentAuth,INDEPENDENT-AUTHORIZATION,engineering,600,600,600,24000,7200,0.8,0
 OA-TEC-011,"Software maintenance, schema migrations and database upgrades",Tech,SHARED-ECHELON,engineering,12,12,0,14760,0,1,0
@@ -181,3 +181,4 @@ OA-COM-016,First-sponsor economic evidence obligations,Commercial,SHARED-ECHELON
 OA-COM-017,Program description and marketing claims review,SponsorDelegable,AUTO-EXCEPTION,compliance,4,4,0,240,0,0.8,0
 OA-TEC-022,Defect correction and non-feature change,Tech,SHARED-ECHELON,engineering,1,1,0,48000,0,1,0
 OA-TEC-023,"Shared integration upkeep (banks, custodians, payment partners, IRS and sanctions feeds)",Tech,SHARED-ECHELON,engineering,1,1,0,36000,0,1,0
+OA-TEC-024,Regulatory and tax-law change implementation,Tech,SHARED-ECHELON,engineering,1,1,0,9600,0,1,0

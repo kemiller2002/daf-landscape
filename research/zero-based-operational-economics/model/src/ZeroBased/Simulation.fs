@@ -25,7 +25,13 @@ let private nearMonthEnd (d: int) = monthEnds |> Set.exists (fun e -> e - d >= 0
 let rawWeight (vals: Values) (profile: string) (d: int) : float =
     let m = monthOf d
     match profile with
-    | "year_end" -> (if m = 12 then v vals "season_dec_weight" elif m = 11 then v vals "season_nov_weight" else 1.0)
+    | "year_end" ->
+        // December weight split so that a share of December arrivals falls in its last 10 days (REV-B, ADV-OC-005)
+        if m = 12 then
+            let dec = v vals "season_dec_weight" * 31.0
+            let peak = v vals "season_dec_peak_share"
+            if d >= 355 then dec * peak / 10.0 else dec * (1.0 - peak) / 21.0
+        elif m = 11 then v vals "season_nov_weight" else 1.0
     | "month_end" -> if nearMonthEnd d then 6.0 else 1.0
     | "quarter_end" -> if (m = 3 || m = 6 || m = 9 || m = 12) && nearMonthEnd d then 20.0 else 1.0
     | "tax_season" -> if m <= 4 then 2.0 else 1.0
@@ -81,7 +87,8 @@ let arrivals (vals: Values) (poolOf: string -> string) (pool: string) (ls: Load 
         if h <= 0.0 then []
         else
             let w = weights vals l.Activity.Seasonality
-            // SLA hours are converted to business days (8 business hours per day), minimum one business day
+            // SLA hours become business days (sla_hours / 24, minimum one business day): sub-day SLAs are approximated
+            // as next-business-day; 24x7 paged response is costed separately (on-call FC-017)
             let sla = max 1.0 (l.Activity.SlaHours / 24.0)
             [ for d in 0 .. days - 1 do
                   if w.[d] > 0.0 then yield { Day = d; Hours = h * w.[d]; SlaDays = sla } ])

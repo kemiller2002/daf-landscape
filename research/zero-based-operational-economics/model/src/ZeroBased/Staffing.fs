@@ -15,13 +15,13 @@ let poolOf (roles: Role list) (role: string) =
 let pools (roles: Role list) = roles |> List.map (fun r -> r.Pool) |> List.distinct
 
 /// Pools whose work must be done by persons independent of payment initiation (segregation of duties).
-let criticalPools = set [ "OPS"; "AUTH"; "FINANCE" ]
+let criticalPools = set [ "OPS"; "AUTH"; "FINANCE"; "CONTROL" ]
 
 /// Minimum distinct named persons per pool when the pool has work: primary + trained backup for the
 /// segregated control pools; author + two non-author approvers for engineering (Unbound CNV-PLT-010).
 let minNamed (vals: Values) (pool: string) =
     match pool with
-    | "OPS" | "AUTH" | "FINANCE" -> v vals "min_named_control_pool"
+    | "OPS" | "AUTH" | "FINANCE" | "CONTROL" -> v vals "min_named_control_pool"
     | "ENG" -> v vals "min_named_engineering"
     | "COMPLIANCE" -> v vals "min_named_compliance"
     | "COMM" -> 1.0
@@ -80,7 +80,8 @@ let staffPool (simulate: bool) (level: Level) (vals: Values) (roles: Role list) 
             let perFteYear = productive
             let h = max 0.0 (hours - fHours)
             let step = v vals "staff_step_fte"
-            let fte = if h <= 0.0 then 0.0 else ceil (h * v vals "analytic_peak_factor" / perFteYear / step - 1e-9) * step
+            let factor = if pool = "OPS" || pool = "FINANCE" || pool = "COMPLIANCE" then v vals "analytic_peak_factor" else v vals "analytic_peak_factor_steady"
+            let fte = if h <= 0.0 then 0.0 else ceil (h * factor / perFteYear / step - 1e-9) * step
             fte, { Pool = pool; Staff = fte; ArrivedHours = h; DoneHours = h; PeakQueueHours = nan; PeakQueueAgeDays = nan
                    BreachedHours = nan; Utilisation = (if fte > 0.0 then h / (fte * perFteYear) else 0.0); PeakWeekHours = nan; IncidentHours = nan }
     let residualHours = hours - fHours
@@ -97,8 +98,9 @@ let staffPool (simulate: bool) (level: Level) (vals: Values) (roles: Role list) 
         elif max avgFte floorFte < threshold
              && (max residualHours (floorFte * productive)) * fracRate * v vals "fractional_availability_premium"
                 <= (ceil (max (avgFte / v vals "max_dedicated_utilisation") simFte / v vals "hire_step_fte" - 1e-9) * v vals "hire_step_fte") * dedicatedCost then
-            // fractional only while it is cheaper than the dedicated alternative (REV-A, ADV-CS-006)
-            let h = max residualHours (floorFte * productive)
+            // fractional only while it is cheaper than the dedicated alternative (REV-A, ADV-CS-006);
+            // engagement floor per fractional pool (REV-B, ADV-OA-008)
+            let h = max (max residualHours (floorFte * productive)) (v vals "fractional_min_hours")
             "fractional", 0.0, h, h * fracRate * v vals "fractional_availability_premium"
         else
             let step = v vals "hire_step_fte"
@@ -175,7 +177,8 @@ let staffing (simulate: bool) (level: Level) (vals: Values) (roles: Role list) (
     let independent =
         staffed |> List.filter (fun s -> Set.contains s.Pool criticalPools && s.NamedPersons > 0) |> List.sumBy (fun s -> s.NamedPersons)
     { Pools = staffed
-      LabourCash = staffed |> List.sumBy (fun s -> s.Cost)
+      // dedicated staff carry recruiting, onboarding and turnover cost (REV-B, ADV-OA-012)
+      LabourCash = (staffed |> List.sumBy (fun s -> s.Cost)) + (staffed |> List.sumBy (fun s -> s.DedicatedFte)) * v vals "turnover_cost_per_fte"
       BackupCash = backups
       FounderImputed = staffed |> List.sumBy (fun s -> s.FounderImputedCost)
       DedicatedFte = staffed |> List.sumBy (fun s -> s.DedicatedFte)
