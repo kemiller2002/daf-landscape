@@ -1,6 +1,6 @@
 # 04 — Operational activity inventory
 
-Register: [`operational-activities.csv`](data/registers/operational-activities.csv) — **180 activities**, 35 fields each (identifier, description, trigger, driver, frequency low/base/high, seasonality, Unbound requirements, responsible entity, authority, qualification, controls, classification, human role, exception rate and minutes low/base/high, independent authorization, SLA, peak characteristics, dependencies, external cost, evidence class, confidence, sources, validation method, why it exists, legal status, elimination challenge). Method notes: [activity-inventory-notes.md](data/evidence/activity-inventory-notes.md). Unbound was read at commit `79b9258`; nothing in Unbound was changed.
+Register: [`operational-activities.csv`](data/registers/operational-activities.csv) — **183 activities** (180 from the inventory track plus OA-TEC-022 defect correction, OA-TEC-023 shared integration upkeep and OA-TEC-024 regulatory change, added after adversarial review; OA-TEC-010, OA-TEC-006, OA-TEC-007 and OA-ACN-008 revised, each with a `REV-A`/`REV-B` note in `evidence_sources`), 35 fields each (identifier, description, trigger, driver, frequency low/base/high, seasonality, Unbound requirements, responsible entity, authority, qualification, controls, classification, human role, exception rate and minutes low/base/high, independent authorization, SLA, peak characteristics, dependencies, external cost, evidence class, confidence, sources, validation method, why it exists, legal status, elimination challenge). Method notes: [activity-inventory-notes.md](data/evidence/activity-inventory-notes.md). Unbound was read at commit `79b9258`; nothing in Unbound was changed.
 
 ## 1. Coverage
 
@@ -63,7 +63,7 @@ The single most important number in the whole model is the **Tier-2 trigger inci
 
 ## 4. Model run at the reference scenario
 
-At the reference ($500M AUA, 2,000 accounts, 1 sponsor, full administration CFG-5) the model generates about 303,000 events a year, of which **97.1% complete without a person**. About 8,850 are human-handled and about 920 independently authorised. See [`activity-loads-reference.csv`](data/model-outputs/activity-loads-reference.csv) for every activity's events, human events, minutes and vendor share.
+At the reference ($500M AUA, 2,000 accounts, 1 sponsor, full administration CFG-5) the model generates about 304,000 events a year, of which **96.7% complete without a person**. About 9,950 are human-handled and about 1,220 independently authorised (after review corrections). See [`activity-loads-reference.csv`](data/model-outputs/activity-loads-reference.csv) for every activity's events, human events, minutes and vendor share.
 
 ## 5. Data quality
 

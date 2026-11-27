@@ -20,11 +20,12 @@ Of the 37 activities claiming a human must decide (judgment + independent author
 
 ## 2. Where automation saves, and where it does not
 
-Measured by the model (same inventory, CFG-5, PG-HNW, 2,000 accounts):
+Measured by the model (same inventory, CFG-5, PG-HNW, 2,000 accounts; after review corrections):
 
 - **97% of events complete without a person.** The residual 3% carries all the labour.
-- **Variable labour is small; fixed and floor labour dominate below ~5,000 accounts.** Vendor hours rise only from ~2,740 at 100 accounts to ~3,850 at 2,000 accounts ([`scale-grid-accounts.csv`](data/model-outputs/scale-grid-accounts.csv)). The platform's own engineering, assurance, and charity-data upkeep set the floor; automation does not remove them.
-- **AI matters less than design.** The AI factor (0.85 base, field evidence) applies only to 18 AI-assisted activities. Moving it from 0.6 to 0.97 changes View 1 by about ±$25k at $500M ([`sensitivity-tornado.csv`](data/model-outputs/sensitivity-tornado.csv)). Exception rates (`exception_mult`) and handling minutes (`duration_mult`) matter 5-20× more.
+- **Variable labour is small; fixed and floor labour dominate below ~5,000 accounts.** Vendor hours rise only from ~5,080 at 100 accounts to ~7,200 at 2,000 accounts ([`scale-grid-accounts.csv`](data/model-outputs/scale-grid-accounts.csv)). The platform's own engineering, assurance, and charity-data upkeep set the floor; automation does not remove them.
+- **AI matters less than design.** The AI factor (0.85 base, field evidence) applies only to 18 AI-assisted activities. Moving it from 0.6 to 0.97 changes View 1 by only about $33k at $500M ([`sensitivity-tornado.csv`](data/model-outputs/sensitivity-tornado.csv)). Exception rates (`exception_mult`) and handling minutes (`duration_mult`) matter 5-20× more.
+- **At this scale AI assistance is net negative** (review finding ADV-OA-014): it saves about 120 handling hours while its change control (OA-TEC-021) costs 384 engineering hours. It pays only at larger exception volumes.
 - **The original model's AI oversight cost ($0.3M flat) is replaced** by an explicit activity (OA-TEC-021 AI agent configuration, evaluation and change control, 384 h/yr) plus token costs that follow exception volume (Claude Sonnet 5.5 at $2/$10 per million tokens; ~$0.026 per assisted exception).
 
 ## 3. Elimination and prevention opportunities (not yet in requirements)

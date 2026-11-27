@@ -47,6 +47,27 @@ let main argv =
         | Error es, _ | _, Error es ->
             es |> List.iter (eprintfn "input error: %s")
             1
+    | [ "validate"; packageDir ] ->
+        let file f = Path.Combine(packageDir, f)
+        let missing = Validate.deliverables |> List.filter (file >> File.Exists >> not) |> List.map (fun f -> $"missing deliverable {f}")
+        let csvs = Directory.GetFiles(Path.Combine(packageDir, "data"), "*.csv", SearchOption.AllDirectories) |> Array.sort |> List.ofArray
+        let widths = csvs |> List.collect (fun p -> Validate.csvWidths (Path.GetRelativePath(packageDir, p)) (File.ReadAllText p))
+        let assumptionFiles = [ "parameters.csv"; "infrastructure-parameters.csv"; "beneficium-parameters.csv" ]
+        let schema = assumptionFiles |> List.collect (fun f -> Validate.assumptions f (File.ReadAllText(Path.Combine(packageDir, "data", "model-inputs", f))))
+        let mds = Directory.GetFiles(packageDir, "*.md", SearchOption.AllDirectories) |> Array.filter (fun p -> not (p.Contains "/bin/" || p.Contains "/obj/")) |> Array.sort |> List.ofArray
+        let broken =
+            mds |> List.collect (fun md ->
+                Validate.links (File.ReadAllText md)
+                |> List.filter (fun l -> let t = Path.GetFullPath(Path.Combine(Path.GetDirectoryName md, l)) in not (File.Exists t || Directory.Exists t))
+                |> List.map (fun l -> $"{Path.GetRelativePath(packageDir, md)}: broken link {l}"))
+        let disp = Validate.dispositions (File.ReadAllText(Path.Combine(packageDir, "data", "registers", "adversarial-findings.csv")))
+        let errors = missing @ widths @ schema @ broken @ disp
+        if errors.IsEmpty then
+            printfn "validate OK: %d deliverables, %d CSV files, %d markdown files, links resolve, dispositions complete" Validate.deliverables.Length csvs.Length mds.Length
+            0
+        else
+            errors |> List.iter (eprintfn "%s")
+            1
     | _ ->
-        eprintfn "usage: run|check <data-dir> <baseline-model-inputs-dir> <output-dir>"
+        eprintfn "usage: run|check <data-dir> <baseline-model-inputs-dir> <output-dir> | validate <package-dir>"
         2

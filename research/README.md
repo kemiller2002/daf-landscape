@@ -265,3 +265,10 @@ Pending validation.
   - No candidate advantage compounds as a network effect.
   - Recommended route: partner-first technology licensing with gated funding and kill rules (about $6.5M P50 to self-sustaining; $0.15-0.35M to decide).
 - Cross-repository proposals only (Unbound, Transitus, Echelon Foundry); no files changed elsewhere.
+
+## Zero-based operational economics and organisational design (2026-11-27)
+
+- [Research package](zero-based-operational-economics/README.md), starting with the [executive findings](zero-based-operational-economics/00-executive-findings.md) and [final recommendations](zero-based-operational-economics/27-final-recommendations.md).
+  - 28 reports; 183 operational activities linked to Unbound requirements; 63 control obligations by mandate class; measured public charity data; published cloud prices; an F# operating-year queue simulation reusing the competitive-displacement model; 20 tests; byte-identical outputs; package validator.
+  - Ten adversarial perspectives: 118 findings, each with a recorded disposition; two correction rounds.
+- **Headline.** Full administration costs ≈ $1.8-2.9M a year at $100M-$1B and ≈ $3.89M at the previous model's operating point (vs its $3.85M); break-even at 20 bps ≈ $1.85B ($250k balances, $500M sponsors). The previous estimate lands roughly right for the wrong reasons. Licensing with support has a ≈ $1.4M floor and should be priced per account. Sponsor size is the dominant driver. Nothing is measured.

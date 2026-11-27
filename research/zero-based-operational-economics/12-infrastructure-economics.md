@@ -58,4 +58,4 @@ Servicing-economics' fixed infrastructure ($41.4k/yr: DB HA $6.2k + DR $3.1k + a
 
 Observability SaaS (Datadog-class $15-31/host-month — monitoring is absent in Echelon today; a paging/uptime line is in fixed costs FC-009), SIEM and security tooling (FC-010), cloud support plans (~$100+/mo, UNKNOWN), paid DDoS protection, payment rails and data subscriptions. Placeholders: AWS SMS (Twilio proxy), Plaid ($1.50, unpublished), CloudFront per-GB, Entra US SMS tier. All consumption drivers stay ASSUMPTION/INFERENCE until a PostgreSQL benchmark (RM-05) and a pilot measure them.
 
-**Conclusion.** Infrastructure is not a material driver of Unbound's economics at any scale modelled: about **1% of incremental cash cost** at $500M AUA. Decisions should be made on control, isolation and resilience grounds, not to save infrastructure cost.
+**Conclusion.** Infrastructure is not a material driver of Unbound's economics at any scale modelled: **under 1% of incremental cash cost** at $500M AUA (≈ $13k of $2.2M). Decisions should be made on control, isolation and resilience grounds, not to save infrastructure cost.

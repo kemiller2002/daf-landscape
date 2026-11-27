@@ -1,0 +1,14 @@
+scenario_id,description,accounts,sponsors,mean_balance,programme,configuration,deployment,staffing_mode,output
+SC-HEAD,Headline AUA $100M/$250M/$500M/$1B; sponsors = AUA/$500M,AUA/balance,"max(1, round(AUA/500M))",250000,PG-HNW,all 7,C1,simulated,headline-scenarios.csv; headline-staffing.csv
+SC-REF,"Reference: $500M, 1 sponsor",2000,1,250000,PG-HNW,CFG-5,C1,simulated,simulation-reference.csv; activity-loads-reference.csv
+SC-GRID-AUA,AUA $10M-$25B × balance $5k-$1M,AUA/balance (20 to 5M),AUA/$500M,5k-1M,PG-HNW,"CFG-2, CFG-5",C1,analytic,scale-grid-aua-balance.csv
+SC-GRID-ACC,Accounts 100-1M,"100-1,000,000",1 and 5,250000,PG-HNW,"CFG-2, CFG-5",C1,analytic,scale-grid-accounts.csv
+SC-STEP,Staffing step functions,"100-1,000,000 (18 levels)",AUA/$500M,programme default,"PG-HNW, PG-RETAIL, PG-INST",CFG-5,C1,simulated,staffing-steps.csv; staffing-thresholds.csv
+SC-BE,Break-even grid,"100-2,000,000 (70 log points)",AUA/$500M,5k-1M,PG-HNW,all 7,C1,analytic,break-even.csv
+SC-SIZE,Break-even by sponsor size,grid,AUA/size ($25M-$1B),250000,PG-HNW,"CFG-2, CFG-5, CFG-7",C1,analytic,break-even-by-sponsor-size.csv
+SC-PROG,Programmes and sponsor mixes at $1B,AUA/balance,1-50,programme default,all 6,CFG-5,C1,analytic,programmes-and-mixes.csv
+SC-MC,Monte Carlo cost and break-even,fixed / grid,1-2,250000 / drawn 100k-500k,PG-HNW,"CFG-2, CFG-5",C1,analytic,monte-carlo-*.csv
+SC-STRESS,"Stress at $1B, 4 sponsors",4000,4/3,250000 (declines),PG-HNW,CFG-5,C1,analytic,stress.csv
+SC-INFRA,Infrastructure by deployment,1k-1M,accounts/20k,250000,PG-HNW,CFG-5,C1/C2/C3,analytic,infrastructure.csv
+SC-BEN,Beneficium tiers × recipients,—,1-30,—,—,—,—,—,beneficium-*.csv; vetting-alternatives.csv
+SC-LEVER,Policy levers,2000 / grid,1,250000,PG-HNW,"CFG-2, CFG-5",C1,analytic,policy-levers.csv

@@ -1,6 +1,6 @@
 # Infrastructure cost evidence: Unbound (zero-based)
 
-Reviewed 2026-11-27. Prices: [`../registers/infrastructure-prices.csv`](../registers/infrastructure-prices.csv) (88 rows; Azure Retail Prices API, AWS Price List API bulk CSVs for us-east-1, vendor pages, all read 2026-11-27). Consumption drivers: [`../registers/infrastructure-consumption-assumptions.csv`](../registers/infrastructure-consumption-assumptions.csv) (44 rows, low/base/high). The arithmetic is reproducible with [`infrastructure_cost_model_crosscheck.py`](../../model/infrastructure_cost_model.py). Hours per month = 730. Unless stated, figures are pay-as-you-go (PAYG) list prices in East US / us-east-1.
+Reviewed 2026-11-27. Prices: [`../registers/infrastructure-prices.csv`](../registers/infrastructure-prices.csv) (88 rows; Azure Retail Prices API, AWS Price List API bulk CSVs for us-east-1, vendor pages, all read 2026-11-27). Consumption drivers: [`../registers/infrastructure-consumption-assumptions.csv`](../registers/infrastructure-consumption-assumptions.csv) (44 rows, low/base/high). The arithmetic is reproducible with [`infrastructure_cost_model_crosscheck.py`](infrastructure_cost_model_crosscheck.py). Hours per month = 730. Unless stated, figures are pay-as-you-go (PAYG) list prices in East US / us-east-1.
 
 ## 1. Which cloud is intended
 

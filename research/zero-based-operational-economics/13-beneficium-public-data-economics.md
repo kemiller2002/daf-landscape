@@ -61,16 +61,16 @@ Material breaking format or schema changes across federal sources occur about 3 
 
 ## 6. Zero-customer cost (model)
 
-From [`beneficium-scenarios.csv`](data/model-outputs/beneficium-scenarios.csv) (engineering at $118/h, compliance at $67.69/h; owner floor 100 h; counsel 20 h; shared database at 30% of a $150/month floor):
+From [`beneficium-scenarios.csv`](data/model-outputs/beneficium-scenarios.csv) (engineering at $118/h, compliance at $120/h (blend; revised after review ADV-CS-004); owner floor 100 h; counsel 20 h; shared database at 30% of a $150/month floor):
 
 | Scenario | Annual cost, 0 recipients | FTE equivalent |
 |---|---:|---:|
-| Public directory only | **$50.8k** | ≈ 0.2 |
-| + historical filings | $56.8k | |
-| + grant relationship intelligence | $59.8k | |
-| + continuous regulatory monitoring | **$86.3k** | ≈ 0.4 |
-| + automated verification evidence | $124.7k | ≈ 0.7 |
-| Full service (adds commercial licence and a charity support desk) | $178.2k | |
+| Public directory only | **$57.6k** | ≈ 0.25 |
+| + historical filings | $63.6k | |
+| + grant relationship intelligence | $66.6k | |
+| + continuous regulatory monitoring | **$93.1k** | ≈ 0.46 |
+| + automated verification evidence | $131.5k | ≈ 0.7 |
+| Full service (adds commercial licence and a charity support desk) | $185.0k | |
 
 **Infrastructure is trivial (< $3k/yr).** Cost is maintenance labour: connectors, pipeline operations, quarantine review, and an accountable owner. Model connector hours use 25 h per connector-year (range 9-58); this slightly overstates the directory tier (125 h vs the measured 76 h) and understates verification (650 h vs 820 h) — within the stated ranges.
 

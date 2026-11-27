@@ -1,0 +1,13 @@
+question_id,question,why_it_matters,how_to_resolve,blocked_by,related
+OQ-ZB-01,What are Unbound's actual exception rates and handling minutes for the top 15 activities?,Largest model uncertainty (±$0.5M at $500M),Synthetic operating-year time study (OD-M-14) then pilot measurement,no design partner,25
+OQ-ZB-02,What share of grants trigger Tier-2 review and how long does a review take?,OA-GRT-005 is 24% of all minutes,CNV-ECO-003 shadow replay on real grant history,sponsor data access,21
+OQ-ZB-03,Is Unbound a Nacha TPSP or a Third-Party Sender? Must the Rules Compliance Audit be external?,TPS status adds obligations and risk,ODFI and payments counsel,DF-ASR-2026-0D0F,06
+OQ-ZB-04,Does a board-delegated automated grant approval satisfy the sponsor's control under 4966/170(f)(18)? Who are fund managers?,Determines how much human review is mandatory,Tax counsel,DF-ASR-2026-0D0F,06
+OQ-ZB-05,Will sponsors' auditors rely on a SOC 1 Type 2 and accept deterministic release as the second person?,Drives CONTROL/AUTH staffing and SOC cost,Auditor walkthrough at first sponsor,first sponsor,06
+OQ-ZB-06,"How many engineering hours does an accepted, reviewed change take in Echelon's method?",Engineering is ~40% of cash cost; no effort records exist,Praxis telemetry with human time and tokens per work item,telemetry not populated,16
+OQ-ZB-07,What is the real per-sponsor close and audit-support effort for a small sponsor?,Decides minimum viable sponsor size,Time study; compare with sponsor finance teams,no design partner,10
+OQ-ZB-08,"What insurance limits will sponsors and the ODFI require, and at what premiums?",$45-145k range,Broker indication (not commissioned),DF-ASR-2026-0D0F,fixed-costs
+OQ-ZB-09,Can Beneficium sources be monitored reliably (stale-source share; schema drift ~3/yr)?,Determines vetting false negatives and upkeep,Run connectors for 6 months; measure drift and staleness,Beneficium repository absent,13
+OQ-ZB-10,"Money-transmission, investment-adviser and GLBA perimeters for Unbound",Could add licences and programmes,Regulatory counsel,DF-ASR-2026-0D0F,06
+OQ-ZB-11,Are the 2023 proposed DAF regulations finalised after 2026-05-08?,May change reserved decisions and reporting,Monitor IRS and Council on Foundations,—,06
+OQ-ZB-12,Will other Echelon products share platform engineering in production?,Largest structural saving,Portfolio roadmap decision,owner,08

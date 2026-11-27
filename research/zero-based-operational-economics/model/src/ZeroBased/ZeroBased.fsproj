@@ -16,6 +16,7 @@
     <Compile Include="Analysis.fs" />
     <Compile Include="Render.fs" />
     <Compile Include="Outputs.fs" />
+    <Compile Include="Validate.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
