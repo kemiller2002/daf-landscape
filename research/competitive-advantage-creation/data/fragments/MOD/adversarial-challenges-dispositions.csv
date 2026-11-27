@@ -1,0 +1,49 @@
+challenge_id,disposition,disposition_rationale,changed_artifacts
+P3-CHL-REV1001,,MOD: revenue per customer = accounts x price x (1 - share) with customers capped by FY2024 sponsors at least that large x reachable share (SRC-013); A/A3 labelled displacement; sponsor-size table,model/src Sequences.fs Analysis.fs; data/model-inputs/sponsor-sizes.csv; 14; 16
+P3-CHL-REV1002,,MOD: partner termination hazard (P3-ASM-FGJ016) in the Monte Carlo for partner-delivered sequences; consolidation scenario kept,model/src Analysis.fs; 19
+P3-CHL-REV1004,,MOD: walk-away table restated on the revision-2 lean base and with founder at market,model/src Analysis.fs Render.fs; 16; 19
+P3-CHL-REV1006,,MOD: kill-rule Monte Carlo pause share and no-payback share shown with every A3 statement (key figures),model/src Render.fs; 14; 16
+P3-CHL-REV1015,,MOD: wind-down cost at the kill month when a customer has signed (P3-ASM-MOD038); escrow and tested export remain unpriced,model/src Cashflow.fs; 14
+P3-CHL-REV1021,,MOD: first regulated signing no earlier than end of development + SOC 2 Type 2 observation (P3-ASM-MOD036); compliance cost from inception,model/src Sequences.fs; data/model-inputs/sequence-values.csv
+P3-CHL-REV1026,,MOD: Nacha TPSP audit in base live run (P3-ASM-MOD040),data/model-inputs/sequence-values.csv; 16
+P3-CHL-REV1035,,MOD: as REV1006,14; 16
+P3-CHL-REV1036,,MOD: licence price range extended to $120 (V-2 level) in the favourable case and tornado; base kept at $81,data/model-inputs/sequence-values.csv; 19
+P3-CHL-REV1046,,MOD: sequences A3B (build inside cost center) and A3X (build outside) carry the S2-to-S3 build; key figures show both,data/model-inputs/sequence-*.csv; 14; 16
+P3-CHL-REV2001,,MOD: referenceable pilot = one whole live Unbound (E2) customer; buyer security review via SOC 2 Type 2 lag; P3-CLM-MOD006 revised,model/src Sequences.fs Cashflow.fs; test fix 1
+P3-CHL-REV2002,,MOD: explicit inclusive named-partner test; kill outcomes reported at named-partner months 3/6/median/12,model/src Sequences.fs Analysis.fs; test fix 2; 14
+P3-CHL-REV2003,,MOD: one contingency base in models 1 and 8 including the live run (founder draw and variable cost excluded),model/src Cashflow.fs Capital.fs; test fix 3
+P3-CHL-REV2004,,MOD: wind-down at the kill month (P3-ASM-MOD038),model/src Cashflow.fs; test fix 7
+P3-CHL-REV2005,,MOD: income tax with loss carry-forward (P3-ASM-MOD048); payroll and sales tax treatment stated,model/src Cashflow.fs; test fix 7; 18
+P3-CHL-REV2007,,MOD: partner remittance lag 3-6 months for partner-delivered streams (P3-ASM-MOD044),data/model-inputs/sequence-values.csv
+P3-CHL-REV2008,,MOD: customer-funded variant limited to direct billing; deferred-revenue and refund-liability note in 14,model/src Sequences.fs; 14
+P3-CHL-REV2009,,MOD: from-today (S2) figures lead; discounted payback at 10% added,model/src Cashflow.fs Render.fs; 16
+P3-CHL-REV2010,,MOD: variable cost on gross volume,model/src Cashflow.fs; test fix 4
+P3-CHL-REV2011,,MOD: revenue per customer tied to sponsor size; results at named sizes and break-even net revenue per customer,model/src Analysis.fs; 14; 16
+P3-CHL-REV2012,,"MOD: population check (FY2024 sponsors per size, all and excluding captive) built into the model",model/src Analysis.fs Sequences.fs; test fix 11
+P3-CHL-REV2013,,MOD: outcome class stated (no base payback); externally funded variant labelled as priced at a required return without dilution,14; 16
+P3-CHL-REV2014,,MOD: response model adds the sequence-H sponsor size acquisition variant; P3-CLM-MOD013 restated as conditional,model/src Analysis.fs; 16
+P3-CHL-REV2016,,MOD: as REV1002,model/src Analysis.fs
+P3-CHL-REV2018,,MOD: kill-rule Monte Carlo percentiles lead the ranking,model/src Render.fs; 14
+P3-CHL-REV2019,,MOD: sponsor-size table gives sponsors and accounts per size band reachable by licensing,14; 16
+P3-CHL-REV2020,,MOD: claim P3-CLM-MOD012 withdrawn and replaced,data/fragments/MOD/claims.csv; 14; 16
+P3-CHL-REV2029,,MOD: conventional maintenance stress (1-2 engineers) in tornado and extremes,model/src Analysis.fs; 19
+P3-CHL-REV2030,,MOD: as REV2029; control operations in base,data/model-inputs/sequence-values.csv
+P3-CHL-REV2034,,MOD: registry cost a function of live sponsors and charities per sponsor,model/src Cashflow.fs Sequences.fs; test fix 5
+P3-CHL-REV2035,,MOD: founder build share netted from founder economic time during development (P3-ASM-MOD037),model/src Cashflow.fs Capital.fs; test fix 6
+P3-CHL-REV2038,,MOD: A3 shown only with A3B/A3X build variants and the S2 sequence; P3-DEC-MOD001 trade stated,14; 16
+P3-CHL-REV2043,,MOD: explicit do-nothing baseline row; ranking by kill-rule Monte Carlo median,model/src Render.fs; test fix 8
+P3-CHL-REV2044,,MOD: pilot must come from a dedicated Unbound (E2) stream,model/src Sequences.fs; test fix 1
+P3-CHL-REV2046,,MOD: S7 labelled hypothetical in capital tables,model/src Render.fs
+P3-CHL-REV3004,,MOD: control operations $150-350k a year in base live run (half during SOC observation) (P3-ASM-MOD041),data/model-inputs/sequence-values.csv; test fix 9
+P3-CHL-REV3005,,MOD: walk-away split with founder at market cash,16
+P3-CHL-REV3010,,MOD: governing registry mode M1; M5 conditional on OD-CDD-02 (P3-ASM-MOD049; P3-DEC-MOD004),data/model-inputs/settings.csv; test fix 10; 15; 16
+P3-CHL-REV3019,,MOD: Nacha TPSP audit and fraud monitoring as base obligations (P3-ASM-MOD040),data/model-inputs/sequence-values.csv; test fix 9
+P3-CHL-REV3020,,MOD: as REV3010,15
+P3-CHL-REV3021,,MOD: as REV1021,data/model-inputs/sequence-values.csv
+P3-CHL-REV3022,,MOD: as REV3004,data/model-inputs/sequence-values.csv
+P3-CHL-REV3030,,MOD: A3 and H reconciled as the same route at different sponsor sizes,14; 16
+P3-CHL-REV3031,,MOD: customer-funded variant disabled for partner-delivered streams,model/src Sequences.fs
+P3-CHL-REV3037,,MOD: first conversion $75-325k (P3-ASM-MOD042),data/model-inputs/sequence-values.csv
+P3-CHL-REV3038,,MOD: first three customers at the first-conversion rate,model/src Cashflow.fs; test fix 13
+P3-CHL-REV3039,,MOD: go-live lag 6-12 months (P3-ASM-MOD043),data/model-inputs/sequence-values.csv
+P3-CHL-REV3040,,"MOD: sponsor conversion labour reported as transferred work, excluded from Echelon cost",model/src Cashflow.fs; test fix 13; 14

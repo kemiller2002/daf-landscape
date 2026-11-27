@@ -1,0 +1,134 @@
+state_id,state,category,cash_low,cash_base,cash_high,econ_low,econ_base,econ_high,assumption_ids
+S1,Unbound does not exist (no requirements),cac,15000,30000,60000,15000,30000,60000,P3-ASM-AB019
+S1,Unbound does not exist (no requirements),compliance_onetime,20000,45000,100000,20000,45000,100000,P3-ASM-AB021
+S1,Unbound does not exist (no requirements),dev,300000,700000,1400000,1500000,2150000,4000000,P3-ASM-AB002;P3-ASM-AB003
+S1,Unbound does not exist (no requirements),founder_live,0,60000,150000,190356,222482,273473,P3-ASM-AB018
+S1,Unbound does not exist (no requirements),founder_pre,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S1,Unbound does not exist (no requirements),golive_months,3,6,9,3,6,9,P3-ASM-AB026
+S1,Unbound does not exist (no requirements),impl,35000,75000,150000,35000,75000,150000,P3-ASM-AB020
+S1,Unbound does not exist (no requirements),legal,20000,60000,150000,20000,60000,150000,P3-ASM-AB022
+S1,Unbound does not exist (no requirements),pre_months,18,27,42,18,27,42,P3-ASM-AB025
+S1,Unbound does not exist (no requirements),pre_run,30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S1,Unbound does not exist (no requirements),recurring:compliance_recurring,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S1,Unbound does not exist (no requirements),recurring:corporate_admin,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S1,Unbound does not exist (no requirements),recurring:infrastructure,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S1,Unbound does not exist (no requirements),recurring:insurance,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S1,Unbound does not exist (no requirements),recurring:maintenance,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S1,Unbound does not exist (no requirements),recurring:security,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S1,Unbound does not exist (no requirements),recurring:support,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S1,Unbound does not exist (no requirements),sunk,0,0,0,0,0,0,P3-ASM-AB001
+S1,Unbound does not exist (no requirements),working_capital,25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S2,Requirements and architecture exist (today),cac,15000,30000,60000,15000,30000,60000,P3-ASM-AB019
+S2,Requirements and architecture exist (today),compliance_onetime,20000,45000,100000,20000,45000,100000,P3-ASM-AB021
+S2,Requirements and architecture exist (today),dev,250000,600000,1200000,1350000,1940000,3600000,P3-ASM-AB002;P3-ASM-AB003
+S2,Requirements and architecture exist (today),founder_live,0,60000,150000,190356,222482,273473,P3-ASM-AB018
+S2,Requirements and architecture exist (today),founder_pre,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S2,Requirements and architecture exist (today),golive_months,3,6,9,3,6,9,P3-ASM-AB026
+S2,Requirements and architecture exist (today),impl,35000,75000,150000,35000,75000,150000,P3-ASM-AB020
+S2,Requirements and architecture exist (today),legal,20000,60000,150000,20000,60000,150000,P3-ASM-AB022
+S2,Requirements and architecture exist (today),pre_months,15,24,36,15,24,36,P3-ASM-AB025
+S2,Requirements and architecture exist (today),pre_run,30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S2,Requirements and architecture exist (today),recurring:compliance_recurring,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S2,Requirements and architecture exist (today),recurring:corporate_admin,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S2,Requirements and architecture exist (today),recurring:infrastructure,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S2,Requirements and architecture exist (today),recurring:insurance,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S2,Requirements and architecture exist (today),recurring:maintenance,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S2,Requirements and architecture exist (today),recurring:security,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S2,Requirements and architecture exist (today),recurring:support,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S2,Requirements and architecture exist (today),sunk,10000,30000,60000,100000,200000,400000,P3-ASM-AB001
+S2,Requirements and architecture exist (today),working_capital,25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S3,"Functionally complete, not production-hardened",cac,15000,30000,60000,15000,30000,60000,P3-ASM-AB019
+S3,"Functionally complete, not production-hardened",compliance_onetime,20000,45000,100000,20000,45000,100000,P3-ASM-AB021
+S3,"Functionally complete, not production-hardened",dev,40000,120000,250000,150000,350000,600000,P3-ASM-AB002;P3-ASM-AB003
+S3,"Functionally complete, not production-hardened",founder_live,0,60000,150000,190356,222482,273473,P3-ASM-AB018
+S3,"Functionally complete, not production-hardened",founder_pre,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S3,"Functionally complete, not production-hardened",golive_months,3,6,9,3,6,9,P3-ASM-AB026
+S3,"Functionally complete, not production-hardened",impl,35000,75000,150000,35000,75000,150000,P3-ASM-AB020
+S3,"Functionally complete, not production-hardened",legal,20000,60000,150000,20000,60000,150000,P3-ASM-AB022
+S3,"Functionally complete, not production-hardened",pre_months,9,15,24,9,15,24,P3-ASM-AB025
+S3,"Functionally complete, not production-hardened",pre_run,30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S3,"Functionally complete, not production-hardened",recurring:compliance_recurring,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S3,"Functionally complete, not production-hardened",recurring:corporate_admin,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S3,"Functionally complete, not production-hardened",recurring:infrastructure,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S3,"Functionally complete, not production-hardened",recurring:insurance,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S3,"Functionally complete, not production-hardened",recurring:maintenance,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S3,"Functionally complete, not production-hardened",recurring:security,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S3,"Functionally complete, not production-hardened",recurring:support,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S3,"Functionally complete, not production-hardened",sunk,260000,630000,1260000,1450000,2140000,4000000,P3-ASM-AB001
+S3,"Functionally complete, not production-hardened",working_capital,25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S4,"Production-ready, no customers",cac,15000,30000,60000,15000,30000,60000,P3-ASM-AB019
+S4,"Production-ready, no customers",compliance_onetime,20000,45000,100000,20000,45000,100000,P3-ASM-AB021
+S4,"Production-ready, no customers",dev,10000,40000,120000,30000,100000,250000,P3-ASM-AB002;P3-ASM-AB003
+S4,"Production-ready, no customers",founder_live,0,60000,150000,190356,222482,273473,P3-ASM-AB018
+S4,"Production-ready, no customers",founder_pre,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S4,"Production-ready, no customers",golive_months,3,6,9,3,6,9,P3-ASM-AB026
+S4,"Production-ready, no customers",impl,35000,75000,150000,35000,75000,150000,P3-ASM-AB020
+S4,"Production-ready, no customers",legal,20000,60000,150000,20000,60000,150000,P3-ASM-AB022
+S4,"Production-ready, no customers",pre_months,9,15,24,9,15,24,P3-ASM-AB025
+S4,"Production-ready, no customers",pre_run,30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S4,"Production-ready, no customers",recurring:compliance_recurring,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S4,"Production-ready, no customers",recurring:corporate_admin,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S4,"Production-ready, no customers",recurring:infrastructure,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S4,"Production-ready, no customers",recurring:insurance,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S4,"Production-ready, no customers",recurring:maintenance,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S4,"Production-ready, no customers",recurring:security,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S4,"Production-ready, no customers",recurring:support,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S4,"Production-ready, no customers",sunk,300000,750000,1510000,1600000,2490000,4600000,P3-ASM-AB001
+S4,"Production-ready, no customers",working_capital,25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S5,Successful pilot (one referenceable live sponsor),cac,5000,20000,40000,5000,20000,40000,P3-ASM-AB019
+S5,Successful pilot (one referenceable live sponsor),compliance_onetime,0,15000,60000,0,15000,60000,P3-ASM-AB021
+S5,Successful pilot (one referenceable live sponsor),dev,0,60000,200000,50000,300000,600000,P3-ASM-AB002;P3-ASM-AB003
+S5,Successful pilot (one referenceable live sponsor),founder_live,0,60000,150000,190356,222482,273473,P3-ASM-AB018
+S5,Successful pilot (one referenceable live sponsor),founder_pre,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S5,Successful pilot (one referenceable live sponsor),golive_months,3,6,9,3,6,9,P3-ASM-AB026
+S5,Successful pilot (one referenceable live sponsor),impl,35000,75000,150000,35000,75000,150000,P3-ASM-AB020
+S5,Successful pilot (one referenceable live sponsor),legal,0,15000,50000,0,15000,50000,P3-ASM-AB022
+S5,Successful pilot (one referenceable live sponsor),pre_months,0,0,0,0,0,0,P3-ASM-AB025
+S5,Successful pilot (one referenceable live sponsor),pre_run,30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S5,Successful pilot (one referenceable live sponsor),recurring:compliance_recurring,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S5,Successful pilot (one referenceable live sponsor),recurring:corporate_admin,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S5,Successful pilot (one referenceable live sponsor),recurring:infrastructure,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S5,Successful pilot (one referenceable live sponsor),recurring:insurance,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S5,Successful pilot (one referenceable live sponsor),recurring:maintenance,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S5,Successful pilot (one referenceable live sponsor),recurring:security,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S5,Successful pilot (one referenceable live sponsor),recurring:support,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S5,Successful pilot (one referenceable live sponsor),sunk,550000,1500000,3500000,2100000,3500000,6500000,P3-ASM-AB001
+S5,Successful pilot (one referenceable live sponsor),working_capital,25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S6,Reusable onboarding packages exist,cac,5000,20000,40000,5000,20000,40000,P3-ASM-AB019
+S6,Reusable onboarding packages exist,compliance_onetime,0,15000,60000,0,15000,60000,P3-ASM-AB021
+S6,Reusable onboarding packages exist,dev,0,40000,150000,30000,200000,500000,P3-ASM-AB002;P3-ASM-AB003
+S6,Reusable onboarding packages exist,founder_live,0,60000,150000,190356,222482,273473,P3-ASM-AB018
+S6,Reusable onboarding packages exist,founder_pre,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S6,Reusable onboarding packages exist,golive_months,3,6,9,3,6,9,P3-ASM-AB026
+S6,Reusable onboarding packages exist,impl,10000,30000,80000,10000,30000,80000,P3-ASM-AB020
+S6,Reusable onboarding packages exist,legal,0,15000,50000,0,15000,50000,P3-ASM-AB022
+S6,Reusable onboarding packages exist,pre_months,0,0,0,0,0,0,P3-ASM-AB025
+S6,Reusable onboarding packages exist,pre_run,30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S6,Reusable onboarding packages exist,recurring:compliance_recurring,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S6,Reusable onboarding packages exist,recurring:corporate_admin,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S6,Reusable onboarding packages exist,recurring:infrastructure,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S6,Reusable onboarding packages exist,recurring:insurance,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S6,Reusable onboarding packages exist,recurring:maintenance,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S6,Reusable onboarding packages exist,recurring:security,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S6,Reusable onboarding packages exist,recurring:support,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S6,Reusable onboarding packages exist,sunk,600000,1600000,3700000,2200000,3700000,6900000,P3-ASM-AB001
+S6,Reusable onboarding packages exist,working_capital,25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),cac,5000,20000,40000,5000,20000,40000,P3-ASM-AB019
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),compliance_onetime,0,15000,60000,0,15000,60000,P3-ASM-AB021
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),dev,0,40000,150000,30000,200000,500000,P3-ASM-AB002;P3-ASM-AB003
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),founder_live,0,60000,150000,190356,222482,273473,P3-ASM-AB018
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),founder_pre,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),golive_months,3,6,9,3,6,9,P3-ASM-AB026
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),impl,10000,30000,80000,10000,30000,80000,P3-ASM-AB020
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),legal,0,15000,50000,0,15000,50000,P3-ASM-AB022
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),pre_months,0,0,0,0,0,0,P3-ASM-AB025
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),pre_run,30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),recurring:compliance_recurring,18000,48000,108000,18000,48000,108000,P3-ASM-AB013;P3-ASM-AB029
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),recurring:corporate_admin,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),recurring:infrastructure,12000,27000,66000,12000,27000,66000,P3-ASM-AB014;P3-ASM-AB029
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),recurring:insurance,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),recurring:maintenance,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),recurring:security,12000,30000,72000,12000,30000,72000,P3-ASM-AB012;P3-ASM-AB029
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),recurring:support,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),sunk,600000,1600000,3700000,2200000,3700000,6900000,P3-ASM-AB001
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),working_capital,25000,75000,200000,25000,75000,200000,P3-ASM-AB023

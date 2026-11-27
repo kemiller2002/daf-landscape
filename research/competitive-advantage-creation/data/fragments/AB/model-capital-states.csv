@@ -1,0 +1,141 @@
+state_id,state,cost_category,cash_low,cash_base,cash_high,economic_low,economic_base,economic_high,assumption_ids
+S1,Unbound does not exist (no requirements),"sunk_cost (USD one-time; sunk, excluded from incremental)",0,0,0,0,0,0,P3-ASM-AB001
+S1,Unbound does not exist (no requirements),incremental_development (USD one-time),300000,700000,1400000,1500000,2150000,4000000,P3-ASM-AB002;P3-ASM-AB003
+S1,Unbound does not exist (no requirements),customer_acquisition (USD one-time),15000,30000,60000,15000,30000,60000,P3-ASM-AB019
+S1,Unbound does not exist (no requirements),implementation (USD one-time),35000,75000,150000,35000,75000,150000,P3-ASM-AB020
+S1,Unbound does not exist (no requirements),compliance_onetime (USD one-time),20000,45000,100000,20000,45000,100000,P3-ASM-AB021
+S1,Unbound does not exist (no requirements),legal_and_corporate_onetime (USD one-time),20000,60000,150000,20000,60000,150000,P3-ASM-AB022
+S1,Unbound does not exist (no requirements),working_capital (USD one-time),25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S1,Unbound does not exist (no requirements),pre_revenue_run_rate/yr (all recurring before first contract),30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S1,Unbound does not exist (no requirements),"duration_pre_revenue_months (months, not USD)",18,27,42,18,27,42,P3-ASM-AB025
+S1,Unbound does not exist (no requirements),"duration_golive_to_first_invoice_months (months, not USD)",3,6,9,3,6,9,P3-ASM-AB026
+S1,Unbound does not exist (no requirements),maintenance/yr,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S1,Unbound does not exist (no requirements),security/yr,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S1,Unbound does not exist (no requirements),compliance_recurring/yr,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S1,Unbound does not exist (no requirements),infrastructure/yr,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S1,Unbound does not exist (no requirements),support/yr,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S1,Unbound does not exist (no requirements),insurance/yr,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S1,Unbound does not exist (no requirements),corporate_admin/yr,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S1,Unbound does not exist (no requirements),founder_compensation/yr,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S1,Unbound does not exist (no requirements),contingency (USD one-time; % of incremental cash to first invoice: 15/25/40),75188,370938,1666000,75188,370938,1666000,P3-ASM-AB027
+S1,Unbound does not exist (no requirements),economic_opportunity_cost/yr (capital charge on incremental cash; cash 0),0,0,0,28822,185469,874650,P3-ASM-AB028
+S2,Requirements and architecture exist (today),"sunk_cost (USD one-time; sunk, excluded from incremental)",10000,30000,60000,100000,200000,400000,P3-ASM-AB001
+S2,Requirements and architecture exist (today),incremental_development (USD one-time),250000,600000,1200000,1350000,1940000,3600000,P3-ASM-AB002;P3-ASM-AB003
+S2,Requirements and architecture exist (today),customer_acquisition (USD one-time),15000,30000,60000,15000,30000,60000,P3-ASM-AB019
+S2,Requirements and architecture exist (today),implementation (USD one-time),35000,75000,150000,35000,75000,150000,P3-ASM-AB020
+S2,Requirements and architecture exist (today),compliance_onetime (USD one-time),20000,45000,100000,20000,45000,100000,P3-ASM-AB021
+S2,Requirements and architecture exist (today),legal_and_corporate_onetime (USD one-time),20000,60000,150000,20000,60000,150000,P3-ASM-AB022
+S2,Requirements and architecture exist (today),working_capital (USD one-time),25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S2,Requirements and architecture exist (today),pre_revenue_run_rate/yr (all recurring before first contract),30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S2,Requirements and architecture exist (today),"duration_pre_revenue_months (months, not USD)",15,24,36,15,24,36,P3-ASM-AB025
+S2,Requirements and architecture exist (today),"duration_golive_to_first_invoice_months (months, not USD)",3,6,9,3,6,9,P3-ASM-AB026
+S2,Requirements and architecture exist (today),maintenance/yr,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S2,Requirements and architecture exist (today),security/yr,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S2,Requirements and architecture exist (today),compliance_recurring/yr,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S2,Requirements and architecture exist (today),infrastructure/yr,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S2,Requirements and architecture exist (today),support/yr,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S2,Requirements and architecture exist (today),insurance/yr,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S2,Requirements and architecture exist (today),corporate_admin/yr,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S2,Requirements and architecture exist (today),founder_compensation/yr,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S2,Requirements and architecture exist (today),contingency (USD one-time; % of incremental cash to first invoice: 15/25/40),66562,339375,1518000,66562,339375,1518000,P3-ASM-AB027
+S2,Requirements and architecture exist (today),economic_opportunity_cost/yr (capital charge on incremental cash; cash 0),0,0,0,25516,169688,796950,P3-ASM-AB028
+S3,"Functionally complete, not production-hardened","sunk_cost (USD one-time; sunk, excluded from incremental)",260000,630000,1260000,1450000,2140000,4000000,P3-ASM-AB001
+S3,"Functionally complete, not production-hardened",incremental_development (USD one-time),40000,120000,250000,150000,350000,600000,P3-ASM-AB002;P3-ASM-AB003
+S3,"Functionally complete, not production-hardened",customer_acquisition (USD one-time),15000,30000,60000,15000,30000,60000,P3-ASM-AB019
+S3,"Functionally complete, not production-hardened",implementation (USD one-time),35000,75000,150000,35000,75000,150000,P3-ASM-AB020
+S3,"Functionally complete, not production-hardened",compliance_onetime (USD one-time),20000,45000,100000,20000,45000,100000,P3-ASM-AB021
+S3,"Functionally complete, not production-hardened",legal_and_corporate_onetime (USD one-time),20000,60000,150000,20000,60000,150000,P3-ASM-AB022
+S3,"Functionally complete, not production-hardened",working_capital (USD one-time),25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S3,"Functionally complete, not production-hardened",pre_revenue_run_rate/yr (all recurring before first contract),30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S3,"Functionally complete, not production-hardened","duration_pre_revenue_months (months, not USD)",9,15,24,9,15,24,P3-ASM-AB025
+S3,"Functionally complete, not production-hardened","duration_golive_to_first_invoice_months (months, not USD)",3,6,9,3,6,9,P3-ASM-AB026
+S3,"Functionally complete, not production-hardened",maintenance/yr,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S3,"Functionally complete, not production-hardened",security/yr,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S3,"Functionally complete, not production-hardened",compliance_recurring/yr,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S3,"Functionally complete, not production-hardened",infrastructure/yr,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S3,"Functionally complete, not production-hardened",support/yr,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S3,"Functionally complete, not production-hardened",insurance/yr,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S3,"Functionally complete, not production-hardened",corporate_admin/yr,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S3,"Functionally complete, not production-hardened",founder_compensation/yr,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S3,"Functionally complete, not production-hardened",contingency (USD one-time; % of incremental cash to first invoice: 15/25/40),32812,199688,1002000,32812,199688,1002000,P3-ASM-AB027
+S3,"Functionally complete, not production-hardened",economic_opportunity_cost/yr (capital charge on incremental cash; cash 0),0,0,0,12578,99844,526050,P3-ASM-AB028
+S4,"Production-ready, no customers","sunk_cost (USD one-time; sunk, excluded from incremental)",300000,750000,1510000,1600000,2490000,4600000,P3-ASM-AB001
+S4,"Production-ready, no customers",incremental_development (USD one-time),10000,40000,120000,30000,100000,250000,P3-ASM-AB002;P3-ASM-AB003
+S4,"Production-ready, no customers",customer_acquisition (USD one-time),15000,30000,60000,15000,30000,60000,P3-ASM-AB019
+S4,"Production-ready, no customers",implementation (USD one-time),35000,75000,150000,35000,75000,150000,P3-ASM-AB020
+S4,"Production-ready, no customers",compliance_onetime (USD one-time),20000,45000,100000,20000,45000,100000,P3-ASM-AB021
+S4,"Production-ready, no customers",legal_and_corporate_onetime (USD one-time),20000,60000,150000,20000,60000,150000,P3-ASM-AB022
+S4,"Production-ready, no customers",working_capital (USD one-time),25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S4,"Production-ready, no customers",pre_revenue_run_rate/yr (all recurring before first contract),30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S4,"Production-ready, no customers","duration_pre_revenue_months (months, not USD)",9,15,24,9,15,24,P3-ASM-AB025
+S4,"Production-ready, no customers","duration_golive_to_first_invoice_months (months, not USD)",3,6,9,3,6,9,P3-ASM-AB026
+S4,"Production-ready, no customers",maintenance/yr,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S4,"Production-ready, no customers",security/yr,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S4,"Production-ready, no customers",compliance_recurring/yr,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S4,"Production-ready, no customers",infrastructure/yr,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S4,"Production-ready, no customers",support/yr,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S4,"Production-ready, no customers",insurance/yr,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S4,"Production-ready, no customers",corporate_admin/yr,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S4,"Production-ready, no customers",founder_compensation/yr,0,0,60000,190356,222482,273473,P3-ASM-AB018
+S4,"Production-ready, no customers",contingency (USD one-time; % of incremental cash to first invoice: 15/25/40),28313,179688,950000,28313,179688,950000,P3-ASM-AB027
+S4,"Production-ready, no customers",economic_opportunity_cost/yr (capital charge on incremental cash; cash 0),0,0,0,10853,89844,498750,P3-ASM-AB028
+S5,Successful pilot (one referenceable live sponsor),"sunk_cost (USD one-time; sunk, excluded from incremental)",550000,1500000,3500000,2100000,3500000,6500000,P3-ASM-AB001
+S5,Successful pilot (one referenceable live sponsor),incremental_development (USD one-time),0,60000,200000,50000,300000,600000,P3-ASM-AB002;P3-ASM-AB003
+S5,Successful pilot (one referenceable live sponsor),customer_acquisition (USD one-time),5000,20000,40000,5000,20000,40000,P3-ASM-AB019
+S5,Successful pilot (one referenceable live sponsor),implementation (USD one-time),35000,75000,150000,35000,75000,150000,P3-ASM-AB020
+S5,Successful pilot (one referenceable live sponsor),compliance_onetime (USD one-time),0,15000,60000,0,15000,60000,P3-ASM-AB021
+S5,Successful pilot (one referenceable live sponsor),legal_and_corporate_onetime (USD one-time),0,15000,50000,0,15000,50000,P3-ASM-AB022
+S5,Successful pilot (one referenceable live sponsor),working_capital (USD one-time),25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S5,Successful pilot (one referenceable live sponsor),pre_revenue_run_rate/yr (all recurring before first contract),30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S5,Successful pilot (one referenceable live sponsor),"duration_pre_revenue_months (months, not USD)",0,0,0,0,0,0,P3-ASM-AB025
+S5,Successful pilot (one referenceable live sponsor),"duration_golive_to_first_invoice_months (months, not USD)",3,6,9,3,6,9,P3-ASM-AB026
+S5,Successful pilot (one referenceable live sponsor),maintenance/yr,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S5,Successful pilot (one referenceable live sponsor),security/yr,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S5,Successful pilot (one referenceable live sponsor),compliance_recurring/yr,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S5,Successful pilot (one referenceable live sponsor),infrastructure/yr,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S5,Successful pilot (one referenceable live sponsor),support/yr,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S5,Successful pilot (one referenceable live sponsor),insurance/yr,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S5,Successful pilot (one referenceable live sponsor),corporate_admin/yr,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S5,Successful pilot (one referenceable live sponsor),founder_compensation/yr,0,60000,150000,190356,222482,273473,P3-ASM-AB018
+S5,Successful pilot (one referenceable live sponsor),contingency (USD one-time; % of incremental cash to first invoice: 15/25/40),15938,130625,646000,15938,130625,646000,P3-ASM-AB027
+S5,Successful pilot (one referenceable live sponsor),economic_opportunity_cost/yr (capital charge on incremental cash; cash 0),0,0,0,6109,65312,339150,P3-ASM-AB028
+S6,Reusable onboarding packages exist,"sunk_cost (USD one-time; sunk, excluded from incremental)",600000,1600000,3700000,2200000,3700000,6900000,P3-ASM-AB001
+S6,Reusable onboarding packages exist,incremental_development (USD one-time),0,40000,150000,30000,200000,500000,P3-ASM-AB002;P3-ASM-AB003
+S6,Reusable onboarding packages exist,customer_acquisition (USD one-time),5000,20000,40000,5000,20000,40000,P3-ASM-AB019
+S6,Reusable onboarding packages exist,implementation (USD one-time),10000,30000,80000,10000,30000,80000,P3-ASM-AB020
+S6,Reusable onboarding packages exist,compliance_onetime (USD one-time),0,15000,60000,0,15000,60000,P3-ASM-AB021
+S6,Reusable onboarding packages exist,legal_and_corporate_onetime (USD one-time),0,15000,50000,0,15000,50000,P3-ASM-AB022
+S6,Reusable onboarding packages exist,working_capital (USD one-time),25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S6,Reusable onboarding packages exist,pre_revenue_run_rate/yr (all recurring before first contract),30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S6,Reusable onboarding packages exist,"duration_pre_revenue_months (months, not USD)",0,0,0,0,0,0,P3-ASM-AB025
+S6,Reusable onboarding packages exist,"duration_golive_to_first_invoice_months (months, not USD)",3,6,9,3,6,9,P3-ASM-AB026
+S6,Reusable onboarding packages exist,maintenance/yr,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S6,Reusable onboarding packages exist,security/yr,20000,50000,120000,20000,50000,120000,P3-ASM-AB012
+S6,Reusable onboarding packages exist,compliance_recurring/yr,30000,80000,180000,30000,80000,180000,P3-ASM-AB013
+S6,Reusable onboarding packages exist,infrastructure/yr,20000,45000,110000,20000,45000,110000,P3-ASM-AB014
+S6,Reusable onboarding packages exist,support/yr,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S6,Reusable onboarding packages exist,insurance/yr,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S6,Reusable onboarding packages exist,corporate_admin/yr,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S6,Reusable onboarding packages exist,founder_compensation/yr,0,60000,150000,190356,222482,273473,P3-ASM-AB018
+S6,Reusable onboarding packages exist,contingency (USD one-time; % of incremental cash to first invoice: 15/25/40),12188,114375,598000,12188,114375,598000,P3-ASM-AB027
+S6,Reusable onboarding packages exist,economic_opportunity_cost/yr (capital charge on incremental cash; cash 0),0,0,0,4672,57188,313950,P3-ASM-AB028
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),"sunk_cost (USD one-time; sunk, excluded from incremental)",600000,1600000,3700000,2200000,3700000,6900000,P3-ASM-AB001
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),incremental_development (USD one-time),0,40000,150000,30000,200000,500000,P3-ASM-AB002;P3-ASM-AB003
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),customer_acquisition (USD one-time),5000,20000,40000,5000,20000,40000,P3-ASM-AB019
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),implementation (USD one-time),10000,30000,80000,10000,30000,80000,P3-ASM-AB020
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),compliance_onetime (USD one-time),0,15000,60000,0,15000,60000,P3-ASM-AB021
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),legal_and_corporate_onetime (USD one-time),0,15000,50000,0,15000,50000,P3-ASM-AB022
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),working_capital (USD one-time),25000,75000,200000,25000,75000,200000,P3-ASM-AB023
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),pre_revenue_run_rate/yr (all recurring before first contract),30000,105000,280000,30000,105000,280000,P3-ASM-AB024
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),"duration_pre_revenue_months (months, not USD)",0,0,0,0,0,0,P3-ASM-AB025
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),"duration_golive_to_first_invoice_months (months, not USD)",3,6,9,3,6,9,P3-ASM-AB026
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),maintenance/yr,40000,120000,250000,40000,120000,250000,P3-ASM-AB010;P3-ASM-AB011
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),security/yr,12000,30000,72000,12000,30000,72000,P3-ASM-AB012;P3-ASM-AB029
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),compliance_recurring/yr,18000,48000,108000,18000,48000,108000,P3-ASM-AB013;P3-ASM-AB029
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),infrastructure/yr,12000,27000,66000,12000,27000,66000,P3-ASM-AB014;P3-ASM-AB029
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),support/yr,0,40000,100000,0,40000,100000,P3-ASM-AB015
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),insurance/yr,30000,70000,160000,30000,70000,160000,P3-ASM-AB016
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),corporate_admin/yr,25000,60000,150000,25000,60000,150000,P3-ASM-AB017
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),founder_compensation/yr,0,60000,150000,190356,222482,273473,P3-ASM-AB018
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),contingency (USD one-time; % of incremental cash to first invoice: 15/25/40),11138,105625,548800,11138,105625,548800,P3-ASM-AB027
+S7,Operates on Echelon shared infrastructure (cost shared with >=1 other revenue-bearing product),economic_opportunity_cost/yr (capital charge on incremental cash; cash 0),0,0,0,4269,52812,288120,P3-ASM-AB028

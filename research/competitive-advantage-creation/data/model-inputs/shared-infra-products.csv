@@ -1,0 +1,5 @@
+product_id,product,entity,revenue_bearing,usage,revenue,standalone,assumption_ids
+PRD-UNB,Unbound DAF platform licence,E2,Y,0.70,300000,1.00,P3-ASM-MOD016;P3-ASM-AB030
+PRD-TRN,Transitus migration tooling,E5,N,0.15,0,0.30,P3-ASM-MOD016;P3-ASM-FGJ013
+PRD-CMP,Echelon developer component licences,E5,Y,0.05,4800,0.10,P3-ASM-MOD016;P3-ASM-FGJ010;P3-ASM-FGJ011
+PRD-OTH,Other Echelon Foundry offerings,E1,N,0.10,0,0.20,P3-ASM-MOD016

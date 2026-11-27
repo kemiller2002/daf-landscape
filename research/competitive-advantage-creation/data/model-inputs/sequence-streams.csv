@@ -1,0 +1,20 @@
+seq_id,stream_id,stream,template,entity,dedicated,kill_exempt,recurring,uses_registry
+TEMPLATE,TPL-UNB-S2,Unbound licensing from today (S2),,E2,Y,N,Y,live
+TEMPLATE,TPL-UNB-S3,Unbound licensing from a completed Unbound (S3),TPL-UNB-S2,E2,Y,N,Y,live
+SEQ-A,A-UNB,Complete Unbound; design partner; channel licensing,TPL-UNB-S2,E2,Y,N,Y,live
+SEQ-A3,A3-UNB,Completed Unbound; design partner; channel licensing,TPL-UNB-S3,E2,Y,N,Y,live
+SEQ-B,B-INT,Charity eligibility evidence API,,E5,Y,N,Y,all-conditional
+SEQ-B,B-UNB,Unbound modules for converted intelligence customers,TPL-UNB-S2,E2,Y,N,Y,live
+SEQ-C,C-TRN,Transitus migration assessments,,E5,N,Y,N,N
+SEQ-C,C-UNB,Unbound licensing for converted assessment customers,TPL-UNB-S2,E2,Y,N,Y,live
+SEQ-D,D-CMP,Compliance evidence and reconciliation service,,E5,Y,N,Y,N
+SEQ-E,E-HOST,Host sponsor licenses Unbound for hosted programmes,TPL-UNB-S2,E2,Y,N,Y,live
+SEQ-E,E-PROG,Templated programmes added on hosts,,E2,Y,N,Y,N
+SEQ-F,F-CMP,Self-serve commercial licences for Echelon developer components,,E5,N,N,Y,N
+SEQ-G,G-UNB,Direct new DAF programme at an education or health foundation,TPL-UNB-S2,E2,Y,N,Y,live
+SEQ-H,H-UNB,Partner-embedded pilot with capped share then multi-partner licensing,TPL-UNB-S2,E2,Y,N,Y,live
+SEQ-A3B,A3B-BLD,Remaining build S2 to S3 inside the DAF cost center,,E2,Y,N,N,N
+SEQ-A3B,A3B-UNB,Completed Unbound; design partner; channel licensing (after the build),TPL-UNB-S3,E2,Y,N,Y,live
+SEQ-A3X,A3X-BLD,Remaining build S2 to S3 outside the DAF cost center (inside existing operations),,E2,N,N,N,N
+SEQ-A3X,A3X-UNB,Completed Unbound; design partner; channel licensing (after the build),TPL-UNB-S3,E2,Y,N,Y,live
+SEQ-PB,PB-UNB,Partner licenses Unbound for its whole book of small sponsors (completed Unbound),TPL-UNB-S3,E2,Y,N,Y,live

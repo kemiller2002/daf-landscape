@@ -1,0 +1,12 @@
+key,value,assumption_ids,basis
+seed,20261126,,Fixed Monte Carlo seed (same as Phase II)
+mc_draws,2000,,Draws per sequence and correlation setting
+basis,revision3,P3-ASM-MOD056,Revision 3 CFO-corrected basis drives the sequence tables; revision 2 (conservative) is reported beside it (REV4019)
+registry_config,M1-vendor-demand,P3-ASM-MOD049,Governing configuration: M1 human deep review performed by Echelon, demand-driven; sponsor-performed review needs owner decision P3-DEC-MOD005 (REV4001)
+registry_mode_conditional,M5,P3-DEC-HI002,Hybrid monitoring (agent HI) shown only as conditional on OD-CDD-02; V-3; V-9
+allocation_rule,usage,P3-ASM-MOD016,Explicit shared-infrastructure allocation rule (owner TODO in strategy/daf-entry/02); all rules reported
+allocation_owner,PRD-UNB,P3-ASM-MOD016,Product that bears a pool when no driver is positive
+cost_center_threshold,0,P3-ASM-MOD017,Monthly DAF-specific cash spend (excluding founder draw) that marks the cost-center month (OD-P3-04)
+cost_center_dev_counts,N,P3-ASM-MOD017,Whether product development cash starts the DAF-commercialization cost center
+captive_categories,national_standard,P3-ASM-MOD045,Sponsor categories reported separately as running their own platforms (counts shown with and without them)
+require_dispositions,Y,,Adversarial-challenge dispositions may be empty until reconciliation; set Y afterwards

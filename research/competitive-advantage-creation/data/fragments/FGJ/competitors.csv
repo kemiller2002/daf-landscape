@@ -1,0 +1,11 @@
+competitor_id,name,category,relevant_capability,evidence_class,source_ids,report
+P3-CMP-FGJ001,"PG Calc (part of Foundation Source, CMP-003)",planned-giving software and outsourced gift administration,"GiftWrap administration SaaS; administration of gift annuities, pooled income funds and CRTs (payments, tax forms, gift values); Planned Giving Manager calculations",VENDOR-CLAIM,P3-SRC-FGJ011,08
+P3-CMP-FGJ002,"FIS trust accounting (AddVantage, Charlotte, Global Plus, TrustDesk)",bank and trust-company trust accounting,"Trust accounting platforms for private banking, personal and institutional trust",VENDOR-CLAIM,P3-SRC-FGJ016,08
+P3-CMP-FGJ003,"SEI (Trust 3000 lineage), SS&C, Fi-Tek, Infovisa, Cheetah",trust accounting,Named in an analyst trust-accounting vendor matrix,VENDOR-CLAIM,P3-SRC-FGJ016,08
+P3-CMP-FGJ004,Foundant / SmartSimple / GivingData,"grant, scholarship and community-foundation software",">3,350 organizations; $17.5B awards in 2024 (company figures)",VENDOR-CLAIM,P3-SRC-FGJ017,08
+P3-CMP-FGJ005,Benevity,employee giving and corporate purpose,$3.74B donations processed on its platform in 2025,VENDOR-CLAIM,P3-SRC-FGJ014,08
+P3-CMP-FGJ006,"Candid (Charity Check API, Essentials API)",charity data,"Charity eligibility and profile APIs from $2,750 and $4,800 a year",VENDOR-CLAIM,P3-SRC-FGJ025;SRC-069,09
+P3-CMP-FGJ007,Redgate Flyway; Liquibase; Atlas,database schema migration,Free community editions; enterprise tiers by quote or ~$5k/yr,VENDOR-CLAIM,P3-SRC-FGJ020,09
+P3-CMP-FGJ008,Prince (YesLogic); DocRaptor,HTML/CSS to PDF,"Server licence $3,800; hosted API from ~$15/month",VENDOR-CLAIM,P3-SRC-FGJ021,09
+P3-CMP-FGJ009,Vanta; Drata (incl. SafeBase); Secureframe,compliance automation and trust centers,SOC 2 automation from ~$7k-$30k a year; questionnaire automation and trust centers,VENDOR-CLAIM,P3-SRC-FGJ022;P3-SRC-FGJ024,09
+P3-CMP-FGJ010,Flatfile; OneSchema,customer data import and onboarding,Embedded CSV/file import with mapping and validation; ~$10k-$39k median annual spend,VENDOR-CLAIM,P3-SRC-FGJ023,09

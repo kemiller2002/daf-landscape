@@ -1,0 +1,6 @@
+pool_id,pool,annual_low,annual_base,annual_high,assumption_ids
+POOL-SEC,Security programme (pen test; fractional vCISO; tooling),20000,50000,120000,P3-ASM-AB012
+POOL-CMP,Compliance (SOC 2 Type 2; automation),30000,80000,180000,P3-ASM-AB013
+POOL-INF,Infrastructure (managed PostgreSQL HA and DR; hosting; non-prod),20000,45000,110000,P3-ASM-AB014
+POOL-INS,Insurance (cyber; tech E&O; D&O; crime),30000,70000,160000,P3-ASM-AB016
+POOL-ADM,Corporate administration (books; tax; audit; counsel retainer),25000,60000,150000,P3-ASM-AB017

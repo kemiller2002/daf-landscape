@@ -1,0 +1,76 @@
+event_id,event,scenario,conventional_min,automated_min,eliminated_min,accelerated_min,transferred_to_customer_min,transferred_to_partner_min,residual_mandatory_min,residual_other_min,assumption_ids
+EV-E01,Account opening (agreement and fund set-up),pess,2.52,1.15,0.088,0.095,0.493,0.0,0.0,0.695,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E02,Identity verification,pess,0.48,0.187,0.0,0.035,0.0,0.0,0.257,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E03,Contribution receipt and posting (cash ACH check securities),pess,12.0,8.588,0.256,0.379,0.0,0.0,0.0,2.778,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E04,Contribution attribution (pooled receipt to fund),pess,6.0,-0.5,0.975,0.663,0.0,0.0,0.0,4.862,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E05,Asset liquidation and complex noncash assets,pess,2.16,0.21,0.0,0.234,0.0,0.0,1.716,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E06,Investment allocation,pess,1.5,0.85,0.0,0.078,0.0,0.0,0.0,0.572,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E07,Charity discovery (assisted search),pess,2.7,0.0,0.36,0.281,0.0,0.0,0.0,2.059,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E08,Charity vetting (transaction-time check 180-day renewal and event monitoring),pess,49.95,27.778,13.188,1.078,0.0,0.0,0.0,7.905,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E09,Grant recommendation intake,pess,9.0,6.075,0.366,0.307,0.0,0.0,0.0,2.252,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E10,Grant approval (eligibility purpose and nonstandard grantee review),pess,55.8,-10.539,4.146,7.463,0.0,0.0,54.73,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E11,Payment processing (ACH check wire),pess,12.663,-1.8,1.085,1.605,0.0,11.773,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E12,Payment failures (returns uncashed voids reissue),pess,2.704,-1.69,0.549,0.461,0.0,3.384,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E13,Reconciliation (bank custodian ledger; monthly close),pess,10.0,1.875,1.016,0.853,0.0,0.0,0.0,6.256,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E14,Statement generation and acknowledgments (incl. fee billing),pess,4.0,3.188,0.0,0.098,0.0,0.0,0.0,0.715,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E15,Customer communication (human-handled contacts),pess,5.0,-5.833,0.812,1.203,0.0,0.0,0.0,8.818,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E16,Advisor administration (advisor onboarding fee schedules rep codes),pess,0.9,0.0,0.0,0.094,0.0,0.12,0.0,0.686,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E17,Account changes (address advisor bank contact),pess,1.8,0.165,0.073,0.108,0.66,0.0,0.0,0.794,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E18,Successor administration (death succession),pess,1.2,-0.317,0.0,0.182,0.0,0.0,1.335,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E19,Fraud investigation (account takeover payment redirection),pess,0.36,-0.16,0.091,0.051,0.0,0.0,0.378,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E20,Compliance exceptions (sanctions alerts incidents),pess,2.0,0.0,1.52,0.058,0.0,0.0,0.422,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E21,Regulatory and governance reporting,pess,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E22,Audit preparation (sponsor audit SOC bridge),pess,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E23,Sponsor onboarding and configuration upkeep,pess,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E24,Data migration,pess,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E25,Account closure (final grants transfers residual),pess,0.6,0.21,0.0,0.047,0.0,0.0,0.343,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E01,Account opening (agreement and fund set-up),base,2.52,1.449,0.09,0.054,0.621,0.0,0.0,0.306,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E02,Identity verification,base,0.48,0.33,0.0,0.022,0.0,0.0,0.128,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E03,Contribution receipt and posting (cash ACH check securities),base,12.0,10.25,0.262,0.223,0.0,0.0,0.0,1.264,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E04,Contribution attribution (pooled receipt to fund),base,6.0,2.667,1.0,0.35,0.0,0.0,0.0,1.983,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E05,Asset liquidation and complex noncash assets,base,2.16,0.66,0.0,0.225,0.0,0.0,1.275,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E06,Investment allocation,base,1.5,1.167,0.0,0.05,0.0,0.0,0.0,0.283,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E07,Charity discovery (assisted search),base,2.7,0.0,1.5,0.18,0.0,0.0,0.0,1.02,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E08,Charity vetting (transaction-time check 180-day renewal and event monitoring),base,49.95,22.343,23.659,0.592,0.0,0.0,0.0,3.356,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E09,Grant recommendation intake,base,9.0,7.5,0.375,0.169,0.0,0.0,0.0,0.956,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E10,Grant approval (eligibility purpose and nonstandard grantee review),base,55.8,21.78,4.252,4.465,0.0,0.0,25.302,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E11,Payment processing (ACH check wire),base,12.663,5.246,1.113,0.946,0.0,5.359,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E12,Payment failures (returns uncashed voids reissue),base,2.704,0.451,0.563,0.254,0.0,1.437,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E13,Reconciliation (bank custodian ledger; monthly close),base,10.0,5.833,1.042,0.469,0.0,0.0,0.0,2.656,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E14,Statement generation and acknowledgments (incl. fee billing),base,4.0,3.583,0.0,0.062,0.0,0.0,0.0,0.354,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E15,Customer communication (human-handled contacts),base,5.0,-1.667,1.0,0.85,0.0,0.0,0.0,4.817,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E16,Advisor administration (advisor onboarding fee schedules rep codes),base,0.9,0.0,0.0,0.06,0.0,0.5,0.0,0.34,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E17,Account changes (address advisor bank contact),base,1.8,0.26,0.075,0.064,1.04,0.0,0.0,0.361,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E18,Successor administration (death succession),base,1.2,0.033,0.0,0.175,0.0,0.0,0.992,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E19,Fraud investigation (account takeover payment redirection),base,0.36,-0.04,0.14,0.039,0.0,0.0,0.221,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E20,Compliance exceptions (sanctions alerts incidents),base,2.0,0.0,1.789,0.032,0.0,0.0,0.179,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E21,Regulatory and governance reporting,base,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E22,Audit preparation (sponsor audit SOC bridge),base,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E23,Sponsor onboarding and configuration upkeep,base,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E24,Data migration,base,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E25,Account closure (final grants transfers residual),base,0.6,0.4,0.0,0.03,0.0,0.0,0.17,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E01,Account opening (agreement and fund set-up),opt,2.52,1.632,0.076,0.028,0.699,0.0,0.0,0.085,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E02,Identity verification,opt,0.48,0.417,0.0,0.016,0.0,0.0,0.047,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E03,Contribution receipt and posting (cash ACH check securities),opt,12.0,11.265,0.22,0.129,0.0,0.0,0.0,0.386,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E04,Contribution attribution (pooled receipt to fund),opt,6.0,4.6,0.84,0.14,0.0,0.0,0.0,0.42,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E05,Asset liquidation and complex noncash assets,opt,2.16,1.53,0.0,0.157,0.0,0.0,0.473,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E06,Investment allocation,opt,1.5,1.36,0.0,0.035,0.0,0.0,0.0,0.105,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E07,Charity discovery (assisted search),opt,2.7,0.0,2.196,0.126,0.0,0.0,0.0,0.378,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E08,Charity vetting (transaction-time check 180-day renewal and event monitoring),opt,49.95,14.322,34.523,0.276,0.0,0.0,0.0,0.829,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E09,Grant recommendation intake,opt,9.0,8.37,0.315,0.079,0.0,0.0,0.0,0.236,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E10,Grant approval (eligibility purpose and nonstandard grantee review),opt,55.8,41.512,3.572,2.679,0.0,0.0,8.037,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E11,Payment processing (ACH check wire),opt,12.663,9.548,0.935,0.545,0.0,1.635,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E12,Payment failures (returns uncashed voids reissue),opt,2.704,1.758,0.473,0.118,0.0,0.355,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E13,Reconciliation (bank custodian ledger; monthly close),opt,10.0,8.25,0.875,0.219,0.0,0.0,0.0,0.656,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E14,Statement generation and acknowledgments (incl. fee billing),opt,4.0,3.825,0.0,0.044,0.0,0.0,0.0,0.131,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E15,Customer communication (human-handled contacts),opt,5.0,2.2,0.84,0.49,0.0,0.0,0.0,1.47,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E16,Advisor administration (advisor onboarding fee schedules rep codes),opt,0.9,0.0,0.0,0.042,0.0,0.732,0.0,0.126,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E17,Account changes (address advisor bank contact),opt,1.8,0.318,0.063,0.037,1.272,0.0,0.0,0.11,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E18,Successor administration (death succession),opt,1.2,0.71,0.0,0.122,0.0,0.0,0.368,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E19,Fraud investigation (account takeover payment redirection),opt,0.36,0.192,0.118,0.013,0.0,0.0,0.038,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E20,Compliance exceptions (sanctions alerts incidents),opt,2.0,0.0,1.941,0.015,0.0,0.0,0.044,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E21,Regulatory and governance reporting,opt,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E22,Audit preparation (sponsor audit SOC bridge),opt,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E23,Sponsor onboarding and configuration upkeep,opt,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E24,Data migration,opt,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045
+EV-E25,Account closure (final grants transfers residual),opt,0.6,0.516,0.0,0.021,0.0,0.0,0.063,0.0,P3-ASM-HI020;P3-ASM-HI021;P3-ASM-HI022;P3-ASM-HI023;P3-ASM-HI024;P3-ASM-HI045

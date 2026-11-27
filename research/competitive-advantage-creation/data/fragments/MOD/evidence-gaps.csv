@@ -1,0 +1,7 @@
+gap_id,gap,why_it_matters,how_to_close,cost_to_close,blocking,report
+P3-GAP-MOD001,Owner's available funding capacity and runway for DAF commercialization,Decides whether outside investment is necessary for the modelled peak cash,Owner statement (private; not in this repository),$0,Yes,16
+P3-GAP-MOD002,Timing of a named partner or design-partner customer (P3-ASM-MOD034),Drives the kill-rule outcome; the Monte Carlo pause share is dominated by this unevidenced range,V-6 conversations; $0 validation routes (report 04),$0-5k,Yes,14
+P3-GAP-MOD003,Revenue per customer for Unbound licensing: Phase II ER-7 $150-600k net versus agent FGJ $25-150k gross per sponsor,The most consequential input conflict between agents; A/A3 pay back only at ER-7 values,V-2 pricing interviews and partner term sheets,$0-5k,Yes,14
+P3-GAP-MOD004,Vendor variable cost per licensed account for a lean licensor (P3-ASM-MOD003),Moves break-even accounts and peak cash materially,Measure support minutes and hosting per tenant in a pilot,$0,No,18
+P3-GAP-MOD005,Whether Unbound development spend counts as DAF commercialization for the cost-center clock (P3-ASM-MOD017),Changes when the kill-rule clock starts for sequences that include development,Owner clarification of OD-P3-04,$0,No,14
+P3-GAP-MOD006,Share of registry engineering and counsel covered by the lean maintenance and corporate-admin budgets (P3-ASM-MOD010),Adds $0-65k a year (base inputs) to the lean licensor run,Engineering plan that names registry connectors in the maintenance budget,$0,No,18

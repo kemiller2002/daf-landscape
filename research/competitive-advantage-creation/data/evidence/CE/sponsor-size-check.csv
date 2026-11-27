@@ -1,0 +1,16 @@
+headline_price_per_account,net_revenue_per_customer,accounts_needed,sponsors_at_or_above,national_standard,donation_processor,religious,community_foundation,university_or_hospital,single_issue_other
+81,150000,2646,33,19,5,4,2,0,3
+81,300000,5291,25,15,5,3,0,0,2
+81,600000,10582,15,10,3,1,0,0,1
+120,150000,1786,38,21,6,4,4,0,3
+120,300000,3571,28,17,5,4,0,0,2
+120,600000,7143,20,12,4,2,0,0,2
+150,150000,1429,42,23,6,4,6,0,3
+150,300000,2857,32,19,5,4,2,0,2
+150,600000,5714,24,14,5,3,0,0,2
+segment total,,,838,,,,102651,,
+segment total,,,23,,2538698,,,,
+segment total,,,85,543521,,,,,
+segment total,,,195,,,77860,,,
+segment total,,,310,,,,,,43871
+segment total,,,134,,,,,2882,

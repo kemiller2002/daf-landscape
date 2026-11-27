@@ -1,0 +1,73 @@
+scenario_id,case,cost_base,headline,net_price,break_even_accounts,accounts_per_year,years_to_break_even,reached_before_termination
+RS-0,favourable,Phase II MD-6 technology licensing,150,105,24374.7807,15873,1.6385,n/a
+RS-0,favourable,Phase II MD-6 technology licensing,150,105,24374.7807,1500,none,n/a
+RS-0,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,105,11069.7837,15873,0.7176,n/a
+RS-0,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,105,11069.7837,1500,11.1568,n/a
+RS-0,base,Phase II MD-6 technology licensing,120,84,34012.7095,15873,2.3506,n/a
+RS-0,base,Phase II MD-6 technology licensing,120,84,34012.7095,1500,none,n/a
+RS-0,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,84,14305.2111,15873,0.9354,n/a
+RS-0,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,84,14305.2111,1500,17.9933,n/a
+RS-0,adverse,Phase II MD-6 technology licensing,81,56.7,69988.9578,15873,5.4377,n/a
+RS-0,adverse,Phase II MD-6 technology licensing,81,56.7,69988.9578,1500,none,n/a
+RS-0,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,56.7,23071.3675,15873,1.5452,n/a
+RS-0,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,56.7,23071.3675,1500,none,n/a
+RS-1,favourable,Phase II MD-6 technology licensing,150,99.75,26233.1542,14285.7,1.9861,n/a
+RS-1,favourable,Phase II MD-6 technology licensing,150,99.75,26233.1542,1350,none,n/a
+RS-1,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,99.75,11733.2126,14285.7,0.8496,n/a
+RS-1,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,99.75,11733.2126,1350,14.8554,n/a
+RS-1,base,Phase II MD-6 technology licensing,120,75.6,40402.93,11904.75,3.9597,n/a
+RS-1,base,Phase II MD-6 technology licensing,120,75.6,40402.93,1125,none,n/a
+RS-1,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,75.6,16199.0452,11904.75,1.4406,n/a
+RS-1,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,75.6,16199.0452,1125,none,n/a
+RS-1,adverse,Phase II MD-6 technology licensing,81,45.36,124838.6317,9523.8,none,n/a
+RS-1,adverse,Phase II MD-6 technology licensing,81,45.36,124838.6317,900,none,n/a
+RS-1,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,45.36,30949.3954,9523.8,3.7634,n/a
+RS-1,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,45.36,30949.3954,900,none,n/a
+RS-2,favourable,Phase II MD-6 technology licensing,150,84,34012.7095,11111.1,3.5112,n/a
+RS-2,favourable,Phase II MD-6 technology licensing,150,84,34012.7095,1050,none,n/a
+RS-2,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,84,14305.2111,11111.1,1.3587,n/a
+RS-2,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,84,14305.2111,1050,none,n/a
+RS-2,base,Phase II MD-6 technology licensing,120,58.8,64722.8592,7936.5,13.209,n/a
+RS-2,base,Phase II MD-6 technology licensing,120,58.8,64722.8592,750,none,n/a
+RS-2,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,58.8,22032.785,7936.5,3.1393,n/a
+RS-2,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,58.8,22032.785,750,none,n/a
+RS-2,adverse,Phase II MD-6 technology licensing,81,34.02,577129.393,3174.6,none,n/a
+RS-2,adverse,Phase II MD-6 technology licensing,81,34.02,577129.393,300,none,n/a
+RS-2,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,34.02,46997.23,3174.6,none,n/a
+RS-2,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,34.02,46997.23,300,none,n/a
+RS-3,favourable,Phase II MD-6 technology licensing,150,70.875,45177.3165,14285.7,3.646,n/a
+RS-3,favourable,Phase II MD-6 technology licensing,150,70.875,45177.3165,1350,none,n/a
+RS-3,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,70.875,17502.4167,14285.7,1.2894,n/a
+RS-3,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,70.875,17502.4167,1350,none,n/a
+RS-3,base,Phase II MD-6 technology licensing,120,56.7,69988.9578,11904.75,7.9437,n/a
+RS-3,base,Phase II MD-6 technology licensing,120,56.7,69988.9578,1125,none,n/a
+RS-3,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,56.7,23071.3675,11904.75,2.1058,n/a
+RS-3,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,56.7,23071.3675,1125,none,n/a
+RS-3,adverse,Phase II MD-6 technology licensing,81,30.7314,none,9523.8,none,n/a
+RS-3,adverse,Phase II MD-6 technology licensing,81,30.7314,none,900,none,n/a
+RS-3,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,30.7314,55314.9612,9523.8,7.8103,n/a
+RS-3,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,30.7314,55314.9612,900,none,n/a
+RS-4,favourable,Phase II MD-6 technology licensing,150,120,20271.7428,15873,1.3472,n/a
+RS-4,favourable,Phase II MD-6 technology licensing,150,120,20271.7428,1500,none,n/a
+RS-4,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,120,9530.1754,15873,0.6153,n/a
+RS-4,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,120,9530.1754,1500,8.873,n/a
+RS-4,base,Phase II MD-6 technology licensing,120,84,34012.7095,15873,2.3506,n/a
+RS-4,base,Phase II MD-6 technology licensing,120,84,34012.7095,1500,none,n/a
+RS-4,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,84,14305.2111,15873,0.9354,n/a
+RS-4,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,84,14305.2111,1500,17.9933,n/a
+RS-4,adverse,Phase II MD-6 technology licensing,81,40.5,187972.4246,15873,36.8087,n/a
+RS-4,adverse,Phase II MD-6 technology licensing,81,40.5,187972.4246,1500,none,n/a
+RS-4,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,40.5,36255.006,15873,2.5223,n/a
+RS-4,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,40.5,36255.006,1500,none,n/a
+RS-5,favourable,Phase II MD-6 technology licensing,150,105,24374.7807,15873,1.6385,yes
+RS-5,favourable,Phase II MD-6 technology licensing,150,105,24374.7807,1500,none,no
+RS-5,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,105,11069.7837,15873,0.7176,yes
+RS-5,favourable,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",150,105,11069.7837,1500,11.1568,no
+RS-5,base,Phase II MD-6 technology licensing,120,84,34012.7095,15873,2.3506,yes
+RS-5,base,Phase II MD-6 technology licensing,120,84,34012.7095,1500,none,no
+RS-5,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,84,14305.2111,15873,0.9354,yes
+RS-5,base,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",120,84,14305.2111,1500,17.9933,no
+RS-5,adverse,Phase II MD-6 technology licensing,81,56.7,69988.9578,15873,5.4377,no
+RS-5,adverse,Phase II MD-6 technology licensing,81,56.7,69988.9578,1500,none,no
+RS-5,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,56.7,23071.3675,15873,1.5452,yes
+RS-5,adverse,"Phase III lean licensor (AB run + TPSP + control operations + founder draw + registry, governing mode)",81,56.7,23071.3675,1500,none,no

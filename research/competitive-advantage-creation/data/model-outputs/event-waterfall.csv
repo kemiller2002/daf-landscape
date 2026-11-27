@@ -1,0 +1,16 @@
+scenario,step,minutes_before,removed,after,residual_cost,saving
+opt,eliminated,183.337,46.987,136.35,0,48.5846
+opt,automated,136.35,112.325,24.025,11.6144,104.5296
+opt,accelerated (AI),24.025,5.331,18.694,0.5512,4.961
+opt,transferred to customer,18.694,1.971,16.723,2.038,0
+opt,transferred to partner,16.723,2.722,14.001,2.8145,0
+base,eliminated,183.337,36.86,146.477,0,53.5944
+base,automated,146.477,82.245,64.232,29.8961,89.6882
+base,accelerated (AI),64.232,9.311,54.921,2.7076,10.8306
+base,transferred to customer,54.921,1.661,53.26,3.3811,-0.966
+base,transferred to partner,53.26,7.296,45.964,14.8517,-4.2434
+pess,eliminated,183.337,24.525,158.812,0,49.05
+pess,automated,158.812,29.437,129.375,29.437,29.437
+pess,accelerated (AI),129.375,15.373,114.002,12.2984,18.4476
+pess,transferred to customer,114.002,1.153,112.849,4.612,-2.306
+pess,transferred to partner,112.849,15.277,97.572,61.108,-30.554
