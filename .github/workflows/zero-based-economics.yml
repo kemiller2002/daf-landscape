@@ -1,0 +1,41 @@
+name: Zero-based economics F# verification
+
+on:
+  pull_request:
+    paths:
+      - "research/competitive-advantage-creation/zero-based-economics/**"
+      - ".github/workflows/zero-based-economics.yml"
+  push:
+    branches: [main]
+    paths:
+      - "research/competitive-advantage-creation/zero-based-economics/**"
+  workflow_dispatch:
+
+concurrency:
+  group: zero-based-economics-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Tests, register validation and byte-identical reproduction
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: research/competitive-advantage-creation/zero-based-economics/model
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: "10.0.x"
+      - name: Unit tests (warnings as errors)
+        run: dotnet test tests/ZeroBasedEconomics.Tests -c Release
+      - name: Validate registers, evidence and links
+        run: dotnet run --project src/ZeroBasedEconomics -c Release --no-build -- validate ..
+      - name: Reproduce outputs byte for byte
+        run: dotnet run --project src/ZeroBasedEconomics -c Release --no-build -- check ../data/inputs ../data/outputs

@@ -1,0 +1,7 @@
+profile_id,name,accounts_low,accounts_base,accounts_high,aua_per_account_low,aua_per_account_base,aua_per_account_high,grants_per_account_low,grants_per_account_base,grants_per_account_high,contribs_per_account_low,contribs_per_account_base,contribs_per_account_high,exception_rate_low,exception_rate_base,exception_rate_high,evidence_ids
+XS,Small community foundation,25,60,120,80000,150000,300000,3,5,9,1,2,5,0.6,1,2.5,SRC-ZB-003 SRC-ZB-011 SRC-ZB-012
+S,Mid-size community foundation,150,300,600,100000,200000,400000,3,6,10,1,2,5,0.6,1,2.5,SRC-ZB-003 SRC-ZB-011 SRC-ZB-012
+M,Large community foundation or affinity sponsor,800,1500,3000,100000,180000,350000,4,7,12,1,2,5,0.5,1,2,SRC-ZB-003 SRC-ZB-012
+L,Regional or institution-affiliated sponsor,3000,6000,12000,60000,120000,250000,5,9,14,1,2.5,6,0.5,1,2,SRC-ZB-003 SRC-ZB-012
+XL,National sponsor (anchor scale),15000,30000,60000,40000,100000,200000,6,10,12.3,1,2.5,8,0.5,1,2,SRC-ZB-003 SRC-ZB-012
+P2000,Phase II comparison sponsor (2000 accounts),2000,2000,2000,250000,250000,250000,9,9,9,2.5,2.5,2.5,1,1,1,SRC-ZB-003
