@@ -53,30 +53,30 @@ type PoolResult =
       IncidentHours: float }
 
 /// Seeded incidents (security, integration failures, recovery) that add urgent hours to a pool.
-type Incident = { Day: int; Pool: string; Hours: float; Kind: string }
+type Incident = { Day: int; Pool: string; Hours: float; Kind: string; SlaDays: float }
 
 let private lcg (s: uint64) =
     let n = s * 6364136223846793005UL + 1442695040888963407UL
     float (n >>> 11) / float (1UL <<< 53), n
 
 /// Poisson-like draws per day via Bernoulli with p = rate/365 (rates are small). Deterministic for a seed.
-let incidents (seed: uint64) (specs: (string * string * float * float) list) : Incident list =
+let incidents (seed: uint64) (specs: (string * string * float * float * float) list) : Incident list =
     specs
-    |> List.mapi (fun i (kind, pool, ratePerYear, hours) -> i, kind, pool, ratePerYear, hours)
-    |> List.collect (fun (i, kind, pool, rate, hours) ->
+    |> List.mapi (fun i (kind, pool, ratePerYear, hours, sla) -> i, kind, pool, ratePerYear, hours, sla)
+    |> List.collect (fun (i, kind, pool, rate, hours, sla) ->
         let p = rate / float days
         [ 0 .. days - 1 ]
         |> List.fold (fun (acc, st) d ->
             let u, st' = lcg st
-            (if u < p then { Day = d; Pool = pool; Hours = hours; Kind = kind } :: acc else acc), st') ([], seed + uint64 (i * 7919))
+            (if u < p then { Day = d; Pool = pool; Hours = hours; Kind = kind; SlaDays = sla } :: acc else acc), st') ([], seed + uint64 (i * 7919))
         |> fst)
 
 /// Arrivals for a pool from activity loads (vendor share only).
 let arrivals (vals: Values) (poolOf: string -> string) (pool: string) (ls: Load list) : Arrival list =
     ls
     |> List.collect (fun l ->
-        let primary = if poolOf l.Activity.Role = pool then l.Minutes * l.VendorShare / 60.0 else 0.0
-        let auth = if poolOf "authorizer" = pool then l.AuthMinutes * l.VendorShare / 60.0 else 0.0
+        let primary = if poolOf (vendorRole l.Activity) = pool then l.Minutes * l.VendorShare / 60.0 else 0.0
+        let auth = if poolOf (reviewRole l.Activity) = pool then l.AuthMinutes * l.VendorShare / 60.0 else 0.0
         let h = primary + auth
         if h <= 0.0 then []
         else
@@ -115,8 +115,8 @@ let runPool (vals: Values) (pool: string) (staff: float) (arr: Arrival list) (in
     let step (queue: (int * float * float) list, done_, peakH, peakAge, breached, weekly: float list) d =
         let newItems =
             (Map.tryFind d byDay |> Option.defaultValue [] |> List.map (fun a -> d, a.SlaDays, a.Hours))
-            @ (Map.tryFind d incByDay |> Option.defaultValue [] |> List.map (fun i -> d, 1.0, i.Hours))
-        // incidents are urgent: placed at the queue head
+            @ (Map.tryFind d incByDay |> Option.defaultValue [] |> List.map (fun i -> d, i.SlaDays, i.Hours))
+        // short-SLA work (incidents, same-day items) is placed at the queue head
         let urgent, normal = newItems |> List.partition (fun (_, s, _) -> s <= 1.0)
         let q = urgent @ queue @ normal
         let cap = capacity vals staff d

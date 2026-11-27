@@ -39,13 +39,13 @@ BNP-037,counsel_hours_recurring,Recurring counsel hours for eligibility rules,h/
 BNP-038,counsel_rate,Counsel hourly rate,USD/h,300,450,800,competitive-displacement RP-13,INFERENCE,medium,,,,2026-11-27
 BNP-039,owner_floor_hours,"Named accountable owner floor hours (policy, appeals, source governance)",h/yr,50,100,200,Judgement; RC-07 floor 0.25 FTE was a staffing ratio,ASSUMPTION,low,Accountability without a full-time steward,,,2026-11-27
 BNP-040,engineering_rate,Engineering hourly cost,USD/h,98,118,138,competitive-displacement RP-15,INFERENCE,medium,,,,2026-11-27
-BNP-041,compliance_rate,Compliance hourly cost,USD/h,54.14,67.69,82.08,competitive-displacement RP-14,INFERENCE,medium,,,,2026-11-27
+BNP-041,compliance_rate,Compliance hourly cost,USD/h,67.69,120,209,competitive-displacement RP-14,INFERENCE,medium,; REV-A (ADV-CS-004): base raised to a dedicated/fractional blend for consistency with the staffing model ($209/h fractional),,,2026-11-27
 BNP-042,union_exponent,Recipient union exponent across sponsors,exponent,0.3,0.5,0.8,competitive-displacement RP-11,ASSUMPTION,low,,,,2026-11-27
 BNP-043,database_population,501(c)(3) organizations in the database,orgs,1650000,1690000,1700000,BDZ-002 (measured BMF sample),MEASURED-FACT,high,,,,2026-11-27
 BNP-044,grants_per_recipient,Grants per active recipient per year,grants,2,3.5,5,competitive-displacement registry grid (70k grants/20k charities),INFERENCE,medium,,,,2026-11-27
 BNP-045,ineligibility_rate,Eligibility-ending events per active charity-year,per charity-year,0.002,0.004,0.01,BDZ-025 (5 revocations/month per 20k) plus other adverse events,INFERENCE,low,,,,2026-11-27
 BNP-046,full_review_minutes,Minutes per full human re-review,min,5,15,30,competitive-displacement RP-06 (ACT-A09),INFERENCE,low,,,,2026-11-27
-BNP-047,source_latency_days,Lag between an eligibility event and its publication in authoritative sources,days,30,45,90,BMF monthly; revocation list monthly (beneficium notes),INFERENCE,low,,,,2026-11-27
+BNP-047,source_latency_days,Lag between an eligibility event and its publication in authoritative sources,Lag between publication of an eligibility event in an authoritative source and its ingestion (legal exposure starts at publication: Rev. Proc. 2018-32 reliance),1,15,35,BMF monthly; revocation list monthly (beneficium notes),INFERENCE,low,"REV-A (ADV-CS-002): exposure measured from publication, not from the event; monthly ingestion averages ~15 days",,,2026-11-27
 BNP-048,auto_reeval_exception_rate,Share of automated re-evaluations that raise a human exception,share,0.01,0.03,0.08,Judgement,ASSUMPTION,low,,,,2026-11-27
 BNP-049,human_review_miss_rate,Probability a human review misses an eligibility problem present in evidence,share,0.02,0.05,0.1,Judgement,ASSUMPTION,low,,,,2026-11-27
 BNP-050,auto_detection_miss_rate,Probability automated monitoring misses an eligibility event present in sources,share,0.005,0.02,0.05,Judgement; includes stale/conflicting records,ASSUMPTION,low,,,,2026-11-27
@@ -56,3 +56,4 @@ BNP-054,tier_med_share,Medium-risk tier share,share,0.1,0.15,0.25,Judgement,ASSU
 BNP-055,false_negative_cost,"Cost per grant paid to an ineligible organisation (recovery, 4966 exposure, reputational)",USD,500,2500,25000,Judgement; IRC 4966 20% sponsor tax on taxable distribution (control-obligations.csv),ASSUMPTION,low,,,,2026-11-27
 BNP-056,false_positive_rate,Share of grants wrongly held by a vetting alert,share,0.001,0.003,0.01,Judgement,ASSUMPTION,low,,,,2026-11-27
 BNP-057,false_positive_minutes,Minutes to clear a false-positive hold,min,15,30,60,Judgement,ASSUMPTION,low,,,,2026-11-27
+BNP-058,stale_window_continuous_days,Undetected window for events outside monitored feeds when no periodic re-evaluation exists,days,180,365,730,Judgement,ASSUMPTION,low,Caught only when evidence otherwise expires or a person notices,stale_source_share,Replay,2026-11-27

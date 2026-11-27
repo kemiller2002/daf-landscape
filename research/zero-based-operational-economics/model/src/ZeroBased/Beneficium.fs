@@ -157,21 +157,28 @@ let vetting (bv: Values) (approach: Vetting) (n: float) (g: float) : VettingResu
     let autoMiss = v bv "auto_detection_miss_rate"
     let change = v bv "eligibility_change_rate"
     let cycleAuto = v bv "auto_refresh_days"         // next automated re-check after a missed detection
-    let reviews, minutesEach, window, miss, cycle, staleShare, valid180 =
+    let stale = v bv "stale_source_share"
+    // REV-A (ADV-CS-001/002): every approach keeps Unbound's transaction-time status check (OA-CHR-002), so events
+    // visible in monitored sources are exposed only for the ingestion lag after publication (Rev. Proc. 2018-32:
+    // reliance on published IRS status). Approaches differ in how events outside monitored feeds (stale share) are
+    // caught, and in human versus automated miss rates.
+    let reviews, minutesEach, staleWindow, miss, cycle, valid180 =
         match approach with
-        | FullManualPeriodic -> n * 2.0, full, 90.0 + latencySrc, humanMiss, 180.0, 0.0, true
-        | AutomatedPeriodic -> n * 2.0 * autoEx, full, 90.0 + latencySrc, autoMiss, 180.0, 0.0, true
-        | Continuous -> n * change, v bv "change_review_minutes", latencySrc, autoMiss, cycleAuto, v bv "stale_source_share", false
-        | ChangeDriven -> n * change, full, latencySrc, humanMiss, cycleAuto, v bv "stale_source_share", false
-        | GrantTriggered -> min g (n * 2.0) * autoEx, full, 90.0 + latencySrc, autoMiss, 180.0, 0.0, true
+        | FullManualPeriodic -> n * 2.0, full, 90.0, humanMiss, 180.0, true
+        | AutomatedPeriodic -> n * 2.0 * autoEx, full, 90.0, autoMiss, 180.0, true
+        | Continuous -> n * change, v bv "change_review_minutes", v bv "stale_window_continuous_days", autoMiss, cycleAuto, false
+        | ChangeDriven -> n * change, full, v bv "stale_window_continuous_days", humanMiss, cycleAuto, false
+        | GrantTriggered -> min g (n * 2.0) * autoEx, full, 90.0, autoMiss, 180.0, true
         | RiskTiered ->
             let hi, med = v bv "tier_high_share", v bv "tier_med_share"
-            n * (hi * 2.0 + med) + n * (1.0 - hi - med) * 2.0 * autoEx, full, 60.0 + latencySrc, (humanMiss + autoMiss) / 2.0, 180.0, 0.0, true
+            n * (hi * 2.0 + med) + n * (1.0 - hi - med) * 2.0 * autoEx, full, 90.0 * (1.0 - hi) + 45.0 * hi, (humanMiss + autoMiss) / 2.0, 180.0, true
         | Hybrid ->
-            n * change + n * 2.0 * autoEx + n * v bv "tier_high_share", full, latencySrc, min autoMiss humanMiss, cycleAuto, 0.0, true
+            n * change + n * 2.0 * autoEx + n * v bv "tier_high_share", full, 90.0, min autoMiss humanMiss, cycleAuto, true
     let hours = reviews * minutesEach / 60.0
-    // undetected ineligible time per charity-year: detection latency plus missed detections until the next check
-    let pFn = inel * (window + miss * cycle) / 365.0
+    let visibleWindow = latencySrc + miss * cycle
+    let staleExposure = staleWindow + miss * 180.0
+    let pFn = inel * ((1.0 - stale) * visibleWindow + stale * staleExposure) / 365.0
+    let staleShare = match approach with Continuous | ChangeDriven -> stale | _ -> 0.0
     let fn = g * pFn
     let fnCost = fn * v bv "false_negative_cost"
     let fpHolds = g * v bv "false_positive_rate" * (match approach with Continuous | ChangeDriven | Hybrid -> 1.0 | _ -> 0.6)

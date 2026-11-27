@@ -48,14 +48,14 @@ let evalRow (label: string) (e: Eval) =
       f4 e.Counts.Grants; f4 e.Counts.Contributions; f4 e.Totals.Events; f4 e.Totals.AutoShare; f4 e.Totals.HumanHours; f4 e.Totals.VendorHours; f4 e.Totals.SponsorHours
       f4 e.Staffing.DedicatedFte; f4 e.Staffing.FractionalHours; f4 (e.Staffing.Pools |> List.sumBy (fun p -> p.FounderHours)); string e.Staffing.NamedPersons; string e.Staffing.IndependentPersons
       f4 e.Views.LabourCash; f4 e.Views.BackupCash; f4 e.Views.InfraCash; f4 e.Views.CharityDataUpkeep; f4 e.Views.ExternalCash; f4 e.Views.FixedIncremental; f4 e.Views.FounderImputed; f4 e.Views.FixedAllocated; f4 e.Views.FixedStandalone
-      f4 e.Views.View1; f4 e.Views.View2; f4 e.Views.View3; f4 e.Views.SponsorLabourValue
+      f4 e.Views.View1; f4 e.Views.View2; f4 e.Views.View3; f4 e.Views.SponsorLabourValue; f4 (e.Views.View1 + e.Views.SponsorLabourValue)
       f4 (e.Views.View1 / max 1.0 e.Scenario.Accounts); f4 (e.Views.View1 / max 1.0 (assets e.Scenario) * 10000.0); f4 (e.Views.View2 / max 1.0 (assets e.Scenario) * 10000.0); f4 (e.Views.View3 / max 1.0 (assets e.Scenario) * 10000.0) ]
 
 let evalHeader =
     [ "label"; "config"; "programme"; "accounts"; "sponsors"; "mean_balance"; "assets"; "grants"; "contributions"; "events"; "auto_share"; "human_hours"; "vendor_hours"; "sponsor_hours"
       "dedicated_fte"; "fractional_hours"; "founder_hours"; "named_persons"; "independent_persons"
       "labour_cash"; "backup_cash"; "infra"; "charity_data_upkeep"; "external"; "fixed_incremental"; "founder_imputed"; "fixed_allocated"; "fixed_standalone"
-      "view1_cash"; "view2_allocated"; "view3_standalone"; "sponsor_labour_value"; "view1_per_account"; "view1_bps"; "view2_bps"; "view3_bps" ]
+      "view1_cash"; "view2_allocated"; "view3_standalone"; "sponsor_labour_value"; "system_cost_view1_plus_sponsor"; "view1_per_account"; "view1_bps"; "view2_bps"; "view3_bps" ]
 
 // ------------------------------------------------------------------ break-even (cached cost curves)
 
@@ -247,21 +247,82 @@ let all (inputs: Inputs) (baseline: CompetitiveDisplacement.Inputs.Inputs) : (st
                   f4 (r / e.Scenario.Accounts); f4 (r / e.Scenario.Sponsors); f4 ((r - e.Views.View1) / e.Scenario.Accounts) ]))
 
     // 10a. sponsor unit economics: marginal cost, acquisition and onboarding recovery, minimum viable contract
+    // Onboarding hours per new sponsor are computed per onboarding event (not the annual run-rate).
+    let onboardHoursPerSponsor (e: Eval) =
+        let ls = e.Loads |> List.filter (fun l -> l.Activity.Driver = PerSponsorOnboarding)
+        let total = ls |> List.sumBy (fun l -> (l.Minutes + l.AuthMinutes) * l.VendorShare / 60.0)
+        if e.Counts.NewSponsors > 0.0 then total / e.Counts.NewSponsors else 0.0
     let sponsorEcon =
         [ for sizeAum in [ 25e6; 50e6; 100e6; 250e6; 500e6; 1e9 ] do
-            let baseE = eval false c refConfig refProgramme (500e6 / pHnw.DefaultBalance) 2.0 pHnw.DefaultBalance
-            let plus = eval false c refConfig refProgramme ((500e6 + sizeAum) / pHnw.DefaultBalance) 3.0 pHnw.DefaultBalance
-            let marginal = plus.Views.View1 - baseE.Views.View1
+            // average marginal cost of adding four sponsors of this size to a 4-sponsor $1B book (smooths hiring steps)
+            let baseE = eval false c refConfig refProgramme (1e9 / pHnw.DefaultBalance) 4.0 pHnw.DefaultBalance
+            let plus = eval false c refConfig refProgramme ((1e9 + 4.0 * sizeAum) / pHnw.DefaultBalance) 8.0 pHnw.DefaultBalance
+            // marginal recurring cost excludes the onboarding run-rate change (one-time, recovered separately)
+            let runRate (e: Eval) = e.Loads |> List.filter (fun l -> l.Activity.Driver = PerSponsorOnboarding) |> List.sumBy (fun l -> (l.Minutes + l.AuthMinutes) * l.VendorShare / 60.0)
+            let hourly = 120.0
+            let marginal = (plus.Views.View1 - baseE.Views.View1 - (runRate plus - runRate baseE) * hourly) / 4.0
             let rev = sizeAum * 20.0 / 10000.0
-            let onboardHours = plus.Loads |> List.filter (fun l -> l.Activity.Driver = PerSponsorOnboarding) |> List.sumBy (fun l -> (l.Minutes + l.AuthMinutes) * l.VendorShare / 60.0)
-            let onboardCost = onboardHours * 120.0
+            let onboardHours = onboardHoursPerSponsor plus
+            let onboardCost = onboardHours * hourly
             let acquire = v vals "cac_cash_per_sponsor"
             let monthly = (rev - marginal) / 12.0
             let payback = if monthly > 0.0 then (onboardCost + acquire) / monthly else infinity
-            yield sizeAum, rev, marginal, onboardHours, onboardCost, acquire, payback ]
+            let term = v vals "contract_term_years"
+            let minFee = marginal + (onboardCost + acquire) / term
+            yield sizeAum, rev, marginal, onboardHours, onboardCost, acquire, payback, minFee ]
     let sponsorCsv =
-        csv [ "sponsor_assets"; "revenue_20bps"; "marginal_view1_cost"; "onboarding_hours"; "onboarding_cost"; "acquisition_cash"; "payback_months" ]
-            (sponsorEcon |> List.map (fun (a, r, m, h, oc, ac, pb) -> [ f4 a; f4 r; f4 m; f4 h; f4 oc; f4 ac; f4 pb ]))
+        csv [ "sponsor_assets"; "revenue_20bps"; "marginal_recurring_view1_cost"; "onboarding_hours_per_sponsor"; "onboarding_cost"; "acquisition_cash"; "payback_months"; "minimum_annual_fee_over_term" ]
+            (sponsorEcon |> List.map (fun (a, r, m, h, oc, ac, pb, mf) -> [ f4 a; f4 r; f4 m; f4 h; f4 oc; f4 ac; f4 pb; f4 mf ]))
+
+    // 10b. break-even by sponsor size (accounts and assets), 20 bps grid, $250k balance
+    let sponsorSizes = [ 25e6; 50e6; 100e6; 250e6; 500e6; 1e9 ]
+    let sizeCurves =
+        [ for cfg in [ "CFG-2"; "CFG-5"; "CFG-7" ] do
+            for size in sponsorSizes do
+                yield size, curve c cfg refProgramme pHnw.DefaultBalance (fun a -> max 1.0 (ceil (a / size - 1e-9))) ]
+    let sizeRows =
+        [ for size, cv in sizeCurves do
+            for view in [ 1; 2; 3 ] do
+                for bps in [ 10.0; 15.0; 20.0; 25.0; 30.0; 40.0 ] do
+                    yield cv.Cfg, size, view, bps, curveBreakEven cv view (AumBps bps) 0.0 ]
+    let sizeCsv =
+        csv [ "config"; "sponsor_assets"; "view"; "bps"; "break_even_accounts"; "break_even_assets"; "sponsors_at_break_even" ]
+            (sizeRows |> List.map (fun (cfg, size, view, bps, be) ->
+                let a = be |> Option.map fst |> Option.defaultValue infinity
+                let s = be |> Option.map snd |> Option.defaultValue infinity
+                [ cfg; f4 size; string view; f4 bps; f4 a; f4 s; f4 (if System.Double.IsInfinity s then infinity else ceil (s / size - 1e-9)) ]))
+    let sizeCell cfg size view bps =
+        match sizeRows |> List.tryFind (fun (c', s', v', b', _) -> c' = cfg && s' = size && v' = view && b' = bps) with
+        | Some(_, _, _, _, Some(_, a)) -> usd a
+        | Some(_, _, _, _, None) -> "> $500B or never"
+        | None -> "n/a"
+
+    // 10c. licensing priced per account (CFG-1, CFG-2, CFG-6): accounts needed to break even
+    let licRows =
+        [ for cfg in [ "CFG-1"; "CFG-2"; "CFG-6" ] do
+            let cv = curve c cfg refProgramme pHnw.DefaultBalance (fun a -> max 1.0 (ceil (a / 250e6 - 1e-9)))
+            for price in [ 40.0; 81.0; 120.0; 150.0; 250.0 ] do
+                for view in [ 1; 2; 3 ] do
+                    yield cfg, price, view, curveBreakEven cv view (PerAccount price) 0.0 ]
+    let licCsv =
+        csv [ "config"; "price_per_account"; "view"; "break_even_accounts"; "equivalent_bps_at_250k" ]
+            (licRows |> List.map (fun (cfg, p, view, be) ->
+                [ cfg; f4 p; string view; f4 (be |> Option.map fst |> Option.defaultValue infinity); f4 (p / 250000.0 * 10000.0) ]))
+
+    // 10d. capital required before and during the first sponsor (working capital and launch cash)
+    let oneTimeCash = Costs.oneTime Base inputs.Fixed |> List.filter (fun (_, _, vw, _) -> vw = "incremental") |> List.sumBy (fun (_, _, _, a) -> a)
+    let capRows =
+        [ for size in [ 100e6; 250e6; 500e6; 1e9 ] do
+            for cfg in [ "CFG-2"; "CFG-5" ] do
+                let e = eval false c cfg refProgramme (size / pHnw.DefaultBalance) 1.0 pHnw.DefaultBalance
+                let rev = netRevenue (AumBps 20.0) e
+                let preRevenue = e.Views.View1 * v vals "months_to_first_revenue" / 12.0
+                let receivables = rev * v vals "receivable_arrears_months" / 12.0
+                let annualGap = max 0.0 (e.Views.View1 - rev)
+                yield size, cfg, oneTimeCash, preRevenue, receivables, annualGap, oneTimeCash + preRevenue + receivables + annualGap ]
+    let capCsv =
+        csv [ "first_sponsor_assets"; "config"; "one_time_cash"; "pre_revenue_operating_cash"; "receivables"; "annual_operating_gap_after_go_live"; "capital_required_first_year" ]
+            (capRows |> List.map (fun (s, cfg, a, b, r, g, t) -> [ f4 s; cfg; f4 a; f4 b; f4 r; f4 g; f4 t ]))
 
     // 11. sensitivity: tornado on View 1 at $500M, named scenarios, Monte Carlo
     let tor = tornado inputs (config inputs refConfig) C1 pHnw (500e6 / pHnw.DefaultBalance) 1.0 pHnw.DefaultBalance 1
@@ -289,6 +350,19 @@ let all (inputs: Inputs) (baseline: CompetitiveDisplacement.Inputs.Inputs) : (st
             let xs = mcBreakEven 200 rho inputs (config inputs cfg) C1 pHnw 1.0 view 20.0
             yield cfg, view, rho, summarise "break-even assets" xs, (xs |> List.filter System.Double.IsInfinity |> List.length |> float) / 200.0 ]
     let mcBeCsv = csv [ "config"; "view"; "rho"; "p10"; "p50"; "p90"; "never_share" ] (mcBe |> List.map (fun (cfg, view, rho, s, nv) -> [ cfg; string view; f4 rho; f4 s.P10; f4 s.P50; f4 s.P90; f4 nv ]))
+
+    // 11b. founder availability (REV-A, ADV-BI-004): View 1 and break-even at 0 / 400 / 800 / 1,200 / 1,800 founder hours
+    let founderRows =
+        [ for fh in [ 0.0; 400.0; 800.0; 1200.0; 1800.0 ] do
+            let vs = Map.add "founder_hours_per_year" fh vals
+            let cx = { c with Vals = vs }
+            let e = eval false cx refConfig refProgramme (500e6 / pHnw.DefaultBalance) 1.0 pHnw.DefaultBalance
+            let cv = curve cx refConfig refProgramme pHnw.DefaultBalance (fun a -> max 1.0 (ceil (a / 250e6 - 1e-9)))
+            let be view = curveBreakEven cv view (AumBps 20.0) 0.0 |> Option.map snd |> Option.defaultValue infinity
+            yield fh, e.Views.View1, e.Views.View2, be 1, be 2 ]
+    let founderCsv =
+        csv [ "founder_hours"; "view1_at_500M"; "view2_at_500M"; "break_even_view1_250M_sponsors"; "break_even_view2_250M_sponsors" ]
+            (founderRows |> List.map (fun (h, a, b, c1, c2) -> [ f4 h; f4 a; f4 b; f4 c1; f4 c2 ]))
 
     // 11a. stress: asset decline, loss of the largest sponsor, withdrawals
     let stressBase = eval false c refConfig refProgramme (1e9 / pHnw.DefaultBalance) 4.0 pHnw.DefaultBalance
@@ -358,6 +432,13 @@ let all (inputs: Inputs) (baseline: CompetitiveDisplacement.Inputs.Inputs) : (st
                   for view in [ 1; 2; 3 ] do
                       yield [ cfg.Id; string view ] @ (balanceList |> List.map (fun b -> beCell cfg.Id b view 20.0)) ]
           ""
+          "## 3a. Break-even at 20 bps by sponsor size ($250k balance; sponsors = assets / size)"
+          ""
+          table ([ "Config"; "View" ] @ (sponsorSizes |> List.map (fun s -> "$" + money s + " sponsors")))
+              [ for cfg in [ "CFG-2"; "CFG-5"; "CFG-7" ] do
+                  for view in [ 1; 2; 3 ] do
+                      yield [ cfg; string view ] @ (sponsorSizes |> List.map (fun s -> sizeCell cfg s view 20.0)) ]
+          ""
           "## 4. Reference simulation ($500M, 1 sponsor, CFG-5)"
           ""
           table [ "Pool"; "Hours"; "Founder h"; "Simulated FTE"; "Mode"; "Dedicated"; "Fractional h"; "Peak queue h"; "Peak age (d)"; "Breached h"; "Utilisation"; "Named persons"; "Cost" ]
@@ -402,11 +483,15 @@ let all (inputs: Inputs) (baseline: CompetitiveDisplacement.Inputs.Inputs) : (st
       "vetting-alternatives.csv", vetCsv
       "revenue-models.csv", revCsv
       "sponsor-unit-economics.csv", sponsorCsv
+      "break-even-by-sponsor-size.csv", sizeCsv
+      "licensing-per-account.csv", licCsv
+      "capital-required.csv", capCsv
       "sensitivity-tornado.csv", torCsv
       "named-scenarios.csv", namedCsv
       "monte-carlo-cost.csv", mcCsv
       "monte-carlo-break-even.csv", mcBeCsv
       "stress.csv", stressCsv
+      "founder-sensitivity.csv", founderCsv
       "baseline-comparison.csv", compCsv
       "requirement-hours.csv", reqCsv
       "activity-loads-reference.csv", actCsv ]

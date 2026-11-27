@@ -36,6 +36,8 @@ type Bucket =
     | AdminJudgment
     | IndependentAuth
     | SponsorOwned
+    | SponsorReserved
+    | SponsorDelegable
     | External
     | Shared
     | Eliminated
@@ -61,15 +63,21 @@ type Activity =
       Confidence: string }
 
 /// Classification first, then responsible entity, then domain/role decide the bucket.
+/// REV-A (ADV-OC-001, ADV-OA-001): classification decides before responsible entity, so independent
+/// authorization and delegable sponsor work follow the configuration. Only SPONSOR-OWNED work is always the
+/// sponsor's; sponsor-held human judgment is SponsorReserved (the vendor may prepare, the sponsor decides).
 let bucket (a: Activity) : Bucket =
+    let sponsorSide = a.Responsible = "sponsor" || a.Responsible = "donor" || a.Role = "sponsor"
     match a.Classification, a.Responsible, a.Role with
-    | ("ELIMINATED" | "PREVENTED"), _, _ when a.Exception.Base <= 0.0 -> Eliminated
-    | "SPONSOR-OWNED", _, _ | _, ("sponsor" | "donor"), _ | _, _, "sponsor" -> SponsorOwned
+    | ("ELIMINATED" | "PREVENTED"), _, _ when a.Exception.Base <= 0.0 || a.Freq.Base <= 0.0 -> Eliminated
+    | "SPONSOR-OWNED", _, _ -> SponsorOwned
+    | "INDEPENDENT-AUTHORIZATION", _, _ -> IndependentAuth
+    | "HUMAN-JUDGMENT", _, _ when sponsorSide -> SponsorReserved
+    | _ when sponsorSide -> SponsorDelegable
     | "EXTERNAL-PROVIDER", _, _ | _, ("custodian" | "bank_or_payment_provider" | "external_professional"), _ -> External
     | ("SHARED-ECHELON", _, "engineering") | (_, "shared_echelon", "engineering") -> Tech
     | ("SHARED-ECHELON", _, ("implementation" | "sales" | "executive")) | (_, "shared_echelon", ("implementation" | "sales" | "executive")) -> Commercial
     | "SHARED-ECHELON", _, _ | _, "shared_echelon", _ -> Shared
-    | "INDEPENDENT-AUTHORIZATION", _, _ -> IndependentAuth
     | _, _, "engineering" -> Tech
     | _ when a.Domain = "TECHOPS" -> Tech
     | _, _, ("sales" | "executive") -> Commercial
@@ -77,6 +85,26 @@ let bucket (a: Activity) : Bucket =
     | _, _, "support" -> Support
     | "HUMAN-JUDGMENT", _, _ -> AdminJudgment
     | _ -> AdminException
+
+/// Role that performs an activity when the vendor does it (sponsor-role work maps by domain).
+let vendorRole (a: Activity) =
+    match a.Role with
+    | "sponsor" | "" | "none" ->
+        match a.Domain with
+        | "ACCOUNTING" | "INVEST" -> "controller"
+        | "GRANT" | "CHARITY" | "COMPLIANCE" -> "compliance"
+        | "CONTRIB" -> "accounting"
+        | "COMMERCIAL" -> "executive"
+        | _ -> "ops"
+    | r -> r
+
+/// Pool role for second-person review: engineers review engineering, compliance reviews compliance,
+/// financial and payment work goes to the independent authorizer (REV-A, ADV-OA-002, ADV-IM-012).
+let reviewRole (a: Activity) =
+    match vendorRole a with
+    | "engineering" -> "engineering"
+    | "compliance" -> "compliance"
+    | _ -> "authorizer"
 
 let private numOr (dflt: float) key row =
     match num key row with
@@ -171,6 +199,7 @@ type Config =
 let bucketColumns =
     [ Tech, "tech"; Commercial, "commercial"; Support, "support"; AdminException, "admin_exception"
       AdminJudgment, "admin_judgment"; IndependentAuth, "independent_auth"; SponsorOwned, "sponsor_owned"
+      SponsorReserved, "sponsor_reserved_prep"; SponsorDelegable, "sponsor_delegable"
       External, "external"; Shared, "shared"; Eliminated, "eliminated" ]
 
 let parseConfig (row: Row) : Result<Config, string> =

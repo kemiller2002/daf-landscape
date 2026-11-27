@@ -48,8 +48,8 @@ let loads level vals cfg counts (acts: Activity list) = acts |> List.map (load l
 /// Independent-authorization second-person minutes are assigned to the "authorizer" role.
 let hoursByRole (vendor: bool) (ls: Load list) : Map<string, float> =
     let share (l: Load) = if vendor then l.VendorShare else 1.0 - l.VendorShare
-    let primary = ls |> List.map (fun l -> l.Activity.Role, l.Minutes * share l / 60.0)
-    let auth = ls |> List.map (fun l -> "authorizer", l.AuthMinutes * share l / 60.0)
+    let primary = ls |> List.map (fun l -> (if vendor then vendorRole l.Activity else l.Activity.Role), l.Minutes * share l / 60.0)
+    let auth = ls |> List.map (fun l -> (if vendor then reviewRole l.Activity else "authorizer"), l.AuthMinutes * share l / 60.0)
     primary @ auth
     |> List.filter (fun (r, h) -> h > 0.0 && r <> "none" && r <> "")
     |> List.groupBy fst

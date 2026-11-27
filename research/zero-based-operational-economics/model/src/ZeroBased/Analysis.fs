@@ -33,11 +33,12 @@ let scenario (vals: Values) (p: Programme) (accounts: float) (sponsors: float) (
 let incidentSpecs (vals: Values) (accounts: float) =
     // rates per year; integration failures scale weakly with sponsors/accounts via the multiplier
     let scale = max 1.0 (log10 (max 10.0 accounts) - 2.0)
-    [ "security incident", "ENG", v vals "inc_security_rate", v vals "inc_security_hours"
-      "security incident (ops containment)", "OPS", v vals "inc_security_rate", v vals "inc_security_ops_hours"
-      "integration failure", "ENG", v vals "inc_integration_rate" * scale, v vals "inc_integration_hours"
-      "integration failure (ops remediation)", "OPS", v vals "inc_integration_rate" * scale, v vals "inc_integration_ops_hours"
-      "operational failure / recovery", "FINANCE", v vals "inc_ops_failure_rate" * scale, v vals "inc_ops_failure_hours" ]
+    // REV-A (ADV-OC): security and integration incident hours are already in TECHOPS activities (OA-TEC-002/004/023),
+    // so the simulation adds only events not in the inventory: operational recovery and automation mass remediation.
+    // SLA in business days: recovery 3; mass remediation 10 (identify, correct, notify), engineering fix 5
+    [ "operational failure / recovery", "FINANCE", v vals "inc_ops_failure_rate" * scale, v vals "inc_ops_failure_hours", 3.0
+      "automation mass remediation (ops)", "OPS", v vals "inc_automation_rate", v vals "inc_automation_ops_hours", 10.0
+      "automation mass remediation (engineering)", "ENG", v vals "inc_automation_rate", v vals "inc_automation_eng_hours", 5.0 ]
 
 /// Full evaluation of one scenario under one configuration and deployment.
 type Eval =
@@ -56,17 +57,20 @@ let evaluate (simulate: bool) (level: Level) (vals: Values) (iv: Values) (inputs
     let ls = loads level vals cfg c inputs.Activities
     let t = totals ls
     let inc = incidents seed (incidentSpecs vals s.Accounts)
-    let st = staffing simulate level vals inputs.Roles cfg ls inc
+    // Public charity-dataset upkeep: engineering and compliance hours go into the staffed pools (REV-A: idle
+    // engineers absorb them before cash is spent); infrastructure, fees and counsel remain cash.
+    let bv = CompetitiveDisplacement.Sampling.atLevel level inputs.Beneficium
+    let bc = ZeroBased.Beneficium.cost bv ZeroBased.Beneficium.ContinuousMonitoring 0.0
+    let extra = Map.ofList [ "ENG", bc.ConnectorHours + bc.OpsHours; "COMPLIANCE", bc.ExceptionHours + bc.OwnerFloorHours ]
+    let st = staffing simulate level vals inputs.Roles cfg ls inc extra
     let aiEx = ls |> List.filter (fun l -> l.Activity.Classification = "AI-ASSISTED") |> List.sumBy (fun l -> l.HumanEvents * l.VendorShare)
     let isolated = if s.Accounts / max 1.0 s.Sponsors >= v vals "isolated_db_accounts_threshold" then s.Sponsors else 0.0
     // infrastructure is borne by the platform owner in every configuration
     let infra = cost iv dep c t.Events aiEx isolated
     let originates = (Map.tryFind AdminException cfg.Shares |> Option.defaultValue 0.0) > 0.0 && not (cfg.Id = "CFG-1" || cfg.Id = "CFG-2" || cfg.Id = "CFG-6")
     let ctx = { Cfg = cfg; Counts = c; VendorOriginatesPayments = originates || v vals "platform_creates_ach_files" > 0.5 }
-    // Public charity-dataset upkeep (connectors, pipeline operations, owner floor) at the continuous-monitoring
-    // tier with zero recipients; recipient-driven verification is already in the activity inventory (no double count).
-    let bv = CompetitiveDisplacement.Sampling.atLevel level inputs.Beneficium
-    let upkeep = (ZeroBased.Beneficium.cost bv ZeroBased.Beneficium.ContinuousMonitoring 0.0).Total
+    // cash part of charity-dataset upkeep (labour is in the pools above); recipient-driven work is in activities
+    let upkeep = bc.Infra + bc.ExternalFees + bc.Counsel
     let vw = views level ctx inputs.Fixed ls st.LabourCash st.BackupCash st.FounderImputed (infra.Total * v vals "infra_mult") upkeep (v vals "sponsor_labour_rate")
     let vw = { vw with View1 = vw.View1 + (vw.FixedIncremental * (v vals "fixed_mult" - 1.0))
                        View2 = vw.View2 + (vw.FixedIncremental * (v vals "fixed_mult" - 1.0))

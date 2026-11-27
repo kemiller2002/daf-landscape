@@ -23,7 +23,8 @@ let minNamed (vals: Values) (pool: string) =
     match pool with
     | "OPS" | "AUTH" | "FINANCE" -> v vals "min_named_control_pool"
     | "ENG" -> v vals "min_named_engineering"
-    | "COMPLIANCE" | "COMM" -> 1.0
+    | "COMPLIANCE" -> v vals "min_named_compliance"
+    | "COMM" -> 1.0
     | _ -> 0.0
 
 type PoolStaffing =
@@ -89,7 +90,14 @@ let staffPool (simulate: bool) (level: Level) (vals: Values) (roles: Role list) 
     let avgFte = max 0.0 residualHours / productive
     let mode, ded, frac, cost =
         if residualHours <= 0.0 && floorFte <= 0.0 then "none", 0.0, 0.0, 0.0
-        elif max avgFte floorFte < threshold then
+        elif dedicatedCost <= 0.0 then
+            // external professionals are never employed
+            let h = max residualHours (floorFte * productive)
+            "fractional", 0.0, h, h * fracRate
+        elif max avgFte floorFte < threshold
+             && (max residualHours (floorFte * productive)) * fracRate * v vals "fractional_availability_premium"
+                <= (ceil (max (avgFte / v vals "max_dedicated_utilisation") simFte / v vals "hire_step_fte" - 1e-9) * v vals "hire_step_fte") * dedicatedCost then
+            // fractional only while it is cheaper than the dedicated alternative (REV-A, ADV-CS-006)
             let h = max residualHours (floorFte * productive)
             "fractional", 0.0, h, h * fracRate * v vals "fractional_availability_premium"
         else
@@ -140,7 +148,9 @@ type Staffing =
       NamedPersons: int
       IndependentPersons: int }
 
-let staffing (simulate: bool) (level: Level) (vals: Values) (roles: Role list) (cfg: Config) (ls: Load list) (inc: Incident list) : Staffing =
+/// Flat extra hours per pool not tied to activities (charity-data upkeep), spread evenly; management hours are
+/// added to the executive pool as a share of all other staffed vendor hours (REV-A, ADV-OA-005).
+let staffing (simulate: bool) (level: Level) (vals: Values) (roles: Role list) (cfg: Config) (ls: Load list) (inc: Incident list) (extra: Map<string, float>) : Staffing =
     let byRole = hoursByRole true ls
     let pf = poolOf roles
     let ps = pools roles
@@ -150,10 +160,14 @@ let staffing (simulate: bool) (level: Level) (vals: Values) (roles: Role list) (
         if simulate then ps |> List.map (fun p -> p, arrivals vals pf p ls) |> Map.ofList
         else
             let byPool =
-                ls |> List.collect (fun l -> [ pf l.Activity.Role, l.Minutes * l.VendorShare / 60.0; pf "authorizer", l.AuthMinutes * l.VendorShare / 60.0 ])
+                ls |> List.collect (fun l -> [ pf (vendorRole l.Activity), l.Minutes * l.VendorShare / 60.0; pf (reviewRole l.Activity), l.AuthMinutes * l.VendorShare / 60.0 ])
                 |> List.filter (fun (_, h) -> h > 0.0)
                 |> List.groupBy fst |> List.map (fun (p, xs) -> p, xs |> List.sumBy snd) |> Map.ofList
             ps |> List.map (fun p -> p, (match Map.tryFind p byPool with Some h -> [ { Day = 0; Hours = h; SlaDays = 365.0 } ] | None -> [])) |> Map.ofList
+    let flat (h: float) = if h <= 0.0 then [] elif simulate then [ for d in 0 .. days - 1 -> { Day = d; Hours = h / float days; SlaDays = 5.0 } ] else [ { Day = 0; Hours = h; SlaDays = 365.0 } ]
+    let withExtra = ps |> List.map (fun p -> p, arrByPool.[p] @ flat (Map.tryFind p extra |> Option.defaultValue 0.0)) |> Map.ofList
+    let otherHours = ps |> List.filter (fun p -> p <> "COMM") |> List.sumBy (fun p -> (withExtra.[p] |> List.sumBy (fun a -> a.Hours)) + incHours p)
+    let arrByPool = withExtra |> Map.add "COMM" (withExtra.["COMM"] @ flat (otherHours * v vals "management_ratio"))
     let hoursByPool = ps |> List.map (fun p -> p, (arrByPool.[p] |> List.sumBy (fun a -> a.Hours)) + incHours p) |> Map.ofList
     let founder = founderAllocation vals hoursByPool
     let staffed = ps |> List.map (fun p -> staffPool simulate level vals roles cfg byRole founder arrByPool.[p] inc p)
