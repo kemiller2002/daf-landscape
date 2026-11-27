@@ -26,7 +26,8 @@ let requiredRegisters =
       "competitors.csv", "competitor_id", "CMP-"; "charity-data-sources.csv", "source_key", ""; "operational-events.csv", "event_id", "EV-E"
       "economic-assumptions.csv", "assumption_id", "ASM-"; "market-segments.csv", "segment_id", "SEG-"
       "competitive-advantages.csv", "advantage_id", "ADV-"; "adversarial-challenges.csv", "challenge_id", "CHL-"
-      "decisions.csv", "decision_id", "DEC-"; "open-questions.csv", "question_id", "OQ-"; "cross-repository-implications.csv", "implication_id", "XRI-" ]
+      "decisions.csv", "decision_id", "DEC-"; "open-questions.csv", "question_id", "OQ-"; "cross-repository-implications.csv", "implication_id", "XRI-"
+      "decision-approvals.csv", "decision_id", "DEC-"; "xri-dispositions.csv", "implication_id", "XRI-" ]
 
 let private checkRegister (name: string) (idCol: string) (prefix: string) (text: string) : string list =
     let header, rows = Csv.parse text
@@ -54,6 +55,54 @@ let private checkSourceRefs (sources: Set<string>) (name: string) (text: string)
     |> Seq.map (fun s -> $"{name}: unknown source reference {s}")
     |> List.ofSeq
 
+/// Decision status ladder (owner approval 2026-11-26). Each stage is distinct; a later stage can be "yes"
+/// only when every earlier stage is "yes", so approval never silently implies implementation or validation.
+let ladderStages =
+    [ "strategically_approved"; "requirements_incorporated"; "evidence_gate_satisfied"
+      "implementation_authorized"; "implemented"; "validated" ]
+
+let ladderValues = set [ "yes"; "no"; "partial"; "pending" ]
+
+let dispositionClasses =
+    set [ "Already satisfied"; "Requirements updated"; "New requirement added"; "Existing decision superseded"
+          "Research-only"; "Deferred behind an explicit gate"; "Blocked by unavailable information"; "Requires a new owner decision" ]
+
+/// Ladder errors for one decision row: unknown values, or a stage marked "yes" while an earlier stage is not.
+let ladderErrors (row: Map<string, string>) : string list =
+    let rid = Map.tryFind "decision_id" row |> Option.defaultValue "?"
+    let values = ladderStages |> List.map (fun s -> s, Map.tryFind s row |> Option.defaultValue "")
+    let unknown =
+        values |> List.filter (fun (_, v) -> not (Set.contains v ladderValues))
+        |> List.map (fun (s, v) -> $"decision-approvals.csv: {rid} {s}='{v}' not allowed")
+    let premature =
+        values
+        |> List.indexed
+        |> List.filter (fun (i, (_, v)) -> v = "yes" && (values |> List.take i |> List.exists (fun (_, p) -> p <> "yes")))
+        |> List.map (fun (_, (s, _)) -> $"decision-approvals.csv: {rid} {s}=yes before an earlier stage is yes")
+    unknown @ premature
+
+/// Every ID in the source register must appear exactly once in the follow-up register.
+let private coverage (name: string) (idCol: string) (expected: Set<string>) (text: string) : string list =
+    let present = Csv.parse text |> snd |> List.choose (Map.tryFind idCol) |> Set.ofList
+    Set.difference expected present |> Set.toList |> List.map (fun i -> $"{name}: no row for {i}")
+
+/// Approval and disposition registers: coverage of every decision and implication, ladder order, disposition vocabulary.
+let checkFollowUp (decisions: string) (implications: string) (approvals: string) (dispositions: string) : string list =
+    let ids col text = Csv.parse text |> snd |> List.choose (Map.tryFind col) |> Set.ofList
+    let approvalRows = Csv.parse approvals |> snd
+    let dispositionRows = Csv.parse dispositions |> snd
+    let badClass =
+        dispositionRows
+        |> List.choose (fun r ->
+            let c = Map.tryFind "disposition_class" r |> Option.defaultValue ""
+            let rid = Map.tryFind "implication_id" r |> Option.defaultValue "?"
+            if Set.contains c dispositionClasses then None
+            else Some $"xri-dispositions.csv: {rid} disposition_class='{c}' not allowed")
+    coverage "decision-approvals.csv" "decision_id" (ids "decision_id" decisions) approvals
+    @ coverage "xri-dispositions.csv" "implication_id" (ids "implication_id" implications) dispositions
+    @ (approvalRows |> List.collect ladderErrors)
+    @ badClass
+
 let private checkLinks (exists: string -> bool) (name: string) (text: string) =
     Regex.Matches(text, @"\]\(([^)\s#]+)(#[^)]*)?\)")
     |> Seq.map (fun m -> m.Groups.[1].Value)
@@ -78,4 +127,8 @@ let validate (root: string) (fs: FileSet) : string list =
     let mdRefErrors = fs.Markdown |> List.collect (fun (p, t) -> checkSourceRefs sources (System.IO.Path.GetFileName p) t)
     let reportErrors = requiredReports |> List.filter (fun r -> not (fs.Exists(System.IO.Path.Combine(root, r)))) |> List.map (fun r -> $"missing deliverable {r}")
     let linkErrors = fs.Markdown |> List.collect (fun (p, t) -> checkLinks fs.Exists p t)
-    registerErrors @ refErrors @ mdRefErrors @ reportErrors @ linkErrors
+    let followUpErrors =
+        match find "decisions.csv", find "cross-repository-implications.csv", find "decision-approvals.csv", find "xri-dispositions.csv" with
+        | Some(_, d), Some(_, x), Some(_, a), Some(_, r) -> checkFollowUp d x a r
+        | _ -> [] // a missing register is already reported above
+    registerErrors @ refErrors @ mdRefErrors @ reportErrors @ linkErrors @ followUpErrors

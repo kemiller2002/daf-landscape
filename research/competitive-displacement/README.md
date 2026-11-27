@@ -33,8 +33,10 @@ Date: 2026-11-26. Status: research from public sources and the owner's repositor
 | 22 | [Commercial validation plan](22-commercial-validation-plan.md) | — |
 | 23 | [Executive decision register](23-executive-decision-register.md) | — |
 | 24 | [Final recommendations](24-final-recommendations.md) | — |
+| 25 | [Owner approval record](25-owner-approval-record.md) (added after merge, 2026-11-26) | — |
+| 26 | [Cross-repository dispositions and traceability](26-cross-repository-dispositions.md) (Stage I) | — |
 
-Ledger: [research-ledger.md](research-ledger.md).
+Ledger: [research-ledger.md](research-ledger.md). Initiative ledger (Stage I and Phase III): [initiative-ledger-phase-iii.md](initiative-ledger-phase-iii.md).
 
 ## Machine-readable registers (`data/registers/`)
 
@@ -53,6 +55,8 @@ Ledger: [research-ledger.md](research-ledger.md).
 | [decisions.csv](data/registers/decisions.csv) | DEC-001..012 | Proposed decisions (none approved) |
 | [open-questions.csv](data/registers/open-questions.csv) | OQ-001..020 | Open questions |
 | [cross-repository-implications.csv](data/registers/cross-repository-implications.csv) | XRI-001..018 | Proposals for Unbound, Transitus, Echelon Foundry, Praxis |
+| [decision-approvals.csv](data/registers/decision-approvals.csv) | DEC-001..012 | Owner approval 2026-11-26, conditions, six-stage status ladder |
+| [xri-dispositions.csv](data/registers/xri-dispositions.csv) | XRI-001..018 | Stage I disposition, artifacts, acceptance and validation |
 
 Agent evidence: `data/evidence/` (Tracks A, C, D, F). Model inputs and outputs: `data/model-inputs/`, `data/model-outputs/`.
 

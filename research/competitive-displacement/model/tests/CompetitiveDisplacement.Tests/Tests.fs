@@ -119,3 +119,31 @@ let ``Validator reports duplicate ids, unknown sources and broken links`` () =
     Assert.Contains(errs, fun e -> e.Contains "duplicate id SRC-001")
     Assert.Contains(errs, fun e -> e.Contains "unknown source reference SRC-999")
     Assert.Contains(errs, fun e -> e.Contains "broken link missing.md")
+
+let private ladderRow (stages: string list) =
+    List.zip Validate.ladderStages stages |> Map.ofList |> Map.add "decision_id" "DEC-001"
+
+[<Fact>]
+let ``Approval ladder accepts strategic approval alone`` () =
+    Assert.Empty(Validate.ladderErrors (ladderRow [ "yes"; "partial"; "no"; "no"; "no"; "no" ]))
+
+[<Fact>]
+let ``Approval ladder rejects implementation or validation ahead of earlier stages`` () =
+    let errs = Validate.ladderErrors (ladderRow [ "yes"; "pending"; "no"; "no"; "yes"; "yes" ])
+    Assert.Contains(errs, fun e -> e.Contains "implemented=yes before an earlier stage")
+    Assert.Contains(errs, fun e -> e.Contains "validated=yes before an earlier stage")
+
+[<Fact>]
+let ``Approval ladder rejects unknown values`` () =
+    Assert.Contains(Validate.ladderErrors (ladderRow [ "approved"; "no"; "no"; "no"; "no"; "no" ]), fun e -> e.Contains "not allowed")
+
+[<Fact>]
+let ``Follow-up registers must cover every decision and implication with an allowed disposition`` () =
+    let decisions = "decision_id\nDEC-001\nDEC-002\n"
+    let implications = "implication_id\nXRI-001\nXRI-002\n"
+    let approvals = "decision_id,strategically_approved,requirements_incorporated,evidence_gate_satisfied,implementation_authorized,implemented,validated\nDEC-001,yes,no,no,no,no,no\n"
+    let dispositions = "implication_id,disposition_class\nXRI-001,Requirements updated\nXRI-002,Done\n"
+    let errs = Validate.checkFollowUp decisions implications approvals dispositions
+    Assert.Contains(errs, fun e -> e.Contains "decision-approvals.csv: no row for DEC-002")
+    Assert.Contains(errs, fun e -> e.Contains "XRI-002 disposition_class='Done' not allowed")
+    Assert.DoesNotContain(errs, fun e -> e.Contains "no row for XRI")
