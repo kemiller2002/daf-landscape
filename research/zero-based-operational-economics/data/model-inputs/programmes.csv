@@ -1,0 +1,7 @@
+programme_id,name,grants_per_acct,contrib_per_acct,new_acct_rate,default_balance,tiers,evidence_class,basis
+PG-HNW,National mixed high-net-worth programme,9,2.5,0.12,250000,dormant:0.20:0.40:0.15|low:0.35:0.30:0.70|mid:0.30:0.90:1.20|high:0.12:2.50:1.80|ultra:0.03:10.0:2.50,ASSUMPTION,Grant and contribution means from competitive-displacement events.csv (EV-E09 9/acct; EV-E03 2.5/acct); tier shape assumed (skewed balances; dormant accounts ~20%)
+PG-RETAIL,High-volume retail giving programme,6,12,0.30,10000,dormant:0.25:0.30:0.20|low:0.45:0.50:0.90|mid:0.25:1.40:1.40|high:0.05:6.00:2.00,ASSUMPTION,Recurring monthly contributions and small balances (challenger retail apps); no sponsor data
+PG-PAYROLL,Payroll-based workplace giving programme,4,24,0.20,5000,dormant:0.30:0.40:0.20|low:0.50:0.80:1.00|mid:0.20:2.00:1.60,ASSUMPTION,Biweekly payroll deductions; small balances; employer remits pooled payroll files
+PG-INST,Concentrated institutional programme,25,2,0.05,1000000,low:0.40:0.30:0.60|mid:0.40:0.90:1.00|high:0.20:2.90:1.60,ASSUMPTION,Few large accounts with frequent grants (family offices; corporate funds)
+PG-CF,Community-foundation style programme,6,1.5,0.08,100000,dormant:0.25:0.40:0.20|low:0.40:0.50:0.80|mid:0.28:1.20:1.30|high:0.07:4.00:2.00,ASSUMPTION,Moderate balances and activity
+PG-DORMANT,Dormant-heavy legacy book,2,0.5,0.03,50000,dormant:0.60:0.80:0.05|low:0.30:1.00:1.20|mid:0.10:2.20:3.00,ASSUMPTION,Legacy accounts with little activity

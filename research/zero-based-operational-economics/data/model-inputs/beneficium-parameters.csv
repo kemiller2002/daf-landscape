@@ -1,0 +1,59 @@
+id,key,definition,unit,low,base,high,source,evidence_class,confidence,rationale,dependencies,validation_method,last_reviewed
+BNP-001,dir_gb,Retained storage for public directory (structured DB with indexes plus raw archive),GB,10,30,150,beneficium-dataset-sizing BDZ-006/011/012,MEASURED-FACT,medium,17 GB DB incl. indexes + archive growth,,Measure deployed DB,2026-11-27
+BNP-002,history_gb,Retained 10-year 990 e-file XML (compressed),GB,4,45,260,BDZ-009 (sampled 2025_10A zip),MEASURED-FACT,medium,Only if historical filings retained,,Archive size,2026-11-27
+BNP-003,relationships_gb,Extracted grant-relationship facts (Schedule I / 990-PF),GB,5,10,40,BDZ-021 (1.73M rows/yr; one small batch),INFERENCE,low,,history_gb,,2026-11-27
+BNP-004,storage_gb_month,Blended storage price per GB-month (object + DB),USD/GB-month,0.02,0.06,0.12,infrastructure-prices.csv (object ~$0.02; managed DB storage ~$0.115),PUBLISHED-PRICE,medium,Mostly compressed object storage,,,2026-11-27
+BNP-005,backup_and_replica_factor,Multiplier for backups and replicas,x,1.5,2.0,3.0,Judgement,ASSUMPTION,medium,,,,2026-11-27
+BNP-006,cpu_hours_month,Processing CPU-hours per month (directory),CPU-h/month,2,10,50,BDZ-013,INFERENCE,medium,,,,2026-11-27
+BNP-007,history_cpu_factor,CPU multiplier when parsing historical 990 XML,x,1.5,2.0,4.0,Judgement (8 schema versions per batch),ASSUMPTION,low,,,,2026-11-27
+BNP-008,cpu_hour_price,Price per vCPU-hour of batch compute,USD/h,0.04,0.05,0.1,infrastructure-prices.csv,PUBLISHED-PRICE,medium,,,,2026-11-27
+BNP-009,db_floor_monthly,Monthly managed database floor,USD/month,100,150,400,infrastructure-prices.csv (small HA PostgreSQL),PUBLISHED-PRICE,medium,,db_share,,2026-11-27
+BNP-010,db_share,Share of the database floor attributable to Beneficium (shared cluster),share,0.2,0.3,1.0,OD-P-PLT cut M (one PostgreSQL cluster),ASSUMPTION,low,1.0 if standalone,,,2026-11-27
+BNP-011,connectors_directory,"Connectors for public directory (BMF, Pub78, revocation, 990-N, OFAC)",count,5,5,6,BDZ-027,INFERENCE,medium,,,,2026-11-27
+BNP-012,connectors_history,Additional connectors for historical filings,count,2,2,2,BDZ-028 minus BDZ-027,INFERENCE,medium,,,,2026-11-27
+BNP-013,connectors_relationships,Additional connectors for grant relationships,count,1,1,1,BDZ-029 minus BDZ-028,INFERENCE,medium,,,,2026-11-27
+BNP-014,connectors_monitoring,"Additional connectors for continuous monitoring (SAM, CSL, FAC, state)",count,3,5,11,BDZ-030 minus BDZ-029,INFERENCE,medium,,,,2026-11-27
+BNP-015,connectors_verification,"Additional connectors for automated verification evidence (state registries, websites)",count,9,13,13,BDZ-031 minus BDZ-030,INFERENCE,medium,,,,2026-11-27
+BNP-016,connector_hours_per_year,Maintenance hours per connector-year,h,9,25,58,BDZ-032..036 (15-31 h per connector; high 1168/20),INFERENCE,low,Includes ~3 breaking federal format changes/yr (BDZ-038),,Connector incident log,2026-11-27
+BNP-017,pipeline_ops_hours_per_year,Zero-customer pipeline operations hours,h,50,150,300,BDZ-037,INFERENCE,low,"Monitoring, source-silence and quarantine review",,,2026-11-27
+BNP-018,monitoring_ops_hours_per_year,Additional operations for continuous monitoring feeds,h,50,100,200,Judgement,ASSUMPTION,low,,,,2026-11-27
+BNP-019,dq_exceptions_per_month,Population data-quality exceptions per month (excl. August revocations),per month,300,650,1500,BDZ-020,INFERENCE,low,,,,2026-11-27
+BNP-020,dq_auto_resolve_miss,Share of population DQ exceptions needing a human,share,0.05,0.1,0.3,Judgement,ASSUMPTION,low,Most are rule-resolved or deferred until a grant needs the org,,,2026-11-27
+BNP-021,dq_minutes,Minutes per human DQ exception,min,5,10,20,Judgement,ASSUMPTION,low,,,,2026-11-27
+BNP-022,eligibility_change_rate,Eligibility-relevant events per active charity-year,per charity-year,0.01,0.04,0.2,BDZ-023 (67/month per 20k) and competitive-displacement RP-02,MEASURED-FACT,low,One measured month,,,2026-11-27
+BNP-023,change_review_minutes,Average human minutes per eligibility event (after automatic resolution),min,5,17,45,BDZ-026/BDZ-023 (25 of 67 need a human) x 45 min (RP-03),INFERENCE,low,,,,2026-11-27
+BNP-024,name_match_alert_rate,Sanctions/exclusion name-match alerts per charity-year,per charity-year,0.005,0.01,0.03,competitive-displacement RP-17,ASSUMPTION,low,,,,2026-11-27
+BNP-025,alert_minutes,Minutes per alert disposition,min,5,10,20,competitive-displacement RP-18,ASSUMPTION,low,,,,2026-11-27
+BNP-026,new_recipient_share,Share of active recipients new each year,share,0.1,0.2,0.3,competitive-displacement RP-04,ASSUMPTION,low,,,,2026-11-27
+BNP-027,new_recipient_exception_rate,Share of new recipients needing human verification,share,0.04,0.08,0.12,competitive-displacement RP-05 (charity-network ECO C0),INFERENCE,low,,,,2026-11-27
+BNP-028,exception_minutes,Minutes per human verification exception,min,30,45,60,competitive-displacement RP-03,INFERENCE,low,,,,2026-11-27
+BNP-029,evidence_expiry_share,Evidence items expiring per active charity-year,per charity-year,0.2,0.5,1.5,competitive-displacement RP-07,ASSUMPTION,low,,,,2026-11-27
+BNP-030,expiry_human_share,Share of expiring evidence refreshed by a human,share,0.05,0.1,0.3,Judgement,ASSUMPTION,low,Most refreshes automated,,,2026-11-27
+BNP-031,expiry_minutes,Minutes per human evidence refresh,min,2,5,10,competitive-displacement RP-08,ASSUMPTION,low,,,,2026-11-27
+BNP-032,enrol_share,Share of new recipients needing payment enrolment by the platform,share,0.3,0.5,0.8,Judgement,ASSUMPTION,low,Some recipients already reachable through payment partners (OD-P-PAY),,,2026-11-27
+BNP-033,enrol_minutes,Human minutes per payment enrolment exception handling,min,10,20,40,Judgement,ASSUMPTION,low,,,,2026-11-27
+BNP-034,bank_verification_fee,External bank account ownership verification fee per enrolment,USD,0.5,1.5,5.0,UNKNOWN; no published list price confirmed (infrastructure-prices.csv),UNKNOWN,low,Conservative placeholder,,,2026-11-27
+BNP-035,commercial_licence,Commercial charity data licence (full service only),USD/yr,2750,15000,60000,"competitive-displacement RP-12 (Candid Charity Check from $2,750)",PUBLISHED-PRICE,low,Enterprise API price unknown,,,2026-11-27
+BNP-036,support_desk_cost,Charity-facing support desk (full service only),USD/yr,0,38554,77108,competitive-displacement RC-08,INFERENCE,low,Removable if charities never must use software,,,2026-11-27
+BNP-037,counsel_hours_recurring,Recurring counsel hours for eligibility rules,h/yr,10,20,40,competitive-displacement RC-09 removable_when,INFERENCE,low,Conflicts with DF-ASR-2026-0D0F,,,2026-11-27
+BNP-038,counsel_rate,Counsel hourly rate,USD/h,300,450,800,competitive-displacement RP-13,INFERENCE,medium,,,,2026-11-27
+BNP-039,owner_floor_hours,"Named accountable owner floor hours (policy, appeals, source governance)",h/yr,50,100,200,Judgement; RC-07 floor 0.25 FTE was a staffing ratio,ASSUMPTION,low,Accountability without a full-time steward,,,2026-11-27
+BNP-040,engineering_rate,Engineering hourly cost,USD/h,98,118,138,competitive-displacement RP-15,INFERENCE,medium,,,,2026-11-27
+BNP-041,compliance_rate,Compliance hourly cost,USD/h,67.69,120,209,competitive-displacement RP-14,INFERENCE,medium,; REV-A (ADV-CS-004): base raised to a dedicated/fractional blend for consistency with the staffing model ($209/h fractional),,,2026-11-27
+BNP-042,union_exponent,Recipient union exponent across sponsors,exponent,0.3,0.5,0.8,competitive-displacement RP-11,ASSUMPTION,low,,,,2026-11-27
+BNP-043,database_population,501(c)(3) organizations in the database,orgs,1650000,1690000,1700000,BDZ-002 (measured BMF sample),MEASURED-FACT,high,,,,2026-11-27
+BNP-044,grants_per_recipient,Grants per active recipient per year,grants,2,3.5,5,competitive-displacement registry grid (70k grants/20k charities),INFERENCE,medium,,,,2026-11-27
+BNP-045,ineligibility_rate,Eligibility-ending events per active charity-year,per charity-year,0.002,0.004,0.01,BDZ-025 (5 revocations/month per 20k) plus other adverse events,INFERENCE,low,,,,2026-11-27
+BNP-046,full_review_minutes,Minutes per full human re-review,min,5,15,30,competitive-displacement RP-06 (ACT-A09),INFERENCE,low,,,,2026-11-27
+BNP-047,source_latency_days,Lag between an eligibility event and its publication in authoritative sources,Lag between publication of an eligibility event in an authoritative source and its ingestion (legal exposure starts at publication: Rev. Proc. 2018-32 reliance),1,15,35,BMF monthly; revocation list monthly (beneficium notes),INFERENCE,low,"REV-A (ADV-CS-002): exposure measured from publication, not from the event; monthly ingestion averages ~15 days",,,2026-11-27
+BNP-048,auto_reeval_exception_rate,Share of automated re-evaluations that raise a human exception,share,0.01,0.03,0.08,Judgement,ASSUMPTION,low,,,,2026-11-27
+BNP-049,human_review_miss_rate,Probability a human review misses an eligibility problem present in evidence,share,0.02,0.05,0.1,Judgement,ASSUMPTION,low,,,,2026-11-27
+BNP-050,auto_detection_miss_rate,Probability automated monitoring misses an eligibility event present in sources,share,0.005,0.02,0.05,Judgement; includes stale/conflicting records,ASSUMPTION,low,,,,2026-11-27
+BNP-051,auto_refresh_days,Interval of automated full re-check behind continuous monitoring,days,30,30,45,Monthly BMF refresh,INFERENCE,medium,,,,2026-11-27
+BNP-052,stale_source_share,Share of charities whose evidence relies on a source not refreshed within 180 days,share,0.05,0.1,0.2,"Judgement (e.g., 990-N filers, state registries)",ASSUMPTION,low,Why continuous monitoring alone fails the 180-day validity rule,,,2026-11-27
+BNP-053,tier_high_share,"High-risk tier share (foreign-facing, new, fiscal sponsors, flagged)",share,0.02,0.05,0.1,Judgement,ASSUMPTION,low,,,,2026-11-27
+BNP-054,tier_med_share,Medium-risk tier share,share,0.1,0.15,0.25,Judgement,ASSUMPTION,low,,,,2026-11-27
+BNP-055,false_negative_cost,"Cost per grant paid to an ineligible organisation (recovery, 4966 exposure, reputational)",USD,500,2500,25000,Judgement; IRC 4966 20% sponsor tax on taxable distribution (control-obligations.csv),ASSUMPTION,low,,,,2026-11-27
+BNP-056,false_positive_rate,Share of grants wrongly held by a vetting alert,share,0.001,0.003,0.01,Judgement,ASSUMPTION,low,,,,2026-11-27
+BNP-057,false_positive_minutes,Minutes to clear a false-positive hold,min,15,30,60,Judgement,ASSUMPTION,low,,,,2026-11-27
+BNP-058,stale_window_continuous_days,Undetected window for events outside monitored feeds when no periodic re-evaluation exists,days,180,365,730,Judgement,ASSUMPTION,low,Caught only when evidence otherwise expires or a person notices,stale_source_share,Replay,2026-11-27

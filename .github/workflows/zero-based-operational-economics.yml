@@ -1,0 +1,41 @@
+name: Zero-based operational economics model
+
+on:
+  pull_request:
+    paths:
+      - "research/zero-based-operational-economics/**"
+      - "research/competitive-displacement/model/**"
+      - "research/competitive-displacement/data/model-inputs/**"
+      - ".github/workflows/zero-based-operational-economics.yml"
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: zero-based-operational-economics-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: F# tests, byte-identical reproduction and package validation
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: research/zero-based-operational-economics/model
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Install .NET SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+      - name: Tests
+        run: dotnet test tests/ZeroBased.Tests
+      - name: Outputs reproduce byte-identically
+        run: dotnet run --project src/ZeroBased -c Release -- check ../data ../../competitive-displacement/data/model-inputs ../data/model-outputs
+      - name: Package validation
+        run: dotnet run --project src/ZeroBased -c Release --no-build -- validate ..

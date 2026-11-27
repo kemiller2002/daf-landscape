@@ -1,0 +1,12 @@
+role_id,name,pool,dedicated_cost_low,dedicated_cost_base,dedicated_cost_high,fractional_rate_low,fractional_rate_base,fractional_rate_high,min_fraction_fte,dedicate_threshold_fte,independence_group,evidence_class,basis
+ops,Operations specialist (initiation and exception handling),OPS,83772,117810,161964,45,70,95,0,0.6,INITIATION,INFERENCE,Dedicated: competitive-displacement PAR-001 loaded rate x 1800 h (CST-V01 O*NET); fractional: ASSUMPTION outsourced operations rate
+support,Donor and sponsor support,OPS,57802,77108,97330,35,55,80,0,0.6,INITIATION,INFERENCE,Dedicated: RP-16 (CST-R13); fractional: ASSUMPTION
+implementation,Implementation and migration,OPS,102160,128000,154608,80,120,175,0,0.6,INITIATION,INFERENCE,Dedicated: PAR-005 x 1600 h; fractional: ASSUMPTION contract implementation rate
+accounting,Accounting and reconciliation,FINANCE,82332,110664,131688,60,95,150,0,0.6,RECONCILIATION,INFERENCE,Dedicated: PAR-002 x 1800 h (CST-R07); fractional: ASSUMPTION outsourced accountant rate
+controller,Controller (financial authority and sign-off),CONTROL,146790,183366,213678,150,225,325,0.03,0.6,AUTHORIZATION,INFERENCE,Dedicated: PAR-004 x 1800 h (CST-R06); fractional: ASSUMPTION fractional controller/CFO rate; REV-B (ADV-OA-010): separate pool from the independent payment authorizer
+authorizer,Independent authorizer (second-person release and review),AUTH,146790,183366,213678,150,225,325,0,0.6,AUTHORIZATION,ASSUMPTION,Same cost basis as controller; may be sponsor personnel depending on configuration
+compliance,Compliance owner (eligibility exceptions; sanctions; policy),COMPLIANCE,97452,121842,147744,125,190,275,0.03,0.6,COMPLIANCE,INFERENCE,Dedicated: PAR-003 x 1800 h (CST-R10); fractional: ASSUMPTION fractional compliance officer rate
+engineering,Engineering and security operations,ENG,176400,230000,280000,100,150,200,0.1,0.6,ENGINEERING,INFERENCE,Dedicated: PAR-006 x 1800 h (CST-R03); min fraction = named security/on-call owner; fractional: ASSUMPTION contract engineer rate; REV-B (ADV-IM-022): F#/PostgreSQL/payments/security specialists
+sales,Sales and account management,COMM,120000,160000,220000,100,150,250,0,0.8,COMMERCIAL,ASSUMPTION,No repository cost register row; wide range
+executive,Executive (contracts; governance; partner management),COMM,180000,250000,350000,150,250,400,0,0.8,COMMERCIAL,ASSUMPTION,No repository cost register row; wide range
+external,External professional (counsel; auditor; outsourced specialist),EXT,0,0,0,200,350,600,0,99,EXTERNAL,ASSUMPTION,Billed hourly; never dedicated

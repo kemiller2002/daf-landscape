@@ -1,0 +1,36 @@
+population_basis,approach,population,human_reviews,human_hours,labour_cost,expected_false_negatives,false_negative_cost,false_positive_holds,false_positive_cost,total,meets_180_day_validity
+active,Full manual review every 180 days,1000,2000,500,60000,1.2082,3020.5479,6.3,378,63398.5479,Y
+active,Automated re-evaluation every 180 days,1000,60,15,1800,1.0011,2502.7397,6.3,378,4680.7397,Y
+active,Continuous authoritative monitoring,1000,40,11.3333,1360,1.9523,4880.8219,10.5,630,6870.8219,N
+active,Change-driven investigation,1000,40,10,1200,2.0041,5010.274,10.5,630,6840.274,N
+active,Grant-triggered review (evidence older than 180 days),1000,60,15,1800,1.0011,2502.7397,6.3,378,4680.7397,Y
+active,Risk-tiered review,1000,298,74.5,8940,1.096,2740.0685,6.3,378,12058.0685,Y
+active,Hybrid: continuous + 180-day automated re-evaluation + risk-tiered human review,1000,150,37.5,4500,0.8975,2243.8356,10.5,630,7373.8356,Y
+active,Full manual review every 180 days,10000,20000,5000,600000,12.0822,30205.4795,63,3780,633985.4795,Y
+active,Automated re-evaluation every 180 days,10000,600,150,18000,10.011,25027.3973,63,3780,46807.3973,Y
+active,Continuous authoritative monitoring,10000,400,113.3333,13600,19.5233,48808.2192,105,6300,68708.2192,N
+active,Change-driven investigation,10000,400,100,12000,20.0411,50102.7397,105,6300,68402.7397,N
+active,Grant-triggered review (evidence older than 180 days),10000,600,150,18000,10.011,25027.3973,63,3780,46807.3973,Y
+active,Risk-tiered review,10000,2980,745,89400,10.9603,27400.6849,63,3780,120580.6849,Y
+active,Hybrid: continuous + 180-day automated re-evaluation + risk-tiered human review,10000,1500,375,45000,8.9753,22438.3562,105,6300,73738.3562,Y
+active,Full manual review every 180 days,50000,100000,25000,3000000,60.411,151027.3973,315,18900,3169927.3973,Y
+active,Automated re-evaluation every 180 days,50000,3000,750,90000,50.0548,125136.9863,315,18900,234036.9863,Y
+active,Continuous authoritative monitoring,50000,2000,566.6667,68000,97.6164,244041.0959,525,31500,343541.0959,N
+active,Change-driven investigation,50000,2000,500,60000,100.2055,250513.6986,525,31500,342013.6986,N
+active,Grant-triggered review (evidence older than 180 days),50000,3000,750,90000,50.0548,125136.9863,315,18900,234036.9863,Y
+active,Risk-tiered review,50000,14900,3725,447000,54.8014,137003.4247,315,18900,602903.4247,Y
+active,Hybrid: continuous + 180-day automated re-evaluation + risk-tiered human review,50000,7500,1875,225000,44.8767,112191.7808,525,31500,368691.7808,Y
+active,Full manual review every 180 days,100000,200000,50000,6000000,120.8219,302054.7945,630,37800,6339854.7945,Y
+active,Automated re-evaluation every 180 days,100000,6000,1500,180000,100.1096,250273.9726,630,37800,468073.9726,Y
+active,Continuous authoritative monitoring,100000,4000,1133.3333,136000,195.2329,488082.1918,1050,63000,687082.1918,N
+active,Change-driven investigation,100000,4000,1000,120000,200.411,501027.3973,1050,63000,684027.3973,N
+active,Grant-triggered review (evidence older than 180 days),100000,6000,1500,180000,100.1096,250273.9726,630,37800,468073.9726,Y
+active,Risk-tiered review,100000,29800,7450,894000,109.6027,274006.8493,630,37800,1205806.8493,Y
+active,Hybrid: continuous + 180-day automated re-evaluation + risk-tiered human review,100000,15000,3750,450000,89.7534,224383.5616,1050,63000,737383.5616,Y
+whole database,Full manual review every 180 days,1690000,3380000,845000,101400000,120.8219,302054.7945,630,37800,101739854.7945,Y
+whole database,Automated re-evaluation every 180 days,1690000,101400,25350,3042000,100.1096,250273.9726,630,37800,3330073.9726,Y
+whole database,Continuous authoritative monitoring,1690000,67600,19153.3333,2298400,195.2329,488082.1918,1050,63000,2849482.1918,N
+whole database,Change-driven investigation,1690000,67600,16900,2028000,200.411,501027.3973,1050,63000,2592027.3973,N
+whole database,Grant-triggered review (evidence older than 180 days),1690000,10500,2625,315000,100.1096,250273.9726,630,37800,603073.9726,Y
+whole database,Risk-tiered review,1690000,503620,125905,15108600,109.6027,274006.8493,630,37800,15420406.8493,Y
+whole database,Hybrid: continuous + 180-day automated re-evaluation + risk-tiered human review,1690000,253500,63375,7605000,89.7534,224383.5616,1050,63000,7892383.5616,Y

@@ -1,0 +1,9 @@
+register,scope,source_count_or_rows,where_sources_are_listed
+control-obligations.csv,"legal, regulatory, contractual obligations",63 obligations,source_url and citation columns; notes Sources section
+infrastructure-prices.csv,"published cloud, AI, messaging, identity prices",88 prices,source_url column (all read 2026-11-27)
+beneficium-data-sources.csv,public charity data sources,29 sources,url column; sampling log in notes
+original-cost-trace.csv,previous model components,132 rows,origin_file and origin_id columns
+shared-capabilities.csv,Echelon components,32 rows,evidence_paths column
+operational-activities.csv,activities from Unbound requirements,183 rows,unbound_requirements and evidence_sources columns
+requirement-economic-impact.csv,Unbound requirement costs,51 rows,unbound_requirement column
+../../../competitive-displacement/data/registers/sources.csv,prior research sources,SRC-*,preserved baseline

@@ -1,0 +1,15 @@
+lever,config,view1_at_500M,view2_at_500M,break_even_view1_500M_sponsors
+Base,CFG-2,1438703.1254,1629603.1254,904241031.4818
+Base,CFG-5,2202289.0093,2393189.0093,1853331256.801
+Author + one independent approver (auditor-accepted) instead of author + two,CFG-2,1438703.1254,1629603.1254,904241031.4818
+Author + one independent approver (auditor-accepted) instead of author + two,CFG-5,2202289.0093,2393189.0093,1853331256.801
+"Founder supplies 1,200 h (commercial + engineering)",CFG-2,1396145.0686,1747045.0686,783340249.429
+"Founder supplies 1,200 h (commercial + engineering)",CFG-5,1870273.2661,2221173.2661,1853331256.801
+"Quotes at the low end (insurance, assurance, counsel)",CFG-2,1352803.1254,1543703.1254,783340249.429
+"Quotes at the low end (insurance, assurance, counsel)",CFG-5,2116389.0093,2307289.0093,1853331256.801
+AWS reserved floor and passkeys (infrastructure at 0.5x),CFG-2,1432374.8487,1623274.8487,904241031.4818
+AWS reserved floor and passkeys (infrastructure at 0.5x),CFG-5,2195959.2217,2386859.2217,1853331256.801
+Exceptions 40% lower after prevention (measured),CFG-2,1421583.169,1612483.169,783340249.429
+Exceptions 40% lower after prevention (measured),CFG-5,2067496.5625,2258396.5625,1605533169.1795
+Combined,CFG-2,1291681.1002,1642581.1002,678604404.1487
+Combined,CFG-5,1659005.908,2009905.908,1390866715.2061
