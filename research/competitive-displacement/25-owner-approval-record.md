@@ -32,9 +32,9 @@ A decision moves through six distinct stages. Approval at one stage never implie
 
 | Decision | Strategically approved | Requirements incorporated | Evidence gate | Implementation authorized | Implemented | Validated |
 |---|---|---|---|---|---|---|
-| DEC-001 to DEC-012 | yes (2026-11-26) | see [decision-approvals.csv](data/registers/decision-approvals.csv) | no | no | no | no |
+| DEC-001 to DEC-012 | yes (2026-11-26) | yes (ratified 2026-11-27 and merged: unbound #22, transitus #2, echelon-organization-administration #22; see [decision-approvals.csv](data/registers/decision-approvals.csv)) | no | no | no | no |
 
-As of this record, no decision has passed an evidence gate: none of V-1 to V-9 has been run. No implementation is authorized.
+As of this record, no decision has passed an evidence gate: none of V-1 to V-9 has been run. No implementation is authorized. (Updated 2026-11-27: every decision is now at "requirements incorporated".)
 
 ## Cross-repository implications
 
