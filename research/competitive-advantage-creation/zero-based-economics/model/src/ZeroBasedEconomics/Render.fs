@@ -104,6 +104,44 @@ let table (header: string list) (rows: string list list) =
     let line xs = "| " + String.Join(" | ", (xs: string list)) + " |"
     String.Join("\n", [ line header; line (header |> List.map (fun _ -> "---")) ] @ (rows |> List.map line))
 
+
+let private esc (s: string) = s.Replace("|", "/").Replace("\n", " ")
+let private models (ms: Set<ModelId>) = if ms.IsEmpty then "-" else ms |> Set.toList |> List.map modelCode |> String.concat " "
+let private rng (r: Range) = if r.Low = r.High then f0 r.Base else $"{f0 r.Low} / {f0 r.Base} / {f0 r.High}"
+let private rng2 (r: Range) = if r.Low = r.High then f2 r.Base else $"{f2 r.Low} / {f2 r.Base} / {f2 r.High}"
+
+let driverText (d: Driver) =
+    match d with
+    | Fixed -> "fixed per year"
+    | Per m -> "per " + metricCode m
+    | Step(m, c) -> $"per {f0 c} {metricCode m}"
+
+/// The expense register with its ten required attributes, rendered from expenses.csv.
+let expenseRegister (inp: Inputs) =
+    let rows =
+        inp.Expenses
+        |> List.map (fun e ->
+            [ e.Id; esc e.Name; esc e.Purpose; String.concat " " e.EvidenceIds; e.Entity
+              (if e.TriggerMetric = Always then "always" else $"{metricCode e.TriggerMetric} ≥ {f0 e.TriggerThreshold}")
+              rng e.MinAnnual; $"{rng2 e.Amount} ({driverText e.Driver})"; esc e.CapacityLimit; esc e.Alternative; esc e.Consequence
+              classCode e.Class; obligationCode e.Obligation; models e.EfModels; models e.SponsorModels ])
+    "# Expense register (generated)\n\nGenerated from `data/inputs/expenses.csv` by `model/`; do not edit. Ranges are low / base / high USD per year per driver unit. EF = models in which Echelon Foundry bears the cost; SP = models in which the sponsor bears it.\n\n"
+    + table [ "ID"; "Name"; "Purpose"; "Evidence"; "Entity"; "Trigger"; "Minimum"; "Likely range"; "Capacity limit"; "Alternative"; "Consequence of not incurring"; "Class"; "Obligation"; "EF"; "SP" ] rows
+    + "\n"
+
+/// The human-intervention challenge (ten questions per activity), rendered from activities.csv, with hours.
+let activityRegister (inp: Inputs) =
+    let v n = volume inp L (Analysis.baseSc n)
+    let rows =
+        inp.Activities
+        |> List.map (fun a ->
+            [ a.Id; esc a.Name; esc a.Why; a.LegallyRequired; a.ContractuallyRequired; a.Preventable; a.Deterministic; a.AiAssist; a.HumanDecision
+              $"{actDriverCode a.Driver} × {rng2 a.Rate} × share {rng2 a.HumanShare}"; rng2 a.Minutes
+              f0 (activityHours (v 10) a); esc a.StaffingNote; a.Role; models a.EfModels; models a.SponsorModels ])
+    "# Human-intervention challenge register (generated)\n\nGenerated from `data/inputs/activities.csv` by `model/`; do not edit. Columns 4-9 answer: legally required, contractually required, preventable, deterministic software can perform, AI can assist, who must decide (sponsor / ef / none). Frequency is driver × rate × share of occurrences still needing a person after prevention, software and AI. Hours are at 10 customers (base mix). EF/SP = which party bears it in each model.\n\n"
+    + table [ "ID"; "Activity"; "Why it exists"; "Legal"; "Contract"; "Preventable"; "Deterministic"; "AI"; "Decides"; "Frequency"; "Minutes"; "Hours at 10"; "Staffing trigger"; "Role"; "EF"; "SP" ] rows
+    + "\n"
+
 type Bundle =
     { Base: Inputs
       Headline: Outcome list
@@ -234,4 +272,6 @@ let all (inp: Inputs) : (string * string) list =
       "prior-estimates-revised.csv", priorsCsv pri
       "tornado.csv", tornadoCsv tor
       "monte-carlo.csv", mcCsv mc
-      "results.md", results bundle ]
+      "results.md", results bundle
+      "expense-register.md", expenseRegister inp
+      "activity-register.md", activityRegister p ]

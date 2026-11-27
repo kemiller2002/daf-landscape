@@ -22,7 +22,7 @@ let run (inDir: string) (outDir: string) =
     | Ok inp ->
         Directory.CreateDirectory outDir |> ignore
         Render.all inp |> List.iter (fun (name, text) -> File.WriteAllText(Path.Combine(outDir, name), text))
-        printfn "run OK: %d outputs written to %s" 13 outDir
+        printfn "run OK: outputs written to %s" outDir
         0
 
 let check (inDir: string) (outDir: string) =
