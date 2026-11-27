@@ -14,7 +14,7 @@ let atLevel (level: Level) : Realizer = fun _ r -> pick level r
 
 /// Inputs for which the low end is the adverse end (more founder time, higher prices and fees are favourable).
 let lowIsAdverse (name: string) =
-    [ "PAR:founder_hours_per_year"; "PAR:lic_"; "PAR:wl_"; "PAR:tops_"; "PAR:ci_"; "PAR:mig_fee"; "PAR:admin_bps_ref" ]
+    [ "PAR:founder_hours_per_year"; "PAR:lic_"; "PAR:wl_"; "PAR:tops_"; "PAR:ci_"; "PAR:mig_fee"; "PAR:admin_bps_ref"; "PAR:qualification_amortization_years"; "PAR:contractor_counts_hours" ]
     |> List.exists (fun (p: string) -> name.StartsWith(p, StringComparison.Ordinal))
 
 /// Oriented scenario: Low = every input at its favourable end, High = every input at its adverse end.
@@ -50,7 +50,7 @@ let realize (f: Realizer) (inp: Inputs) : Inputs =
             |> List.map (fun r -> { r with LoadedAnnual = p $"ROLE:{r.Id}:loaded" r.LoadedAnnual; ContractHourly = p $"ROLE:{r.Id}:hourly" r.ContractHourly })
         Coverage = inp.Coverage |> List.map (fun c -> { c with AltAnnual = p $"COV:{c.Id}:alt" c.AltAnnual })
         Params = inp.Params |> Map.map (fun k r -> p $"PAR:{k}" r)
-        Qualification = inp.Qualification |> List.map (fun (id, n, h, c, ev) -> id, n, p $"QUAL:{id}:hours" h, p $"QUAL:{id}:cash" c, ev) }
+        Qualification = inp.Qualification |> List.map (fun (id, n, h, c, ev, ms) -> id, n, p $"QUAL:{id}:hours" h, p $"QUAL:{id}:cash" c, ev, ms) }
 
 /// Every named range in the inputs (for tornado and Monte Carlo), in a stable order.
 let namedRanges (inp: Inputs) : (string * Range) list =
@@ -70,7 +70,7 @@ let namedRanges (inp: Inputs) : (string * Range) list =
           yield $"COV:{c.Id}:alt", c.AltAnnual
       for KeyValue(k, r) in inp.Params do
           yield $"PAR:{k}", r
-      for (id, _, h, c, _) in inp.Qualification do
+      for (id, _, h, c, _, _) in inp.Qualification do
           yield $"QUAL:{id}:hours", h
           yield $"QUAL:{id}:cash", c ]
     |> List.filter (fun (_, r) -> r.High > r.Low)
@@ -101,10 +101,13 @@ let customerVolume (f: Factors) (p: Profile) : CustomerVolume =
       Exceptions = (g + c) * pick f.Exc p.ExceptionRate }
 
 
+/// Customers onboarded per year in a steady-state (run-rate) year: the expected value n x share, not rounded and
+/// not forced to one (review findings ADV-A-05, ADV-O-11). Every model-M customer is a project in the year.
+/// Growth years and the first customer's onboarding are costed explicitly in the capital path.
 let newCustomers (inp: Inputs) (model: ModelId) (n: int) =
     if n = 0 then 0.0
     elif model = M then float n
-    else max 1.0 (Math.Round(float n * par inp "new_customer_share"))
+    else float n * par inp "new_customer_share"
 
 let volume (inp: Inputs) (model: ModelId) (sc: Scenario) : Volume =
     let mix = inp.Mixes |> List.find (fun m -> m.Id = sc.MixId)
@@ -223,8 +226,10 @@ type RoleOutcome =
 
 /// Staff one role: the founder takes what capacity allows (if eligible); the residual is contracted below the hire
 /// threshold and employed above it, never below `minEmployees` (coverage).
-let staffRole (founderRate: float) (r: Role) (hours: float) (founderCap: float) (minEmployees: int) : RoleOutcome =
-    let fh = if r.FounderEligible then min hours (max 0.0 founderCap) else 0.0
+let staffRole (founderRate: float) (overhead: float) (r: Role) (hours: float) (founderCap: float) (minEmployees: int) : RoleOutcome =
+    // Employees forced by coverage absorb work before the founder (ADV-A-06), freeing founder hours for later roles.
+    let forced = min hours (float minEmployees * r.ProductiveHours)
+    let fh = if r.FounderEligible then min (hours - forced) (max 0.0 founderCap) else 0.0
     let residual = hours - fh
     // Whole employees for whole FTEs of residual work; a remainder above the hire threshold is one more employee,
     // a smaller remainder is contracted.
@@ -237,15 +242,15 @@ let staffRole (founderRate: float) (r: Role) (hours: float) (founderCap: float) 
       FounderHours = fh
       Employees = emp
       ContractHours = contract
-      Cash = float emp * r.LoadedAnnual.Base + contract * r.ContractHourly.Base
+      Cash = float emp * (r.LoadedAnnual.Base + overhead) + contract * r.ContractHourly.Base
       Noncash = fh * founderRate }
 
 /// Staff all roles in register order, threading the founder's remaining capacity.
-let staffAll (founderRate: float) (founderCap: float) (roles: Role list) (hours: Map<string, float>) (minEmp: Map<string, int>) =
+let staffAll (founderRate: float) (overhead: float) (founderCap: float) (roles: Role list) (hours: Map<string, float>) (minEmp: Map<string, int>) =
     roles
     |> List.fold (fun (acc, cap) r ->
         let h = Map.tryFind r.Id hours |> Option.defaultValue 0.0
-        let o = staffRole founderRate r h cap (Map.tryFind r.Id minEmp |> Option.defaultValue 0)
+        let o = staffRole founderRate overhead r h cap (Map.tryFind r.Id minEmp |> Option.defaultValue 0)
         o :: acc, cap - o.FounderHours) ([], founderCap)
     |> fun (acc, cap) -> List.rev acc, cap
 
@@ -263,7 +268,7 @@ type CoverageChoice =
 /// requirement (a contracted code reviewer is not on-call cover). A requirement without a permitted alternative
 /// forces hiring.
 let applyCoverage (inp: Inputs) (model: ModelId) (sc: Scenario) (founderRate: float) (founderCap: float) (hours: Map<string, float>) =
-    let staffed0, _ = staffAll founderRate founderCap inp.Roles hours Map.empty
+    let staffed0, _ = staffAll founderRate (par inp "employee_overhead") founderCap inp.Roles hours Map.empty
     let roleOf id = inp.Roles |> List.find (fun r -> r.Id = id)
     let cost0 = staffed0 |> List.sumBy (fun o -> o.Cash)
     let employees0 id = (staffed0 |> List.find (fun o -> o.RoleId = id)).Employees
@@ -271,8 +276,12 @@ let applyCoverage (inp: Inputs) (model: ModelId) (sc: Scenario) (founderRate: fl
         inp.Coverage
         |> List.filter (fun c -> c.Models.Contains model && tierOf c.Obligation <= sc.Tier && sc.Customers >= c.TriggerCustomers)
         |> List.map (fun c ->
-            let have = employees0 c.Role + (if (roleOf c.Role).FounderEligible then 1 else 0)
-            c, max 0 (c.MinPeople - have))
+            // The founder counts only in a role the founder actually works (ADV-A-07, ADV-P-03); a regular contractor
+            // with at least `contractor_counts_hours` a year counts as one person (ADV-O-02).
+            let o = staffed0 |> List.find (fun o -> o.RoleId = c.Role)
+            let founder = if (roleOf c.Role).FounderEligible && o.FounderHours > 0.0 then 1 else 0
+            let contractor = if o.ContractHours >= par inp "contractor_counts_hours" then 1 else 0
+            c, max 0 (c.MinPeople - (employees0 c.Role + founder + contractor)))
         |> List.filter (fun (_, s) -> s > 0)
     let plans =
         shortfalls
@@ -286,7 +295,7 @@ let applyCoverage (inp: Inputs) (model: ModelId) (sc: Scenario) (founderRate: fl
                     let hireCost =
                         if k = 0 then 0.0
                         else
-                            let st, _ = staffAll founderRate founderCap inp.Roles hours (Map.ofList [ roleId, employees0 roleId + k ])
+                            let st, _ = staffAll founderRate (par inp "employee_overhead") founderCap inp.Roles hours (Map.ofList [ roleId, employees0 roleId + k ])
                             (st |> List.sumBy (fun o -> o.Cash)) - cost0
                     let alts = still |> List.map (fun (c, s) -> c, s - k, c.AltAnnual.Base * float (s - k))
                     Some(k, hireCost + (alts |> List.sumBy (fun (_, _, a) -> a)), hireCost, alts)
@@ -301,7 +310,7 @@ let applyCoverage (inp: Inputs) (model: ModelId) (sc: Scenario) (founderRate: fl
             (roleId, employees0 roleId + k), choices)
     let minEmp = plans |> List.filter (fun ((_, n), _) -> n > 0) |> List.map fst |> Map.ofList
     let choices = plans |> List.collect snd
-    let staffed, capLeft = staffAll founderRate founderCap inp.Roles hours minEmp
+    let staffed, capLeft = staffAll founderRate (par inp "employee_overhead") founderCap inp.Roles hours minEmp
     let altCash = choices |> List.filter (fun ch -> ch.Choice = "alternative") |> List.sumBy (fun ch -> ch.Annual)
     staffed, choices, altCash, capLeft
 
@@ -369,7 +378,11 @@ let evaluateVolume (inp: Inputs) (model: ModelId) (sc: Scenario) (v: Volume) : O
     let laborCash = (staffed |> List.sumBy (fun o -> o.Cash)) + altCash
     let founderNoncash = staffed |> List.sumBy (fun o -> o.Noncash)
     let qualAmort =
-        let total = inp.Qualification |> List.sumBy (fun (_, _, h, c, _) -> c.Base + h.Base * rate)
+        // Only the build items a model needs are amortised to it (ADV-A-15); validation items are not build cost.
+        let total =
+            inp.Qualification
+            |> List.filter (fun (id, _, _, _, _, ms) -> ms.Contains model && not (id.StartsWith("VAL", StringComparison.Ordinal)))
+            |> List.sumBy (fun (_, _, h, c, _, _) -> c.Base + h.Base * rate)
         total / par inp "qualification_amortization_years"
     let spHoursTotal = spHours |> Map.toList |> List.sumBy snd
     { Scenario = sc

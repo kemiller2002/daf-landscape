@@ -36,7 +36,8 @@ let parameters =
       "founder_hours_per_new_customer", 0.0; "founder_imputed_rate", 100.0; "sponsor_staff_rate", 50.0; "new_customer_share", 0.3
       "months_to_first_revenue", 12.0; "qualification_amortization_years", 5.0; "lic_platform_fee", 10000.0; "lic_per_account", 10.0
       "wl_platform_fee", 5000.0; "wl_per_account", 5.0; "tops_per_account", 10.0; "admin_bps_ref", 20.0; "ci_subscription", 1000.0
-      "mig_fee_base", 10000.0; "mig_fee_per_account", 2.0 ]
+      "mig_fee_base", 10000.0; "mig_fee_per_account", 2.0; "employee_overhead", 0.0; "contractor_counts_hours", 400.0
+      "customers_added_per_year", 1.0; "go_live_lead_months", 6.0 ]
     @ (allModels |> List.map (fun m -> "collection_lag_months_" + modelCode m, 1.0))
     |> List.map (fun (k, v) -> k, point v)
     |> Map.ofList
@@ -129,22 +130,22 @@ let ``contract tiers separate mandatory obligations from contractual expectation
 [<Fact>]
 let ``founder absorbs work first, then contracts, then employs`` () =
     let eng = role "engineering" 160000.0 100.0 true
-    let a = staffRole 100.0 eng 900.0 1000.0 0
+    let a = staffRole 100.0 0.0 eng 900.0 1000.0 0
     Assert.Equal(900.0, a.FounderHours)
     Assert.Equal(0.0, a.Cash)
-    let b = staffRole 100.0 eng 1500.0 1000.0 0 // 500 h residual: contracted
+    let b = staffRole 100.0 0.0 eng 1500.0 1000.0 0 // 500 h residual: contracted
     Assert.Equal(0, b.Employees)
     Assert.Equal(50000.0, b.Cash, 6)
-    let c = staffRole 100.0 eng 2900.0 1000.0 0 // 1900 h residual: 1 FTE + 300 h contracted
+    let c = staffRole 100.0 0.0 eng 2900.0 1000.0 0 // 1900 h residual: 1 FTE + 300 h contracted
     Assert.Equal(1, c.Employees)
     Assert.Equal(300.0, c.ContractHours, 6)
-    let d = staffRole 100.0 eng 3900.0 1000.0 0 // 2900 h: 1 FTE + 1300 h remainder above threshold -> 2 FTE
+    let d = staffRole 100.0 0.0 eng 3900.0 1000.0 0 // 2900 h: 1 FTE + 1300 h remainder above threshold -> 2 FTE
     Assert.Equal(2, d.Employees)
     Assert.Equal(0.0, d.ContractHours)
 
 [<Fact>]
 let ``a role the founder cannot hold is never absorbed by the founder`` () =
-    let o = staffRole 100.0 (role "x" 100000.0 50.0 false) 100.0 1000.0 0
+    let o = staffRole 100.0 0.0 (role "x" 100000.0 50.0 false) 100.0 1000.0 0
     Assert.Equal(0.0, o.FounderHours)
     Assert.Equal(5000.0, o.Cash, 6)
 
@@ -153,7 +154,9 @@ let ``coverage picks the cheaper of hiring and retainer and meets every requirem
     let cov id minP alt =
         { Id = id; Description = id; Basis = "b"; Obligation = Operational; Models = set [ L ]; TriggerCustomers = 1; MinPeople = minP
           Role = "engineering"; AltAllowed = true; AltDescription = "a"; AltAnnual = point alt; EvidenceIds = [ "SRC-1" ] }
-    let inp = { baseInputs with Coverage = [ cov "CHG" 3 20000.0; cov "ONC" 2 30000.0 ] }
+    // the founder works 100 h of engineering, so counts as one engineering person
+    let work = activity "W" FixedYear 1.0 1.0 6000.0 "engineering" [ L ] []
+    let inp = { baseInputs with Activities = [ work ]; Coverage = [ cov "CHG" 3 20000.0; cov "ONC" 2 30000.0 ] }
     let o = evaluate inp L (sc 1)
     // founder counts as one: CHG short 2 (2 x 20k), ONC short 1 (30k): 70k of retainers < hiring 160k+
     Assert.Equal(0, o.Employees)
@@ -170,8 +173,9 @@ let ``coverage picks the cheaper of hiring and retainer and meets every requirem
 let ``coverage without a permitted alternative forces a hire`` () =
     let c = { Id = "C"; Description = "c"; Basis = "b"; Obligation = Operational; Models = set [ F ]; TriggerCustomers = 1; MinPeople = 2
               Role = "engineering"; AltAllowed = false; AltDescription = "-"; AltAnnual = point 1.0; EvidenceIds = [ "SRC-1" ] }
+    // the founder works no engineering hours, so does not count: both people are hires
     let o = evaluate { baseInputs with Coverage = [ c ] } F (sc 1)
-    Assert.Equal(1, o.Employees)
+    Assert.Equal(2, o.Employees)
 
 [<Fact>]
 let ``sponsor activities never create Echelon Foundry hours`` () =
@@ -179,6 +183,42 @@ let ``sponsor activities never create Echelon Foundry hours`` () =
     let o = evaluate { baseInputs with Activities = [ a ] } L (sc 1)
     Assert.Equal(0.0, o.FounderHours)
     Assert.True(o.SponsorHours > 0.0)
+
+[<Fact>]
+let ``the founder counts for coverage only in a role the founder works`` () =
+    let c = { Id = "OPS"; Description = "c"; Basis = "b"; Obligation = Operational; Models = set [ F ]; TriggerCustomers = 1; MinPeople = 2
+              Role = "engineering"; AltAllowed = true; AltDescription = "a"; AltAnnual = point 10000.0; EvidenceIds = [ "SRC-1" ] }
+    let idle = evaluate { baseInputs with Coverage = [ c ] } F (sc 1)
+    Assert.Equal(20000.0, idle.LaborCash, 6) // founder has no engineering hours: two retainers
+    let busy = evaluate { baseInputs with Coverage = [ c ]; Activities = [ activity "W" FixedYear 1.0 1.0 600.0 "engineering" [ F ] [] ] } F (sc 1)
+    Assert.Equal(10000.0, busy.LaborCash, 6)
+
+[<Fact>]
+let ``a regular contractor counts as a distinct person`` () =
+    let c = { Id = "ONC"; Description = "c"; Basis = "b"; Obligation = Operational; Models = set [ L ]; TriggerCustomers = 1; MinPeople = 2
+              Role = "engineering"; AltAllowed = true; AltDescription = "a"; AltAnnual = point 10000.0; EvidenceIds = [ "SRC-1" ] }
+    // 1,500 h of engineering: founder 1,000 h, contractor 500 h (>= 400): two people, no retainer
+    let o = evaluate { baseInputs with Coverage = [ c ]; Activities = [ activity "W" FixedYear 1.0 1.0 90000.0 "engineering" [ L ] [] ] } L (sc 1)
+    Assert.Empty(o.Coverage)
+
+[<Fact>]
+let ``employees forced by coverage absorb work before the founder`` () =
+    let eng = role "engineering" 160000.0 100.0 true
+    let o = staffRole 100.0 0.0 eng 1000.0 1000.0 1
+    Assert.Equal(1, o.Employees)
+    Assert.Equal(0.0, o.FounderHours)
+
+[<Fact>]
+let ``run-rate onboarding is the expected value, not one customer every year`` () =
+    Assert.Equal(0.3, newCustomers baseInputs L 1, 6)
+    Assert.Equal(3.0, newCustomers baseInputs L 10, 6)
+    Assert.Equal(4.0, newCustomers baseInputs M 4, 6)
+
+[<Fact>]
+let ``persistent break-even ignores a temporary crossing`` () =
+    let ok n = n = 2 || n >= 5
+    Assert.Equal(Some 5, Analysis.persistentFrom 10 ok)
+    Assert.Equal(None, Analysis.persistentFrom 10 (fun n -> n < 9))
 
 // ------------------------------------------------------------------------------------------------ revenue and analysis
 

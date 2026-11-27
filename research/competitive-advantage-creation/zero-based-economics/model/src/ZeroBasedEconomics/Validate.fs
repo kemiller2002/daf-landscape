@@ -18,7 +18,7 @@ let decisionHolders = set [ "sponsor"; "ef"; "none" ]
 let requiredParams =
     [ "founder_hours_per_year"; "founder_fixed_hours"; "founder_hours_per_customer"; "founder_hours_per_new_customer"
       "founder_imputed_rate"; "sponsor_staff_rate"; "new_customer_share"; "months_to_first_revenue"
-      "qualification_amortization_years"; "lic_platform_fee"; "lic_per_account"; "wl_platform_fee"; "wl_per_account"
+      "qualification_amortization_years"; "employee_overhead"; "contractor_counts_hours"; "customers_added_per_year"; "go_live_lead_months"; "lic_platform_fee"; "lic_per_account"; "wl_platform_fee"; "wl_per_account"
       "tops_per_account"; "admin_bps_ref"; "ci_subscription"; "mig_fee_base"; "mig_fee_per_account" ]
     @ (allModels |> List.map (fun m -> "collection_lag_months_" + modelCode m))
 
@@ -29,7 +29,7 @@ let gUnique (inp: Inputs) =
       yield! inp.Roles |> List.map (fun r -> r.Id)
       yield! inp.Coverage |> List.map (fun c -> c.Id)
       yield! inp.Profiles |> List.map (fun p -> p.Id)
-      yield! inp.Qualification |> List.map (fun (id, _, _, _, _) -> id)
+      yield! inp.Qualification |> List.map (fun (id, _, _, _, _, _) -> id)
       yield! inp.Priors |> List.map (fun p -> p.Id) ]
     |> List.countBy id
     |> List.filter (fun (_, n) -> n > 1)
@@ -58,7 +58,7 @@ let gEvidence (inp: Inputs) =
       for r in inp.Roles do yield! check r.Id r.EvidenceIds
       for c in inp.Coverage do yield! check c.Id c.EvidenceIds
       for p in inp.Profiles do yield! check p.Id p.EvidenceIds
-      for (id, _, _, _, ev) in inp.Qualification do yield! check id ev ]
+      for (id, _, _, _, ev, _) in inp.Qualification do yield! check id ev ]
 
 /// V4: every human activity answers the ten challenge questions; decisions reserved to the sponsor are never
 /// performed by Echelon Foundry (CNV-GOV-004: vendor staff may not hold A3+ authority; UNB-CDD-CMF-002).

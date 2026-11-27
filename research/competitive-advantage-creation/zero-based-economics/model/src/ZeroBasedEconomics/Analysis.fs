@@ -76,20 +76,34 @@ let staffingThresholds (p: Inputs) =
 
 // ------------------------------------------------------------------------------------------------ break-even
 
+let mixIds (p: Inputs) = p.Mixes |> List.filter (fun m -> not (m.Id.StartsWith "prior")) |> List.map (fun m -> m.Id)
+
 type BreakEven =
     { Model: ModelId
+      MixId: string
       Bps: float option
       CashCustomers: int option
       LoadedCustomers: int option
       CashAuaM: float option
       LoadedAuaM: float option }
 
-let breakEvenFor (p: Inputs) (m: ModelId) (bps: float option) =
+/// First count from which revenue covers cost at every larger count up to the scan limit (ADV-A-03: persistent,
+/// not first touch). Reported for every mix, because the order and size of customers drives the answer (ADV-A-02).
+let persistentFrom (limit: int) (ok: int -> bool) =
+    let flags = List.init limit (fun i -> i + 1, ok (i + 1))
+    flags
+    |> List.rev
+    |> List.fold (fun (acc, holding) (n, f) -> if holding && f then (Some n, true) else (acc, false)) (None, true)
+    |> fst
+
+let breakEvenFor (p: Inputs) (mix: string) (m: ModelId) (bps: float option) =
     let rev (o: Outcome) = match bps with Some b -> revenueAt p m b o.Volume | None -> o.Revenue
-    let at n = evaluate p m (baseSc n)
-    let cash = firstWhere scanLimit (fun n -> n > 0 && let o = at n in rev o >= o.EfCash)
-    let loaded = firstWhere scanLimit (fun n -> n > 0 && let o = at n in rev o >= o.FullyLoaded)
+    let outcomes = List.init scanLimit (fun i -> evaluate p m (sc (i + 1) mix baseFactors baseTier)) |> Array.ofList
+    let at n = outcomes.[n - 1]
+    let cash = persistentFrom scanLimit (fun n -> let o = at n in rev o >= o.EfCash)
+    let loaded = persistentFrom scanLimit (fun n -> let o = at n in rev o >= o.FullyLoaded)
     { Model = m
+      MixId = mix
       Bps = bps
       CashCustomers = cash
       LoadedCustomers = loaded
@@ -97,12 +111,13 @@ let breakEvenFor (p: Inputs) (m: ModelId) (bps: float option) =
       LoadedAuaM = loaded |> Option.map (fun n -> (at n).Volume.AuaM) }
 
 let breakEvens (p: Inputs) =
-    [ for m in allModels do
-          if m = F then
-              for b in bpsGrid do
-                  yield breakEvenFor p m (Some b)
-          else
-              yield breakEvenFor p m None ]
+    [ for mix in mixIds p do
+          for m in allModels do
+              if m = F then
+                  for b in bpsGrid do
+                      yield breakEvenFor p mix m (Some b)
+              else
+                  yield breakEvenFor p mix m None ]
 
 /// Assets a single customer needs for full-service administration to break even at a fee: the base-mix first
 /// profile scaled until bps x AUA covers cost. Returns (cash AUA $M, fully loaded AUA $M).
@@ -129,7 +144,7 @@ type PriceFloor =
       CashBps: float
       LoadedBps: float }
 
-/// Break-even price at each count: what every customer must pay for revenue to equal cost.
+/// Break-even price at each count for the base mix: what every customer must pay for revenue to equal cost.
 let priceFloors (p: Inputs) =
     [ for m in allModels do
           for n in counts |> List.filter (fun n -> n > 0) do
@@ -149,86 +164,159 @@ let priceFloors (p: Inputs) =
 
 // ------------------------------------------------------------------------------------------------ capital
 
+/// One year of a growth path: customers at year end, customers onboarded in the year, revenue and EF cash.
+type PathYear = { Year: int; Customers: int; Added: float; Revenue: float; Cash: float; Cumulative: float }
+
+/// Growth path from production qualification (ADV-A-01, ADV-A-08). Year 0 is the pre-revenue period: the zero-customer
+/// platform for `months_to_first_revenue`, plus everything that must exist at go-live and precedes the first
+/// invoice: first-customer onboarding and acquisition, prepaid assurance and insurance, and `go_live_lead_months`
+/// of the first-customer run-rate (coverage retainers, compliance platform, observation-period controls). Then each
+/// year adds `customers_added_per_year` customers along the mix and is charged their onboarding. The path runs until
+/// cumulative cash stops falling for good, or 15 years.
+let growthPath (p: Inputs) (mix: string) (m: ModelId) =
+    let rate = max 1 (int (Math.Round(par p "customers_added_per_year")))
+    let lag = par p ("collection_lag_months_" + modelCode m)
+    let yearAt (n: int) (added: float) =
+        let s = sc n mix baseFactors baseTier
+        let v = { volume p m s with NewCustomers = (if m = M then float n else added) }
+        evaluateVolume p m s v
+    let o0 = evaluate p m (sc 0 mix baseFactors baseTier)
+    let o1 = yearAt 1 1.0
+    let ids0 = o0.Lines |> List.filter (fun l -> l.Bearer = EF) |> List.map (fun l -> l.Expense.Id) |> Set.ofList
+    let prepaid = o1.Lines |> List.filter (fun l -> l.Bearer = EF && l.Expense.Prepaid && not (ids0.Contains l.Expense.Id)) |> List.sumBy (fun l -> l.Cash)
+    let preRevenue = par p "months_to_first_revenue" * o0.EfCash / 12.0
+    let goLive = par p "go_live_lead_months" * o1.EfCash / 12.0 + prepaid
+    let year0 = { Year = 0; Customers = 0; Added = 0.0; Revenue = 0.0; Cash = preRevenue + goLive; Cumulative = -(preRevenue + goLive) }
+    let years =
+        List.init 15 (fun i -> i + 1)
+        |> List.scan (fun prev y ->
+            let n = rate * y
+            let o = yearAt n (float rate)
+            // Collection lag delays one lag-period of revenue into the next year in the first year only.
+            let rev = if y = 1 then o.Revenue * (1.0 - lag / 12.0) else o.Revenue
+            { Year = y; Customers = n; Added = float rate; Revenue = rev; Cash = o.EfCash; Cumulative = prev.Cumulative + rev - o.EfCash }) year0
+    years
+
 type Capital =
     { Model: ModelId
       Level: Level
+      MixId: string
       QualificationCash: float
       QualificationFounderHours: float
       PreRevenueBurn: float
-      Readiness: float
-      WorkingCapital: float
-      ExcludingQualification: float
-      Total: float
+      GoLive: float
+      DeepestDeficit: float
+      DeficitYear: int
+      /// Cumulative deficit at the end of year 5 (meaningful when the path never becomes self-sustaining).
+      DeficitYear5: float
+      SelfSustainingYear: int option
+      CustomersAtSelfSustaining: int option
       MonthlyBurnZero: float
       MonthlyBurnOne: float
-      SurplusOne: float }
+      FounderHoursYearOne: float }
 
-let capitalFor (p: Inputs) (level: Level) (m: ModelId) =
-    let qCash = p.Qualification |> List.filter (fun (id, _, _, _, _) -> not (id.StartsWith "VAL")) |> List.sumBy (fun (_, _, _, c, _) -> c.Base)
-    let qHours = p.Qualification |> List.filter (fun (id, _, _, _, _) -> not (id.StartsWith "VAL")) |> List.sumBy (fun (_, _, h, _, _) -> h.Base)
-    let o0, o1 = evaluate p m (baseSc 0), evaluate p m (baseSc 1)
-    let ids0 = o0.Lines |> List.filter (fun l -> l.Bearer = EF) |> List.map (fun l -> l.Expense.Id) |> Set.ofList
-    // Paid before the first invoice: prepaid annual items that the first customer newly triggers.
-    let readiness = o1.Lines |> List.filter (fun l -> l.Bearer = EF && l.Expense.Prepaid && not (ids0.Contains l.Expense.Id)) |> List.sumBy (fun l -> l.Cash)
-    let lag = par p ("collection_lag_months_" + modelCode m)
-    let wc = max 0.0 (lag * o1.EfCash / 12.0)
-    let pre = par p "months_to_first_revenue" * o0.EfCash / 12.0
+let capitalFor (p: Inputs) (level: Level) (mix: string) (m: ModelId) =
+    let qual = p.Qualification |> List.filter (fun (id, _, _, _, _, ms) -> ms.Contains m && not (id.StartsWith "VAL"))
+    let path = growthPath p mix m
+    let deepest = path |> List.minBy (fun y -> y.Cumulative)
+    let sustaining = path |> List.tryFind (fun y -> y.Year > 0 && path |> List.filter (fun z -> z.Year >= y.Year) |> List.forall (fun z -> z.Revenue >= z.Cash))
+    let y0 = List.head path
+    let o0, o1 = evaluate p m (sc 0 mix baseFactors baseTier), evaluate p m (sc 1 mix baseFactors baseTier)
     { Model = m
       Level = level
-      QualificationCash = qCash
-      QualificationFounderHours = qHours
-      PreRevenueBurn = pre
-      Readiness = readiness
-      WorkingCapital = wc
-      ExcludingQualification = pre + readiness + wc
-      Total = qCash + pre + readiness + wc
+      MixId = mix
+      QualificationCash = qual |> List.sumBy (fun (_, _, _, c, _, _) -> c.Base)
+      QualificationFounderHours = qual |> List.sumBy (fun (_, _, h, _, _, _) -> h.Base)
+      PreRevenueBurn = par p "months_to_first_revenue" * o0.EfCash / 12.0
+      GoLive = y0.Cash - par p "months_to_first_revenue" * o0.EfCash / 12.0
+      DeepestDeficit = -deepest.Cumulative
+      DeficitYear = deepest.Year
+      DeficitYear5 = -(path |> List.filter (fun y -> y.Year <= 5) |> List.map (fun y -> y.Cumulative) |> List.min)
+      SelfSustainingYear = sustaining |> Option.map (fun y -> y.Year)
+      CustomersAtSelfSustaining = sustaining |> Option.map (fun y -> y.Customers)
       MonthlyBurnZero = o0.EfCash / 12.0
       MonthlyBurnOne = o1.EfCash / 12.0
-      SurplusOne = o1.Revenue - o1.EfCash }
+      FounderHoursYearOne = o1.FounderHours }
 
-let capital (inp: Inputs) = [ for l, p in leveled inp do for m in allModels do yield capitalFor p l m ]
+let capital (inp: Inputs) =
+    [ for l, p in leveled inp do
+          for mix in mixIds p do
+              for m in allModels do
+                  yield capitalFor p l mix m ]
 
-/// Annual surplus (revenue - EF cash) at 1..10 customers: can the first customer finance the next?
+/// Annual run-rate surplus (revenue - EF cash) at 1..10 customers for every mix: can the first customer finance the next?
 let selfFinancing (p: Inputs) =
-    [ for m in allModels do
-          for n in 1..10 do
-              let o = evaluate p m (baseSc n)
-              yield m, n, o.Revenue - o.EfCash, o.Revenue - o.FullyLoaded ]
+    [ for mix in mixIds p do
+          for m in allModels do
+              for n in 1..10 do
+                  let o = evaluate p m (sc n mix baseFactors baseTier)
+                  yield mix, m, n, o.Revenue - o.EfCash, o.Revenue - o.EfCash - o.FounderNoncash ]
+
+// ------------------------------------------------------------------------------------------------ deep-review allocation
+
+/// P3-DEC-MOD005 / OD-CDD-06 (open): who performs the 180-day deep review. Re-run with ACT-CHV-04 (and the
+/// change-driven re-vetting ACT-CHV-03) borne by Echelon Foundry in every platform model, or by the sponsor in every
+/// model. Returns (allocation, model, customers, EF cash, sponsor cost).
+let deepReviewAllocation (p: Inputs) =
+    // `manual` removes the change-driven design: every 180-day renewal is a full human review (the conventional
+    // 10 minutes per review), i.e. the value of the approved OD-CDD-02 direction.
+    let alloc toEf manual =
+        { p with
+            Activities =
+                p.Activities
+                |> List.map (fun a ->
+                    if a.Id = "ACT-CHV-03" || a.Id = "ACT-CHV-04" then
+                        let a' = if manual && a.Id = "ACT-CHV-04" then { a with HumanShare = point 1.0 } else a
+                        if toEf then { a' with EfModels = set [ L; W; T; F ]; SponsorModels = Set.empty }
+                        else { a' with EfModels = Set.empty; SponsorModels = set [ L; W; T; F ] }
+                    else a) }
+    [ for name, q in [ "Echelon Foundry performs (change-driven)", alloc true false; "Sponsor performs (change-driven)", alloc false false
+                       "Echelon Foundry performs (manual 180-day reviews)", alloc true true; "Sponsor performs (manual 180-day reviews)", alloc false true ] do
+          for m in [ L; T; F ] do
+              for n in [ 1; 10; 100 ] do
+                  let o = evaluate q m (baseSc n)
+                  yield name, m, n, o.EfCash, o.SponsorCost ]
 
 // ------------------------------------------------------------------------------------------------ priors
 
-/// Values comparable to each prior estimate, computed on the same configuration where the prior defined one.
+/// Values comparable to each prior estimate, on the prior's own configuration and scope where it defined one.
 let comparable (p: Inputs) (metric: string) : float =
     let starts (prefix: string) (id: string) = id.StartsWith(prefix, StringComparison.Ordinal)
     let prior n = sc n "prior-5x2000" baseFactors baseTier
     let ev m s = evaluate p m s
     let lineSum (o: Outcome) cat = o.Lines |> List.filter (fun l -> l.Bearer = EF && l.Expense.Category = cat) |> List.sumBy (fun l -> l.Cash)
     let rate = par p "founder_imputed_rate"
-    let actHours (o: Outcome) prefix =
-        p.Activities |> List.filter (fun a -> starts prefix a.Id && a.EfModels.Contains o.Model) |> List.sumBy (activityHours o.Volume)
+    let actHours (o: Outcome) (prefixes: string list) =
+        p.Activities
+        |> List.filter (fun a -> prefixes |> List.exists (fun pr -> starts pr a.Id) && a.EfModels.Contains o.Model)
+        |> List.sumBy (activityHours o.Volume)
+    let qsum f g = p.Qualification |> List.filter (fun (id, _, _, _, _, _) -> f id) |> List.sumBy g
     match metric with
     | "F_cash_5x2000" -> (ev F (prior 5)).EfCash
     | "F_loaded_5x2000" -> (ev F (prior 5)).FullyLoaded
     | "L_cash_5x2000" -> (ev L (prior 5)).EfCash
     | "L_loaded_5x2000" -> (ev L (prior 5)).FullyLoaded
-    | "F_incremental_per_account" -> ((ev F (prior 5)).EfCash - (ev F (prior 0)).EfCash) / (ev F (prior 5)).Volume.Accounts
-    | "F_system_per_account" -> ((ev F (prior 5)).EfCash - (ev F (prior 0)).EfCash + (ev F (prior 5)).SponsorCost) / (ev F (prior 5)).Volume.Accounts
+    // ADV-A-09: the per-account slope between 5 and 10 prior sponsors, excluding first-customer step costs
+    | "F_slope_per_account" -> ((ev F (prior 10)).EfCash - (ev F (prior 5)).EfCash) / ((ev F (prior 10)).Volume.Accounts - (ev F (prior 5)).Volume.Accounts)
+    | "F_system_slope_per_account" ->
+        let a, b = ev F (prior 5), ev F (prior 10)
+        (b.EfCash + b.SponsorCost - a.EfCash - a.SponsorCost) / (b.Volume.Accounts - a.Volume.Accounts)
+    // ADV-A-12: include data-pipeline stewardship, which the prior included
     | "registry_annual_5x2000" ->
         let o = ev F (prior 5)
-        lineSum o "charity-data" + actHours o "ACT-CHV" * rate
+        lineSum o "charity-data" + actHours o [ "ACT-CHV"; "ACT-PLT-09" ] * rate
     | "acquisition_per_customer" ->
         let o = ev L (baseSc 10)
         (lineSum o "acquisition" + lineSum o "legal-acquisition") / max 1.0 o.Volume.NewCustomers + parFor p "founder_hours_per_new_customer" L * rate
-    | "qualification_cash" -> p.Qualification |> List.filter (fun (id, _, _, _, _) -> not (id.StartsWith "VAL")) |> List.sumBy (fun (_, _, _, c, _) -> c.Base)
-    | "qualification_loaded" ->
-        p.Qualification |> List.filter (fun (id, _, _, _, _) -> not (id.StartsWith "VAL")) |> List.sumBy (fun (_, _, h, c, _) -> c.Base + h.Base * rate)
-    | "validation_cash" -> p.Qualification |> List.filter (fun (id, _, _, _, _) -> id.StartsWith "VAL") |> List.sumBy (fun (_, _, _, c, _) -> c.Base)
-    | "validation_loaded" ->
-        p.Qualification |> List.filter (fun (id, _, _, _, _) -> id.StartsWith "VAL") |> List.sumBy (fun (_, _, h, c, _) -> c.Base + h.Base * rate)
-    | "capital_first_revenue_L_excl_qual" -> (capitalFor p Base L).ExcludingQualification
-    | "pilot_cash_L" ->
-        let c = capitalFor p Base L
-        c.ExcludingQualification + (p.Qualification |> List.filter (fun (id, _, _, _, _) -> id.StartsWith "VAL") |> List.sumBy (fun (_, _, _, c, _) -> c.Base))
+    | "qualification_cash" -> qsum (fun id -> not (starts "VAL" id)) (fun (_, _, _, c, _, _) -> c.Base)
+    | "qualification_loaded" -> qsum (fun id -> not (starts "VAL" id)) (fun (_, _, h, c, _, _) -> c.Base + h.Base * rate)
+    | "validation_cash" -> qsum (starts "VAL") (fun (_, _, _, c, _, _) -> c.Base)
+    | "validation_loaded" -> qsum (starts "VAL") (fun (_, _, h, c, _, _) -> c.Base + h.Base * rate)
+    // ADV-A-01: like-for-like with the prior pilot budget: validation, build cash and the deepest cumulative deficit
+    | "capital_to_self_sustaining_L_incl_build" ->
+        let c = capitalFor p Base baseMix L
+        c.DeepestDeficit + c.QualificationCash + qsum (starts "VAL") (fun (_, _, _, c, _, _) -> c.Base)
+    | "capital_to_self_sustaining_L_excl_build" -> (capitalFor p Base baseMix L).DeepestDeficit
     | x -> failwithf "unknown comparable metric '%s'" x
 
 let priorComparables (inp: Inputs) =

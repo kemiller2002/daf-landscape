@@ -1,0 +1,37 @@
+allocation,model,customers,ef_cash,sponsor_cost
+Echelon Foundry performs (change-driven),L,1,201753,42338
+Echelon Foundry performs (change-driven),L,10,574079,907081
+Echelon Foundry performs (change-driven),L,100,3814659,9070813
+Echelon Foundry performs (change-driven),T,1,283626,23682
+Echelon Foundry performs (change-driven),T,10,1138368,479963
+Echelon Foundry performs (change-driven),T,100,9073474,4799628
+Echelon Foundry performs (change-driven),F,1,324517,19257
+Echelon Foundry performs (change-driven),F,10,1244590,389720
+Echelon Foundry performs (change-driven),F,100,9969815,3897195
+Sponsor performs (change-driven),L,1,201588,42435
+Sponsor performs (change-driven),L,10,567578,910923
+Sponsor performs (change-driven),L,100,3746997,9109228
+Sponsor performs (change-driven),T,1,283461,23779
+Sponsor performs (change-driven),T,10,1124913,483804
+Sponsor performs (change-driven),T,100,9014194,4838043
+Sponsor performs (change-driven),F,1,324352,19355
+Sponsor performs (change-driven),F,10,1244590,393561
+Sponsor performs (change-driven),F,100,9893431,3935610
+Echelon Foundry performs (manual 180-day reviews),L,1,208221,42338
+Echelon Foundry performs (manual 180-day reviews),L,10,779902,907081
+Echelon Foundry performs (manual 180-day reviews),L,100,5560329,9070813
+Echelon Foundry performs (manual 180-day reviews),T,1,290094,23682
+Echelon Foundry performs (manual 180-day reviews),T,10,1279577,479963
+Echelon Foundry performs (manual 180-day reviews),T,100,10854124,4799628
+Echelon Foundry performs (manual 180-day reviews),F,1,330985,19257
+Echelon Foundry performs (manual 180-day reviews),F,10,1391001,389720
+Echelon Foundry performs (manual 180-day reviews),F,100,11706763,3897195
+Sponsor performs (manual 180-day reviews),L,1,201588,46257
+Sponsor performs (manual 180-day reviews),L,10,567578,1061510
+Sponsor performs (manual 180-day reviews),L,100,3746997,10615096
+Sponsor performs (manual 180-day reviews),T,1,283461,27601
+Sponsor performs (manual 180-day reviews),T,10,1124913,634391
+Sponsor performs (manual 180-day reviews),T,100,9014194,6343911
+Sponsor performs (manual 180-day reviews),F,1,324352,23177
+Sponsor performs (manual 180-day reviews),F,10,1244590,544148
+Sponsor performs (manual 180-day reviews),F,100,9893431,5441478

@@ -15,7 +15,7 @@ type Inputs =
       Profiles: Profile list
       Mixes: Mix list
       Params: Params
-      Qualification: (string * string * Range * Range * string list) list
+      Qualification: (string * string * Range * Range * string list * Set<ModelId>) list
       Priors: PriorEstimate list
       Sources: Source list }
 
@@ -202,7 +202,8 @@ let qualification (row: Row) =
         let! h = range "founder_hours" row |> withRow id
         let! c = range "cash" row |> withRow id
         let! ev = s "evidence_ids" row
-        return id, n, h, c, split ev
+        let! ms = models "models" row
+        return id, n, h, c, split ev, ms
     }
 
 let prior (row: Row) : Result<PriorEstimate, string> =

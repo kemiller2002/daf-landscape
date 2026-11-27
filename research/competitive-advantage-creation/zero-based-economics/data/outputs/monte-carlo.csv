@@ -1,19 +1,19 @@
 metric,rho,p10,p50,p90
-L zero-customer annual cash,0.00,22862,70380,165846
-L first-customer annual cash,0.00,328620,372947,412947
-F first-customer annual cash,0.00,467576,517206,563403
-L marginal cash per customer (10->25 avg),0.00,32483,40859,51027
-F marginal cash per customer (10->25 avg),0.00,97974,113987,131941
-L first employee (customers),0.00,0,1,4
-F first employee (customers),0.00,0,1,2
+L zero-customer annual cash,0.00,8153,25069,69046
+L first-customer annual cash,0.00,227949,276830,347560
+F first-customer annual cash,0.00,356667,413045,491994
+L marginal cash per customer (10->25 avg),0.00,37822,47347,60510
+F marginal cash per customer (10->25 avg),0.00,106556,123717,142341
+L first employee (customers),0.00,1,1,4
+F first employee (customers),0.00,1,1,2
 F cash break-even bps at 10 customers,0.00,8,9,10
-L cash break-even price per customer at 10,0.00,54334,65440,78563
-L zero-customer annual cash,0.50,7807,69485,225108
-L first-customer annual cash,0.50,259261,371856,453819
-F first-customer annual cash,0.50,371992,513422,634292
-L marginal cash per customer (10->25 avg),0.50,27807,40040,59458
-F marginal cash per customer (10->25 avg),0.50,75970,111831,165031
-L first employee (customers),0.50,0,1,6
-F first employee (customers),0.50,0,1,2
-F cash break-even bps at 10 customers,0.50,6,8,12
-L cash break-even price per customer at 10,0.50,43806,63900,93002
+L cash break-even price per customer at 10,0.00,63641,76483,90527
+L zero-customer annual cash,0.50,6360,23375,90629
+L first-customer annual cash,0.50,181232,273893,417842
+F first-customer annual cash,0.50,295910,407766,580339
+L marginal cash per customer (10->25 avg),0.50,31714,46989,67899
+F marginal cash per customer (10->25 avg),0.50,81769,121833,176616
+L first employee (customers),0.50,1,2,5
+F first employee (customers),0.50,1,1,3
+F cash break-even bps at 10 customers,0.50,6,9,13
+L cash break-even price per customer at 10,0.50,50586,74988,111037

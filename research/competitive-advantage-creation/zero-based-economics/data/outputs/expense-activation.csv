@@ -19,15 +19,15 @@ EXP-AI-01,AI inference (dossiers; extraction; grounded answers),volume-triggered
 EXP-AI-02,AI development tooling,shared-infrastructure,operational-mandatory,E1,0,0,0,0,0,0,1200,1200
 EXP-SEC-01,"Workspace, identity, password manager",shared-infrastructure,operational-mandatory,E5,0,0,0,0,0,0,165,165
 EXP-SEC-02,Code hosting and code scanning,shared-infrastructure,operational-mandatory,E5,0,0,0,0,0,0,150,150
-EXP-SEC-03,Compliance automation platform,conditional-cash,contract-typical,E1,1,1,1,1,1,-,14000,14000
+EXP-SEC-03,Compliance automation platform,conditional-cash,contract-typical,E1,1,1,1,1,1,-,7500,7500
 EXP-SEC-04,SOC 2 Type II audit,conditional-cash,contract-typical,E1,1,1,1,1,1,-,12000,12000
 EXP-SEC-05,Penetration test and retest,conditional-cash,contract-typical,E1,1,1,1,1,1,-,15000,15000
 EXP-SEC-06,SOC 1 Type II (staffed administration),conditional-cash,operational-mandatory,E1,-,-,-,1,-,-,0,35000
-EXP-SEC-07,SOC 1 Type II (limited operational support),conditional-cash,contract-typical,E1,-,-,1,-,-,-,0,0
-EXP-SEC-08,SOC 1 Type II (licensing),conditional-cash,contract-demanding,E1,>200,>200,-,-,-,-,0,0
+EXP-SEC-07,SOC 1 Type II (limited operational support),conditional-cash,contract-typical,E1,-,-,2,-,-,-,0,0
+EXP-SEC-08,SOC 1 Type II (licensing),conditional-cash,contract-typical,E1,3,3,-,-,-,-,35000,0
 EXP-SEC-09,Virtual CISO,conditional-cash,contract-demanding,E1,>200,>200,>200,>200,>200,-,0,0
-EXP-INS-01,Technology E&O and cyber ($1M),conditional-cash,operational-mandatory,E1,1,1,1,1,1,1,3000,3000
-EXP-INS-02,E&O and cyber uplift to $2M,conditional-cash,contract-typical,E1,1,1,1,1,1,1,3600,3600
+EXP-INS-01,Technology E&O and cyber ($1M),conditional-cash,operational-mandatory,E1,1,1,1,1,1,1,4000,4000
+EXP-INS-02,E&O and cyber uplift to $2M,conditional-cash,contract-typical,E1,1,1,1,1,1,1,4500,4500
 EXP-INS-03,E&O and cyber uplift to $5M,conditional-cash,contract-demanding,E1,>200,>200,>200,>200,>200,-,0,0
 EXP-INS-04,Commercial crime incl. third-party and social engineering ($1M),conditional-cash,contract-typical,E1,-,-,1,1,-,-,0,2500
 EXP-INS-05,Commercial crime under licensing,conditional-cash,contract-demanding,E1,>200,>200,-,-,-,-,0,0
@@ -35,8 +35,8 @@ EXP-INS-06,Directors and officers insurance,discretionary,discretionary,E5,>200,
 EXP-INS-07,General liability,conditional-cash,contract-typical,E5,1,1,1,1,1,1,500,500
 EXP-COR-01,"Legal entity, registered agent and filings",shared-infrastructure,legal,E5,0,0,0,0,0,0,0,0
 EXP-COR-02,Bookkeeping and tax preparation,shared-infrastructure,legal,E5,0,0,0,0,0,0,2340,2340
-EXP-COR-03,Contract negotiation counsel per new customer,volume-triggered,operational-mandatory,E1,1,1,1,1,-,1,15000,15000
-EXP-COR-04,Annual regulatory and contract counsel,conditional-cash,operational-mandatory,E1,1,1,1,1,1,1,10000,10000
+EXP-COR-03,Contract negotiation counsel per new customer,volume-triggered,operational-mandatory,E1,4,4,4,4,-,1,15000,15000
+EXP-COR-04,Annual regulatory and contract counsel,conditional-cash,operational-mandatory,E1,1,1,1,1,1,1,8000,8000
 EXP-COR-05,Fractional CFO,discretionary,discretionary,E5,>200,>200,>200,>200,>200,>200,0,0
 EXP-CHD-01,"IRS, OFAC and screening source files",unavoidable-cash,operational-mandatory,E1,0,0,0,0,0,-,0,0
 EXP-CHD-02,Licensed charity data (shared charity intelligence),conditional-cash,contract-typical,E1,-,-,-,-,1,-,0,0
@@ -47,4 +47,6 @@ EXP-PAY-02,Positive pay and payment-partner fees,conditional-cash,contract-typic
 EXP-SUP-01,Help desk tooling,conditional-cash,contract-typical,E1,1,1,1,1,1,-,600,600
 EXP-SUP-02,Donor support telephone line,conditional-cash,contract-typical,E1,-,-,-,1,-,-,0,600
 EXP-IR-01,Incident response retainer,conditional-cash,contract-demanding,E1,>200,>200,>200,>200,>200,-,0,0
-EXP-ACQ-01,Travel and procurement costs per new customer,volume-triggered,discretionary,E1,>200,>200,>200,>200,-,>200,0,0
+EXP-ACQ-01,Travel and procurement costs per new customer,volume-triggered,operational-mandatory,E1,4,4,4,4,-,1,7500,7500
+EXP-SEC-10,Endpoint protection and device management,conditional-cash,operational-mandatory,E1,1,1,1,1,1,-,700,700
+EXP-COR-06,Source escrow and continuity package,conditional-cash,contract-demanding,E1,>200,>200,>200,>200,-,-,0,0

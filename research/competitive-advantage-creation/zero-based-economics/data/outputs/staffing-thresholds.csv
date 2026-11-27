@@ -1,73 +1,73 @@
 model,mix,threshold,customers,detail
-L,mixed,first employee,4,engineeringx1 (workload)
-L,mixed,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC
-L,mixed,founder fully utilised,0,
-W,mixed,first employee,5,engineeringx1 (workload)
-W,mixed,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC
-W,mixed,founder fully utilised,0,
-T,mixed,first employee,2,operationsx1 (workload)
-T,mixed,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC+COV-OPS
-T,mixed,founder fully utilised,0,
-F,mixed,first employee,2,operationsx1 (workload)
-F,mixed,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC+COV-OPS
-F,mixed,founder fully utilised,0,
-C,mixed,first employee,151,supportx1 (workload)
+L,mixed,first employee,5,engineeringx1 (workload)
+L,mixed,first contracted coverage,1,COV-CHG
+L,mixed,founder fully utilised,1,
+W,mixed,first employee,7,engineeringx1 (workload)
+W,mixed,first contracted coverage,1,COV-CHG
+W,mixed,founder fully utilised,1,
+T,mixed,first employee,5,"engineeringx1, operationsx1 (workload)"
+T,mixed,first contracted coverage,1,COV-CHG+COV-OPS
+T,mixed,founder fully utilised,1,
+F,mixed,first employee,4,operationsx1 (workload)
+F,mixed,first contracted coverage,1,COV-CHG+COV-OPS
+F,mixed,founder fully utilised,1,
+C,mixed,first employee,not within 200,none within 200 customers
 C,mixed,first contracted coverage,1,COV-ONC
 C,mixed,founder fully utilised,0,
 M,mixed,first employee,9,implementationx1 (workload)
-M,mixed,first contracted coverage,never (≤400),none
-M,mixed,founder fully utilised,6,
-L,small,first employee,4,engineeringx1 (workload)
-L,small,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC
-L,small,founder fully utilised,0,
-W,small,first employee,5,engineeringx1 (workload)
-W,small,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC
-W,small,founder fully utilised,0,
-T,small,first employee,4,"engineeringx1, operationsx1 (workload)"
-T,small,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC+COV-OPS
-T,small,founder fully utilised,0,
-F,small,first employee,3,operationsx1 (workload)
-F,small,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC+COV-OPS
-F,small,founder fully utilised,0,
-C,small,first employee,151,supportx1 (workload)
+M,mixed,first contracted coverage,not within 200,none
+M,mixed,founder fully utilised,5,
+L,small,first employee,5,engineeringx1 (workload)
+L,small,first contracted coverage,1,COV-CHG
+L,small,founder fully utilised,1,
+W,small,first employee,7,engineeringx1 (workload)
+W,small,first contracted coverage,1,COV-CHG
+W,small,founder fully utilised,1,
+T,small,first employee,5,engineeringx1 (workload)
+T,small,first contracted coverage,1,COV-CHG+COV-OPS
+T,small,founder fully utilised,1,
+F,small,first employee,5,"engineeringx1, operationsx1 (workload)"
+F,small,first contracted coverage,1,COV-CHG+COV-OPS
+F,small,founder fully utilised,1,
+C,small,first employee,not within 200,none within 200 customers
 C,small,first contracted coverage,1,COV-ONC
 C,small,founder fully utilised,0,
-M,small,first employee,10,implementationx1 (workload)
-M,small,first contracted coverage,never (≤400),none
-M,small,founder fully utilised,6,
-L,tiny,first employee,4,engineeringx1 (workload)
-L,tiny,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC
-L,tiny,founder fully utilised,0,
-W,tiny,first employee,5,engineeringx1 (workload)
-W,tiny,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC
-W,tiny,founder fully utilised,0,
-T,tiny,first employee,4,engineeringx1 (workload)
-T,tiny,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC+COV-OPS
-T,tiny,founder fully utilised,0,
-F,tiny,first employee,4,"engineeringx1, operationsx1 (workload)"
-F,tiny,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC+COV-OPS
-F,tiny,founder fully utilised,0,
-C,tiny,first employee,151,supportx1 (workload)
+M,small,first employee,11,implementationx1 (workload)
+M,small,first contracted coverage,not within 200,none
+M,small,founder fully utilised,5,
+L,tiny,first employee,5,engineeringx1 (workload)
+L,tiny,first contracted coverage,1,COV-CHG
+L,tiny,founder fully utilised,1,
+W,tiny,first employee,7,engineeringx1 (workload)
+W,tiny,first contracted coverage,1,COV-CHG
+W,tiny,founder fully utilised,1,
+T,tiny,first employee,5,engineeringx1 (workload)
+T,tiny,first contracted coverage,1,COV-CHG+COV-OPS
+T,tiny,founder fully utilised,1,
+F,tiny,first employee,5,engineeringx1 (workload)
+F,tiny,first contracted coverage,1,COV-CHG+COV-OPS
+F,tiny,founder fully utilised,1,
+C,tiny,first employee,not within 200,none within 200 customers
 C,tiny,first contracted coverage,1,COV-ONC
 C,tiny,founder fully utilised,0,
-M,tiny,first employee,10,implementationx1 (workload)
-M,tiny,first contracted coverage,never (≤400),none
-M,tiny,founder fully utilised,6,
-L,anchor,first employee,4,engineeringx1 (workload)
-L,anchor,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC
-L,anchor,founder fully utilised,0,
-W,anchor,first employee,5,engineeringx1 (workload)
-W,anchor,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC
-W,anchor,founder fully utilised,0,
-T,anchor,first employee,1,operationsx2 (workload)
-T,anchor,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC
-T,anchor,founder fully utilised,0,
-F,anchor,first employee,1,operationsx2 (workload)
-F,anchor,first contracted coverage,1,COV-CHG+COV-BRK+COV-ONC
-F,anchor,founder fully utilised,0,
-C,anchor,first employee,151,supportx1 (workload)
+M,tiny,first employee,11,implementationx1 (workload)
+M,tiny,first contracted coverage,not within 200,none
+M,tiny,founder fully utilised,5,
+L,anchor,first employee,5,engineeringx1 (workload)
+L,anchor,first contracted coverage,1,COV-CHG
+L,anchor,founder fully utilised,1,
+W,anchor,first employee,7,engineeringx1 (workload)
+W,anchor,first contracted coverage,1,COV-CHG
+W,anchor,founder fully utilised,1,
+T,anchor,first employee,1,operationsx1 (workload)
+T,anchor,first contracted coverage,1,COV-CHG
+T,anchor,founder fully utilised,1,
+F,anchor,first employee,1,operationsx1 (workload)
+F,anchor,first contracted coverage,1,COV-CHG
+F,anchor,founder fully utilised,1,
+C,anchor,first employee,not within 200,none within 200 customers
 C,anchor,first contracted coverage,1,COV-ONC
 C,anchor,founder fully utilised,0,
 M,anchor,first employee,9,implementationx1 (workload)
-M,anchor,first contracted coverage,never (≤400),none
-M,anchor,founder fully utilised,5,
+M,anchor,first contracted coverage,not within 200,none
+M,anchor,founder fully utilised,4,
