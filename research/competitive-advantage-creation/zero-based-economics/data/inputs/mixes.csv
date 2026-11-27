@@ -1,0 +1,6 @@
+mix_id,name,pattern
+mixed,"Mixed institutional sizes (first customer mid-size community foundation)",S M S XS M S L S M XS
+small,All mid-size community foundations,S
+tiny,All small community foundations,XS
+anchor,"Anchor first (regional sponsor), then mixed",L M S S M S XS S M S
+prior-5x2000,Phase II comparison configuration (5 x 2000 accounts),P2000

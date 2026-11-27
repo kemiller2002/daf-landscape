@@ -1,0 +1,45 @@
+mix,model,bps,cash_customers,loaded_customers,cash_aua_musd,loaded_aua_musd
+mixed,L,ref price,7,17,1449.00,3237.00
+mixed,W,ref price,17,47,3237.00,8601.00
+mixed,T,ref price,17,37,3237.00,6813.00
+mixed,F,5,not within 400,not within 400,,
+mixed,F,10,5,7,669.00,1449.00
+mixed,F,15,2,5,330.00,669.00
+mixed,F,20,2,5,330.00,669.00
+mixed,F,25,2,2,330.00,330.00
+mixed,F,30,2,2,330.00,330.00
+mixed,C,ref price,31,72,5424.00,12846.00
+mixed,M,ref price,1,7,60.00,1449.00
+small,L,ref price,211,not within 400,12660.00,
+small,W,ref price,not within 400,not within 400,,
+small,T,ref price,not within 400,not within 400,,
+small,F,5,not within 400,not within 400,,
+small,F,10,not within 400,not within 400,,
+small,F,15,10,24,600.00,1440.00
+small,F,20,5,11,300.00,660.00
+small,F,25,3,8,180.00,480.00
+small,F,30,3,6,180.00,360.00
+small,C,ref price,28,66,1680.00,3960.00
+small,M,ref price,1,8,60.00,480.00
+tiny,L,ref price,not within 400,not within 400,,
+tiny,W,ref price,not within 400,not within 400,,
+tiny,T,ref price,not within 400,not within 400,,
+tiny,F,5,not within 400,not within 400,,
+tiny,F,10,not within 400,not within 400,,
+tiny,F,15,not within 400,not within 400,,
+tiny,F,20,not within 400,not within 400,,
+tiny,F,25,not within 400,not within 400,,
+tiny,F,30,not within 400,not within 400,,
+tiny,C,ref price,27,64,243.00,576.00
+tiny,M,ref price,1,8,9.00,72.00
+anchor,L,ref price,1,11,720.00,2559.00
+anchor,W,ref price,11,41,2559.00,8076.00
+anchor,T,ref price,11,31,2559.00,6237.00
+anchor,F,5,not within 400,not within 400,,
+anchor,F,10,1,5,720.00,1380.00
+anchor,F,15,1,1,720.00,720.00
+anchor,F,20,1,1,720.00,720.00
+anchor,F,25,1,1,720.00,720.00
+anchor,F,30,1,1,720.00,720.00
+anchor,C,ref price,32,73,6507.00,13923.00
+anchor,M,ref price,1,7,720.00,1449.00

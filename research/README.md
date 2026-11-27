@@ -266,6 +266,21 @@ Pending validation.
   - Recommended route: partner-first technology licensing with gated funding and kill rules (about $6.5M P50 to self-sustaining; $0.15-0.35M to decide).
 - Cross-repository proposals only (Unbound, Transitus, Echelon Foundry); no files changed elsewhere.
 
+## Zero-based operating economics: Phase III, first deliverable (2026-11-27)
+
+- [Research package](competitive-advantage-creation/zero-based-economics/README.md), starting with the [direct answers](competitive-advantage-creation/zero-based-economics/00-answers.md).
+  - 13 reports and an F# model with 26 tests, validation gates V1–V9 and byte-identical reproduction.
+  - 51 expenses, each with ten required attributes. 57 human activities, each answering the ten challenge questions.
+  - 268 public price points read on 2026-11-27.
+  - Three adversarial reviewers raised 79 findings, each with a recorded disposition.
+- **Headline.**
+  - **Running Unbound with no customers:** about $7k a year in cash if the founder supplies about 1,200 hours.
+  - **First licensing customer:** about $200k a year (median $275k). Unbound's two-person controls need a second qualified engineer from the first customer.
+  - **Each further customer:** about $37k (licensing) or $90–120k (full service).
+  - **Minimum credible prices:** about $40–55 per account under licensing; 10–15 bps for full service on at least $0.7B of assets (5 bps never breaks even).
+  - **Capital:** external capital is unnecessary for anchor-first or full-service routes, with a deepest deficit of about $0.2–0.3M. It is probably needed for direct licensing to small foundations ($0.8–2.4M).
+  - **The build:** about $108k in cash plus about 7,560 founder hours.
+
 ## Zero-based operational economics and organisational design (2026-11-27)
 
 - [Research package](zero-based-operational-economics/README.md), starting with the [executive findings](zero-based-operational-economics/00-executive-findings.md) and [final recommendations](zero-based-operational-economics/27-final-recommendations.md).

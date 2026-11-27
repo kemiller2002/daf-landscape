@@ -25,3 +25,10 @@ Status: research (2026-11-26; revision 2). Transitus owns migration and integrat
 ## 3. Commercial role of Transitus
 
 Transitus is the migration engine of the **partner pilot** recommended in [16](16-commercial-entry-strategy.md): canonical import, basic packages, dry runs, reconciliation gates and evidence. That raises the importance of phase 1 and lowers the urgency of phases 2-4 until a customer-authorised export exists. The adversarial review (CHL-067, CHL-068, CHL-072) found that a migration assessment has no standalone buyer or price, that report adapters support balance-level conversion only, and that full history needs a contracted incumbent export; so Transitus should be judged by one reconciled live migration, not by assessment revenue. Adapters must be versioned per incumbent report version with drift tests (CHL-071), and SLAs should be process-only with capped liability (CHL-075).
+
+## Post-merge correction (2026-11-26, Stage I)
+
+Transitus PR #1 has since merged (Transitus `d1b97be`). Stage I re-checked this report's citations against the merged decision records. The original rows above are kept unchanged.
+
+- **DF-TRN-2026-0014** is superseded by DF-TRN-2026-0019, which carries its rules forward. Read the mapping-package row as citing DF-TRN-2026-0019.
+- **DF-TRN-2026-0016's kill criterion has no gating successor.** Its replacement, requirement PF-004, does not gate phase 1. The row above calling it "consistent" with the gated strategy therefore no longer holds. Transitus records this as conflict UC-19 and raised owner decision OD-TRN-P3-02 (whether the DEC-008 kill rule pauses Transitus work beyond phase 1). **Resolved 2026-11-26:** the owner decided the kill rule does not stop Transitus (OD-P3-02; Transitus DF-TRN-2026-0026). See [26](26-cross-repository-dispositions.md).

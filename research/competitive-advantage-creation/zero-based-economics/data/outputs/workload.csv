@@ -1,0 +1,58 @@
+activity_id,name,role,driver,ef_models,sponsor_models,hours_at_1,hours_at_10,hours_at_100,conventional_hours_at_10
+ACT-GRT-01,Grant exception dossier preparation,operations,per_grant_exception,T F,L W,40.50,2099.25,20992.50,19282.00
+ACT-GRT-02,Grant exception decision by authorized sponsor official,sponsor,per_grant_exception,,L W T F,27.00,1399.50,13995.00,0.00
+ACT-GRT-03,Routine grant approval (policy-conforming grants),sponsor,per_grant,,L W T F,3.00,155.50,1555.00,6531.00
+ACT-CHV-01,Charity eligibility exception preparation,compliance,per_grant_exception,T F,L W,10.53,545.81,5458.05,8630.25
+ACT-CHV-02,Charity eligibility determination,sponsor,per_grant_exception,,L W T F,3.51,181.94,1819.35,0.00
+ACT-CHV-03,Change-driven re-vetting of active grantees,compliance,per_account,T F,L W,0.30,11.82,118.20,3.94
+ACT-CHV-04,180-day deep-review renewal (ceiling retained),compliance,per_account,T F,L W,1.20,47.28,472.80,2836.80
+ACT-CTR-01,Contribution attribution exceptions,operations,per_contribution_exception,T F,L W,8.00,355.20,3552.00,1065.60
+ACT-CNT-01,Contribution posting exceptions,operations,per_contribution_exception,T F,L W,4.20,186.48,1864.80,2131.20
+ACT-PAY-01,Payment exception preparation,operations,per_grant_exception,T F,L W,14.76,765.06,7650.60,2177.00
+ACT-PAY-02,Payment batch release under dual control,sponsor,per_customer,,L W T F,17.33,173.33,1733.33,0.00
+ACT-PFL-01,Payment failures (returns uncashed voids reissue),operations,per_grant,T F,L W,4.48,232.47,2324.72,466.50
+ACT-REC-01,Reconciliation break investigation,operations,per_transaction_exception,T F,L W,8.00,399.80,3998.00,1599.20
+ACT-REC-02,Monthly close preparation,operations,per_customer,T F,L W,120.00,1200.00,12000.00,4800.00
+ACT-REC-03,Monthly reconciliation review and controller sign-off,sponsor,per_customer,,L W T F,12.00,120.00,1200.00,0.00
+ACT-SAN-01,Sanctions alert triage preparation,compliance,per_transaction_exception,T F,L W,0.54,26.99,269.86,319.84
+ACT-SAN-02,OFAC true-match blocking and reporting decision,sponsor,per_transaction,,L W T F,0.10,4.80,47.98,0.00
+ACT-SUP-01,Donor and advisor support contacts,support,per_account,F,L W T,15.00,591.00,5910.00,492.50
+ACT-SUP-02,Sponsor-staff product support (tier 2),support,per_customer,L W T F,,15.00,150.00,1500.00,150.00
+ACT-STM-01,Statement and acknowledgment exceptions,operations,per_account,F,L W T,1.25,49.25,492.50,788.00
+ACT-ACC-01,Account opening and change exceptions,operations,per_account,F,L W T,2.52,99.29,992.88,289.59
+ACT-SUC-01,Succession case preparation,operations,per_account,F,L W T,3.50,137.90,1379.00,4.73
+ACT-SUC-02,Successor approval,sponsor,per_account,,L W T F,1.50,59.10,591.00,0.00
+ACT-FRD-01,Fraud investigation (account takeover payment redirection),compliance,per_account,F,L W T,1.20,47.28,472.80,0.14
+ACT-CPX-01,Complex and noncash gift acceptance,sponsor,per_account,,L W T F,4.50,177.30,1773.00,1.28
+ACT-CLS-01,Account closure exceptions,operations,per_account,F,L W T,0.60,23.64,236.40,2.36
+ACT-RPT-01,Board and regulatory reporting preparation,operations,per_customer,F,L W T,44.00,440.00,4400.00,800.00
+ACT-AUD-01,Sponsor financial audit (sponsor side),sponsor,per_customer,,L W T F,120.00,1200.00,12000.00,1200.00
+ACT-AUD-02,Auditor support from Echelon Foundry,compliance,per_customer,L W T F,,20.00,200.00,2000.00,200.00
+ACT-SRR-01,Sponsor-reserved policy and oversight,sponsor,per_account,,L W T F,24.25,955.45,9554.50,955.45
+ACT-IMP-01,Customer onboarding and configuration,implementation,per_new_customer,L W T F,,90.00,900.00,9000.00,1800.00
+ACT-IMP-02,Configuration upkeep,implementation,per_customer,T F,L W,60.00,600.00,6000.00,1200.00
+ACT-MIG-01,Migration project (fixed),implementation,per_new_customer,M,,45.00,450.00,4500.00,900.00
+ACT-MIG-02,Migration per-account validation,implementation,per_account,M,,10.00,394.00,3940.00,1182.00
+ACT-PLT-01,Incident response (platform-wide),engineering,fixed_year,L W T F C,,48.00,48.00,48.00,48.00
+ACT-PLT-02,Incident response (customer-specific),engineering,per_customer,L W T F,,6.00,60.00,600.00,60.00
+ACT-PLT-03,Change authoring and release management,engineering,fixed_year,L W T F C,,66.67,66.67,66.67,66.67
+ACT-PLT-04,Security operations,engineering,fixed_year,L W T F C,,200.00,200.00,200.00,200.00
+ACT-PLT-05,Backup restore and DR class tests,engineering,fixed_year,L W T F C,,32.00,32.00,32.00,32.00
+ACT-PLT-06,Per-tenant restore test with key-rotation evidence,engineering,per_customer,L W T F,,4.00,40.00,400.00,40.00
+ACT-PLT-07,SOC 2 evidence and audit liaison,compliance,fixed_year,L W T F C,,100.00,100.00,100.00,160.00
+ACT-PLT-08,SOC 1 evidence (user-auditor reliance),compliance,fixed_year,T F,,120.00,120.00,120.00,120.00
+ACT-PLT-09,Charity and sanctions data pipeline stewardship,engineering,fixed_year,L W T F C,,150.00,150.00,150.00,400.00
+ACT-PLT-10,Maintenance engineering: keep production-qualified,engineering,fixed_year,L W T F,,450.00,450.00,450.00,450.00
+ACT-PLT-11,Maintenance engineering (customer-specific),engineering,per_customer,L W T F,,30.00,300.00,3000.00,400.00
+ACT-PLT-12,December readiness and load test,engineering,fixed_year,L W T F,,32.00,32.00,32.00,32.00
+ACT-PLT-13,Monitoring and alert triage,engineering,fixed_year,L W T F C,,100.00,100.00,100.00,100.00
+ACT-PLT-14,Vendor assurance and policy upkeep,management,fixed_year,L W T F C M,,60.00,60.00,60.00,40.00
+ACT-CI-01,National registry change review (charity intelligence),compliance,fixed_year,C,,243.00,243.00,243.00,810.00
+ACT-CI-02,Source-rights and licensing review,management,fixed_year,C,,20.00,20.00,20.00,20.00
+ACT-CI-03,Charity intelligence subscriber support,support,per_customer,C,,6.00,60.00,600.00,60.00
+ACT-CI-04,Charity intelligence pipeline and API maintenance (standalone product),engineering,fixed_year,C,,300.00,300.00,300.00,300.00
+ACT-PLT-17,Maintenance engineering: operating platform,engineering,fixed_year,L W T F,,450.00,450.00,450.00,450.00
+ACT-PLT-16,AI evaluation and model-change revalidation,engineering,fixed_year,L W T F C,,80.00,80.00,80.00,0.00
+ACT-IMP-03,Go-live hypercare,support,per_new_customer,L W T F,,12.00,120.00,1200.00,240.00
+ACT-OPS-DEC,December surge coordination (operations),operations,per_customer,T F,L W,16.00,160.00,1600.00,160.00
+ACT-MIG-SP,Sponsor-side onboarding and migration work,sponsor,per_new_customer,,L W T F,60.00,600.00,6000.00,1200.00

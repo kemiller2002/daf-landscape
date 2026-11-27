@@ -1,41 +1,41 @@
-name: Zero-based operational economics model
+name: Zero-based economics F# verification
 
 on:
   pull_request:
     paths:
-      - "research/zero-based-operational-economics/**"
-      - "research/competitive-displacement/model/**"
-      - "research/competitive-displacement/data/model-inputs/**"
+      - "research/competitive-advantage-creation/zero-based-economics/**"
       - ".github/workflows/zero-based-economics.yml"
   push:
     branches: [main]
+    paths:
+      - "research/competitive-advantage-creation/zero-based-economics/**"
   workflow_dispatch:
 
 concurrency:
-  group: zero-based-economics-${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  group: zero-based-economics-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 permissions:
   contents: read
 
 jobs:
-  validate:
-    name: F# tests, byte-identical reproduction and package validation
+  verify:
+    name: Tests, register validation and byte-identical reproduction
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 15
     defaults:
       run:
-        working-directory: research/zero-based-operational-economics/model
+        working-directory: research/competitive-advantage-creation/zero-based-economics/model
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Install .NET SDK
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v6
         with:
           dotnet-version: "10.0.x"
-      - name: Tests
-        run: dotnet test tests/ZeroBased.Tests
-      - name: Outputs reproduce byte-identically
-        run: dotnet run --project src/ZeroBased -c Release -- check ../data ../../competitive-displacement/data/model-inputs ../data/model-outputs
-      - name: Package validation
-        run: dotnet run --project src/ZeroBased -c Release --no-build -- validate ..
+      - name: Unit tests (warnings as errors)
+        run: dotnet test tests/ZeroBasedEconomics.Tests -c Release
+      - name: Validate registers, evidence and links
+        run: dotnet run --project src/ZeroBasedEconomics -c Release --no-build -- validate ..
+      - name: Reproduce outputs byte for byte
+        run: dotnet run --project src/ZeroBasedEconomics -c Release --no-build -- check ../data/inputs ../data/outputs
